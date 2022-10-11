@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Poppins-SemiBold.otf">
+            <string>Poppins-SemiBold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="DayListCell" id="KGk-i7-Jjw" customClass="DayListCell" customModule="NSC_iOS" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="65"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="65"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dsE-gf-Ygz">
+                        <rect key="frame" x="22.5" y="10" width="330" height="45"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Day 1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dax-as-vPZ">
+                                <rect key="frame" x="16" y="12.5" width="274" height="20"/>
+                                <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="14"/>
+                                <color key="textColor" name="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VXH-Hr-t6e">
+                                <rect key="frame" x="306" y="14.5" width="16" height="16"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="VXH-Hr-t6e" secondAttribute="height" multiplier="1:1" id="5Ul-dB-sPh"/>
+                                    <constraint firstAttribute="height" constant="16" id="BHE-fH-kUh"/>
+                                </constraints>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" image="OrangeArrow"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="dax-as-vPZ" firstAttribute="leading" secondItem="dsE-gf-Ygz" secondAttribute="leading" constant="16" id="4Q0-Dy-JX6"/>
+                            <constraint firstItem="dax-as-vPZ" firstAttribute="centerY" secondItem="dsE-gf-Ygz" secondAttribute="centerY" id="8D3-5K-IQs"/>
+                            <constraint firstItem="VXH-Hr-t6e" firstAttribute="leading" secondItem="dax-as-vPZ" secondAttribute="trailing" constant="16" id="9ep-bD-lE4"/>
+                            <constraint firstAttribute="trailing" secondItem="VXH-Hr-t6e" secondAttribute="trailing" constant="8" id="Bn7-k3-16S"/>
+                            <constraint firstItem="VXH-Hr-t6e" firstAttribute="centerY" secondItem="dsE-gf-Ygz" secondAttribute="centerY" id="j7u-fL-Wmg"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                <color key="value" systemColor="opaqueSeparatorColor"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                <real key="value" value="0.29999999999999999"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="10"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="dsE-gf-Ygz" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="330:375" id="7cZ-KC-47L"/>
+                    <constraint firstItem="dsE-gf-Ygz" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="OPK-ba-vq4"/>
+                    <constraint firstItem="dsE-gf-Ygz" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="dfC-9R-0g0"/>
+                    <constraint firstItem="dsE-gf-Ygz" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="xZm-AL-XOX"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <connections>
+                <outlet property="btnSelect" destination="VXH-Hr-t6e" id="NaX-Br-8aK"/>
+                <outlet property="lblTitle" destination="dax-as-vPZ" id="HwH-2m-Me8"/>
+                <outlet property="viewBack" destination="dsE-gf-Ygz" id="xRf-69-48b"/>
+            </connections>
+            <point key="canvasLocation" x="139" y="81"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="OrangeArrow" width="7" height="12"/>
+        <namedColor name="textColor">
+            <color red="0.11372549019607843" green="0.15294117647058825" blue="0.17647058823529413" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="opaqueSeparatorColor">
+            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

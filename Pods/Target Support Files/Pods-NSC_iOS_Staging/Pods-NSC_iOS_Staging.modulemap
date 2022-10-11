@@ -1,0 +1,6 @@
+framework module Pods_NSC_iOS_Staging {
+  umbrella header "Pods-NSC_iOS_Staging-umbrella.h"
+
+  export *
+  module * { export * }
+}

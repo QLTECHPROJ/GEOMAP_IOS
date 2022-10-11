@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_5" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Poppins-Bold.otf">
+            <string>Poppins-Bold</string>
+        </array>
+        <array key="Poppins-Medium.otf">
+            <string>Poppins-Medium</string>
+        </array>
+        <array key="Poppins-Regular.otf">
+            <string>Poppins-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="CampListCell" rowHeight="117" id="KGk-i7-Jjw" customClass="CampListCell" customModule="NSC_iOS" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="112"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="112"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6ey-ob-fky">
+                        <rect key="frame" x="19.333333333333343" y="14" width="281.33333333333326" height="84"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ix0-CI-Pr8">
+                                <rect key="frame" x="0.0" y="0.0" width="84" height="84"/>
+                                <color key="backgroundColor" red="0.95294117649999999" green="0.57254901960000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="ix0-CI-Pr8" secondAttribute="height" multiplier="1:1" id="ais-Vd-04c"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Basket Ball Camp" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YkK-hU-F9B">
+                                <rect key="frame" x="92.000000000000014" y="8" width="181.33333333333337" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="ZDd-VH-IaJ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="14"/>
+                                <color key="textColor" name="BlackDark"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem ipsum 36051 - Australia..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IPH-jY-8FL">
+                                <rect key="frame" x="105.00000000000001" y="28" width="168.33333333333337" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="1HL-da-8TK"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="12"/>
+                                <color key="textColor" name="#1D272E"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="location_pin" translatesAutoresizingMaskIntoConstraints="NO" id="Neq-Bs-4bY">
+                                <rect key="frame" x="92" y="33" width="9" height="11"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="9" id="Jcd-js-dns"/>
+                                    <constraint firstAttribute="height" constant="11" id="jHO-a5-Cc2"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3gK-A6-Wz4">
+                                <rect key="frame" x="92.000000000000014" y="48" width="161.33333333333337" height="28"/>
+                                <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="10"/>
+                                <color key="textColor" name="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="OrangeArrow" translatesAutoresizingMaskIntoConstraints="NO" id="5Pr-Ki-azp">
+                                <rect key="frame" x="257.33333333333337" y="64" width="16" height="12"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="16" id="UgV-66-hba"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="IPH-jY-8FL" secondAttribute="trailing" constant="8" id="0Qx-fD-Sl2"/>
+                            <constraint firstAttribute="bottom" secondItem="ix0-CI-Pr8" secondAttribute="bottom" id="1bh-Vw-fvf"/>
+                            <constraint firstItem="Neq-Bs-4bY" firstAttribute="top" secondItem="YkK-hU-F9B" secondAttribute="bottom" constant="5" id="2x6-yG-Hh8"/>
+                            <constraint firstItem="3gK-A6-Wz4" firstAttribute="leading" secondItem="ix0-CI-Pr8" secondAttribute="trailing" constant="8" id="7Tx-VR-5mn"/>
+                            <constraint firstItem="3gK-A6-Wz4" firstAttribute="top" secondItem="IPH-jY-8FL" secondAttribute="bottom" id="DgR-0u-8NW"/>
+                            <constraint firstItem="YkK-hU-F9B" firstAttribute="leading" secondItem="ix0-CI-Pr8" secondAttribute="trailing" constant="8" id="Q4K-Uh-6Q2"/>
+                            <constraint firstAttribute="trailing" secondItem="5Pr-Ki-azp" secondAttribute="trailing" constant="8" id="QwZ-DI-h7c"/>
+                            <constraint firstItem="IPH-jY-8FL" firstAttribute="top" secondItem="YkK-hU-F9B" secondAttribute="bottom" id="TTZ-bA-ksi"/>
+                            <constraint firstAttribute="bottom" secondItem="5Pr-Ki-azp" secondAttribute="bottom" constant="8" id="XAs-sI-PNA"/>
+                            <constraint firstItem="5Pr-Ki-azp" firstAttribute="top" secondItem="IPH-jY-8FL" secondAttribute="bottom" constant="16" id="bfF-zM-ULE"/>
+                            <constraint firstItem="YkK-hU-F9B" firstAttribute="top" secondItem="6ey-ob-fky" secondAttribute="top" constant="8" id="bfl-cP-ulF"/>
+                            <constraint firstItem="5Pr-Ki-azp" firstAttribute="leading" secondItem="3gK-A6-Wz4" secondAttribute="trailing" constant="4" id="e8b-U7-1Ht"/>
+                            <constraint firstItem="ix0-CI-Pr8" firstAttribute="top" secondItem="6ey-ob-fky" secondAttribute="top" id="fNf-Gm-f98"/>
+                            <constraint firstItem="IPH-jY-8FL" firstAttribute="leading" secondItem="Neq-Bs-4bY" secondAttribute="trailing" constant="4" id="g6x-yq-oRw"/>
+                            <constraint firstItem="ix0-CI-Pr8" firstAttribute="leading" secondItem="6ey-ob-fky" secondAttribute="leading" id="mrA-ZS-CpA"/>
+                            <constraint firstAttribute="bottom" secondItem="3gK-A6-Wz4" secondAttribute="bottom" constant="8" id="plH-Ph-oA8"/>
+                            <constraint firstAttribute="trailing" secondItem="YkK-hU-F9B" secondAttribute="trailing" constant="8" id="tgW-GW-coZ"/>
+                            <constraint firstItem="Neq-Bs-4bY" firstAttribute="leading" secondItem="ix0-CI-Pr8" secondAttribute="trailing" constant="8" id="ull-ql-nr3"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="10"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="6ey-ob-fky" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="14" id="6jB-Bm-oYH"/>
+                    <constraint firstItem="6ey-ob-fky" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="A2e-M3-A1l"/>
+                    <constraint firstItem="6ey-ob-fky" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="gR2-aP-TdS"/>
+                    <constraint firstItem="6ey-ob-fky" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="330:375" id="rdw-TD-3Qs"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <connections>
+                <outlet property="imgCamp" destination="ix0-CI-Pr8" id="bJe-7v-oPZ"/>
+                <outlet property="lblCampDesc" destination="3gK-A6-Wz4" id="R26-br-zvJ"/>
+                <outlet property="lblCampLocation" destination="IPH-jY-8FL" id="0Kp-4P-C5d"/>
+                <outlet property="lblCampTitle" destination="YkK-hU-F9B" id="zel-Cr-Sho"/>
+                <outlet property="viewBack" destination="6ey-ob-fky" id="ol5-tO-cKh"/>
+            </connections>
+            <point key="canvasLocation" x="131.8840579710145" y="70.647321428571431"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="OrangeArrow" width="6.6666665077209473" height="12"/>
+        <image name="location_pin" width="8.6666669845581055" height="11"/>
+        <namedColor name="#1D272E">
+            <color red="0.11400000005960464" green="0.15299999713897705" blue="0.18000000715255737" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="BlackDark">
+            <color red="0.11400000005960464" green="0.15299999713897705" blue="0.18000000715255737" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="textColor">
+            <color red="0.11372549019607843" green="0.15294117647058825" blue="0.17647058823529413" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

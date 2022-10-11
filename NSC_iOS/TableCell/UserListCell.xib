@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Poppins-Medium.otf">
+            <string>Poppins-Medium</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="UserListCell" rowHeight="86" id="KGk-i7-Jjw" customClass="UserListCell" customModule="NSC_iOS" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="86"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="86"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ivw-oR-6dF">
+                        <rect key="frame" x="16" y="10" width="288" height="66"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Profile" translatesAutoresizingMaskIntoConstraints="NO" id="BLD-xq-Mlj">
+                                <rect key="frame" x="15" y="13" width="40" height="40"/>
+                                <color key="backgroundColor" red="0.95294117649999999" green="0.57254901960000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="JUm-px-qHJ"/>
+                                    <constraint firstAttribute="width" secondItem="BLD-xq-Mlj" secondAttribute="height" multiplier="1:1" id="dXs-4j-Bco"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="john" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ued-aF-5ZE">
+                                <rect key="frame" x="68" y="22" width="182" height="22.5"/>
+                                <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="16"/>
+                                <color key="textColor" name="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="redraw" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SDa-Jw-RSE">
+                                <rect key="frame" x="258" y="24" width="10" height="18"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="10" id="2St-Ir-ct4"/>
+                                    <constraint firstAttribute="height" constant="18" id="azi-0t-FYx"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="OrangeArrow"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" name="F9F9F9"/>
+                        <constraints>
+                            <constraint firstItem="SDa-Jw-RSE" firstAttribute="leading" secondItem="Ued-aF-5ZE" secondAttribute="trailing" constant="8" id="0P4-5p-TEu"/>
+                            <constraint firstItem="BLD-xq-Mlj" firstAttribute="centerY" secondItem="ivw-oR-6dF" secondAttribute="centerY" id="RbJ-hF-ZZ1"/>
+                            <constraint firstItem="BLD-xq-Mlj" firstAttribute="leading" secondItem="ivw-oR-6dF" secondAttribute="leading" constant="15" id="bSV-EW-L0d"/>
+                            <constraint firstItem="SDa-Jw-RSE" firstAttribute="centerY" secondItem="ivw-oR-6dF" secondAttribute="centerY" id="dCa-Ve-Kfr"/>
+                            <constraint firstItem="Ued-aF-5ZE" firstAttribute="centerY" secondItem="ivw-oR-6dF" secondAttribute="centerY" id="hDF-db-P3a"/>
+                            <constraint firstAttribute="trailing" secondItem="SDa-Jw-RSE" secondAttribute="trailing" constant="20" id="mlV-QK-ZO7"/>
+                            <constraint firstItem="Ued-aF-5ZE" firstAttribute="leading" secondItem="BLD-xq-Mlj" secondAttribute="trailing" constant="13" id="mtS-XL-ld8"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="8"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstItem="ivw-oR-6dF" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="iSc-Da-IbB"/>
+                    <constraint firstAttribute="bottom" secondItem="ivw-oR-6dF" secondAttribute="bottom" constant="10" id="q8O-tL-AEk"/>
+                    <constraint firstAttribute="trailing" secondItem="ivw-oR-6dF" secondAttribute="trailing" constant="16" id="tRa-3B-Oni"/>
+                    <constraint firstItem="ivw-oR-6dF" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="zHm-Do-tQ1"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <connections>
+                <outlet property="btnSelect" destination="SDa-Jw-RSE" id="w3p-9e-Tny"/>
+                <outlet property="imgView" destination="BLD-xq-Mlj" id="P6R-BX-yM2"/>
+                <outlet property="lblName" destination="Ued-aF-5ZE" id="LGM-Lv-t0L"/>
+            </connections>
+            <point key="canvasLocation" x="131.8840579710145" y="116.85267857142857"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="OrangeArrow" width="7" height="12"/>
+        <image name="Profile" width="21" height="21"/>
+        <namedColor name="F9F9F9">
+            <color red="0.97647058823529409" green="0.97647058823529409" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="textColor">
+            <color red="0.11372549019607843" green="0.15294117647058825" blue="0.17647058823529413" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
