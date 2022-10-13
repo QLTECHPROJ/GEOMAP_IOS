@@ -73,7 +73,7 @@ extension NotificationVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withClass: NotificationListCell.self)
-        cell.configureCell(data: arrayNotifications[indexPath.row])
+        //cell.configureCell(data: arrayNotifications[indexPath.row])
         return cell
     }
     

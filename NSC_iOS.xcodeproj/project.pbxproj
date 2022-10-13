@@ -354,7 +354,7 @@
 		281AAE57281AAEAE0070D758 /* NSC-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSC-Bridging-Header.h"; sourceTree = "<group>"; };
 		282ACD65282BB898005A8634 /* CampDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampDetailViewModel.swift; sourceTree = "<group>"; };
 		282ACD67282BB8FC005A8634 /* CampDetailDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampDetailDataModel.swift; sourceTree = "<group>"; };
-		282C338B2819617D009401FD /* GEO_MAP_Staging.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GEO_MAP_Staging.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		282C338B2819617D009401FD /* NSC_iOS_Staging.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NSC_iOS_Staging.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		282C338F281962D1009401FD /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		282C339128196455009401FD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		28300C3C282A600000695E7B /* PersonalDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalDetailViewModel.swift; sourceTree = "<group>"; };
@@ -385,7 +385,7 @@
 		289B6A2B288934C80095FE32 /* NotificationListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NotificationListCell.xib; sourceTree = "<group>"; };
 		289B6A2F288934E10095FE32 /* NotificationListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationListViewModel.swift; sourceTree = "<group>"; };
 		289B6A30288934E10095FE32 /* NotificationListModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationListModel.swift; sourceTree = "<group>"; };
-		28A9C4082817B7C9001B252F /* GEO_MAP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GEO_MAP.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		28A9C4082817B7C9001B252F /* NSC_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NSC_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		28A9C40B2817B7C9001B252F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		28A9C4122817B7C9001B252F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		28A9C4152817B7C9001B252F /* NSC_iOS.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NSC_iOS.xcdatamodel; sourceTree = "<group>"; };
@@ -673,8 +673,8 @@
 		28A9C4092817B7C9001B252F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				28A9C4082817B7C9001B252F /* GEO_MAP.app */,
-				282C338B2819617D009401FD /* GEO_MAP_Staging.app */,
+				28A9C4082817B7C9001B252F /* NSC_iOS.app */,
+				282C338B2819617D009401FD /* NSC_iOS_Staging.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1065,9 +1065,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		282C33602819617D009401FD /* GEO_MAP_Staging */ = {
+		282C33602819617D009401FD /* NSC_iOS_Staging */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 282C33882819617D009401FD /* Build configuration list for PBXNativeTarget "GEO_MAP_Staging" */;
+			buildConfigurationList = 282C33882819617D009401FD /* Build configuration list for PBXNativeTarget "NSC_iOS_Staging" */;
 			buildPhases = (
 				282C33612819617D009401FD /* [CP] Check Pods Manifest.lock */,
 				282C33622819617D009401FD /* Sources */,
@@ -1080,14 +1080,14 @@
 			);
 			dependencies = (
 			);
-			name = GEO_MAP_Staging;
+			name = NSC_iOS_Staging;
 			productName = NSC_iOS;
-			productReference = 282C338B2819617D009401FD /* GEO_MAP_Staging.app */;
+			productReference = 282C338B2819617D009401FD /* NSC_iOS_Staging.app */;
 			productType = "com.apple.product-type.application";
 		};
-		28A9C4072817B7C9001B252F /* GEO_MAP */ = {
+		28A9C4072817B7C9001B252F /* NSC_iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 28A9C41F2817B7CA001B252F /* Build configuration list for PBXNativeTarget "GEO_MAP" */;
+			buildConfigurationList = 28A9C41F2817B7CA001B252F /* Build configuration list for PBXNativeTarget "NSC_iOS" */;
 			buildPhases = (
 				A741F0662E568BC280A8B7C2 /* [CP] Check Pods Manifest.lock */,
 				28A9C4042817B7C9001B252F /* Sources */,
@@ -1100,9 +1100,9 @@
 			);
 			dependencies = (
 			);
-			name = GEO_MAP;
+			name = NSC_iOS;
 			productName = NSC_iOS;
-			productReference = 28A9C4082817B7C9001B252F /* GEO_MAP.app */;
+			productReference = 28A9C4082817B7C9001B252F /* NSC_iOS.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -1133,8 +1133,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				28A9C4072817B7C9001B252F /* GEO_MAP */,
-				282C33602819617D009401FD /* GEO_MAP_Staging */,
+				28A9C4072817B7C9001B252F /* NSC_iOS */,
+				282C33602819617D009401FD /* NSC_iOS_Staging */,
 			);
 		};
 /* End PBXProject section */
@@ -1901,7 +1901,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		282C33882819617D009401FD /* Build configuration list for PBXNativeTarget "GEO_MAP_Staging" */ = {
+		282C33882819617D009401FD /* Build configuration list for PBXNativeTarget "NSC_iOS_Staging" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				282C33892819617D009401FD /* Debug */,
@@ -1919,7 +1919,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		28A9C41F2817B7CA001B252F /* Build configuration list for PBXNativeTarget "GEO_MAP" */ = {
+		28A9C41F2817B7CA001B252F /* Build configuration list for PBXNativeTarget "NSC_iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				28A9C4202817B7CA001B252F /* Debug */,

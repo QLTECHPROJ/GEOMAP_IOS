@@ -39,7 +39,7 @@ class CampListVC: BaseViewController {
         lblNoData.text = Theme.strings.no_camps_to_display
         
         tableView.register(nibWithCellClass: TitleLabelCell.self)
-        tableView.register(nibWithCellClass: CampListCell.self)
+        tableView.register(nibWithCellClass: NotificationListCell.self)
         tableView.tableHeaderView = UIView()
         tableView.refreshControl = self.refreshControl
     }
@@ -54,9 +54,9 @@ class CampListVC: BaseViewController {
     
     // MARK: - FUNCTIONS
     override func setupUI() {
-        imgUser.loadUserProfileImage(fontSize: 20)
-        let strName = (LoginDataModel.currentUser?.Fname ?? "") + " " + (LoginDataModel.currentUser?.Lname ?? "")
-        lblName.text = strName.trim.count > 0 ? strName : "Guest"
+        //imgUser.loadUserProfileImage(fontSize: 20)
+       // let strName = (LoginDataModel.currentUser?.Fname ?? "") + " " + (LoginDataModel.currentUser?.Lname ?? "")
+       // lblName.text = strName.trim.count > 0 ? strName : "Guest"
         
         let stringAttributes: [NSAttributedString.Key: Any] = [
             NSAttributedString.Key.foregroundColor: Theme.colors.theme_dark,
@@ -144,20 +144,18 @@ extension CampListVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
-            return arrayCurrentCampList.count
+            return 2
         } else {
-            return arrayUpcomingCampList.count
+            return 2
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
-            let cell = tableView.dequeueReusableCell(withClass: CampListCell.self)
-            cell.configureCell(data: arrayCurrentCampList[indexPath.row])
+            let cell = tableView.dequeueReusableCell(withClass: NotificationListCell.self)
             return cell
         } else {
-            let cell = tableView.dequeueReusableCell(withClass: CampListCell.self)
-            cell.configureCell(data: arrayUpcomingCampList[indexPath.row])
+            let cell = tableView.dequeueReusableCell(withClass: NotificationListCell.self)
             return cell
         }
     }
@@ -170,26 +168,18 @@ extension CampListVC: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withClass: TitleLabelCell.self)
         
         if section == 0 {
-            cell.lblTitle.text = "Current Camp"
+            cell.lblTitle.text = "Undergrounds Mapping Report "
+            //cell.lblTitle.textColor = Theme.colors.theme_dark
         } else {
-            cell.lblTitle.text = "Upcoming Camps"
+            //cell.lblTitle.textColor = Theme.colors.theme_dark
+            cell.lblTitle.text = "OpenCast Mapping Report"
         }
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        if section == 0 {
-            if arrayCurrentCampList.count > 0 {
-                return UITableView.automaticDimension
-            }
-        } else {
-            if arrayUpcomingCampList.count > 0 {
-                return UITableView.automaticDimension
-            }
-        }
-        
-        return 0
+        return 40
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

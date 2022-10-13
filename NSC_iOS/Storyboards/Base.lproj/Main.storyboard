@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Owm-xm-BCG">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="W3a-kW-R9z">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -53,7 +53,7 @@
         <!--SplashVC-->
         <scene sceneID="i62-K4-KGY">
             <objects>
-                <viewController storyboardIdentifier="SplashVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="uFV-yZ-ePR" customClass="SplashVC" customModule="GEO_MAP" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SplashVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="uFV-yZ-ePR" customClass="SplashVC" customModule="NSC_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="PXH-g1-fHn">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -90,7 +90,7 @@
         <!--LoginVC-->
         <scene sceneID="BDY-4U-heS">
             <objects>
-                <viewController storyboardIdentifier="LoginVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="RiX-wg-90d" customClass="LoginVC" customModule="GEO_MAP" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="RiX-wg-90d" customClass="LoginVC" customModule="NSC_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="L9n-8c-FCE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -99,7 +99,7 @@
                                 <rect key="frame" x="0.0" y="44" width="375" height="734"/>
                                 <subviews>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Swf-ob-1pC">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="788.66666666666663"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="789.66666666666663"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Login" translatesAutoresizingMaskIntoConstraints="NO" id="V6Z-9J-G7t">
                                                 <rect key="frame" x="117" y="44" width="141" height="124"/>
@@ -259,10 +259,10 @@ been missed!</string>
                                                 </connections>
                                             </button>
                                             <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="XeI-8u-E1t">
-                                                <rect key="frame" x="16" y="734.66666666666663" width="343" height="28"/>
+                                                <rect key="frame" x="16" y="734.66666666666663" width="343" height="29"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="By clicking on Register or Sign up you agree to our T&amp;Cs, Privacy Policy &amp; Disclaimer" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hNU-n2-Zae" customClass="TTTAttributedLabel">
-                                                        <rect key="frame" x="0.0" y="0.0" width="343" height="28"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="343" height="29"/>
                                                         <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="10"/>
                                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -273,7 +273,7 @@ been missed!</string>
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
                                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="Contact Support" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hKh-Xe-zcD" customClass="TTTAttributedLabel">
-                                                        <rect key="frame" x="0.0" y="0.0" width="343" height="11.666666666666666"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="343" height="12"/>
                                                         <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="10"/>
                                                         <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -364,7 +364,7 @@ been missed!</string>
         <!--OTPVC-->
         <scene sceneID="lfX-J4-C9p">
             <objects>
-                <viewController storyboardIdentifier="OTPVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="b7U-iO-mur" customClass="OTPVC" customModule="GEO_MAP" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="OTPVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="b7U-iO-mur" customClass="OTPVC" customModule="NSC_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="diF-pQ-PyQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -515,7 +515,7 @@ been missed!</string>
                                                         </connections>
                                                     </button>
                                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="Contact Support" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="moW-cP-rqp" customClass="TTTAttributedLabel">
-                                                        <rect key="frame" x="0.0" y="76" width="343" height="11.666666666666671"/>
+                                                        <rect key="frame" x="0.0" y="76" width="343" height="12"/>
                                                         <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="10"/>
                                                         <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -596,7 +596,7 @@ been missed!</string>
         <!--Sign UpVC-->
         <scene sceneID="Bgy-3C-XDF">
             <objects>
-                <viewController storyboardIdentifier="SignUpVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="J4f-eE-yEv" customClass="SignUpVC" customModule="GEO_MAP" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignUpVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="J4f-eE-yEv" customClass="SignUpVC" customModule="NSC_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="bZ8-Fk-Zux">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -605,7 +605,7 @@ been missed!</string>
                                 <rect key="frame" x="0.0" y="44" width="375" height="734"/>
                                 <subviews>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V4M-Me-SjV">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="861.66666666666663"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="862.66666666666663"/>
                                         <subviews>
                                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ss0-FK-xJk">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -1014,10 +1014,10 @@ been missed!</string>
                                                 </connections>
                                             </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="VA8-8m-HV1">
-                                                <rect key="frame" x="16" y="813.66666666666663" width="343" height="28"/>
+                                                <rect key="frame" x="16" y="813.66666666666663" width="343" height="29"/>
                                                 <subviews>
                                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="By clicking on Register or Sign up you agree to our T&amp;Cs, Privacy Policy &amp; Disclaimer" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vvu-It-d1X" customClass="TTTAttributedLabel">
-                                                        <rect key="frame" x="0.0" y="0.0" width="343" height="28"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="343" height="29"/>
                                                         <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="10"/>
                                                         <color key="textColor" name="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -1116,7 +1116,7 @@ been missed!</string>
         <!--ProfileVC-->
         <scene sceneID="jUs-AJ-Mw4">
             <objects>
-                <viewController storyboardIdentifier="ProfileVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="YOX-6w-8yS" customClass="ProfileVC" customModule="GEO_MAP" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProfileVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="YOX-6w-8yS" customClass="ProfileVC" customModule="NSC_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="CMY-pY-ljc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1626,7 +1626,7 @@ been missed!</string>
         <!--Profile StatusVC-->
         <scene sceneID="K7g-rK-WV2">
             <objects>
-                <viewController storyboardIdentifier="ProfileStatusVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="JWQ-TR-qga" customClass="ProfileStatusVC" customModule="GEO_MAP" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProfileStatusVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="JWQ-TR-qga" customClass="ProfileStatusVC" customModule="NSC_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="dzs-fo-wnd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1805,7 +1805,7 @@ been missed!</string>
         <!--Camp ListVC-->
         <scene sceneID="aQe-6m-se1">
             <objects>
-                <viewController storyboardIdentifier="CampListVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="5dc-fb-bpO" customClass="CampListVC" customModule="GEO_MAP" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CampListVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="5dc-fb-bpO" customClass="CampListVC" customModule="NSC_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="88w-T9-Ag6">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1813,9 +1813,9 @@ been missed!</string>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aMP-QQ-hGu">
                                 <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jih-Fs-6dL">
+                                    <imageView opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="notification" translatesAutoresizingMaskIntoConstraints="NO" id="jih-Fs-6dL">
                                         <rect key="frame" x="16" y="5" width="34" height="34"/>
-                                        <color key="backgroundColor" red="0.95294117649999999" green="0.57254901960000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="jih-Fs-6dL" secondAttribute="height" multiplier="1:1" id="8MC-rb-PUT"/>
                                             <constraint firstAttribute="height" constant="34" id="kfh-15-Lvm"/>
@@ -1826,14 +1826,14 @@ been missed!</string>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </imageView>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Camp List" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NEk-Bh-6gj">
-                                        <rect key="frame" x="58.000000000000007" y="12.333333333333337" width="70.666666666666686" height="19.666666666666671"/>
+                                    <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NEk-Bh-6gj">
+                                        <rect key="frame" x="58" y="22" width="0.0" height="0.0"/>
                                         <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="14"/>
                                         <color key="textColor" name="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Haa-2l-MUX">
-                                        <rect key="frame" x="132.66666666666666" y="7" width="30" height="30"/>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Haa-2l-MUX">
+                                        <rect key="frame" x="62" y="7" width="30" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="Haa-2l-MUX" secondAttribute="height" multiplier="1:1" id="4rk-1X-kcb"/>
                                             <constraint firstAttribute="height" constant="30" id="a1E-IX-AXv"/>
@@ -1841,18 +1841,21 @@ been missed!</string>
                                         <state key="normal" image="down_orange"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xIe-Ue-AIb">
-                                        <rect key="frame" x="16" y="0.0" width="146.66666666666666" height="44"/>
+                                        <rect key="frame" x="16" y="0.0" width="76" height="44"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <connections>
                                             <action selector="userMenuClicked:" destination="5dc-fb-bpO" eventType="touchUpInside" id="cbo-de-ASt"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0ae-dm-xnk">
-                                        <rect key="frame" x="329" y="7" width="30" height="30"/>
+                                        <rect key="frame" x="229" y="7" width="130" height="30"/>
                                         <constraints>
+                                            <constraint firstAttribute="width" constant="130" id="Krq-M4-8ba"/>
                                             <constraint firstAttribute="height" constant="30" id="Rf3-aG-Dxk"/>
                                         </constraints>
-                                        <state key="normal" image="notification"/>
+                                        <state key="normal" title="ADD REPORT">
+                                            <color key="titleColor" name="theme_dark"/>
+                                        </state>
                                         <connections>
                                             <action selector="notificationClicked:" destination="5dc-fb-bpO" eventType="touchUpInside" id="ERp-RQ-RWo"/>
                                         </connections>
@@ -1861,7 +1864,6 @@ been missed!</string>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="Haa-2l-MUX" firstAttribute="centerY" secondItem="aMP-QQ-hGu" secondAttribute="centerY" id="4k0-xl-HhA"/>
-                                    <constraint firstItem="0ae-dm-xnk" firstAttribute="width" secondItem="0ae-dm-xnk" secondAttribute="height" multiplier="1:1" id="7gw-H9-yjo"/>
                                     <constraint firstItem="Haa-2l-MUX" firstAttribute="leading" secondItem="NEk-Bh-6gj" secondAttribute="trailing" constant="4" id="Ajb-jr-7IR"/>
                                     <constraint firstItem="jih-Fs-6dL" firstAttribute="centerY" secondItem="aMP-QQ-hGu" secondAttribute="centerY" id="GBZ-Pz-QD7"/>
                                     <constraint firstItem="0ae-dm-xnk" firstAttribute="centerY" secondItem="aMP-QQ-hGu" secondAttribute="centerY" id="Jf5-F6-zaH"/>
@@ -1984,7 +1986,7 @@ been missed!</string>
         <!--Camp DetailVC-->
         <scene sceneID="zp3-Rk-lhh">
             <objects>
-                <viewController storyboardIdentifier="CampDetailVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="GZs-UP-FB4" customClass="CampDetailVC" customModule="GEO_MAP" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CampDetailVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="GZs-UP-FB4" customClass="CampDetailVC" customModule="NSC_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="sD6-7m-7IJ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2214,7 +2216,7 @@ been missed!</string>
         <!--Camp DaysVC-->
         <scene sceneID="p6Y-tB-i8r">
             <objects>
-                <viewController storyboardIdentifier="CampDaysVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="PUC-5M-S34" customClass="CampDaysVC" customModule="GEO_MAP" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CampDaysVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="PUC-5M-S34" customClass="CampDaysVC" customModule="NSC_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="1tu-4Q-V6r">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2292,7 +2294,7 @@ been missed!</string>
         <!--Kids AttendanceVC-->
         <scene sceneID="pAh-Nh-ck5">
             <objects>
-                <viewController storyboardIdentifier="KidsAttendanceVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="6LF-3w-7Nq" customClass="KidsAttendanceVC" customModule="GEO_MAP" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="KidsAttendanceVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="6LF-3w-7Nq" customClass="KidsAttendanceVC" customModule="NSC_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="7Aq-a6-z4J">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2396,7 +2398,7 @@ been missed!</string>
         <!--Description PopupVC-->
         <scene sceneID="CeU-0V-jHT">
             <objects>
-                <viewController storyboardIdentifier="DescriptionPopupVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="GHQ-Xx-gCT" customClass="DescriptionPopupVC" customModule="GEO_MAP" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DescriptionPopupVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="GHQ-Xx-gCT" customClass="DescriptionPopupVC" customModule="NSC_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8zr-wX-9Or">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2516,7 +2518,7 @@ been missed!</string>
         <!--Alert Pop UpVC-->
         <scene sceneID="xqE-9H-A91">
             <objects>
-                <viewController storyboardIdentifier="AlertPopUpVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="jk3-OB-fZW" customClass="AlertPopUpVC" customModule="GEO_MAP" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AlertPopUpVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="jk3-OB-fZW" customClass="AlertPopUpVC" customModule="NSC_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vcD-iv-b7d">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2639,7 +2641,7 @@ QXJlIHlvdSBzdXJlIHlvdSB3YW50IHRvIGRlbGV0ZQtTZWxmLWRldmVsb3BtZW50IHBsYXlsaXN0Pw
         <!--User List Pop UpVC-->
         <scene sceneID="n1C-Wx-oc9">
             <objects>
-                <viewController storyboardIdentifier="UserListPopUpVC" id="W3a-kW-R9z" customClass="UserListPopUpVC" customModule="GEO_MAP" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="UserListPopUpVC" id="W3a-kW-R9z" customClass="UserListPopUpVC" customModule="NSC_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="UpZ-Kl-ht8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2705,17 +2707,67 @@ QXJlIHlvdSBzdXJlIHlvdSB3YW50IHRvIGRlbGV0ZQtTZWxmLWRldmVsb3BtZW50IHBsYXlsaXN0Pw
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="headerview" destination="KaN-wr-W8S" id="D5r-kJ-Okz"/>
                         <outlet property="tableView" destination="9TV-vV-ff8" id="6SA-V6-y90"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xzK-lO-zYT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <view clipsSubviews="YES" contentMode="scaleToFill" id="KaN-wr-W8S">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="James William" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZEI-Ii-t8O">
+                            <rect key="frame" x="126" y="147" width="123" height="22.666666666666657"/>
+                            <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="16"/>
+                            <color key="textColor" name="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zZM-At-hw4">
+                            <rect key="frame" x="132.66666666666666" y="29" width="110" height="110"/>
+                            <color key="backgroundColor" name="theme_dark"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="zZM-At-hw4" secondAttribute="height" multiplier="1:1" id="PmR-od-fpj"/>
+                                <constraint firstAttribute="height" constant="110" id="ZNR-j7-9PG"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="55"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </imageView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2XB-fS-9y1">
+                            <rect key="frame" x="132.66666666666666" y="29" width="110" height="110"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                        </button>
+                    </subviews>
+                    <viewLayoutGuide key="safeArea" id="HQ0-kx-nvB"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="ZEI-Ii-t8O" firstAttribute="top" secondItem="zZM-At-hw4" secondAttribute="bottom" constant="8" id="5mg-u7-5Nq"/>
+                        <constraint firstItem="zZM-At-hw4" firstAttribute="centerX" secondItem="KaN-wr-W8S" secondAttribute="centerX" id="86i-qm-Lfa"/>
+                        <constraint firstItem="zZM-At-hw4" firstAttribute="centerY" secondItem="KaN-wr-W8S" secondAttribute="centerY" constant="-16" id="B5w-TY-5Zy"/>
+                        <constraint firstItem="2XB-fS-9y1" firstAttribute="bottom" secondItem="zZM-At-hw4" secondAttribute="bottom" id="FDu-Mm-akD"/>
+                        <constraint firstItem="2XB-fS-9y1" firstAttribute="top" secondItem="zZM-At-hw4" secondAttribute="top" id="GD2-HI-UTt"/>
+                        <constraint firstItem="ZEI-Ii-t8O" firstAttribute="centerX" secondItem="zZM-At-hw4" secondAttribute="centerX" id="jIb-z6-eLs"/>
+                        <constraint firstItem="2XB-fS-9y1" firstAttribute="leading" secondItem="zZM-At-hw4" secondAttribute="leading" id="ovg-Up-A9Y"/>
+                        <constraint firstItem="2XB-fS-9y1" firstAttribute="trailing" secondItem="zZM-At-hw4" secondAttribute="trailing" id="vwy-2e-9Dp"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                            <color key="value" systemColor="opaqueSeparatorColor"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                            <real key="value" value="0.29999999999999999"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
             </objects>
             <point key="canvasLocation" x="4766" y="-554"/>
         </scene>
         <!--Personal DetailsVC-->
         <scene sceneID="qXh-kA-LtW">
             <objects>
-                <viewController storyboardIdentifier="PersonalDetailsVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="8cL-ed-1cb" customClass="PersonalDetailsVC" customModule="GEO_MAP" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PersonalDetailsVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="8cL-ed-1cb" customClass="PersonalDetailsVC" customModule="NSC_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="xGa-9g-ycs">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2768,7 +2820,7 @@ QXJlIHlvdSBzdXJlIHlvdSB3YW50IHRvIGRlbGV0ZQtTZWxmLWRldmVsb3BtZW50IHBsYXlsaXN0Pw
                                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oAo-Ne-pe1">
                                                                         <rect key="frame" x="0.0" y="0.0" width="299" height="66"/>
                                                                         <subviews>
-                                                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter DOB" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AlR-dC-kmm" customClass="DJPickerView" customModule="GEO_MAP" customModuleProvider="target">
+                                                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter DOB" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AlR-dC-kmm" customClass="DJPickerView" customModule="NSC_iOS" customModuleProvider="target">
                                                                                 <rect key="frame" x="0.0" y="8" width="299" height="50"/>
                                                                                 <color key="textColor" name="textColor"/>
                                                                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="16"/>
@@ -3380,7 +3432,7 @@ QXJlIHlvdSBzdXJlIHlvdSB3YW50IHRvIGRlbGV0ZQtTZWxmLWRldmVsb3BtZW50IHBsYXlsaXN0Pw
         <!--Bank DetailsVC-->
         <scene sceneID="qa3-se-IPP">
             <objects>
-                <viewController storyboardIdentifier="BankDetailsVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="9jf-Ji-inj" customClass="BankDetailsVC" customModule="GEO_MAP" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BankDetailsVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="9jf-Ji-inj" customClass="BankDetailsVC" customModule="NSC_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="Inf-bM-keN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -3724,7 +3776,7 @@ QXJlIHlvdSBzdXJlIHlvdSB3YW50IHRvIGRlbGV0ZQtTZWxmLWRldmVsb3BtZW50IHBsYXlsaXN0Pw
         <!--List ItemVC-->
         <scene sceneID="Lg6-ZT-7to">
             <objects>
-                <viewController storyboardIdentifier="ListItemVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="VJy-St-vzf" customClass="ListItemVC" customModule="GEO_MAP" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ListItemVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="VJy-St-vzf" customClass="ListItemVC" customModule="NSC_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleAspectFit" id="4P4-pv-wg9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -3862,7 +3914,7 @@ QXJlIHlvdSBzdXJlIHlvdSB3YW50IHRvIGRlbGV0ZQtTZWxmLWRldmVsb3BtZW50IHBsYXlsaXN0Pw
         <!--ReferVC-->
         <scene sceneID="FRf-En-82d">
             <objects>
-                <viewController storyboardIdentifier="ReferVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="aTj-hj-YAs" customClass="ReferVC" customModule="GEO_MAP" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ReferVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="aTj-hj-YAs" customClass="ReferVC" customModule="NSC_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="ePa-bX-enV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -4059,7 +4111,7 @@ QXJlIHlvdSBzdXJlIHlvdSB3YW50IHRvIGRlbGV0ZQtTZWxmLWRldmVsb3BtZW50IHBsYXlsaXN0Pw
         <!--ContactVC-->
         <scene sceneID="UPK-Du-OiY">
             <objects>
-                <viewController storyboardIdentifier="ContactVC" hidesBottomBarWhenPushed="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Mlx-dE-cRm" customClass="ContactVC" customModule="GEO_MAP" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ContactVC" hidesBottomBarWhenPushed="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Mlx-dE-cRm" customClass="ContactVC" customModule="NSC_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="R6k-dF-LRK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -4213,7 +4265,7 @@ QXJlIHlvdSBzdXJlIHlvdSB3YW50IHRvIGRlbGV0ZQtTZWxmLWRldmVsb3BtZW50IHBsYXlsaXN0Pw
         <!--Apply For CampVC-->
         <scene sceneID="a3u-NU-cJg">
             <objects>
-                <viewController storyboardIdentifier="ApplyForCampVC" hidesBottomBarWhenPushed="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Gzk-cz-ecR" customClass="ApplyForCampVC" customModule="GEO_MAP" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ApplyForCampVC" hidesBottomBarWhenPushed="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Gzk-cz-ecR" customClass="ApplyForCampVC" customModule="NSC_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="3y5-f3-iAg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -4393,7 +4445,7 @@ QXJlIHlvdSBzdXJlIHlvdSB3YW50IHRvIGRlbGV0ZQtTZWxmLWRldmVsb3BtZW50IHBsYXlsaXN0Pw
         <!--EarningVC-->
         <scene sceneID="sga-23-Lk6">
             <objects>
-                <viewController storyboardIdentifier="EarningVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="vAW-qm-RNw" customClass="EarningVC" customModule="GEO_MAP" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EarningVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="vAW-qm-RNw" customClass="EarningVC" customModule="NSC_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZFd-zh-sN5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -4448,7 +4500,7 @@ QXJlIHlvdSBzdXJlIHlvdSB3YW50IHRvIGRlbGV0ZQtTZWxmLWRldmVsb3BtZW50IHBsYXlsaXN0Pw
                                 <color key="textColor" name="theme_dark"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qmi-TZ-Ofl" customClass="CardView" customModule="GEO_MAP" customModuleProvider="target">
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qmi-TZ-Ofl" customClass="CardView" customModule="NSC_iOS" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="334" width="375" height="478"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Transaction" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DzH-n7-WBU">
@@ -4532,7 +4584,7 @@ QXJlIHlvdSBzdXJlIHlvdSB3YW50IHRvIGRlbGV0ZQtTZWxmLWRldmVsb3BtZW50IHBsYXlsaXN0Pw
         <!--NotificationVC-->
         <scene sceneID="qIQ-jF-bmT">
             <objects>
-                <viewController storyboardIdentifier="NotificationVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="SM9-42-1jE" customClass="NotificationVC" customModule="GEO_MAP" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NotificationVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="SM9-42-1jE" customClass="NotificationVC" customModule="NSC_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PPn-wD-ydb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -4616,13 +4668,13 @@ QXJlIHlvdSBzdXJlIHlvdSB3YW50IHRvIGRlbGV0ZQtTZWxmLWRldmVsb3BtZW50IHBsYXlsaXN0Pw
             <size key="intrinsicContentSize" width="83" height="14"/>
         </designable>
         <designable name="hKh-Xe-zcD">
-            <size key="intrinsicContentSize" width="74.666666666666671" height="11.666666666666666"/>
+            <size key="intrinsicContentSize" width="75" height="12"/>
         </designable>
         <designable name="hNU-n2-Zae">
             <size key="intrinsicContentSize" width="415" height="14"/>
         </designable>
         <designable name="moW-cP-rqp">
-            <size key="intrinsicContentSize" width="74.666666666666671" height="11.666666666666666"/>
+            <size key="intrinsicContentSize" width="75" height="12"/>
         </designable>
     </designables>
     <resources>
@@ -4647,7 +4699,7 @@ QXJlIHlvdSBzdXJlIHlvdSB3YW50IHRvIGRlbGV0ZQtTZWxmLWRldmVsb3BtZW50IHBsYXlsaXN0Pw
         <image name="coach_status_top" width="350" height="195"/>
         <image name="down_orange" width="12" height="6.6666665077209473"/>
         <image name="location_pin" width="8.6666669845581055" height="11"/>
-        <image name="notification" width="30" height="30"/>
+        <image name="notification" width="6" height="5.3333334922790527"/>
         <image name="search_black" width="16.333333969116211" height="16"/>
         <namedColor name="404040">
             <color red="0.25098039215686274" green="0.25098039215686274" blue="0.25098039215686274" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -4683,13 +4735,13 @@ QXJlIHlvdSBzdXJlIHlvdSB3YW50IHRvIGRlbGV0ZQtTZWxmLWRldmVsb3BtZW50IHBsYXlsaXN0Pw
             <color red="0.94117647058823528" green="0.33333333333333331" blue="0.13333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="textColor">
-            <color red="0.21176470588235294" green="0.19215686274509802" blue="0.27843137254901962" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.21176470588235294" green="0.18823529411764706" blue="0.27843137254901962" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="theme_dark">
-            <color red="0.95300000905990601" green="0.57300001382827759" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.15299999713897705" green="0.68199998140335083" blue="0.87800002098083496" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="theme_light">
-            <color red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.96100002527236938" green="0.96100002527236938" blue="0.96100002527236938" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="transparent_313131_80">
             <color red="0.32899999618530273" green="0.32400000095367432" blue="0.4779999852180481" alpha="0.33000001311302185" colorSpace="custom" customColorSpace="sRGB"/>

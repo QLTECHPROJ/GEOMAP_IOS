@@ -12,14 +12,14 @@ class NotificationListCell: UITableViewCell {
     @IBOutlet weak var lblTitle: UILabel!
     @IBOutlet weak var lblDesc: UILabel!
     @IBOutlet weak var lblDate: UILabel!
-    @IBOutlet weak var imgView: UIImageView!
+   
     
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         
-        imgView.isHidden = true
+       
     }
     
     // Configure Cell

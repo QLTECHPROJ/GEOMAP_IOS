@@ -16,7 +16,7 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "282C33602819617D009401FD"
                BuildableName = "GEO_MAP_Staging.app"
-               BlueprintName = "GEO_MAP_Staging"
+               BlueprintName = "NSC_iOS_Staging"
                ReferencedContainer = "container:NSC_iOS.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -46,7 +46,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "282C33602819617D009401FD"
             BuildableName = "GEO_MAP_Staging.app"
-            BlueprintName = "GEO_MAP_Staging"
+            BlueprintName = "NSC_iOS_Staging"
             ReferencedContainer = "container:NSC_iOS.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -63,7 +63,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "282C33602819617D009401FD"
             BuildableName = "GEO_MAP_Staging.app"
-            BlueprintName = "GEO_MAP_Staging"
+            BlueprintName = "NSC_iOS_Staging"
             ReferencedContainer = "container:NSC_iOS.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

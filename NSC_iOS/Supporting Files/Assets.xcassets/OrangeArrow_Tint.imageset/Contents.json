@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "OrangeArrow.png",
+      "filename" : "Vector2x-1.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "OrangeArrow@2x.png",
+      "filename" : "Vector2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "OrangeArrow@3x.png",
+      "filename" : "Vector2x-2.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

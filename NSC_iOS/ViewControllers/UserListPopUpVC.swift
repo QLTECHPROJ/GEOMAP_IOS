@@ -13,19 +13,19 @@ class UserListPopUpVC: BaseViewController {
     // MARK: - OUTLETS
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var headerview: UIView!
     
     // MARK: - VARIABLES
-    var tapGesture = UITapGestureRecognizer()
-    var arrMenu = ["Edit Profile", "Bank Details" ,"Personal Details" ,"My Earnings","Apply For a Camp","Refer a Coach" , "Logout"]
-    var arrImage = ["Profile", "BankDetails" ,"PersonalDetails","Earnings","ApplyCamp","ReferCoach" ,"Logout"]
-    
+   
+    var arrMenu = ["UnderGroud Report List", "OpenCast Report List" ,"Edit Profle " ,"Sync Data","FAQ","About Us" , "Support","Contact Us"]
     
     // MARK: - VIEW LIFE CYCLE
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.register(nibWithCellClass: UserListCell.self)
-        tableView.reloadData()
+        tableView.tableHeaderView = headerview
+       
     }
     
     
@@ -48,7 +48,7 @@ extension UserListPopUpVC : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withClass: UserListCell.self)
         cell.lblName.text = arrMenu[indexPath.row]
-        cell.imgView.image = UIImage(named: arrImage[indexPath.row])
+        //cell.imgView.image = UIImage(named: arrImage[indexPath.row])
         return cell
     }
     
