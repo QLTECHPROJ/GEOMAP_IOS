@@ -13,10 +13,11 @@ def shared_pods
   pod 'Alamofire','~> 4.9.1'
   
   # Firebase Pods
-  pod 'Firebase/Analytics'
+  #pod 'Firebase/Analytics'
   pod 'Firebase/Crashlytics'
   pod 'Firebase/Messaging'
   pod 'Firebase/Auth'
+  pod 'ACFloatingTextfield-Swift', '~> 1.7'
   
 end
 
