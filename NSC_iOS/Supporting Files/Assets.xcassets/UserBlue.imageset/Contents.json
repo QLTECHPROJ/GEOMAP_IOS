@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "Down 2@1x.png",
+      "filename" : "Vector1x.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "Down 2@2x.png",
+      "filename" : "Vector@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "Down 2@3x.png",
+      "filename" : "Vector@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

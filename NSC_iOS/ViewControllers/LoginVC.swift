@@ -71,9 +71,7 @@ class LoginVC: BaseViewController {
     }
     
     override func setupData() {
-        let countryText = AppVersionDetails.countryShortName + " " + "+" + AppVersionDetails.countryCode
-        btnCountryCode.setTitle(countryText, for: .normal)
-        
+       
         buttonEnableDisable()
     }
     
@@ -178,7 +176,11 @@ class LoginVC: BaseViewController {
 extension LoginVC : UITextFieldDelegate {
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
+        
         self.lblErrMobileNo.isHidden = true
+        if textField.text != "" {
+            btnCountryCode.setImage(UIImage(named: "String"), for: .normal)
+        }
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

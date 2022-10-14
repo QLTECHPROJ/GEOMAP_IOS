@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -11,9 +11,6 @@
     <customFonts key="customFonts">
         <array key="Poppins-Regular.otf">
             <string>Poppins-Regular</string>
-        </array>
-        <array key="Poppins-SemiBold.otf">
-            <string>Poppins-SemiBold</string>
         </array>
     </customFonts>
     <objects>
@@ -27,10 +24,10 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GXd-BK-XQ3">
-                        <rect key="frame" x="16" y="10" width="48" height="48"/>
+                        <rect key="frame" x="16" y="34" width="0.0" height="0.0"/>
                         <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="48" id="N61-sb-6Bt"/>
+                            <constraint firstAttribute="height" id="N61-sb-6Bt"/>
                             <constraint firstAttribute="width" secondItem="GXd-BK-XQ3" secondAttribute="height" multiplier="1:1" id="c1p-IB-kEo"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
@@ -40,27 +37,27 @@
                         </userDefinedRuntimeAttributes>
                     </imageView>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="QeM-M3-uVe">
-                        <rect key="frame" x="80" y="10" width="183" height="48"/>
+                        <rect key="frame" x="16" y="8" width="327" height="52"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contact Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3nW-QA-TQL">
-                                <rect key="frame" x="0.0" y="0.0" width="183" height="24"/>
-                                <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="16"/>
-                                <color key="textColor" name="textColor"/>
+                                <rect key="frame" x="0.0" y="0.0" width="327" height="26"/>
+                                <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="12"/>
+                                <color key="textColor" red="0.55294117647058827" green="0.54509803921568623" blue="0.59215686274509804" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contact Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uFZ-Ku-Qoe">
-                                <rect key="frame" x="0.0" y="24" width="183" height="24"/>
+                                <rect key="frame" x="0.0" y="26" width="327" height="26"/>
                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="16"/>
-                                <color key="textColor" name="7E7E7E"/>
+                                <color key="textColor" name="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                     </stackView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kea-gi-szx">
-                        <rect key="frame" x="279" y="16.5" width="80" height="35"/>
+                        <rect key="frame" x="359" y="16.5" width="0.0" height="35"/>
                         <color key="backgroundColor" name="theme_dark"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="80" id="UbZ-oL-bhY"/>
+                            <constraint firstAttribute="width" id="UbZ-oL-bhY"/>
                             <constraint firstAttribute="height" constant="35" id="gD8-8e-KPV"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -81,9 +78,9 @@
                     <constraint firstItem="Kea-gi-szx" firstAttribute="leading" secondItem="QeM-M3-uVe" secondAttribute="trailing" constant="16" id="0EZ-dt-0H2"/>
                     <constraint firstAttribute="trailing" secondItem="Kea-gi-szx" secondAttribute="trailing" constant="16" id="55b-Sn-xYb"/>
                     <constraint firstItem="GXd-BK-XQ3" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="IgJ-aq-l9q"/>
-                    <constraint firstItem="QeM-M3-uVe" firstAttribute="top" secondItem="GXd-BK-XQ3" secondAttribute="top" id="Ttb-VA-aUN"/>
-                    <constraint firstItem="QeM-M3-uVe" firstAttribute="bottom" secondItem="GXd-BK-XQ3" secondAttribute="bottom" id="pUY-s5-uWT"/>
-                    <constraint firstItem="QeM-M3-uVe" firstAttribute="leading" secondItem="GXd-BK-XQ3" secondAttribute="trailing" constant="16" id="rh5-Ey-dnu"/>
+                    <constraint firstAttribute="bottom" secondItem="QeM-M3-uVe" secondAttribute="bottom" constant="8" id="JXC-vR-TTd"/>
+                    <constraint firstItem="QeM-M3-uVe" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="Ll5-a3-Qq1"/>
+                    <constraint firstItem="QeM-M3-uVe" firstAttribute="leading" secondItem="GXd-BK-XQ3" secondAttribute="trailing" id="rh5-Ey-dnu"/>
                     <constraint firstItem="Kea-gi-szx" firstAttribute="centerY" secondItem="QeM-M3-uVe" secondAttribute="centerY" id="xYo-aW-spm"/>
                     <constraint firstItem="GXd-BK-XQ3" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="zWi-tI-UxR"/>
                 </constraints>
@@ -100,14 +97,11 @@
         </tableViewCell>
     </objects>
     <resources>
-        <namedColor name="7E7E7E">
-            <color red="0.49399998784065247" green="0.49399998784065247" blue="0.49399998784065247" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <namedColor name="textColor">
-            <color red="0.11372549019607843" green="0.15294117647058825" blue="0.17647058823529413" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.21176470588235294" green="0.18823529411764706" blue="0.27843137254901962" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="theme_dark">
-            <color red="0.95300000905990601" green="0.57300001382827759" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.15299999713897705" green="0.68199998140335083" blue="0.87800002098083496" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

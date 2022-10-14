@@ -43,9 +43,9 @@ struct AppColors {
     let black_404040 = UIColor(hex: "404040")
     
     // NSC Coach App Colors
-    let textColor = UIColor(hex: "1D272E")
-    let theme_dark = UIColor(hex: "F39200")
-    let theme_light = UIColor(hex: "FFF7EC")
+    let textColor = UIColor(hex: "363147")
+    let theme_dark = UIColor(hex: "27AEE0")
+    let theme_light = UIColor(hex: "F5F5F5")
     
 }
 
