@@ -7,12 +7,10 @@
 
 import UIKit
 
-class CampListVC: BaseViewController {
+class HomeVC: BaseViewController {
     
     // MARK: - OUTLETS
-    @IBOutlet weak var tableHeaderView: UIView!
-    @IBOutlet weak var imgBanner: UIImageView!
-    
+   
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var lblNoData: UILabel!
     @IBOutlet weak var btnApplyNow: UIButton!
@@ -33,22 +31,19 @@ class CampListVC: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
-        btnApplyNow.isHidden = true
+       
         lblNoData.isHidden = true
         lblNoData.text = Theme.strings.no_camps_to_display
-        
+        tableView.register(nibWithCellClass: NotificationListCell.self)
         tableView.register(nibWithCellClass: TitleLabelCell.self)
         tableView.register(nibWithCellClass: NotificationListCell.self)
-        tableView.tableHeaderView = UIView()
-        tableView.refreshControl = self.refreshControl
+       
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        setupUI()
-        self.refreshData()
+       
     }
     
     
@@ -82,14 +77,17 @@ class CampListVC: BaseViewController {
         navigationController?.pushViewController(aVC, animated: true)
     }
     
+    // MARK: - ACTION
+    @IBAction func addReportClicked(_ sender: UIButton) {
+        let aVC = AppStoryBoard.main.viewController(viewControllerClass:AddReportVC.self)
+        navigationController?.pushViewController(aVC, animated: true)
+    }
   
-  
-    
 }
 
 
 // MARK: - UITableViewDelegate, UITableViewDataSource
-extension CampListVC: UITableViewDelegate, UITableViewDataSource {
+extension HomeVC: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
@@ -136,7 +134,8 @@ extension CampListVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-       
+        let aVC = AppStoryBoard.main.viewController(viewControllerClass:UGListVC.self)
+        navigationController?.pushViewController(aVC, animated: true)
     }
     
 }

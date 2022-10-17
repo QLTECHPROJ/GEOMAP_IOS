@@ -15,6 +15,24 @@ class AddReportVC: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    // MARK: - ACTION
+    @IBAction func backClicked(_ sender: UIButton) {
+        self.view.endEditing(true)
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    // MARK: - ACTION
+    @IBAction func undergroundClicked(_ sender: UIButton) {
+        let aVC = AppStoryBoard.main.viewController(viewControllerClass: UGReportDetailVC.self)
+        self.navigationController?.pushViewController(aVC, animated: true)
+    }
+    
+    // MARK: - ACTION
+    @IBAction func openCastClicked(_ sender: UIButton) {
+        let aVC = AppStoryBoard.main.viewController(viewControllerClass: OCReportDetailVC.self)
+        self.navigationController?.pushViewController(aVC, animated: true)
+    }
+    
 
     /*
     // MARK: - Navigation

@@ -17,7 +17,7 @@ class UserListPopUpVC: BaseViewController {
     
     // MARK: - VARIABLES
    
-    var arrMenu = ["UnderGroud Report List", "OpenCast Report List" ,"Edit Profle " ,"Sync Data","FAQ","About Us" , "Support","Contact Us"]
+    var arrMenu = ["UnderGroud Report List", "OpenCast Report List" ,"Edit Profle " ,"Sync Data","FAQ","About Us" , "Support","Contact Us", "logout"]
     
     // MARK: - VIEW LIFE CYCLE
     override func viewDidLoad() {
@@ -54,23 +54,28 @@ extension UserListPopUpVC : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 0 {
-            let aVC = AppStoryBoard.main.viewController(viewControllerClass: ProfileVC.self)
+            let aVC = AppStoryBoard.main.viewController(viewControllerClass: UGGeoAttributeVC.self)
             self.navigationController?.pushViewController(aVC, animated: true)
         } else if indexPath.row == 1 {
-            let aVC = AppStoryBoard.main.viewController(viewControllerClass: BankDetailsVC.self)
-            aVC.isFromEdit = true
+            let aVC = AppStoryBoard.main.viewController(viewControllerClass: OCGeoAttributeVC.self)
             self.navigationController?.pushViewController(aVC, animated: true)
         } else if indexPath.row == 2 {
-            let aVC = AppStoryBoard.main.viewController(viewControllerClass: UGGeoAttributeVC.self)
-            aVC.isFromEdit = true
+            let aVC = AppStoryBoard.main.viewController(viewControllerClass: ProfileVC.self)
             self.navigationController?.pushViewController(aVC, animated: true)
         } else if indexPath.row == 3 {
+            let aVC = AppStoryBoard.main.viewController(viewControllerClass: SyncDataVC.self)
+            self.navigationController?.pushViewController(aVC, animated: true)
            
         } else if indexPath.row == 4 {
+            openUrl(urlString:"https://nationalsportscamps.in/about-nsc")
           
         } else if indexPath.row == 5 {
+            openUrl(urlString:"https://nationalsportscamps.in/about-nsc")
           
-        } else if indexPath.row == 6 {
+        }else if indexPath.row == 6 {
+            openUrl(urlString:"https://nationalsportscamps.in/about-nsc")
+        }
+        else if indexPath.row == 8 {
             if checkInternet(showToast: true) == false {
                 return
             }

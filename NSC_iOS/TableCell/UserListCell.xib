@@ -9,8 +9,8 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Poppins-Medium.otf">
-            <string>Poppins-Medium</string>
+        <array key="Inter-Medium.ttf">
+            <string>Inter-Medium</string>
         </array>
     </customFonts>
     <objects>
@@ -40,8 +40,8 @@
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="john" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ued-aF-5ZE">
-                                <rect key="frame" x="15" y="22" width="235" height="22.5"/>
-                                <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="16"/>
+                                <rect key="frame" x="15" y="23.5" width="235" height="19.5"/>
+                                <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="16"/>
                                 <color key="textColor" name="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -51,7 +51,8 @@
                                     <constraint firstAttribute="width" constant="10" id="2St-Ir-ct4"/>
                                     <constraint firstAttribute="height" constant="18" id="azi-0t-FYx"/>
                                 </constraints>
-                                <state key="normal" backgroundImage="OrangeArrow"/>
+                                <color key="tintColor" name="textColor"/>
+                                <state key="normal" backgroundImage="OrangeArrow_Tint"/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" name="F9F9F9"/>
@@ -86,11 +87,11 @@
                 <outlet property="imgView" destination="BLD-xq-Mlj" id="P6R-BX-yM2"/>
                 <outlet property="lblName" destination="Ued-aF-5ZE" id="LGM-Lv-t0L"/>
             </connections>
-            <point key="canvasLocation" x="131.8840579710145" y="116.85267857142857"/>
+            <point key="canvasLocation" x="131.8840579710145" y="116.51785714285714"/>
         </tableViewCell>
     </objects>
     <resources>
-        <image name="OrangeArrow" width="7" height="12"/>
+        <image name="OrangeArrow_Tint" width="6" height="12"/>
         <image name="Profile" width="21" height="21"/>
         <namedColor name="F9F9F9">
             <color red="0.97647058823529409" green="0.97647058823529409" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -205,7 +205,8 @@ class UGGeoAttributeVC: BaseViewController {
     }
     
     @IBAction func confirmClicked(_ sender: UIButton) {
-       
+        let aVC = AppStoryBoard.main.viewController(viewControllerClass: UGGeoAttributeVC2.self)
+        self.navigationController?.pushViewController(aVC, animated: true)
     }
     
 }

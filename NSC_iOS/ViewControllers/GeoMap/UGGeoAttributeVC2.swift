@@ -7,7 +7,7 @@
 
 import UIKit
 
-class BankDetailsVC: BaseViewController {
+class UGGeoAttributeVC2: BaseViewController {
     
     // MARK: - OUTLETS
    
@@ -33,12 +33,18 @@ class BankDetailsVC: BaseViewController {
     override func setupUI() {
       
     }
+    
+    // MARK: - ACTION
+    @IBAction func backClicked(_ sender: UIButton) {
+        self.view.endEditing(true)
+        self.navigationController?.popViewController(animated: true)
+    }
 
 }
 
 
 // MARK: - UITextFieldDelegate
-extension BankDetailsVC : UITextFieldDelegate {
+extension UGGeoAttributeVC2 : UITextFieldDelegate {
     
     
 }

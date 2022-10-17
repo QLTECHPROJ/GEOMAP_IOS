@@ -21,11 +21,14 @@ class LoginVC: BaseViewController {
     @IBOutlet weak var lblSupport: TTTAttributedLabel!
     
     //UIButton
-    @IBOutlet weak var btnCountryCode: UIButton!
+    @IBOutlet weak var btnUser: UIButton!
+    
+    @IBOutlet weak var btnPassword: UIButton!
     @IBOutlet weak var btnGetSMSCode: UIButton!
     
     //UITextfield
-    @IBOutlet weak var txtMobile: UITextField!
+    @IBOutlet weak var txtUser: UITextField!
+    @IBOutlet weak var txtPassword: UITextField!
     
     //UIStackView
     @IBOutlet weak var stackView: UIStackView!
@@ -66,28 +69,37 @@ class LoginVC: BaseViewController {
     
     // MARK: - ACTIONS
     @IBAction func loginClicked(_ sender: UIButton) {
+        let aVC = AppStoryBoard.main.viewController(viewControllerClass: HomeVC.self)
+        self.navigationController?.pushViewController(aVC, animated: true)
     }
     
 }
 
 
 // MARK: - UITextFieldDelegate
+// MARK: - UITextFieldDelegate
 extension LoginVC : UITextFieldDelegate {
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        
+        if txtUser.text != "" {
+            btnUser.setImage(UIImage(named: "UserBlue"), for: .normal)
+        }
+        if txtPassword.text != ""{
+            btnPassword.setImage(UIImage(named: "PasswordBlue"), for: .normal)
+        }
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        
+        return textField.resignFirstResponder()
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        
-    }
-    
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        
+        if txtUser.text != "" {
+            btnUser.setImage(UIImage(named: "UserBlue"), for: .normal)
+        }
+        if txtPassword.text != ""{
+            btnPassword.setImage(UIImage(named: "PasswordBlue"), for: .normal)
+        }
     }
     
 }

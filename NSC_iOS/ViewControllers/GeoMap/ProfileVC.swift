@@ -98,6 +98,9 @@ class ProfileVC: BaseViewController {
     }
     
     @IBAction func updateClicked(_ sender: UIButton) {
+        
+        let aVC = AppStoryBoard.main.viewController(viewControllerClass: HomeVC.self)
+        self.navigationController?.pushViewController(aVC, animated: true)
        
     }
     

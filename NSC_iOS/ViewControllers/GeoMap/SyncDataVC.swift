@@ -25,5 +25,10 @@ class SyncDataVC: BaseViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    // MARK: - ACTION
+    @IBAction func backClicked(_ sender: UIButton) {
+        self.view.endEditing(true)
+        self.navigationController?.popViewController(animated: true)
+    }
 
 }
