@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PersonalDetailsVC: BaseViewController {
+class UGGeoAttributeVC: BaseViewController {
     
     // MARK: - OUTLETS
     @IBOutlet weak var btnBack: UIButton!
@@ -38,15 +38,6 @@ class PersonalDetailsVC: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        btnBack.isHidden = !isFromEdit
-        
-        setupUI()
-        setupData()
-        setupInitialData()
-        
-        self.fetchCoachDetails {
-            self.setupInitialData()
-        }
     }
     
     
@@ -221,7 +212,7 @@ class PersonalDetailsVC: BaseViewController {
 
 
 // MARK: - UITextFieldDelegate
-extension PersonalDetailsVC : UITextFieldDelegate {
+extension UGGeoAttributeVC : UITextFieldDelegate {
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         for label in arrayErrorLabels {
@@ -252,7 +243,7 @@ extension PersonalDetailsVC : UITextFieldDelegate {
 
 
 // MARK: - DJPickerViewDelegate
-extension PersonalDetailsVC : DJPickerViewDelegate {
+extension UGGeoAttributeVC : DJPickerViewDelegate {
     
     func textPickerView(_ textPickerView: DJPickerView, didSelectDate date: Date) {
         self.view.endEditing(true)

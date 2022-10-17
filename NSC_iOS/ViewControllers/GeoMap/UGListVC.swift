@@ -7,7 +7,7 @@
 
 import UIKit
 
-class NotificationVC: BaseViewController {
+class UGListVC: BaseViewController {
     
     // MARK: - OUTLETS
     @IBOutlet weak var lblNoData: UILabel!
@@ -65,7 +65,7 @@ class NotificationVC: BaseViewController {
 
 
 // MARK: - UITableViewDelegate, UITableViewDataSource
-extension NotificationVC: UITableViewDelegate, UITableViewDataSource {
+extension UGListVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return arrayNotifications.count

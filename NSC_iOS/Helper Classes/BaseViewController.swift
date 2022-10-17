@@ -69,14 +69,14 @@ class BaseViewController: UIViewController {
         }
         
         if userData.PersonalDetailFilled == "0" {
-            let aVC = AppStoryBoard.main.viewController(viewControllerClass: PersonalDetailsVC.self)
+            let aVC = AppStoryBoard.main.viewController(viewControllerClass: UGGeoAttributeVC.self)
             self.navigationController?.pushViewController(aVC, animated: true)
         } else if userData.BankDetailFilled == "0" {
             let aVC = AppStoryBoard.main.viewController(viewControllerClass: BankDetailsVC.self)
             self.navigationController?.pushViewController(aVC, animated: true)
         } else if userData.Status == CoachStatus.Pending.rawValue || userData.Status == CoachStatus.Rejected.rawValue {
-            let aVC = AppStoryBoard.main.viewController(viewControllerClass: ProfileStatusVC.self)
-            self.navigationController?.pushViewController(aVC, animated: true)
+//            let aVC = AppStoryBoard.main.viewController(viewControllerClass: ProfileStatusVC.self)
+//            self.navigationController?.pushViewController(aVC, animated: true)
         } else {
             let aVC = AppStoryBoard.main.viewController(viewControllerClass: CampListVC.self)
             aVC.makeRootController()
@@ -127,7 +127,7 @@ class BaseViewController: UIViewController {
         let fullAttributedString = NSAttributedString(string:string, attributes: [
             NSAttributedString.Key.paragraphStyle: paragraphStyle,
             NSAttributedString.Key.foregroundColor: Theme.colors.gray_999999.cgColor,
-            NSAttributedString.Key.font: Theme.fonts.appFont(ofSize: 12, weight: .regular),
+            //NSAttributedString.Key.font: Theme.fonts.appFont(ofSize: 12, weight: .regular),
         ])
         
         lblSupport.textAlignment = .center
@@ -171,7 +171,7 @@ class BaseViewController: UIViewController {
         let fullAttributedString = NSAttributedString(string:string, attributes: [
             NSAttributedString.Key.paragraphStyle: paragraphStyle,
             NSAttributedString.Key.foregroundColor: Theme.colors.gray_999999.cgColor,
-            NSAttributedString.Key.font: Theme.fonts.appFont(ofSize: 12, weight: .regular),
+            //NSAttributedString.Key.font: Theme.fonts.appFont(ofSize: 12, weight: .regular),
         ])
         
         lblPrivacy.textAlignment = .center

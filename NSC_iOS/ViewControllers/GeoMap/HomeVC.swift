@@ -73,43 +73,8 @@ class CampListVC: BaseViewController {
     
     override func setupData() {
         
-        if BannerImage.trim.count > 0, let strUrl = BannerImage.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed), let imgUrl = URL(string: strUrl) {
-            imgBanner.sd_setImage(with: imgUrl, completed: nil)
-            tableView.tableHeaderView = tableHeaderView
-            tableView.reloadData()
-        } else {
-            tableView.tableHeaderView = UIView()
-        }
-        
-        if arrayCurrentCampList.count > 0 || arrayUpcomingCampList.count > 0 {
-            btnApplyNow.isHidden = true
-            lblNoData.isHidden = true
-            tableView.isHidden = false
-        } else {
-            btnApplyNow.isHidden = false
-            lblNoData.isHidden = false
-            tableView.isHidden = true
-        }
-        
-        tableView.reloadData()
     }
-    
-    override func handleRefresh(_ refreshControl: UIRefreshControl) {
-        self.refreshData()
-        refreshControl.endRefreshing()
-    }
-    
-    override func refreshData() {
-        let campListViewModel = CampListViewModel()
-        campListViewModel.callCampListAPI(completion: { success in
-            if success {
-                self.BannerImage = campListViewModel.BannerImage
-                self.arrayCurrentCampList = campListViewModel.arrayCurrentCampList
-                self.arrayUpcomingCampList = campListViewModel.arrayUpcomingCampList
-            }
-            self.setupData()
-        })
-    }
+
     
     //MARK:- ACTION
     @IBAction func userMenuClicked(_ sender: UIButton) {
@@ -117,20 +82,8 @@ class CampListVC: BaseViewController {
         navigationController?.pushViewController(aVC, animated: true)
     }
     
-    @IBAction func notificationClicked(_ sender: UIButton) {
-        let aVC = AppStoryBoard.main.viewController(viewControllerClass:NotificationVC.self)
-        self.navigationController?.pushViewController(aVC, animated: true)
-    }
-    
-    @IBAction func applyNowClicked(_ sender: UIButton) {
-        let aVC = AppStoryBoard.main.viewController(viewControllerClass: ApplyForCampVC.self)
-        self.navigationController?.pushViewController(aVC, animated: true)
-    }
-    
-    @IBAction func bannerClicked(_ sender: UIButton) {
-        let aVC = AppStoryBoard.main.viewController(viewControllerClass: ReferVC.self)
-        self.navigationController?.pushViewController(aVC, animated: true)
-    }
+  
+  
     
 }
 
@@ -183,17 +136,7 @@ extension CampListVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.section == 0 {
-            let aVC = AppStoryBoard.main.viewController(viewControllerClass:CampDetailVC.self)
-            aVC.strCampID = arrayCurrentCampList[indexPath.row].CampId
-            aVC.campDetails = arrayCurrentCampList[indexPath.row]
-            self.navigationController?.pushViewController(aVC, animated: true)
-        } else {
-            let aVC = AppStoryBoard.main.viewController(viewControllerClass:CampDetailVC.self)
-            aVC.strCampID = arrayUpcomingCampList[indexPath.row].CampId
-            aVC.campDetails = arrayUpcomingCampList[indexPath.row]
-            self.navigationController?.pushViewController(aVC, animated: true)
-        }
+       
     }
     
 }

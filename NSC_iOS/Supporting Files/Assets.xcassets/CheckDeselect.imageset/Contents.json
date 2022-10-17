@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "CheckDeselect.png",
+      "filename" : "Group 21@1x.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "CheckDeselect@2x.png",
+      "filename" : "Group 21@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "CheckDeselect@3x.png",
+      "filename" : "Group 21@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

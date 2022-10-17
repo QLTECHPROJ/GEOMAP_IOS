@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "CheckSelect.png",
+      "filename" : "Ellipse 5@1x.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "CheckSelect@2x.png",
+      "filename" : "Ellipse 5@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "CheckSelect@3x.png",
+      "filename" : "Ellipse 5@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

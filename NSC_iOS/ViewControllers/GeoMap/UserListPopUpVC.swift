@@ -61,18 +61,15 @@ extension UserListPopUpVC : UITableViewDelegate, UITableViewDataSource {
             aVC.isFromEdit = true
             self.navigationController?.pushViewController(aVC, animated: true)
         } else if indexPath.row == 2 {
-            let aVC = AppStoryBoard.main.viewController(viewControllerClass: PersonalDetailsVC.self)
+            let aVC = AppStoryBoard.main.viewController(viewControllerClass: UGGeoAttributeVC.self)
             aVC.isFromEdit = true
             self.navigationController?.pushViewController(aVC, animated: true)
         } else if indexPath.row == 3 {
-            let aVC = AppStoryBoard.main.viewController(viewControllerClass: EarningVC.self)
-            self.navigationController?.pushViewController(aVC, animated: true)
+           
         } else if indexPath.row == 4 {
-            let aVC = AppStoryBoard.main.viewController(viewControllerClass: ApplyForCampVC.self)
-            self.navigationController?.pushViewController(aVC, animated: true)
+          
         } else if indexPath.row == 5 {
-            let aVC = AppStoryBoard.main.viewController(viewControllerClass: ReferVC.self)
-            self.navigationController?.pushViewController(aVC, animated: true)
+          
         } else if indexPath.row == 6 {
             if checkInternet(showToast: true) == false {
                 return

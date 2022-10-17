@@ -21,7 +21,6 @@ class ProfileVC: BaseViewController {
     @IBOutlet weak var txtFEmailAdd: UITextField!
     
     // UIButton
-    @IBOutlet weak var btnCountryCode: UIButton!
     @IBOutlet weak var btnConfirm: UIButton!
     @IBOutlet weak var btnUpdate: UIButton!
     
@@ -41,131 +40,18 @@ class ProfileVC: BaseViewController {
     // MARK: - VIEW LIFE CYCLE
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        imgUser.contentMode = .scaleAspectFill
-        btnConfirm.isHidden = true
-        
-        setupUI()
-        setupData()
-        
-        self.fetchCoachDetails {
-            self.setupData()
-        }
+       
     }
     
     
     // MARK: - FUNCTIONS
     override func setupUI() {
-        lblErrName.isHidden = true
-        lblErrMobileNo.isHidden = true
-        lblErrEmail.isHidden = true
-        lblErrLastName.isHidden = true
         
-        txtFMobileNo.isEnabled = false
-        txtFEmailAdd.isEnabled = false
-        
-        DispatchQueue.main.async {
-            self.btnCountryCode.setTitleColor(Theme.colors.gray_7E7E7E, for: .normal)
-            self.txtFMobileNo.textColor = Theme.colors.gray_7E7E7E
-            self.txtFEmailAdd.textColor = Theme.colors.gray_7E7E7E
-        }
-        
-        DispatchQueue.main.async {
-            self.btnUpdate.borderColor = UIColor.clear
-            self.btnUpdate.setTitleColor(.white, for: .normal)
-        }
     }
     
     override func setupData() {
-        let countryText = AppVersionDetails.countryShortName + " " + "+" + AppVersionDetails.countryCode
-        btnCountryCode.setTitle(countryText, for: .normal)
-        
-        if let userData = LoginDataModel.currentUser {
-            txtFMobileNo.text = userData.Mobile
-            txtFName.text = userData.Fname
-            txtLName.text = userData.Lname
-            txtFEmailAdd.text = userData.Email
-            
-            imgUser.loadUserProfileImage(fontSize: 50)
-            strImage = userData.Profile_Image
-        }
-        
-        buttonEnableDisable()
+      
     }
-    
-    override func buttonEnableDisable() {
-        var shouldEnable = false
-        
-        if LoginDataModel.currentUser?.Fname != txtFName.text && txtFName.text?.trim.count != 0 {
-            shouldEnable = true
-        }
-        
-        if LoginDataModel.currentUser?.Lname != txtLName.text && txtLName.text?.trim.count != 0 {
-            shouldEnable = true
-        }
-        
-        if LoginDataModel.currentUser?.Profile_Image != strImage && strImage?.trim.count != 0 {
-            shouldEnable = true
-        }
-        
-        
-        if shouldEnable {
-            btnConfirm.isUserInteractionEnabled = false
-            btnConfirm.backgroundColor = Theme.colors.gray_7E7E7E
-            
-            btnUpdate.isUserInteractionEnabled = true
-            btnUpdate.backgroundColor = Theme.colors.theme_dark
-        } else {
-            btnConfirm.isUserInteractionEnabled = true
-            btnConfirm.backgroundColor = Theme.colors.theme_dark
-            
-            btnUpdate.isUserInteractionEnabled = false
-            btnUpdate.backgroundColor = Theme.colors.gray_7E7E7E
-        }
-    }
-    
-    func checkValidation() -> Bool {
-        var isValid = true
-        let strMobile = txtFMobileNo.text?.trim ?? ""
-        if txtFName.text?.trim.count == 0 {
-            isValid = false
-            lblErrName.isHidden = false
-            lblErrName.text = Theme.strings.alert_blank_firstname_error
-        }
-        
-        if txtLName.text?.trim.count == 0 {
-            isValid = false
-            lblErrLastName.isHidden = false
-            lblErrLastName.text = Theme.strings.alert_blank_lastname_error
-        }
-        
-        if strMobile.count == 0 {
-            isValid = false
-            self.lblErrMobileNo.isHidden = false
-            self.lblErrMobileNo.text = Theme.strings.alert_invalid_mobile_error
-        } else if strMobile.count < AppVersionDetails.mobileMinDigits || strMobile.count > AppVersionDetails.mobileMaxDigits {
-            isValid = false
-            self.lblErrMobileNo.isHidden = false
-            self.lblErrMobileNo.text = Theme.strings.alert_invalid_mobile_error
-        } else if strMobile.isPhoneNumber == false {
-            isValid = false
-            lblErrMobileNo.isHidden = false
-            lblErrMobileNo.text = Theme.strings.alert_invalid_mobile_error
-        }
-        
-        if txtFEmailAdd.text?.trim.count == 0 {
-            isValid = false
-            lblErrEmail.isHidden = false
-            lblErrEmail.text = Theme.strings.alert_invalid_email_error
-        } else if !txtFEmailAdd.text!.isValidEmail {
-            isValid = false
-            lblErrEmail.isHidden = false
-            lblErrEmail.text = Theme.strings.alert_invalid_email_error
-        }
-        
-        return isValid
-    }
-    
     
     //MARK:- IMAGE UPLOAD
     func handleImageOptions(buttonTitle : String) {
@@ -212,26 +98,7 @@ class ProfileVC: BaseViewController {
     }
     
     @IBAction func updateClicked(_ sender: UIButton) {
-        self.view.endEditing(true)
-        
-        if checkValidation() {
-            lblErrName.isHidden = true
-            lblErrMobileNo.isHidden = true
-            lblErrEmail.isHidden = true
-            lblErrLastName.isHidden = true
-            
-            let parameters = ["coachId":LoginDataModel.currentUser?.ID ?? "",
-                              "fname":txtFName.text ?? "",
-                              "lname":txtLName.text ?? ""]
-            
-            let profileVM = ProfileViewModel()
-            profileVM.callProfileUpdateAPI(parameters: parameters, uploadParameters: [imageData]) { success in
-                if success {
-                    self.fetchCoachDetails()
-                    self.navigationController?.popViewController(animated: true)
-                }
-            }
-        }
+       
     }
     
     @IBAction func editClicked(_ sender: UIButton) {
