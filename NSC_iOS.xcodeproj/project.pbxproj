@@ -285,6 +285,18 @@
 		9A53D4CA281929B500226853 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A53D4C9281929B500226853 /* HomeVC.swift */; };
 		9A53D4CD28192BE400226853 /* CampListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A53D4CB28192BE400226853 /* CampListCell.swift */; };
 		9A53D4CE28192BE400226853 /* CampListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A53D4CC28192BE400226853 /* CampListCell.xib */; };
+		9A694A9A28FE5BBF000AC3C7 /* SupportPopupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A694A9928FE5BBF000AC3C7 /* SupportPopupVC.swift */; };
+		9A694A9B28FE5BBF000AC3C7 /* SupportPopupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A694A9928FE5BBF000AC3C7 /* SupportPopupVC.swift */; };
+		9A694A9D28FE5BEA000AC3C7 /* FAQListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A694A9C28FE5BEA000AC3C7 /* FAQListVC.swift */; };
+		9A694A9E28FE5BEA000AC3C7 /* FAQListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A694A9C28FE5BEA000AC3C7 /* FAQListVC.swift */; };
+		9A694AA128FE5C3C000AC3C7 /* FAQCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A694A9F28FE5C3B000AC3C7 /* FAQCell.swift */; };
+		9A694AA228FE5C3C000AC3C7 /* FAQCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A694A9F28FE5C3B000AC3C7 /* FAQCell.swift */; };
+		9A694AA328FE5C3C000AC3C7 /* FAQCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A694AA028FE5C3C000AC3C7 /* FAQCell.xib */; };
+		9A694AA428FE5C3C000AC3C7 /* FAQCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A694AA028FE5C3C000AC3C7 /* FAQCell.xib */; };
+		9A694AA828FE60F8000AC3C7 /* FAQModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A694AA628FE60F8000AC3C7 /* FAQModel.swift */; };
+		9A694AA928FE60F8000AC3C7 /* FAQModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A694AA628FE60F8000AC3C7 /* FAQModel.swift */; };
+		9A694AAA28FE60F8000AC3C7 /* FAQViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A694AA728FE60F8000AC3C7 /* FAQViewModel.swift */; };
+		9A694AAB28FE60F8000AC3C7 /* FAQViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A694AA728FE60F8000AC3C7 /* FAQViewModel.swift */; };
 		9A7740B6282B8927000BDC8C /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A7740B5282B8927000BDC8C /* ProfileViewModel.swift */; };
 		9A7740B7282B8927000BDC8C /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A7740B5282B8927000BDC8C /* ProfileViewModel.swift */; };
 		9A7740B9282BB7A1000BDC8C /* UploaddataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A7740B8282BB7A1000BDC8C /* UploaddataModel.swift */; };
@@ -481,6 +493,12 @@
 		9A53D4C9281929B500226853 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		9A53D4CB28192BE400226853 /* CampListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampListCell.swift; sourceTree = "<group>"; };
 		9A53D4CC28192BE400226853 /* CampListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CampListCell.xib; sourceTree = "<group>"; };
+		9A694A9928FE5BBF000AC3C7 /* SupportPopupVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SupportPopupVC.swift; sourceTree = "<group>"; };
+		9A694A9C28FE5BEA000AC3C7 /* FAQListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FAQListVC.swift; sourceTree = "<group>"; };
+		9A694A9F28FE5C3B000AC3C7 /* FAQCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FAQCell.swift; sourceTree = "<group>"; };
+		9A694AA028FE5C3C000AC3C7 /* FAQCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FAQCell.xib; sourceTree = "<group>"; };
+		9A694AA628FE60F8000AC3C7 /* FAQModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FAQModel.swift; sourceTree = "<group>"; };
+		9A694AA728FE60F8000AC3C7 /* FAQViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FAQViewModel.swift; sourceTree = "<group>"; };
 		9A7740B5282B8927000BDC8C /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		9A7740B8282BB7A1000BDC8C /* UploaddataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploaddataModel.swift; sourceTree = "<group>"; };
 		9A96F94528F96BE200879A89 /* SyncDataVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncDataVC.swift; sourceTree = "<group>"; };
@@ -763,6 +781,7 @@
 		28ED596928225F940035402F /* Models + ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				9A694AA528FE60F8000AC3C7 /* FAQ */,
 				28ABEDB22833BAC6001C3911 /* CampDays */,
 				9A7740B4282B87FF000BDC8C /* Profile */,
 				282ACD6B282BD8B0005A8634 /* CampDetail */,
@@ -987,6 +1006,15 @@
 			path = DeleteCoach;
 			sourceTree = "<group>";
 		};
+		9A694AA528FE60F8000AC3C7 /* FAQ */ = {
+			isa = PBXGroup;
+			children = (
+				9A694AA628FE60F8000AC3C7 /* FAQModel.swift */,
+				9A694AA728FE60F8000AC3C7 /* FAQViewModel.swift */,
+			);
+			path = FAQ;
+			sourceTree = "<group>";
+		};
 		9A7740B4282B87FF000BDC8C /* Profile */ = {
 			isa = PBXGroup;
 			children = (
@@ -1015,6 +1043,8 @@
 		9AE6D6EC28F9321F008C41C9 /* GeoMap */ = {
 			isa = PBXGroup;
 			children = (
+				9A694A9C28FE5BEA000AC3C7 /* FAQListVC.swift */,
+				9A694A9928FE5BBF000AC3C7 /* SupportPopupVC.swift */,
 				9AE824352817DF8800A29373 /* LoginVC.swift */,
 				9AE824342817DF8800A29373 /* SplashVC.swift */,
 				28470DAD281C0ED700FE9C66 /* DescriptionPopupVC.swift */,
@@ -1041,6 +1071,8 @@
 		9AE824412817E25B00A29373 /* TableCell */ = {
 			isa = PBXGroup;
 			children = (
+				9A694A9F28FE5C3B000AC3C7 /* FAQCell.swift */,
+				9A694AA028FE5C3C000AC3C7 /* FAQCell.xib */,
 				9AD5ED9E2824EC1400E0A11F /* UserListCell.swift */,
 				9AD5ED9D2824EC1300E0A11F /* UserListCell.xib */,
 				9AE8243E2817E25200A29373 /* ListItemCell.swift */,
@@ -1176,6 +1208,7 @@
 				9A9AB9F428FD44C200C0812D /* Inter-Medium.ttf in Resources */,
 				282C337C2819617D009401FD /* CampListCell.xib in Resources */,
 				282C337F2819617D009401FD /* LaunchScreen.storyboard in Resources */,
+				9A694AA428FE5C3C000AC3C7 /* FAQCell.xib in Resources */,
 				28ABEDB82833C0D0001C3911 /* DayListCell.xib in Resources */,
 				9A9ABA0228FD44C200C0812D /* Inter-Black.ttf in Resources */,
 				282C33812819617D009401FD /* Assets.xcassets in Resources */,
@@ -1208,6 +1241,7 @@
 				9A9AB9F328FD44C200C0812D /* Inter-Medium.ttf in Resources */,
 				28A9C4282817C09A001B252F /* LaunchScreen.storyboard in Resources */,
 				28A9C4182817B7CA001B252F /* Assets.xcassets in Resources */,
+				9A694AA328FE5C3C000AC3C7 /* FAQCell.xib in Resources */,
 				28ABEDB72833C0D0001C3911 /* DayListCell.xib in Resources */,
 				9A9ABA0128FD44C200C0812D /* Inter-Black.ttf in Resources */,
 				28F3C254281A5CC80092A077 /* KidsAttendenceCell.xib in Resources */,
@@ -1356,6 +1390,7 @@
 				28F830DF281977F000CAF99C /* UIColor+Extension.swift in Sources */,
 				28D1A5B72823FBB200B3A179 /* CoachStatusModel.swift in Sources */,
 				281AAE42281AA3B40070D758 /* ListDataModel.swift in Sources */,
+				9A694AA228FE5C3C000AC3C7 /* FAQCell.swift in Sources */,
 				284C3194282681B300F8A63B /* ListItemVC.swift in Sources */,
 				28F830FB281977F000CAF99C /* UITableView+Extension.swift in Sources */,
 				28F83137281977F000CAF99C /* WhereAmIRunning.swift in Sources */,
@@ -1409,7 +1444,9 @@
 				28C8DA2C2822B7590048A172 /* LoginModel.swift in Sources */,
 				28F830D7281977F000CAF99C /* DJTextField.swift in Sources */,
 				289B6A332889367A0095FE32 /* UGListVC.swift in Sources */,
+				9A694A9E28FE5BEA000AC3C7 /* FAQListVC.swift in Sources */,
 				28F83107281977F000CAF99C /* KDCircularProgress.swift in Sources */,
+				9A694AAB28FE60F8000AC3C7 /* FAQViewModel.swift in Sources */,
 				28F830E9281977F000CAF99C /* DJContants.swift in Sources */,
 				28F830D5281977F000CAF99C /* DJTextView.swift in Sources */,
 				281AAE50281AA7870070D758 /* Constants.swift in Sources */,
@@ -1450,6 +1487,7 @@
 				2813A0232835089900E6194D /* ApplyForACampModel.swift in Sources */,
 				28F830F1281977F000CAF99C /* UINavigationBar+Extension.swift in Sources */,
 				2804E3A12819847D00AF4A62 /* NSCalendar+Timepiece.swift in Sources */,
+				9A694A9B28FE5BBF000AC3C7 /* SupportPopupVC.swift in Sources */,
 				2813A0112834DBBC00E6194D /* EarningModel.swift in Sources */,
 				28470DAC281C0CC500FE9C66 /* AlertPopUpVC.swift in Sources */,
 				9A96F94728F96BE200879A89 /* SyncDataVC.swift in Sources */,
@@ -1479,6 +1517,7 @@
 				289B6A362889368D0095FE32 /* NotificationListViewModel.swift in Sources */,
 				28F8312D281977F000CAF99C /* AnimationFrames.swift in Sources */,
 				28ED59712822601C0035402F /* LoginCheckModel.swift in Sources */,
+				9A694AA928FE60F8000AC3C7 /* FAQModel.swift in Sources */,
 				28F830D3281977F000CAF99C /* DJCheckBox.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1497,6 +1536,7 @@
 				28D1A5B62823FBB200B3A179 /* CoachStatusModel.swift in Sources */,
 				281AAE41281AA3B40070D758 /* ListDataModel.swift in Sources */,
 				284C3193282681B300F8A63B /* ListItemVC.swift in Sources */,
+				9A694AA128FE5C3C000AC3C7 /* FAQCell.swift in Sources */,
 				28F830DE281977F000CAF99C /* UIColor+Extension.swift in Sources */,
 				28F830FA281977F000CAF99C /* UITableView+Extension.swift in Sources */,
 				28F8316328197B0600CAF99C /* String+Timepiece.swift in Sources */,
@@ -1550,7 +1590,9 @@
 				28F83106281977F000CAF99C /* KDCircularProgress.swift in Sources */,
 				289B6A29288934B40095FE32 /* UGListVC.swift in Sources */,
 				28F8315F28197B0600CAF99C /* NSDateComponents+Timepiece.swift in Sources */,
+				9A694A9D28FE5BEA000AC3C7 /* FAQListVC.swift in Sources */,
 				28F830E8281977F000CAF99C /* DJContants.swift in Sources */,
+				9A694AAA28FE60F8000AC3C7 /* FAQViewModel.swift in Sources */,
 				28F3C253281A5CC80092A077 /* KidsAttendenceCell.swift in Sources */,
 				28F830D4281977F000CAF99C /* DJTextView.swift in Sources */,
 				28F8312A281977F000CAF99C /* BackspaceTextField.swift in Sources */,
@@ -1591,6 +1633,7 @@
 				28F83130281977F000CAF99C /* AppConstants.swift in Sources */,
 				28470DAB281C0CC500FE9C66 /* AlertPopUpVC.swift in Sources */,
 				2813A0102834DBBC00E6194D /* EarningModel.swift in Sources */,
+				9A694A9A28FE5BBF000AC3C7 /* SupportPopupVC.swift in Sources */,
 				28F83142281977F000CAF99C /* ReadMore_Helper.swift in Sources */,
 				282ACD66282BB898005A8634 /* CampDetailViewModel.swift in Sources */,
 				9A96F94628F96BE200879A89 /* SyncDataVC.swift in Sources */,
@@ -1620,6 +1663,7 @@
 				289B6A31288934E10095FE32 /* NotificationListViewModel.swift in Sources */,
 				28F8312C281977F000CAF99C /* AnimationFrames.swift in Sources */,
 				28ED59702822601C0035402F /* LoginCheckModel.swift in Sources */,
+				9A694AA828FE60F8000AC3C7 /* FAQModel.swift in Sources */,
 				28F830D2281977F000CAF99C /* DJCheckBox.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

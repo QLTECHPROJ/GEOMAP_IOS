@@ -39,14 +39,17 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="MY6-40-aFh">
                                                 <rect key="frame" x="0.0" y="0.0" width="323" height="18.5"/>
                                                 <subviews>
-                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem Ipsum is simply dummy text" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ctc-3f-dwm">
-                                                        <rect key="frame" x="0.0" y="0.0" width="263" height="18.5"/>
+                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem Ipsum is simply" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ctc-3f-dwm">
+                                                        <rect key="frame" x="0.0" y="0.0" width="243" height="18.5"/>
                                                         <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="15"/>
                                                         <color key="textColor" name="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="14 July 2022" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JWG-dH-IjR">
-                                                        <rect key="frame" x="263" y="0.0" width="60" height="18.5"/>
+                                                        <rect key="frame" x="243" y="0.0" width="80" height="18.5"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="80" id="bKb-Sc-9m5"/>
+                                                        </constraints>
                                                         <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="12"/>
                                                         <color key="textColor" name="textColor"/>
                                                         <nil key="highlightedColor"/>

@@ -1751,7 +1751,7 @@ QXJlIHlvdSBzdXJlIHlvdSB3YW50IHRvIGRlbGV0ZQtTZWxmLWRldmVsb3BtZW50IHBsYXlsaXN0Pw
                                                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Mineralization 1" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="npF-Qs-Eaq">
                                                                                 <rect key="frame" x="16" y="8" width="277" height="50"/>
                                                                                 <color key="textColor" name="textColor"/>
-                                                                                <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="16"/>
+                                                                                <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="16"/>
                                                                                 <textInputTraits key="textInputTraits"/>
                                                                                 <connections>
                                                                                     <outlet property="delegate" destination="8cL-ed-1cb" id="UjM-nq-nUt"/>
@@ -2578,11 +2578,25 @@ QXJlIHlvdSBzdXJlIHlvdSB3YW50IHRvIGRlbGV0ZQtTZWxmLWRldmVsb3BtZW50IHBsYXlsaXN0Pw
                                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cob-Sx-23B">
                                                                         <rect key="frame" x="0.0" y="0.0" width="343" height="66"/>
                                                                         <subviews>
-                                                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Y cordinate" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0RR-xW-3Qh">
+                                                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Y cordinate" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0RR-xW-3Qh" customClass="ACFloatingTextfield" customModule="ACFloatingTextfield_Swift">
                                                                                 <rect key="frame" x="16" y="8" width="311" height="50"/>
                                                                                 <color key="textColor" name="textColor"/>
                                                                                 <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="16"/>
                                                                                 <textInputTraits key="textInputTraits"/>
+                                                                                <userDefinedRuntimeAttributes>
+                                                                                    <userDefinedRuntimeAttribute type="color" keyPath="lineColor">
+                                                                                        <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                    </userDefinedRuntimeAttribute>
+                                                                                    <userDefinedRuntimeAttribute type="color" keyPath="selectedLineColor">
+                                                                                        <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                    </userDefinedRuntimeAttribute>
+                                                                                    <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
+                                                                                        <color key="value" name="7E7E7E"/>
+                                                                                    </userDefinedRuntimeAttribute>
+                                                                                    <userDefinedRuntimeAttribute type="color" keyPath="selectedPlaceHolderColor">
+                                                                                        <color key="value" name="theme_dark"/>
+                                                                                    </userDefinedRuntimeAttribute>
+                                                                                </userDefinedRuntimeAttributes>
                                                                                 <connections>
                                                                                     <outlet property="delegate" destination="8cL-ed-1cb" id="jDe-N8-kI0"/>
                                                                                 </connections>
@@ -3806,17 +3820,17 @@ Mapping Report Details</string>
                                                                         <rect key="frame" x="0.0" y="0.0" width="343" height="66"/>
                                                                         <subviews>
                                                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shift" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SHE-Gu-1g2">
-                                                                                <rect key="frame" x="16" y="0.0" width="327" height="20.333333333333332"/>
+                                                                                <rect key="frame" x="16" y="4" width="327" height="20.333333333333332"/>
                                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                 <color key="textColor" name="999999"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="eFr-G0-oa5">
-                                                                                <rect key="frame" x="0.0" y="20.333333333333311" width="343" height="45.666666666666657"/>
+                                                                                <rect key="frame" x="0.0" y="24.333333333333311" width="343" height="41.666666666666657"/>
                                                                                 <subviews>
                                                                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bje-nf-E2S">
-                                                                                        <rect key="frame" x="0.0" y="0.0" width="171.66666666666666" height="45.666666666666664"/>
+                                                                                        <rect key="frame" x="0.0" y="0.0" width="171.66666666666666" height="41.666666666666664"/>
                                                                                         <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="16"/>
                                                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                                         <state key="normal" title="   Night Shift" image="Approve">
@@ -3827,7 +3841,7 @@ Mapping Report Details</string>
                                                                                         </connections>
                                                                                     </button>
                                                                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fss-dS-Ckj">
-                                                                                        <rect key="frame" x="171.66666666666663" y="0.0" width="171.33333333333337" height="45.666666666666664"/>
+                                                                                        <rect key="frame" x="171.66666666666663" y="0.0" width="171.33333333333337" height="41.666666666666664"/>
                                                                                         <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="16"/>
                                                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                                         <state key="normal" title="   Day Shift" image="Approve">
@@ -3843,7 +3857,7 @@ Mapping Report Details</string>
                                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="trailing" secondItem="eFr-G0-oa5" secondAttribute="trailing" id="0HR-5J-F1C"/>
-                                                                            <constraint firstItem="SHE-Gu-1g2" firstAttribute="top" secondItem="sPB-vS-iYE" secondAttribute="top" id="39R-CS-OXj"/>
+                                                                            <constraint firstItem="SHE-Gu-1g2" firstAttribute="top" secondItem="sPB-vS-iYE" secondAttribute="top" constant="4" id="39R-CS-OXj"/>
                                                                             <constraint firstAttribute="bottom" secondItem="eFr-G0-oa5" secondAttribute="bottom" id="4qM-IL-LNl"/>
                                                                             <constraint firstItem="eFr-G0-oa5" firstAttribute="top" secondItem="SHE-Gu-1g2" secondAttribute="bottom" id="5dm-aE-fah"/>
                                                                             <constraint firstAttribute="trailing" secondItem="SHE-Gu-1g2" secondAttribute="trailing" id="61x-M1-tBH"/>
@@ -4676,11 +4690,25 @@ Mapping Report Details</string>
                                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pzb-KB-DdD" customClass="ACFloatingTextfield" customModule="ACFloatingTextfield_Swift">
                                                                         <rect key="frame" x="0.0" y="0.0" width="343" height="66"/>
                                                                         <subviews>
-                                                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Observed Grade of ore" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4PV-fG-JPH">
+                                                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Observed Grade of ore" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4PV-fG-JPH" customClass="ACFloatingTextfield" customModule="ACFloatingTextfield_Swift">
                                                                                 <rect key="frame" x="16" y="8" width="311" height="50"/>
                                                                                 <color key="textColor" name="textColor"/>
                                                                                 <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="16"/>
                                                                                 <textInputTraits key="textInputTraits"/>
+                                                                                <userDefinedRuntimeAttributes>
+                                                                                    <userDefinedRuntimeAttribute type="color" keyPath="selectedLineColor">
+                                                                                        <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                    </userDefinedRuntimeAttribute>
+                                                                                    <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
+                                                                                        <color key="value" name="7E7E7E"/>
+                                                                                    </userDefinedRuntimeAttribute>
+                                                                                    <userDefinedRuntimeAttribute type="color" keyPath="selectedPlaceHolderColor">
+                                                                                        <color key="value" name="theme_dark"/>
+                                                                                    </userDefinedRuntimeAttribute>
+                                                                                    <userDefinedRuntimeAttribute type="color" keyPath="lineColor">
+                                                                                        <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                    </userDefinedRuntimeAttribute>
+                                                                                </userDefinedRuntimeAttributes>
                                                                                 <connections>
                                                                                     <outlet property="delegate" destination="8cL-ed-1cb" id="W9q-PJ-yZt"/>
                                                                                 </connections>
@@ -4749,7 +4777,7 @@ Mapping Report Details</string>
                                                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Sample Collected" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="E14-Oe-J9J" customClass="ACFloatingTextfield" customModule="ACFloatingTextfield_Swift">
                                                                                 <rect key="frame" x="16" y="8" width="311" height="50"/>
                                                                                 <color key="textColor" name="textColor"/>
-                                                                                <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="16"/>
+                                                                                <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="16"/>
                                                                                 <textInputTraits key="textInputTraits"/>
                                                                                 <userDefinedRuntimeAttributes>
                                                                                     <userDefinedRuntimeAttribute type="color" keyPath="lineColor">
@@ -4911,11 +4939,25 @@ Mapping Report Details</string>
                                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Idr-c5-HOX">
                                                                         <rect key="frame" x="0.0" y="0.0" width="343" height="66"/>
                                                                         <subviews>
-                                                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Weathering" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8a0-bz-X4f">
+                                                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Weathering" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8a0-bz-X4f" customClass="ACFloatingTextfield" customModule="ACFloatingTextfield_Swift">
                                                                                 <rect key="frame" x="16" y="8" width="311" height="50"/>
                                                                                 <color key="textColor" name="textColor"/>
-                                                                                <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="16"/>
+                                                                                <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="16"/>
                                                                                 <textInputTraits key="textInputTraits"/>
+                                                                                <userDefinedRuntimeAttributes>
+                                                                                    <userDefinedRuntimeAttribute type="color" keyPath="selectedLineColor">
+                                                                                        <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                    </userDefinedRuntimeAttribute>
+                                                                                    <userDefinedRuntimeAttribute type="color" keyPath="lineColor">
+                                                                                        <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                    </userDefinedRuntimeAttribute>
+                                                                                    <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
+                                                                                        <color key="value" name="7E7E7E"/>
+                                                                                    </userDefinedRuntimeAttribute>
+                                                                                    <userDefinedRuntimeAttribute type="color" keyPath="selectedPlaceHolderColor">
+                                                                                        <color key="value" name="theme_dark"/>
+                                                                                    </userDefinedRuntimeAttribute>
+                                                                                </userDefinedRuntimeAttributes>
                                                                                 <connections>
                                                                                     <outlet property="delegate" destination="8cL-ed-1cb" id="L39-kb-Lg6"/>
                                                                                 </connections>
@@ -4991,11 +5033,25 @@ Mapping Report Details</string>
                                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NWi-7b-WH1">
                                                                         <rect key="frame" x="0.0" y="0.0" width="343" height="66"/>
                                                                         <subviews>
-                                                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Rock Strength" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8Ve-p5-OE1">
+                                                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Rock Strength" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8Ve-p5-OE1" customClass="ACFloatingTextfield" customModule="ACFloatingTextfield_Swift">
                                                                                 <rect key="frame" x="16" y="8" width="311" height="50"/>
                                                                                 <color key="textColor" name="textColor"/>
-                                                                                <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="16"/>
+                                                                                <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="16"/>
                                                                                 <textInputTraits key="textInputTraits"/>
+                                                                                <userDefinedRuntimeAttributes>
+                                                                                    <userDefinedRuntimeAttribute type="color" keyPath="lineColor">
+                                                                                        <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                    </userDefinedRuntimeAttribute>
+                                                                                    <userDefinedRuntimeAttribute type="color" keyPath="selectedLineColor">
+                                                                                        <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                    </userDefinedRuntimeAttribute>
+                                                                                    <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
+                                                                                        <color key="value" name="7E7E7E"/>
+                                                                                    </userDefinedRuntimeAttribute>
+                                                                                    <userDefinedRuntimeAttribute type="color" keyPath="selectedPlaceHolderColor">
+                                                                                        <color key="value" name="theme_dark"/>
+                                                                                    </userDefinedRuntimeAttribute>
+                                                                                </userDefinedRuntimeAttributes>
                                                                                 <connections>
                                                                                     <outlet property="delegate" destination="8cL-ed-1cb" id="usJ-Sn-TRK"/>
                                                                                 </connections>
@@ -5071,11 +5127,25 @@ Mapping Report Details</string>
                                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="raA-i7-IJL">
                                                                         <rect key="frame" x="0.0" y="0.0" width="343" height="66"/>
                                                                         <subviews>
-                                                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Water Condition" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HC6-NH-NXy">
+                                                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Water Condition" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HC6-NH-NXy" customClass="ACFloatingTextfield" customModule="ACFloatingTextfield_Swift">
                                                                                 <rect key="frame" x="16" y="8" width="311" height="50"/>
                                                                                 <color key="textColor" name="textColor"/>
-                                                                                <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="16"/>
+                                                                                <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="16"/>
                                                                                 <textInputTraits key="textInputTraits"/>
+                                                                                <userDefinedRuntimeAttributes>
+                                                                                    <userDefinedRuntimeAttribute type="color" keyPath="lineColor">
+                                                                                        <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                    </userDefinedRuntimeAttribute>
+                                                                                    <userDefinedRuntimeAttribute type="color" keyPath="selectedLineColor">
+                                                                                        <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                    </userDefinedRuntimeAttribute>
+                                                                                    <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
+                                                                                        <color key="value" name="7E7E7E"/>
+                                                                                    </userDefinedRuntimeAttribute>
+                                                                                    <userDefinedRuntimeAttribute type="color" keyPath="selectedPlaceHolderColor">
+                                                                                        <color key="value" name="theme_dark"/>
+                                                                                    </userDefinedRuntimeAttribute>
+                                                                                </userDefinedRuntimeAttributes>
                                                                                 <connections>
                                                                                     <outlet property="delegate" destination="8cL-ed-1cb" id="nRj-CF-rkH"/>
                                                                                 </connections>
@@ -5151,11 +5221,25 @@ Mapping Report Details</string>
                                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4ty-3u-ZYX">
                                                                         <rect key="frame" x="0.0" y="0.0" width="343" height="66"/>
                                                                         <subviews>
-                                                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Type of Geological Structures" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="osC-9C-vDF">
+                                                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Type of Geological Structures" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="osC-9C-vDF" customClass="ACFloatingTextfield" customModule="ACFloatingTextfield_Swift">
                                                                                 <rect key="frame" x="16" y="8" width="311" height="50"/>
                                                                                 <color key="textColor" name="textColor"/>
-                                                                                <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="16"/>
+                                                                                <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="16"/>
                                                                                 <textInputTraits key="textInputTraits"/>
+                                                                                <userDefinedRuntimeAttributes>
+                                                                                    <userDefinedRuntimeAttribute type="color" keyPath="lineColor">
+                                                                                        <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                    </userDefinedRuntimeAttribute>
+                                                                                    <userDefinedRuntimeAttribute type="color" keyPath="selectedLineColor">
+                                                                                        <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                    </userDefinedRuntimeAttribute>
+                                                                                    <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
+                                                                                        <color key="value" name="7E7E7E"/>
+                                                                                    </userDefinedRuntimeAttribute>
+                                                                                    <userDefinedRuntimeAttribute type="color" keyPath="selectedPlaceHolderColor">
+                                                                                        <color key="value" name="theme_dark"/>
+                                                                                    </userDefinedRuntimeAttribute>
+                                                                                </userDefinedRuntimeAttributes>
                                                                                 <connections>
                                                                                     <outlet property="delegate" destination="8cL-ed-1cb" id="w36-bi-ILc"/>
                                                                                 </connections>
@@ -5231,16 +5315,30 @@ Mapping Report Details</string>
                                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fbT-xQ-pCa">
                                                                         <rect key="frame" x="0.0" y="0.0" width="343" height="66"/>
                                                                         <subviews>
-                                                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Type of Faults" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xpZ-6p-nVP">
+                                                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Type of Faults" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xpZ-6p-nVP" customClass="ACFloatingTextfield" customModule="ACFloatingTextfield_Swift">
                                                                                 <rect key="frame" x="16" y="8" width="311" height="50"/>
                                                                                 <color key="textColor" name="textColor"/>
-                                                                                <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="16"/>
+                                                                                <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="16"/>
                                                                                 <textInputTraits key="textInputTraits"/>
+                                                                                <userDefinedRuntimeAttributes>
+                                                                                    <userDefinedRuntimeAttribute type="color" keyPath="lineColor">
+                                                                                        <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                    </userDefinedRuntimeAttribute>
+                                                                                    <userDefinedRuntimeAttribute type="color" keyPath="selectedLineColor">
+                                                                                        <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                    </userDefinedRuntimeAttribute>
+                                                                                    <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
+                                                                                        <color key="value" name="7E7E7E"/>
+                                                                                    </userDefinedRuntimeAttribute>
+                                                                                    <userDefinedRuntimeAttribute type="color" keyPath="selectedPlaceHolderColor">
+                                                                                        <color key="value" name="theme_dark"/>
+                                                                                    </userDefinedRuntimeAttribute>
+                                                                                </userDefinedRuntimeAttributes>
                                                                                 <connections>
                                                                                     <outlet property="delegate" destination="8cL-ed-1cb" id="MJS-NX-aZc"/>
                                                                                 </connections>
                                                                             </textField>
-                                                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="thI-2p-9P6">
+                                                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="thI-2p-9P6" customClass="ac">
                                                                                 <rect key="frame" x="0.0" y="8" width="343" height="49"/>
                                                                                 <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="16"/>
                                                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
@@ -5311,7 +5409,7 @@ Mapping Report Details</string>
                                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JOR-8H-t7q">
                                                                         <rect key="frame" x="0.0" y="0.0" width="343" height="100"/>
                                                                         <subviews>
-                                                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Notes" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Iay-DJ-HC8">
+                                                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Notes" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Iay-DJ-HC8">
                                                                                 <rect key="frame" x="16" y="8" width="311" height="84"/>
                                                                                 <color key="textColor" name="textColor"/>
                                                                                 <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="16"/>
@@ -5374,6 +5472,11 @@ Mapping Report Details</string>
                                                                                 <color key="textColor" name="textColor"/>
                                                                                 <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="16"/>
                                                                                 <textInputTraits key="textInputTraits"/>
+                                                                                <userDefinedRuntimeAttributes>
+                                                                                    <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
+                                                                                        <color key="value" name="7E7E7E"/>
+                                                                                    </userDefinedRuntimeAttribute>
+                                                                                </userDefinedRuntimeAttributes>
                                                                                 <connections>
                                                                                     <outlet property="delegate" destination="8cL-ed-1cb" id="IWK-7c-vIn"/>
                                                                                 </connections>
@@ -5432,6 +5535,11 @@ Mapping Report Details</string>
                                                                                 <color key="textColor" name="textColor"/>
                                                                                 <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="16"/>
                                                                                 <textInputTraits key="textInputTraits"/>
+                                                                                <userDefinedRuntimeAttributes>
+                                                                                    <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
+                                                                                        <color key="value" name="7E7E7E"/>
+                                                                                    </userDefinedRuntimeAttribute>
+                                                                                </userDefinedRuntimeAttributes>
                                                                                 <connections>
                                                                                     <outlet property="delegate" destination="8cL-ed-1cb" id="v2q-hb-AFc"/>
                                                                                 </connections>
@@ -5551,6 +5659,169 @@ Mapping Report Details</string>
             </objects>
             <point key="canvasLocation" x="3984.8000000000002" y="906.6502463054187"/>
         </scene>
+        <!--Support PopupVC-->
+        <scene sceneID="atS-Os-rfL">
+            <objects>
+                <viewController storyboardIdentifier="SupportPopupVC" id="3NS-oH-uZf" customClass="SupportPopupVC" customModule="Lobster_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zNo-43-hay">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wpf-nz-oqg">
+                                <rect key="frame" x="22" y="185" width="331" height="442"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kuz-b6-no9">
+                                        <rect key="frame" x="0.0" y="0.0" width="331" height="231"/>
+                                        <color key="backgroundColor" name="theme_dark"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="kuz-b6-no9" secondAttribute="height" multiplier="331:231" id="MSF-uo-YM4"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Support" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YKL-dK-nDO">
+                                        <rect key="frame" x="24" y="261" width="283" height="22"/>
+                                        <fontDescription key="fontDescription" name="Inter-Bold" family="Inter" pointSize="18"/>
+                                        <color key="textColor" name="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" text="Please contact support at serotonin@lobsterapp.com.au" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OsK-VS-bCk" customClass="TTTAttributedLabel">
+                                        <rect key="frame" x="16" y="293" width="291" height="39"/>
+                                        <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="16"/>
+                                        <color key="textColor" name="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t3J-BG-7fA">
+                                        <rect key="frame" x="40" y="362" width="251" height="50"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="S0J-kI-2O5"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="17"/>
+                                        <state key="normal" title="CLOSE">
+                                            <color key="titleColor" name="theme_dark"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" name="theme_dark"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="closeClickedWithSender:" destination="3NS-oH-uZf" eventType="touchUpInside" id="zjf-aX-xzr"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="t3J-BG-7fA" secondAttribute="trailing" constant="40" id="40j-Op-lZR"/>
+                                    <constraint firstItem="kuz-b6-no9" firstAttribute="centerX" secondItem="wpf-nz-oqg" secondAttribute="centerX" id="8xN-sZ-W9L"/>
+                                    <constraint firstAttribute="bottom" secondItem="t3J-BG-7fA" secondAttribute="bottom" constant="30" id="Gd3-0r-bIF"/>
+                                    <constraint firstAttribute="trailing" secondItem="OsK-VS-bCk" secondAttribute="trailing" constant="24" id="R3H-vl-KZZ"/>
+                                    <constraint firstItem="kuz-b6-no9" firstAttribute="leading" secondItem="wpf-nz-oqg" secondAttribute="leading" id="VAs-3L-ahx"/>
+                                    <constraint firstAttribute="trailing" secondItem="kuz-b6-no9" secondAttribute="trailing" id="Zre-Vz-Ec8"/>
+                                    <constraint firstItem="kuz-b6-no9" firstAttribute="top" secondItem="wpf-nz-oqg" secondAttribute="top" id="bX7-Qc-s2h"/>
+                                    <constraint firstItem="OsK-VS-bCk" firstAttribute="leading" secondItem="wpf-nz-oqg" secondAttribute="leading" constant="16" id="bX9-v0-UFp"/>
+                                    <constraint firstItem="t3J-BG-7fA" firstAttribute="top" secondItem="OsK-VS-bCk" secondAttribute="bottom" constant="30" id="ihL-XB-R5g"/>
+                                    <constraint firstItem="YKL-dK-nDO" firstAttribute="leading" secondItem="wpf-nz-oqg" secondAttribute="leading" constant="24" id="jwT-YP-Q8r"/>
+                                    <constraint firstItem="t3J-BG-7fA" firstAttribute="leading" secondItem="wpf-nz-oqg" secondAttribute="leading" constant="40" id="jwj-hf-HLg"/>
+                                    <constraint firstItem="YKL-dK-nDO" firstAttribute="top" secondItem="kuz-b6-no9" secondAttribute="bottom" constant="30" id="oRO-WZ-aVL"/>
+                                    <constraint firstAttribute="trailing" secondItem="YKL-dK-nDO" secondAttribute="trailing" constant="24" id="ubz-xx-pIG"/>
+                                    <constraint firstItem="OsK-VS-bCk" firstAttribute="top" secondItem="YKL-dK-nDO" secondAttribute="bottom" constant="10" id="yUK-1y-8iF"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="of7-nc-URx"/>
+                        <color key="backgroundColor" name="transparent_313131_80"/>
+                        <constraints>
+                            <constraint firstItem="wpf-nz-oqg" firstAttribute="centerX" secondItem="zNo-43-hay" secondAttribute="centerX" id="97w-AS-I28"/>
+                            <constraint firstItem="wpf-nz-oqg" firstAttribute="centerY" secondItem="zNo-43-hay" secondAttribute="centerY" id="N8g-xK-prA"/>
+                            <constraint firstItem="wpf-nz-oqg" firstAttribute="leading" secondItem="of7-nc-URx" secondAttribute="leading" constant="22" id="c5l-6O-GUM"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="btnClose" destination="t3J-BG-7fA" id="co8-Sx-U3u"/>
+                        <outlet property="imgView" destination="kuz-b6-no9" id="8yU-cN-rne"/>
+                        <outlet property="lblDetail" destination="OsK-VS-bCk" id="cXo-uS-ReR"/>
+                        <outlet property="lblTitle" destination="YKL-dK-nDO" id="WJE-2m-rag"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OnQ-Vn-s5y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137" y="2522"/>
+        </scene>
+        <!--ListVC-->
+        <scene sceneID="VwK-3u-9R0">
+            <objects>
+                <viewController storyboardIdentifier="FAQListVC" id="FHJ-Lq-nct" customClass="FAQListVC" customModule="Lobster_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ifU-dx-bGw">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k5A-x2-CCR">
+                                <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jhm-yc-DGA">
+                                        <rect key="frame" x="16" y="7" width="30" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="jhm-yc-DGA" secondAttribute="height" multiplier="1:1" id="MgW-rf-qk7"/>
+                                            <constraint firstAttribute="height" constant="30" id="Z6p-1H-j45"/>
+                                        </constraints>
+                                        <state key="normal" image="BackButton"/>
+                                        <connections>
+                                            <action selector="backClickedWithSender:" destination="FHJ-Lq-nct" eventType="touchUpInside" id="rnt-SE-Xvn"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FAQ" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yNe-Lq-0SZ">
+                                        <rect key="frame" x="171.66666666666666" y="12.333333333333337" width="31.666666666666657" height="19.666666666666671"/>
+                                        <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="16"/>
+                                        <color key="textColor" name="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="yNe-Lq-0SZ" firstAttribute="centerX" secondItem="k5A-x2-CCR" secondAttribute="centerX" id="0Zm-X3-uiz"/>
+                                    <constraint firstItem="yNe-Lq-0SZ" firstAttribute="centerY" secondItem="k5A-x2-CCR" secondAttribute="centerY" id="H4r-88-2be"/>
+                                    <constraint firstItem="jhm-yc-DGA" firstAttribute="leading" secondItem="k5A-x2-CCR" secondAttribute="leading" constant="16" id="Lq3-oY-5FC"/>
+                                    <constraint firstAttribute="height" constant="44" id="lzF-m1-JU6"/>
+                                    <constraint firstItem="jhm-yc-DGA" firstAttribute="centerY" secondItem="k5A-x2-CCR" secondAttribute="centerY" id="wHd-jJ-s6N"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8fw-Ev-t1j">
+                                <rect key="frame" x="0.0" y="96" width="375" height="682"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="FHJ-Lq-nct" id="vA7-tK-NBM"/>
+                                    <outlet property="delegate" destination="FHJ-Lq-nct" id="WQC-AL-Pen"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="T0N-yo-146"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="k5A-x2-CCR" firstAttribute="leading" secondItem="T0N-yo-146" secondAttribute="leading" id="AU4-5Y-fui"/>
+                            <constraint firstItem="T0N-yo-146" firstAttribute="trailing" secondItem="8fw-Ev-t1j" secondAttribute="trailing" id="NPo-Qm-wbl"/>
+                            <constraint firstItem="k5A-x2-CCR" firstAttribute="top" secondItem="T0N-yo-146" secondAttribute="top" id="Ow6-AO-bCb"/>
+                            <constraint firstItem="T0N-yo-146" firstAttribute="bottom" secondItem="8fw-Ev-t1j" secondAttribute="bottom" id="UhW-QO-xse"/>
+                            <constraint firstItem="8fw-Ev-t1j" firstAttribute="leading" secondItem="T0N-yo-146" secondAttribute="leading" id="hHH-hN-3e1"/>
+                            <constraint firstItem="k5A-x2-CCR" firstAttribute="trailing" secondItem="T0N-yo-146" secondAttribute="trailing" id="lOU-CK-lhF"/>
+                            <constraint firstItem="8fw-Ev-t1j" firstAttribute="top" secondItem="k5A-x2-CCR" secondAttribute="bottom" constant="8" symbolic="YES" id="ocz-rq-fym"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="8fw-Ev-t1j" id="j8A-8I-Rh5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lK1-QY-bmd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="878" y="2522"/>
+        </scene>
     </scenes>
     <designables>
         <designable name="2hj-Oa-dfL">
@@ -5565,17 +5836,44 @@ Mapping Report Details</string>
         <designable name="AZ4-pB-EHZ">
             <size key="intrinsicContentSize" width="52.333333333333336" height="21.333333333333332"/>
         </designable>
+        <designable name="D8g-RF-haW">
+            <size key="intrinsicContentSize" width="180.66666666666666" height="21.333333333333332"/>
+        </designable>
+        <designable name="E14-Oe-J9J">
+            <size key="intrinsicContentSize" width="136" height="21.333333333333332"/>
+        </designable>
         <designable name="HHu-Ym-avN">
             <size key="intrinsicContentSize" width="118.33333333333333" height="21.333333333333332"/>
         </designable>
         <designable name="Ibw-tb-H3g">
             <size key="intrinsicContentSize" width="86.333333333333329" height="21.333333333333332"/>
         </designable>
+        <designable name="M0l-hf-D24">
+            <size key="intrinsicContentSize" width="205.33333333333334" height="21.333333333333332"/>
+        </designable>
+        <designable name="MOA-lb-RfY">
+            <size key="intrinsicContentSize" width="248.33333333333334" height="21.333333333333332"/>
+        </designable>
+        <designable name="OsK-VS-bCk">
+            <size key="intrinsicContentSize" width="438" height="20"/>
+        </designable>
+        <designable name="Pzb-KB-DdD">
+            <size key="intrinsicContentSize" width="5" height="22"/>
+        </designable>
+        <designable name="TWv-be-eWa">
+            <size key="intrinsicContentSize" width="98" height="21.333333333333332"/>
+        </designable>
+        <designable name="Uhe-Xa-naB">
+            <size key="intrinsicContentSize" width="225.66666666666666" height="21.333333333333332"/>
+        </designable>
         <designable name="V91-7L-pQI">
             <size key="intrinsicContentSize" width="129.66666666666666" height="21.333333333333332"/>
         </designable>
         <designable name="VOL-6a-G7n">
             <size key="intrinsicContentSize" width="45" height="21.333333333333332"/>
+        </designable>
+        <designable name="Z97-wb-bCc">
+            <size key="intrinsicContentSize" width="72.333333333333329" height="21.333333333333332"/>
         </designable>
         <designable name="a1Z-XN-oiH">
             <size key="intrinsicContentSize" width="76" height="21.333333333333332"/>
@@ -5600,6 +5898,12 @@ Mapping Report Details</string>
         </designable>
         <designable name="hNU-n2-Zae">
             <size key="intrinsicContentSize" width="382" height="12"/>
+        </designable>
+        <designable name="hbI-tI-NEQ">
+            <size key="intrinsicContentSize" width="200.33333333333334" height="21.333333333333332"/>
+        </designable>
+        <designable name="i5H-Cq-pn8">
+            <size key="intrinsicContentSize" width="227.66666666666666" height="21.333333333333332"/>
         </designable>
         <designable name="i87-nE-NFP">
             <size key="intrinsicContentSize" width="42.666666666666664" height="21.333333333333332"/>

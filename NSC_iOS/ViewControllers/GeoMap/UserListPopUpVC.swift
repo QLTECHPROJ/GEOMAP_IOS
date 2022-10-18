@@ -67,13 +67,22 @@ extension UserListPopUpVC : UITableViewDelegate, UITableViewDataSource {
             self.navigationController?.pushViewController(aVC, animated: true)
            
         } else if indexPath.row == 4 {
-            openUrl(urlString:"https://nationalsportscamps.in/about-nsc")
+            let aVC = AppStoryBoard.main.viewController(viewControllerClass: FAQListVC.self)
+            self.navigationController?.pushViewController(aVC, animated: true)
           
         } else if indexPath.row == 5 {
             openUrl(urlString:"https://nationalsportscamps.in/about-nsc")
           
         }else if indexPath.row == 6 {
-            openUrl(urlString:"https://nationalsportscamps.in/about-nsc")
+            if checkInternet(showToast: true) == false {
+                return
+            }
+            
+            let aVC = AppStoryBoard.main.viewController(viewControllerClass:SupportPopupVC.self)
+            let navVC = UINavigationController(rootViewController: aVC)
+            navVC.navigationBar.isHidden = true
+            navVC.modalPresentationStyle = .overFullScreen
+            self.navigationController?.present(navVC, animated: true, completion: nil)
         }
         else if indexPath.row == 8 {
             if checkInternet(showToast: true) == false {
