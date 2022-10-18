@@ -395,7 +395,7 @@ been missed!</string>
                         <outlet property="btnGetSMSCode" destination="4mV-nY-w1W" id="W34-Et-4E6"/>
                         <outlet property="btnPassword" destination="M8E-IP-Q2D" id="pNX-v0-z3J"/>
                         <outlet property="btnUser" destination="5ef-c5-NID" id="5jt-tG-14X"/>
-                        <outlet property="lblErrMobileNo" destination="AHQ-sQ-g2f" id="0BQ-Hf-ufe"/>
+                        <outlet property="lblError" destination="AHQ-sQ-g2f" id="BOF-v9-vcI"/>
                         <outlet property="lblPrivacy" destination="hNU-n2-Zae" id="TVl-vx-dpc"/>
                         <outlet property="lblSubTitle" destination="hq2-TH-Tgi" id="Cz3-e1-5nz"/>
                         <outlet property="lblSupport" destination="hKh-Xe-zcD" id="m1e-bH-n61"/>
@@ -1235,76 +1235,73 @@ been missed!</string>
                                 <rect key="frame" x="0.0" y="44" width="375" height="734"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="m0Q-MI-nNj">
-                                        <rect key="frame" x="26" y="275.66666666666669" width="323" height="183"/>
+                                        <rect key="frame" x="26" y="242" width="323" height="250"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="dhd-Hc-DD1">
-                                                <rect key="frame" x="16" y="20" width="291" height="71"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="zJx-gb-5xr">
+                                                <rect key="frame" x="16" y="55" width="291" height="140"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="fdhbgvhdfbgfbghjf" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="anC-qL-kqs">
-                                                        <rect key="frame" x="0.0" y="0.0" width="291" height="21"/>
-                                                        <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="18"/>
-                                                        <color key="textColor" name="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="swe-SC-02O">
-                                                        <rect key="frame" x="0.0" y="36" width="291" height="35"/>
-                                                        <string key="text">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore.fvhdgjdfjhfgjkhfgjhkfghkgjf</string>
-                                                        <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="10"/>
-                                                        <color key="textColor" name="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
+                                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JvX-se-86S">
+                                                        <rect key="frame" x="0.0" y="0.0" width="291" height="60"/>
+                                                        <color key="backgroundColor" name="theme_dark"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="60" id="NJA-4S-T24"/>
+                                                        </constraints>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain" title="Add Under Ground Mapping Report">
+                                                            <fontDescription key="titleFontDescription" name="Inter-Bold" family="Inter" pointSize="14"/>
+                                                            <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </buttonConfiguration>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="16"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                <color key="value" name="theme_dark"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                <real key="value" value="1"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="ugClicked:" destination="GHQ-Xx-gCT" eventType="touchUpInside" id="dfG-eT-yhN"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Don-W7-xpS">
+                                                        <rect key="frame" x="0.0" y="80" width="291" height="60"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="60" id="i0v-m5-ngu"/>
+                                                        </constraints>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain" title="Add OpenCast Mapping Report">
+                                                            <fontDescription key="titleFontDescription" name="Inter-Bold" family="Inter" pointSize="14"/>
+                                                            <color key="baseForegroundColor" name="theme_dark"/>
+                                                        </buttonConfiguration>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="16"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                <color key="value" name="theme_dark"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                <real key="value" value="1"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="ocClicked:" destination="GHQ-Xx-gCT" eventType="touchUpInside" id="x1e-cH-Yxg"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                             </stackView>
-                                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Inc-iJ-7W3">
-                                                <rect key="frame" x="100" y="121" width="123" height="42"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="42" id="jeE-Ki-05e"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="14"/>
-                                                <state key="normal" title="CLOSE">
-                                                    <color key="titleColor" name="textColor"/>
-                                                </state>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                        <color key="value" name="textColor"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                        <real key="value" value="1"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <real key="value" value="21"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                                <connections>
-                                                    <action selector="closeClicked:" destination="GHQ-Xx-gCT" eventType="touchUpInside" id="i7n-S2-6yX"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jvx-l7-nM1">
-                                                <rect key="frame" x="263" y="121" width="40" height="42"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="40" id="7d4-gW-ljH"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="18"/>
-                                                <state key="normal" title="ok">
-                                                    <color key="titleColor" name="7E7E7E"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="okClicked:" destination="GHQ-Xx-gCT" eventType="touchUpInside" id="o7F-RI-CBY"/>
-                                                </connections>
-                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstAttribute="bottom" secondItem="Inc-iJ-7W3" secondAttribute="bottom" constant="20" id="4Pa-JL-zCf"/>
-                                            <constraint firstItem="jvx-l7-nM1" firstAttribute="top" secondItem="Inc-iJ-7W3" secondAttribute="top" id="8BQ-6h-fmU"/>
-                                            <constraint firstItem="jvx-l7-nM1" firstAttribute="bottom" secondItem="Inc-iJ-7W3" secondAttribute="bottom" id="9mI-EY-Dnd"/>
-                                            <constraint firstItem="Inc-iJ-7W3" firstAttribute="top" secondItem="dhd-Hc-DD1" secondAttribute="bottom" constant="30" id="Fe3-yW-uRP"/>
-                                            <constraint firstItem="Inc-iJ-7W3" firstAttribute="centerX" secondItem="m0Q-MI-nNj" secondAttribute="centerX" id="Q6A-Zl-wei"/>
-                                            <constraint firstItem="dhd-Hc-DD1" firstAttribute="leading" secondItem="m0Q-MI-nNj" secondAttribute="leading" constant="16" id="TuD-eK-0Pu"/>
-                                            <constraint firstAttribute="trailing" secondItem="jvx-l7-nM1" secondAttribute="trailing" constant="20" id="nYU-9w-o9L"/>
-                                            <constraint firstItem="dhd-Hc-DD1" firstAttribute="top" secondItem="m0Q-MI-nNj" secondAttribute="top" constant="20" id="rNZ-D8-TA0"/>
-                                            <constraint firstAttribute="trailing" secondItem="dhd-Hc-DD1" secondAttribute="trailing" constant="16" id="urk-9s-0sP"/>
-                                            <constraint firstItem="Inc-iJ-7W3" firstAttribute="width" secondItem="m0Q-MI-nNj" secondAttribute="width" multiplier="0.38" id="zXy-bW-yyu"/>
+                                            <constraint firstAttribute="width" secondItem="m0Q-MI-nNj" secondAttribute="height" multiplier="323:250" id="0jO-Fv-GVD"/>
+                                            <constraint firstItem="zJx-gb-5xr" firstAttribute="centerX" secondItem="m0Q-MI-nNj" secondAttribute="centerX" id="J2c-Rh-hUb"/>
+                                            <constraint firstAttribute="trailing" secondItem="zJx-gb-5xr" secondAttribute="trailing" constant="16" id="JAx-TM-TwU"/>
+                                            <constraint firstAttribute="height" constant="250" id="KS2-5n-LI6"/>
+                                            <constraint firstItem="zJx-gb-5xr" firstAttribute="leading" secondItem="m0Q-MI-nNj" secondAttribute="leading" constant="16" id="VSy-HS-y1D"/>
+                                            <constraint firstItem="zJx-gb-5xr" firstAttribute="centerY" secondItem="m0Q-MI-nNj" secondAttribute="centerY" id="qeA-sW-G6B"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -1333,10 +1330,8 @@ been missed!</string>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="btnClose" destination="Inc-iJ-7W3" id="v7I-vi-XNA"/>
-                        <outlet property="btnOK" destination="jvx-l7-nM1" id="soc-go-9Pg"/>
-                        <outlet property="lblDesc" destination="swe-SC-02O" id="S54-GO-64w"/>
-                        <outlet property="lblTitle" destination="anC-qL-kqs" id="OeG-QO-XUN"/>
+                        <outlet property="btnOC" destination="Don-W7-xpS" id="kSb-Ku-34S"/>
+                        <outlet property="btnUG" destination="JvX-se-86S" id="7DK-Sq-QS9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SPi-H2-S92" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -4036,7 +4031,7 @@ Mapping Report Details</string>
                                                                     </label>
                                                                 </subviews>
                                                             </stackView>
-                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="XeK-cu-boS">
+                                                            <stackView clipsSubviews="YES" contentMode="scaleToFill" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="XeK-cu-boS">
                                                                 <rect key="frame" x="0.0" y="602.33333333333337" width="343" height="69"/>
                                                                 <subviews>
                                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kc0-CR-dAE">
@@ -4055,7 +4050,7 @@ Mapping Report Details</string>
                                                                                         <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                     </userDefinedRuntimeAttribute>
                                                                                     <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
-                                                                                        <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                        <color key="value" name="7E7E7E"/>
                                                                                     </userDefinedRuntimeAttribute>
                                                                                     <userDefinedRuntimeAttribute type="color" keyPath="selectedPlaceHolderColor">
                                                                                         <color key="value" name="theme_dark"/>
@@ -5662,7 +5657,7 @@ Mapping Report Details</string>
         <!--Support PopupVC-->
         <scene sceneID="atS-Os-rfL">
             <objects>
-                <viewController storyboardIdentifier="SupportPopupVC" id="3NS-oH-uZf" customClass="SupportPopupVC" customModule="Lobster_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SupportPopupVC" id="3NS-oH-uZf" customClass="SupportPopupVC" customModule="NSC_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zNo-43-hay">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -5758,7 +5753,7 @@ Mapping Report Details</string>
         <!--ListVC-->
         <scene sceneID="VwK-3u-9R0">
             <objects>
-                <viewController storyboardIdentifier="FAQListVC" id="FHJ-Lq-nct" customClass="FAQListVC" customModule="Lobster_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FAQListVC" id="FHJ-Lq-nct" customClass="FAQListVC" customModule="NSC_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ifU-dx-bGw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -5824,14 +5819,26 @@ Mapping Report Details</string>
         </scene>
     </scenes>
     <designables>
+        <designable name="0RR-xW-3Qh">
+            <size key="intrinsicContentSize" width="89" height="21.333333333333332"/>
+        </designable>
         <designable name="2hj-Oa-dfL">
             <size key="intrinsicContentSize" width="88.333333333333329" height="21.333333333333332"/>
+        </designable>
+        <designable name="4PV-fG-JPH">
+            <size key="intrinsicContentSize" width="176" height="21.333333333333332"/>
         </designable>
         <designable name="4QD-UG-iHb">
             <size key="intrinsicContentSize" width="34.666666666666664" height="21.333333333333332"/>
         </designable>
         <designable name="7H7-45-c7M">
             <size key="intrinsicContentSize" width="36.666666666666664" height="21.333333333333332"/>
+        </designable>
+        <designable name="8Ve-p5-OE1">
+            <size key="intrinsicContentSize" width="110.33333333333333" height="21.333333333333332"/>
+        </designable>
+        <designable name="8a0-bz-X4f">
+            <size key="intrinsicContentSize" width="90" height="21.333333333333332"/>
         </designable>
         <designable name="AZ4-pB-EHZ">
             <size key="intrinsicContentSize" width="52.333333333333336" height="21.333333333333332"/>
@@ -5841,6 +5848,9 @@ Mapping Report Details</string>
         </designable>
         <designable name="E14-Oe-J9J">
             <size key="intrinsicContentSize" width="136" height="21.333333333333332"/>
+        </designable>
+        <designable name="HC6-NH-NXy">
+            <size key="intrinsicContentSize" width="126" height="21.333333333333332"/>
         </designable>
         <designable name="HHu-Ym-avN">
             <size key="intrinsicContentSize" width="118.33333333333333" height="21.333333333333332"/>
@@ -5914,6 +5924,9 @@ Mapping Report Details</string>
         <designable name="oif-Ry-ZQK">
             <size key="intrinsicContentSize" width="45" height="21.333333333333332"/>
         </designable>
+        <designable name="osC-9C-vDF">
+            <size key="intrinsicContentSize" width="230" height="21.333333333333332"/>
+        </designable>
         <designable name="p9L-W6-mye">
             <size key="intrinsicContentSize" width="41.666666666666664" height="21.333333333333332"/>
         </designable>
@@ -5928,6 +5941,9 @@ Mapping Report Details</string>
         </designable>
         <designable name="xEL-f5-bBH">
             <size key="intrinsicContentSize" width="155.33333333333334" height="21.333333333333332"/>
+        </designable>
+        <designable name="xpZ-6p-nVP">
+            <size key="intrinsicContentSize" width="109.33333333333333" height="21.333333333333332"/>
         </designable>
         <designable name="xzO-Jt-5QU">
             <size key="intrinsicContentSize" width="69.666666666666671" height="21.333333333333332"/>

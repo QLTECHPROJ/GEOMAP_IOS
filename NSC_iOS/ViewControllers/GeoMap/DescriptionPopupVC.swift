@@ -7,57 +7,53 @@
 
 import UIKit
 
+protocol AddReportPopUpDelegate {
+    func handleAction(sender : UIButton, popUpTag : Int )
+}
+
 class DescriptionPopupVC: BaseViewController {
     
     // MARK: - OUTLETS
-    @IBOutlet weak var lblTitle: UILabel!
-    @IBOutlet weak var lblDesc: UILabel!
-    @IBOutlet weak var btnClose: UIButton!
-    @IBOutlet weak var btnOK: UIButton!
+  
+    @IBOutlet weak var btnUG: UIButton!
+    @IBOutlet weak var btnOC: UIButton!
     
     
     // MARK: - VARIABLES
-    var clickedOk : (() -> Void)?
-    var clickedClose : (() -> Void)?
+    var clickedUG : (() -> Void)?
+    var clickedOC : (() -> Void)?
     
-    var titleColor = Theme.colors.textColor
+    var isUGButtonHidden = true
     
-    var titleFont = Theme.fonts.appFont(ofSize: 18, weight: .bold)
-    var descFont = Theme.fonts.appFont(ofSize: 15, weight: .regular)
+    var popUpTag = 0
     
-    var strTitle = ""
-    var strDesc = ""
-    
-    var isOkButtonHidden = true
-    var isDisclaimerBtnHide = true
-    
+    // 0 : Delete, 1 : Close
+    var delegate : AddReportPopUpDelegate?
+
     
     // MARK: - VIEW LIFE CYCLE
     override func viewDidLoad() {
         super.viewDidLoad()
-        lblTitle.numberOfLines = 2
-        //lblTitle.text = strTitle
-        lblTitle.isHidden = ( strTitle.trim.count == 0 )
-        lblTitle.attributedText = strTitle.attributedString(alignment: .center, lineSpacing: 2)
-        lblDesc.attributedText = strDesc.attributedString(alignment: .left, lineSpacing: 2)
+      
         
-        btnOK.isHidden = isOkButtonHidden
-        btnClose.isHidden = !isOkButtonHidden
+       // btnUG.isHidden = isUGButtonHidden
+       // btnOC.isHidden = !isUGButtonHidden
         
-        lblTitle.font = titleFont
-        lblDesc.font = descFont
+       
     }
     
     
     // MARK: - ACTIONS
-    @IBAction func okClicked(_ sender: UIButton) {
-        self.clickedOk?()
-        self.dismiss(animated: false, completion: nil)
+    @IBAction func ugClicked(_ sender: UIButton) {
+        self.dismiss(animated: false) {
+            self.delegate?.handleAction(sender: sender, popUpTag:0)
+        }
     }
     
-    @IBAction func closeClicked(_ sender: UIButton) {
-        self.clickedClose?()
-        self.dismiss(animated: false, completion: nil)
+    @IBAction func ocClicked(_ sender: UIButton) {
+        self.dismiss(animated: false) {
+            self.delegate?.handleAction(sender: sender, popUpTag: 1)
+        }
     }
     
 }

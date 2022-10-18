@@ -79,8 +79,10 @@ class HomeVC: BaseViewController {
     
     // MARK: - ACTION
     @IBAction func addReportClicked(_ sender: UIButton) {
-        let aVC = AppStoryBoard.main.viewController(viewControllerClass:AddReportVC.self)
-        navigationController?.pushViewController(aVC, animated: true)
+        let aVC = AppStoryBoard.main.viewController(viewControllerClass: DescriptionPopupVC.self)
+        aVC.modalPresentationStyle = .overFullScreen
+        aVC.delegate = self
+        self.present(aVC, animated: false, completion: nil)
     }
   
 }
@@ -136,6 +138,22 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let aVC = AppStoryBoard.main.viewController(viewControllerClass:UGListVC.self)
         navigationController?.pushViewController(aVC, animated: true)
+    }
+    
+}
+
+
+// MARK: - AlertPopUpVCDelegate
+extension HomeVC : AddReportPopUpDelegate {
+    
+    func handleAction(sender: UIButton, popUpTag: Int) {
+        if popUpTag == 0 {
+            let aVC = AppStoryBoard.main.viewController(viewControllerClass: UGReportDetailVC.self)
+            self.navigationController?.pushViewController(aVC, animated: true)
+        }else {
+            let aVC = AppStoryBoard.main.viewController(viewControllerClass: OCReportDetailVC.self)
+            self.navigationController?.pushViewController(aVC, animated: true)
+        }
     }
     
 }
