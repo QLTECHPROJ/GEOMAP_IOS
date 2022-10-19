@@ -42,7 +42,7 @@
                             <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="john" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ued-aF-5ZE">
                                 <rect key="frame" x="15" y="23.5" width="235" height="19.5"/>
                                 <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="16"/>
-                                <color key="textColor" name="textColor"/>
+                                <color key="textColor" name="8D8B97"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="redraw" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SDa-Jw-RSE">
@@ -93,6 +93,9 @@
     <resources>
         <image name="OrangeArrow_Tint" width="6" height="12"/>
         <image name="Profile" width="21" height="21"/>
+        <namedColor name="8D8B97">
+            <color red="0.55294117647058827" green="0.54509803921568623" blue="0.59215686274509804" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="F9F9F9">
             <color red="0.97647058823529409" green="0.97647058823529409" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

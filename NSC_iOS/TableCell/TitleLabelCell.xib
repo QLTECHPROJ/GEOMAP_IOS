@@ -37,7 +37,7 @@
                         <state key="normal" title="Button"/>
                         <buttonConfiguration key="configuration" style="plain" title="View All">
                             <fontDescription key="titleFontDescription" name="Inter-SemiBold" family="Inter" pointSize="14"/>
-                            <color key="baseForegroundColor" name="textColor"/>
+                            <color key="baseForegroundColor" name="8D8B97"/>
                         </buttonConfiguration>
                     </button>
                 </subviews>
@@ -60,8 +60,8 @@
         </tableViewCell>
     </objects>
     <resources>
-        <namedColor name="textColor">
-            <color red="0.21176470588235294" green="0.18823529411764706" blue="0.27843137254901962" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="8D8B97">
+            <color red="0.55294117647058827" green="0.54509803921568623" blue="0.59215686274509804" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="theme_dark">
             <color red="0.15299999713897705" green="0.68199998140335083" blue="0.87800002098083496" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

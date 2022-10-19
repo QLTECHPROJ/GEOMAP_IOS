@@ -148,10 +148,10 @@ extension HomeVC : AddReportPopUpDelegate {
     
     func handleAction(sender: UIButton, popUpTag: Int) {
         if popUpTag == 0 {
-            let aVC = AppStoryBoard.main.viewController(viewControllerClass: UGReportDetailVC.self)
+            let aVC = AppStoryBoard.main.viewController(viewControllerClass: UGGeoAttributeVC.self)
             self.navigationController?.pushViewController(aVC, animated: true)
         }else {
-            let aVC = AppStoryBoard.main.viewController(viewControllerClass: OCReportDetailVC.self)
+            let aVC = AppStoryBoard.main.viewController(viewControllerClass: OCGeoAttributeVC.self)
             self.navigationController?.pushViewController(aVC, animated: true)
         }
     }

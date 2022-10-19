@@ -15,6 +15,7 @@ class DescriptionPopupVC: BaseViewController {
     
     // MARK: - OUTLETS
   
+    @IBOutlet var mainView: UIView!
     @IBOutlet weak var btnUG: UIButton!
     @IBOutlet weak var btnOC: UIButton!
     
@@ -36,14 +37,17 @@ class DescriptionPopupVC: BaseViewController {
         super.viewDidLoad()
       
         
-       // btnUG.isHidden = isUGButtonHidden
-       // btnOC.isHidden = !isUGButtonHidden
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
+        mainView.addGestureRecognizer(tap)
         
        
     }
     
     
     // MARK: - ACTIONS
+    @objc func handleTap(_ sender: UITapGestureRecognizer? = nil) {
+        self.dismiss(animated: false)
+    }
     @IBAction func ugClicked(_ sender: UIButton) {
         self.dismiss(animated: false) {
             self.delegate?.handleAction(sender: sender, popUpTag:0)

@@ -42,7 +42,7 @@
                                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem Ipsum is simply" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ctc-3f-dwm">
                                                         <rect key="frame" x="0.0" y="0.0" width="243" height="18.5"/>
                                                         <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="15"/>
-                                                        <color key="textColor" name="textColor"/>
+                                                        <color key="textColor" name="8D8B97"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="14 July 2022" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JWG-dH-IjR">
@@ -51,7 +51,7 @@
                                                             <constraint firstAttribute="width" constant="80" id="bKb-Sc-9m5"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="12"/>
-                                                        <color key="textColor" name="textColor"/>
+                                                        <color key="textColor" name="8D8B97"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
@@ -59,13 +59,13 @@
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem Ipsum is simply dummy text of the printing and typesetting industry." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="75c-Bb-8Av">
                                                 <rect key="frame" x="0.0" y="28.5" width="323" height="29.5"/>
                                                 <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="12"/>
-                                                <color key="textColor" name="textColor"/>
+                                                <color key="textColor" name="8D8B97"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem Ipsum is simply dummy text of the printing and typesetting industry." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sJX-35-8Fx">
                                                 <rect key="frame" x="0.0" y="68" width="323" height="29.5"/>
                                                 <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="12"/>
-                                                <color key="textColor" name="textColor"/>
+                                                <color key="textColor" name="8D8B97"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
@@ -111,11 +111,11 @@
         </tableViewCell>
     </objects>
     <resources>
+        <namedColor name="8D8B97">
+            <color red="0.55294117647058827" green="0.54509803921568623" blue="0.59215686274509804" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="999999">
             <color red="0.60000002384185791" green="0.60000002384185791" blue="0.60000002384185791" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="textColor">
-            <color red="0.21176470588235294" green="0.18823529411764706" blue="0.27843137254901962" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
