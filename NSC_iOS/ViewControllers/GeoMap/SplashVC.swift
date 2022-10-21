@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SplashVC: BaseViewController {
+class SplashVC: ClearNaviagtionBarVC {
     
     
     // MARK: - VIEW LIFE CYCLE
@@ -57,9 +57,10 @@ class SplashVC: BaseViewController {
                 let coachDetailVM = CoachDetailViewModel()
                 coachDetailVM.callCoachDetailsAPI { success in
                     if success {
-                        self.handleLoginUserRedirection()
+//                        self.handleLoginUserRedirection()
                     } else {
-                        APPDELEGATE.logout()
+//                        APPDELEGATE.logout()
+                        AppDelegate.shared.updateWindow()
                     }
                 }
             }

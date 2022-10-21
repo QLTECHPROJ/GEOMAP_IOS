@@ -15,7 +15,7 @@ enum ListItemType : Int {
     case role
 }
 
-class ListItemVC: BaseViewController {
+class ListItemVC: ClearNaviagtionBarVC {
     
     // MARK: - OUTLETS
     @IBOutlet weak var viewBackground: UIView!
@@ -57,7 +57,7 @@ class ListItemVC: BaseViewController {
     
     
     // MARK: - FUNCTIONS
-    override func setupUI() {
+    func setupUI() {
         btnClear.isHidden = true
         lblNoData.isHidden = true
         
@@ -100,7 +100,7 @@ class ListItemVC: BaseViewController {
         txtSearch.addTarget(self, action: #selector(textFieldValueChanged(textField:)), for: UIControl.Event.editingChanged)
     }
     
-    override func setupData() {
+    func setupData() {
         arrayItemSearch = arrayItem
         tableView.reloadData()
         lblNoData.isHidden = arrayItemSearch.count != 0

@@ -7,16 +7,15 @@
 
 import UIKit
 
-class HomeVC: BaseViewController {
+class HomeVC: ClearNaviagtionBarVC {
     
     // MARK: - OUTLETS
    
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var lblNoData: UILabel!
-    @IBOutlet weak var btnApplyNow: UIButton!
     
-    @IBOutlet weak var imgUser: UIImageView!
-    @IBOutlet weak var lblName: UILabel!
+    @IBOutlet weak var btnAddReport: UIButton!
+    
+    @IBOutlet weak var imgMenu: UIImageView!
     
     
     // MARK: - VARIABLES
@@ -31,12 +30,8 @@ class HomeVC: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-       
-        lblNoData.isHidden = true
-        lblNoData.text = Theme.strings.no_camps_to_display
-        tableView.register(nibWithCellClass: NotificationListCell.self)
-        tableView.register(nibWithCellClass: TitleLabelCell.self)
-        tableView.register(nibWithCellClass: NotificationListCell.self)
+        self.setupUI()
+        
        
     }
     
@@ -48,34 +43,39 @@ class HomeVC: BaseViewController {
     
     
     // MARK: - FUNCTIONS
-    override func setupUI() {
-        //imgUser.loadUserProfileImage(fontSize: 20)
-       // let strName = (LoginDataModel.currentUser?.Fname ?? "") + " " + (LoginDataModel.currentUser?.Lname ?? "")
-       // lblName.text = strName.trim.count > 0 ? strName : "Guest"
+    func setupUI() {
+        
+        self.view.backgroundColor = .colorBGSkyBlueLight
+        self.btnAddReport.applystyle(isAdjustToFont : true ,fontname : .InterSemibol,fontsize : 14,titleText : kAddReport,titleColor : .colorSkyBlue)
         
         let stringAttributes: [NSAttributedString.Key: Any] = [
             NSAttributedString.Key.foregroundColor: Theme.colors.theme_dark,
             NSAttributedString.Key.underlineStyle: NSUnderlineStyle.single.rawValue,
         ]
         
-        let strTitle = "Apply Now"
+        let strTitle = kApplyNow
         let titleRange = (strTitle as NSString).range(of: strTitle)
         
         let attributedString = NSMutableAttributedString.getAttributedString(fromString: strTitle)
         attributedString.addAttributes(stringAttributes, range: titleRange)
-        btnApplyNow.setAttributedTitle(attributedString, for: .normal)
-    }
-    
-    override func setupData() {
         
+        let tapGestureToOpenMenu = UITapGestureRecognizer(target: self, action: #selector(self.openMenu(_:)))
+        self.imgMenu.isUserInteractionEnabled = true
+        self.imgMenu.addGestureRecognizer(tapGestureToOpenMenu)
+        
+        tableView.register(nibWithCellClass: NotificationListCell.self)
+        tableView.register(nibWithCellClass: TitleLabelCell.self)
+        tableView.register(nibWithCellClass: NotificationListCell.self)
     }
-
     
-    //MARK:- ACTION
-    @IBAction func userMenuClicked(_ sender: UIButton) {
+    @objc func openMenu(_ gesture : UIGestureRecognizer){
         let aVC = AppStoryBoard.main.viewController(viewControllerClass:UserListPopUpVC.self)
         navigationController?.pushViewController(aVC, animated: true)
-    }
+     }
+
+    
+    //MARK: - ACTION
+  
     
     // MARK: - ACTION
     @IBAction func addReportClicked(_ sender: UIButton) {
@@ -114,30 +114,41 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 112
+        return UITableView.automaticDimension
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let cell = tableView.dequeueReusableCell(withClass: TitleLabelCell.self)
-        
+        cell.contentView.backgroundColor = .colorBGSkyBlueLight
+        cell.btnViewAll.tag = section
         if section == 0 {
-            cell.lblTitle.text = "Undergrounds Mapping Report "
+            cell.lblTitle.text = kUndergroundsMappingReport
             //cell.lblTitle.textColor = Theme.colors.theme_dark
         } else {
             //cell.lblTitle.textColor = Theme.colors.theme_dark
-            cell.lblTitle.text = "OpenCast Mapping Report"
+            cell.lblTitle.text = kOpenCastMappingReport
+        }
+        
+        cell.btnViewAll.handleTapToAction {
+            
+            let aVC = AppStoryBoard.main.viewController(viewControllerClass:UGListVC.self)
+            aVC.titleHeader = section == 0 ? kUndergroundsMappingReport : kOpenCastMappingReport
+            self.navigationController?.pushViewController(aVC, animated: true)
         }
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 40
+        return UITableView.automaticDimension
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
         let aVC = AppStoryBoard.main.viewController(viewControllerClass:UGListVC.self)
+        aVC.titleHeader = indexPath.section == 0 ? kUndergroundsMappingReport : kOpenCastMappingReport
         navigationController?.pushViewController(aVC, animated: true)
+     
     }
     
 }

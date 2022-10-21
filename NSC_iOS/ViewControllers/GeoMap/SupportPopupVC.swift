@@ -9,7 +9,7 @@
 import UIKit
 import TTTAttributedLabel
 
-class SupportPopupVC: BaseViewController {
+class SupportPopupVC: ClearNaviagtionBarVC, TTTAttributedLabelDelegate {
     
     // MARK: - OUTLETS
     @IBOutlet weak var imgView : UIImageView!

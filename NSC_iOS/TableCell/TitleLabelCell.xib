@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -24,16 +24,13 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="Current Camp" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DhV-Eb-e5e">
-                        <rect key="frame" x="18" y="6" width="202" height="28"/>
+                        <rect key="frame" x="18" y="0.0" width="109" height="34"/>
                         <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="16"/>
                         <color key="textColor" name="theme_dark"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6DQ-9Y-KCG">
-                        <rect key="frame" x="220" y="0.0" width="100" height="36"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="100" id="sq6-ma-PNb"/>
-                        </constraints>
+                        <rect key="frame" x="241" y="0.0" width="79" height="36"/>
                         <state key="normal" title="Button"/>
                         <buttonConfiguration key="configuration" style="plain" title="View All">
                             <fontDescription key="titleFontDescription" name="Inter-SemiBold" family="Inter" pointSize="14"/>
@@ -43,20 +40,21 @@
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="6DQ-9Y-KCG" secondAttribute="bottom" id="47k-lg-PKR"/>
-                    <constraint firstItem="DhV-Eb-e5e" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="6" id="4gT-jA-7zT"/>
+                    <constraint firstItem="DhV-Eb-e5e" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="4gT-jA-7zT"/>
                     <constraint firstItem="6DQ-9Y-KCG" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="5J0-CY-Dl2"/>
                     <constraint firstItem="DhV-Eb-e5e" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="18" id="HOL-GF-yHF"/>
                     <constraint firstAttribute="bottom" secondItem="DhV-Eb-e5e" secondAttribute="bottom" constant="2" id="Iab-tc-ChZ"/>
-                    <constraint firstItem="6DQ-9Y-KCG" firstAttribute="leading" secondItem="DhV-Eb-e5e" secondAttribute="trailing" id="izR-2G-3Dh"/>
+                    <constraint firstItem="6DQ-9Y-KCG" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="DhV-Eb-e5e" secondAttribute="trailing" id="izR-2G-3Dh"/>
                     <constraint firstAttribute="trailing" secondItem="6DQ-9Y-KCG" secondAttribute="trailing" id="sTd-oU-JwK"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
+                <outlet property="btnViewAll" destination="6DQ-9Y-KCG" id="rKm-eU-dvE"/>
                 <outlet property="lblTitle" destination="DhV-Eb-e5e" id="NpN-JL-CiQ"/>
             </connections>
-            <point key="canvasLocation" x="137.68115942028987" y="112.5"/>
+            <point key="canvasLocation" x="135.98130841121494" y="112.09503239740822"/>
         </tableViewCell>
     </objects>
     <resources>

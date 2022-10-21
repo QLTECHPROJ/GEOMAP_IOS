@@ -7,7 +7,7 @@
 
 import UIKit
 
-class UGGeoAttributeVC2: BaseViewController {
+class UGGeoAttributeVC2: ClearNaviagtionBarVC {
     
     // MARK: - OUTLETS
    
@@ -30,7 +30,7 @@ class UGGeoAttributeVC2: BaseViewController {
     
     
     // MARK: - FUNCTIONS
-    override func setupUI() {
+    func setupUI() {
       
     }
     

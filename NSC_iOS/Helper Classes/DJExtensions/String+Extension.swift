@@ -33,6 +33,14 @@ extension String {
            return passwordCheck.evaluate(with: password)
     }
     
+    static func isValidMobileNum(txt: String)-> Bool {
+        
+        let RegEx   = "[0-9]{0,\(Validations.PhoneNo.Maximum.rawValue)}"
+        let eTest   = NSPredicate(format:"SELF MATCHES %@", RegEx)
+        let result  = eTest.evaluate(with: txt)
+        return result;
+    }
+    
     var floatValue: Float {
         return (self as NSString).floatValue
     }

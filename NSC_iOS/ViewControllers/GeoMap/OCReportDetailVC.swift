@@ -10,7 +10,7 @@ import ContactsUI
 import MessageUI
 import EVReflection
 
-class OCReportDetailVC: BaseViewController {
+class OCReportDetailVC: ClearNaviagtionBarVC {
     
     // MARK: - OUTLETS
     @IBOutlet weak var tableView: UITableView!
@@ -28,7 +28,7 @@ class OCReportDetailVC: BaseViewController {
     
     
     // MARK: - FUNCTIONS
-    override func setupUI() {
+    func setupUI() {
         tableView.register(nibWithCellClass: ContactCell.self)
         
       
@@ -41,7 +41,7 @@ class OCReportDetailVC: BaseViewController {
         tableView.reloadData()
     }
     
-    override func setupData() {
+    func setupData() {
         
         tableView.reloadData()
         

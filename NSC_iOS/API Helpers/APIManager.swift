@@ -46,7 +46,8 @@ class APIManager {
                         let dict = value.toDictionary()
                         if (dict["ResponseCode"] as? String) != "200" {
                             if (dict["ResponseCode"] as? String) == "403" {
-                                APPDELEGATE.logout()
+//                                APPDELEGATE.logout()
+                                AppDelegate.shared.updateWindow()
                             } else if let message = dict["ResponseMessage"] as? String, message.trim.count > 0 , message != "Reminder not Available for any playlist!" {
                                 if showToast { showAlertToast(message: message) }
                             }
@@ -122,7 +123,8 @@ class APIManager {
                                 let dict = value.toDictionary()
                                 if (dict["ResponseCode"] as? String) != "200" {
                                     if (dict["ResponseCode"] as? String) == "403" {
-                                        APPDELEGATE.logout()
+//                                        APPDELEGATE.logout()
+                                        AppDelegate.shared.updateWindow()
                                     } else if let message = dict["ResponseMessage"] as? String, message.trim.count > 0 {
                                         if showToast { showAlertToast(message: message) }
                                     }

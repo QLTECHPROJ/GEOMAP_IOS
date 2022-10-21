@@ -47,6 +47,7 @@ struct AppColors {
     let theme_dark = UIColor(hex: "27AEE0")
     let theme_light = UIColor(hex: "F5F5F5")
     
+    
 }
 
 
@@ -167,3 +168,39 @@ let darkPalette = ColorPalette(isDark: true,
                                tabBarColor: UIColor(0x25292C),
                                themeUI: UIColor(0x2BBDDE),
                                toolBarStyle: UIBarStyle.black)
+
+
+// code by v
+
+extension UIColor {
+    class func colorFromHex(hex: Int) -> UIColor { return UIColor(red: (CGFloat((hex & 0xFF0000) >> 16)) / 255.0, green: (CGFloat((hex & 0xFF00) >> 8)) / 255.0, blue: (CGFloat(hex & 0xFF)) / 255.0, alpha: 1.0)
+    }
+    
+//    static var ColorAppGold                 : UIColor { return UIColor(named: "ThemeGoldColor")!}
+    static var colorBGSkyBlueLight          : UIColor {return UIColor(hex: "F9FCFE")}
+    static var colorTextBlack               : UIColor {return UIColor(hex: "2B2B2B")}
+    static var colorTextPlaceHolderGray     : UIColor {return UIColor(hex: "8D8B97")}
+    static var colorSkyBlue                 : UIColor {return UIColor(hex: "27AEE0")}
+    
+    class func hexStringToUIColor (hex:String) -> UIColor {
+        var cString:String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
+        
+        if (cString.hasPrefix("#")) {
+            cString.remove(at: cString.startIndex)
+        }
+        
+        if ((cString.count) != 6) {
+            return UIColor.black
+        }
+        
+        var rgbValue:UInt32 = 0
+        Scanner(string: cString).scanHexInt32(&rgbValue)
+        
+        return UIColor(
+            red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
+            green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
+            blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
+            alpha: CGFloat(1.0)
+        )
+    }
+}

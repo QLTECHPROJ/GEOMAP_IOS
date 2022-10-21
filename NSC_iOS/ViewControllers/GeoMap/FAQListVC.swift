@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FAQListVC: BaseViewController {
+class FAQListVC: ClearNaviagtionBarVC {
     
     // MARK: - OUTLETS
     @IBOutlet weak var tableView: UITableView!
@@ -29,14 +29,14 @@ class FAQListVC: BaseViewController {
     
     
     // MARK: - FUNCTIONS
-    override func setupUI() {
+    func setupUI() {
         tableView.register(nibWithCellClass: FAQCell.self)
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 80
         tableView.reloadData()
     }
     
-    override func setupData() {
+    func setupData() {
         
     }
     

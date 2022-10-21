@@ -13,15 +13,15 @@ protocol AlertPopUpVCDelegate {
 }
 
 
-class AlertPopUpVC: BaseViewController {
+class AlertPopUpVC: ClearNaviagtionBarVC {
     
     
     // MARK: - OUTLETS
     @IBOutlet weak var lblTitle : UILabel!
     @IBOutlet weak var lblDetail : UILabel!
     
-    @IBOutlet weak var btnDelete : UIButton!
-    @IBOutlet weak var btnClose : UIButton!
+    @IBOutlet weak var btnDelete : AppThemeBlueButton!
+    @IBOutlet weak var btnClose : AppThemeBorderBlueButton!
     
     
     // MARK: - VARIABLES
@@ -64,8 +64,11 @@ class AlertPopUpVC: BaseViewController {
     
     
     // MARK: - FUNCTIONS
-    override func setupUI() {
-        lblTitle.text = titleText
+    func setupUI(){
+      
+        self.lblTitle.applyLabelStyle(text : titleText,fontSize :  16,fontName : .InterBold)
+        self.lblDetail.applyLabelStyle(fontSize : 14,fontName : .InterMedium)
+        
         lblDetail.attributedText = detailText.attributedString(alignment: .center, lineSpacing: 5)
         
         lblTitle.numberOfLines = 0
@@ -73,6 +76,7 @@ class AlertPopUpVC: BaseViewController {
         btnDelete.isHidden = firstButtonTitle.count == 0
         btnClose.isHidden = secondButtonTitle.count == 0
         
+        self.btnDelete.isSelect = true
         btnDelete.setTitle(firstButtonTitle, for: UIControl.State.normal)
         btnDelete.setTitleColor(firstButtonTitleColor, for: .normal)
         btnDelete.backgroundColor = firstButtonBackgroundColor
@@ -95,9 +99,19 @@ class AlertPopUpVC: BaseViewController {
     
     
     // MARK: - ACTIONS
-    @IBAction func buttonClicked(_ sender : UIButton) {
+    @IBAction func btnOkTapped(_ sender : UIButton) {
         self.dismiss(animated: false) {
             self.delegate?.handleAction(sender: sender, popUpTag: self.popUpTag)
+            
+            DispatchQueue.main.asyncAfter(wallDeadline: .now() + 0.5) {
+                AppDelegate.shared.updateWindow()
+            }
+        }
+    }
+    
+    @IBAction func btnCancelTapped(_ sender : UIButton) {
+        self.dismiss(animated: false) {
+           
         }
     }
     

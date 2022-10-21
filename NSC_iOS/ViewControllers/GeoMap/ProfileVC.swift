@@ -8,24 +8,28 @@
 import UIKit
 import SDWebImage
 
-class ProfileVC: BaseViewController {
+class ProfileVC: ClearNaviagtionBarVC {
     
     // MARK: - OUTLETS
     // UIImage
-    @IBOutlet weak var imgUser: UIImageView!
+    @IBOutlet weak var imgUser: ImageThemeBorderClass!
+    
+    @IBOutlet weak var imgCamara: UIImageView!
     
     // UITextfield
-    @IBOutlet weak var txtFMobileNo: UITextField!
-    @IBOutlet weak var txtFName: UITextField!
-    @IBOutlet weak var txtLName: UITextField!
-    @IBOutlet weak var txtFEmailAdd: UITextField!
+    
+    @IBOutlet weak var txtName: ACFloatingTextfield!
+    @IBOutlet weak var txtEmail: ACFloatingTextfield!
+    @IBOutlet weak var txtMobile: ACFloatingTextfield!
+    @IBOutlet weak var txtDOB: ACFloatingTextfield!
+    
     
     // UIButton
-    @IBOutlet weak var btnConfirm: UIButton!
-    @IBOutlet weak var btnUpdate: UIButton!
+    @IBOutlet weak var btnConfirm: AppThemeBlueButton!
+    @IBOutlet weak var btnDeleteAccount: AppThemeBorderBlueButton!
     
     // UILabel
-    @IBOutlet weak var lblErrLastName: UILabel!
+    @IBOutlet weak var lblErrDOB: UILabel!
     @IBOutlet weak var lblErrName: UILabel!
     @IBOutlet weak var lblErrMobileNo: UILabel!
     @IBOutlet weak var lblErrEmail: UILabel!
@@ -36,27 +40,133 @@ class ProfileVC: BaseViewController {
     var strImage : String?
     var imageData = UploadDataModel()
     
+    let bodDatePicker = UIDatePicker()
+    
     
     // MARK: - VIEW LIFE CYCLE
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        self.setupUI()
     }
     
     
     // MARK: - FUNCTIONS
-    override func setupUI() {
+    func setupUI() {
+        
+        self.view.backgroundColor = .colorBGSkyBlueLight
+        self.txtName.applyStyleFlotingTextfield(placeholderTitle : kName, fontsize : 16,fontname : .InterSemibol)
+        self.txtEmail.applyStyleFlotingTextfield(placeholderTitle : kEmail, fontsize : 16, fontname : .InterSemibol)
+        self.txtMobile.applyStyleFlotingTextfield(placeholderTitle : kMobile, fontsize : 16,fontname : .InterSemibol)
+        self.txtDOB.applyStyleFlotingTextfield(placeholderTitle : kDOB, fontsize : 16, fontname : .InterSemibol)
+        
+        self.lblErrName.applyLabelStyle(fontSize :  9,fontName : .InterMedium, textColor : .red)
+        self.lblErrEmail.applyLabelStyle(fontSize :  9,fontName : .InterMedium, textColor : .red)
+        self.lblErrMobileNo.applyLabelStyle(fontSize :  9,fontName : .InterMedium, textColor : .red)
+        self.lblErrDOB.applyLabelStyle(fontSize :  9,fontName : .InterMedium, textColor : .red)
+        
+        self.btnConfirm.setTitle(kConfirm, for: .normal)
+        self.btnDeleteAccount.setTitle(kDeleteAccount, for: .normal)
+        
+        self.setupData()
+        self.buttonEnableDisable()
+        self.initDatePicker()
+        
+        self.lblErrName.isHidden = true
+        self.lblErrMobileNo.isHidden = true
+        self.lblErrEmail.isHidden = true
+        self.lblErrDOB.isHidden = true
+        
+        
+        let tapGestureToChooseProfile1 = UITapGestureRecognizer(target: self, action: #selector(self.selectProfilePicture(_:)))
+        self.imgUser.isUserInteractionEnabled = true
+        self.imgUser.addGestureRecognizer(tapGestureToChooseProfile1)
+        
+        let tapGestureToChooseProfile2 = UITapGestureRecognizer(target: self, action: #selector(self.selectProfilePicture(_:)))
+        self.imgCamara.isUserInteractionEnabled = true
+        self.imgCamara.addGestureRecognizer(tapGestureToChooseProfile2)
+    }
+    
+    func setupData() {
+        self.imgUser.image = UIImage(named: "profile1")
+        self.txtName.text = "John Doe"
+        self.txtEmail.text = "johndoe@gmail.com"
+        self.txtMobile.text = "3253534534"
+        self.txtDOB.text = "12 Jun 1994"
+    }
+    
+    func initDatePicker(){
+        self.bodDatePicker.datePickerMode = .date
+        self.bodDatePicker.maximumDate = Date()
+        self.txtDOB.inputView = self.bodDatePicker
+        
+        if #available(iOS 14, *) {// Added condition for iOS 14
+            self.bodDatePicker.preferredDatePickerStyle  = .wheels
+            self.bodDatePicker.sizeToFit()
+        }
+        
+        let dateFormattor = DateFormatter()
+        dateFormattor.dateFormat = DateTimeFormaterEnum.ddmm_yyyy.rawValue
+        self.bodDatePicker.addTarget(self, action: #selector(self.datePickerValueChanged(sender:)), for: .valueChanged)
+    }
+    
+    @objc func datePickerValueChanged(sender:UIDatePicker) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = DateTimeFormaterEnum.ddmm_yyyy.rawValue
+        self.txtDOB.text = dateFormatter.string(from: sender.date)
         
     }
     
-    override func setupData() {
-      
+    func checkValidation() -> Bool {
+        var isValid = true
+       
+        if self.txtName.text!.trim.count < Validations.UserNameLenght.Minimum.rawValue || self.txtName.text!.trim.count > Validations.UserNameLenght.Maximum.rawValue {
+            
+            isValid = false
+            lblErrName.isHidden = false
+            lblErrName.text = kEnterValidName
+            
+        }
+        else if !self.txtEmail.text!.trim.isValidEmail{
+            isValid = false
+            self.lblErrEmail.isHidden = false
+            self.lblErrEmail.text = kPleaseProvideValidEmailAddress
+        }
+        else if !self.txtMobile.text!.trim.isEmpty && (self.txtMobile.text?.count)! < Validations.PhoneNumber.Minimum.rawValue{
+            
+            isValid = false
+            self.lblErrMobileNo.isHidden = false
+            self.lblErrMobileNo.text = kPleaseProvideValidMobileNumber
+        }
+        else if self.txtDOB.text!.trim.isEmpty{
+            
+            isValid = false
+            self.lblErrDOB.isHidden = false
+            self.lblErrDOB.text = kPleaseProvideDOB
+        }
+        return isValid
+    }
+    
+    
+   @objc func selectProfilePicture(_ gesture : UIGestureRecognizer){
+        if checkInternet(showToast: true) == false {
+            return
+        }
+        
+        self.view.endEditing(true)
+        let arrayTitles = [kTakeAPhoto, kChooseFromGallary]
+
+        
+        showActionSheet(title: "", message: Theme.strings.profile_image_options, titles: arrayTitles, cancelButtonTitle: Theme.strings.cancel_small) { (buttonTitle) in
+            DispatchQueue.main.async {
+                self.handleImageOptions(buttonTitle: buttonTitle)
+            }
+        }
     }
     
     //MARK:- IMAGE UPLOAD
     func handleImageOptions(buttonTitle : String) {
         switch buttonTitle {
-        case Theme.strings.take_a_photo:
+        case kTakeAPhoto:
             DispatchQueue.main.async {
                 if UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.camera) {
                     let picker = UIImagePickerController()
@@ -68,7 +178,7 @@ class ProfileVC: BaseViewController {
                     showAlertToast(message: Theme.strings.alert_camera_not_available)
                 }
             }
-        case Theme.strings.choose_from_gallary:
+        case kChooseFromGallary:
             DispatchQueue.main.async {
                 let picker = UIImagePickerController()
                 picker.sourceType = .photoLibrary
@@ -76,7 +186,7 @@ class ProfileVC: BaseViewController {
                 picker.allowsEditing = true
                 self.present(picker, animated: true, completion: nil)
             }
-        case Theme.strings.remove_photo:
+        case kRemovePhoto:
             print("Remove photo")
             LoginDataModel.currentUser?.Profile_Image = ""
         default:
@@ -87,41 +197,26 @@ class ProfileVC: BaseViewController {
     
     
     // MARK: - ACTION
-    @IBAction func backClicked(_ sender: UIButton) {
+    @IBAction func btnBackTapped(_ sender: UIButton) {
         self.view.endEditing(true)
         self.navigationController?.popViewController(animated: true)
     }
     
-    @IBAction func confirmClicked(_ sender: UIButton) {
+    @IBAction func btnConfirmTapped(_ sender: UIButton) {
         self.view.endEditing(true)
-        self.navigationController?.popViewController(animated: true)
-    }
-    
-    @IBAction func updateClicked(_ sender: UIButton) {
         
-        let aVC = AppStoryBoard.main.viewController(viewControllerClass: HomeVC.self)
-        self.navigationController?.pushViewController(aVC, animated: true)
-       
-    }
-    
-    @IBAction func editClicked(_ sender: UIButton) {
-        if checkInternet(showToast: true) == false {
-            return
-        }
-        
-        self.view.endEditing(true)
-        let arrayTitles = [Theme.strings.take_a_photo, Theme.strings.choose_from_gallary]
-        //        if let imageStr = LoginDataModel.currentUser?.Profile_Image, imageStr.trim.count > 0 {
-        //            arrayTitles.append(Theme.strings.remove_photo)
-        //        }
-        
-        showActionSheet(title: "", message: Theme.strings.profile_image_options, titles: arrayTitles, cancelButtonTitle: Theme.strings.cancel_small) { (buttonTitle) in
-            DispatchQueue.main.async {
-                self.handleImageOptions(buttonTitle: buttonTitle)
-            }
+        if self.checkValidation(){
+            self.navigationController?.popViewController(animated: true)
         }
     }
-    @IBAction func onTappedDeleteAccount(_ sender: UIButton) {
+
+    
+    func buttonEnableDisable(){
+        
+        self.btnConfirm.isSelect = !self.txtName.text!.isEmpty && !self.txtEmail.text!.isEmpty && !self.txtMobile.text!.isEmpty && !self.txtDOB.text!.isEmpty
+    }
+    
+    @IBAction func btnDeleteAccountTapped(_ sender: UIButton) {
         
         if checkInternet(showToast: true) == false {
             return
@@ -148,14 +243,15 @@ extension ProfileVC : UITextFieldDelegate {
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        lblErrName.isHidden = true
-        lblErrMobileNo.isHidden = true
-        lblErrEmail.isHidden = true
-        lblErrLastName.isHidden = true
+        
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         return textField.resignFirstResponder()
+    }
+    
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        self.buttonEnableDisable()
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
@@ -166,21 +262,28 @@ extension ProfileVC : UITextFieldDelegate {
         
         let updatedText = text.replacingCharacters(in: textRange, with: string)
         
-        if textField == txtFName || textField == txtLName {
+        if textField == self.txtName {
             if updatedText.count > 16 {
                 return false
             }
-        } else if textField == txtFMobileNo {
-            if !updatedText.isNumber || updatedText.count > AppVersionDetails.mobileMaxDigits {
-                return false
+        }
+        else if textField == self.txtMobile{
+            
+            if (self.txtMobile.text?.count)! == Validations.PhoneNumber.Maximum.rawValue {
+                if !(range.length == 1) {
+                    return false
+                }
             }
+            let cs: CharacterSet = NSCharacterSet.decimalDigits.inverted as CharacterSet
+            let filtered: String = (string.components(separatedBy: cs)).joined(separator: "")
+            return (string == filtered)
         }
         
         return true
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        self.buttonEnableDisable()
+//        self.buttonEnableDisable()
     }
     
 }
@@ -195,14 +298,14 @@ extension ProfileVC : UIImagePickerControllerDelegate, UINavigationControllerDel
             imageData = UploadDataModel(name: "image.jpeg", key: "profileImage", data: image.jpegData(compressionQuality: 0.5), extention: "jpeg", mimeType: "image/jpeg")
             self.strImage = imageData.name
             
-            self.buttonEnableDisable()
+//            self.buttonEnableDisable()
             
         } else if let image = info[.originalImage] as? UIImage {
             imgUser.image = image
             imageData = UploadDataModel(name: "image.jpeg", key: "profileImage", data: image.jpegData(compressionQuality: 0.5), extention: "jpeg", mimeType: "image/jpeg")
             self.strImage = imageData.name
             
-            self.buttonEnableDisable()
+//            self.buttonEnableDisable()
         }
         
         picker.dismiss(animated: true)
@@ -224,7 +327,8 @@ extension ProfileVC : AlertPopUpVCDelegate {
             
             let deleteCoachVM = DeleteCoachViewModel()
             deleteCoachVM.callDeleteCoachAPI(completion: { success in
-                APPDELEGATE.logout()
+//                APPDELEGATE.logout()
+                AppDelegate.shared.updateWindow()
             })
             
         }

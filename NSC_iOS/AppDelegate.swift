@@ -16,6 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
     
+    static let shared = UIApplication.shared.delegate as! AppDelegate
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -24,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UIApplication.shared.applicationIconBadgeNumber = 0
         
         // IQKeyboardManager Setup
-        IQKeyboardManager.shared.enable = true
+        self.basicSetUp()
         
         // Ask for Push Notification Permission
         self.openPushNotificationPermissionAlert()
@@ -36,8 +37,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // UIFont setup for
         UIFont.overrideInitialize()
         
-        window?.makeKeyAndVisible()
-        window?.rootViewController = AppStoryBoard.main.intialViewController()
+//        window?.makeKeyAndVisible()
+//        window?.rootViewController = AppStoryBoard.main.intialViewController()
         
         return true
     }
@@ -192,4 +193,91 @@ extension AppDelegate {
         return info
     }
     
+}
+
+
+
+//----------------------------------------------------------------------------
+//MARK: - Basic set up func
+//----------------------------------------------------------------------------
+extension AppDelegate{
+    
+    func basicSetUp() {
+        self.setRootController()        //Set Root View Cotroller
+        self.setUpIQKeyBoardManager()       //Keyboard Set-Up
+        // Register for remote notification
+//        self.configureGoogleMapKey()        // Set up google service
+//                self.perform(#selector(self.networkRechability), with: nil, afterDelay: 3.0)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+//            LocationManager.shared.getLocation() // Ask to enable location service
+//            self.registerForPushNotification()
+        }
+    }
+
+    func configureGoogleMapKey(){
+        
+//        GMSServices.provideAPIKey(GoogleKeys.ServiceKey.rawValue)
+//        GMSPlacesClient.provideAPIKey(GoogleKeys.iOSServiceKey.rawValue)
+//        GMSPlacesClient.provideAPIKey(GoogleKeys.GoogleClientID.rawValue)
+    }
+    
+    func setUpIQKeyBoardManager() {
+        IQKeyboardManager.shared.enable                                        = true
+        IQKeyboardManager.shared.enableAutoToolbar                              = true
+        IQKeyboardManager.shared.keyboardDistanceFromTextField                    = 5
+        IQKeyboardManager.shared.shouldResignOnTouchOutside                       = true
+    }
+    
+    func setRootController() {
+        
+        let value = USERDEFAULTS.bool(forKey: UserDefaultsKeys.isUserLogin.rawValue)
+        print(value)
+        
+        if value /* USERDEFAULTS.value(forKey: UserDefaultsKeys.kLoginUserData.rawValue) != nil*/{
+           
+            self.updateWindow(.home)
+            
+        }else{
+
+            self.updateWindow()
+        }
+    }
+    
+    func updateWindow(_ windowTag : openWindorTag = .login){
+        
+        if windowTag == .home{
+            
+            self.setHomePage()
+        }
+        else{
+            self.setLoginPage()
+        }
+    }
+    
+    //MARK: - SetHome page
+    func setHomePage(){
+//        USERMODEL.current.getUserDetailFromDefaults()
+        USERDEFAULTS.set(true, forKey: UserDefaultsKeys.isUserLogin.rawValue)
+        USERDEFAULTS.synchronize()
+        let homeNavVC  = AUTHENTICATION.instantiateViewController(withIdentifier: "NavHome") as! UINavigationController
+        //let navigationVC = UINavigationController(rootViewController: tabBarVC)
+        //UIApplication.shared.windows.first?.rootViewController = navigationVC
+        UIApplication.shared.windows.first?.rootViewController = homeNavVC
+        UIApplication.shared.windows.first?.makeKeyAndVisible()
+        
+    }
+    
+    //-----------------------------------------------------------
+    //MARK: - SetLogin page
+    
+    func setLoginPage(){
+      
+        USERDEFAULTS.set(false, forKey: UserDefaultsKeys.isUserLogin.rawValue)
+        USERDEFAULTS.synchronize()
+        
+        let loginNavVC = AUTHENTICATION.instantiateViewController(withIdentifier: "NavLogin") as! UINavigationController
+        UIApplication.shared.windows.first?.rootViewController = loginNavVC
+        UIApplication.shared.windows.first?.makeKeyAndVisible()
+        
+    }
 }

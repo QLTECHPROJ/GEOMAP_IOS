@@ -7,7 +7,7 @@
 
 import UIKit
 
-class OCGeoAttributeVC: BaseViewController {
+class OCGeoAttributeVC: ClearNaviagtionBarVC {
 
     override func viewDidLoad() {
         super.viewDidLoad()

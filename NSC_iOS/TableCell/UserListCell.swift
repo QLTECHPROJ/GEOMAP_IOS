@@ -16,6 +16,8 @@ class UserListCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+       
+        self.lblName.applyLabelStyle(fontSize : 16,fontName : .InterMedium,textColor : .colorTextPlaceHolderGray)
     }
     
 }

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class UGGeoAttributeVC: BaseViewController {
+class UGGeoAttributeVC: ClearNaviagtionBarVC {
     
     // MARK: - OUTLETS
     @IBOutlet weak var btnBack: UIButton!
@@ -42,7 +42,7 @@ class UGGeoAttributeVC: BaseViewController {
     
     
     // MARK: - FUNCTIONS
-    override func setupUI() {
+    func setupUI() {
         arrayErrorLabels = [ lblErrState, lblErrCity]
         
         for label in arrayErrorLabels {
@@ -53,7 +53,7 @@ class UGGeoAttributeVC: BaseViewController {
         txtCity.isEnabled = false
     }
     
-    override func setupData() {
+    func setupData() {
         
         if let strName = selectedState?.Name {
             txtState.text = strName
@@ -114,7 +114,7 @@ class UGGeoAttributeVC: BaseViewController {
         self.setupData()
     }
     
-    override func buttonEnableDisable() {
+    func buttonEnableDisable() {
         var shouldEnable = true
         
         
@@ -150,16 +150,16 @@ class UGGeoAttributeVC: BaseViewController {
         return isValid
     }
     
-    override func goNext() {
+    func goNext() {
         let coachDetailVM = CoachDetailViewModel()
         coachDetailVM.callCoachDetailsAPI { success in
             
-            self.fetchCoachDetails()
+//            self.fetchCoachDetails()
             
             if self.isFromEdit {
                 self.navigationController?.popViewController(animated: true)
             } else {
-                self.handleLoginUserRedirection()
+//                self.handleLoginUserRedirection()
             }
         }
     }

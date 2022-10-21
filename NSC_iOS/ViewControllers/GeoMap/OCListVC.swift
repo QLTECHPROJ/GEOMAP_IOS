@@ -7,7 +7,7 @@
 
 import UIKit
 
-class OCListVC: BaseViewController {
+class OCListVC: ClearNaviagtionBarVC {
     
     // MARK: - OUTLETS
     @IBOutlet weak var lblNoData: UILabel!
@@ -26,25 +26,25 @@ class OCListVC: BaseViewController {
         lblNoData.text = Theme.strings.no_data_found
         
         tableView.register(nibWithCellClass: NotificationListCell.self)
-        tableView.refreshControl = self.refreshControl
+//        tableView.refreshControl = self.refreshControl
         
         refreshData()
     }
     
     
     // MARK: - FUNCTIONS
-    override func setupData() {
+    func setupData() {
         lblNoData.isHidden = arrayNotifications.count != 0
         tableView.isHidden = arrayNotifications.count == 0
         tableView.reloadData()
     }
     
-    override func handleRefresh(_ refreshControl: UIRefreshControl) {
+    func handleRefresh(_ refreshControl: UIRefreshControl) {
         self.refreshData()
         refreshControl.endRefreshing()
     }
     
-    override func refreshData() {
+    func refreshData() {
         let notificationListVM = NotificationListViewModel()
         notificationListVM.callNotificationListAPI { success in
             if success {

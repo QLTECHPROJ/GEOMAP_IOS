@@ -8,26 +8,52 @@
 
 import UIKit
 
-class UserListPopUpVC: BaseViewController {
+class UserListPopUpVC: ClearNaviagtionBarVC {
     
     // MARK: - OUTLETS
+    
+    @IBOutlet weak var imgUser: ImageThemeBorderClass!
+    
+    @IBOutlet weak var imgCamara: UIImageView!
+    
     @IBOutlet weak var tableView: UITableView!
     
-    @IBOutlet weak var headerview: UIView!
     
     // MARK: - VARIABLES
    
-    var arrMenu = ["UnderGroud Report List", "OpenCast Report List" ,"Edit Profle " ,"Sync Data","FAQ","About Us" , "Support","Contact Us", "logout"]
+    var arrMenu = [kUnderGroundReportList, kOpenCastReportlist, kEditProfile, kSyncData, kFAQs ,kAboutUs , kSupport, kContantUs, kLogout]
     
+
     // MARK: - VIEW LIFE CYCLE
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.register(nibWithCellClass: UserListCell.self)
-        tableView.tableHeaderView = headerview
-       
+        self.setUpUI()
+        
     }
     
+    
+    //MARK: - FUNCTIONS
+    
+    func setUpUI(){
+        self.view.backgroundColor = .colorBGSkyBlueLight
+        self.tableView.register(nibWithCellClass: UserListCell.self)
+        /*
+        let tapGestureToChooseProfile1 = UITapGestureRecognizer(target: self, action: #selector(self.selectProfilePicture(_:)))
+        self.imgUser.isUserInteractionEnabled = true
+        self.imgUser.addGestureRecognizer(tapGestureToChooseProfile1)
+        
+        let tapGestureToChooseProfile2 = UITapGestureRecognizer(target: self, action: #selector(self.selectProfilePicture(_:)))
+        self.imgCamara.isUserInteractionEnabled = true
+        self.imgCamara.addGestureRecognizer(tapGestureToChooseProfile2)
+        */
+        self.setupData()
+    }
+    
+    func setupData() {
+        self.imgUser.image = UIImage(named: "profile1")
+        
+    }
     
     // MARK: - ACTIONS
     @IBAction func onTappedBack(_ sender: Any) {
@@ -90,10 +116,10 @@ extension UserListPopUpVC : UITableViewDelegate, UITableViewDataSource {
             }
             
             let aVC = AppStoryBoard.main.viewController(viewControllerClass: AlertPopUpVC.self)
-            aVC.titleText = Theme.strings.logout
-            aVC.detailText = Theme.strings.alert_logout_message
-            aVC.firstButtonTitle = Theme.strings.ok
-            aVC.secondButtonTitle = Theme.strings.close
+            aVC.titleText = kLogout
+            aVC.detailText = kLogoutPermissionAlertMsg
+            aVC.firstButtonTitle = kLogout
+            aVC.secondButtonTitle = kClose
             aVC.modalPresentationStyle = .overFullScreen
             aVC.delegate = self
             self.present(aVC, animated: false, completion: nil)
@@ -102,7 +128,7 @@ extension UserListPopUpVC : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 86
+        return UITableView.automaticDimension
     }
     
 }
@@ -117,11 +143,13 @@ extension UserListPopUpVC : AlertPopUpVCDelegate {
                 return
             }
             
+            AppDelegate.shared.updateWindow()
+            /*
             let logoutVM = LogoutViewModel()
             logoutVM.callLogoutAPI(completion: { success in
-                APPDELEGATE.logout()
+//                APPDELEGATE.logout()
             })
-            
+         */
         }
     }
     

@@ -7,14 +7,20 @@
 
 import UIKit
 
-class UGListVC: BaseViewController {
+class UGListVC: ClearNaviagtionBarVC {
     
     // MARK: - OUTLETS
-    @IBOutlet weak var lblNoData: UILabel!
+
     @IBOutlet weak var tableView: UITableView!
+    
+    @IBOutlet weak var vwHeader: UIView!
+    @IBOutlet weak var lblTitle: UILabel!
     
     
     // MARK: - VARIABLES
+    
+    var titleHeader : String = ""
+    
     var arrayNotifications = [NotificationListDataModel]()
     
     
@@ -22,36 +28,42 @@ class UGListVC: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        lblNoData.isHidden = true
-        lblNoData.text = Theme.strings.no_data_found
+        self.setUpUI()
+        self.tableView.register(nibWithCellClass: NotificationListCell.self)
         
-        tableView.register(nibWithCellClass: NotificationListCell.self)
-        tableView.refreshControl = self.refreshControl
-        
-        refreshData()
+        self.refreshData()
     }
     
     
     // MARK: - FUNCTIONS
-    override func setupData() {
-        lblNoData.isHidden = arrayNotifications.count != 0
-        tableView.isHidden = arrayNotifications.count == 0
-        tableView.reloadData()
+    
+    func setUpUI(){
+     
+        self.lblTitle.applyLabelStyle(text: self.titleHeader,fontSize :  20,fontName : .InterBold)
+        self.lblTitle.adjustsFontSizeToFitWidth = true
+        self.view.backgroundColor = .colorBGSkyBlueLight
     }
     
-    override func handleRefresh(_ refreshControl: UIRefreshControl) {
+    func setupData() {
+        
+    }
+    
+    func handleRefresh(_ refreshControl: UIRefreshControl) {
         self.refreshData()
         refreshControl.endRefreshing()
     }
     
-    override func refreshData() {
+    func refreshData() {
+        /*
         let notificationListVM = NotificationListViewModel()
         notificationListVM.callNotificationListAPI { success in
             if success {
                 self.arrayNotifications = notificationListVM.arrayNotifications
+                self.tableView.reloadData()
             }
             self.setupData()
-        }
+        }*/
+        self.tableView.reloadData()
     }
     
     
@@ -68,7 +80,7 @@ class UGListVC: BaseViewController {
 extension UGListVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return arrayNotifications.count
+        return 10
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

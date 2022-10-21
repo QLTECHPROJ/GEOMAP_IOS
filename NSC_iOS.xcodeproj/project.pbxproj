@@ -7,6 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1251DD9128FFDE2400E1E712 /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1251DD9028FFDE2400E1E712 /* UIButton+Extension.swift */; };
+		1251DD9328FFDE3700E1E712 /* UIButtonClasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1251DD9228FFDE3700E1E712 /* UIButtonClasses.swift */; };
+		1251DD9528FFDEDD00E1E712 /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1251DD9428FFDEDD00E1E712 /* UIFont+Extension.swift */; };
+		1251DD9728FFDFB000E1E712 /* AppGlobalString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1251DD9628FFDFAF00E1E712 /* AppGlobalString.swift */; };
+		1251DD9928FFDFBB00E1E712 /* GConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1251DD9828FFDFBB00E1E712 /* GConstant.swift */; };
+		1251DD9B28FFE22700E1E712 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1251DD9A28FFE22700E1E712 /* UILabel+Extension.swift */; };
+		1251DD9C28FFE9C000E1E712 /* AppGlobalString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1251DD9628FFDFAF00E1E712 /* AppGlobalString.swift */; };
+		1251DD9D28FFE9C400E1E712 /* GConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1251DD9828FFDFBB00E1E712 /* GConstant.swift */; };
+		1251DD9E28FFE9C900E1E712 /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1251DD9428FFDEDD00E1E712 /* UIFont+Extension.swift */; };
+		1251DD9F28FFE9CB00E1E712 /* UIButtonClasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1251DD9228FFDE3700E1E712 /* UIButtonClasses.swift */; };
+		1251DDA028FFE9CE00E1E712 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1251DD9A28FFE22700E1E712 /* UILabel+Extension.swift */; };
+		1251DDA128FFE9D100E1E712 /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1251DD9028FFDE2400E1E712 /* UIButton+Extension.swift */; };
+		1251DDA328FFEE3F00E1E712 /* ACFloatingTextfield+Extesion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1251DDA228FFEE3F00E1E712 /* ACFloatingTextfield+Extesion.swift */; };
+		1251DDA428FFEE9A00E1E712 /* ACFloatingTextfield+Extesion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1251DDA228FFEE3F00E1E712 /* ACFloatingTextfield+Extesion.swift */; };
+		125C815C29012DC8004331F0 /* UIImageViewClasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125C815B29012DC8004331F0 /* UIImageViewClasses.swift */; };
+		1278BD1229000A8B0061A7DD /* AppShadowViewClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1278BD1129000A8B0061A7DD /* AppShadowViewClass.swift */; };
+		1278BD14290023BA0061A7DD /* Genum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1278BD13290023BA0061A7DD /* Genum.swift */; };
+		1278BD15290023F60061A7DD /* Genum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1278BD13290023BA0061A7DD /* Genum.swift */; };
+		1278BD17290028670061A7DD /* BaseClassForrNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1278BD16290028670061A7DD /* BaseClassForrNavigationBar.swift */; };
+		1278BD182900287E0061A7DD /* BaseClassForrNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1278BD16290028670061A7DD /* BaseClassForrNavigationBar.swift */; };
 		2804E39B2819846B00AF4A62 /* NSDate+Timepiece.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F8315A28197B0600CAF99C /* NSDate+Timepiece.swift */; };
 		2804E39C2819847400AF4A62 /* WWCalendarTimeSelector.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28F8315528197B0600CAF99C /* WWCalendarTimeSelector.storyboard */; };
 		2804E39D2819847D00AF4A62 /* Int+Timepiece.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F8315928197B0600CAF99C /* Int+Timepiece.swift */; };
@@ -343,6 +363,17 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1251DD9028FFDE2400E1E712 /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
+		1251DD9228FFDE3700E1E712 /* UIButtonClasses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonClasses.swift; sourceTree = "<group>"; };
+		1251DD9428FFDEDD00E1E712 /* UIFont+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
+		1251DD9628FFDFAF00E1E712 /* AppGlobalString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppGlobalString.swift; sourceTree = "<group>"; };
+		1251DD9828FFDFBB00E1E712 /* GConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GConstant.swift; sourceTree = "<group>"; };
+		1251DD9A28FFE22700E1E712 /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
+		1251DDA228FFEE3F00E1E712 /* ACFloatingTextfield+Extesion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ACFloatingTextfield+Extesion.swift"; sourceTree = "<group>"; };
+		125C815B29012DC8004331F0 /* UIImageViewClasses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewClasses.swift; sourceTree = "<group>"; };
+		1278BD1129000A8B0061A7DD /* AppShadowViewClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppShadowViewClass.swift; sourceTree = "<group>"; };
+		1278BD13290023BA0061A7DD /* Genum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Genum.swift; sourceTree = "<group>"; };
+		1278BD16290028670061A7DD /* BaseClassForrNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseClassForrNavigationBar.swift; sourceTree = "<group>"; };
 		15FF71ED063A7E208A8A060D /* Pods-NSC_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NSC_iOS.release.xcconfig"; path = "Target Support Files/Pods-NSC_iOS/Pods-NSC_iOS.release.xcconfig"; sourceTree = "<group>"; };
 		280C1227283F9AA80034898A /* ApplyForCampCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplyForCampCell.swift; sourceTree = "<group>"; };
 		280C1228283F9AA80034898A /* ApplyForCampCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ApplyForCampCell.xib; sourceTree = "<group>"; };
@@ -547,6 +578,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1251DD8F28FFDE0600E1E712 /* Global Files */ = {
+			isa = PBXGroup;
+			children = (
+				1251DD9028FFDE2400E1E712 /* UIButton+Extension.swift */,
+				1251DD9A28FFE22700E1E712 /* UILabel+Extension.swift */,
+				125C815B29012DC8004331F0 /* UIImageViewClasses.swift */,
+				1251DD9228FFDE3700E1E712 /* UIButtonClasses.swift */,
+				1251DD9428FFDEDD00E1E712 /* UIFont+Extension.swift */,
+				1278BD16290028670061A7DD /* BaseClassForrNavigationBar.swift */,
+				1278BD1129000A8B0061A7DD /* AppShadowViewClass.swift */,
+				1251DD9828FFDFBB00E1E712 /* GConstant.swift */,
+				1278BD13290023BA0061A7DD /* Genum.swift */,
+				1251DDA228FFEE3F00E1E712 /* ACFloatingTextfield+Extesion.swift */,
+				1251DD9628FFDFAF00E1E712 /* AppGlobalString.swift */,
+			);
+			path = "Global Files";
+			sourceTree = "<group>";
+		};
 		2813A0122834DBC200E6194D /* Earning */ = {
 			isa = PBXGroup;
 			children = (
@@ -840,6 +889,7 @@
 		28F83083281977F000CAF99C /* Helper Classes */ = {
 			isa = PBXGroup;
 			children = (
+				1251DD8F28FFDE0600E1E712 /* Global Files */,
 				28F8309D281977F000CAF99C /* BaseViewController.swift */,
 				28F830AB281977F000CAF99C /* Config.swift */,
 				28F830BB281977F000CAF99C /* AppConstants.swift */,
@@ -1386,8 +1436,10 @@
 				28F830F7281977F000CAF99C /* UISearchBar+Extension.swift in Sources */,
 				9AE6D6F528F9461A008C41C9 /* OCGeoAttributeVC.swift in Sources */,
 				281AAE56281AAA970070D758 /* UICollectionView+Extension.swift in Sources */,
+				1278BD15290023F60061A7DD /* Genum.swift in Sources */,
 				281AAE4A281AA4D30070D758 /* AppVersionViewModel.swift in Sources */,
 				28F830DF281977F000CAF99C /* UIColor+Extension.swift in Sources */,
+				1251DDA028FFE9CE00E1E712 /* UILabel+Extension.swift in Sources */,
 				28D1A5B72823FBB200B3A179 /* CoachStatusModel.swift in Sources */,
 				281AAE42281AA3B40070D758 /* ListDataModel.swift in Sources */,
 				9A694AA228FE5C3C000AC3C7 /* FAQCell.swift in Sources */,
@@ -1398,6 +1450,7 @@
 				2898FA8C28360FFF006DF4B8 /* SaveAppliedCampsViewModel.swift in Sources */,
 				2804E39F2819847D00AF4A62 /* String+Timepiece.swift in Sources */,
 				28F83119281977F000CAF99C /* Config.swift in Sources */,
+				1251DD9E28FFE9C900E1E712 /* UIFont+Extension.swift in Sources */,
 				28515AA7282E81F4004C7229 /* ContactCell.swift in Sources */,
 				2804E3A02819847D00AF4A62 /* NSDateComponents+Timepiece.swift in Sources */,
 				282C33642819617D009401FD /* AppDelegate.swift in Sources */,
@@ -1441,11 +1494,14 @@
 				28F830D9281977F000CAF99C /* DJPickerView.swift in Sources */,
 				9A48A7502829384000D0A728 /* LogoutModel.swift in Sources */,
 				282C336F2819617D009401FD /* ProfileVC.swift in Sources */,
+				1278BD182900287E0061A7DD /* BaseClassForrNavigationBar.swift in Sources */,
 				28C8DA2C2822B7590048A172 /* LoginModel.swift in Sources */,
 				28F830D7281977F000CAF99C /* DJTextField.swift in Sources */,
 				289B6A332889367A0095FE32 /* UGListVC.swift in Sources */,
 				9A694A9E28FE5BEA000AC3C7 /* FAQListVC.swift in Sources */,
 				28F83107281977F000CAF99C /* KDCircularProgress.swift in Sources */,
+				1251DDA428FFEE9A00E1E712 /* ACFloatingTextfield+Extesion.swift in Sources */,
+				1251DDA128FFE9D100E1E712 /* UIButton+Extension.swift in Sources */,
 				9A694AAB28FE60F8000AC3C7 /* FAQViewModel.swift in Sources */,
 				28F830E9281977F000CAF99C /* DJContants.swift in Sources */,
 				28F830D5281977F000CAF99C /* DJTextView.swift in Sources */,
@@ -1477,6 +1533,7 @@
 				28ABEDBC2833C6DD001C3911 /* TitleLabelCell.swift in Sources */,
 				28F830E3281977F000CAF99C /* Int+Extension.swift in Sources */,
 				28F830E5281977F000CAF99C /* UIView+Extension.swift in Sources */,
+				1251DD9C28FFE9C000E1E712 /* AppGlobalString.swift in Sources */,
 				9A7740BA282BB7A1000BDC8C /* UploaddataModel.swift in Sources */,
 				28515AA3282E8187004C7229 /* UGReportDetailVC.swift in Sources */,
 				2898FA90283671F7006DF4B8 /* KidsAttendanceViewModel.swift in Sources */,
@@ -1489,6 +1546,7 @@
 				2804E3A12819847D00AF4A62 /* NSCalendar+Timepiece.swift in Sources */,
 				9A694A9B28FE5BBF000AC3C7 /* SupportPopupVC.swift in Sources */,
 				2813A0112834DBBC00E6194D /* EarningModel.swift in Sources */,
+				1251DD9F28FFE9CB00E1E712 /* UIButtonClasses.swift in Sources */,
 				28470DAC281C0CC500FE9C66 /* AlertPopUpVC.swift in Sources */,
 				9A96F94728F96BE200879A89 /* SyncDataVC.swift in Sources */,
 				28AE722B282CDFF5000845D0 /* AppFonts.swift in Sources */,
@@ -1508,6 +1566,7 @@
 				2804E39D2819847D00AF4A62 /* Int+Timepiece.swift in Sources */,
 				28470DAF281C0ED700FE9C66 /* DescriptionPopupVC.swift in Sources */,
 				28F830DB281977F000CAF99C /* UIImageView+Extension.swift in Sources */,
+				1251DD9D28FFE9C400E1E712 /* GConstant.swift in Sources */,
 				2804E39E2819847D00AF4A62 /* Duration.swift in Sources */,
 				28F830DD281977F000CAF99C /* NSAttributedString+Extension.swift in Sources */,
 				28C8DA292822B74F0048A172 /* LoginViewModel.swift in Sources */,
@@ -1539,10 +1598,12 @@
 				9A694AA128FE5C3C000AC3C7 /* FAQCell.swift in Sources */,
 				28F830DE281977F000CAF99C /* UIColor+Extension.swift in Sources */,
 				28F830FA281977F000CAF99C /* UITableView+Extension.swift in Sources */,
+				1251DD9128FFDE2400E1E712 /* UIButton+Extension.swift in Sources */,
 				28F8316328197B0600CAF99C /* String+Timepiece.swift in Sources */,
 				289B6A2C288934C80095FE32 /* NotificationListCell.swift in Sources */,
 				2898FA8B28360FFF006DF4B8 /* SaveAppliedCampsViewModel.swift in Sources */,
 				28F83136281977F000CAF99C /* WhereAmIRunning.swift in Sources */,
+				1251DD9528FFDEDD00E1E712 /* UIFont+Extension.swift in Sources */,
 				28F83118281977F000CAF99C /* Config.swift in Sources */,
 				28515AA6282E81F4004C7229 /* ContactCell.swift in Sources */,
 				28A9C40C2817B7C9001B252F /* AppDelegate.swift in Sources */,
@@ -1559,6 +1620,7 @@
 				282ACD68282BB8FC005A8634 /* CampDetailDataModel.swift in Sources */,
 				28F8311C281977F000CAF99C /* MediaType.swift in Sources */,
 				2813A01A2834FD9000E6194D /* InviteViewModel.swift in Sources */,
+				1251DD9328FFDE3700E1E712 /* UIButtonClasses.swift in Sources */,
 				28F8316528197B0600CAF99C /* WWCalendarTimeSelector.swift in Sources */,
 				284A3EC62823EDD600B511FB /* CoachDetailViewModel.swift in Sources */,
 				9AE824402817E25200A29373 /* ListItemCell.swift in Sources */,
@@ -1591,6 +1653,7 @@
 				289B6A29288934B40095FE32 /* UGListVC.swift in Sources */,
 				28F8315F28197B0600CAF99C /* NSDateComponents+Timepiece.swift in Sources */,
 				9A694A9D28FE5BEA000AC3C7 /* FAQListVC.swift in Sources */,
+				1251DDA328FFEE3F00E1E712 /* ACFloatingTextfield+Extesion.swift in Sources */,
 				28F830E8281977F000CAF99C /* DJContants.swift in Sources */,
 				9A694AAA28FE60F8000AC3C7 /* FAQViewModel.swift in Sources */,
 				28F3C253281A5CC80092A077 /* KidsAttendenceCell.swift in Sources */,
@@ -1598,6 +1661,7 @@
 				28F8312A281977F000CAF99C /* BackspaceTextField.swift in Sources */,
 				28F83138281977F000CAF99C /* CryptLib.m in Sources */,
 				9A4D7B6F28F849E4008E0DBF /* OpenCastReportVC.swift in Sources */,
+				1251DD9928FFDFBB00E1E712 /* GConstant.swift in Sources */,
 				28F83152281977F000CAF99C /* TabBarController.swift in Sources */,
 				28F8316028197B0600CAF99C /* NSCalendar+Timepiece.swift in Sources */,
 				280C1229283F9AA80034898A /* ApplyForCampCell.swift in Sources */,
@@ -1616,8 +1680,10 @@
 				284A3EC22823B09400B511FB /* SignUpViewModel.swift in Sources */,
 				281AAE4C281AA7800070D758 /* Constants.swift in Sources */,
 				9A48A74828290A5800D0A728 /* LogoutViewModel.swift in Sources */,
+				125C815C29012DC8004331F0 /* UIImageViewClasses.swift in Sources */,
 				28F830E6281977F000CAF99C /* UIImage+Extension.swift in Sources */,
 				9A48A7412829045A00D0A728 /* CampListViewModel.swift in Sources */,
+				1251DD9728FFDFB000E1E712 /* AppGlobalString.swift in Sources */,
 				28F830E2281977F000CAF99C /* Int+Extension.swift in Sources */,
 				28ABEDBB2833C6DD001C3911 /* TitleLabelCell.swift in Sources */,
 				28F830E4281977F000CAF99C /* UIView+Extension.swift in Sources */,
@@ -1626,12 +1692,14 @@
 				28515AA2282E8187004C7229 /* UGReportDetailVC.swift in Sources */,
 				2898FA8F283671F7006DF4B8 /* KidsAttendanceViewModel.swift in Sources */,
 				28F83132281977F000CAF99C /* Theme.swift in Sources */,
+				1278BD17290028670061A7DD /* BaseClassForrNavigationBar.swift in Sources */,
 				28F830F0281977F000CAF99C /* UINavigationBar+Extension.swift in Sources */,
 				2813A01E2835058800E6194D /* ApplyForACampViewModel.swift in Sources */,
 				28ABEDB52833C0D0001C3911 /* DayListCell.swift in Sources */,
 				2813A0222835089900E6194D /* ApplyForACampModel.swift in Sources */,
 				28F83130281977F000CAF99C /* AppConstants.swift in Sources */,
 				28470DAB281C0CC500FE9C66 /* AlertPopUpVC.swift in Sources */,
+				1278BD1229000A8B0061A7DD /* AppShadowViewClass.swift in Sources */,
 				2813A0102834DBBC00E6194D /* EarningModel.swift in Sources */,
 				9A694A9A28FE5BBF000AC3C7 /* SupportPopupVC.swift in Sources */,
 				28F83142281977F000CAF99C /* ReadMore_Helper.swift in Sources */,
@@ -1643,6 +1711,7 @@
 				28F83134281977F000CAF99C /* GradientView.swift in Sources */,
 				281AAE52281AA8D30070D758 /* APIRouter.swift in Sources */,
 				28F830FE281977F000CAF99C /* TagFlowLayout.swift in Sources */,
+				1251DD9B28FFE22700E1E712 /* UILabel+Extension.swift in Sources */,
 				2851D2562840F28A00D9D9F9 /* ReferDataModel.swift in Sources */,
 				28F83102281977F000CAF99C /* ExpandableLabel.swift in Sources */,
 				28ED596D282260060035402F /* LoginCheckViewModel.swift in Sources */,
@@ -1664,6 +1733,7 @@
 				28F8312C281977F000CAF99C /* AnimationFrames.swift in Sources */,
 				28ED59702822601C0035402F /* LoginCheckModel.swift in Sources */,
 				9A694AA828FE60F8000AC3C7 /* FAQModel.swift in Sources */,
+				1278BD14290023BA0061A7DD /* Genum.swift in Sources */,
 				28F830D2281977F000CAF99C /* DJCheckBox.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1908,7 +1978,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.geomap;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nsc.customer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1948,7 +2018,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.geomap;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nsc.customer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;

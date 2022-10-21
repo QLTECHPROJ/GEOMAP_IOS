@@ -10,28 +10,28 @@ import UIKit
 import TTTAttributedLabel
 import FirebaseAuth
 
-class LoginVC: BaseViewController {
+class LoginVC: ClearNaviagtionBarVC {
     
     // MARK: - OUTLETS
     //UILabel
     @IBOutlet weak var lblTitle: UILabel!
     @IBOutlet weak var lblSubTitle: UILabel!
     @IBOutlet weak var lblError: UILabel!
-    @IBOutlet weak var lblPrivacy: TTTAttributedLabel!
-    @IBOutlet weak var lblSupport: TTTAttributedLabel!
+    
     
     //UIButton
     @IBOutlet weak var btnUser: UIButton!
     
     @IBOutlet weak var btnPassword: UIButton!
-    @IBOutlet weak var btnGetSMSCode: UIButton!
+    
+    @IBOutlet weak var btnForgotPassword: UIButton!
+    @IBOutlet weak var btnGetSMSCode: AppThemeBlueButton!
     
     //UITextfield
-    @IBOutlet weak var txtUser: UITextField!
-    @IBOutlet weak var txtPassword: UITextField!
+    @IBOutlet weak var txtUser: ACFloatingTextfield!
+    @IBOutlet weak var txtPassword: ACFloatingTextfield!
     
     //UIStackView
-    @IBOutlet weak var stackView: UIStackView!
     
     
     // MARK: - VARIABLES
@@ -42,7 +42,7 @@ class LoginVC: BaseViewController {
     // MARK: - VIEW LIFE CYCLE
     override func viewDidLoad() {
         super.viewDidLoad()
-        buttonEnableDisable()
+        self.setupUI()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -58,31 +58,41 @@ class LoginVC: BaseViewController {
     
     
     // MARK: - FUNCTIONS
-    override func setupUI() {
-       
+    
+    func setupUI() {
+        self.view.backgroundColor = UIColor.colorBGSkyBlueLight
+        
+        self.lblError.isHidden = true
+        
+        self.lblTitle.applyLabelStyle(text : kHelloAgian,fontSize :  27,fontName : .InterBold)
+        self.lblSubTitle.applyLabelStyle(text : kInstructionTitleLogin,fontSize : 20,fontName : .InterMedium)
+        
+        self.btnForgotPassword.applystyle(fontname : .InterMedium,fontsize : 14,titleText : kForgotPassword,titleColor : .colorTextPlaceHolderGray)
+        
+        self.btnGetSMSCode.setTitle(kSignIn, for: .normal)
+        
+        self.txtUser.applyStyleFlotingTextfield(placeholderTitle : kName, fontsize : 16,fontname : .InterSemibol)
+        self.txtPassword.applyStyleFlotingTextfield(placeholderTitle : kPassword, fontsize : 16, fontname : .InterSemibol)
+        
+        self.buttonEnableDisable()
+        self.lblError.isHidden = true
     }
     
-    override func setupData() {
+     func buttonEnableDisable() {
+        let fname = txtUser.text!.trim
+        let password = txtPassword.text!.trim
+                
+        self.btnUser.isSelected = !fname.isEmpty
+        self.btnPassword.isSelected = !password.isEmpty
        
-       
-    }
-    
-    override func buttonEnableDisable() {
-        let fname = txtUser.text?.trim
-        let password = txtPassword.text?.trim
-       
-        if fname?.count == 0  || password?.count == 0 {
-            btnGetSMSCode.isUserInteractionEnabled = false
-            btnGetSMSCode.backgroundColor = Theme.colors.gray_7E7E7E
-            btnUser.setImage(UIImage(named: "UserGray"), for: .normal)
-            btnPassword.setImage(UIImage(named: "passwordGray"), for: .normal)
+        if fname.isEmpty  || password.isEmpty {
+
+            self.btnGetSMSCode.isSelect = false
+            
         } else {
-            btnGetSMSCode.isUserInteractionEnabled = true
-            btnGetSMSCode.backgroundColor = Theme.colors.theme_dark
-            btnUser.setImage(UIImage(named: "UserBlue"), for: .normal)
-            btnPassword.setImage(UIImage(named: "passwordBlue"), for: .normal)
+
+            self.btnGetSMSCode.isSelect = true
         }
-       
     }
     
     func checkValidation() -> Bool {
@@ -109,10 +119,17 @@ class LoginVC: BaseViewController {
     }
     
     // MARK: - ACTIONS
+    
+    @IBAction func btnForgotPassowrdTapped(_ sender: UIButton) {
+       
+    }
+    
     @IBAction func loginClicked(_ sender: UIButton) {
         if checkValidation() {
             let aVC = AppStoryBoard.main.viewController(viewControllerClass: HomeVC.self)
-            self.navigationController?.pushViewController(aVC, animated: true)
+//            self.navigationController?.pushViewController(aVC, animated: true)
+            
+            AppDelegate.shared.updateWindow(.home)
         }
     }
     
@@ -130,9 +147,11 @@ extension LoginVC : UITextFieldDelegate {
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-       
-        buttonEnableDisable()
-        
+        self.buttonEnableDisable()
+    }
+    
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        self.buttonEnableDisable()
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
