@@ -10,6 +10,8 @@ import CoreData
 import Firebase
 import IQKeyboardManagerSwift
 
+@_exported import SwiftyJSON
+
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
@@ -135,9 +137,11 @@ extension AppDelegate {
 extension AppDelegate : UNUserNotificationCenterDelegate {
     
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-        DEVICE_TOKEN = deviceToken.hexString
-        print("DEVICE_TOKEN :- ",DEVICE_TOKEN)
-        Messaging.messaging().apnsToken = deviceToken
+//        DEVICE_TOKEN = deviceToken.hexString
+//        print("DEVICE_TOKEN :- ",DEVICE_TOKEN)
+//        Messaging.messaging().apnsToken = deviceToken
+        
+        GFunctions.shared.saveDeviceTokenIntoUserDefault(object: deviceToken.hexString  as AnyObject, key: UserDefaultsKeys.kDeviceToken.rawValue)
     }
     
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {

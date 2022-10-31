@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "swiftyjson",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/SwiftyJSON/SwiftyJSON",
+      "state" : {
+        "branch" : "master",
+        "revision" : "f8d4d57ebac1817f6aa161014f1d4e2e119cbf7b"
+      }
+    }
+  ],
+  "version" : 2
+}

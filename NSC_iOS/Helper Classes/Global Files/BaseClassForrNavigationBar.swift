@@ -52,7 +52,7 @@ class ClearNaviagtionBarVC: UIViewController {
         
         var titleColor : UIColor = UIColor.colorTextBlack
         
-        self.navigationController?.navigationBar.barStyle = .black
+        self.navigationController?.navigationBar.barStyle = .default
         
         //        self.navigationController?.navigationBar.setBackgroundImage(UIImage().withColor(.clear), for: UIBarMetrics.default)
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)

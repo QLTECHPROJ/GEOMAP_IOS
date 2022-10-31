@@ -285,44 +285,38 @@ Data File</string>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="m0Q-MI-nNj">
-                                <rect key="frame" x="39.333333333333343" y="286.33333333333331" width="296.33333333333326" height="239.33333333333331"/>
+                                <rect key="frame" x="15" y="283.33333333333331" width="345" height="245.33333333333331"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="zJx-gb-5xr">
-                                        <rect key="frame" x="16" y="55" width="264.33333333333331" height="129.33333333333334"/>
+                                        <rect key="frame" x="16" y="55" width="313" height="135.33333333333334"/>
                                         <subviews>
-                                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JvX-se-86S" customClass="AppThemeBlueButton" customModule="NSC_iOS" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="264.33333333333331" height="54.666666666666664"/>
+                                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1TH-Xe-WxV" customClass="AppThemeBlueButton" customModule="NSC_iOS" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="313" height="57.666666666666664"/>
                                                 <color key="backgroundColor" name="theme_dark"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="JvX-se-86S" secondAttribute="height" multiplier="97:20" id="4fq-WQ-40W"/>
-                                                </constraints>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="Add Under Ground Mapping Report">
-                                                    <fontDescription key="titleFontDescription" name="Inter-Bold" family="Inter" pointSize="14"/>
-                                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </buttonConfiguration>
+                                                <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="16"/>
+                                                <state key="normal" title="Update">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                         <real key="value" value="10"/>
                                                     </userDefinedRuntimeAttribute>
                                                     <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                        <color key="value" name="theme_dark"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                        <real key="value" value="1"/>
+                                                        <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
-                                                    <action selector="btnUndergroundReportClicked:" destination="GHQ-Xx-gCT" eventType="touchUpInside" id="QCg-K6-aqS"/>
+                                                    <action selector="btnConfirmTapped:" destination="glq-Q2-xhy" eventType="touchUpInside" id="Fnv-m5-aGE"/>
+                                                    <action selector="btnUndergroundReportClicked:" destination="GHQ-Xx-gCT" eventType="touchUpInside" id="Zbd-Co-Kft"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Don-W7-xpS" customClass="AppThemeBorderBlueButton" customModule="NSC_iOS" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="74.666666666666686" width="264.33333333333331" height="54.666666666666657"/>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="Add OpenCast Mapping Report">
-                                                    <fontDescription key="titleFontDescription" name="Inter-Bold" family="Inter" pointSize="14"/>
-                                                    <color key="baseForegroundColor" name="theme_dark"/>
-                                                </buttonConfiguration>
+                                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eob-Ul-bIg" customClass="AppThemeBorderBlueButton" customModule="NSC_iOS" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="77.666666666666686" width="313" height="57.666666666666657"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" name="Inter-Bold" family="Inter" pointSize="16"/>
+                                                <state key="normal" title="Delete Account">
+                                                    <color key="titleColor" name="theme_dark"/>
+                                                </state>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                         <real key="value" value="10"/>
@@ -335,10 +329,14 @@ Data File</string>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
-                                                    <action selector="btnOpenCastMappingReportClicked:" destination="GHQ-Xx-gCT" eventType="touchUpInside" id="wbM-UP-xfU"/>
+                                                    <action selector="btnDeleteAccountTapped:" destination="glq-Q2-xhy" eventType="touchUpInside" id="88F-aL-qOZ"/>
+                                                    <action selector="btnOpenCastMappingReportClicked:" destination="GHQ-Xx-gCT" eventType="touchUpInside" id="tFv-vG-MqQ"/>
                                                 </connections>
                                             </button>
                                         </subviews>
+                                        <constraints>
+                                            <constraint firstItem="1TH-Xe-WxV" firstAttribute="width" secondItem="1TH-Xe-WxV" secondAttribute="height" multiplier="65:12" id="Rg6-xW-7AO"/>
+                                        </constraints>
                                     </stackView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -363,14 +361,16 @@ Data File</string>
                             <constraint firstItem="AWn-hE-eJo" firstAttribute="trailing" secondItem="te4-PC-h2A" secondAttribute="trailing" id="0A3-L8-IRJ"/>
                             <constraint firstItem="m0Q-MI-nNj" firstAttribute="centerX" secondItem="8zr-wX-9Or" secondAttribute="centerX" id="8Nw-k0-7GI"/>
                             <constraint firstItem="te4-PC-h2A" firstAttribute="top" secondItem="AWn-hE-eJo" secondAttribute="top" id="Mf5-Y6-LGp"/>
+                            <constraint firstItem="m0Q-MI-nNj" firstAttribute="leading" secondItem="AWn-hE-eJo" secondAttribute="leading" constant="15" id="UYD-tR-LMx"/>
                             <constraint firstItem="AWn-hE-eJo" firstAttribute="bottom" secondItem="te4-PC-h2A" secondAttribute="bottom" id="b9c-QZ-fDr"/>
+                            <constraint firstItem="AWn-hE-eJo" firstAttribute="trailing" secondItem="m0Q-MI-nNj" secondAttribute="trailing" constant="15" id="iJm-Hz-9X6"/>
                             <constraint firstItem="te4-PC-h2A" firstAttribute="leading" secondItem="AWn-hE-eJo" secondAttribute="leading" id="jOS-gR-rBl"/>
                             <constraint firstItem="m0Q-MI-nNj" firstAttribute="centerY" secondItem="8zr-wX-9Or" secondAttribute="centerY" id="yuR-2t-vHy"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="btnOpencastReport" destination="Don-W7-xpS" id="y6T-sW-JaS"/>
-                        <outlet property="btnUnderGroundReport" destination="JvX-se-86S" id="mww-FP-OjJ"/>
+                        <outlet property="btnOpencastReport" destination="eob-Ul-bIg" id="dSp-0s-bQh"/>
+                        <outlet property="btnUnderGroundReport" destination="1TH-Xe-WxV" id="5nJ-md-yz6"/>
                         <outlet property="mainView" destination="8zr-wX-9Or" id="Y39-sc-ITB"/>
                     </connections>
                 </viewController>
@@ -4548,7 +4548,7 @@ Mapping Report Details</string>
             <size key="intrinsicContentSize" width="180.66666666666666" height="21.333333333333332"/>
         </designable>
         <designable name="OsK-VS-bCk">
-            <size key="intrinsicContentSize" width="437.66666666666669" height="19.666666666666668"/>
+            <size key="intrinsicContentSize" width="438" height="20"/>
         </designable>
         <designable name="Sxp-yQ-PJp">
             <size key="intrinsicContentSize" width="127.33333333333333" height="21.333333333333332"/>

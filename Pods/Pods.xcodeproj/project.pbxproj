@@ -108,6 +108,7 @@
 		114C2D0BB7EDBEAAA2433CCC8DE5526C /* UIButton+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DB1650A97293A2F43D9DB8F9AF500A3 /* UIButton+WebCache.m */; };
 		1160EB5BC936592DEEF146B4E3641285 /* FIRPhoneMultiFactorGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 8016FC815F47EBEFD7F3A5CA8B4D41DB /* FIRPhoneMultiFactorGenerator.m */; };
 		11EEC30C4410624FAFFF0DB5FE799EA5 /* Heartbeat.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40A06F33A00A94F82B926516D2AC350 /* Heartbeat.swift */; };
+		1263BD27290FEA1400E3DED9 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 1263BD26290FEA1400E3DED9 /* SwiftyJSON */; };
 		1278A5132AF693C8C16B5FCEAF75FFA2 /* FIRTwitterAuthProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = FEEF9F36830CD357CCB9AF66A466E065 /* FIRTwitterAuthProvider.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		127FF2C42D55D2CAF91383401F2B076B /* FIRAuthDispatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = DC78D087621E589F9DF521D922BBB5DA /* FIRAuthDispatcher.m */; };
 		12BAC1E72FC2A26E0BC3E59E52F12DEB /* GoogleDataTransport.h in Headers */ = {isa = PBXBuildFile; fileRef = D76151F9268CC630F80D173824E6AD63 /* GoogleDataTransport.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -2837,6 +2838,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1263BD27290FEA1400E3DED9 /* SwiftyJSON in Frameworks */,
 				54010C542493559CC9BA28EDF00408E2 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -5639,6 +5641,9 @@
 			dependencies = (
 			);
 			name = "ACFloatingTextfield-Swift";
+			packageProductDependencies = (
+				1263BD26290FEA1400E3DED9 /* SwiftyJSON */,
+			);
 			productName = "ACFloatingTextfield-Swift";
 			productReference = 05E40AC1DAF3CB51842AD382C7070968 /* ACFloatingTextfield_Swift.framework */;
 			productType = "com.apple.product-type.framework";
@@ -5912,6 +5917,9 @@
 				Base,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
+			packageReferences = (
+				1263BD25290FEA1400E3DED9 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+			);
 			productRefGroup = 76C636F123111A67BED96AB2A78EA88A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -8973,6 +8981,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		1263BD25290FEA1400E3DED9 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		1263BD26290FEA1400E3DED9 /* SwiftyJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1263BD25290FEA1400E3DED9 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			productName = SwiftyJSON;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 }

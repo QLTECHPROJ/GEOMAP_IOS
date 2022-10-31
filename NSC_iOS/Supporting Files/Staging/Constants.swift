@@ -7,4 +7,4 @@
 
 import Foundation
 
-let API_BASE_URL = "https://shop.nationalsportscamps.in/wp-json/COACH/STAGING/API/v1/"
+let API_BASE_URL = "https://admin.qlresources.com.au/geomap/api/v1/"

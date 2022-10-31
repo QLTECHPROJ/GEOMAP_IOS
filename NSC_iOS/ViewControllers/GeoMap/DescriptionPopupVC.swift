@@ -44,10 +44,17 @@ class DescriptionPopupVC: ClearNaviagtionBarVC {
     func setUpUI(){
         self.view.backgroundColor = .colorSkyBlue.withAlphaComponent(0.5)
         self.view.alpha = 0
+        
         self.btnUnderGroundReport.isSelect = true
-        self.btnUnderGroundReport.setTitle(kAddUndergroundsMappingReport, for: .normal)
-        self.btnOpencastReport.setTitle(kAddOpenCastMappingReport, for: .normal)
-     
+        
+        DispatchQueue.main.async {
+            self.btnUnderGroundReport.setTitle(kAddUndergroundsMappingReport, for: .normal)
+           // self.btnUnderGroundReport.titleLabel?.adjustsFontSizeToFitWidth = true
+            
+            self.btnOpencastReport.setTitle(kAddOpenCastMappingReport, for: .normal)
+            //self.btnOpencastReport.titleLabel?.adjustsFontSizeToFitWidth = true
+        }
+       
     }
     
     

@@ -51,7 +51,7 @@ enum APIRouter : URLRequestConvertible {
     var route: APIRoute {
         switch self {
         case .appversion(let data):
-            return APIRoute(path: "app-version", method: .post, data: data)
+            return APIRoute(path: "App Version", method: .post, data: data)
         case .countrylist:
             return APIRoute(path: "country-listing", method: .get)
         case .statelist(let data):

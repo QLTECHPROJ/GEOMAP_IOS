@@ -21,7 +21,7 @@ class UserListPopUpVC: ClearNaviagtionBarVC {
     
     // MARK: - VARIABLES
    
-    var arrMenu : [[String:Any]] = [
+    var arrMenu : [JSON] = [
         ["type" : kUnderGroundReportList],
         ["type" : kOpenCastReportlist],
         ["type" : kEditProfile],
@@ -83,14 +83,14 @@ extension UserListPopUpVC : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withClass: UserListCell.self)
-        cell.lblName.text = (self.arrMenu[indexPath.row]["type"] as? String)?.description
+        cell.lblName.text = self.arrMenu[indexPath.row]["type"].stringValue
         //cell.imgView.image = UIImage(named: arrImage[indexPath.row])
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let title = (self.arrMenu[indexPath.row]["type"] as? String)?.description
+        let title = self.arrMenu[indexPath.row]["type"].stringValue
         
         switch title {
             
@@ -157,7 +157,7 @@ extension UserListPopUpVC : UITableViewDelegate, UITableViewDataSource {
             
             //            openUrl(urlString:"https://nationalsportscamps.in/about-nsc")
             let aVC = AppStoryBoard.main.viewController(viewControllerClass: WebViewVC.self)
-            aVC.titleString = title!
+            aVC.titleString = title
             self.navigationController?.pushViewController(aVC, animated: true)
             
             break

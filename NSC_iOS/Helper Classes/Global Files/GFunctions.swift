@@ -63,3 +63,25 @@ class GFunctions: NSObject {
         snackbar.show()
     }
 }
+
+extension GFunctions{
+    
+    func saveDeviceTokenIntoUserDefault (object : AnyObject, key : String) {
+        USERDEFAULTS.set(object, forKey:key)
+        USERDEFAULTS.synchronize()
+    }
+    
+    func getDeviceToken () -> String {
+        
+        if (UserDefaults.standard.value(forKey: UserDefaultsKeys.kDeviceToken.rawValue) != nil) {
+            let deviceToken : String? = UserDefaults.standard.value(forKey: UserDefaultsKeys.kDeviceToken.rawValue) as? String
+            guard let
+                letValue = deviceToken, !letValue.isEmpty else {
+                    print(":::::::::-Value Not Found-:::::::::::")
+                    return "0"
+            }
+            return deviceToken!
+        }
+        return "0"
+    }
+}

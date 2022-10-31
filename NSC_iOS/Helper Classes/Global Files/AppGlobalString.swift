@@ -275,3 +275,5 @@ var kProjectMainingPDF = "Project Maining PDF"
 var kGeoMap = "Geo Map"
 
 var kPleaseContactSupportAt = "Please contact support at"
+
+var kAlert_camera_not_available = "Camera is not available on this device."

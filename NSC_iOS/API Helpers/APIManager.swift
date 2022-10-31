@@ -17,7 +17,7 @@ class APIManager {
     
     var apiRequest : DataRequest?
     
-    func callAPI<M : EVObject>(router : URLRequestConvertible, displayHud : Bool = true, showToast : Bool = true, response : @escaping (M) -> Void) {
+    func callAPI<M : EVObject>(router : URLRequestConvertible, isLoader : Bool = true, showToast : Bool = true, response : @escaping (M) -> Void) {
         
         if checkInternet() == false {
             showAlertToast(message: Theme.strings.alert_check_internet)
@@ -25,7 +25,7 @@ class APIManager {
             return
         }
         
-        if displayHud {
+        if isLoader {
             showHud()
         }
         

@@ -103,10 +103,11 @@ class LoginVC: ClearNaviagtionBarVC {
             
             message = Theme.strings.alert_blank_password_error
     
-        } else if !txtPassword.text!.isValidPassword() {
+        }
+        /*else if !txtPassword.text!.isValidPassword() {
             
             message = Theme.strings.alert_invalid_password_error
-        }
+        }*/
         
         return message
     }
@@ -124,7 +125,24 @@ class LoginVC: ClearNaviagtionBarVC {
             GFunctions.shared.showSnackBar(message: errorMessage)
         }
         else {
-            AppDelegate.shared.updateWindow(.home)
+//            AppDelegate.shared.updateWindow(.home)
+            
+            
+            let parameters : [String:String] = [
+                APIParameters.userName.rawValue : JSON(self.txtUser.text).stringValue,
+                APIParameters.password.rawValue : JSON(self.txtPassword.text).stringValue,
+                APIParameters.deviceToken.rawValue : GFunctions.shared.getDeviceToken(),
+                APIParameters.deviceId.rawValue : DeviceDetail.shared.uuid,
+                APIParameters.deviceType.rawValue : DeviceDetail.shared.deviceType
+            ]
+            
+//            debugPrint(parameters)
+            
+            self.loginCheckVM?.callLoginCheckAPI(parameters: parameters, completion: { isCompleted in
+               if isCompleted{
+                    
+                }
+            })
         }
     }
     

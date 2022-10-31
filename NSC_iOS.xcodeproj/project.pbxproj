@@ -27,6 +27,10 @@
 		1251DDA328FFEE3F00E1E712 /* ACFloatingTextfield+Extesion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1251DDA228FFEE3F00E1E712 /* ACFloatingTextfield+Extesion.swift */; };
 		1251DDA428FFEE9A00E1E712 /* ACFloatingTextfield+Extesion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1251DDA228FFEE3F00E1E712 /* ACFloatingTextfield+Extesion.swift */; };
 		125C815C29012DC8004331F0 /* UIImageViewClasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125C815B29012DC8004331F0 /* UIImageViewClasses.swift */; };
+		1263BD29290FF13B00E3DED9 /* APIParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1263BD28290FF13B00E3DED9 /* APIParameters.swift */; };
+		1263BD2A290FF20400E3DED9 /* APIParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1263BD28290FF13B00E3DED9 /* APIParameters.swift */; };
+		1263BD2C290FFA0000E3DED9 /* DeviceDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1263BD2B290FFA0000E3DED9 /* DeviceDetail.swift */; };
+		1263BD2D290FFA3100E3DED9 /* DeviceDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1263BD2B290FFA0000E3DED9 /* DeviceDetail.swift */; };
 		1278BD1229000A8B0061A7DD /* AppShadowViewClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1278BD1129000A8B0061A7DD /* AppShadowViewClass.swift */; };
 		1278BD14290023BA0061A7DD /* Genum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1278BD13290023BA0061A7DD /* Genum.swift */; };
 		1278BD15290023F60061A7DD /* Genum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1278BD13290023BA0061A7DD /* Genum.swift */; };
@@ -36,6 +40,14 @@
 		12A26AC729028B81005ED851 /* UITextView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A26AC629028B81005ED851 /* UITextView+Extension.swift */; };
 		12A26AC829028B8D005ED851 /* UITextView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A26AC629028B81005ED851 /* UITextView+Extension.swift */; };
 		12E2AE56290ACA5F00209D28 /* AddOpenCastMappingImagesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E2AE55290ACA5F00209D28 /* AddOpenCastMappingImagesVC.swift */; };
+		12F3B465290F8FBD00EB13BE /* GFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12291693290C06800093BE93 /* GFunctions.swift */; };
+		12F3B466290F8FD700EB13BE /* AppShadowViewClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1278BD1129000A8B0061A7DD /* AppShadowViewClass.swift */; };
+		12F3B467290F8FF400EB13BE /* AddOpenCastMappingImagesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E2AE55290ACA5F00209D28 /* AddOpenCastMappingImagesVC.swift */; };
+		12F3B468290F901C00EB13BE /* ViewPDFVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12310D2D290BBF7F00F10DE3 /* ViewPDFVC.swift */; };
+		12F3B469290F904B00EB13BE /* UIImageViewClasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125C815B29012DC8004331F0 /* UIImageViewClasses.swift */; };
+		12F3B46A290F905600EB13BE /* WebViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12291691290BE4190093BE93 /* WebViewVC.swift */; };
+		12F3B46B290F906A00EB13BE /* UploadUnderMappingImagesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127A6941290ABCD900DF71BC /* UploadUnderMappingImagesVC.swift */; };
+		12F3B471290FE8C900EB13BE /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 12F3B470290FE8C900EB13BE /* SwiftyJSON */; };
 		2804E39B2819846B00AF4A62 /* NSDate+Timepiece.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F8315A28197B0600CAF99C /* NSDate+Timepiece.swift */; };
 		2804E39C2819847400AF4A62 /* WWCalendarTimeSelector.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28F8315528197B0600CAF99C /* WWCalendarTimeSelector.storyboard */; };
 		2804E39D2819847D00AF4A62 /* Int+Timepiece.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F8315928197B0600CAF99C /* Int+Timepiece.swift */; };
@@ -380,6 +392,8 @@
 		1251DD9A28FFE22700E1E712 /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
 		1251DDA228FFEE3F00E1E712 /* ACFloatingTextfield+Extesion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ACFloatingTextfield+Extesion.swift"; sourceTree = "<group>"; };
 		125C815B29012DC8004331F0 /* UIImageViewClasses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewClasses.swift; sourceTree = "<group>"; };
+		1263BD28290FF13B00E3DED9 /* APIParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIParameters.swift; sourceTree = "<group>"; };
+		1263BD2B290FFA0000E3DED9 /* DeviceDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceDetail.swift; sourceTree = "<group>"; };
 		1278BD1129000A8B0061A7DD /* AppShadowViewClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppShadowViewClass.swift; sourceTree = "<group>"; };
 		1278BD13290023BA0061A7DD /* Genum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Genum.swift; sourceTree = "<group>"; };
 		1278BD16290028670061A7DD /* BaseClassForrNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseClassForrNavigationBar.swift; sourceTree = "<group>"; };
@@ -580,6 +594,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				12F3B471290FE8C900EB13BE /* SwiftyJSON in Frameworks */,
 				4A2E8B528681E9F4175B4FF0 /* (null) in Frameworks */,
 				52DCCF9EF5BEC46025670600 /* Pods_NSC_iOS.framework in Frameworks */,
 			);
@@ -593,6 +608,7 @@
 			children = (
 				1251DD9028FFDE2400E1E712 /* UIButton+Extension.swift */,
 				1251DD9A28FFE22700E1E712 /* UILabel+Extension.swift */,
+				1263BD2B290FFA0000E3DED9 /* DeviceDetail.swift */,
 				12A26AC629028B81005ED851 /* UITextView+Extension.swift */,
 				125C815B29012DC8004331F0 /* UIImageViewClasses.swift */,
 				1251DD9228FFDE3700E1E712 /* UIButtonClasses.swift */,
@@ -1020,6 +1036,7 @@
 				281AAE3A281A85BA0070D758 /* APIRoute.swift */,
 				28679509282150B60010892E /* DynamicContents.swift */,
 				28F8316628197B8C00CAF99C /* CommonFunctions.swift */,
+				1263BD28290FF13B00E3DED9 /* APIParameters.swift */,
 				28F8316928197BEA00CAF99C /* DJReachability.swift */,
 			);
 			path = "API Helpers";
@@ -1214,6 +1231,9 @@
 			dependencies = (
 			);
 			name = NSC_iOS;
+			packageProductDependencies = (
+				12F3B470290FE8C900EB13BE /* SwiftyJSON */,
+			);
 			productName = NSC_iOS;
 			productReference = 28A9C4082817B7C9001B252F /* NSC_iOS.app */;
 			productType = "com.apple.product-type.application";
@@ -1242,6 +1262,9 @@
 				Base,
 			);
 			mainGroup = 28A9C3FF2817B7C9001B252F;
+			packageReferences = (
+				12F3B46F290FE8C900EB13BE /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+			);
 			productRefGroup = 28A9C4092817B7C9001B252F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -1453,6 +1476,7 @@
 				281AAE56281AAA970070D758 /* UICollectionView+Extension.swift in Sources */,
 				1278BD15290023F60061A7DD /* Genum.swift in Sources */,
 				281AAE4A281AA4D30070D758 /* AppVersionViewModel.swift in Sources */,
+				12F3B467290F8FF400EB13BE /* AddOpenCastMappingImagesVC.swift in Sources */,
 				28F830DF281977F000CAF99C /* UIColor+Extension.swift in Sources */,
 				1251DDA028FFE9CE00E1E712 /* UILabel+Extension.swift in Sources */,
 				28D1A5B72823FBB200B3A179 /* CoachStatusModel.swift in Sources */,
@@ -1460,12 +1484,14 @@
 				9A694AA228FE5C3C000AC3C7 /* FAQCell.swift in Sources */,
 				284C3194282681B300F8A63B /* ListItemVC.swift in Sources */,
 				28F830FB281977F000CAF99C /* UITableView+Extension.swift in Sources */,
+				12F3B468290F901C00EB13BE /* ViewPDFVC.swift in Sources */,
 				28F83137281977F000CAF99C /* WhereAmIRunning.swift in Sources */,
 				289B6A35288936840095FE32 /* NotificationListCell.swift in Sources */,
 				2898FA8C28360FFF006DF4B8 /* SaveAppliedCampsViewModel.swift in Sources */,
 				2804E39F2819847D00AF4A62 /* String+Timepiece.swift in Sources */,
 				28F83119281977F000CAF99C /* Config.swift in Sources */,
 				1251DD9E28FFE9C900E1E712 /* UIFont+Extension.swift in Sources */,
+				1263BD2D290FFA3100E3DED9 /* DeviceDetail.swift in Sources */,
 				28515AA7282E81F4004C7229 /* ContactCell.swift in Sources */,
 				2804E3A02819847D00AF4A62 /* NSDateComponents+Timepiece.swift in Sources */,
 				282C33642819617D009401FD /* AppDelegate.swift in Sources */,
@@ -1483,6 +1509,7 @@
 				28F8311D281977F000CAF99C /* MediaType.swift in Sources */,
 				2813A01B2834FD9000E6194D /* InviteViewModel.swift in Sources */,
 				282C336A2819617D009401FD /* ListItemCell.swift in Sources */,
+				12F3B465290F8FBD00EB13BE /* GFunctions.swift in Sources */,
 				284A3EC72823EDD600B511FB /* CoachDetailViewModel.swift in Sources */,
 				28F8311F281977F000CAF99C /* MimeType.swift in Sources */,
 				282C336B2819617D009401FD /* LoginVC.swift in Sources */,
@@ -1513,6 +1540,8 @@
 				28C8DA2C2822B7590048A172 /* LoginModel.swift in Sources */,
 				28F830D7281977F000CAF99C /* DJTextField.swift in Sources */,
 				289B6A332889367A0095FE32 /* UGListVC.swift in Sources */,
+				12F3B469290F904B00EB13BE /* UIImageViewClasses.swift in Sources */,
+				1263BD2A290FF20400E3DED9 /* APIParameters.swift in Sources */,
 				9A694A9E28FE5BEA000AC3C7 /* FAQListVC.swift in Sources */,
 				28F83107281977F000CAF99C /* KDCircularProgress.swift in Sources */,
 				1251DDA428FFEE9A00E1E712 /* ACFloatingTextfield+Extesion.swift in Sources */,
@@ -1541,6 +1570,7 @@
 				9AE6D6F228F9452E008C41C9 /* OCReportDetailVC.swift in Sources */,
 				282C33712819617D009401FD /* HomeVC.swift in Sources */,
 				284A3EC32823B09400B511FB /* SignUpViewModel.swift in Sources */,
+				12F3B466290F8FD700EB13BE /* AppShadowViewClass.swift in Sources */,
 				282C33722819617D009401FD /* SplashVC.swift in Sources */,
 				9A48A74928290A5800D0A728 /* LogoutViewModel.swift in Sources */,
 				28F830E7281977F000CAF99C /* UIImage+Extension.swift in Sources */,
@@ -1576,6 +1606,7 @@
 				28F830FF281977F000CAF99C /* TagFlowLayout.swift in Sources */,
 				2867950B282150B60010892E /* DynamicContents.swift in Sources */,
 				28F83103281977F000CAF99C /* ExpandableLabel.swift in Sources */,
+				12F3B46A290F905600EB13BE /* WebViewVC.swift in Sources */,
 				28ABEDB12833B9CB001C3911 /* CampDaysModel.swift in Sources */,
 				282C33732819617D009401FD /* NSC_iOS.xcdatamodeld in Sources */,
 				2804E39D2819847D00AF4A62 /* Int+Timepiece.swift in Sources */,
@@ -1588,6 +1619,7 @@
 				28F830EF281977F000CAF99C /* String+Extension.swift in Sources */,
 				287554772833907E002FC9BD /* VerifyReferCodeViewModel.swift in Sources */,
 				281AAE39281A85B00070D758 /* APIManager.swift in Sources */,
+				12F3B46B290F906A00EB13BE /* UploadUnderMappingImagesVC.swift in Sources */,
 				289B6A362889368D0095FE32 /* NotificationListViewModel.swift in Sources */,
 				28F8312D281977F000CAF99C /* AnimationFrames.swift in Sources */,
 				28ED59712822601C0035402F /* LoginCheckModel.swift in Sources */,
@@ -1623,6 +1655,7 @@
 				28515AA6282E81F4004C7229 /* ContactCell.swift in Sources */,
 				28A9C40C2817B7C9001B252F /* AppDelegate.swift in Sources */,
 				9A48A7442829047600D0A728 /* CampListModel.swift in Sources */,
+				1263BD2C290FFA0000E3DED9 /* DeviceDetail.swift in Sources */,
 				28F830EA281977F000CAF99C /* ImagePicker.swift in Sources */,
 				9A48A74C28290A8500D0A728 /* DeleteCoachViewModel.swift in Sources */,
 				28300C3D282A600000695E7B /* PersonalDetailViewModel.swift in Sources */,
@@ -1672,6 +1705,7 @@
 				9A694A9D28FE5BEA000AC3C7 /* FAQListVC.swift in Sources */,
 				12291696290C0BC90093BE93 /* TTGSnackbar.swift in Sources */,
 				1251DDA328FFEE3F00E1E712 /* ACFloatingTextfield+Extesion.swift in Sources */,
+				1263BD29290FF13B00E3DED9 /* APIParameters.swift in Sources */,
 				28F830E8281977F000CAF99C /* DJContants.swift in Sources */,
 				9A694AAA28FE60F8000AC3C7 /* FAQViewModel.swift in Sources */,
 				28F3C253281A5CC80092A077 /* KidsAttendenceCell.swift in Sources */,
@@ -2079,6 +2113,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		12F3B46F290FE8C900EB13BE /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		12F3B470290FE8C900EB13BE /* SwiftyJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 12F3B46F290FE8C900EB13BE /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			productName = SwiftyJSON;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		28A9C4142817B7C9001B252F /* NSC_iOS.xcdatamodeld */ = {

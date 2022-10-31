@@ -12,7 +12,7 @@ import UIKit
 // Application Constants
 let APP_VERSION = (Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String) ?? "1"
 let APP_TYPE = "0" // 0 = IOS , 1 = Android
-let APP_NAME = "NSC Coach"
+let APP_NAME = "Geo Map"
 let DEVICE_UUID = UIDevice.current.identifierForVendor!.uuidString
 
 let APP_APPSTORE_URL = ""

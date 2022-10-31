@@ -65,6 +65,10 @@ class AddOpenCastMappingImagesVC: ClearNaviagtionBarVC {
         self.buttonEnableDisable()
         self.btnSubmit.setTitle(kSubmit, for: .normal)
         self.btnSubmit.isSelect = true
+        
+        let tapGestureToFace = UITapGestureRecognizer(target: self, action: #selector(self.selectPhoto(_:)))
+        self.imgFront.isUserInteractionEnabled = true
+        self.imgFront.addGestureRecognizer(tapGestureToFace)
     }
  
     func buttonEnableDisable(){
@@ -146,5 +150,88 @@ extension AddOpenCastMappingImagesVC : UITextFieldDelegate {
     
     func textFieldDidChangeSelection(_ textField: UITextField) {
         self.buttonEnableDisable()
+    }
+}
+
+//----------------------------------------------------------------------------
+//MARK: - Image Upload
+//----------------------------------------------------------------------------
+extension AddOpenCastMappingImagesVC{
+    
+    @objc func selectPhoto(_ gesture : UIGestureRecognizer){
+        if checkInternet(showToast: true) == false {
+            return
+        }
+        
+        self.view.endEditing(true)
+        let arrayTitles = [kTakeAPhoto, kChooseFromGallary]
+        
+        
+        showActionSheet(title: "", message: Theme.strings.profile_image_options, titles: arrayTitles, cancelButtonTitle: Theme.strings.cancel_small) { (buttonTitle) in
+            DispatchQueue.main.async {
+                self.handleImageOptions(buttonTitle: buttonTitle)
+            }
+        }
+    }
+    
+    
+    //MARK:- IMAGE UPLOAD
+    func handleImageOptions(buttonTitle : String) {
+        
+        
+        switch buttonTitle {
+        case kTakeAPhoto:
+            DispatchQueue.main.async {
+                if UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.camera) {
+                    let picker = UIImagePickerController()
+                    picker.sourceType = .camera
+                    picker.delegate = self
+                    picker.allowsEditing = true
+                    self.present(picker, animated: true, completion: nil)
+                } else {
+                    //                    showAlertToast(message: Theme.strings.alert_camera_not_available)
+                    GFunctions.shared.showSnackBar(message: kAlert_camera_not_available)
+                }
+            }
+        case kChooseFromGallary:
+            DispatchQueue.main.async {
+                let picker = UIImagePickerController()
+                picker.sourceType = .photoLibrary
+                picker.delegate = self
+                picker.allowsEditing = true
+                self.present(picker, animated: true, completion: nil)
+            }
+        case kRemovePhoto:
+            print("Remove photo")
+            LoginDataModel.currentUser?.Profile_Image = ""
+        default:
+            break
+        }
+    }
+
+}
+    
+    
+//----------------------------------------------------------------------------
+//MARK: - UIImagePickerControllerDelegate Methods
+//----------------------------------------------------------------------------
+extension AddOpenCastMappingImagesVC : UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        if let image = info[.editedImage] as? UIImage {
+            
+            self.imgFront.image = image
+            
+        }
+        else if let image = info[.originalImage] as? UIImage {
+            
+            self.imgFront.image = image
+        }
+        picker.dismiss(animated: true)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
     }
 }

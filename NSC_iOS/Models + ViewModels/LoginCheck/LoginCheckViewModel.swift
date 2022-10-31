@@ -12,7 +12,8 @@ class LoginCheckViewModel {
     var loginFlag: String?
     
     func callLoginCheckAPI(parameters : [String:String], completion: @escaping (Bool) -> Void) {
-        APIManager.shared.callAPI(router: APIRouter.logincheck(parameters)) { [weak self] (response : LoginCheckModel?) in
+        debugPrint(parameters)
+        APIManager.shared.callAPI(router: APIRouter.login(parameters)) { [weak self] (response : LoginCheckModel?) in
             if let responseData = response?.ResponseData {
                 self?.loginFlag = responseData.loginFlag
                 

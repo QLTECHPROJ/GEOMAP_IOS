@@ -28,13 +28,7 @@ class ProfileVC: ClearNaviagtionBarVC {
     @IBOutlet weak var btnConfirm: AppThemeBlueButton!
     @IBOutlet weak var btnDeleteAccount: AppThemeBorderBlueButton!
     
-    // UILabel
-    @IBOutlet weak var lblErrDOB: UILabel!
-    @IBOutlet weak var lblErrName: UILabel!
-    @IBOutlet weak var lblErrMobileNo: UILabel!
-    @IBOutlet weak var lblErrEmail: UILabel!
-    
-    
+   
     // MARK: - VARIABLES
     var isFromEdit = false
     var strImage : String?
@@ -59,23 +53,13 @@ class ProfileVC: ClearNaviagtionBarVC {
         self.txtMobile.applyStyleFlotingTextfield(placeholderTitle : kMobile, fontsize : 16,fontname : .InterSemibol)
         self.txtDOB.applyStyleFlotingTextfield(placeholderTitle : kDOB, fontsize : 16, fontname : .InterSemibol)
         
-        self.lblErrName.applyLabelStyle(fontSize :  9,fontName : .InterMedium, textColor : .red)
-        self.lblErrEmail.applyLabelStyle(fontSize :  9,fontName : .InterMedium, textColor : .red)
-        self.lblErrMobileNo.applyLabelStyle(fontSize :  9,fontName : .InterMedium, textColor : .red)
-        self.lblErrDOB.applyLabelStyle(fontSize :  9,fontName : .InterMedium, textColor : .red)
-        
         self.btnConfirm.setTitle(kConfirm, for: .normal)
         self.btnDeleteAccount.setTitle(kDeleteAccount, for: .normal)
         
         self.setupData()
         self.buttonEnableDisable()
         self.initDatePicker()
-        
-        self.lblErrName.isHidden = true
-        self.lblErrMobileNo.isHidden = true
-        self.lblErrEmail.isHidden = true
-        self.lblErrDOB.isHidden = true
-        
+
         
         let tapGestureToChooseProfile1 = UITapGestureRecognizer(target: self, action: #selector(self.selectProfilePicture(_:)))
         self.imgUser.isUserInteractionEnabled = true
@@ -313,8 +297,8 @@ extension ProfileVC : UIImagePickerControllerDelegate, UINavigationControllerDel
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true, completion: nil)
     }
-    
 }
+
 // MARK: - AlertPopUpVCDelegate
 extension ProfileVC : AlertPopUpVCDelegate {
     

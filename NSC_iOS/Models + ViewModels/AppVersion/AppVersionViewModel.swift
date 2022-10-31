@@ -19,7 +19,7 @@ class AppVersionViewModel {
                           "deviceToken":FCM_TOKEN,
                           "coachId":LoginDataModel.currentUser?.ID ?? ""]
         
-        APIManager.shared.callAPI(router: APIRouter.appversion(parameters), displayHud: false, showToast: true) { [weak self] (response : AppVersionModel?) in
+        APIManager.shared.callAPI(router: APIRouter.appversion(parameters), isLoader: false, showToast: true) { [weak self] (response : AppVersionModel?) in
             if let responseData = response?.ResponseData {
                 self?.appVersionData = responseData
                 
