@@ -16,7 +16,6 @@ class LoginVC: ClearNaviagtionBarVC {
     //UILabel
     @IBOutlet weak var lblTitle: UILabel!
     @IBOutlet weak var lblSubTitle: UILabel!
-    @IBOutlet weak var lblError: UILabel!
     
     
     //UIButton
@@ -61,9 +60,7 @@ class LoginVC: ClearNaviagtionBarVC {
     
     func setupUI() {
         self.view.backgroundColor = UIColor.colorBGSkyBlueLight
-        
-        self.lblError.isHidden = true
-        
+                
         self.lblTitle.applyLabelStyle(text : kHelloAgian,fontSize :  27,fontName : .InterBold)
         self.lblSubTitle.applyLabelStyle(text : kInstructionTitleLogin,fontSize : 20,fontName : .InterMedium)
         
@@ -75,7 +72,6 @@ class LoginVC: ClearNaviagtionBarVC {
         self.txtPassword.applyStyleFlotingTextfield(placeholderTitle : kPassword, fontsize : 16, fontname : .InterSemibol)
         
         self.buttonEnableDisable()
-        self.lblError.isHidden = true
     }
     
      func buttonEnableDisable() {
@@ -95,28 +91,26 @@ class LoginVC: ClearNaviagtionBarVC {
         }
     }
     
-    func checkValidation() -> Bool {
-        var isValid = true
-       
-        if txtUser.text?.trim.count == 0 {
-            isValid = false
-            lblError.isHidden = false
-            lblError.text = Theme.strings.alert_blank_firstname_error
-        }
+    func checkValidation() -> String? {
+        self.view.endEditing(true)
+        var message : String? = nil
         
-        if txtPassword.text?.trim.count == 0 {
-            isValid = false
-            lblError.isHidden = false
-            lblError.text = Theme.strings.alert_blank_password_error
+        if txtUser.text?.trim.count == 0 {
+           
+            message = Theme.strings.alert_blank_firstname_error
+        }
+        else if txtPassword.text?.trim.count == 0 {
+            
+            message = Theme.strings.alert_blank_password_error
     
         } else if !txtPassword.text!.isValidPassword() {
-            isValid = false
-            lblError.isHidden = false
-            lblError.text = Theme.strings.alert_invalid_password_error
+            
+            message = Theme.strings.alert_invalid_password_error
         }
         
-        return isValid
+        return message
     }
+    
     
     // MARK: - ACTIONS
     
@@ -125,10 +119,11 @@ class LoginVC: ClearNaviagtionBarVC {
     }
     
     @IBAction func loginClicked(_ sender: UIButton) {
-        if checkValidation() {
-            let aVC = AppStoryBoard.main.viewController(viewControllerClass: HomeVC.self)
-//            self.navigationController?.pushViewController(aVC, animated: true)
-            
+       
+        if let errorMessage = self.checkValidation(){
+            GFunctions.shared.showSnackBar(message: errorMessage)
+        }
+        else {
             AppDelegate.shared.updateWindow(.home)
         }
     }

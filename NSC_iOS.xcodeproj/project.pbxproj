@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		12291692290BE4190093BE93 /* WebViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12291691290BE4190093BE93 /* WebViewVC.swift */; };
+		12291694290C06800093BE93 /* GFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12291693290C06800093BE93 /* GFunctions.swift */; };
+		12291696290C0BC90093BE93 /* TTGSnackbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12291695290C0BC90093BE93 /* TTGSnackbar.swift */; };
+		12291697290C0BC90093BE93 /* TTGSnackbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12291695290C0BC90093BE93 /* TTGSnackbar.swift */; };
+		12310D2E290BBF7F00F10DE3 /* ViewPDFVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12310D2D290BBF7F00F10DE3 /* ViewPDFVC.swift */; };
 		1251DD9128FFDE2400E1E712 /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1251DD9028FFDE2400E1E712 /* UIButton+Extension.swift */; };
 		1251DD9328FFDE3700E1E712 /* UIButtonClasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1251DD9228FFDE3700E1E712 /* UIButtonClasses.swift */; };
 		1251DD9528FFDEDD00E1E712 /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1251DD9428FFDEDD00E1E712 /* UIFont+Extension.swift */; };
@@ -27,6 +32,10 @@
 		1278BD15290023F60061A7DD /* Genum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1278BD13290023BA0061A7DD /* Genum.swift */; };
 		1278BD17290028670061A7DD /* BaseClassForrNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1278BD16290028670061A7DD /* BaseClassForrNavigationBar.swift */; };
 		1278BD182900287E0061A7DD /* BaseClassForrNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1278BD16290028670061A7DD /* BaseClassForrNavigationBar.swift */; };
+		127A6942290ABCD900DF71BC /* UploadUnderMappingImagesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127A6941290ABCD900DF71BC /* UploadUnderMappingImagesVC.swift */; };
+		12A26AC729028B81005ED851 /* UITextView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A26AC629028B81005ED851 /* UITextView+Extension.swift */; };
+		12A26AC829028B8D005ED851 /* UITextView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A26AC629028B81005ED851 /* UITextView+Extension.swift */; };
+		12E2AE56290ACA5F00209D28 /* AddOpenCastMappingImagesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E2AE55290ACA5F00209D28 /* AddOpenCastMappingImagesVC.swift */; };
 		2804E39B2819846B00AF4A62 /* NSDate+Timepiece.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F8315A28197B0600CAF99C /* NSDate+Timepiece.swift */; };
 		2804E39C2819847400AF4A62 /* WWCalendarTimeSelector.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28F8315528197B0600CAF99C /* WWCalendarTimeSelector.storyboard */; };
 		2804E39D2819847D00AF4A62 /* Int+Timepiece.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F8315928197B0600CAF99C /* Int+Timepiece.swift */; };
@@ -298,8 +307,6 @@
 		9A48A74D28290A8500D0A728 /* DeleteCoachViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A48A74B28290A8500D0A728 /* DeleteCoachViewModel.swift */; };
 		9A48A74F2829384000D0A728 /* LogoutModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A48A74E2829384000D0A728 /* LogoutModel.swift */; };
 		9A48A7502829384000D0A728 /* LogoutModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A48A74E2829384000D0A728 /* LogoutModel.swift */; };
-		9A4D7B6C28F7EA75008E0DBF /* AddReportVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4D7B6B28F7EA75008E0DBF /* AddReportVC.swift */; };
-		9A4D7B6D28F7EA75008E0DBF /* AddReportVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4D7B6B28F7EA75008E0DBF /* AddReportVC.swift */; };
 		9A4D7B6F28F849E4008E0DBF /* OpenCastReportVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4D7B6E28F849E4008E0DBF /* OpenCastReportVC.swift */; };
 		9A4D7B7028F849E4008E0DBF /* OpenCastReportVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4D7B6E28F849E4008E0DBF /* OpenCastReportVC.swift */; };
 		9A53D4CA281929B500226853 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A53D4C9281929B500226853 /* HomeVC.swift */; };
@@ -349,8 +356,6 @@
 		9AD5EDA02824EC1400E0A11F /* UserListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AD5ED9D2824EC1300E0A11F /* UserListCell.xib */; };
 		9AD5EDA12824EC1400E0A11F /* UserListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD5ED9E2824EC1400E0A11F /* UserListCell.swift */; };
 		9AD5EDA22824EC1400E0A11F /* UserListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD5ED9E2824EC1400E0A11F /* UserListCell.swift */; };
-		9AE6D6EE28F938D6008C41C9 /* OCListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE6D6ED28F938D6008C41C9 /* OCListVC.swift */; };
-		9AE6D6EF28F938D6008C41C9 /* OCListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE6D6ED28F938D6008C41C9 /* OCListVC.swift */; };
 		9AE6D6F128F9452E008C41C9 /* OCReportDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE6D6F028F9452E008C41C9 /* OCReportDetailVC.swift */; };
 		9AE6D6F228F9452E008C41C9 /* OCReportDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE6D6F028F9452E008C41C9 /* OCReportDetailVC.swift */; };
 		9AE6D6F428F9461A008C41C9 /* OCGeoAttributeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE6D6F328F9461A008C41C9 /* OCGeoAttributeVC.swift */; };
@@ -363,6 +368,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		12291691290BE4190093BE93 /* WebViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewVC.swift; sourceTree = "<group>"; };
+		12291693290C06800093BE93 /* GFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFunctions.swift; sourceTree = "<group>"; };
+		12291695290C0BC90093BE93 /* TTGSnackbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTGSnackbar.swift; sourceTree = "<group>"; };
+		12310D2D290BBF7F00F10DE3 /* ViewPDFVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewPDFVC.swift; sourceTree = "<group>"; };
 		1251DD9028FFDE2400E1E712 /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		1251DD9228FFDE3700E1E712 /* UIButtonClasses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonClasses.swift; sourceTree = "<group>"; };
 		1251DD9428FFDEDD00E1E712 /* UIFont+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
@@ -374,6 +383,9 @@
 		1278BD1129000A8B0061A7DD /* AppShadowViewClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppShadowViewClass.swift; sourceTree = "<group>"; };
 		1278BD13290023BA0061A7DD /* Genum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Genum.swift; sourceTree = "<group>"; };
 		1278BD16290028670061A7DD /* BaseClassForrNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseClassForrNavigationBar.swift; sourceTree = "<group>"; };
+		127A6941290ABCD900DF71BC /* UploadUnderMappingImagesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadUnderMappingImagesVC.swift; sourceTree = "<group>"; };
+		12A26AC629028B81005ED851 /* UITextView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Extension.swift"; sourceTree = "<group>"; };
+		12E2AE55290ACA5F00209D28 /* AddOpenCastMappingImagesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddOpenCastMappingImagesVC.swift; sourceTree = "<group>"; };
 		15FF71ED063A7E208A8A060D /* Pods-NSC_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NSC_iOS.release.xcconfig"; path = "Target Support Files/Pods-NSC_iOS/Pods-NSC_iOS.release.xcconfig"; sourceTree = "<group>"; };
 		280C1227283F9AA80034898A /* ApplyForCampCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplyForCampCell.swift; sourceTree = "<group>"; };
 		280C1228283F9AA80034898A /* ApplyForCampCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ApplyForCampCell.xib; sourceTree = "<group>"; };
@@ -519,7 +531,6 @@
 		9A48A74728290A5800D0A728 /* LogoutViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutViewModel.swift; sourceTree = "<group>"; };
 		9A48A74B28290A8500D0A728 /* DeleteCoachViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteCoachViewModel.swift; sourceTree = "<group>"; };
 		9A48A74E2829384000D0A728 /* LogoutModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutModel.swift; sourceTree = "<group>"; };
-		9A4D7B6B28F7EA75008E0DBF /* AddReportVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReportVC.swift; sourceTree = "<group>"; };
 		9A4D7B6E28F849E4008E0DBF /* OpenCastReportVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenCastReportVC.swift; sourceTree = "<group>"; };
 		9A53D4C9281929B500226853 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		9A53D4CB28192BE400226853 /* CampListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampListCell.swift; sourceTree = "<group>"; };
@@ -546,7 +557,6 @@
 		9AD5ED9A2824EBDD00E0A11F /* UserListPopUpVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserListPopUpVC.swift; sourceTree = "<group>"; };
 		9AD5ED9D2824EC1300E0A11F /* UserListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserListCell.xib; sourceTree = "<group>"; };
 		9AD5ED9E2824EC1400E0A11F /* UserListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserListCell.swift; sourceTree = "<group>"; };
-		9AE6D6ED28F938D6008C41C9 /* OCListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCListVC.swift; sourceTree = "<group>"; };
 		9AE6D6F028F9452E008C41C9 /* OCReportDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCReportDetailVC.swift; sourceTree = "<group>"; };
 		9AE6D6F328F9461A008C41C9 /* OCGeoAttributeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCGeoAttributeVC.swift; sourceTree = "<group>"; };
 		9AE824342817DF8800A29373 /* SplashVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashVC.swift; sourceTree = "<group>"; };
@@ -583,12 +593,14 @@
 			children = (
 				1251DD9028FFDE2400E1E712 /* UIButton+Extension.swift */,
 				1251DD9A28FFE22700E1E712 /* UILabel+Extension.swift */,
+				12A26AC629028B81005ED851 /* UITextView+Extension.swift */,
 				125C815B29012DC8004331F0 /* UIImageViewClasses.swift */,
 				1251DD9228FFDE3700E1E712 /* UIButtonClasses.swift */,
 				1251DD9428FFDEDD00E1E712 /* UIFont+Extension.swift */,
 				1278BD16290028670061A7DD /* BaseClassForrNavigationBar.swift */,
 				1278BD1129000A8B0061A7DD /* AppShadowViewClass.swift */,
 				1251DD9828FFDFBB00E1E712 /* GConstant.swift */,
+				12291693290C06800093BE93 /* GFunctions.swift */,
 				1278BD13290023BA0061A7DD /* Genum.swift */,
 				1251DDA228FFEE3F00E1E712 /* ACFloatingTextfield+Extesion.swift */,
 				1251DD9628FFDFAF00E1E712 /* AppGlobalString.swift */,
@@ -970,6 +982,7 @@
 		28F830BF281977F000CAF99C /* CryptLib */ = {
 			isa = PBXGroup;
 			children = (
+				12291695290C0BC90093BE93 /* TTGSnackbar.swift */,
 				28F830C0281977F000CAF99C /* CryptLib.m */,
 				28F830C1281977F000CAF99C /* CryptLib.h */,
 			);
@@ -1100,19 +1113,21 @@
 				28470DAD281C0ED700FE9C66 /* DescriptionPopupVC.swift */,
 				28470DAA281C0CC500FE9C66 /* AlertPopUpVC.swift */,
 				284C3192282681B300F8A63B /* ListItemVC.swift */,
+				127A6941290ABCD900DF71BC /* UploadUnderMappingImagesVC.swift */,
+				12E2AE55290ACA5F00209D28 /* AddOpenCastMappingImagesVC.swift */,
 				9A2CFCCE2818139F000A2C1D /* ProfileVC.swift */,
 				28543626282544F8009BBEDA /* UGGeoAttributeVC.swift */,
 				285436292825450B009BBEDA /* UGGeoAttributeVC2.swift */,
 				9A53D4C9281929B500226853 /* HomeVC.swift */,
+				12291691290BE4190093BE93 /* WebViewVC.swift */,
 				289B6A28288934B30095FE32 /* UGListVC.swift */,
 				28515AA1282E8187004C7229 /* UGReportDetailVC.swift */,
-				9A4D7B6B28F7EA75008E0DBF /* AddReportVC.swift */,
 				9A4D7B6E28F849E4008E0DBF /* OpenCastReportVC.swift */,
 				9AD5ED9A2824EBDD00E0A11F /* UserListPopUpVC.swift */,
-				9AE6D6ED28F938D6008C41C9 /* OCListVC.swift */,
 				9AE6D6F028F9452E008C41C9 /* OCReportDetailVC.swift */,
 				9AE6D6F328F9461A008C41C9 /* OCGeoAttributeVC.swift */,
 				9A96F94528F96BE200879A89 /* SyncDataVC.swift */,
+				12310D2D290BBF7F00F10DE3 /* ViewPDFVC.swift */,
 				9A96F94828F995EA00879A89 /* DrawVC.swift */,
 			);
 			path = GeoMap;
@@ -1513,12 +1528,12 @@
 				282ACD6A282BBB91005A8634 /* CampDetailViewModel.swift in Sources */,
 				280C122A283F9AA80034898A /* ApplyForCampCell.swift in Sources */,
 				28F83153281977F000CAF99C /* TabBarController.swift in Sources */,
-				9A4D7B6D28F7EA75008E0DBF /* AddReportVC.swift in Sources */,
 				28AE7228282CDF3A000845D0 /* AppColors.swift in Sources */,
+				12A26AC829028B8D005ED851 /* UITextView+Extension.swift in Sources */,
 				282C33702819617D009401FD /* CampListCell.swift in Sources */,
 				28F83101281977F000CAF99C /* BaseViewController.swift in Sources */,
-				9AE6D6EF28F938D6008C41C9 /* OCListVC.swift in Sources */,
 				2804E39B2819846B00AF4A62 /* NSDate+Timepiece.swift in Sources */,
+				12291697290C0BC90093BE93 /* TTGSnackbar.swift in Sources */,
 				28F83127281977F000CAF99C /* JSONSerializable+Helper.swift in Sources */,
 				28DA2109283BA4DA00EAA0B9 /* SaveKidsAttendanceViewModel.swift in Sources */,
 				28F830F3281977F000CAF99C /* DJValidation.swift in Sources */,
@@ -1622,6 +1637,7 @@
 				2813A01A2834FD9000E6194D /* InviteViewModel.swift in Sources */,
 				1251DD9328FFDE3700E1E712 /* UIButtonClasses.swift in Sources */,
 				28F8316528197B0600CAF99C /* WWCalendarTimeSelector.swift in Sources */,
+				12A26AC729028B81005ED851 /* UITextView+Extension.swift in Sources */,
 				284A3EC62823EDD600B511FB /* CoachDetailViewModel.swift in Sources */,
 				9AE824402817E25200A29373 /* ListItemCell.swift in Sources */,
 				28F8311E281977F000CAF99C /* MimeType.swift in Sources */,
@@ -1642,6 +1658,7 @@
 				28F8311A281977F000CAF99C /* UIViewExtension.swift in Sources */,
 				2813A0152834EED300E6194D /* TransationsCell.swift in Sources */,
 				28F83124281977F000CAF99C /* NotificationName+Extention.swift in Sources */,
+				127A6942290ABCD900DF71BC /* UploadUnderMappingImagesVC.swift in Sources */,
 				28F830D8281977F000CAF99C /* DJPickerView.swift in Sources */,
 				9A7740B6282B8927000BDC8C /* ProfileViewModel.swift in Sources */,
 				289B6A32288934E10095FE32 /* NotificationListModel.swift in Sources */,
@@ -1653,6 +1670,7 @@
 				289B6A29288934B40095FE32 /* UGListVC.swift in Sources */,
 				28F8315F28197B0600CAF99C /* NSDateComponents+Timepiece.swift in Sources */,
 				9A694A9D28FE5BEA000AC3C7 /* FAQListVC.swift in Sources */,
+				12291696290C0BC90093BE93 /* TTGSnackbar.swift in Sources */,
 				1251DDA328FFEE3F00E1E712 /* ACFloatingTextfield+Extesion.swift in Sources */,
 				28F830E8281977F000CAF99C /* DJContants.swift in Sources */,
 				9A694AAA28FE60F8000AC3C7 /* FAQViewModel.swift in Sources */,
@@ -1665,12 +1683,11 @@
 				28F83152281977F000CAF99C /* TabBarController.swift in Sources */,
 				28F8316028197B0600CAF99C /* NSCalendar+Timepiece.swift in Sources */,
 				280C1229283F9AA80034898A /* ApplyForCampCell.swift in Sources */,
+				12E2AE56290ACA5F00209D28 /* AddOpenCastMappingImagesVC.swift in Sources */,
 				9A53D4CD28192BE400226853 /* CampListCell.swift in Sources */,
-				9A4D7B6C28F7EA75008E0DBF /* AddReportVC.swift in Sources */,
 				28AE7227282CDF3A000845D0 /* AppColors.swift in Sources */,
 				28F83100281977F000CAF99C /* BaseViewController.swift in Sources */,
 				28F83126281977F000CAF99C /* JSONSerializable+Helper.swift in Sources */,
-				9AE6D6EE28F938D6008C41C9 /* OCListVC.swift in Sources */,
 				28F830F2281977F000CAF99C /* DJValidation.swift in Sources */,
 				9A53D4CA281929B500226853 /* HomeVC.swift in Sources */,
 				28DA2108283BA4DA00EAA0B9 /* SaveKidsAttendanceViewModel.swift in Sources */,
@@ -1684,6 +1701,7 @@
 				28F830E6281977F000CAF99C /* UIImage+Extension.swift in Sources */,
 				9A48A7412829045A00D0A728 /* CampListViewModel.swift in Sources */,
 				1251DD9728FFDFB000E1E712 /* AppGlobalString.swift in Sources */,
+				12310D2E290BBF7F00F10DE3 /* ViewPDFVC.swift in Sources */,
 				28F830E2281977F000CAF99C /* Int+Extension.swift in Sources */,
 				28ABEDBB2833C6DD001C3911 /* TitleLabelCell.swift in Sources */,
 				28F830E4281977F000CAF99C /* UIView+Extension.swift in Sources */,
@@ -1693,6 +1711,7 @@
 				2898FA8F283671F7006DF4B8 /* KidsAttendanceViewModel.swift in Sources */,
 				28F83132281977F000CAF99C /* Theme.swift in Sources */,
 				1278BD17290028670061A7DD /* BaseClassForrNavigationBar.swift in Sources */,
+				12291692290BE4190093BE93 /* WebViewVC.swift in Sources */,
 				28F830F0281977F000CAF99C /* UINavigationBar+Extension.swift in Sources */,
 				2813A01E2835058800E6194D /* ApplyForACampViewModel.swift in Sources */,
 				28ABEDB52833C0D0001C3911 /* DayListCell.swift in Sources */,
@@ -1731,6 +1750,7 @@
 				281AAE38281A85B00070D758 /* APIManager.swift in Sources */,
 				289B6A31288934E10095FE32 /* NotificationListViewModel.swift in Sources */,
 				28F8312C281977F000CAF99C /* AnimationFrames.swift in Sources */,
+				12291694290C06800093BE93 /* GFunctions.swift in Sources */,
 				28ED59702822601C0035402F /* LoginCheckModel.swift in Sources */,
 				9A694AA828FE60F8000AC3C7 /* FAQModel.swift in Sources */,
 				1278BD14290023BA0061A7DD /* Genum.swift in Sources */,

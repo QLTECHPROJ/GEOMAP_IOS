@@ -93,5 +93,20 @@ extension UGListVC: UITableViewDelegate, UITableViewDataSource {
         return UITableView.automaticDimension
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if self.titleHeader == kUndergroundsMappingReport{
+
+            let vc = AppStoryBoard.main.viewController(viewControllerClass: UGReportDetailVC.self)
+            vc.titleHeader = kUndergroundsMappingReportDetails
+            self.navigationController?.pushViewController(vc, animated: true)
+            
+        }else {
+
+            let vc = AppStoryBoard.main.viewController(viewControllerClass: OCReportDetailVC.self)
+            vc.titleHeader = kOpenCastMappingReportDetails
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+    
 }
 

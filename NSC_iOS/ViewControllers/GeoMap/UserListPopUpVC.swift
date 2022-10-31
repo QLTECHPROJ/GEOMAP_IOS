@@ -21,7 +21,17 @@ class UserListPopUpVC: ClearNaviagtionBarVC {
     
     // MARK: - VARIABLES
    
-    var arrMenu = [kUnderGroundReportList, kOpenCastReportlist, kEditProfile, kSyncData, kFAQs ,kAboutUs , kSupport, kContantUs, kLogout]
+    var arrMenu : [[String:Any]] = [
+        ["type" : kUnderGroundReportList],
+        ["type" : kOpenCastReportlist],
+        ["type" : kEditProfile],
+        ["type" : kSyncData],
+        ["type" : kFAQs],
+        ["type" : kAboutUs],
+        ["type" : kSupport],
+        ["type" : kContantUs],
+        ["type" : kLogout]
+    ]
     
 
     // MARK: - VIEW LIFE CYCLE
@@ -68,49 +78,92 @@ class UserListPopUpVC: ClearNaviagtionBarVC {
 extension UserListPopUpVC : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return arrMenu.count
+        return self.arrMenu.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withClass: UserListCell.self)
-        cell.lblName.text = arrMenu[indexPath.row]
+        cell.lblName.text = (self.arrMenu[indexPath.row]["type"] as? String)?.description
         //cell.imgView.image = UIImage(named: arrImage[indexPath.row])
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.row == 0 {
-            let aVC = AppStoryBoard.main.viewController(viewControllerClass: UGReportDetailVC.self)
+        
+        let title = (self.arrMenu[indexPath.row]["type"] as? String)?.description
+        
+        switch title {
+            
+        case kUnderGroundReportList:
+            
+            let aVC = AppStoryBoard.main.viewController(viewControllerClass:UGListVC.self)
+            aVC.titleHeader = kUndergroundsMappingReport
             self.navigationController?.pushViewController(aVC, animated: true)
-        } else if indexPath.row == 1 {
-            let aVC = AppStoryBoard.main.viewController(viewControllerClass: OCReportDetailVC.self)
+            
+            break
+            
+        case kOpenCastReportlist:
+            
+            let aVC = AppStoryBoard.main.viewController(viewControllerClass:UGListVC.self)
+            aVC.titleHeader = kOpenCastMappingReport
             self.navigationController?.pushViewController(aVC, animated: true)
-        } else if indexPath.row == 2 {
+            
+            break
+            
+        case kEditProfile:
+            
             let aVC = AppStoryBoard.main.viewController(viewControllerClass: ProfileVC.self)
             self.navigationController?.pushViewController(aVC, animated: true)
-        } else if indexPath.row == 3 {
+            
+            break
+            
+        case kSyncData:
+            
             let aVC = AppStoryBoard.main.viewController(viewControllerClass: SyncDataVC.self)
             self.navigationController?.pushViewController(aVC, animated: true)
-           
-        } else if indexPath.row == 4 {
+            
+            break
+            
+        case kFAQs:
+            
             let aVC = AppStoryBoard.main.viewController(viewControllerClass: FAQListVC.self)
             self.navigationController?.pushViewController(aVC, animated: true)
-          
-        } else if indexPath.row == 5 {
-            openUrl(urlString:"https://nationalsportscamps.in/about-nsc")
-          
-        }else if indexPath.row == 6 {
+            
+            break
+            
+//        case kAboutUs:
+//            
+//            //            openUrl(urlString:"https://nationalsportscamps.in/about-nsc")
+//            let aVC = AppStoryBoard.main.viewController(viewControllerClass: WebViewVC.self)
+//            self.navigationController?.pushViewController(aVC, animated: true)
+//            
+//            break
+            
+        case kSupport:
+            
             if checkInternet(showToast: true) == false {
                 return
             }
             
             let aVC = AppStoryBoard.main.viewController(viewControllerClass:SupportPopupVC.self)
-            let navVC = UINavigationController(rootViewController: aVC)
-            navVC.navigationBar.isHidden = true
-            navVC.modalPresentationStyle = .overFullScreen
-            self.navigationController?.present(navVC, animated: true, completion: nil)
-        }
-        else if indexPath.row == 8 {
+            aVC.modalPresentationStyle = .overFullScreen
+            self.present(aVC, animated: false, completion :{
+                aVC.openPopUpVisiable()
+            })
+            
+            break
+            
+        case kContantUs,kAboutUs:
+            
+            //            openUrl(urlString:"https://nationalsportscamps.in/about-nsc")
+            let aVC = AppStoryBoard.main.viewController(viewControllerClass: WebViewVC.self)
+            aVC.titleString = title!
+            self.navigationController?.pushViewController(aVC, animated: true)
+            
+            break
+            
+        default:
+            
             if checkInternet(showToast: true) == false {
                 return
             }
@@ -118,13 +171,18 @@ extension UserListPopUpVC : UITableViewDelegate, UITableViewDataSource {
             let aVC = AppStoryBoard.main.viewController(viewControllerClass: AlertPopUpVC.self)
             aVC.titleText = kLogout
             aVC.detailText = kLogoutPermissionAlertMsg
-            aVC.firstButtonTitle = kLogout
+            aVC.firstButtonTitle = kOK
             aVC.secondButtonTitle = kClose
             aVC.modalPresentationStyle = .overFullScreen
             aVC.delegate = self
-            self.present(aVC, animated: false, completion: nil)
+            //            self.present(aVC, animated: false, completion: nil)
+            self.present(aVC, animated: false, completion :{
+                aVC.openPopUpVisiable()
+            })
+            
+            
+            break
         }
-        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

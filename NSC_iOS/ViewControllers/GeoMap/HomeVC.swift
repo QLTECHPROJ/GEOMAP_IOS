@@ -79,10 +79,13 @@ class HomeVC: ClearNaviagtionBarVC {
     
     // MARK: - ACTION
     @IBAction func addReportClicked(_ sender: UIButton) {
-        let aVC = AppStoryBoard.main.viewController(viewControllerClass: DescriptionPopupVC.self)
+        let aVC = AppStoryBoard.main.viewController(viewControllerClass: DescriptionPopupVC.self)        
         aVC.modalPresentationStyle = .overFullScreen
         aVC.delegate = self
-        self.present(aVC, animated: false, completion: nil)
+//            self.present(aVC, animated: false, completion: nil)
+        self.present(aVC, animated: false, completion :{
+            aVC.openPopUpVisiable()
+        })
     }
   
 }
@@ -145,10 +148,18 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let aVC = AppStoryBoard.main.viewController(viewControllerClass:UGListVC.self)
-        aVC.titleHeader = indexPath.section == 0 ? kUndergroundsMappingReport : kOpenCastMappingReport
-        navigationController?.pushViewController(aVC, animated: true)
-     
+        if indexPath.section == 0{
+
+            let vc = AppStoryBoard.main.viewController(viewControllerClass: UGReportDetailVC.self)
+            vc.titleHeader = kUndergroundsMappingReportDetails
+            self.navigationController?.pushViewController(vc, animated: true)
+            
+        }else {
+
+            let vc = AppStoryBoard.main.viewController(viewControllerClass: OCReportDetailVC.self)
+            vc.titleHeader = kOpenCastMappingReportDetails
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
     
 }
@@ -161,6 +172,7 @@ extension HomeVC : AddReportPopUpDelegate {
         if popUpTag == 0 {
             let aVC = AppStoryBoard.main.viewController(viewControllerClass: UGGeoAttributeVC.self)
             self.navigationController?.pushViewController(aVC, animated: true)
+            
         }else {
             let aVC = AppStoryBoard.main.viewController(viewControllerClass: OCGeoAttributeVC.self)
             self.navigationController?.pushViewController(aVC, animated: true)

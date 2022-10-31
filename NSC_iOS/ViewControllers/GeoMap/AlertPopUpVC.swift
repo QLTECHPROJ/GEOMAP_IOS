@@ -65,7 +65,8 @@ class AlertPopUpVC: ClearNaviagtionBarVC {
     
     // MARK: - FUNCTIONS
     func setupUI(){
-      
+        self.view.alpha = 0
+        self.view.backgroundColor = .colorSkyBlue.withAlphaComponent(0.5)
         self.lblTitle.applyLabelStyle(text : titleText,fontSize :  16,fontName : .InterBold)
         self.lblDetail.applyLabelStyle(fontSize : 14,fontName : .InterMedium)
         
@@ -95,24 +96,53 @@ class AlertPopUpVC: ClearNaviagtionBarVC {
         if isSecondButtonGradient {
             btnClose.backgroundColor = Theme.colors.theme_dark
         }
+        
     }
     
+    
+    func openPopUpVisiable(){
+        UIView.animate(withDuration: 0.5, delay: 0.0) {
+            self.view.alpha = 1
+        }
+    }
+    
+    func closePopUpVisiable(isCompletion : Bool = false,sender : UIButton){
+        
+        UIView.animate(withDuration: 0.25, delay: 0.0, options: [], animations: {
+            
+            self.view.alpha = 0
+            
+        }, completion: { (finished: Bool) in
+            self.dismiss(animated: false) {
+                if isCompletion{
+                    
+                    self.delegate?.handleAction(sender: sender, popUpTag: self.popUpTag)
+                    
+                    DispatchQueue.main.asyncAfter(wallDeadline: .now() + 0.5) {
+                        AppDelegate.shared.updateWindow()
+                    }
+                }
+            }
+        })
+    }
     
     // MARK: - ACTIONS
     @IBAction func btnOkTapped(_ sender : UIButton) {
-        self.dismiss(animated: false) {
-            self.delegate?.handleAction(sender: sender, popUpTag: self.popUpTag)
-            
-            DispatchQueue.main.asyncAfter(wallDeadline: .now() + 0.5) {
-                AppDelegate.shared.updateWindow()
-            }
-        }
+        self.closePopUpVisiable(isCompletion : true,sender: sender)
+//        self.dismiss(animated: false) {
+//            self.delegate?.handleAction(sender: sender, popUpTag: self.popUpTag)
+//
+//            DispatchQueue.main.asyncAfter(wallDeadline: .now() + 0.5) {
+//                AppDelegate.shared.updateWindow()
+//            }
+//        }
     }
     
     @IBAction func btnCancelTapped(_ sender : UIButton) {
-        self.dismiss(animated: false) {
-           
-        }
+//        self.dismiss(animated: false) {
+//
+//        }
+        self.closePopUpVisiable(sender: sender)
     }
     
 }

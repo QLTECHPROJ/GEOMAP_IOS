@@ -116,34 +116,27 @@ class ProfileVC: ClearNaviagtionBarVC {
         
     }
     
-    func checkValidation() -> Bool {
-        var isValid = true
-       
+    func checkValidation() -> String? {
+        self.view.endEditing(true)
+        var message : String? = nil
+        
         if self.txtName.text!.trim.count < Validations.UserNameLenght.Minimum.rawValue || self.txtName.text!.trim.count > Validations.UserNameLenght.Maximum.rawValue {
             
-            isValid = false
-            lblErrName.isHidden = false
-            lblErrName.text = kEnterValidName
-            
+            message = kEnterValidName
         }
         else if !self.txtEmail.text!.trim.isValidEmail{
-            isValid = false
-            self.lblErrEmail.isHidden = false
-            self.lblErrEmail.text = kPleaseProvideValidEmailAddress
+            
+            message = kPleaseProvideValidEmailAddress
         }
         else if !self.txtMobile.text!.trim.isEmpty && (self.txtMobile.text?.count)! < Validations.PhoneNumber.Minimum.rawValue{
             
-            isValid = false
-            self.lblErrMobileNo.isHidden = false
-            self.lblErrMobileNo.text = kPleaseProvideValidMobileNumber
+            message = kPleaseProvideValidMobileNumber
         }
         else if self.txtDOB.text!.trim.isEmpty{
             
-            isValid = false
-            self.lblErrDOB.isHidden = false
-            self.lblErrDOB.text = kPleaseProvideDOB
+            message = kPleaseProvideDOB
         }
-        return isValid
+        return message
     }
     
     
@@ -205,7 +198,10 @@ class ProfileVC: ClearNaviagtionBarVC {
     @IBAction func btnConfirmTapped(_ sender: UIButton) {
         self.view.endEditing(true)
         
-        if self.checkValidation(){
+        if let errorMessage = self.checkValidation(){
+            GFunctions.shared.showSnackBar(message: errorMessage)
+        }
+        else {
             self.navigationController?.popViewController(animated: true)
         }
     }
@@ -229,7 +225,10 @@ class ProfileVC: ClearNaviagtionBarVC {
         aVC.secondButtonTitle = Theme.strings.close
         aVC.modalPresentationStyle = .overFullScreen
         aVC.delegate = self
-        self.present(aVC, animated: false, completion: nil)
+//        self.present(aVC, animated: false, completion: nil)
+        self.present(aVC, animated: false, completion :{
+            aVC.openPopUpVisiable()
+        })
         
     }
     

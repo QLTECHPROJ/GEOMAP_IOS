@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -16,82 +16,43 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ContactCell" id="KGk-i7-Jjw" customClass="ContactCell" customModule="NSC_iOS" customModuleProvider="target">
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="ContactCell" id="KGk-i7-Jjw" customClass="ContactCell" customModule="NSC_iOS" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="375" height="68"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="375" height="68"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GXd-BK-XQ3">
-                        <rect key="frame" x="16" y="34" width="0.0" height="0.0"/>
-                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstAttribute="height" id="N61-sb-6Bt"/>
-                            <constraint firstAttribute="width" secondItem="GXd-BK-XQ3" secondAttribute="height" multiplier="1:1" id="c1p-IB-kEo"/>
-                        </constraints>
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                <real key="value" value="24"/>
-                            </userDefinedRuntimeAttribute>
-                        </userDefinedRuntimeAttributes>
-                    </imageView>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="QeM-M3-uVe">
-                        <rect key="frame" x="16" y="8" width="327" height="52"/>
+                        <rect key="frame" x="15" y="8" width="126.5" height="52"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contact Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3nW-QA-TQL">
-                                <rect key="frame" x="0.0" y="0.0" width="327" height="26"/>
+                                <rect key="frame" x="0.0" y="0.0" width="126.5" height="26"/>
                                 <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="12"/>
                                 <color key="textColor" name="8D8B97"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contact Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uFZ-Ku-Qoe">
-                                <rect key="frame" x="0.0" y="26" width="327" height="26"/>
+                                <rect key="frame" x="0.0" y="26" width="126.5" height="26"/>
                                 <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="16"/>
                                 <color key="textColor" name="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                     </stackView>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kea-gi-szx">
-                        <rect key="frame" x="359" y="16.5" width="0.0" height="35"/>
-                        <color key="backgroundColor" name="theme_dark"/>
-                        <constraints>
-                            <constraint firstAttribute="width" id="UbZ-oL-bhY"/>
-                            <constraint firstAttribute="height" constant="35" id="gD8-8e-KPV"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                        <state key="normal" title="Invite">
-                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </state>
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                <real key="value" value="5"/>
-                            </userDefinedRuntimeAttribute>
-                        </userDefinedRuntimeAttributes>
-                        <connections>
-                            <action selector="inviteClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="BhY-TN-nsR"/>
-                        </connections>
-                    </button>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="Kea-gi-szx" firstAttribute="leading" secondItem="QeM-M3-uVe" secondAttribute="trailing" constant="16" id="0EZ-dt-0H2"/>
-                    <constraint firstAttribute="trailing" secondItem="Kea-gi-szx" secondAttribute="trailing" constant="16" id="55b-Sn-xYb"/>
-                    <constraint firstItem="GXd-BK-XQ3" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="IgJ-aq-l9q"/>
                     <constraint firstAttribute="bottom" secondItem="QeM-M3-uVe" secondAttribute="bottom" constant="8" id="JXC-vR-TTd"/>
                     <constraint firstItem="QeM-M3-uVe" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="Ll5-a3-Qq1"/>
-                    <constraint firstItem="QeM-M3-uVe" firstAttribute="leading" secondItem="GXd-BK-XQ3" secondAttribute="trailing" id="rh5-Ey-dnu"/>
-                    <constraint firstItem="Kea-gi-szx" firstAttribute="centerY" secondItem="QeM-M3-uVe" secondAttribute="centerY" id="xYo-aW-spm"/>
-                    <constraint firstItem="GXd-BK-XQ3" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="zWi-tI-UxR"/>
+                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="QeM-M3-uVe" secondAttribute="trailing" constant="15" id="fTS-DR-XIm"/>
+                    <constraint firstItem="QeM-M3-uVe" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="o8R-Yh-HmA"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
-                <outlet property="btnInvite" destination="Kea-gi-szx" id="jb1-1Z-GOR"/>
-                <outlet property="imgView" destination="GXd-BK-XQ3" id="FDc-XP-MxH"/>
-                <outlet property="lblName" destination="3nW-QA-TQL" id="jvk-bc-PEH"/>
-                <outlet property="lblNumber" destination="uFZ-Ku-Qoe" id="Yas-RU-q05"/>
+                <outlet property="lblSubtitle" destination="uFZ-Ku-Qoe" id="fPL-eh-yD4"/>
+                <outlet property="lblTitle" destination="3nW-QA-TQL" id="Z0D-4B-LFK"/>
             </connections>
             <point key="canvasLocation" x="137.68115942028987" y="63.616071428571423"/>
         </tableViewCell>
@@ -102,9 +63,6 @@
         </namedColor>
         <namedColor name="textColor">
             <color red="0.21176470588235294" green="0.18823529411764706" blue="0.27843137254901962" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="theme_dark">
-            <color red="0.15299999713897705" green="0.68199998140335083" blue="0.87800002098083496" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

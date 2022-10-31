@@ -156,3 +156,17 @@ enum DateTimeFormaterEnum : String
     
     case ddMMyyHHmmAWithDOT = "dd.MM.yy hh:mma"
 }
+
+enum ScreenHeightResolution : CGFloat {
+
+    // Height
+    case height568    = 568
+    case height667    = 667   // 6, 6s, 7,8
+    case height736    = 736   // iPhone plus
+    case height812    = 812   // Xr, Xs Max
+    case height896    = 896   // Xr, Xs Max
+    case height1024   = 1024   // 9.7-inch
+    case height1112   = 1112   // 10.5-inch iPad Pro
+    case height1194   = 1194   // 11.0-inch iPad Pro
+    case height1366   = 1366   // 12.9 inch iPad
+}

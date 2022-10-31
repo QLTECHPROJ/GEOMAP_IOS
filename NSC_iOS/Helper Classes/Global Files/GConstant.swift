@@ -29,3 +29,5 @@ let kNormalButtonFontSize                       : CGFloat = 11.0
 let USERDEFAULTS                       = UserDefaults.standard
 
 let AUTHENTICATION                              = UIStoryboard(name: "Main", bundle: nil)
+
+let supportEmailId = "support@geomap.com.in"

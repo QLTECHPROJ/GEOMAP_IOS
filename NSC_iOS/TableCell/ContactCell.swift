@@ -9,23 +9,24 @@ import UIKit
 
 class ContactCell: UITableViewCell {
     
-    @IBOutlet weak var imgView : UIImageView!
-    @IBOutlet weak var lblName : UILabel!
-    @IBOutlet weak var lblNumber : UILabel!
-    @IBOutlet weak var btnInvite : UIButton!
+    @IBOutlet weak var lblTitle : UILabel!
+    @IBOutlet weak var lblSubtitle : UILabel!
     
     var inviteClicked : (() -> Void)?
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        self.lblTitle.applyLabelStyle(fontSize :  12,fontName : .InterMedium, textColor: .colorTextPlaceHolderGray)
+        self.lblSubtitle.applyLabelStyle(fontSize :  16,fontName : .InterMedium)
     }
     
     // Configure Cell
-   
-    
-    @IBAction func inviteClicked(_ sender : UIButton) {
-        self.inviteClicked?()
+
+    func configureDataInCell(_ reportDetail : [String:Any]){
+        
+        self.lblTitle.text = reportDetail["title"] as! String
+        self.lblSubtitle.text = reportDetail["subtitle"] as! String
     }
-    
 }

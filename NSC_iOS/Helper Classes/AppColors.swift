@@ -177,7 +177,7 @@ extension UIColor {
     }
     
 //    static var ColorAppGold                 : UIColor { return UIColor(named: "ThemeGoldColor")!}
-    static var colorBGSkyBlueLight          : UIColor {return UIColor(hex: "F9FCFE")}
+    static var colorBGSkyBlueLight          : UIColor {return UIColor(hex: "F8FCFF")}
     static var colorTextBlack               : UIColor {return UIColor(hex: "2B2B2B")}
     static var colorTextPlaceHolderGray     : UIColor {return UIColor(hex: "8D8B97")}
     static var colorSkyBlue                 : UIColor {return UIColor(hex: "27AEE0")}

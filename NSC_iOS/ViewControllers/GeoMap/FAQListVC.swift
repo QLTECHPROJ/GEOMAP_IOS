@@ -30,10 +30,11 @@ class FAQListVC: ClearNaviagtionBarVC {
     
     // MARK: - FUNCTIONS
     func setupUI() {
-        tableView.register(nibWithCellClass: FAQCell.self)
-        tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 80
-        tableView.reloadData()
+        self.title = kFAQs
+        
+        self.tableView.register(nibWithCellClass: FAQCell.self)
+        self.view.backgroundColor = .colorBGSkyBlueLight
+        self.tableView.reloadData()
     }
     
     func setupData() {
@@ -63,15 +64,7 @@ extension FAQListVC : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        var isSelected = arrayFilter[indexPath.row].isSelected
-//        
-//        for question in arrayFilter {
-//            question.isSelected = false
-//        }
-//        
-//        isSelected.toggle()
-//        arrayFilter[indexPath.row].isSelected = isSelected
-//        tableView.reloadData()
+
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

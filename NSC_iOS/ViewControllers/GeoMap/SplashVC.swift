@@ -14,6 +14,7 @@ class SplashVC: ClearNaviagtionBarVC {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.view.backgroundColor = .colorBGSkyBlueLight
         // Wait 2 Seconds for FCM Token
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             let appVersionVM = AppVersionViewModel()
@@ -36,7 +37,10 @@ class SplashVC: ClearNaviagtionBarVC {
             aVC.hideSecondButton = true
             aVC.modalPresentationStyle = .overFullScreen
             aVC.delegate = self
-            self.present(aVC, animated: false, completion: nil)
+//            self.present(aVC, animated: false, completion: nil)
+            self.present(aVC, animated: false, completion :{
+                aVC.openPopUpVisiable()
+            })
         } else if AppVersionDetails.IsForce == "0" {
             let aVC = AppStoryBoard.main.viewController(viewControllerClass: AlertPopUpVC.self)
             aVC.titleText = Theme.strings.normal_update_title
@@ -45,7 +49,11 @@ class SplashVC: ClearNaviagtionBarVC {
             aVC.secondButtonTitle = Theme.strings.not_now
             aVC.modalPresentationStyle = .overFullScreen
             aVC.delegate = self
-            self.present(aVC, animated: false, completion: nil)
+//            self.present(aVC, animated: false, completion: nil)
+            self.present(aVC, animated: false, completion :{
+                aVC.openPopUpVisiable()
+            })
+            
         } else {
             self.handleRedirection()
         }

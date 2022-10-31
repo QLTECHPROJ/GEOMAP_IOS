@@ -42,28 +42,54 @@ class DescriptionPopupVC: ClearNaviagtionBarVC {
     // MARK: - FUNCTIONS
     
     func setUpUI(){
+        self.view.backgroundColor = .colorSkyBlue.withAlphaComponent(0.5)
+        self.view.alpha = 0
         self.btnUnderGroundReport.isSelect = true
         self.btnUnderGroundReport.setTitle(kAddUndergroundsMappingReport, for: .normal)
         self.btnOpencastReport.setTitle(kAddOpenCastMappingReport, for: .normal)
+     
+    }
+    
+    
+    func openPopUpVisiable(){
+        UIView.animate(withDuration: 0.5, delay: 0.0) {
+            self.view.alpha = 1
+        }
+    }
+    
+    func closePopUpVisiable(isCompletion : Bool = false,sender : UIButton,tagInt : Int?){
         
-        let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
-        mainView.addGestureRecognizer(tap)
+        UIView.animate(withDuration: 0.25, delay: 0.0, options: [], animations: {
+            
+            self.view.alpha = 0
+            
+        }, completion: { (finished: Bool) in
+            self.dismiss(animated: false) {
+                if isCompletion,let _ = tagInt{
+                    
+                    self.delegate?.handleAction(sender: sender, popUpTag:tagInt!)
+                }
+            }
+        })
     }
     
     // MARK: - ACTIONS
-    @objc func handleTap(_ sender: UITapGestureRecognizer? = nil) {
-        self.dismiss(animated: false)
+    @IBAction func btnClosedTapped(_ sender: UIButton) {
+//        self.dismiss(animated: false)
+        self.closePopUpVisiable(sender: sender,tagInt: nil)
     }
     @IBAction func btnUndergroundReportClicked(_ sender: UIButton) {
-        self.dismiss(animated: false) {
-            self.delegate?.handleAction(sender: sender, popUpTag:0)
-        }
+//        self.dismiss(animated: false) {
+//            self.delegate?.handleAction(sender: sender, popUpTag:0)
+//        }
+        self.closePopUpVisiable(isCompletion : true,sender : sender,tagInt : 0)
     }
     
     @IBAction func btnOpenCastMappingReportClicked(_ sender: UIButton) {
-        self.dismiss(animated: false) {
-            self.delegate?.handleAction(sender: sender, popUpTag: 1)
-        }
+//        self.dismiss(animated: false) {
+//            self.delegate?.handleAction(sender: sender, popUpTag: 1)
+//        }
+        self.closePopUpVisiable(isCompletion : true,sender : sender,tagInt : 1)
     }
     
 }

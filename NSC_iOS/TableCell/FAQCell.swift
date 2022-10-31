@@ -23,9 +23,12 @@ class FAQCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         
-        viewQuestion.backgroundColor = Theme.colors.white
-        viewAnswer.isHidden = true
+//        viewQuestion.backgroundColor = Theme.colors.white
+        viewAnswer.isHidden = false
         btnArrow.setImage(UIImage(named: "arrowRightFAQ"), for: .normal)
+        
+        self.lblQuestion.applyLabelStyle(fontSize :  14,fontName : .InterBold, textColor : .colorSkyBlue)
+        self.lblAnswer.applyLabelStyle(fontSize :  12,fontName : .InterSemibol, textColor : .colorTextPlaceHolderGray)
     }
     
     // Configure Cell

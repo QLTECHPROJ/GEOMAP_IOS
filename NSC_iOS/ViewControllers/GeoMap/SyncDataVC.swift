@@ -10,9 +10,7 @@ import UIKit
 class SyncDataVC: ClearNaviagtionBarVC {
     
     
-    @IBOutlet weak var lblData : UILabel!
     @IBOutlet weak var lblInstruction : UILabel!
-    @IBOutlet weak var vwPdf : UIView!
     
     @IBOutlet weak var btnSyncData  : AppThemeBlueButton!
 
@@ -34,10 +32,7 @@ class SyncDataVC: ClearNaviagtionBarVC {
     // MARK: - FUNCTIONS
     func setupUI() {
         self.view.backgroundColor = .colorBGSkyBlueLight
-        self.vwPdf.cornerRadius = 30
-        self.vwPdf.backgroundColor = .colorSkyBlue
         
-        self.lblData.applyLabelStyle(text : kDATA,fontSize : 40,fontName : .InterBold,textColor : .white)
         self.lblInstruction.applyLabelStyle(text : kSyncDataInstrution,fontSize : 16,fontName : .InterSemibol)
         
         self.btnSyncData.isSelect = true
@@ -55,6 +50,6 @@ class SyncDataVC: ClearNaviagtionBarVC {
 
     @IBAction func btnSyncDataTapped(_ sender: UIButton) {
         self.view.endEditing(true)
-        
+        self.navigationController?.popViewController(animated: true)
     }
 }

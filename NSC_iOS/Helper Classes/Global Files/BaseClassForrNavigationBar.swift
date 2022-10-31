@@ -62,7 +62,7 @@ class ClearNaviagtionBarVC: UIViewController {
 //
         self.navigationController?.navigationBar.barTintColor = UIColor.clear
         
-        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: titleColor,NSAttributedString.Key.font:UIFont.applyCustomFont(fontName: .InterBold, fontSize: 20)]
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: titleColor,NSAttributedString.Key.font:UIFont.applyCustomFont(fontName: .InterBold, fontSize: 16)]
         
     }
     
