@@ -34,7 +34,7 @@ class LoginVC: ClearNaviagtionBarVC {
     
     
     // MARK: - VARIABLES
-    var loginCheckVM : LoginCheckViewModel?
+   // var loginCheckVM : LoginCheckViewModel?
     var isFromOTP = false
     
     
@@ -137,8 +137,8 @@ class LoginVC: ClearNaviagtionBarVC {
             ]
             
 //            debugPrint(parameters)
-            
-            self.loginCheckVM?.callLoginCheckAPI(parameters: parameters, completion: { isCompleted in
+            let vm = LoginViewModel()
+            vm.callLoginAPI(parameters: parameters, completion: { isCompleted in
                if isCompleted{
                     
                 }

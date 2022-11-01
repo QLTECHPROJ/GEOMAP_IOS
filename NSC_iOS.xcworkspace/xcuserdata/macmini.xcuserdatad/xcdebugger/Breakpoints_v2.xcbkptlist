@@ -50,6 +50,38 @@
             endingLineNumber = "17"
             landmarkName = "callLogoutAPI(completion:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "3B50E6E9-DA9C-400E-AB15-5927ACABF555 - 28913721828651f5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NSC_iOS_Staging.LogoutViewModel.callLogoutAPI(completion: (Swift.Bool) -&gt; ()) -&gt; ()"
+                  moduleName = "NSC_iOS_Staging"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macmini/Desktop/QLTech_Projects/GEO_MAP_IOS/GEO_MAP_IOS/NSC_iOS/Models%20+%20ViewModels/LogOut/LogoutViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "911">
+               </Location>
+               <Location
+                  uuid = "3B50E6E9-DA9C-400E-AB15-5927ACABF555 - da12a4a2c0b03310"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;NSC_iOS_Staging.LogoutModel&gt;) -&gt; () in NSC_iOS_Staging.LogoutViewModel.callLogoutAPI(completion: (Swift.Bool) -&gt; ()) -&gt; ()"
+                  moduleName = "NSC_iOS_Staging"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macmini/Desktop/QLTech_Projects/GEO_MAP_IOS/GEO_MAP_IOS/NSC_iOS/Models%20+%20ViewModels/LogOut/LogoutViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "19"
+                  endingLineNumber = "19"
+                  offsetFromSymbolStart = "285">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -146,6 +178,38 @@
             endingLineNumber = "19"
             landmarkName = "callCampListAPI(completion:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "3EBDB8E8-97F5-4689-A129-2FE3F3A4FE25 - 6de997545a31b12c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NSC_iOS_Staging.CampListViewModel.callCampListAPI(completion: (Swift.Bool) -&gt; ()) -&gt; ()"
+                  moduleName = "NSC_iOS_Staging"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macmini/Desktop/QLTech_Projects/GEO_MAP_IOS/GEO_MAP_IOS/NSC_iOS/Models%20+%20ViewModels/Camp/CampListViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "19"
+                  endingLineNumber = "19"
+                  offsetFromSymbolStart = "547">
+               </Location>
+               <Location
+                  uuid = "3EBDB8E8-97F5-4689-A129-2FE3F3A4FE25 - 15626833055a5260"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;NSC_iOS_Staging.CampListModel&gt;) -&gt; () in NSC_iOS_Staging.CampListViewModel.callCampListAPI(completion: (Swift.Bool) -&gt; ()) -&gt; ()"
+                  moduleName = "NSC_iOS_Staging"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macmini/Desktop/QLTech_Projects/GEO_MAP_IOS/GEO_MAP_IOS/NSC_iOS/Models%20+%20ViewModels/Camp/CampListViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "19"
+                  endingLineNumber = "19"
+                  offsetFromSymbolStart = "137">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -225,6 +289,22 @@
             startingLineNumber = "116"
             endingLineNumber = "116"
             landmarkName = "userMenuClicked(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2AB41B5F-0E62-462E-BEED-BD76D254728E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NSC_iOS/Models + ViewModels/Login/LoginViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "14"
+            endingLineNumber = "14"
+            landmarkName = "callLoginAPI(parameters:completion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
