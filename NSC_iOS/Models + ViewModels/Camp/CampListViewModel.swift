@@ -14,19 +14,19 @@ class CampListViewModel {
     var arrayUpcomingCampList = [CampDetailModel]()
     
     func callCampListAPI(completion: @escaping (Bool) -> Void) {
-        let parameters = ["coachId":LoginDataModel.currentUser?.ID ?? ""]
+//        let parameters = ["coachId":LoginDataModel.currentUser?.ID ?? ""]
         
-        APIManager.shared.callAPI(router: APIRouter.camplisting(parameters)) { [weak self] (response : CampListModel?) in
-            if response?.ResponseCode == "200", let responseData = response?.ResponseData {
-                self?.BannerImage = responseData.BannerImage
-                self?.arrayCurrentCampList = responseData.current
-                self?.arrayUpcomingCampList = responseData.upcoming
-                
-                completion(true)
-            } else {
-                completion(false)
-            }
-        }
+//        APIManager.shared.callAPI(router: APIRouter.camplisting(parameters)) { [weak self] (response : CampListModel?) in
+//            if response?.ResponseCode == "200", let responseData = response?.ResponseData {
+//                self?.BannerImage = responseData.BannerImage
+//                self?.arrayCurrentCampList = responseData.current
+//                self?.arrayUpcomingCampList = responseData.upcoming
+//                
+//                completion(true)
+//            } else {
+//                completion(false)
+//            }
+//        }
     }
     
 }

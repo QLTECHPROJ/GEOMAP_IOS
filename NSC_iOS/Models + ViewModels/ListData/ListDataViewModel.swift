@@ -11,24 +11,40 @@ class ListDataViewModel {
     
     var listItemData: [ListItem]?
     
-    func callItemListAPI(strID : String, listType : ListItemType, completion: @escaping (Bool) -> Void) {
-        var parameters = [String:String]()
+    func callItemListAPI(parameters : [String:Any], listType : ListItemType, completion: @escaping (Bool) -> Void) {
+        
         var apiRequest : APIRouter?
         
         switch listType {
-        case .country:
-            apiRequest = APIRouter.countrylist
-        case .state:
-            parameters = ["countryId":strID]
-            apiRequest = APIRouter.statelist(parameters)
-        case .city:
-            parameters = ["stateId":strID]
-            apiRequest = APIRouter.citylist(parameters)
-        case .sport:
-            apiRequest = APIRouter.categorylist
+        case .attributes:
+            
+            apiRequest = APIRouter.attribute_data_number
+            
             break
-        case .role:
-            apiRequest = APIRouter.coachrole
+        case .Nos:
+//            apiRequest = APIRouter.statelist(parameters)
+            break
+        case .sampleCollected:
+            
+            break
+        case .weathering:
+            
+            break
+        case .rockStrenght:
+            
+            break
+            
+        case .waterCollection:
+            
+            break
+            
+        case .typeOfGeologicalStructure:
+            
+            break
+            
+        case .typeOfFaults:
+            
+            break
         }
         
         guard let apiRequest = apiRequest else {
@@ -36,14 +52,19 @@ class ListDataViewModel {
             return
         }
         
-        APIManager.shared.callAPI(router: apiRequest) { (response : ListDataModel) in
-            if response.ResponseCode == "200" {
-                self.listItemData = response.ResponseData
-                completion(true)
-            } else {
-                completion(false)
-            }
-        }
+//        APIManager.shared.callAPIJSON(router: apiRequest) { <#Result<DataResult, Error>#> in
+//            <#code#>
+//        }
+        
+//        APIManager.shared.callAPI(router: apiRequest) { (response : ListDataModel) in
+//            debugPrint(response)
+//            if response.ResponseCode == "200" {
+////                self.listItemData = response.ResponseData
+//                completion(true)
+//            } else {
+//                completion(false)
+//            }
+//        }
     }
     
 }

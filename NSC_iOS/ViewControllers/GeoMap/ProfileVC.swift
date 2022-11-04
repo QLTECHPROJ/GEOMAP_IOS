@@ -31,8 +31,10 @@ class ProfileVC: ClearNaviagtionBarVC {
    
     // MARK: - VARIABLES
     var isFromEdit = false
-    var strImage : String?
+    var strImage : String = ""
     var imageData = UploadDataModel()
+    
+    let vwProfileModel : ProfileViewModel = ProfileViewModel()
     
     let bodDatePicker = UIDatePicker()
     
@@ -59,7 +61,6 @@ class ProfileVC: ClearNaviagtionBarVC {
         self.setupData()
         self.buttonEnableDisable()
         self.initDatePicker()
-
         
         let tapGestureToChooseProfile1 = UITapGestureRecognizer(target: self, action: #selector(self.selectProfilePicture(_:)))
         self.imgUser.isUserInteractionEnabled = true
@@ -71,11 +72,11 @@ class ProfileVC: ClearNaviagtionBarVC {
     }
     
     func setupData() {
-        self.imgUser.image = UIImage(named: "profile1")
-        self.txtName.text = "John Doe"
-        self.txtEmail.text = "johndoe@gmail.com"
-        self.txtMobile.text = "3253534534"
-        self.txtDOB.text = "12 Jun 1994"
+        self.imgUser.setImgWebUrl(imageString: JSON(LoginDataModel.currentUser?.profileInformation?.profileimage as Any).stringValue,isUserplaceholder : true)
+        self.txtName.text = JSON(LoginDataModel.currentUser?.profileInformation?.name as Any).stringValue
+        self.txtEmail.text = JSON(LoginDataModel.currentUser?.profileInformation?.email as Any).stringValue
+        self.txtMobile.text = JSON(LoginDataModel.currentUser?.profileInformation?.mobile as Any).stringValue
+        self.txtDOB.text = GFunctions.shared.convertDateFormat(dt: JSON(LoginDataModel.currentUser?.profileInformation?.dob as Any).stringValue, inputFormat: DateTimeFormaterEnum.yyyymmdd.rawValue, outputFormat: DateTimeFormaterEnum.ddmm_yyyy.rawValue, status: .NOCONVERSION).str
     }
     
     func initDatePicker(){
@@ -89,7 +90,6 @@ class ProfileVC: ClearNaviagtionBarVC {
         }
         
         let dateFormattor = DateFormatter()
-        dateFormattor.dateFormat = DateTimeFormaterEnum.ddmm_yyyy.rawValue
         self.bodDatePicker.addTarget(self, action: #selector(self.datePickerValueChanged(sender:)), for: .valueChanged)
     }
     
@@ -131,7 +131,6 @@ class ProfileVC: ClearNaviagtionBarVC {
         
         self.view.endEditing(true)
         let arrayTitles = [kTakeAPhoto, kChooseFromGallary]
-
         
         showActionSheet(title: "", message: Theme.strings.profile_image_options, titles: arrayTitles, cancelButtonTitle: Theme.strings.cancel_small) { (buttonTitle) in
             DispatchQueue.main.async {
@@ -165,7 +164,7 @@ class ProfileVC: ClearNaviagtionBarVC {
             }
         case kRemovePhoto:
             print("Remove photo")
-            LoginDataModel.currentUser?.Profile_Image = ""
+            LoginDataModel.currentUser?.profileInformation?.profileimage = ""
         default:
             break
         }
@@ -186,14 +185,28 @@ class ProfileVC: ClearNaviagtionBarVC {
             GFunctions.shared.showSnackBar(message: errorMessage)
         }
         else {
-            self.navigationController?.popViewController(animated: true)
+            
+            let userDetails = LoginDataModel.currentUser
+            let parameters = APIParametersModel()
+            parameters.iD = JSON(userDetails?.profileInformation?.id as Any).stringValue
+            parameters.name = JSON(self.txtName.text as Any).stringValue
+            parameters.email = JSON(self.txtEmail.text as Any).stringValue
+            parameters.mobile = JSON(self.txtMobile.text).stringValue
+            parameters.profileimage = self.strImage
+            parameters.dob = GFunctions.shared.convertDateFormat(dt: JSON(self.txtDOB.text as Any).stringValue, inputFormat: DateTimeFormaterEnum.ddmm_yyyy.rawValue, outputFormat: DateTimeFormaterEnum.yyyymmdd.rawValue, status: .NOCONVERSION).str
+            
+            self.vwProfileModel.callProfileUpdateAPI(parameters: parameters.toDictionary(), uploadParameters: [self.imageData]) { completion in
+                if completion{
+                    self.navigationController?.popViewController(animated: true)
+                }
+            }
         }
     }
 
     
     func buttonEnableDisable(){
         
-        self.btnConfirm.isSelect = !self.txtName.text!.isEmpty && !self.txtEmail.text!.isEmpty && !self.txtMobile.text!.isEmpty && !self.txtDOB.text!.isEmpty
+        self.btnConfirm.isSelect = !self.txtName.text!.isEmpty && !self.txtEmail.text!.isEmpty && !self.txtMobile.text!.isEmpty && !self.txtDOB.text!.isEmpty && !self.strImage.trim.isEmpty
     }
     
     @IBAction func btnDeleteAccountTapped(_ sender: UIButton) {
@@ -209,7 +222,6 @@ class ProfileVC: ClearNaviagtionBarVC {
         aVC.secondButtonTitle = Theme.strings.close
         aVC.modalPresentationStyle = .overFullScreen
         aVC.delegate = self
-//        self.present(aVC, animated: false, completion: nil)
         self.present(aVC, animated: false, completion :{
             aVC.openPopUpVisiable()
         })
@@ -226,7 +238,11 @@ extension ProfileVC : UITextFieldDelegate {
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        
+        if self.txtDOB == textField, self.txtDOB.text!.trim.isEmpty{
+            let dateformattor = DateFormatter()
+            dateformattor.dateFormat = DateTimeFormaterEnum.ddmm_yyyy.rawValue
+            self.txtDOB.text = dateformattor.string(from: Date())
+        }
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -278,19 +294,16 @@ extension ProfileVC : UIImagePickerControllerDelegate, UINavigationControllerDel
         if let image = info[.editedImage] as? UIImage {
             imgUser.image = image
             
-            imageData = UploadDataModel(name: "image.jpeg", key: "profileImage", data: image.jpegData(compressionQuality: 0.5), extention: "jpeg", mimeType: "image/jpeg")
+            imageData = UploadDataModel(name: "image.jpeg", key: "profileimage", data: image.jpegData(compressionQuality: 0.5), extention: "jpeg", mimeType: "image/jpeg")
             self.strImage = imageData.name
-            
-//            self.buttonEnableDisable()
             
         } else if let image = info[.originalImage] as? UIImage {
             imgUser.image = image
-            imageData = UploadDataModel(name: "image.jpeg", key: "profileImage", data: image.jpegData(compressionQuality: 0.5), extention: "jpeg", mimeType: "image/jpeg")
+            imageData = UploadDataModel(name: "image.jpeg", key: "profileimage", data: image.jpegData(compressionQuality: 0.5), extention: "jpeg", mimeType: "image/jpeg")
             self.strImage = imageData.name
-            
-//            self.buttonEnableDisable()
         }
         
+        self.buttonEnableDisable()
         picker.dismiss(animated: true)
     }
     
@@ -309,11 +322,9 @@ extension ProfileVC : AlertPopUpVCDelegate {
             }
             
             let deleteCoachVM = DeleteCoachViewModel()
-            deleteCoachVM.callDeleteCoachAPI(completion: { success in
-//                APPDELEGATE.logout()
+            deleteCoachVM.callDeleteAccountAPI(completion: { success in
                 AppDelegate.shared.updateWindow()
             })
-            
         }
     }
     

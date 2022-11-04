@@ -107,6 +107,13 @@ class UGGeoAttributeVC: ClearNaviagtionBarVC {
         
         self.vwMineralization.handleTapToAction {
             // Fix code
+            
+            let vc = AppStoryBoard.main.viewController(viewControllerClass: ListItemVC.self)
+            vc.listType = .attributes
+            vc.modalPresentationStyle = .overFullScreen
+            self.present(vc, animated: false, completion :{
+                vc.openPopUpVisiable()
+            })
         }
         
         self.vwMineralizationNos.handleTapToAction {
@@ -119,7 +126,6 @@ class UGGeoAttributeVC: ClearNaviagtionBarVC {
 // MARK: - UITextFieldDelegate
 extension UGGeoAttributeVC : UITextViewDelegate {
  
-    
     func textViewDidChangeSelection(_ textView: UITextView) {
         self.buttonEnableDisable()
     }

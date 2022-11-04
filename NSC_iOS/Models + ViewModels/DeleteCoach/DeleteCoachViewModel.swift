@@ -9,10 +9,11 @@ import Foundation
 
 class DeleteCoachViewModel {
     
-    func callDeleteCoachAPI(completion: @escaping (Bool) -> Void) {
-        let parameters = ["coachId":LoginDataModel.currentUser?.ID ?? ""]
-        
-        APIManager.shared.callAPI(router: APIRouter.deletecoach(parameters)) { (response : LogoutModel?) in
+    func callDeleteAccountAPI(completion: @escaping (Bool) -> Void) {
+        let parameters = APIParametersModel()
+        parameters.iD = JSON(LoginDataModel.currentUser?.profileInformation?.id as Any).stringValue
+                                          
+        APIManager.shared.callAPI(router: APIRouter.deleteAccount(parameters.toDictionary())) { (response : LogoutModel?) in
             if response?.ResponseCode == "200" {
                 completion(true)
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1) {

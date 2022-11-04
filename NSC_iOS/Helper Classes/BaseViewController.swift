@@ -68,17 +68,17 @@ class BaseViewController: UIViewController {
             return
         }
         
-        if userData.PersonalDetailFilled == "0" {
-            let aVC = AppStoryBoard.main.viewController(viewControllerClass: UGGeoAttributeVC.self)
-            self.navigationController?.pushViewController(aVC, animated: true)
-        } else if userData.BankDetailFilled == "0" {
-           
-        } else if userData.Status == CoachStatus.Pending.rawValue || userData.Status == CoachStatus.Rejected.rawValue {
-//            let aVC = AppStoryBoard.main.viewController(viewControllerClass: ProfileStatusVC.self)
+//        if userData.PersonalDetailFilled == "0" {
+//            let aVC = AppStoryBoard.main.viewController(viewControllerClass: UGGeoAttributeVC.self)
 //            self.navigationController?.pushViewController(aVC, animated: true)
-        } else {
-           
-        }
+//        } else if userData.BankDetailFilled == "0" {
+//           
+//        } else if userData.Status == CoachStatus.Pending.rawValue || userData.Status == CoachStatus.Rejected.rawValue {
+////            let aVC = AppStoryBoard.main.viewController(viewControllerClass: ProfileStatusVC.self)
+////            self.navigationController?.pushViewController(aVC, animated: true)
+//        } else {
+//           
+//        }
     }
     
     /**

@@ -82,7 +82,6 @@ class HomeVC: ClearNaviagtionBarVC {
         let aVC = AppStoryBoard.main.viewController(viewControllerClass: DescriptionPopupVC.self)        
         aVC.modalPresentationStyle = .overFullScreen
         aVC.delegate = self
-//            self.present(aVC, animated: false, completion: nil)
         self.present(aVC, animated: false, completion :{
             aVC.openPopUpVisiable()
         })

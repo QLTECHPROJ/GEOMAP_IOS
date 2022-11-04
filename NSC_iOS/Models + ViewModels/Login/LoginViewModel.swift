@@ -11,17 +11,20 @@ class LoginViewModel {
     
     var userData: LoginDataModel?
     
-    func callLoginAPI(parameters : [String:String], completion: @escaping (Bool) -> Void) {
+    func callLoginAPI(parameters : [String:Any], completion: @escaping (Bool) -> Void) {
+        
+        debugPrint(parameters)
+        
         APIManager.shared.callAPI(router: APIRouter.login(parameters)) { [weak self] (response : LoginModel?) in
             if response?.ResponseCode == "200", let responseData = response?.ResponseData {
                 self?.userData = responseData
-                
+
                 LoginDataModel.currentUser = responseData
-                
+
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                     showAlertToast(message: Theme.strings.welcome_message)
                 }
-                
+
                 completion(true)
             } else {
                 completion(false)

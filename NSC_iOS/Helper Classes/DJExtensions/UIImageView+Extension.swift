@@ -47,6 +47,17 @@ extension UIImageView {
             self.image = image
         }
     }
+    
+    func setImgWebUrl(imageString : String,isUserplaceholder : Bool = false){
+    
+        self.contentMode = .scaleAspectFill
+        var placeholderImage = UIImage()
+        
+        if isUserplaceholder{
+           placeholderImage = UIImage(named: "default_profile")!
+        }
+        self.sd_setImage(with: imageString.url(), placeholderImage: placeholderImage ?? nil)
+    }
 }
 
 extension PHAsset {

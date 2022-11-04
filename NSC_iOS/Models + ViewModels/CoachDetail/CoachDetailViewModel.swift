@@ -12,19 +12,19 @@ class CoachDetailViewModel {
     var userData: LoginDataModel?
     
     func callCoachDetailsAPI(completion: @escaping (Bool) -> Void) {
-        let parameters = ["coachId":LoginDataModel.currentUser?.ID ?? ""]
-        
-        APIManager.shared.callAPI(router: APIRouter.coachdetails(parameters)) { [weak self] (response : LoginModel?) in
-            if response?.ResponseCode == "200", let responseData = response?.ResponseData {
-                self?.userData = responseData
-                
-                LoginDataModel.currentUser = responseData
-                
-                completion(true)
-            } else {
-                completion(false)
-            }
-        }
+//        let parameters = ["coachId":LoginDataModel.currentUser?.ID ?? ""]
+//        
+//        APIManager.shared.callAPI(router: APIRouter.coachdetails(parameters)) { [weak self] (response : LoginModel?) in
+//            if response?.ResponseCode == "200", let responseData = response?.ResponseData {
+//                self?.userData = responseData
+//                
+//                LoginDataModel.currentUser = responseData
+//                
+//                completion(true)
+//            } else {
+//                completion(false)
+//            }
+//        }
     }
     
 }

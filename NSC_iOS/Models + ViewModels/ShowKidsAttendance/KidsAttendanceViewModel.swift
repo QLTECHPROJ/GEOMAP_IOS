@@ -14,20 +14,20 @@ class KidsAttendanceViewModel {
     var arrayKids = [KidsAttendanceDetailModel]()
     
     func callShowKidsAttendanceAPI(campId: String, dayId: String, completion: @escaping (Bool) -> Void) {
-        let parameters = ["coachId":LoginDataModel.currentUser?.ID ?? "",
-                          "campId":campId]
-        
-        APIManager.shared.callAPI(router: APIRouter.kidsattendanceshow(parameters)) { [weak self] (response : KidsAttendanceModel?) in
-            if response?.ResponseCode == "200", let responseData = response?.ResponseData {
-                self?.dayId = responseData.dayId
-                self?.dayshift = responseData.dayshift
-                self?.arrayKids = responseData.kidsattendance
-                
-                completion(true)
-            } else {
-                completion(false)
-            }
-        }
+//        let parameters = ["coachId":LoginDataModel.currentUser?.ID ?? "",
+//                          "campId":campId]
+//        
+//        APIManager.shared.callAPI(router: APIRouter.kidsattendanceshow(parameters)) { [weak self] (response : KidsAttendanceModel?) in
+//            if response?.ResponseCode == "200", let responseData = response?.ResponseData {
+//                self?.dayId = responseData.dayId
+//                self?.dayshift = responseData.dayshift
+//                self?.arrayKids = responseData.kidsattendance
+//                
+//                completion(true)
+//            } else {
+//                completion(false)
+//            }
+//        }
     }
     
 }

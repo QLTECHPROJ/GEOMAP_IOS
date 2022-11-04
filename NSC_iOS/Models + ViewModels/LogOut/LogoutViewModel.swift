@@ -10,21 +10,21 @@ import Foundation
 class LogoutViewModel {
     
      func callLogoutAPI(completion: @escaping (Bool) -> Void) {
-        let parameters = ["deviceType":APP_TYPE,
-                          "deviceId":DEVICE_UUID,
-                          "deviceToken":FCM_TOKEN,
-                          "coachId":LoginDataModel.currentUser?.ID ?? ""]
-        
-        APIManager.shared.callAPI(router: APIRouter.logout(parameters)) { (response : LogoutModel?) in
-            if response?.ResponseCode == "200" {
-                completion(true)
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                    showAlertToast(message: response?.ResponseMessage ?? "")
-                }
-            } else {
-                completion(false)
-            }
-        }
+//        let parameters = ["deviceType":APP_TYPE,
+//                          "deviceId":DEVICE_UUID,
+//                          "deviceToken":FCM_TOKEN,
+//                          "coachId":LoginDataModel.currentUser?.ID ?? ""]
+//        
+//        APIManager.shared.callAPI(router: APIRouter.logout(parameters)) { (response : LogoutModel?) in
+//            if response?.ResponseCode == "200" {
+//                completion(true)
+//                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+//                    showAlertToast(message: response?.ResponseMessage ?? "")
+//                }
+//            } else {
+//                completion(false)
+//            }
+//        }
     }
     
 }

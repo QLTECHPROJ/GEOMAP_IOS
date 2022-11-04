@@ -277,3 +277,20 @@ var kGeoMap = "Geo Map"
 var kPleaseContactSupportAt = "Please contact support at"
 
 var kAlert_camera_not_available = "Camera is not available on this device."
+
+var kChooseYourAttributes = "Choose your attributes"
+
+var kChooseYourNos = "Choose your nos"
+
+var kChooseYourSampleCollected = "Choose your sample collected"
+
+var kChooseYourWeathering  = "Choose your weathering"
+
+var kChooseYourRockStrenght = "Choose your rock strength"
+
+var kChooseYourWaterCondition = "Choose your water condition"
+
+var kChooseYourTypeOfGeologicalStructure = "Choose your type of geological structure"
+
+var kChooseYourTypeOfFault = "Choose your type of fault"
+

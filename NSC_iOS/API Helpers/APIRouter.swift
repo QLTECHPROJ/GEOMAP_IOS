@@ -20,13 +20,13 @@ enum APIRouter : URLRequestConvertible {
     case categorylist
     case logincheck([String:String])
     
-    case login([String:String])
+    case login([String:Any])
     case coachregister([String:String])
     case coachdetails([String:String])
     case coachstatus([String:String])
     case referdata([String:String])
     
-    case deletecoach([String:String])
+    case deleteAccount([String:Any])
     case logout([String:String])
     
     case camplisting([String:String])
@@ -37,7 +37,7 @@ enum APIRouter : URLRequestConvertible {
     
     case coachupdatepersonaldetails([String:String])
     case coachupdatebankdetails([String:String])
-    case profileUpdate([String:String])
+    case profileUpdate([String:Any])
     case verify_refercode([String:String])
     case myearning([String:String])
     case inviteuser([String:String])
@@ -47,6 +47,8 @@ enum APIRouter : URLRequestConvertible {
     
     case kidsattendanceshow([String:String])
     case kidsattendancesave([String:Any])
+    
+    case attribute_data_number
     
     var route: APIRoute {
         switch self {
@@ -76,8 +78,8 @@ enum APIRouter : URLRequestConvertible {
         case .referdata(let data):
             return APIRoute(path: "referdata", method: .post, data: data)
             
-        case .deletecoach(let data):
-            return APIRoute(path: "deletecoach", method: .post, data: data)
+        case .deleteAccount(let data):
+            return APIRoute(path: "delete-user", method: .post, data: data)
         case .logout(let data):
             return APIRoute(path: "logout", method: .post, data: data)
         
@@ -96,7 +98,7 @@ enum APIRouter : URLRequestConvertible {
         case .coachupdatebankdetails(let data):
             return APIRoute(path: "coachupdatebankdetails", method: .post, data: data)
         case .profileUpdate(let data):
-            return APIRoute(path: "profileUpdate", method: .post, data: data)
+            return APIRoute(path: "profile-update", method: .post, data: data)
         case .verify_refercode(let data):
             return APIRoute(path: "verify-refercode", method: .post, data: data)
         case .myearning(let data):
@@ -113,6 +115,9 @@ enum APIRouter : URLRequestConvertible {
             return APIRoute(path: "kids-attendance-show", method: .post, data: data)
         case .kidsattendancesave(let data):
             return APIRoute(path: "kids-attendance-save", method: .post, data: data)
+            
+        case .attribute_data_number:
+            return APIRoute(path: "attribute_data_number", method: .get)
         }
     }
     

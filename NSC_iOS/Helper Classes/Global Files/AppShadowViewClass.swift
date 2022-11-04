@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import SignaturePad
 
 
 class AppShadowViewClass : UIView {
@@ -29,3 +30,23 @@ class AppShadowViewClass : UIView {
     }
 }
 
+class SignatureView : SignaturePad {
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        applyStyle()
+    }
+    
+    func applyStyle() {
+        self.layer.cornerRadius = 10
+        self.backgroundColor = .white
+        self.dropShadow(color: .colorTextPlaceHolderGray, offSet: CGSize(width: -1, height: 1))
+    
+        self.isMultipleTouchEnabled = true
+        self.backgroundColor = .white
+    }
+}

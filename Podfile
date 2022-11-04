@@ -19,6 +19,8 @@ def shared_pods
   pod 'Firebase/Auth'
   pod 'ACFloatingTextfield-Swift', '~> 1.7'
   
+  pod 'SignaturePad'
+  
 end
 
 

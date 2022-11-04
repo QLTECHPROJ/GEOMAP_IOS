@@ -260,12 +260,10 @@ extension AppDelegate{
     
     //MARK: - SetHome page
     func setHomePage(){
-//        USERMODEL.current.getUserDetailFromDefaults()
+
         USERDEFAULTS.set(true, forKey: UserDefaultsKeys.isUserLogin.rawValue)
         USERDEFAULTS.synchronize()
         let homeNavVC  = AUTHENTICATION.instantiateViewController(withIdentifier: "NavHome") as! UINavigationController
-        //let navigationVC = UINavigationController(rootViewController: tabBarVC)
-        //UIApplication.shared.windows.first?.rootViewController = navigationVC
         UIApplication.shared.windows.first?.rootViewController = homeNavVC
         UIApplication.shared.windows.first?.makeKeyAndVisible()
         

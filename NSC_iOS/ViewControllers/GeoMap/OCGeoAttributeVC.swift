@@ -7,6 +7,8 @@
 
 import UIKit
 import IQKeyboardManagerSwift
+import SignaturePad
+
 
 class OCGeoAttributeVC: ClearNaviagtionBarVC {
     
@@ -67,20 +69,22 @@ class OCGeoAttributeVC: ClearNaviagtionBarVC {
     @IBOutlet weak var tvNote : IQTextView!
     
     @IBOutlet weak var lblGeologistSign : UILabel!
-    @IBOutlet weak var vwGeologistSign : AppShadowViewClass!
+    @IBOutlet weak var vwGeologistSign : SignaturePad!
     @IBOutlet weak var btnClearGeologistSign : AppThemeBlueButton!
     
     @IBOutlet weak var lblClientGeologistSign : UILabel!
-    @IBOutlet weak var vwClientGeologistSign : AppShadowViewClass!
+    @IBOutlet weak var vwClientGeologistSign : SignaturePad!
     @IBOutlet weak var btnClearClientGeologistSign : AppThemeBlueButton!
     
     @IBOutlet weak var btnSubmit : AppThemeBlueButton!
+    
+    @IBOutlet weak var scrollView : UIScrollView!
     
     //----------------------------------------------------------------------------
     //MARK: - Class Variables
     //----------------------------------------------------------------------------
     
-   
+    
     
     //----------------------------------------------------------------------------
     //MARK: - Memory management
@@ -109,9 +113,13 @@ class OCGeoAttributeVC: ClearNaviagtionBarVC {
     //Desc:- Set layout desing customize
     
     func configureUI(){
+        
         self.view.backgroundColor = .colorBGSkyBlueLight
-
+        
         self.title = kGeologicalMapping
+        
+        self.vwGeologistSign.delegate = self
+        self.vwClientGeologistSign.delegate = self
         
         self.selectShift()
         self.btnOtherActions()
@@ -152,7 +160,7 @@ class OCGeoAttributeVC: ClearNaviagtionBarVC {
         self.txtObservedGradeOfOre.applyStyleFlotingTextfield(placeholderTitle : kObservedGradeOfOre, fontsize : 16,fontname : .InterSemibol)
         
         self.txtActualGradeOfOreLabGrade.applyStyleFlotingTextfield(placeholderTitle : kActualGradeOfOreLabGrade, fontsize : 16,fontname : .InterSemibol)
-
+        
         self.lblSampleCollected.applyLabelStyle(text : kSampleCollected,fontSize : 16,fontName : .InterSemibol)
         self.lblWeathering.applyLabelStyle(text : kWeathering,fontSize : 16,fontName : .InterSemibol)
         self.lblRockStrenght.applyLabelStyle(text : kRockStrength,fontSize : 16,fontName : .InterSemibol)
@@ -169,8 +177,8 @@ class OCGeoAttributeVC: ClearNaviagtionBarVC {
         self.btnClearClientGeologistSign.setTitle(kClearClientGeologistSign, for: .normal)
         self.btnSubmit.setTitle(kSubmit, for: .normal)
     }
-
-   
+    
+    
     func selectShift(_ selectiontag : Int = 1){
         self.btnDayShift.isSelected = selectiontag == self.btnDayShift.tag
         self.btnNightShift.isSelected = selectiontag == self.btnNightShift.tag
@@ -179,6 +187,10 @@ class OCGeoAttributeVC: ClearNaviagtionBarVC {
     func buttonEnableDisable(){
         
         var isEnable : Bool = false
+        
+        self.btnClearGeologistSign.isSelect = self.vwGeologistSign.getSignature() != nil
+        
+        self.btnClearClientGeologistSign.isSelect = self.vwClientGeologistSign.getSignature() != nil
         
         if self.txtMineSiteName.text!.trim.isEmpty
             || self.txtPitName.text!.trim.isEmpty
@@ -199,11 +211,11 @@ class OCGeoAttributeVC: ClearNaviagtionBarVC {
             || self.txtObservedGradeOfOre.text!.trim.isEmpty
             || self.txtActualGradeOfOreLabGrade.text!.trim.isEmpty
             || self.tvNote.text!.trim.isEmpty || (self.btnNightShift.isSelected && self.btnDayShift.isSelected){
-
+            
             isEnable = false
             
         } else {
-
+            
             isEnable = true
         }
         
@@ -251,10 +263,16 @@ class OCGeoAttributeVC: ClearNaviagtionBarVC {
     
     @IBAction func btnClearGeologistSignTapped(_ sender : UIButton){
         self.view.endEditing(true)
+        self.vwClientGeologistSign.clear()
+        self.buttonEnableDisable()
+        
     }
     
     @IBAction func btnClearClientGeologistSign(_ sender : UIButton){
         self.view.endEditing(true)
+        
+        self.vwGeologistSign.clear()
+        self.buttonEnableDisable()
     }
     
     @IBAction func btnSubmitTapped(_ sender : UIButton){
@@ -303,7 +321,6 @@ class OCGeoAttributeVC: ClearNaviagtionBarVC {
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
     }
-
 }
 
 //--------------------------------------------------------------------------------------
@@ -318,10 +335,24 @@ extension OCGeoAttributeVC : UITextFieldDelegate {
 
 //--------------------------------------------------------------------------------------
 // MARK: - UITextViewDelegate
-
+//--------------------------------------------------------------------------------------
 extension OCGeoAttributeVC : UITextViewDelegate {
     
     func textViewDidChangeSelection(_ textView: UITextView) {
+        self.buttonEnableDisable()
+    }
+}
+
+extension OCGeoAttributeVC : SignaturePadDelegate{
+    
+    func didStart() {
+        self.scrollView.isScrollEnabled = false
+        
+        self.buttonEnableDisable()
+    }
+    
+    func didFinish() {
+        self.scrollView.isScrollEnabled = true
         self.buttonEnableDisable()
     }
 }

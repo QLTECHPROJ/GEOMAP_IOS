@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class UserListPopUpVC: ClearNaviagtionBarVC {
     
     // MARK: - OUTLETS
@@ -57,11 +58,13 @@ class UserListPopUpVC: ClearNaviagtionBarVC {
         self.imgCamara.isUserInteractionEnabled = true
         self.imgCamara.addGestureRecognizer(tapGestureToChooseProfile2)
         */
+        
         self.setupData()
     }
     
     func setupData() {
-        self.imgUser.image = UIImage(named: "profile1")
+
+        self.imgUser.setImgWebUrl(imageString: JSON(LoginDataModel.currentUser?.profileInformation?.profileimage as Any).stringValue,isUserplaceholder : true)
         
     }
     

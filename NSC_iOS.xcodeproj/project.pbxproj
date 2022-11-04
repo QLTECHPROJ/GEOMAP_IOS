@@ -12,6 +12,7 @@
 		12291696290C0BC90093BE93 /* TTGSnackbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12291695290C0BC90093BE93 /* TTGSnackbar.swift */; };
 		12291697290C0BC90093BE93 /* TTGSnackbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12291695290C0BC90093BE93 /* TTGSnackbar.swift */; };
 		12310D2E290BBF7F00F10DE3 /* ViewPDFVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12310D2D290BBF7F00F10DE3 /* ViewPDFVC.swift */; };
+		124A4E4B29127FC700C21A00 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 124A4E4A29127FC700C21A00 /* SwiftyJSON */; };
 		1251DD9128FFDE2400E1E712 /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1251DD9028FFDE2400E1E712 /* UIButton+Extension.swift */; };
 		1251DD9328FFDE3700E1E712 /* UIButtonClasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1251DD9228FFDE3700E1E712 /* UIButtonClasses.swift */; };
 		1251DD9528FFDEDD00E1E712 /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1251DD9428FFDEDD00E1E712 /* UIFont+Extension.swift */; };
@@ -586,6 +587,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				124A4E4B29127FC700C21A00 /* SwiftyJSON in Frameworks */,
 				F58D647EF7AD49D75FA8966C /* Pods_NSC_iOS_Staging.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1211,6 +1213,9 @@
 			dependencies = (
 			);
 			name = NSC_iOS_Staging;
+			packageProductDependencies = (
+				124A4E4A29127FC700C21A00 /* SwiftyJSON */,
+			);
 			productName = NSC_iOS;
 			productReference = 282C338B2819617D009401FD /* NSC_iOS_Staging.app */;
 			productType = "com.apple.product-type.application";
@@ -2126,6 +2131,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		124A4E4A29127FC700C21A00 /* SwiftyJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 12F3B46F290FE8C900EB13BE /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			productName = SwiftyJSON;
+		};
 		12F3B470290FE8C900EB13BE /* SwiftyJSON */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 12F3B46F290FE8C900EB13BE /* XCRemoteSwiftPackageReference "SwiftyJSON" */;

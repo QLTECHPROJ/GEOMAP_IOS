@@ -15,6 +15,7 @@ class LoginModel: EVObject {
     var ResponseStatus: String?
 }
 
+/*
 class LoginDataModel: EVObject {
     var ID = ""
     var ZOHOID = ""
@@ -50,3 +51,28 @@ class LoginDataModel: EVObject {
     var Refer_Code = ""
     var referLink = ""
 }
+*/
+
+class LoginDataModel : EVObject{
+
+    var deviceId = ""
+    var deviceToken = ""
+    var deviceType = ""
+    var profileInformation : ProfileInformation?
+    var token = ""
+}
+
+class ProfileInformation : EVObject{
+
+    var createdAt = ""
+    var dob = ""
+    var email = ""
+    var emailVerifiedAt = ""
+    var id = ""
+    var mobile = ""
+    var name = ""
+    var profileimage = ""
+    var updatedAt = ""
+
+}
+

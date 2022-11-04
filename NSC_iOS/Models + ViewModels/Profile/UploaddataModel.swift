@@ -15,6 +15,7 @@ class UploadDataModel : EVObject {
     var data : Data?
     var extention = ""
     var mimeType = ""
+//    var imageContent : UIImage?
     
     init(name:String, key:String, data:Data?, extention:String, mimeType:String) {
         self.name = name
@@ -22,6 +23,7 @@ class UploadDataModel : EVObject {
         self.data = data
         self.extention = extention
         self.mimeType = mimeType
+//        self.imageContent = imageContent
     }
     
     required init() {

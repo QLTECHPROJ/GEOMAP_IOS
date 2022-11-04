@@ -80,6 +80,7 @@ PODS:
   - SDWebImage (5.12.5):
     - SDWebImage/Core (= 5.12.5)
   - SDWebImage/Core (5.12.5)
+  - SignaturePad (1.1.1)
   - SVProgressHUD (2.2.5)
   - Toast-Swift (5.0.1)
   - TTTAttributedLabel (2.0.0)
@@ -93,6 +94,7 @@ DEPENDENCIES:
   - Firebase/Messaging
   - IQKeyboardManagerSwift
   - SDWebImage
+  - SignaturePad
   - SVProgressHUD
   - Toast-Swift
   - TTTAttributedLabel
@@ -116,6 +118,7 @@ SPEC REPOS:
     - nanopb
     - PromisesObjC
     - SDWebImage
+    - SignaturePad
     - SVProgressHUD
     - Toast-Swift
     - TTTAttributedLabel
@@ -138,10 +141,11 @@ SPEC CHECKSUMS:
   nanopb: b552cce312b6c8484180ef47159bc0f65a1f0431
   PromisesObjC: ab77feca74fa2823e7af4249b8326368e61014cb
   SDWebImage: 0905f1b7760fc8ac4198cae0036600d67478751e
+  SignaturePad: b0737dd95909731532e7bea0214e603bed72796f
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
   TTTAttributedLabel: 8cffe8e127e4e82ff3af1e5386d4cd0ad000b656
 
-PODFILE CHECKSUM: 20954c296cc221af5030e8e89b6462e0c3d07fd6
+PODFILE CHECKSUM: 0b27b48e7e9e9e104869cf91e9056b131cec01d4
 
-COCOAPODS: 1.8.4
+COCOAPODS: 1.11.3

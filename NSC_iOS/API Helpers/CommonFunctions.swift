@@ -321,7 +321,7 @@ extension UIImageView {
         
         if let userData = LoginDataModel.currentUser {
             DispatchQueue.global().async {
-                if let imgUrl = URL(string: userData.Profile_Image.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!) {
+                if let imgUrl = URL(string: (userData.profileInformation?.profileimage.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)!) {
                     do {
                         let imageData = try Data(contentsOf: imgUrl)
                         let profileImage = UIImage(data: imageData)
@@ -344,7 +344,7 @@ extension UIImageView {
     }
     
     func setUserInitialProfileImage(user : LoginDataModel?, fontSize : CGFloat) {
-        let userName = (user?.Name ?? "").trim.count > 0 ? (user?.Name ?? "") : "Guest"
+        let userName = (user?.profileInformation?.name ?? "").trim.count > 0 ? (user?.profileInformation?.name ?? "") : "Guest"
         let nameInitial : String = "\(userName.first ?? "G")"
         self.setInitialProfileImage(initial: nameInitial, fontSize: fontSize)
     }

@@ -8,6 +8,10 @@
 import Foundation
 import AVKit
 
+enum ConvertType {
+    case LOCAL, UTC, NOCONVERSION
+}
+
 class GFunctions: NSObject {
     
     static let shared   : GFunctions        = GFunctions()
@@ -84,4 +88,68 @@ extension GFunctions{
         }
         return "0"
     }
+}
+
+extension GFunctions{
+    
+    func convertDateFormat(dt: String, inputFormat: String, outputFormat: String, status: ConvertType) -> (str : String, date : Date) {
+        let dateFormatter: DateFormatter = DateFormatter()
+        if status == .LOCAL || status == .NOCONVERSION {
+            dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        }
+        dateFormatter.dateFormat = inputFormat
+        
+        var date : NSDate!
+        if let dt = dateFormatter.date(from: dt) {
+            
+            if status == .LOCAL {
+                date = self.convertToLocal(sourceDate: dt as NSDate)
+            } else if status == .UTC {
+                date = self.convertToUTC(sourceDate: dt as NSDate)
+            } else {
+                date = dt as NSDate
+            }
+            
+            dateFormatter.dateFormat = outputFormat
+            
+            let strDate = dateFormatter.string(from: date as Date)
+            return (str : strDate, date : dateFormatter.date(from: strDate) ?? Date())
+        } else {
+            return (str : "", date : Date())
+        }
+    }
+    
+    func convertToLocal(sourceDate : NSDate) -> NSDate {
+        
+        let sourceTimeZone                                      = NSTimeZone(abbreviation: "UTC")
+        let destinationTimeZone                                 = NSTimeZone.system
+        
+        //calc time difference
+        let sourceGMTOffset         : NSInteger                 = (sourceTimeZone?.secondsFromGMT(for: sourceDate as Date))!
+        let destinationGMTOffset    : NSInteger                 = destinationTimeZone.secondsFromGMT(for:sourceDate as Date)
+        let interval                : TimeInterval              = TimeInterval(destinationGMTOffset-sourceGMTOffset)
+        
+        //set currunt date
+        let date: NSDate                                        = NSDate(timeInterval: interval, since: sourceDate as Date)
+        return date
+    }
+    
+    //--------------------------------------------------------------------------------------
+    //MARK: - convert date to utc -
+    
+    func convertToUTC(sourceDate : NSDate) -> NSDate {
+        
+        let sourceTimeZone                                      = NSTimeZone.system
+        let destinationTimeZone                                 = NSTimeZone(abbreviation: "UTC")
+        
+        //calc time difference
+        let sourceGMTOffset         : NSInteger                 = (sourceTimeZone.secondsFromGMT(for:sourceDate as Date))
+        let destinationGMTOffset    : NSInteger                 = destinationTimeZone!.secondsFromGMT(for: sourceDate as Date)
+        let interval                : TimeInterval              = TimeInterval(destinationGMTOffset-sourceGMTOffset)
+        
+        //set currunt date
+        let date: NSDate                                        = NSDate(timeInterval: interval, since: sourceDate as Date)
+        return date
+    }
+    
 }

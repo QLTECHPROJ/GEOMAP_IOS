@@ -34,7 +34,7 @@ class LoginVC: ClearNaviagtionBarVC {
     
     
     // MARK: - VARIABLES
-   // var loginCheckVM : LoginCheckViewModel?
+    var vmLogin : LoginViewModel = LoginViewModel()
     var isFromOTP = false
     
     
@@ -125,27 +125,21 @@ class LoginVC: ClearNaviagtionBarVC {
             GFunctions.shared.showSnackBar(message: errorMessage)
         }
         else {
-//            AppDelegate.shared.updateWindow(.home)
+
+            let parameters = APIParametersModel()
+            parameters.deviceToken = GFunctions.shared.getDeviceToken()
+            parameters.deviceId = DeviceDetail.shared.uuid
+            parameters.deviceType = DeviceDetail.shared.deviceType
+            parameters.userName = JSON(self.txtUser.text).stringValue
+            parameters.password = JSON(self.txtPassword.text).stringValue
             
-            
-            let parameters : [String:String] = [
-                APIParameters.userName.rawValue : JSON(self.txtUser.text).stringValue,
-                APIParameters.password.rawValue : JSON(self.txtPassword.text).stringValue,
-                APIParameters.deviceToken.rawValue : GFunctions.shared.getDeviceToken(),
-                APIParameters.deviceId.rawValue : DeviceDetail.shared.uuid,
-                APIParameters.deviceType.rawValue : DeviceDetail.shared.deviceType
-            ]
-            
-//            debugPrint(parameters)
-            let vm = LoginViewModel()
-            vm.callLoginAPI(parameters: parameters, completion: { isCompleted in
+            self.vmLogin.callLoginAPI(parameters: parameters.toDictionary(), completion: { isCompleted in
                if isCompleted{
-                    
+                   AppDelegate.shared.updateWindow(.home)
                 }
             })
         }
     }
-    
 }
 
 // MARK: - UITextFieldDelegate

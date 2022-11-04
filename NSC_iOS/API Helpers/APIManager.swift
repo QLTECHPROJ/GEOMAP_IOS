@@ -41,6 +41,7 @@ class APIManager {
             
             self.handleError(data: responseObj, showToast: showToast, response: { (success) in
                 if success {
+                    
                     if let value = responseObj.result.value {
                         response(value)
                         let dict = value.toDictionary()
@@ -190,43 +191,188 @@ extension APIManager {
         formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         formatter.timeZone = NSTimeZone(abbreviation: "UTC") as TimeZone?
         let utcTimeZoneStr = formatter.string(from: date as Date)
-        // print("dateformat:-",utcTimeZoneStr)
         
         let format = DEVICE_UUID + "." + utcTimeZoneStr + "."  + key + "." + valuue
         print("idname:-",format)
-        // tokenRandom = CryptoHelper.encrypt(input:format)!
-        // let base64encoded = format.toBase64()
-        // print("Encoded:", base64encoded as Any)
         
         let skey = "5785abf057d4eea9e59151f75a6fadb724768053df2acdfabb68f2b946b972c6"
         
         let cryptLib = CryptLib()
         let cipherText = cryptLib.encryptPlainTextRandomIV(withPlainText: format, key: skey)
-        // print("cipherText \(cipherText! as String)")
         
         let decryptedString = cryptLib.decryptCipherTextRandomIV(withCipherText: cipherText, key: skey)
-        // print("decryptedString \(decryptedString! as String)")
         
-        // let base64decoded = base64encoded.fromBase64()
-        // print("deEncoded:", base64decoded as Any)
-        
-        // let data = NSData(base64EncodedString: format, options: NSData.Base64DecodingOptions.fromRaw(0)!)
-        
-        // Convert back to a string
-        // let base64Decoded = NSString(data: data, encoding: NSUTF8StringEncoding)
-        
-        // Base64 encode UTF 8 string
-        // fromRaw(0) is equivalent to objc 'base64EncodedStringWithOptions:0'
-        // Notice the unwrapping given the NSData! optional
-        // NSString! returned (optional)
-        // let base64Encoded = utf8str.base64EncodedStringWithOptions(NSData.Base64EncodingOptions.fromRaw(0)!)
-        // tokenRandom = base64encoded
         let tokenRandom = cipherText
-        
-        // debugPrint("cipher:" + tokenRandom!)
-        // let deceprt =  CryptoHelper.decrypt(input: tokenRandom!)
-        // debugPrint("deceprt:" + deceprt!)
+       
         return tokenRandom ?? ""
     }
     
 }
+
+
+extension APIManager{
+    
+//    func callAPIJSON(router : URLRequestConvertible,
+//                     isLoader : Bool = true,
+//                     showToast : Bool = true,
+//                     withBlock completion :((Swift.Result< ,Error>) -> Void)?) {
+//
+//        if checkInternet() == false {
+//            showAlertToast(message: Theme.strings.alert_check_internet)
+////            response(nil,false)
+//            return
+//        }
+//
+//        if isLoader {
+//            showHud()
+//        }
+//
+//
+//        Alamofire.request(router).responseJSON(completionHandler: { responseData in
+//            hideHud()
+//            debugPrint(responseData)
+//            switch responseData.result {
+//            case .success(let response) :
+//
+////                response.value?.value(forKey: <#T##String#>)
+//                debugPrint(responseData)
+//                break
+//
+//            case .failure(let error):
+//
+//                if (error as NSError).code == NSURLErrorCancelled {
+//                    // Manage cancellation here
+//
+//                    debugPrint("apiName\(router),======== error = \(error)")
+//                    completion?(.failure(error))
+//                    return
+//                }
+//            }
+//        })
+//    }
+    
+    
+    func calerwerlAPI<M : EVObject>(router : URLRequestConvertible, isLoader : Bool = true, showToast : Bool = true, response : @escaping (M) -> Void) {
+        
+        if checkInternet() == false {
+            showAlertToast(message: Theme.strings.alert_check_internet)
+            response(M())
+            return
+        }
+        
+        if isLoader {
+            showHud()
+        }
+        
+        self.apiRequest = Alamofire.request(router).responseObject { (responseObj : DataResponse<M>) in
+            
+            hideHud()
+            
+            if let error = responseObj.result.error {
+                if checkErrorTypeNetworkLost(error: error) {
+                    self.callAPI(router: router, response: response)
+                }
+            }
+            
+            self.handleError(data: responseObj, showToast: showToast, response: { (success) in
+                if success {
+                    
+                    if let value = responseObj.result.value {
+                        response(value)
+                        let dict = value.toDictionary()
+                        if (dict["ResponseCode"] as? String) != "200" {
+                            if (dict["ResponseCode"] as? String) == "403" {
+//                                APPDELEGATE.logout()
+                                AppDelegate.shared.updateWindow()
+                            } else if let message = dict["ResponseMessage"] as? String, message.trim.count > 0 , message != "Reminder not Available for any playlist!" {
+                                if showToast { showAlertToast(message: message) }
+                            }
+                        }
+                    }
+                }
+            })
+        }
+        .responseString { (resp) in
+            print(resp)
+        }
+        //        .responseJSON { (resp) in
+        //            print("responseJSON :- ", resp)
+        //        }
+    }
+}
+
+struct DataResult {
+    var data : JSON = JSON.null
+    var httpCode : Int = NSNotFound
+    var apiCode : ApiKeys.ApiStatusCode = .invalidOrFail
+    var message : String = ""
+    var response : JSON = JSON.null
+}
+
+enum ApiKeys {
+//    case header(ApiHeaderKeys)
+//    case encrypt(EncryptionKeys)
+//    case respsone(ApiResponseKey)
+    case statusCode(ApiStatusCode)
+    
+    var value: String {
+        switch self {
+//        case .header(let key):
+//            return key.rawValue
+//        case .encrypt(let key):
+//            return key.rawValue
+//        case .respsone(let key):
+//            return key.rawValue
+        case .statusCode(let key):
+            return key.rawValue
+      }
+    }
+}
+
+/// Set All keys here
+extension ApiKeys {
+    
+//    200 sucess
+//    401 fail
+//    403 un auth acess
+    //MARK:- APIStatusCodeEnum
+    internal enum ApiStatusCode: String {
+        
+        case invalidOrFail                  = "0"
+        case success                        = "1"
+        case emptyData                      = "2"
+        case inactiveAccount                = "3"
+        case otpVerify                      = "4"
+        case emailVerify                    = "5"
+        case forceUpdateApp                 = "6"
+        case simpleUpdateAlert              = "7"
+        case userNotRegister                = "11"
+        case userSessionExpire              = "-1"
+        case unknown                        = "1000"
+    }
+}
+
+/*
+ SUCCESS: {
+     ResponseCode = 200;
+     ResponseData =     (
+                 {
+             "created_at" = "2022-10-31T17:36:25.000000Z";
+             id = 1;
+             name = "test attribute";
+             nos =             (
+                                 {
+                     attributeId = 1;
+                     "created_at" = "2022-10-31T17:36:48.000000Z";
+                     id = 1;
+                     name = "test child attribute";
+                     "updated_at" = "2022-10-31T17:36:48.000000Z";
+                 }
+             );
+             "updated_at" = "2022-10-31T17:36:25.000000Z";
+         }
+     );
+     ResponseMessage = "Attributes and Num Cobine Data";
+     ResponseStatus = Success;
+ }
+ */

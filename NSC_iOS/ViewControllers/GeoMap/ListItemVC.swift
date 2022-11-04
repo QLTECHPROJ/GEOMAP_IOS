@@ -7,12 +7,16 @@
 
 import UIKit
 
-enum ListItemType : Int {
-    case country = 0
-    case state
-    case city
-    case sport
-    case role
+enum ListItemType {
+    
+    case attributes
+    case Nos
+    case sampleCollected
+    case weathering
+    case rockStrenght
+    case waterCollection
+    case typeOfGeologicalStructure
+    case typeOfFaults
 }
 
 class ListItemVC: ClearNaviagtionBarVC {
@@ -27,7 +31,7 @@ class ListItemVC: ClearNaviagtionBarVC {
     
     
     // MARK: - VARIABLES
-    var listType : ListItemType = .country
+    var listType : ListItemType = .attributes
     var strID = ""
     var strNoData = Theme.strings.alert_search_term_not_found
     
@@ -46,38 +50,15 @@ class ListItemVC: ClearNaviagtionBarVC {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        let listDataVM = ListDataViewModel()
-        listDataVM.callItemListAPI(strID: self.strID, listType: self.listType) { success in
-            if success {
-                self.arrayItem = listDataVM.listItemData ?? [ListItem]()
-            }
-            self.setupData()
-        }
     }
     
     
     // MARK: - FUNCTIONS
     func setupUI() {
+        self.view.alpha = 0
         btnClear.isHidden = true
         lblNoData.isHidden = true
-        
-        switch listType {
-        case .country:
-            lblTitle.text = "Choose your country"
-            txtSearch.placeholder = "Search for country"
-        case .state:
-            lblTitle.text = "Choose your state"
-            txtSearch.placeholder = "Search for state"
-        case .city:
-            lblTitle.text = "Choose your city"
-            txtSearch.placeholder = "Search for city"
-        case .sport:
-            lblTitle.text = "Choose your sport"
-            txtSearch.placeholder = "Search for sport"
-        case .role:
-            lblTitle.text = "Choose your role"
-            txtSearch.placeholder = "Search for role"
-        }
+        self.setUpTitle()
         
         if checkInternet(showToast: true) == false {
             txtSearch.isUserInteractionEnabled = false
@@ -100,11 +81,82 @@ class ListItemVC: ClearNaviagtionBarVC {
         txtSearch.addTarget(self, action: #selector(textFieldValueChanged(textField:)), for: UIControl.Event.editingChanged)
     }
     
+    func setUpTitle(){
+        switch listType {
+        case .attributes:
+            lblTitle.text = kChooseYourAttributes
+            txtSearch.placeholder = kChooseYourAttributes
+            
+        case .Nos:
+            lblTitle.text = kChooseYourNos
+            txtSearch.placeholder = kChooseYourNos
+            
+        case .sampleCollected:
+            lblTitle.text = kChooseYourSampleCollected
+            txtSearch.placeholder = kChooseYourSampleCollected
+            
+        case .weathering:
+            lblTitle.text = kChooseYourWeathering
+            txtSearch.placeholder = kChooseYourWeathering
+            
+        case .rockStrenght:
+            lblTitle.text = kChooseYourRockStrenght
+            txtSearch.placeholder = kChooseYourRockStrenght
+            
+        case .waterCollection:
+            lblTitle.text = kChooseYourWaterCondition
+            txtSearch.placeholder = kChooseYourWaterCondition
+            
+        case .typeOfGeologicalStructure:
+            lblTitle.text = kChooseYourTypeOfGeologicalStructure
+            txtSearch.placeholder = kChooseYourTypeOfGeologicalStructure
+            
+        case .typeOfFaults:
+            lblTitle.text = kChooseYourTypeOfFault
+            txtSearch.placeholder = kChooseYourTypeOfFault
+        }
+        
+        self.apiCalling()
+    }
+    
+    func apiCalling(){
+        let listDataVM = ListDataViewModel()
+        let parameters = APIParametersModel()
+
+        listDataVM.callItemListAPI(parameters: parameters.toDictionary(), listType: self.listType) { success in
+            if success {
+                self.arrayItem = listDataVM.listItemData ?? [ListItem]()
+            }
+            self.setupData()
+        }
+    }
+    
     func setupData() {
         arrayItemSearch = arrayItem
         tableView.reloadData()
         lblNoData.isHidden = arrayItemSearch.count != 0
         tableView.isHidden = arrayItemSearch.count == 0
+    }
+    
+    func openPopUpVisiable(){
+        UIView.animate(withDuration: 0.5, delay: 0.0) {
+            self.view.alpha = 1
+        }
+    }
+    
+    func closePopUpVisiable(isCompletion : Bool = false,sender : UIButton,tagInt : Int?){
+        
+        UIView.animate(withDuration: 0.25, delay: 0.0, options: [], animations: {
+            
+            self.view.alpha = 0
+            
+        }, completion: { (finished: Bool) in
+            self.dismiss(animated: false) {
+                if isCompletion,let _ = tagInt{
+                    
+                }
+            }
+        })
     }
     
     @objc func textFieldValueChanged(textField : UITextField ) {

@@ -7,32 +7,48 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "1C1E1590-69D6-4103-BDE0-EF64702D677E"
+            uuid = "7EAD805D-8742-4E23-AC48-A87D54DEE4AD"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "NSC_iOS/Models + ViewModels/LoginCheck/LoginCheckViewModel.swift"
+            filePath = "NSC_iOS/Models + ViewModels/Profile/ProfileViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "17"
-            endingLineNumber = "17"
-            landmarkName = "callLoginCheckAPI(parameters:completion:)"
+            startingLineNumber = "21"
+            endingLineNumber = "21"
+            landmarkName = "callProfileUpdateAPI(parameters:uploadParameters:completion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "364EE394-6347-4E4D-B865-582D558ACD49"
+            uuid = "9CAD7F86-7A76-4C5D-9743-CFA50A241CDB"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "NSC_iOS/Models + ViewModels/LoginCheck/LoginCheckViewModel.swift"
+            filePath = "NSC_iOS/ViewControllers/GeoMap/ListItemVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "15"
-            endingLineNumber = "15"
-            landmarkName = "callLoginCheckAPI(parameters:completion:)"
+            startingLineNumber = "128"
+            endingLineNumber = "128"
+            landmarkName = "apiCalling()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B30DE3CF-C2E2-4A3C-9092-FAABC1193861"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NSC_iOS/API Helpers/APIManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "238"
+            endingLineNumber = "238"
+            landmarkName = "callAPIJSON(router:isLoader:showToast:withBlock:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

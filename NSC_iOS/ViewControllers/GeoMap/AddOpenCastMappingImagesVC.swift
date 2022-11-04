@@ -203,7 +203,7 @@ extension AddOpenCastMappingImagesVC{
             }
         case kRemovePhoto:
             print("Remove photo")
-            LoginDataModel.currentUser?.Profile_Image = ""
+            LoginDataModel.currentUser?.profileInformation?.profileimage = ""
         default:
             break
         }

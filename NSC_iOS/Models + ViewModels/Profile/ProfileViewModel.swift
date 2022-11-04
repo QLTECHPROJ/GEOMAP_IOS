@@ -11,11 +11,14 @@ class ProfileViewModel {
     
     var profileData: LoginDataModel?
     
-    func callProfileUpdateAPI(parameters : [String:String], uploadParameters : [UploadDataModel], completion: @escaping (Bool) -> Void) {
+    func callProfileUpdateAPI(parameters : [String:Any], uploadParameters : [UploadDataModel], completion: @escaping (Bool) -> Void) {
+       
+        debugPrint(parameters)
+        
         APIManager.shared.callUploadWebService(apiUrl: APIRouter.profileUpdate(parameters).urlRequest!.url!.absoluteString, includeHeader: true, parameters: parameters, uploadParameters: uploadParameters, httpMethod: .post) { [weak self] (response : LoginModel?) in
             if response?.ResponseCode == "200", let responseData = response?.ResponseData {
                 self?.profileData = responseData
-                
+                LoginDataModel.currentUser = responseData
                 showAlertToast(message: response?.ResponseMessage ?? "")
                 completion(true)
             } else {
