@@ -8,28 +8,27 @@
 import Foundation
 
 class LoginViewModel {
-    
-    var userData: LoginDataModel?
-    
-    func callLoginAPI(parameters : [String:Any], completion: @escaping (Bool) -> Void) {
+        
+    func callLoginAPI(parameters : [String:Any], completionBlock: @escaping (Bool) -> Void) {
         
         debugPrint(parameters)
         
-        APIManager.shared.callAPI(router: APIRouter.login(parameters)) { [weak self] (response : LoginModel?) in
-            if response?.ResponseCode == "200", let responseData = response?.ResponseData {
-                self?.userData = responseData
-
-                LoginDataModel.currentUser = responseData
+        APIManager.shared.callAPIWithJSON(router: APIRouter.login(parameters),showToast : false) { responseData, data, statusCode, message, completion in
+            if completion, statusCode == ApiKeys.ApiStatusCode.success.rawValue, let receivdeData = data {
+                
+                debugPrint(receivdeData)
+                let userModel = UserModelClass(fromJson: receivdeData["ResponseData"])
+                userModel.saveUserSessionInToDefaults()
+                userModel.saveUserDetailInDefaults()
 
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                     showAlertToast(message: Theme.strings.welcome_message)
                 }
-
-                completion(true)
-            } else {
-                completion(false)
+                completionBlock(true)
+            }
+            else{
+                completionBlock(false)
             }
         }
     }
-    
 }

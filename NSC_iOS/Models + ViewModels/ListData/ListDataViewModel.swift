@@ -8,10 +8,9 @@
 import Foundation
 
 class ListDataViewModel {
+
     
-    var listItemData: [ListItem]?
-    
-    func callItemListAPI(parameters : [String:Any], listType : ListItemType, completion: @escaping (Bool) -> Void) {
+    func callItemListAPI(parameters : [String:Any], listType : ListItemType, completionBlock: @escaping (JSON?,String?,String?,Bool) -> Void) {
         
         var apiRequest : APIRouter?
         
@@ -51,20 +50,15 @@ class ListDataViewModel {
             showAlertToast(message: Theme.strings.alert_something_went_wrong)
             return
         }
-        
-//        APIManager.shared.callAPIJSON(router: apiRequest) { <#Result<DataResult, Error>#> in
-//            <#code#>
-//        }
-        
-//        APIManager.shared.callAPI(router: apiRequest) { (response : ListDataModel) in
-//            debugPrint(response)
-//            if response.ResponseCode == "200" {
-////                self.listItemData = response.ResponseData
-//                completion(true)
-//            } else {
-//                completion(false)
-//            }
-//        }
+
+        APIManager.shared.callAPIWithJSON(router: apiRequest,showToast : false) { responseData, data, statusCode, message, completion in
+            if completion, statusCode == ApiKeys.ApiStatusCode.success.rawValue, let receivdeData = data {
+                completionBlock(receivdeData,statusCode,message,true)
+            }
+            else{
+                completionBlock(nil,statusCode,message,false)
+            }
+        }
     }
     
 }

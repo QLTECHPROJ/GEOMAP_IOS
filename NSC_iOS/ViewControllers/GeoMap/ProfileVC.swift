@@ -72,11 +72,12 @@ class ProfileVC: ClearNaviagtionBarVC {
     }
     
     func setupData() {
-        self.imgUser.setImgWebUrl(imageString: JSON(LoginDataModel.currentUser?.profileInformation?.profileimage as Any).stringValue,isUserplaceholder : true)
-        self.txtName.text = JSON(LoginDataModel.currentUser?.profileInformation?.name as Any).stringValue
-        self.txtEmail.text = JSON(LoginDataModel.currentUser?.profileInformation?.email as Any).stringValue
-        self.txtMobile.text = JSON(LoginDataModel.currentUser?.profileInformation?.mobile as Any).stringValue
-        self.txtDOB.text = GFunctions.shared.convertDateFormat(dt: JSON(LoginDataModel.currentUser?.profileInformation?.dob as Any).stringValue, inputFormat: DateTimeFormaterEnum.yyyymmdd.rawValue, outputFormat: DateTimeFormaterEnum.ddmm_yyyy.rawValue, status: .NOCONVERSION).str
+        let userModel = UserModelClass.current
+        self.imgUser.setImgWebUrl(imageString: JSON(userModel.profileImage as Any).stringValue,isUserplaceholder : true)
+        self.txtName.text = JSON(userModel.name as Any).stringValue
+        self.txtEmail.text = JSON(userModel.email as Any).stringValue
+        self.txtMobile.text = JSON(userModel.mobile as Any).stringValue
+        self.txtDOB.text = GFunctions.shared.convertDateFormat(dt: JSON(userModel.dob as Any).stringValue, inputFormat: DateTimeFormaterEnum.yyyymmdd.rawValue, outputFormat: DateTimeFormaterEnum.ddmm_yyyy.rawValue, status: .NOCONVERSION).str
     }
     
     func initDatePicker(){
@@ -186,20 +187,20 @@ class ProfileVC: ClearNaviagtionBarVC {
         }
         else {
             
-            let userDetails = LoginDataModel.currentUser
-            let parameters = APIParametersModel()
-            parameters.iD = JSON(userDetails?.profileInformation?.id as Any).stringValue
-            parameters.name = JSON(self.txtName.text as Any).stringValue
-            parameters.email = JSON(self.txtEmail.text as Any).stringValue
-            parameters.mobile = JSON(self.txtMobile.text).stringValue
-            parameters.profileimage = self.strImage
-            parameters.dob = GFunctions.shared.convertDateFormat(dt: JSON(self.txtDOB.text as Any).stringValue, inputFormat: DateTimeFormaterEnum.ddmm_yyyy.rawValue, outputFormat: DateTimeFormaterEnum.yyyymmdd.rawValue, status: .NOCONVERSION).str
-            
-            self.vwProfileModel.callProfileUpdateAPI(parameters: parameters.toDictionary(), uploadParameters: [self.imageData]) { completion in
-                if completion{
+//            let userDetails = UserModelClass.current
+//            let parameters = APIParametersModel()
+//            parameters.iD = JSON(userDetails.id as Any).stringValue
+//            parameters.name = JSON(self.txtName.text as Any).stringValue
+//            parameters.email = JSON(self.txtEmail.text as Any).stringValue
+//            parameters.mobile = JSON(self.txtMobile.text).stringValue
+//            parameters.profileimage = self.strImage
+//            parameters.dob = GFunctions.shared.convertDateFormat(dt: JSON(self.txtDOB.text as Any).stringValue, inputFormat: DateTimeFormaterEnum.ddmm_yyyy.rawValue, outputFormat: DateTimeFormaterEnum.yyyymmdd.rawValue, status: .NOCONVERSION).str
+//
+//            self.vwProfileModel.callProfileUpdateAPI(parameters: parameters.toDictionary(), uploadParameters: [self.imageData]) { completion in
+//                if completion{
                     self.navigationController?.popViewController(animated: true)
-                }
-            }
+//                }
+//            }
         }
     }
 

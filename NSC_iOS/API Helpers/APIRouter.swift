@@ -47,6 +47,7 @@ enum APIRouter : URLRequestConvertible {
     
     case kidsattendanceshow([String:String])
     case kidsattendancesave([String:Any])
+    case ur_or_listing([String:Any])
     
     case attribute_data_number
     
@@ -118,7 +119,11 @@ enum APIRouter : URLRequestConvertible {
             
         case .attribute_data_number:
             return APIRoute(path: "attribute_data_number", method: .get)
+            
+        case .ur_or_listing(let data):
+            return APIRoute(path: "ur_or_listing", method: .post, data: data)
         }
+        
     }
     
     

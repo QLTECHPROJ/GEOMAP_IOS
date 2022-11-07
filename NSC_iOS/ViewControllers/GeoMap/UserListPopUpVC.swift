@@ -64,7 +64,7 @@ class UserListPopUpVC: ClearNaviagtionBarVC {
     
     func setupData() {
 
-        self.imgUser.setImgWebUrl(imageString: JSON(LoginDataModel.currentUser?.profileInformation?.profileimage as Any).stringValue,isUserplaceholder : true)
+        self.imgUser.setImgWebUrl(imageString: JSON(UserModelClass.current.profileImage as Any).stringValue,isUserplaceholder : true)
         
     }
     
@@ -100,7 +100,7 @@ extension UserListPopUpVC : UITableViewDelegate, UITableViewDataSource {
         case kUnderGroundReportList:
             
             let aVC = AppStoryBoard.main.viewController(viewControllerClass:UGListVC.self)
-            aVC.titleHeader = kUndergroundsMappingReport
+            aVC.reportListType = .underGroundReport
             self.navigationController?.pushViewController(aVC, animated: true)
             
             break
@@ -108,7 +108,7 @@ extension UserListPopUpVC : UITableViewDelegate, UITableViewDataSource {
         case kOpenCastReportlist:
             
             let aVC = AppStoryBoard.main.viewController(viewControllerClass:UGListVC.self)
-            aVC.titleHeader = kOpenCastMappingReport
+            aVC.reportListType = .opneCastReport
             self.navigationController?.pushViewController(aVC, animated: true)
             
             break

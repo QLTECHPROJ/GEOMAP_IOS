@@ -212,44 +212,55 @@ extension APIManager {
 
 extension APIManager{
     
-//    func callAPIJSON(router : URLRequestConvertible,
-//                     isLoader : Bool = true,
-//                     showToast : Bool = true,
-//                     withBlock completion :((Swift.Result< ,Error>) -> Void)?) {
-//
-//        if checkInternet() == false {
-//            showAlertToast(message: Theme.strings.alert_check_internet)
-////            response(nil,false)
-//            return
-//        }
-//
-//        if isLoader {
-//            showHud()
-//        }
-//
-//
-//        Alamofire.request(router).responseJSON(completionHandler: { responseData in
-//            hideHud()
-//            debugPrint(responseData)
-//            switch responseData.result {
-//            case .success(let response) :
-//
-////                response.value?.value(forKey: <#T##String#>)
-//                debugPrint(responseData)
-//                break
-//
-//            case .failure(let error):
-//
-//                if (error as NSError).code == NSURLErrorCancelled {
-//                    // Manage cancellation here
-//
-//                    debugPrint("apiName\(router),======== error = \(error)")
-//                    completion?(.failure(error))
-//                    return
-//                }
-//            }
-//        })
-//    }
+    func callAPIWithJSON(router : URLRequestConvertible,
+                         isLoader : Bool = true,
+                         showToast : Bool = true,
+                         withBlock completion :((DataResponse<Any>,_ data : JSON?,_ statusCode : String?,_ message : String,_ completion : Bool) -> Void)?){
+        if checkInternet() == false {
+            showAlertToast(message: Theme.strings.alert_check_internet)
+//            response(nil,false)
+            return
+        }
+
+        if isLoader {
+            showHud()
+        }
+
+        Alamofire.request(router).responseJSON(completionHandler: { responseData in
+            hideHud()
+            debugPrint(responseData)
+            switch responseData.result {
+            case .success(let response) :
+
+                debugPrint(responseData)
+                
+                if let value = responseData.result.value as? NSDictionary{
+                    let jsonValue = JSON(value)
+                    if JSON(value)["ResponseCode"].stringValue == ApiKeys.ApiStatusCode.success.rawValue{
+                        
+                        if JSON(value)["ResponseCode"].stringValue == ApiKeys.ApiStatusCode.userSessionExpire.rawValue{
+                            AppDelegate.shared.updateWindow()
+                        }
+                        else if let message = value["ResponseMessage"] as? String, message.trim.count > 0 {
+                            if showToast { showAlertToast(message: message) }
+                        }
+                        completion?(responseData,JSON(value),JSON(value)["ResponseCode"].stringValue,JSON(value)["ResponseMessage"].stringValue,true)
+                    }
+                }
+                break
+
+            case .failure(let error):
+
+                if (error as NSError).code == NSURLErrorCancelled {
+                    // Manage cancellation here
+
+                    debugPrint("apiName\(router),======== error = \(error)")
+                    completion?(JSON(responseData).rawValue as! DataResponse<Any>,nil,nil,error.localizedDescription,false)
+                    return
+                }
+            }
+        })
+    }
     
     
     func calerwerlAPI<M : EVObject>(router : URLRequestConvertible, isLoader : Bool = true, showToast : Bool = true, response : @escaping (M) -> Void) {
@@ -309,6 +320,8 @@ struct DataResult {
     var response : JSON = JSON.null
 }
 
+
+
 enum ApiKeys {
 //    case header(ApiHeaderKeys)
 //    case encrypt(EncryptionKeys)
@@ -338,17 +351,9 @@ extension ApiKeys {
     //MARK:- APIStatusCodeEnum
     internal enum ApiStatusCode: String {
         
-        case invalidOrFail                  = "0"
-        case success                        = "1"
-        case emptyData                      = "2"
-        case inactiveAccount                = "3"
-        case otpVerify                      = "4"
-        case emailVerify                    = "5"
-        case forceUpdateApp                 = "6"
-        case simpleUpdateAlert              = "7"
-        case userNotRegister                = "11"
-        case userSessionExpire              = "-1"
-        case unknown                        = "1000"
+        case invalidOrFail                  = "401"
+        case success                        = "200"
+        case userSessionExpire              = "403"
     }
 }
 

@@ -23,8 +23,7 @@ class OCReportDetailVC : ClearNaviagtionBarVC {
     // MARK: - VARIABLES
    
     
-    var titleHeader : String = ""
-    
+    var reportListType : ReportListType = .opneCastReport
     
     var arrReportDetails : [[String:Any]] = [
         [
@@ -151,7 +150,7 @@ class OCReportDetailVC : ClearNaviagtionBarVC {
         
       
         self.tableView.reloadData()
-        self.lblTitle.applyLabelStyle(text: self.titleHeader,fontSize :  20,fontName : .InterBold)
+        self.lblTitle.applyLabelStyle(text: kOpenCastMappingReportDetails,fontSize :  20,fontName : .InterBold)
         self.lblTitle.adjustsFontSizeToFitWidth = true
         self.view.backgroundColor = .colorBGSkyBlueLight
         

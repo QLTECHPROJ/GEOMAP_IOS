@@ -40,6 +40,10 @@
 		127A6942290ABCD900DF71BC /* UploadUnderMappingImagesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127A6941290ABCD900DF71BC /* UploadUnderMappingImagesVC.swift */; };
 		12A26AC729028B81005ED851 /* UITextView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A26AC629028B81005ED851 /* UITextView+Extension.swift */; };
 		12A26AC829028B8D005ED851 /* UITextView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A26AC629028B81005ED851 /* UITextView+Extension.swift */; };
+		12D0F7572915291700549066 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D0F7562915291700549066 /* UserModel.swift */; };
+		12D0F7582915293900549066 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D0F7562915291700549066 /* UserModel.swift */; };
+		12D0F75B29153A1900549066 /* ReportListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D0F75A29153A1900549066 /* ReportListVM.swift */; };
+		12D0F75C2915424300549066 /* ReportListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D0F75A29153A1900549066 /* ReportListVM.swift */; };
 		12E2AE56290ACA5F00209D28 /* AddOpenCastMappingImagesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E2AE55290ACA5F00209D28 /* AddOpenCastMappingImagesVC.swift */; };
 		12F3B465290F8FBD00EB13BE /* GFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12291693290C06800093BE93 /* GFunctions.swift */; };
 		12F3B466290F8FD700EB13BE /* AppShadowViewClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1278BD1129000A8B0061A7DD /* AppShadowViewClass.swift */; };
@@ -400,6 +404,8 @@
 		1278BD16290028670061A7DD /* BaseClassForrNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseClassForrNavigationBar.swift; sourceTree = "<group>"; };
 		127A6941290ABCD900DF71BC /* UploadUnderMappingImagesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadUnderMappingImagesVC.swift; sourceTree = "<group>"; };
 		12A26AC629028B81005ED851 /* UITextView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Extension.swift"; sourceTree = "<group>"; };
+		12D0F7562915291700549066 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		12D0F75A29153A1900549066 /* ReportListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportListVM.swift; sourceTree = "<group>"; };
 		12E2AE55290ACA5F00209D28 /* AddOpenCastMappingImagesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddOpenCastMappingImagesVC.swift; sourceTree = "<group>"; };
 		15FF71ED063A7E208A8A060D /* Pods-NSC_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NSC_iOS.release.xcconfig"; path = "Target Support Files/Pods-NSC_iOS/Pods-NSC_iOS.release.xcconfig"; sourceTree = "<group>"; };
 		280C1227283F9AA80034898A /* ApplyForCampCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplyForCampCell.swift; sourceTree = "<group>"; };
@@ -626,6 +632,23 @@
 			path = "Global Files";
 			sourceTree = "<group>";
 		};
+		12A2F49D2917B2880008CD28 /* HomeVC+ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				9A53D4C9281929B500226853 /* HomeVC.swift */,
+			);
+			path = "HomeVC+ViewModel";
+			sourceTree = "<group>";
+		};
+		12D0F759291539F700549066 /* UGListVC+Model */ = {
+			isa = PBXGroup;
+			children = (
+				289B6A28288934B30095FE32 /* UGListVC.swift */,
+				12D0F75A29153A1900549066 /* ReportListVM.swift */,
+			);
+			path = "UGListVC+Model";
+			sourceTree = "<group>";
+		};
 		2813A0122834DBC200E6194D /* Earning */ = {
 			isa = PBXGroup;
 			children = (
@@ -835,6 +858,7 @@
 			isa = PBXGroup;
 			children = (
 				28C8DA272822B74F0048A172 /* LoginViewModel.swift */,
+				12D0F7562915291700549066 /* UserModel.swift */,
 				28C8DA2A2822B7590048A172 /* LoginModel.swift */,
 			);
 			path = Login;
@@ -1137,9 +1161,9 @@
 				9A2CFCCE2818139F000A2C1D /* ProfileVC.swift */,
 				28543626282544F8009BBEDA /* UGGeoAttributeVC.swift */,
 				285436292825450B009BBEDA /* UGGeoAttributeVC2.swift */,
-				9A53D4C9281929B500226853 /* HomeVC.swift */,
+				12A2F49D2917B2880008CD28 /* HomeVC+ViewModel */,
 				12291691290BE4190093BE93 /* WebViewVC.swift */,
-				289B6A28288934B30095FE32 /* UGListVC.swift */,
+				12D0F759291539F700549066 /* UGListVC+Model */,
 				28515AA1282E8187004C7229 /* UGReportDetailVC.swift */,
 				9A4D7B6E28F849E4008E0DBF /* OpenCastReportVC.swift */,
 				9AD5ED9A2824EBDD00E0A11F /* UserListPopUpVC.swift */,
@@ -1519,6 +1543,7 @@
 				28F8311F281977F000CAF99C /* MimeType.swift in Sources */,
 				282C336B2819617D009401FD /* LoginVC.swift in Sources */,
 				28961238282A85C200BC2AC7 /* BankDetailViewModel.swift in Sources */,
+				12D0F75C2915424300549066 /* ReportListVM.swift in Sources */,
 				2813A00E2834DB5E00E6194D /* EarningViewModel.swift in Sources */,
 				2895546A284E1D090044FA06 /* CampDayFeesCell.swift in Sources */,
 				28F830E1281977F000CAF99C /* DJExtensions.swift in Sources */,
@@ -1593,6 +1618,7 @@
 				28ABEDB62833C0D0001C3911 /* DayListCell.swift in Sources */,
 				2813A0232835089900E6194D /* ApplyForACampModel.swift in Sources */,
 				28F830F1281977F000CAF99C /* UINavigationBar+Extension.swift in Sources */,
+				12D0F7582915293900549066 /* UserModel.swift in Sources */,
 				2804E3A12819847D00AF4A62 /* NSCalendar+Timepiece.swift in Sources */,
 				9A694A9B28FE5BBF000AC3C7 /* SupportPopupVC.swift in Sources */,
 				2813A0112834DBBC00E6194D /* EarningModel.swift in Sources */,
@@ -1683,6 +1709,7 @@
 				2813A00D2834DB5E00E6194D /* EarningViewModel.swift in Sources */,
 				28955469284E1D090044FA06 /* CampDayFeesCell.swift in Sources */,
 				9AE8243A2817DF8800A29373 /* LoginVC.swift in Sources */,
+				12D0F75B29153A1900549066 /* ReportListVM.swift in Sources */,
 				28300C43282A62DF00695E7B /* PersonalDetailModel.swift in Sources */,
 				28AE7224282CDF0F000845D0 /* AppStrings.swift in Sources */,
 				9A96F94928F995EA00879A89 /* DrawVC.swift in Sources */,
@@ -1757,6 +1784,7 @@
 				2813A0222835089900E6194D /* ApplyForACampModel.swift in Sources */,
 				28F83130281977F000CAF99C /* AppConstants.swift in Sources */,
 				28470DAB281C0CC500FE9C66 /* AlertPopUpVC.swift in Sources */,
+				12D0F7572915291700549066 /* UserModel.swift in Sources */,
 				1278BD1229000A8B0061A7DD /* AppShadowViewClass.swift in Sources */,
 				2813A0102834DBBC00E6194D /* EarningModel.swift in Sources */,
 				9A694A9A28FE5BBF000AC3C7 /* SupportPopupVC.swift in Sources */,

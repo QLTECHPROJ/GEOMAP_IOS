@@ -40,6 +40,9 @@ class ListItemVC: ClearNaviagtionBarVC {
     var didSelectItem : ((ListItem) -> Void)?
     
     
+    var arrList : [JSON] = []
+    var arrListSearch : [JSON] = []
+    
     // MARK: - VIEW LIFE CYCLE
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,6 +61,10 @@ class ListItemVC: ClearNaviagtionBarVC {
         self.view.alpha = 0
         btnClear.isHidden = true
         lblNoData.isHidden = true
+        
+        self.lblTitle.applyLabelStyle(fontSize :  14,fontName : .InterSemibol)
+        self.txtSearch.applyStyle(fontsize: 13, fontname: .InterMedium)
+        
         self.setUpTitle()
         
         if checkInternet(showToast: true) == false {
@@ -122,20 +129,21 @@ class ListItemVC: ClearNaviagtionBarVC {
     func apiCalling(){
         let listDataVM = ListDataViewModel()
         let parameters = APIParametersModel()
-
-        listDataVM.callItemListAPI(parameters: parameters.toDictionary(), listType: self.listType) { success in
-            if success {
-                self.arrayItem = listDataVM.listItemData ?? [ListItem]()
+        
+        listDataVM.callItemListAPI(parameters: parameters.toDictionary(), listType: self.listType) { responsJSON, statusCode, message, completion in
+            if completion , let data = responsJSON{
+                self.arrList = data.arrayValue
+                self.setupData()
             }
-            self.setupData()
         }
     }
     
     func setupData() {
-        arrayItemSearch = arrayItem
+
+        self.arrListSearch = self.arrList
         tableView.reloadData()
-        lblNoData.isHidden = arrayItemSearch.count != 0
-        tableView.isHidden = arrayItemSearch.count == 0
+        lblNoData.isHidden = self.arrListSearch.count != 0
+        tableView.isHidden = self.arrListSearch.count == 0
     }
     
     func openPopUpVisiable(){
@@ -218,22 +226,22 @@ extension ListItemVC : UITextFieldDelegate {
 extension ListItemVC : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return arrayItemSearch.count
+        return self.arrListSearch.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withClass: ListItemCell.self)
-        cell.configureCell(data: arrayItemSearch[indexPath.row])
+        cell.configureCell(data: self.arrListSearch[indexPath.row])
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 50
+        return UITableView.automaticDimension
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        didSelectItem?(arrayItemSearch[indexPath.row])
-        self.dismiss(animated: true, completion: nil)
+//        didSelectItem?(arrayItemSearch[indexPath.row])
+//        self.dismiss(animated: true, completion: nil)
     }
     
 }

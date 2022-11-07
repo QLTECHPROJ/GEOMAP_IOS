@@ -133,7 +133,7 @@ class LoginVC: ClearNaviagtionBarVC {
             parameters.userName = JSON(self.txtUser.text).stringValue
             parameters.password = JSON(self.txtPassword.text).stringValue
             
-            self.vmLogin.callLoginAPI(parameters: parameters.toDictionary(), completion: { isCompleted in
+            self.vmLogin.callLoginAPI(parameters: parameters.toDictionary(), completionBlock: { isCompleted in
                if isCompleted{
                    AppDelegate.shared.updateWindow(.home)
                 }

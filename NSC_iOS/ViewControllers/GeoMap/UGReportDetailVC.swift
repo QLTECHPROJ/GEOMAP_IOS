@@ -21,9 +21,9 @@ class UGReportDetailVC: ClearNaviagtionBarVC {
     @IBOutlet weak var btnViewPDF: AppThemeBlueButton!
     
     // MARK: - VARIABLES
-   
     
-    var titleHeader : String = ""
+    var reportListType : ReportListType = .underGroundReport
+    
     
     var arrReportDetails : [[String:Any]] = [
         [
@@ -94,7 +94,7 @@ class UGReportDetailVC: ClearNaviagtionBarVC {
         
       
         self.tableView.reloadData()
-        self.lblTitle.applyLabelStyle(text: self.titleHeader,fontSize :  20,fontName : .InterBold)
+        self.lblTitle.applyLabelStyle(text: kUndergroundsMappingReportDetails,fontSize :  20,fontName : .InterBold)
         self.lblTitle.adjustsFontSizeToFitWidth = true
         self.view.backgroundColor = .colorBGSkyBlueLight
         

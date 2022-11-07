@@ -7,48 +7,32 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "7EAD805D-8742-4E23-AC48-A87D54DEE4AD"
+            uuid = "4D54892A-362F-415F-99F1-63F9C943953A"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "NSC_iOS/Models + ViewModels/Profile/ProfileViewModel.swift"
+            filePath = "NSC_iOS/TableCell/NotificationListCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "21"
-            endingLineNumber = "21"
-            landmarkName = "callProfileUpdateAPI(parameters:uploadParameters:completion:)"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "configureCell(_:_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "9CAD7F86-7A76-4C5D-9743-CFA50A241CDB"
+            uuid = "EBA820F5-8534-45BE-8C4E-71BF733ABC7F"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "NSC_iOS/ViewControllers/GeoMap/ListItemVC.swift"
+            filePath = "NSC_iOS/ViewControllers/GeoMap/HomeVC+ViewModel/HomeVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "128"
-            endingLineNumber = "128"
-            landmarkName = "apiCalling()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "B30DE3CF-C2E2-4A3C-9092-FAABC1193861"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "NSC_iOS/API Helpers/APIManager.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "238"
-            endingLineNumber = "238"
-            landmarkName = "callAPIJSON(router:isLoader:showToast:withBlock:)"
+            startingLineNumber = "123"
+            endingLineNumber = "123"
+            landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

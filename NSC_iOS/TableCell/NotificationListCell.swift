@@ -30,8 +30,9 @@ class NotificationListCell: UITableViewCell {
     }
     
     // Configure Cell
-    func configureCell(data : NotificationListDataModel) {
+    func configureCell( _ reportData : JSON,_ type : String) {
        
+        debugPrint(reportData)
     }
     
 }

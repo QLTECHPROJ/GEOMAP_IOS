@@ -19,16 +19,20 @@ class ListItemCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        
+        self.lblName.applyLabelStyle(fontSize :  12,fontName : .InterMedium)
     }
     
     // Configure Cell
-    func configureCell(data : ListItem) {
-        lblName.text = data.Name
-        lblCode.text = "+" + data.Code
-        
-        lblCode.isHidden = data.Code.trim.count == 0
-        
-        btnSelect.isHidden = true
+    func configureCell(data : JSON) {
+        debugPrint(data)
+        lblName.text = data["name"].stringValue
+//        lblCode.text = "+" + data.Code
+//        
+        lblCode.isHidden = true//data.Code.trim.count == 0
+//        
+//        btnSelect.isHidden = true
     }
     
 }

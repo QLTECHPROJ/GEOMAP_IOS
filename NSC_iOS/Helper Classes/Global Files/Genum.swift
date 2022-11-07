@@ -15,7 +15,8 @@ enum UserDefaultsKeys : String {
     
     case kDeviceToken                                = "kDeviceToken"
     case isUserLogin                                 = "isUserLogin"
-    
+    case kUserSession                                = "kUserSession"
+    case kLoginUserData                              = "kLoginUserData"
 }
 
 enum openWindorTag : Int {

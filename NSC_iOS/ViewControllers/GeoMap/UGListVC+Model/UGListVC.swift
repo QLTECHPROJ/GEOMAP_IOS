@@ -7,6 +7,11 @@
 
 import UIKit
 
+enum ReportListType  : String{
+    case underGroundReport
+    case opneCastReport
+}
+
 class UGListVC: ClearNaviagtionBarVC {
     
     // MARK: - OUTLETS
@@ -18,10 +23,10 @@ class UGListVC: ClearNaviagtionBarVC {
     
     
     // MARK: - VARIABLES
+        
+    var arrReportsList : [JSON] = []
     
-    var titleHeader : String = ""
-    
-    var arrayNotifications = [NotificationListDataModel]()
+    var reportListType : ReportListType = .underGroundReport
     
     
     // MARK: - VIEW LIFE CYCLE
@@ -31,7 +36,7 @@ class UGListVC: ClearNaviagtionBarVC {
         self.setUpUI()
         self.tableView.register(nibWithCellClass: NotificationListCell.self)
         
-        self.refreshData()
+        self.apiCallReportList()
     }
     
     
@@ -39,13 +44,24 @@ class UGListVC: ClearNaviagtionBarVC {
     
     func setUpUI(){
      
-        self.lblTitle.applyLabelStyle(text: self.titleHeader,fontSize :  20,fontName : .InterBold)
+        self.lblTitle.applyLabelStyle(text: self.reportListType == .underGroundReport ? kUndergroundsMappingReport : kOpenCastMappingReport,fontSize :  20,fontName : .InterBold)
         self.lblTitle.adjustsFontSizeToFitWidth = true
         self.view.backgroundColor = .colorBGSkyBlueLight
     }
     
-    func setupData() {
+    func apiCallReportList() {
+        let vwReportList = ReportListVM()
+        let parameters = APIParametersModel()
+        parameters.userId = "1"
         
+        vwReportList.callReportListAPI(parameters: parameters.toDictionary()) { responseJson, statusCode, message, completion in
+            
+            if completion, let data = responseJson{
+                debugPrint(data)
+                
+                self.tableView.reloadData()
+            }
+        }
     }
     
     func handleRefresh(_ refreshControl: UIRefreshControl) {
@@ -54,16 +70,9 @@ class UGListVC: ClearNaviagtionBarVC {
     }
     
     func refreshData() {
-        /*
-        let notificationListVM = NotificationListViewModel()
-        notificationListVM.callNotificationListAPI { success in
-            if success {
-                self.arrayNotifications = notificationListVM.arrayNotifications
-                self.tableView.reloadData()
-            }
-            self.setupData()
-        }*/
-        self.tableView.reloadData()
+        
+        self.apiCallReportList()
+        
     }
     
     
@@ -94,16 +103,16 @@ extension UGListVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if self.titleHeader == kUndergroundsMappingReport{
+        if self.reportListType == .underGroundReport{
 
             let vc = AppStoryBoard.main.viewController(viewControllerClass: UGReportDetailVC.self)
-            vc.titleHeader = kUndergroundsMappingReportDetails
+            vc.reportListType = .underGroundReport
             self.navigationController?.pushViewController(vc, animated: true)
             
         }else {
 
             let vc = AppStoryBoard.main.viewController(viewControllerClass: OCReportDetailVC.self)
-            vc.titleHeader = kOpenCastMappingReportDetails
+            vc.reportListType = .opneCastReport
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }

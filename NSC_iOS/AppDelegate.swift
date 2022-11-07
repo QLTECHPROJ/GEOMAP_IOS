@@ -260,7 +260,7 @@ extension AppDelegate{
     
     //MARK: - SetHome page
     func setHomePage(){
-
+        UserModelClass.current.getUserDetailFromDefaults()
         USERDEFAULTS.set(true, forKey: UserDefaultsKeys.isUserLogin.rawValue)
         USERDEFAULTS.synchronize()
         let homeNavVC  = AUTHENTICATION.instantiateViewController(withIdentifier: "NavHome") as! UINavigationController

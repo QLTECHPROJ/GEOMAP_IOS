@@ -23,6 +23,7 @@ class APIParametersModel : NSObject {
     var email : String!
     var dob : String!
     var mobile : String!
+    var userId : String!
     
     override init() {
         
@@ -48,7 +49,8 @@ class APIParametersModel : NSObject {
         email = json["email"].stringValue
         dob = json["dob"].stringValue
         mobile = json["mobile"].stringValue
-    
+        userId = json["userId"].stringValue
+        
     }
     
     func toDictionary() -> [String:Any]
@@ -89,7 +91,10 @@ class APIParametersModel : NSObject {
         if mobile != nil{
             dictionary["mobile"] = mobile
         }
-    
+        if userId != nil{
+            dictionary["userId"] = userId
+        }
+        
         return dictionary
     }
 }

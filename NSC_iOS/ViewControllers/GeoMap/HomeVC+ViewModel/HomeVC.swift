@@ -19,12 +19,11 @@ class HomeVC: ClearNaviagtionBarVC {
     
     
     // MARK: - VARIABLES
-    var campListVM : CampListViewModel?
     
-    var BannerImage = ""
-    var arrayCurrentCampList = [CampDetailModel]()
+    var arrUnderGroundList = [CampDetailModel]()
     var arrayUpcomingCampList = [CampDetailModel]()
     
+    var vwReportList : ReportListVM = ReportListVM()
     
     // MARK: - VIEW LIFE CYCLE
     override func viewDidLoad() {
@@ -66,6 +65,22 @@ class HomeVC: ClearNaviagtionBarVC {
         tableView.register(nibWithCellClass: NotificationListCell.self)
         tableView.register(nibWithCellClass: TitleLabelCell.self)
         tableView.register(nibWithCellClass: NotificationListCell.self)
+        self.apiCallReportList()
+    }
+    
+    func apiCallReportList() {
+        
+        let parameters = APIParametersModel()
+        parameters.userId = "1"
+        
+        self.vwReportList.callReportListAPI(parameters: parameters.toDictionary()) { responseJson, statusCode, message, completion in
+            
+            if completion, let data = responseJson{
+                debugPrint(data)
+                
+                self.tableView.reloadData()
+            }
+        }
     }
     
     @objc func openMenu(_ gesture : UIGestureRecognizer){
@@ -94,25 +109,20 @@ class HomeVC: ClearNaviagtionBarVC {
 extension HomeVC: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return self.vwReportList.numberOfSectionsInTableview()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 0 {
-            return 2
-        } else {
-            return 2
-        }
+    
+        return self.vwReportList.numberOfRowsInSectionInTableview(section)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.section == 0 {
-            let cell = tableView.dequeueReusableCell(withClass: NotificationListCell.self)
-            return cell
-        } else {
-            let cell = tableView.dequeueReusableCell(withClass: NotificationListCell.self)
-            return cell
-        }
+        
+        let cell = tableView.dequeueReusableCell(withClass: NotificationListCell.self)
+        cell.configureCell(self.vwReportList.cellForRowAtInTableview(indexPath),self.vwReportList.viewForHeaderInSectionData(indexPath.section)["type"].stringValue)
+        return cell
+        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -123,18 +133,13 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withClass: TitleLabelCell.self)
         cell.contentView.backgroundColor = .colorBGSkyBlueLight
         cell.btnViewAll.tag = section
-        if section == 0 {
-            cell.lblTitle.text = kUndergroundsMappingReport
-            //cell.lblTitle.textColor = Theme.colors.theme_dark
-        } else {
-            //cell.lblTitle.textColor = Theme.colors.theme_dark
-            cell.lblTitle.text = kOpenCastMappingReport
-        }
+        
+        cell.lblTitle.text = self.vwReportList.viewForHeaderInSectionData(section)["title"].stringValue
         
         cell.btnViewAll.handleTapToAction {
             
             let aVC = AppStoryBoard.main.viewController(viewControllerClass:UGListVC.self)
-            aVC.titleHeader = section == 0 ? kUndergroundsMappingReport : kOpenCastMappingReport
+            aVC.self.reportListType = self.vwReportList.viewForHeaderInSectionData(section)["type"].stringValue == ReportListType.underGroundReport.rawValue ? .underGroundReport : .opneCastReport
             self.navigationController?.pushViewController(aVC, animated: true)
         }
         
@@ -147,16 +152,19 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        if indexPath.section == 0{
+        
+       let type = self.vwReportList.viewForHeaderInSectionData(indexPath.section)["type"].stringValue
+        
+        if type == ReportListType.underGroundReport.rawValue{
 
             let vc = AppStoryBoard.main.viewController(viewControllerClass: UGReportDetailVC.self)
-            vc.titleHeader = kUndergroundsMappingReportDetails
+            vc.reportListType = .underGroundReport//kUndergroundsMappingReportDetails
             self.navigationController?.pushViewController(vc, animated: true)
             
         }else {
 
             let vc = AppStoryBoard.main.viewController(viewControllerClass: OCReportDetailVC.self)
-            vc.titleHeader = kOpenCastMappingReportDetails
+            vc.reportListType = .opneCastReport // kOpenCastMappingReportDetails
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
