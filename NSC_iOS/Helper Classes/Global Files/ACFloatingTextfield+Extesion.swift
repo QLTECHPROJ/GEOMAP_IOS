@@ -76,7 +76,7 @@ extension ACFloatingTextfield : UITextFieldDelegate{
     func applyStyleFlotingTextfield(isAspectRatio : Bool = true,
                     noramlPlaceHolderColor : UIColor = .colorTextPlaceHolderGray,
                     selectedPlaceHolderColor : UIColor = .colorSkyBlue,
-                    placeHolderFont : UIFont = UIFont.applyCustomFont(fontName: .InterMedium, fontSize: 16),
+                    placeHolderFont : UIFont = UIFont.applyCustomFont(fontName: .InterMedium, fontSize: 14),
                     placeholderTitle : String? = nil,
                     textColor : UIColor = .colorTextBlack,
                     fontsize : CGFloat = kNormalFontSize,

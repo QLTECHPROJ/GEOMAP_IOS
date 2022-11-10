@@ -12,7 +12,6 @@ import Alamofire
 
 enum APIRouter : URLRequestConvertible {
     
-    case appversion([String:String])
     case countrylist
     case statelist([String:String])
     case citylist([String:String])
@@ -69,12 +68,13 @@ enum APIRouter : URLRequestConvertible {
     case or_detail([String:Any])
     case contact_insert([String:Any])
     
+    case app_version([String:Any])
+    
     var route: APIRoute {
         
         switch self {
             
-        case .appversion(let data):
-            return APIRoute(path: "App Version", method: .post, data: data)
+        
         case .countrylist:
             return APIRoute(path: "country-listing", method: .get)
         case .statelist(let data):
@@ -181,6 +181,10 @@ enum APIRouter : URLRequestConvertible {
         case .contact_insert(let data):
             
             return APIRoute(path: "contact_insert", method: .post, data: data)
+            
+        case .app_version(let data):
+            
+            return APIRoute(path: "app_version", method: .post, data: data)
         }
         
     }

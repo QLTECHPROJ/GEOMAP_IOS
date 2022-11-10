@@ -27,6 +27,33 @@ class LoginViewModel {
                 completionBlock(receivdeData,statusCode,message,true)
             }
             else{
+                completionBlock(nil,statusCode,message,false)
+            }
+        }
+    }
+    
+    func callAPIVersionUpdate(completionBlock: @escaping (JSON?,String?,String?,Bool) -> Void) {
+        
+        let parameters = APIParametersModel()
+        parameters.deviceToken = GFunctions.shared.getDeviceToken()
+        parameters.deviceId = DeviceDetail.shared.uuid
+        parameters.deviceType = DeviceDetail.shared.deviceType
+        parameters.version = Bundle.main.releaseVersionNumber
+    
+        debugPrint(parameters)
+        
+        APIManager.shared.callAPIWithJSON(router: APIRouter.app_version(parameters.toDictionary()),showToast : false) { responseData, data, statusCode, message, completion in
+            if completion, statusCode == ApiKeys.ApiStatusCode.success.rawValue, let receivdeData = data {
+                
+                debugPrint(receivdeData)
+           
+
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                    showAlertToast(message: Theme.strings.welcome_message)
+                }
+                completionBlock(receivdeData,statusCode,message,true)
+            }
+            else{
                 completionBlock(nil,statusCode,message,true)
             }
         }

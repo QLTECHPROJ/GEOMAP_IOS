@@ -45,16 +45,16 @@ class UGGeoAttributeVC2: ClearNaviagtionBarVC {
         self.view.backgroundColor = .colorBGSkyBlueLight
         self.title = kGeologicalMapping
         
-        self.txtMapSerialNo.applyStyleFlotingTextfield(placeholderTitle : kMapSerialNo, fontsize : 16,fontname : .InterSemibol)
-        self.txtDate.applyStyleFlotingTextfield(placeholderTitle : kDate, fontsize : 16,fontname : .InterSemibol)
-        self.txtShift.applyStyleFlotingTextfield(placeholderTitle : kShift, fontsize : 16,fontname : .InterSemibol)
-        self.txtMappedBy.applyStyleFlotingTextfield(placeholderTitle : kMappedBy, fontsize : 16,fontname : .InterSemibol)
-        self.txtScale.applyStyleFlotingTextfield(placeholderTitle : kScale, fontsize : 16,fontname : .InterSemibol)
-        self.txtLocation.applyStyleFlotingTextfield(placeholderTitle : kLocation, fontsize : 16,fontname : .InterSemibol)
-        self.txtVeinLoad.applyStyleFlotingTextfield(placeholderTitle : kVeinload, fontsize : 16,fontname : .InterSemibol)
-        self.txtXCordinate.applyStyleFlotingTextfield(placeholderTitle : kXCordinate, fontsize : 16,fontname : .InterSemibol)
-        self.txtYCordinate.applyStyleFlotingTextfield(placeholderTitle : kYCordinate, fontsize : 16,fontname : .InterSemibol)
-        self.txtZCordinate.applyStyleFlotingTextfield(placeholderTitle : kZCordinate, fontsize : 16,fontname : .InterSemibol)
+        self.txtMapSerialNo.applyStyleFlotingTextfield(placeholderTitle : kMapSerialNo, fontsize : 14,fontname : .InterSemibol)
+        self.txtDate.applyStyleFlotingTextfield(placeholderTitle : kDate, fontsize : 14,fontname : .InterSemibol)
+        self.txtShift.applyStyleFlotingTextfield(placeholderTitle : kShift, fontsize : 14,fontname : .InterSemibol)
+        self.txtMappedBy.applyStyleFlotingTextfield(placeholderTitle : kMappedBy, fontsize : 14,fontname : .InterSemibol)
+        self.txtScale.applyStyleFlotingTextfield(placeholderTitle : kScale, fontsize : 14,fontname : .InterSemibol)
+        self.txtLocation.applyStyleFlotingTextfield(placeholderTitle : kLocation, fontsize : 14,fontname : .InterSemibol)
+        self.txtVeinLoad.applyStyleFlotingTextfield(placeholderTitle : kVeinload, fontsize : 14,fontname : .InterSemibol)
+        self.txtXCordinate.applyStyleFlotingTextfield(placeholderTitle : kXCordinate, fontsize : 14,fontname : .InterSemibol)
+        self.txtYCordinate.applyStyleFlotingTextfield(placeholderTitle : kYCordinate, fontsize : 14,fontname : .InterSemibol)
+        self.txtZCordinate.applyStyleFlotingTextfield(placeholderTitle : kZCordinate, fontsize : 14,fontname : .InterSemibol)
         
         self.btnNextStep.setTitle(kNextStep, for: .normal)
         

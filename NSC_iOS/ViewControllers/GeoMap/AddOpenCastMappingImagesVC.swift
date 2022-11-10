@@ -60,7 +60,7 @@ class AddOpenCastMappingImagesVC: ClearNaviagtionBarVC {
        
         self.imgFront.layer.cornerRadius = 30
        
-        self.tvDescription.applyTextViewStyle(placeholderText : kAddDescripstion, fontSize : 16,fontName : .InterSemibol,placeholerColor : .colorTextPlaceHolderGray)
+        self.tvDescription.applyTextViewStyle(placeholderText : kAddDescripstion, fontSize : 14,fontName : .InterSemibol,placeholerColor : .colorTextPlaceHolderGray)
         
         self.buttonEnableDisable()
         self.btnSubmit.setTitle(kSubmit, for: .normal)
@@ -203,7 +203,7 @@ extension AddOpenCastMappingImagesVC{
             }
         case kRemovePhoto:
             print("Remove photo")
-            LoginDataModel.currentUser?.profileInformation?.profileimage = ""
+
         default:
             break
         }

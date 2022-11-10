@@ -68,8 +68,8 @@ class LoginVC: ClearNaviagtionBarVC {
         
         self.btnGetSMSCode.setTitle(kSignIn, for: .normal)
         
-        self.txtUser.applyStyleFlotingTextfield(placeholderTitle : kName, fontsize : 16,fontname : .InterSemibol)
-        self.txtPassword.applyStyleFlotingTextfield(placeholderTitle : kPassword, fontsize : 16, fontname : .InterSemibol)
+        self.txtUser.applyStyleFlotingTextfield(placeholderTitle : kName, fontsize : 14,fontname : .InterSemibol)
+        self.txtPassword.applyStyleFlotingTextfield(placeholderTitle : kPassword, fontsize : 14, fontname : .InterSemibol)
         
         self.buttonEnableDisable()
     }
@@ -130,8 +130,8 @@ class LoginVC: ClearNaviagtionBarVC {
             parameters.deviceToken = GFunctions.shared.getDeviceToken()
             parameters.deviceId = DeviceDetail.shared.uuid
             parameters.deviceType = DeviceDetail.shared.deviceType
-            parameters.userName = JSON(self.txtUser.text).stringValue
-            parameters.password = JSON(self.txtPassword.text).stringValue
+            parameters.userName = JSON(self.txtUser.text as Any).stringValue
+            parameters.password = JSON(self.txtPassword.text as Any).stringValue
             
             
             self.vmLogin.callLoginAPI(parameters: parameters.toDictionary()) { responseData, statusCode, message, completion in
@@ -139,7 +139,7 @@ class LoginVC: ClearNaviagtionBarVC {
                     AppDelegate.shared.updateWindow(.home)
                  }
                  else{
-                     GFunctions.shared.showSnackBar(message: message ?? "Something went wrong..!")
+                     GFunctions.shared.showSnackBar(message: message ?? kAPIRequestFailed)
                  }
             }
         }

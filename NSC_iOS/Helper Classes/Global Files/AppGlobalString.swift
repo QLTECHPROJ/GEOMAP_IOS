@@ -307,3 +307,5 @@ var kSelectNos = "Select Nos"
 var kEnterMessage = "Enter Message"
 
 var kSubject = "Subject"
+
+var kAPIRequestFailed = "Response can't recieved..!"

@@ -50,10 +50,10 @@ class ProfileVC: ClearNaviagtionBarVC {
     func setupUI() {
         
         self.view.backgroundColor = .colorBGSkyBlueLight
-        self.txtName.applyStyleFlotingTextfield(placeholderTitle : kName, fontsize : 16,fontname : .InterSemibol)
-        self.txtEmail.applyStyleFlotingTextfield(placeholderTitle : kEmail, fontsize : 16, fontname : .InterSemibol)
-        self.txtMobile.applyStyleFlotingTextfield(placeholderTitle : kMobile, fontsize : 16,fontname : .InterSemibol)
-        self.txtDOB.applyStyleFlotingTextfield(placeholderTitle : kDOB, fontsize : 16, fontname : .InterSemibol)
+        self.txtName.applyStyleFlotingTextfield(placeholderTitle : kName, fontsize : 14,fontname : .InterSemibol)
+        self.txtEmail.applyStyleFlotingTextfield(placeholderTitle : kEmail, fontsize : 14, fontname : .InterSemibol)
+        self.txtMobile.applyStyleFlotingTextfield(placeholderTitle : kMobile, fontsize : 14,fontname : .InterSemibol)
+        self.txtDOB.applyStyleFlotingTextfield(placeholderTitle : kDOB, fontsize : 14, fontname : .InterSemibol)
         
         self.btnConfirm.setTitle(kConfirm, for: .normal)
         self.btnDeleteAccount.setTitle(kDeleteAccount, for: .normal)
@@ -165,7 +165,7 @@ class ProfileVC: ClearNaviagtionBarVC {
             }
         case kRemovePhoto:
             print("Remove photo")
-            LoginDataModel.currentUser?.profileInformation?.profileimage = ""
+
         default:
             break
         }
@@ -208,7 +208,7 @@ class ProfileVC: ClearNaviagtionBarVC {
     
     func buttonEnableDisable(){
         
-        self.btnConfirm.isSelect = !self.txtName.text!.isEmpty && !self.txtEmail.text!.isEmpty && !self.txtMobile.text!.isEmpty && !self.txtDOB.text!.isEmpty && !self.strImage.trim.isEmpty
+        self.btnConfirm.isSelect = !self.txtName.text!.isEmpty && !self.txtEmail.text!.isEmpty && !self.txtMobile.text!.isEmpty && !self.txtDOB.text!.isEmpty
     }
     
     @IBAction func btnDeleteAccountTapped(_ sender: UIButton) {

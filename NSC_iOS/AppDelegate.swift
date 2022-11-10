@@ -15,7 +15,6 @@ import IQKeyboardManagerSwift
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
-    
     var window: UIWindow?
     
     static let shared = UIApplication.shared.delegate as! AppDelegate
@@ -39,34 +38,49 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // UIFont setup for
         UIFont.overrideInitialize()
         
-//        window?.makeKeyAndVisible()
-//        window?.rootViewController = AppStoryBoard.main.intialViewController()
-        
         return true
     }
+
     
-    func logout() {
-        LoginDataModel.currentUser = nil
+    func applicationWillResignActive(_ application: UIApplication) {
         
-        let aVC = AppStoryBoard.main.viewController(viewControllerClass: LoginVC.self)
-        aVC.makeRootController()
     }
     
-    func openPushNotificationPermissionAlert() {
-        if #available(iOS 10.0, *) {
-            let center  = UNUserNotificationCenter.current()
-            center.delegate = self
-            center.requestAuthorization(options: [.sound, .alert, .badge]) { (granted, error) in
-                if error == nil {
-                    DispatchQueue.main.async {
-                        UIApplication.shared.registerForRemoteNotifications()
-                    }
-                }
+    func applicationDidEnterBackground(_ application: UIApplication) {
+        let value = USERDEFAULTS.bool(forKey: UserDefaultsKeys.isUserLogin.rawValue)
+        print(value)
+    
+    }
+    
+    func applicationWillEnterForeground(_ application: UIApplication) {
+        
+        
+    }
+    
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        self.onResumeApp()
+    }
+    
+    func applicationWillTerminate(_ application: UIApplication) {
+       
+    }
+    
+    
+    func onResumeApp(){
+        
+        let value = USERDEFAULTS.bool(forKey: UserDefaultsKeys.isUserLogin.rawValue)
+        print(value)
+        
+        let loginVM = LoginViewModel()
+        loginVM.callAPIVersionUpdate { responseJson, statusCode, message, completion in
+            if completion{
+                
             }
-        } else {
-            let settings = UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
-            UIApplication.shared.registerUserNotificationSettings(settings)
-            UIApplication.shared.registerForRemoteNotifications()
+        }
+        
+        if value , USERDEFAULTS.value(forKey: UserDefaultsKeys.kLoginUserData.rawValue) != nil{
+            
+            
         }
     }
     
@@ -118,28 +132,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 }
 
 
-// MARK: - UIApplication Life Cycle Events
-extension AppDelegate {
-    
-    func applicationWillEnterForeground(_ application: UIApplication) {
-        // Set App Notification Count to "0" on App Launch
-        UIApplication.shared.applicationIconBadgeNumber = 0
-        
-        if AppVersionDetails.IsForce == "1" {
-            window?.rootViewController = AppStoryBoard.main.intialViewController()
-        }
-    }
-    
-}
 
 
 // MARK: - Push Notification SetUp
 extension AppDelegate : UNUserNotificationCenterDelegate {
     
+    func openPushNotificationPermissionAlert() {
+        if #available(iOS 10.0, *) {
+            let center  = UNUserNotificationCenter.current()
+            center.delegate = self
+            center.requestAuthorization(options: [.sound, .alert, .badge]) { (granted, error) in
+                if error == nil {
+                    DispatchQueue.main.async {
+                        UIApplication.shared.registerForRemoteNotifications()
+                    }
+                }
+            }
+        } else {
+            let settings = UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
+            UIApplication.shared.registerUserNotificationSettings(settings)
+            UIApplication.shared.registerForRemoteNotifications()
+        }
+    }
+    
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-//        DEVICE_TOKEN = deviceToken.hexString
-//        print("DEVICE_TOKEN :- ",DEVICE_TOKEN)
-//        Messaging.messaging().apnsToken = deviceToken
         
         GFunctions.shared.saveDeviceTokenIntoUserDefault(object: deviceToken.hexString  as AnyObject, key: UserDefaultsKeys.kDeviceToken.rawValue)
     }
@@ -182,7 +198,6 @@ extension AppDelegate : MessagingDelegate {
     }
     
 }
-
 
 extension AppDelegate {
     

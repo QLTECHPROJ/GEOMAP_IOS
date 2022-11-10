@@ -14,6 +14,7 @@ class APIParametersModel : NSObject {
     var deviceToken : String!
     var deviceId : String!
     var deviceType : String!
+    var version : String!
    
     var userName : String!
     var password : String!
@@ -43,6 +44,7 @@ class APIParametersModel : NSObject {
         deviceType = json["deviceType"].stringValue
         deviceId = json["deviceId"].stringValue
         deviceToken = json["deviceToken"].stringValue
+        version = json["version"].stringValue
         
         userName = json["userName"].stringValue
         password = json["password"].stringValue
@@ -70,6 +72,9 @@ class APIParametersModel : NSObject {
         }
         if deviceToken != nil{
             dictionary["deviceToken"] = deviceToken
+        }
+        if version != nil{
+            dictionary["version"] = version
         }
         
         if userName != nil{

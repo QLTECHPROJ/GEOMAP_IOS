@@ -59,12 +59,12 @@ class ContactUSVC: ClearNaviagtionBarVC {
         self.view.backgroundColor = .colorBGSkyBlueLight
         self.title = kContantUs
         
-        self.txtName.applyStyleFlotingTextfield(placeholderTitle : kName, fontsize : 16,fontname : .InterSemibol)
-        self.txtEmail.applyStyleFlotingTextfield(placeholderTitle : kEmail, fontsize : 16, fontname : .InterSemibol)
-        self.txtMobileNo.applyStyleFlotingTextfield(placeholderTitle : kMobile, fontsize : 16,fontname : .InterSemibol)
-        self.txtSubject.applyStyleFlotingTextfield(placeholderTitle : kSubject, fontsize : 16, fontname : .InterSemibol)
+        self.txtName.applyStyleFlotingTextfield(placeholderTitle : kName, fontsize : 14,fontname : .InterSemibol)
+        self.txtEmail.applyStyleFlotingTextfield(placeholderTitle : kEmail, fontsize : 14, fontname : .InterSemibol)
+        self.txtMobileNo.applyStyleFlotingTextfield(placeholderTitle : kMobile, fontsize : 14,fontname : .InterSemibol)
+        self.txtSubject.applyStyleFlotingTextfield(placeholderTitle : kSubject, fontsize : 14, fontname : .InterSemibol)
         
-        self.tvMessage.applyTextViewStyle(placeholderText : kEnterMessage, fontSize : 16,fontName : .InterSemibol,placeholerColor : .colorTextPlaceHolderGray)
+        self.tvMessage.applyTextViewStyle(placeholderText : kEnterMessage, fontSize : 14,fontName : .InterSemibol,placeholerColor : .colorTextPlaceHolderGray)
        
         self.btnSubmit.setTitle(kSubmit, for: .normal)
         self.setUserData()
@@ -94,11 +94,11 @@ class ContactUSVC: ClearNaviagtionBarVC {
     
     func setUserData(){
         let userData = UserModelClass.current
-//        self.txtName.text = JSON(userData.name as Any).stringValue
-//        self.txtEmail.text = JSON(userData.email as Any).stringValue
-//        self.txtEmail.isUserInteractionEnabled = JSON(userData.email as Any).stringValue.isEmpty
-//        self.txtMobileNo.text = JSON(userData.mobile as Any).stringValue
-//        self.txtMobileNo.isUserInteractionEnabled = JSON(userData.mobile as Any).stringValue.isEmpty
+        self.txtName.text = JSON(userData.name as Any).stringValue
+        self.txtEmail.text = JSON(userData.email as Any).stringValue
+        self.txtEmail.isUserInteractionEnabled = JSON(userData.email as Any).stringValue.isEmpty
+        self.txtMobileNo.text = JSON(userData.mobile as Any).stringValue
+        self.txtMobileNo.isUserInteractionEnabled = JSON(userData.mobile as Any).stringValue.isEmpty
     }
     
     func buttonEnableDisable(){

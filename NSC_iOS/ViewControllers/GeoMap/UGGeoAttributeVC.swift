@@ -54,19 +54,19 @@ class UGGeoAttributeVC: ClearNaviagtionBarVC {
        
         self.title = kGeologicalAttributes
         
-        self.lblAttributes.applyLabelStyle(text : kAttributes,fontSize : 16,fontName : .InterSemibol)
-        self.lblNos.applyLabelStyle(text : kNos,fontSize : 16,fontName : .InterSemibol)
-        self.lblProperties.applyLabelStyle(text : kProperties,fontSize : 16,fontName : .InterSemibol)
+        self.lblAttributes.applyLabelStyle(text : kAttributes,fontSize : 14,fontName : .InterSemibol)
+        self.lblNos.applyLabelStyle(text : kNos,fontSize : 14,fontName : .InterSemibol)
+        self.lblProperties.applyLabelStyle(text : kProperties,fontSize : 14,fontName : .InterSemibol)
         
-        self.lblMineralization.applyLabelStyle(fontSize : 16,fontName : .InterSemibol)
-        self.lblMineralizationNos.applyLabelStyle(fontSize : 16,fontName : .InterSemibol)
+        self.lblMineralization.applyLabelStyle(fontSize : 14,fontName : .InterSemibol)
+        self.lblMineralizationNos.applyLabelStyle(fontSize : 14,fontName : .InterSemibol)
         self.btnNextStep.setTitle(kNextStep, for: .normal)
         
-        self.tvAddDescription.applyTextViewStyle(placeholderText : kAddDescripstion, fontSize : 16,fontName : .InterSemibol,placeholerColor : .colorTextPlaceHolderGray)
+        self.tvAddDescription.applyTextViewStyle(placeholderText : kAddDescripstion, fontSize : 14,fontName : .InterSemibol,placeholerColor : .colorTextPlaceHolderGray)
         
         DispatchQueue.main.async {
             
-            self.btnAddAttributes.applystyle(fontname : .InterSemibol,fontsize : 16,titleText : kAddAttributes,titleColor : .colorSkyBlue)
+            self.btnAddAttributes.applystyle(fontname : .InterSemibol,fontsize : 14,titleText : kAddAttributes,titleColor : .colorSkyBlue)
         }
         
         self.otherActions()
