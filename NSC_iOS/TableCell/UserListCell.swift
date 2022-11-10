@@ -12,12 +12,11 @@ class UserListCell: UITableViewCell {
     
     @IBOutlet weak var imgView : UIImageView!
     @IBOutlet weak var lblName : UILabel!
-    @IBOutlet weak var btnSelect : UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
        
-        self.lblName.applyLabelStyle(fontSize : 16,fontName : .InterMedium,textColor : .colorTextPlaceHolderGray)
+        self.lblName.applyLabelStyle(fontSize : 14,fontName : .InterMedium,textColor : .colorTextPlaceHolderGray)
     }
     
 }

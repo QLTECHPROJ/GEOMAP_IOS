@@ -24,7 +24,7 @@ class NotificationListCell: UITableViewCell {
     }
     
     func setUpUI(){
-        self.lblTitle.applyLabelStyle(fontSize :  15,fontName : .InterSemibol, textColor : .colorTextPlaceHolderGray)
+        self.lblTitle.applyLabelStyle(fontSize :  14,fontName : .InterSemibol, textColor : .colorTextPlaceHolderGray)
         self.lblCity.applyLabelStyle(fontSize :  12,fontName : .InterMedium, textColor : .colorTextPlaceHolderGray)
         self.lblSubtitle.applyLabelStyle(fontSize :  12,fontName : .InterMedium, textColor : .colorTextPlaceHolderGray)
         self.lblDate.applyLabelStyle(fontSize :  12,fontName : .InterMedium, textColor : .colorTextPlaceHolderGray)

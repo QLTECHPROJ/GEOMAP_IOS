@@ -38,6 +38,8 @@
 		1263BD2A290FF20400E3DED9 /* APIParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1263BD28290FF13B00E3DED9 /* APIParameters.swift */; };
 		1263BD2C290FFA0000E3DED9 /* DeviceDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1263BD2B290FFA0000E3DED9 /* DeviceDetail.swift */; };
 		1263BD2D290FFA3100E3DED9 /* DeviceDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1263BD2B290FFA0000E3DED9 /* DeviceDetail.swift */; };
+		126FAC7D291D20D6000CA74E /* FAQListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126FAC7C291D20D6000CA74E /* FAQListVM.swift */; };
+		126FAC7E291D2220000CA74E /* FAQListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126FAC7C291D20D6000CA74E /* FAQListVM.swift */; };
 		1278BD1229000A8B0061A7DD /* AppShadowViewClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1278BD1129000A8B0061A7DD /* AppShadowViewClass.swift */; };
 		1278BD14290023BA0061A7DD /* Genum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1278BD13290023BA0061A7DD /* Genum.swift */; };
 		1278BD15290023F60061A7DD /* Genum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1278BD13290023BA0061A7DD /* Genum.swift */; };
@@ -410,6 +412,7 @@
 		1260209C291CDF10000E2128 /* UIBundle+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBundle+Extension.swift"; sourceTree = "<group>"; };
 		1263BD28290FF13B00E3DED9 /* APIParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIParameters.swift; sourceTree = "<group>"; };
 		1263BD2B290FFA0000E3DED9 /* DeviceDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceDetail.swift; sourceTree = "<group>"; };
+		126FAC7C291D20D6000CA74E /* FAQListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQListVM.swift; sourceTree = "<group>"; };
 		1278BD1129000A8B0061A7DD /* AppShadowViewClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppShadowViewClass.swift; sourceTree = "<group>"; };
 		1278BD13290023BA0061A7DD /* Genum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Genum.swift; sourceTree = "<group>"; };
 		1278BD16290028670061A7DD /* BaseClassForrNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseClassForrNavigationBar.swift; sourceTree = "<group>"; };
@@ -652,6 +655,15 @@
 				1251DD9628FFDFAF00E1E712 /* AppGlobalString.swift */,
 			);
 			path = "Global Files";
+			sourceTree = "<group>";
+		};
+		126FAC7B291D2097000CA74E /* FAQKListVC+ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				9A694A9C28FE5BEA000AC3C7 /* FAQListVC.swift */,
+				126FAC7C291D20D6000CA74E /* FAQListVM.swift */,
+			);
+			path = "FAQKListVC+ViewModel";
 			sourceTree = "<group>";
 		};
 		12A2F49D2917B2880008CD28 /* HomeVC+ViewModel */ = {
@@ -1180,7 +1192,7 @@
 		9AE6D6EC28F9321F008C41C9 /* GeoMap */ = {
 			isa = PBXGroup;
 			children = (
-				9A694A9C28FE5BEA000AC3C7 /* FAQListVC.swift */,
+				126FAC7B291D2097000CA74E /* FAQKListVC+ViewModel */,
 				9A694A9928FE5BBF000AC3C7 /* SupportPopupVC.swift */,
 				9AE824352817DF8800A29373 /* LoginVC.swift */,
 				9AE824342817DF8800A29373 /* SplashVC.swift */,
@@ -1634,6 +1646,7 @@
 				28ABEDAE2833B987001C3911 /* CampDaysViewModel.swift in Sources */,
 				9AE6D6F228F9452E008C41C9 /* OCReportDetailVC.swift in Sources */,
 				282C33712819617D009401FD /* HomeVC.swift in Sources */,
+				126FAC7E291D2220000CA74E /* FAQListVM.swift in Sources */,
 				284A3EC32823B09400B511FB /* SignUpViewModel.swift in Sources */,
 				12F3B466290F8FD700EB13BE /* AppShadowViewClass.swift in Sources */,
 				282C33722819617D009401FD /* SplashVC.swift in Sources */,
@@ -1804,6 +1817,7 @@
 				9A48A74828290A5800D0A728 /* LogoutViewModel.swift in Sources */,
 				125C815C29012DC8004331F0 /* UIImageViewClasses.swift in Sources */,
 				28F830E6281977F000CAF99C /* UIImage+Extension.swift in Sources */,
+				126FAC7D291D20D6000CA74E /* FAQListVM.swift in Sources */,
 				9A48A7412829045A00D0A728 /* CampListViewModel.swift in Sources */,
 				1251DD9728FFDFB000E1E712 /* AppGlobalString.swift in Sources */,
 				12310D2E290BBF7F00F10DE3 /* ViewPDFVC.swift in Sources */,

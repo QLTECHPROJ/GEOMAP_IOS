@@ -13,9 +13,11 @@ class FAQCell: UITableViewCell {
     @IBOutlet weak var lblQuestion : UILabel!
     @IBOutlet weak var lblAnswer : UILabel!
     
-    @IBOutlet weak var viewBack : UIView!
+    @IBOutlet weak var viewBack : AppShadowViewClass!
     @IBOutlet weak var viewQuestion : UIView!
     @IBOutlet weak var viewAnswer : UIView!
+    
+    @IBOutlet weak var vwClear : UIView!
     
     @IBOutlet weak var btnArrow : UIButton!
     
@@ -25,41 +27,24 @@ class FAQCell: UITableViewCell {
         
 //        viewQuestion.backgroundColor = Theme.colors.white
         viewAnswer.isHidden = false
-        btnArrow.setImage(UIImage(named: "arrowRightFAQ"), for: .normal)
+//        btnArrow.setImage(UIImage(named: "arrowRightFAQ"), for: .normal)
         
-        self.lblQuestion.applyLabelStyle(fontSize :  14,fontName : .InterBold, textColor : .colorSkyBlue)
-        self.lblAnswer.applyLabelStyle(fontSize :  12,fontName : .InterSemibol, textColor : .colorTextPlaceHolderGray)
+        self.lblQuestion.applyLabelStyle(fontSize :  15,fontName : .InterMedium)
+        self.lblAnswer.applyLabelStyle(fontSize :  13,fontName : .InterMedium,textColor: .colorTextPlaceHolderGray)
+        self.vwClear.layer.cornerRadius = 10
     }
     
     // Configure Cell
-    func configureCell(data : FAQDataModel) {
-        lblQuestion.text = data.Title
-        lblAnswer.text = data.Desc
+    func configureDataInCell(_ data : JSON) {
+        self.lblQuestion.text = data["question"].stringValue
+        self.lblAnswer.text = data["answer"].stringValue
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            self.viewBack.dropShadow(color: Theme.colors.black, opacity: 0.1, offSet: CGSize(width: 0, height: 0), radius: 5)
-            self.viewAnswer.roundCorners([.bottomLeft,.bottomRight], radius: 5)
-        }
+        self.lblQuestion.textColor = data["isOpen"].boolValue ? .white : .colorTextPlaceHolderGray
+        self.viewQuestion.backgroundColor = data["isOpen"].boolValue ? .colorSkyBlue : .white
         
-        if data.isSelected {
-            lblQuestion.textColor = .white
-            viewQuestion.backgroundColor = Theme.colors.theme_dark
-            viewAnswer.isHidden = false
-            btnArrow.setImage(UIImage(named: "arrowDownFAQ"), for: .normal)
-            
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                self.viewQuestion.roundCorners([.topLeft,.topRight], radius: 5)
-            }
-        } else {
-            lblQuestion.textColor = Theme.colors.gray_7E7E7E
-            viewQuestion.backgroundColor = Theme.colors.white
-            viewAnswer.isHidden = true
-            btnArrow.setImage(UIImage(named: "arrowRightFAQ"), for: .normal)
-            
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                self.viewQuestion.roundCorners([.allCorners], radius: 5)
-            }
-        }
+        self.viewAnswer.isHidden = !data["isOpen"].boolValue
+        self.btnArrow.isSelected = data["isOpen"].boolValue
+        print(data)
     }
     
 }

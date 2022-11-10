@@ -70,11 +70,13 @@ enum APIRouter : URLRequestConvertible {
     
     case app_version([String:Any])
     
+    case faq_data
+    
     var route: APIRoute {
         
         switch self {
             
-        
+            
         case .countrylist:
             return APIRoute(path: "country-listing", method: .get)
         case .statelist(let data):
@@ -87,7 +89,7 @@ enum APIRouter : URLRequestConvertible {
             return APIRoute(path: "category-listing", method: .get)
         case .logincheck(let data):
             return APIRoute(path: "logincheck", method: .post, data: data)
-        
+            
         case .login(let data):
             return APIRoute(path: "login", method: .post, data: data)
         case .coachregister(let data):
@@ -103,7 +105,7 @@ enum APIRouter : URLRequestConvertible {
             return APIRoute(path: "delete-user", method: .post, data: data)
         case .logout(let data):
             return APIRoute(path: "logout", method: .post, data: data)
-        
+            
         case .camplisting(let data):
             return APIRoute(path: "camplisting", method: .post, data: data)
         case .campdetails(let data):
@@ -185,6 +187,10 @@ enum APIRouter : URLRequestConvertible {
         case .app_version(let data):
             
             return APIRoute(path: "app_version", method: .post, data: data)
+        case .faq_data :
+            
+            return APIRoute(path: "faq_data", method: .get)
+            
         }
         
     }

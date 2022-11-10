@@ -15,7 +15,6 @@ class HomeVC: ClearNaviagtionBarVC {
     
     @IBOutlet weak var btnAddReport: UIButton!
     
-    @IBOutlet weak var imgMenu: UIImageView!
     
     
     // MARK: - VARIABLES
@@ -65,11 +64,7 @@ class HomeVC: ClearNaviagtionBarVC {
         
         let attributedString = NSMutableAttributedString.getAttributedString(fromString: strTitle)
         attributedString.addAttributes(stringAttributes, range: titleRange)
-        
-        let tapGestureToOpenMenu = UITapGestureRecognizer(target: self, action: #selector(self.openMenu(_:)))
-        self.imgMenu.isUserInteractionEnabled = true
-        self.imgMenu.addGestureRecognizer(tapGestureToOpenMenu)
-        
+                
         self.tableView.register(nibWithCellClass: NotificationListCell.self)
         self.tableView.register(nibWithCellClass: TitleLabelCell.self)
         self.tableView.register(nibWithCellClass: NotificationListCell.self)
@@ -96,11 +91,6 @@ class HomeVC: ClearNaviagtionBarVC {
             }
         }
     }
-    
-    @objc func openMenu(_ gesture : UIGestureRecognizer){
-        let aVC = AppStoryBoard.main.viewController(viewControllerClass:UserListPopUpVC.self)
-        navigationController?.pushViewController(aVC, animated: true)
-     }
 
     
     // MARK: - ACTION
@@ -113,6 +103,10 @@ class HomeVC: ClearNaviagtionBarVC {
         })
     }
   
+    @IBAction func btnOpenMenuTapped(_ sender : UIButton){
+        let aVC = AppStoryBoard.main.viewController(viewControllerClass:UserListPopUpVC.self)
+        navigationController?.pushViewController(aVC, animated: true)
+    }
 }
 
 

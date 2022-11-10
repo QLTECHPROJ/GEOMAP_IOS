@@ -19,7 +19,7 @@ class TitleLabelCell: UITableViewCell {
     }
     
     func setUpUI(){
-        self.lblTitle.applyLabelStyle(fontSize :  15,fontName : .InterSemibol, textColor : .colorSkyBlue)
+        self.lblTitle.applyLabelStyle(fontSize :  14,fontName : .InterSemibol, textColor : .colorSkyBlue)
         self.btnViewAll.applystyle(fontname : .InterSemibol,fontsize : 13,titleText : kViewAll,titleColor : .colorTextPlaceHolderGray)
     }
 }

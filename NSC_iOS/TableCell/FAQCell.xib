@@ -26,67 +26,80 @@
                     <view clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="iOv-yK-RUY" customClass="AppShadowViewClass" customModule="NSC_iOS" customModuleProvider="target">
                         <rect key="frame" x="16" y="10" width="343" height="120"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="aT4-ae-Mx5">
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pkZ-Qr-BL7">
                                 <rect key="frame" x="0.0" y="0.0" width="343" height="120"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="bXn-Z5-GTq">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="67"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="aT4-ae-Mx5">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="120"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="What are the benefits of signing up for the Membership Program" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MKd-kH-Hg0">
-                                                <rect key="frame" x="13" y="20" width="273" height="27"/>
-                                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="13"/>
-                                                <color key="textColor" name="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HTo-fQ-FZ7">
-                                                <rect key="frame" x="299" y="17.5" width="32" height="32"/>
+                                            <view contentMode="scaleToFill" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="bXn-Z5-GTq">
+                                                <rect key="frame" x="0.0" y="0.0" width="343" height="63.5"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="What are the benefits of signing up for the Membership Program" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MKd-kH-Hg0">
+                                                        <rect key="frame" x="13" y="15" width="273" height="33.5"/>
+                                                        <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="13"/>
+                                                        <color key="textColor" name="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HTo-fQ-FZ7">
+                                                        <rect key="frame" x="299" y="16" width="32" height="32"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="32" id="6q1-zU-fOD"/>
+                                                            <constraint firstAttribute="height" constant="32" id="KAw-Nj-xcV"/>
+                                                        </constraints>
+                                                        <color key="tintColor" name="textColor"/>
+                                                        <state key="normal" image="forward_arrow_black"/>
+                                                        <state key="selected" image="down_arrow_white"/>
+                                                    </button>
+                                                </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="32" id="6q1-zU-fOD"/>
-                                                    <constraint firstAttribute="height" constant="32" id="KAw-Nj-xcV"/>
+                                                    <constraint firstAttribute="trailing" secondItem="HTo-fQ-FZ7" secondAttribute="trailing" constant="12" id="Sxp-Yh-Y3q"/>
+                                                    <constraint firstItem="MKd-kH-Hg0" firstAttribute="leading" secondItem="bXn-Z5-GTq" secondAttribute="leading" constant="13" id="fOI-Bn-g6F"/>
+                                                    <constraint firstItem="MKd-kH-Hg0" firstAttribute="top" secondItem="bXn-Z5-GTq" secondAttribute="top" constant="15" id="fez-o3-aVD"/>
+                                                    <constraint firstItem="HTo-fQ-FZ7" firstAttribute="leading" secondItem="MKd-kH-Hg0" secondAttribute="trailing" constant="13" id="jUX-yg-Lb4"/>
+                                                    <constraint firstAttribute="bottom" secondItem="MKd-kH-Hg0" secondAttribute="bottom" constant="15" id="o4u-4c-Rlu"/>
+                                                    <constraint firstItem="HTo-fQ-FZ7" firstAttribute="top" relation="greaterThanOrEqual" secondItem="bXn-Z5-GTq" secondAttribute="top" constant="12" id="oyG-dq-5Cx"/>
+                                                    <constraint firstItem="HTo-fQ-FZ7" firstAttribute="centerY" secondItem="bXn-Z5-GTq" secondAttribute="centerY" id="qhn-FW-oHx"/>
                                                 </constraints>
-                                                <color key="tintColor" name="textColor"/>
-                                                <state key="normal" image="OrangeArrow_Tint"/>
-                                            </button>
+                                            </view>
+                                            <view contentMode="scaleToFill" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="55Z-cr-l8F">
+                                                <rect key="frame" x="0.0" y="63.5" width="343" height="56.5"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="What's the best way to use the Membership? Where do I start?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3nL-c2-vx4">
+                                                        <rect key="frame" x="13" y="10" width="317" height="31.5"/>
+                                                        <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="11"/>
+                                                        <color key="textColor" name="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstItem="3nL-c2-vx4" firstAttribute="top" secondItem="55Z-cr-l8F" secondAttribute="top" constant="10" id="AP7-T0-QS6"/>
+                                                    <constraint firstAttribute="bottom" secondItem="3nL-c2-vx4" secondAttribute="bottom" constant="15" id="MMQ-gz-QvJ"/>
+                                                    <constraint firstAttribute="trailing" secondItem="3nL-c2-vx4" secondAttribute="trailing" constant="13" id="S5V-OD-Aaj"/>
+                                                    <constraint firstItem="3nL-c2-vx4" firstAttribute="leading" secondItem="55Z-cr-l8F" secondAttribute="leading" constant="13" id="dGs-vp-DvS"/>
+                                                </constraints>
+                                            </view>
                                         </subviews>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="HTo-fQ-FZ7" secondAttribute="trailing" constant="12" id="Sxp-Yh-Y3q"/>
-                                            <constraint firstItem="MKd-kH-Hg0" firstAttribute="leading" secondItem="bXn-Z5-GTq" secondAttribute="leading" constant="13" id="fOI-Bn-g6F"/>
-                                            <constraint firstItem="MKd-kH-Hg0" firstAttribute="top" secondItem="bXn-Z5-GTq" secondAttribute="top" constant="20" id="fez-o3-aVD"/>
-                                            <constraint firstItem="HTo-fQ-FZ7" firstAttribute="leading" secondItem="MKd-kH-Hg0" secondAttribute="trailing" constant="13" id="jUX-yg-Lb4"/>
-                                            <constraint firstAttribute="bottom" secondItem="MKd-kH-Hg0" secondAttribute="bottom" constant="20" id="o4u-4c-Rlu"/>
-                                            <constraint firstItem="HTo-fQ-FZ7" firstAttribute="top" relation="greaterThanOrEqual" secondItem="bXn-Z5-GTq" secondAttribute="top" constant="12" id="oyG-dq-5Cx"/>
-                                            <constraint firstItem="HTo-fQ-FZ7" firstAttribute="centerY" secondItem="bXn-Z5-GTq" secondAttribute="centerY" id="qhn-FW-oHx"/>
-                                        </constraints>
-                                    </view>
-                                    <view contentMode="scaleToFill" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="55Z-cr-l8F">
-                                        <rect key="frame" x="0.0" y="67" width="343" height="53"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="What's the best way to use the Membership? Where do I start?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3nL-c2-vx4">
-                                                <rect key="frame" x="13" y="20" width="317" height="13"/>
-                                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="11"/>
-                                                <color key="textColor" name="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstItem="3nL-c2-vx4" firstAttribute="top" secondItem="55Z-cr-l8F" secondAttribute="top" constant="20" id="AP7-T0-QS6"/>
-                                            <constraint firstAttribute="bottom" secondItem="3nL-c2-vx4" secondAttribute="bottom" constant="20" id="MMQ-gz-QvJ"/>
-                                            <constraint firstAttribute="trailing" secondItem="3nL-c2-vx4" secondAttribute="trailing" constant="13" id="S5V-OD-Aaj"/>
-                                            <constraint firstItem="3nL-c2-vx4" firstAttribute="leading" secondItem="55Z-cr-l8F" secondAttribute="leading" constant="13" id="dGs-vp-DvS"/>
-                                        </constraints>
-                                    </view>
+                                    </stackView>
                                 </subviews>
-                            </stackView>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="aT4-ae-Mx5" secondAttribute="trailing" id="3Ei-h3-SF2"/>
+                                    <constraint firstItem="aT4-ae-Mx5" firstAttribute="top" secondItem="pkZ-Qr-BL7" secondAttribute="top" id="9gK-ab-iEk"/>
+                                    <constraint firstAttribute="bottom" secondItem="aT4-ae-Mx5" secondAttribute="bottom" id="nhX-N1-zHt"/>
+                                    <constraint firstItem="aT4-ae-Mx5" firstAttribute="leading" secondItem="pkZ-Qr-BL7" secondAttribute="leading" id="rqC-eO-MQj"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="aT4-ae-Mx5" secondAttribute="trailing" id="Guz-12-p5h"/>
-                            <constraint firstItem="aT4-ae-Mx5" firstAttribute="leading" secondItem="iOv-yK-RUY" secondAttribute="leading" id="UkM-NB-Dlt"/>
-                            <constraint firstAttribute="bottom" secondItem="aT4-ae-Mx5" secondAttribute="bottom" id="txb-wW-B3I"/>
-                            <constraint firstItem="aT4-ae-Mx5" firstAttribute="top" secondItem="iOv-yK-RUY" secondAttribute="top" id="vnK-SM-H5W"/>
+                            <constraint firstItem="pkZ-Qr-BL7" firstAttribute="top" secondItem="iOv-yK-RUY" secondAttribute="top" id="4rG-py-1XV"/>
+                            <constraint firstItem="pkZ-Qr-BL7" firstAttribute="leading" secondItem="iOv-yK-RUY" secondAttribute="leading" id="j5B-xz-JWd"/>
+                            <constraint firstAttribute="trailing" secondItem="pkZ-Qr-BL7" secondAttribute="trailing" id="o1A-Kz-th2"/>
+                            <constraint firstAttribute="bottom" secondItem="pkZ-Qr-BL7" secondAttribute="bottom" id="urr-h0-xo6"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -112,12 +125,14 @@
                 <outlet property="viewAnswer" destination="55Z-cr-l8F" id="SDT-cs-xez"/>
                 <outlet property="viewBack" destination="iOv-yK-RUY" id="Px1-yN-zoO"/>
                 <outlet property="viewQuestion" destination="bXn-Z5-GTq" id="ViC-e8-OSH"/>
+                <outlet property="vwClear" destination="pkZ-Qr-BL7" id="gFr-xf-oer"/>
             </connections>
             <point key="canvasLocation" x="138.40579710144928" y="115.84821428571428"/>
         </tableViewCell>
     </objects>
     <resources>
-        <image name="OrangeArrow_Tint" width="6" height="12"/>
+        <image name="down_arrow_white" width="20" height="20"/>
+        <image name="forward_arrow_black" width="20" height="20"/>
         <namedColor name="textColor">
             <color red="0.21176470588235294" green="0.18823529411764706" blue="0.27843137254901962" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

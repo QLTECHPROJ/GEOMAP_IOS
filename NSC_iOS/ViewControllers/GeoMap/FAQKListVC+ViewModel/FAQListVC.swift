@@ -15,8 +15,9 @@ class FAQListVC: ClearNaviagtionBarVC {
     
     
     // MARK: - VARIABLES
-    var strCategory = ""
-    var arrayFilter = [FAQDataModel]()
+   
+    
+    let vmFAQList = FAQListVM()
     
     // MARK: - VIEW LIFE CYCLE
     override func viewDidLoad() {
@@ -34,13 +35,18 @@ class FAQListVC: ClearNaviagtionBarVC {
         
         self.tableView.register(nibWithCellClass: FAQCell.self)
         self.view.backgroundColor = .colorBGSkyBlueLight
-        self.tableView.reloadData()
+      
+        self.apiCallingForFAQ()
     }
     
-    func setupData() {
+    func apiCallingForFAQ(){
         
+        self.vmFAQList.callAPIFAQList{ responseJson, statusCode, message, completion in
+            if completion{
+                self.tableView.reloadData()
+            }
+        }
     }
-    
     
     // MARK: - ACTIONS
     @IBAction func backClicked(sender : UIButton) {
@@ -54,17 +60,24 @@ class FAQListVC: ClearNaviagtionBarVC {
 extension FAQListVC : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return self.vmFAQList.numberOfRowsInSectionInTableviewList(section)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withClass: FAQCell.self)
-        //cell.configureCell(data: arrayFilter[indexPath.row])
+        cell.configureDataInCell(self.vmFAQList.cellForRowAtInTableviewList(indexPath))
+        
+        cell.btnArrow.handleTapToAction {
+            self.vmFAQList.didExpandAnswer(indexPath) { completion in
+                self.tableView.reloadData()
+            }
+        }
+        
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
+        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
