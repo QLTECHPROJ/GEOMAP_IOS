@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1227CA0D291B87DD00761787 /* ContactUSVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1227CA0C291B87DD00761787 /* ContactUSVC.swift */; };
+		1227CA0E291B87E200761787 /* ContactUSVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1227CA0C291B87DD00761787 /* ContactUSVC.swift */; };
+		1227CA10291B87F100761787 /* ContactUSVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1227CA0F291B87F100761787 /* ContactUSVM.swift */; };
+		1227CA11291B905200761787 /* ContactUSVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1227CA0F291B87F100761787 /* ContactUSVM.swift */; };
 		12291692290BE4190093BE93 /* WebViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12291691290BE4190093BE93 /* WebViewVC.swift */; };
 		12291694290C06800093BE93 /* GFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12291693290C06800093BE93 /* GFunctions.swift */; };
 		12291696290C0BC90093BE93 /* TTGSnackbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12291695290C0BC90093BE93 /* TTGSnackbar.swift */; };
@@ -40,6 +44,8 @@
 		127A6942290ABCD900DF71BC /* UploadUnderMappingImagesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127A6941290ABCD900DF71BC /* UploadUnderMappingImagesVC.swift */; };
 		12A26AC729028B81005ED851 /* UITextView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A26AC629028B81005ED851 /* UITextView+Extension.swift */; };
 		12A26AC829028B8D005ED851 /* UITextView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A26AC629028B81005ED851 /* UITextView+Extension.swift */; };
+		12B2F303291A56E20019CADA /* UGReportDetailVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B2F302291A56E20019CADA /* UGReportDetailVM.swift */; };
+		12B2F304291A58120019CADA /* UGReportDetailVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B2F302291A56E20019CADA /* UGReportDetailVM.swift */; };
 		12D0F7572915291700549066 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D0F7562915291700549066 /* UserModel.swift */; };
 		12D0F7582915293900549066 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D0F7562915291700549066 /* UserModel.swift */; };
 		12D0F75B29153A1900549066 /* ReportListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D0F75A29153A1900549066 /* ReportListVM.swift */; };
@@ -385,6 +391,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1227CA0C291B87DD00761787 /* ContactUSVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUSVC.swift; sourceTree = "<group>"; };
+		1227CA0F291B87F100761787 /* ContactUSVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUSVM.swift; sourceTree = "<group>"; };
 		12291691290BE4190093BE93 /* WebViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewVC.swift; sourceTree = "<group>"; };
 		12291693290C06800093BE93 /* GFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFunctions.swift; sourceTree = "<group>"; };
 		12291695290C0BC90093BE93 /* TTGSnackbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTGSnackbar.swift; sourceTree = "<group>"; };
@@ -404,6 +412,7 @@
 		1278BD16290028670061A7DD /* BaseClassForrNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseClassForrNavigationBar.swift; sourceTree = "<group>"; };
 		127A6941290ABCD900DF71BC /* UploadUnderMappingImagesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadUnderMappingImagesVC.swift; sourceTree = "<group>"; };
 		12A26AC629028B81005ED851 /* UITextView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Extension.swift"; sourceTree = "<group>"; };
+		12B2F302291A56E20019CADA /* UGReportDetailVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UGReportDetailVM.swift; sourceTree = "<group>"; };
 		12D0F7562915291700549066 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		12D0F75A29153A1900549066 /* ReportListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportListVM.swift; sourceTree = "<group>"; };
 		12E2AE55290ACA5F00209D28 /* AddOpenCastMappingImagesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddOpenCastMappingImagesVC.swift; sourceTree = "<group>"; };
@@ -611,6 +620,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1227CA0B291B87B900761787 /* ContactUSVC+ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				1227CA0C291B87DD00761787 /* ContactUSVC.swift */,
+				1227CA0F291B87F100761787 /* ContactUSVM.swift */,
+			);
+			path = "ContactUSVC+ViewModel";
+			sourceTree = "<group>";
+		};
 		1251DD8F28FFDE0600E1E712 /* Global Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -638,6 +656,15 @@
 				9A53D4C9281929B500226853 /* HomeVC.swift */,
 			);
 			path = "HomeVC+ViewModel";
+			sourceTree = "<group>";
+		};
+		12B2F301291A56BC0019CADA /* UGReportDetailVC+ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				28515AA1282E8187004C7229 /* UGReportDetailVC.swift */,
+				12B2F302291A56E20019CADA /* UGReportDetailVM.swift */,
+			);
+			path = "UGReportDetailVC+ViewModel";
 			sourceTree = "<group>";
 		};
 		12D0F759291539F700549066 /* UGListVC+Model */ = {
@@ -1164,12 +1191,13 @@
 				12A2F49D2917B2880008CD28 /* HomeVC+ViewModel */,
 				12291691290BE4190093BE93 /* WebViewVC.swift */,
 				12D0F759291539F700549066 /* UGListVC+Model */,
-				28515AA1282E8187004C7229 /* UGReportDetailVC.swift */,
+				12B2F301291A56BC0019CADA /* UGReportDetailVC+ViewModel */,
 				9A4D7B6E28F849E4008E0DBF /* OpenCastReportVC.swift */,
 				9AD5ED9A2824EBDD00E0A11F /* UserListPopUpVC.swift */,
 				9AE6D6F028F9452E008C41C9 /* OCReportDetailVC.swift */,
 				9AE6D6F328F9461A008C41C9 /* OCGeoAttributeVC.swift */,
 				9A96F94528F96BE200879A89 /* SyncDataVC.swift */,
+				1227CA0B291B87B900761787 /* ContactUSVC+ViewModel */,
 				12310D2D290BBF7F00F10DE3 /* ViewPDFVC.swift */,
 				9A96F94828F995EA00879A89 /* DrawVC.swift */,
 			);
@@ -1504,6 +1532,7 @@
 				9AE6D6F528F9461A008C41C9 /* OCGeoAttributeVC.swift in Sources */,
 				281AAE56281AAA970070D758 /* UICollectionView+Extension.swift in Sources */,
 				1278BD15290023F60061A7DD /* Genum.swift in Sources */,
+				1227CA0E291B87E200761787 /* ContactUSVC.swift in Sources */,
 				281AAE4A281AA4D30070D758 /* AppVersionViewModel.swift in Sources */,
 				12F3B467290F8FF400EB13BE /* AddOpenCastMappingImagesVC.swift in Sources */,
 				28F830DF281977F000CAF99C /* UIColor+Extension.swift in Sources */,
@@ -1528,6 +1557,7 @@
 				9A48A7452829047600D0A728 /* CampListModel.swift in Sources */,
 				28F830ED281977F000CAF99C /* UIViewController+Extension.swift in Sources */,
 				9A48A74D28290A8500D0A728 /* DeleteCoachViewModel.swift in Sources */,
+				12B2F304291A58120019CADA /* UGReportDetailVM.swift in Sources */,
 				28300C3E282A600000695E7B /* PersonalDetailViewModel.swift in Sources */,
 				28F830F5281977F000CAF99C /* UITextField+Extension.swift in Sources */,
 				2854362B2825450B009BBEDA /* UGGeoAttributeVC2.swift in Sources */,
@@ -1650,6 +1680,7 @@
 				28F830EF281977F000CAF99C /* String+Extension.swift in Sources */,
 				287554772833907E002FC9BD /* VerifyReferCodeViewModel.swift in Sources */,
 				281AAE39281A85B00070D758 /* APIManager.swift in Sources */,
+				1227CA11291B905200761787 /* ContactUSVM.swift in Sources */,
 				12F3B46B290F906A00EB13BE /* UploadUnderMappingImagesVC.swift in Sources */,
 				289B6A362889368D0095FE32 /* NotificationListViewModel.swift in Sources */,
 				28F8312D281977F000CAF99C /* AnimationFrames.swift in Sources */,
@@ -1670,6 +1701,7 @@
 				9AE6D6F428F9461A008C41C9 /* OCGeoAttributeVC.swift in Sources */,
 				281AAE49281AA4D30070D758 /* AppVersionViewModel.swift in Sources */,
 				28F8316228197B0600CAF99C /* NSDate+Timepiece.swift in Sources */,
+				1227CA0D291B87DD00761787 /* ContactUSVC.swift in Sources */,
 				28D1A5B62823FBB200B3A179 /* CoachStatusModel.swift in Sources */,
 				281AAE41281AA3B40070D758 /* ListDataModel.swift in Sources */,
 				284C3193282681B300F8A63B /* ListItemVC.swift in Sources */,
@@ -1694,6 +1726,7 @@
 				2854362A2825450B009BBEDA /* UGGeoAttributeVC2.swift in Sources */,
 				28F830F4281977F000CAF99C /* UITextField+Extension.swift in Sources */,
 				28F83120281977F000CAF99C /* UIImageView+Letters.m in Sources */,
+				12B2F303291A56E20019CADA /* UGReportDetailVM.swift in Sources */,
 				2898FA922836720F006DF4B8 /* KidsAttendanceModel.swift in Sources */,
 				28543627282544F8009BBEDA /* UGGeoAttributeVC.swift in Sources */,
 				282ACD68282BB8FC005A8634 /* CampDetailDataModel.swift in Sources */,
@@ -1816,6 +1849,7 @@
 				287554762833907E002FC9BD /* VerifyReferCodeViewModel.swift in Sources */,
 				281AAE38281A85B00070D758 /* APIManager.swift in Sources */,
 				289B6A31288934E10095FE32 /* NotificationListViewModel.swift in Sources */,
+				1227CA10291B87F100761787 /* ContactUSVM.swift in Sources */,
 				28F8312C281977F000CAF99C /* AnimationFrames.swift in Sources */,
 				12291694290C06800093BE93 /* GFunctions.swift in Sources */,
 				28ED59702822601C0035402F /* LoginCheckModel.swift in Sources */,

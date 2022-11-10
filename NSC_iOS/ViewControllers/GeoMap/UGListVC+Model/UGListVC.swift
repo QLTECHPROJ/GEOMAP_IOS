@@ -8,8 +8,8 @@
 import UIKit
 
 enum ReportListType  : String{
-    case underGroundReport
-    case opneCastReport
+    case underGroundReport = "underGroundReport"
+    case opneCastReport = "opneCastReport"
 }
 
 class UGListVC: ClearNaviagtionBarVC {
@@ -23,20 +23,27 @@ class UGListVC: ClearNaviagtionBarVC {
     
     
     // MARK: - VARIABLES
+    
+    lazy var refreshControl                                 : UIRefreshControl = {
         
-    var arrReportsList : [JSON] = []
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action:
+          #selector(self.refreshData),
+                                 for: UIControl.Event.valueChanged)
+        refreshControl.tintColor = UIColor.colorSkyBlue
+        return refreshControl
+    }()
     
     var reportListType : ReportListType = .underGroundReport
     
+    private var vwReportList : ReportListVM = ReportListVM()
     
     // MARK: - VIEW LIFE CYCLE
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.setUpUI()
-        self.tableView.register(nibWithCellClass: NotificationListCell.self)
-        
-        self.apiCallReportList()
+      
     }
     
     
@@ -47,14 +54,26 @@ class UGListVC: ClearNaviagtionBarVC {
         self.lblTitle.applyLabelStyle(text: self.reportListType == .underGroundReport ? kUndergroundsMappingReport : kOpenCastMappingReport,fontSize :  20,fontName : .InterBold)
         self.lblTitle.adjustsFontSizeToFitWidth = true
         self.view.backgroundColor = .colorBGSkyBlueLight
+        
+        self.tableView.addSubview(self.refreshControl)
+        self.tableView.register(nibWithCellClass: NotificationListCell.self)
+        self.apiCallReportList(true)
     }
     
-    func apiCallReportList() {
-        let vwReportList = ReportListVM()
-        let parameters = APIParametersModel()
-        parameters.userId = "1"
+    @objc func refreshData(){
+
+        self.apiCallReportList()
+    }
+    
+    func apiCallReportList(_ isLoader : Bool = false) {
         
-        vwReportList.callReportListAPI(parameters: parameters.toDictionary()) { responseJson, statusCode, message, completion in
+        let parameters = APIParametersModel()
+        parameters.userId = DeviceDetail.shared.isSimulator ? "1" : JSON(UserModelClass.current.userId as Any).stringValue
+        
+        
+        self.vwReportList.callReportListAPI(router:self.reportListType == .underGroundReport ?   APIRouter.ur_listing_view_all(parameters.toDictionary()) : APIRouter.or_listing_view_all(parameters.toDictionary()),isLoader : isLoader) { responseJson, statusCode, message, completion in
+            
+            self.refreshControl.endRefreshing()
             
             if completion, let data = responseJson{
                 debugPrint(data)
@@ -63,17 +82,7 @@ class UGListVC: ClearNaviagtionBarVC {
             }
         }
     }
-    
-    func handleRefresh(_ refreshControl: UIRefreshControl) {
-        self.refreshData()
-        refreshControl.endRefreshing()
-    }
-    
-    func refreshData() {
-        
-        self.apiCallReportList()
-        
-    }
+   
     
     
     // MARK: - ACTIONS
@@ -89,12 +98,12 @@ class UGListVC: ClearNaviagtionBarVC {
 extension UGListVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return self.vwReportList.numberOfRowsInSectionInTableviewList(section)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withClass: NotificationListCell.self)
-        //cell.configureCell(data: arrayNotifications[indexPath.row])
+        cell.configureCell(self.vwReportList.cellForRowAtInTableviewList(indexPath), self.reportListType.rawValue)
         return cell
     }
     
@@ -107,12 +116,14 @@ extension UGListVC: UITableViewDelegate, UITableViewDataSource {
 
             let vc = AppStoryBoard.main.viewController(viewControllerClass: UGReportDetailVC.self)
             vc.reportListType = .underGroundReport
+            vc.reportId = self.vwReportList.cellForRowAtInTableviewList(indexPath)["id"].stringValue
             self.navigationController?.pushViewController(vc, animated: true)
             
         }else {
 
             let vc = AppStoryBoard.main.viewController(viewControllerClass: OCReportDetailVC.self)
             vc.reportListType = .opneCastReport
+            vc.reportId = self.vwReportList.cellForRowAtInTableviewList(indexPath)["id"].stringValue
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }

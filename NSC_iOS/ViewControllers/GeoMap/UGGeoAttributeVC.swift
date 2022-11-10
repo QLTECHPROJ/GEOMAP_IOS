@@ -33,6 +33,7 @@ class UGGeoAttributeVC: ClearNaviagtionBarVC {
         
     // MARK: - VARIABLES
  
+    private var arrAttributeNos : [JSON] = []
     
     
     // MARK: - VIEW LIFE CYCLE
@@ -75,15 +76,22 @@ class UGGeoAttributeVC: ClearNaviagtionBarVC {
     
     func setupData() {
         
-        self.lblMineralization.text = "Mineralization"
-        self.lblMineralizationNos.text = "Mineralization 1"
-        
+        self.lblMineralization.text = kSelectAttributes
+        self.lblMineralizationNos.text = kSelectNos
     }
     
     
     func buttonEnableDisable(){
         
-        self.btnNextStep.isSelect = !self.tvAddDescription.text.isEmpty
+        var isEnable : Bool = Bool()
+        
+        if self.lblMineralization.text == kSelectAttributes || self.lblMineralizationNos.text == kSelectNos || self.tvAddDescription.text.isEmpty{
+            isEnable = false
+        }
+        else{
+            isEnable = true
+        }
+        self.btnNextStep.isSelect = isEnable
     }
     
    
@@ -107,17 +115,41 @@ class UGGeoAttributeVC: ClearNaviagtionBarVC {
         
         self.vwMineralization.handleTapToAction {
             // Fix code
-            
+            self.view.endEditing(true)
+            self.lblMineralizationNos.text = kSelectNos
             let vc = AppStoryBoard.main.viewController(viewControllerClass: ListItemVC.self)
             vc.listType = .attributes
             vc.modalPresentationStyle = .overFullScreen
             self.present(vc, animated: false, completion :{
                 vc.openPopUpVisiable()
             })
+            vc.didSelectItem = { selectedItem in
+                
+                self.lblMineralization.text = selectedItem["name"].stringValue
+                self.lblMineralizationNos.text = kSelectNos
+                print(selectedItem)
+                self.arrAttributeNos = selectedItem["nos"].arrayValue
+                self.buttonEnableDisable()
+            }
         }
         
         self.vwMineralizationNos.handleTapToAction {
-            // Fix code
+            self.view.endEditing(true)
+            guard self.lblMineralization.text != kSelectAttributes else {return}
+            
+            let vc = AppStoryBoard.main.viewController(viewControllerClass: ListItemVC.self)
+            vc.listType = .Nos
+            vc.arrList = self.arrAttributeNos
+            vc.modalPresentationStyle = .overFullScreen
+            self.present(vc, animated: false, completion :{
+                vc.openPopUpVisiable()
+            })
+            vc.didSelectItem = { selectedItem in
+                
+                print(selectedItem)
+                self.lblMineralizationNos.text = selectedItem["name"].stringValue
+                self.buttonEnableDisable()
+            }
         }
     }
 }

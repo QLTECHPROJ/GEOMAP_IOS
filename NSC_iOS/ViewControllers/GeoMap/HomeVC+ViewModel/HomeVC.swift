@@ -20,10 +20,18 @@ class HomeVC: ClearNaviagtionBarVC {
     
     // MARK: - VARIABLES
     
-    var arrUnderGroundList = [CampDetailModel]()
-    var arrayUpcomingCampList = [CampDetailModel]()
     
-    var vwReportList : ReportListVM = ReportListVM()
+    private var vwReportList : ReportListVM = ReportListVM()
+    
+    lazy var refreshControl                                 : UIRefreshControl = {
+        
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action:
+          #selector(self.refreshData),
+                                 for: UIControl.Event.valueChanged)
+        refreshControl.tintColor = UIColor.colorSkyBlue
+        return refreshControl
+    }()
     
     // MARK: - VIEW LIFE CYCLE
     override func viewDidLoad() {
@@ -62,19 +70,25 @@ class HomeVC: ClearNaviagtionBarVC {
         self.imgMenu.isUserInteractionEnabled = true
         self.imgMenu.addGestureRecognizer(tapGestureToOpenMenu)
         
-        tableView.register(nibWithCellClass: NotificationListCell.self)
-        tableView.register(nibWithCellClass: TitleLabelCell.self)
-        tableView.register(nibWithCellClass: NotificationListCell.self)
+        self.tableView.register(nibWithCellClass: NotificationListCell.self)
+        self.tableView.register(nibWithCellClass: TitleLabelCell.self)
+        self.tableView.register(nibWithCellClass: NotificationListCell.self)
+        self.tableView.addSubview(self.refreshControl)
+        self.apiCallReportList(true)
+    }
+    
+    @objc func refreshData(){
+
         self.apiCallReportList()
     }
     
-    func apiCallReportList() {
+    func apiCallReportList(_ isLoader : Bool = false) {
         
         let parameters = APIParametersModel()
-        parameters.userId = "1"
+        parameters.userId = DeviceDetail.shared.isSimulator ? "1" : JSON(UserModelClass.current.userId as Any).stringValue
         
-        self.vwReportList.callReportListAPI(parameters: parameters.toDictionary()) { responseJson, statusCode, message, completion in
-            
+        self.vwReportList.callHomeReportListAPI(parameters: parameters.toDictionary(),isLoader : isLoader) { responseJson, statusCode, message, completion in
+            self.refreshControl.endRefreshing()
             if completion, let data = responseJson{
                 debugPrint(data)
                 
@@ -88,9 +102,6 @@ class HomeVC: ClearNaviagtionBarVC {
         navigationController?.pushViewController(aVC, animated: true)
      }
 
-    
-    //MARK: - ACTION
-  
     
     // MARK: - ACTION
     @IBAction func addReportClicked(_ sender: UIButton) {
@@ -121,6 +132,7 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCell(withClass: NotificationListCell.self)
         cell.configureCell(self.vwReportList.cellForRowAtInTableview(indexPath),self.vwReportList.viewForHeaderInSectionData(indexPath.section)["type"].stringValue)
+        debugPrint(self.vwReportList.viewForHeaderInSectionData(indexPath.section))
         return cell
         
     }
@@ -152,23 +164,23 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        
        let type = self.vwReportList.viewForHeaderInSectionData(indexPath.section)["type"].stringValue
         
         if type == ReportListType.underGroundReport.rawValue{
 
             let vc = AppStoryBoard.main.viewController(viewControllerClass: UGReportDetailVC.self)
-            vc.reportListType = .underGroundReport//kUndergroundsMappingReportDetails
+            vc.reportListType = .underGroundReport
+            vc.reportId = self.vwReportList.viewForHeaderInSectionData(indexPath.section)["data"][indexPath.row]["id"].stringValue
             self.navigationController?.pushViewController(vc, animated: true)
             
         }else {
 
             let vc = AppStoryBoard.main.viewController(viewControllerClass: OCReportDetailVC.self)
             vc.reportListType = .opneCastReport // kOpenCastMappingReportDetails
+            vc.reportId = self.vwReportList.viewForHeaderInSectionData(indexPath.section)["data"][indexPath.row]["id"].stringValue
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
-    
 }
 
 
@@ -185,5 +197,4 @@ extension HomeVC : AddReportPopUpDelegate {
             self.navigationController?.pushViewController(aVC, animated: true)
         }
     }
-    
 }

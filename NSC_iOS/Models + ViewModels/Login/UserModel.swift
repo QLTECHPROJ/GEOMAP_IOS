@@ -13,6 +13,7 @@ class UserModelClass : NSObject, NSCoding{
     var deviceId : String!
     var deviceToken : String!
     var deviceType : String!
+    var userId : String!
     var dob : String!
     var email : String!
     var mobile : String!
@@ -50,6 +51,7 @@ class UserModelClass : NSObject, NSCoding{
         deviceId = json["deviceId"].stringValue
         deviceToken = json["deviceToken"].stringValue
         deviceType = json["deviceType"].stringValue
+        userId = json["userId"].stringValue
         dob = json["dob"].stringValue
         email = json["email"].stringValue
         mobile = json["mobile"].stringValue
@@ -114,6 +116,9 @@ class UserModelClass : NSObject, NSCoding{
         }
         if deviceType != nil{
             dictionary["deviceType"] = deviceType
+        }
+        if userId != nil{
+            dictionary["userId"] = userId
         }
         if dob != nil{
             dictionary["dob"] = dob
@@ -181,22 +186,23 @@ class UserModelClass : NSObject, NSCoding{
     */
     @objc required init(coder aDecoder: NSCoder)
     {
-         attributeData = aDecoder.decodeObject(forKey: "attributeData") as? [AttributeData]
-         deviceId = aDecoder.decodeObject(forKey: "deviceId") as? String
-         deviceToken = aDecoder.decodeObject(forKey: "deviceToken") as? String
-         deviceType = aDecoder.decodeObject(forKey: "deviceType") as? String
-         dob = aDecoder.decodeObject(forKey: "dob") as? String
-         email = aDecoder.decodeObject(forKey: "email") as? String
-         mobile = aDecoder.decodeObject(forKey: "mobile") as? String
-         name = aDecoder.decodeObject(forKey: "name") as? String
-         profileImage = aDecoder.decodeObject(forKey: "profileImage") as? String
-         rockStrength = aDecoder.decodeObject(forKey: "rockStrength") as? [RockStrength]
-         sampleCollected = aDecoder.decodeObject(forKey: "sampleCollected") as? [RockStrength]
-         typeOfFaults = aDecoder.decodeObject(forKey: "typeOfFaults") as? [RockStrength]
-         typeOfGeologicalStructures = aDecoder.decodeObject(forKey: "typeOfGeologicalStructures") as? [RockStrength]
-         waterCondition = aDecoder.decodeObject(forKey: "waterCondition") as? [RockStrength]
-         weatheringData = aDecoder.decodeObject(forKey: "weatheringData") as? [RockStrength]
-
+        attributeData = aDecoder.decodeObject(forKey: "attributeData") as? [AttributeData]
+        deviceId = aDecoder.decodeObject(forKey: "deviceId") as? String
+        deviceToken = aDecoder.decodeObject(forKey: "deviceToken") as? String
+        deviceType = aDecoder.decodeObject(forKey: "deviceType") as? String
+        userId = aDecoder.decodeObject(forKey: "userId") as? String
+        dob = aDecoder.decodeObject(forKey: "dob") as? String
+        email = aDecoder.decodeObject(forKey: "email") as? String
+        mobile = aDecoder.decodeObject(forKey: "mobile") as? String
+        name = aDecoder.decodeObject(forKey: "name") as? String
+        profileImage = aDecoder.decodeObject(forKey: "profileImage") as? String
+        rockStrength = aDecoder.decodeObject(forKey: "rockStrength") as? [RockStrength]
+        sampleCollected = aDecoder.decodeObject(forKey: "sampleCollected") as? [RockStrength]
+        typeOfFaults = aDecoder.decodeObject(forKey: "typeOfFaults") as? [RockStrength]
+        typeOfGeologicalStructures = aDecoder.decodeObject(forKey: "typeOfGeologicalStructures") as? [RockStrength]
+        waterCondition = aDecoder.decodeObject(forKey: "waterCondition") as? [RockStrength]
+        weatheringData = aDecoder.decodeObject(forKey: "weatheringData") as? [RockStrength]
+        
     }
 
     /**
@@ -216,6 +222,9 @@ class UserModelClass : NSObject, NSCoding{
         }
         if deviceType != nil{
             aCoder.encode(deviceType, forKey: "deviceType")
+        }
+        if userId != nil{
+            aCoder.encode(userId, forKey: "userId")
         }
         if dob != nil{
             aCoder.encode(dob, forKey: "dob")

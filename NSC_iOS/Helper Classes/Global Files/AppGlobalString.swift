@@ -124,7 +124,7 @@ var kZCordinate = "Z cordinate"
 
 var kGeologicalMapping = "Geological Mapping"
 
-var kMappingSheetNoColn = "Mapping Sheet No:"
+var kMappingSheetNoColn = "Mapping Sheet No :"
 
 var kMinesSiteName = "Mines Site Name"
 
@@ -294,3 +294,16 @@ var kChooseYourTypeOfGeologicalStructure = "Choose your type of geological struc
 
 var kChooseYourTypeOfFault = "Choose your type of fault"
 
+var kScaleColnm = "Scale :"
+
+var kMapSerialNoColmn = "Map Serial No :"
+
+var kMinesSiteNameColmn = "Mines Site Name :"
+
+var kSelectAttributes = "Select Attributes"
+
+var kSelectNos = "Select Nos"
+
+var kEnterMessage = "Enter Message"
+
+var kSubject = "Subject"

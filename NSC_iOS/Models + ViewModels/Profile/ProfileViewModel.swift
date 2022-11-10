@@ -1,8 +1,8 @@
 //
 //  ProfileViewModel.swift
-//  NSC_iOS
+//  
 //
-//  Created by Mac Mini on 11/05/22.
+//  Created by on 11/05/22.
 //
 
 import Foundation
@@ -26,5 +26,27 @@ class ProfileViewModel {
             }
         }
     }
+    
+    func callAPIGetUserProfile(isLoader : Bool = false, completionBlock: @escaping (JSON?,String?,String?,Bool) -> Void) {
+        
+        let parameters = APIParametersModel()
+        parameters.userId = JSON(UserModelClass.current.userId as Any).stringValue
+        debugPrint(parameters)
+        
+        APIManager.shared.callAPIWithJSON(router: APIRouter.user_details((parameters.toDictionary())),isLoader : isLoader,showToast : false) { responseData, data, statusCode, message, completion in
+            if completion, statusCode == ApiKeys.ApiStatusCode.success.rawValue, let receivdeData = data {
+                
+                debugPrint(receivdeData)
+                let userModel = UserModelClass(fromJson: receivdeData["ResponseData"])
+                userModel.saveUserSessionInToDefaults()
+                userModel.saveUserDetailInDefaults()
+                completionBlock(receivdeData,statusCode,message,true)
+            }
+            else{
+                completionBlock(nil,statusCode,message,false)
+            }
+        }
+    }
+    
 }
 

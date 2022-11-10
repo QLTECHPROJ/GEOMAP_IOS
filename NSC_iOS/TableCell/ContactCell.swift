@@ -24,9 +24,9 @@ class ContactCell: UITableViewCell {
     
     // Configure Cell
 
-    func configureDataInCell(_ reportDetail : [String:Any]){
+    func configureDataInCell(_ reportDetail : JSON){
         
-        self.lblTitle.text = reportDetail["title"] as! String
-        self.lblSubtitle.text = reportDetail["subtitle"] as! String
+        self.lblTitle.text = reportDetail["key"].stringValue
+        self.lblSubtitle.text = reportDetail["value"].stringValue
     }
 }

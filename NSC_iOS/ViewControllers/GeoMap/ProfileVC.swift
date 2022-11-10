@@ -77,7 +77,7 @@ class ProfileVC: ClearNaviagtionBarVC {
         self.txtName.text = JSON(userModel.name as Any).stringValue
         self.txtEmail.text = JSON(userModel.email as Any).stringValue
         self.txtMobile.text = JSON(userModel.mobile as Any).stringValue
-        self.txtDOB.text = GFunctions.shared.convertDateFormat(dt: JSON(userModel.dob as Any).stringValue, inputFormat: DateTimeFormaterEnum.yyyymmdd.rawValue, outputFormat: DateTimeFormaterEnum.ddmm_yyyy.rawValue, status: .NOCONVERSION).str
+        self.txtDOB.text = GFunctions.shared.convertDateFormat(dt: JSON(userModel.dob as Any).stringValue, inputFormat: DateTimeFormaterEnum.DDMMyyyy.rawValue, outputFormat: DateTimeFormaterEnum.ddmm_yyyy.rawValue, status: .NOCONVERSION).str
     }
     
     func initDatePicker(){
@@ -180,27 +180,28 @@ class ProfileVC: ClearNaviagtionBarVC {
     }
     
     @IBAction func btnConfirmTapped(_ sender: UIButton) {
-        self.view.endEditing(true)
         
         if let errorMessage = self.checkValidation(){
             GFunctions.shared.showSnackBar(message: errorMessage)
         }
         else {
             
-//            let userDetails = UserModelClass.current
-//            let parameters = APIParametersModel()
-//            parameters.iD = JSON(userDetails.id as Any).stringValue
-//            parameters.name = JSON(self.txtName.text as Any).stringValue
-//            parameters.email = JSON(self.txtEmail.text as Any).stringValue
-//            parameters.mobile = JSON(self.txtMobile.text).stringValue
-//            parameters.profileimage = self.strImage
-//            parameters.dob = GFunctions.shared.convertDateFormat(dt: JSON(self.txtDOB.text as Any).stringValue, inputFormat: DateTimeFormaterEnum.ddmm_yyyy.rawValue, outputFormat: DateTimeFormaterEnum.yyyymmdd.rawValue, status: .NOCONVERSION).str
-//
-//            self.vwProfileModel.callProfileUpdateAPI(parameters: parameters.toDictionary(), uploadParameters: [self.imageData]) { completion in
-//                if completion{
+            let userDetails = UserModelClass.current
+            let parameters = APIParametersModel()
+            parameters.userId = JSON(userDetails.userId as Any).stringValue
+            parameters.name = JSON(self.txtName.text as Any).stringValue
+            parameters.email = JSON(self.txtEmail.text as Any).stringValue
+            parameters.mobile = JSON(self.txtMobile.text).stringValue
+            parameters.profileimage = self.strImage
+            parameters.dob = GFunctions.shared.convertDateFormat(dt: JSON(self.txtDOB.text as Any).stringValue, inputFormat: DateTimeFormaterEnum.ddmm_yyyy.rawValue, outputFormat: DateTimeFormaterEnum.yyyymmdd.rawValue, status: .NOCONVERSION).str
+
+            
+            print(parameters.toDictionary())
+            self.vwProfileModel.callProfileUpdateAPI(parameters: parameters.toDictionary(), uploadParameters: [self.imageData]) { completion in
+                if completion{
                     self.navigationController?.popViewController(animated: true)
-//                }
-//            }
+                }
+            }
         }
     }
 

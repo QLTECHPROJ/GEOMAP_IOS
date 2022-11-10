@@ -46,13 +46,33 @@ enum APIRouter : URLRequestConvertible {
     case applycampdatasave([String:String])
     
     case kidsattendanceshow([String:String])
+    
     case kidsattendancesave([String:Any])
+    
     case ur_or_listing([String:Any])
     
+    case ur_listing_view_all([String:Any])
+    
+    case or_listing_view_all([String:Any])
+    
+    case user_details([String:Any])
+    
     case attribute_data_number
+    case sample_collecteds
+    case weathering_data
+    case rock_strength_data
+    case water_condition_data
+    case type_of_geological_structures
+    case types_of_fault
+    
+    case ur_detail([String:Any])
+    case or_detail([String:Any])
+    case contact_insert([String:Any])
     
     var route: APIRoute {
+        
         switch self {
+            
         case .appversion(let data):
             return APIRoute(path: "App Version", method: .post, data: data)
         case .countrylist:
@@ -122,6 +142,45 @@ enum APIRouter : URLRequestConvertible {
             
         case .ur_or_listing(let data):
             return APIRoute(path: "ur_or_listing", method: .post, data: data)
+            
+        case .ur_listing_view_all(let data):
+            return APIRoute(path: "ur_listing_view_all", method: .post, data: data)
+            
+        case .or_listing_view_all(let data):
+            return APIRoute(path: "or_listing_view_all", method: .post, data: data)
+            
+        case .user_details(let data):
+            return APIRoute(path: "user_details", method: .post, data: data)
+            
+        case .sample_collecteds:
+            return APIRoute(path: "sample_collecteds", method: .get)
+            
+        case .weathering_data:
+            return APIRoute(path: "weathering_data", method: .get)
+            
+        case .rock_strength_data:
+            return APIRoute(path: "rock_strength_data", method: .get)
+            
+        case .water_condition_data:
+            return APIRoute(path: "water_condition_data", method: .get)
+            
+        case .type_of_geological_structures:
+            return APIRoute(path: "type_of_geological_structures", method: .get)
+            
+        case .types_of_fault:
+            return APIRoute(path: "types_of_fault", method: .get)
+            
+        case .ur_detail(let data):
+            
+            return APIRoute(path: "ur_detail", method: .post, data: data)
+            
+        case .or_detail(let data):
+            
+            return APIRoute(path: "or_detail", method: .post, data: data)
+            
+        case .contact_insert(let data):
+            
+            return APIRoute(path: "contact_insert", method: .post, data: data)
         }
         
     }

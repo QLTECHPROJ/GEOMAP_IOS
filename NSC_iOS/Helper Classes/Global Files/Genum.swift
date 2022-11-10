@@ -101,6 +101,8 @@ enum DateTimeFormaterEnum : String
 {
     case yyyymmdd           = "yyyy-MM-dd"
     
+    case DDMMyyyy           = "dd-MM-yyyy"
+    
     case MMM_d_Y            = "MMMM d, yyyy"
     
     case MMM_dd_YYYY            = "MMM dd, yyyy"

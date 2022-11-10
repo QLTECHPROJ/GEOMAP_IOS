@@ -64,7 +64,7 @@ class LoginVC: ClearNaviagtionBarVC {
         self.lblTitle.applyLabelStyle(text : kHelloAgian,fontSize :  27,fontName : .InterBold)
         self.lblSubTitle.applyLabelStyle(text : kInstructionTitleLogin,fontSize : 20,fontName : .InterMedium)
         
-        self.btnForgotPassword.applystyle(fontname : .InterMedium,fontsize : 14,titleText : kForgotPassword,titleColor : .colorTextPlaceHolderGray)
+        self.btnForgotPassword.applystyle(fontname : .InterMedium,fontsize : 13,titleText : kForgotPassword,titleColor : .colorTextPlaceHolderGray)
         
         self.btnGetSMSCode.setTitle(kSignIn, for: .normal)
         
@@ -133,11 +133,15 @@ class LoginVC: ClearNaviagtionBarVC {
             parameters.userName = JSON(self.txtUser.text).stringValue
             parameters.password = JSON(self.txtPassword.text).stringValue
             
-            self.vmLogin.callLoginAPI(parameters: parameters.toDictionary(), completionBlock: { isCompleted in
-               if isCompleted{
-                   AppDelegate.shared.updateWindow(.home)
-                }
-            })
+            
+            self.vmLogin.callLoginAPI(parameters: parameters.toDictionary()) { responseData, statusCode, message, completion in
+                if completion{
+                    AppDelegate.shared.updateWindow(.home)
+                 }
+                 else{
+                     GFunctions.shared.showSnackBar(message: message ?? "Something went wrong..!")
+                 }
+            }
         }
     }
 }

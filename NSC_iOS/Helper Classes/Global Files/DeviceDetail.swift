@@ -10,7 +10,7 @@ import UIKit
 
 class DeviceDetail: NSObject {
     
-   static let shared : DeviceDetail = DeviceDetail()
+    static let shared : DeviceDetail = DeviceDetail()
     
     //--------------------------------------------------------------
     //MARK: Get OS/System Version
@@ -40,6 +40,16 @@ class DeviceDetail: NSObject {
         return UIDevice.current.name
     }
     
+    //-------------------------------------------------------------------
+    //MARK:- Simulator or Device
+    var isSimulator: Bool {
+        #if IOS_SIMULATOR
+        return true
+        #else
+        return false
+        #endif
+    }
+    
     //--------------------------------------------------------------
     //MARK: Get Device Token
     
@@ -51,9 +61,9 @@ class DeviceDetail: NSObject {
             let deviceToken : String? = USERDEFAULTS.value(forKey: UserDefaultsKeys.kDeviceToken.rawValue) as? String
             
             guard let
-                letValue = deviceToken, !letValue.isEmpty else {
-                    print(":::::::::-Value Not Found-:::::::::::")
-                    return "0"
+                    letValue = deviceToken, !letValue.isEmpty else {
+                print(":::::::::-Value Not Found-:::::::::::")
+                return "0"
             }
             return deviceToken!
         }

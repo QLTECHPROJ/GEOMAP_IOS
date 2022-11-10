@@ -14,34 +14,48 @@ class ListDataViewModel {
         
         var apiRequest : APIRouter?
         
+       
         switch listType {
+            
         case .attributes:
             
             apiRequest = APIRouter.attribute_data_number
             
             break
         case .Nos:
-//            apiRequest = APIRouter.statelist(parameters)
+
             break
         case .sampleCollected:
+            
+            apiRequest = APIRouter.sample_collecteds
             
             break
         case .weathering:
             
+            apiRequest = APIRouter.weathering_data
+            
             break
         case .rockStrenght:
+            
+            apiRequest = APIRouter.rock_strength_data
             
             break
             
         case .waterCollection:
             
+            apiRequest = APIRouter.water_condition_data
+            
             break
             
         case .typeOfGeologicalStructure:
             
+            apiRequest = APIRouter.type_of_geological_structures
+            
             break
             
         case .typeOfFaults:
+            
+            apiRequest = APIRouter.types_of_fault
             
             break
         }

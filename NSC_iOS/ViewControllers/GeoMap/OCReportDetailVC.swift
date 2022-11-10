@@ -22,119 +22,125 @@ class OCReportDetailVC : ClearNaviagtionBarVC {
     
     // MARK: - VARIABLES
    
+    var reportId : String = ""
     
     var reportListType : ReportListType = .opneCastReport
     
-    var arrReportDetails : [[String:Any]] = [
+    private var vwUnderGroundReportDetail : UGReportDetailVM = UGReportDetailVM()
+    
+    
+    var arrReportDetails : [JSON] = [
         [
-            "title" : kMapSerialNo,
-            "subtitle" : "1253DFSDF15235"
+            "key" : kMapSerialNo,
+            "value" : ""
         ],
         [
-            "title" : kDateColn,
-            "subtitle" : "14 July 2022"
+            "key" : kDateColn,
+            "value" : ""
         ],
         [
-            "title" : kMineSitenameColn,
-            "subtitle" : "KGF"
+            "key" : kMineSitenameColn,
+            "value" : ""
         ],
         [
-            "title" : kPitnameColn,
-            "subtitle" : "XYZ Pit"
+            "key" : kPitnameColn,
+            "value" : ""
         ],
         [
-            "title" : kPitLocationColn,
-            "subtitle" : "Lauram ipsum, address here"
+            "key" : kPitLocationColn,
+            "value" : ""
         ],
         [
-            "title" : kShiftInchargeNameColn,
-            "subtitle" : "Robert Downey"
+            "key" : kShiftInchargeNameColn,
+            "value" : ""
         ],
         [
-            "title" : kGeologistNameColn,
-            "subtitle" : "Amazon"
+            "key" : kGeologistNameColn,
+            "value" : ""
         ],
         [
-            "title" : kMappingParametersColn,
-            "subtitle" : "HSKFJSK"
+            "key" : kMappingParametersColn,
+            "value" : ""
         ],
         [
-            "title" : kFaceLocationColn,
-            "subtitle" : "sdsdterkerk"
+            "key" : kFaceLocationColn,
+            "value" : ""
         ],
         [
-            "title" : kFaceLenghtMColn,
-            "subtitle" : "45 mtr"
+            "key" : kFaceLenghtMColn,
+            "value" : ""
         ],
         [
-            "title" : kFaceAreaM2Coln,
-            "subtitle" : "32238423"
+            "key" : kFaceAreaM2Coln,
+            "value" : ""
         ],
         [
-            "title" : kFaceRockTypeColn,
-            "subtitle" : "Black"
+            "key" : kFaceRockTypeColn,
+            "value" : ""
         ],
         [
-            "title" : kBenchRL,
-            "subtitle" : "WKRWERK"
+            "key" : kBenchRL,
+            "value" : ""
         ],
         [
-            "title" : kBenchHeightWidthM,
-            "subtitle" : "110 x 500"
+            "key" : kBenchHeightWidthM,
+            "value" : ""
         ],
         [
-            "title" : kBenchAngleColn,
-            "subtitle" : "434"
+            "key" : kBenchAngleColn,
+            "value" : ""
         ],
         [
-            "title" : kDipDirectionAndAngleColn,
-            "subtitle" : "East 3454"
+            "key" : kDipDirectionAndAngleColn,
+            "value" : ""
         ],
         [
-            "title" : kThicknessOfOreCoalSeam,
-            "subtitle" : "DF SDS FK"
+            "key" : kThicknessOfOreCoalSeam,
+            "value" : ""
         ],
         [
-            "title" : kThicknessOfOverburdenMColn,
-            "subtitle" : "3434"
+            "key" : kThicknessOfOverburdenMColn,
+            "value" : ""
         ],
         [
-            "title" : kThicknessOfInterburdenMColn,
-            "subtitle" : "343"
+            "key" : kThicknessOfInterburdenMColn,
+            "value" : ""
         ],
         [
-            "title" : kObservedGradeOfOreColn,
-            "subtitle" : "B Grade"
+            "key" : kObservedGradeOfOreColn,
+            "value" : ""
         ],
         [
-            "title" : kSampleCollectedColn,
-            "subtitle" : "HKHHJHJH"
+            "key" : kSampleCollectedColn,
+            "value" : ""
         ],
         [
-            "title" : kActualGradeOfOreLabGradeColn,
-            "subtitle" : "AB Grade"
+            "key" : kActualGradeOfOreLabGradeColn,
+            "value" : ""
         ],
         [
-            "title" : kWeatheringColn,
-            "subtitle" : "Warm"
+            "key" : kWeatheringColn,
+            "value" : ""
         ],
         [
-            "title" : kRockStrengthColn,
-            "subtitle" : "Solid"
+            "key" : kRockStrengthColn,
+            "value" : ""
         ],
         [
-            "title" : kWaterConditionColn,
-            "subtitle" : "Average"
+            "key" : kWaterConditionColn,
+            "value" : ""
         ],
         [
-            "title" : kTypeOfGeologicalStructuresColn,
-            "subtitle" : "WKRWERK"
+            "key" : kTypeOfGeologicalStructuresColn,
+            "value" : ""
         ],
         [
-            "title" : kTypeOfFaultsColn,
-            "subtitle" : "WKRWERK"
+            "key" : kTypeOfFaultsColn,
+            "value" : ""
         ]
     ]
+    
+    private var openCastDetail : JSON = .null
     
     // MARK: - VIEW LIFE CYCLE
     override func viewDidLoad() {
@@ -147,17 +153,30 @@ class OCReportDetailVC : ClearNaviagtionBarVC {
     // MARK: - FUNCTIONS
     func setupUI() {
         self.tableView.register(nibWithCellClass: ContactCell.self)
-        
       
-        self.tableView.reloadData()
         self.lblTitle.applyLabelStyle(text: kOpenCastMappingReportDetails,fontSize :  20,fontName : .InterBold)
         self.lblTitle.adjustsFontSizeToFitWidth = true
         self.view.backgroundColor = .colorBGSkyBlueLight
-        
-        self.btnViewPDF.isSelect = true
+        self.tableView.reloadData()
+        self.btnViewPDF.isSelect = false
         self.btnViewPDF.setTitle(kViewPDF, for: .normal)
+        
+        self.apiCallForDetail()
     }
     
+    func apiCallForDetail(){
+        let parameters = APIParametersModel()
+        parameters.iD = self.reportId
+        self.vwUnderGroundReportDetail.callAPIOpenCastReportDetails(parameters: parameters.toDictionary()) { responseData, statusCode, message, completion in
+            if completion , let data = responseData{
+                debugPrint(data)
+                self.openCastDetail = data["ResponseData"]
+                
+                self.setDetail(self.openCastDetail)
+                
+            }
+        }
+    }
   
     
     // MARK: - ACTIONS
@@ -171,7 +190,9 @@ class OCReportDetailVC : ClearNaviagtionBarVC {
     }
 }
 
-// MARK: - UITableViewDelegate, UITableViewDataSource
+//----------------------------------------------------------------------------
+// MARK: - UITableView Methods
+//----------------------------------------------------------------------------
 extension OCReportDetailVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -189,5 +210,144 @@ extension OCReportDetailVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }
-    
 }
+
+
+/*
+ 
+ {
+   "thicknessOfOre" : "jgjkgj",
+   "typeOfFaults" : "456564",
+   "benchRl" : "jkgjgjkgkjgkj",
+   "shift" : "Day Shift",
+   "notes" : "6464613132vmgfjfjfhjfjh",
+   "benchAngle" : "gkjgjk",
+   "thicknessOfInterburden" : "jg",
+   "dipDirectionAndAngle" : "mbmbm",
+   "observedGradeOfOre" : "jgkjgkjgkjg",
+   "typeOfGeologist" : "564",
+   "weathring" : "jhgjk",
+   "faceLocation" : "gjkgkjgjg",
+   "pitName" : "9797",
+   "geologistName" : "jgjgkjgkjg",
+   "pitLoaction" : "gkgk",
+   "faceRockType" : "kjgjgjgjg",
+   "geologistSign" : "mnbnmnbmnbm",
+   "ocDate" : "1-Nov-2022",
+   "faceArea" : "gjhk",
+   "minesSiteName" : "test name",
+   "id" : 1,
+   "clientsGeologistSign" : "",
+   "mappingSheetNo" : "12312",
+   "rockStregth" : "jgkjkkggg",
+   "sampleColledted" : "jhg",
+   "image" : null,
+   "thicknessOfOverburdan" : "gkjgkjgkjgkjgjgjg",
+   "shiftInchargeName" : "gkjggkjg",
+   "faceLength" : "gjhgg",
+   "created_at" : "2022-10-27T13:55:38.000000Z",
+   "actualGradeOfOre" : "jghkj",
+   "updated_at" : "2022-10-27T13:55:38.000000Z",
+   "userId" : "1",
+   "benchHeightWidth" : "gjkgkjgjgj",
+   "waterCondition" : "5+5"
+ }
+ */
+//----------------------------------------------------------------------------
+// MARK: - Data Manipulate Methods
+//----------------------------------------------------------------------------
+extension OCReportDetailVC {
+    
+    func setDetail(_ reportData : JSON){
+    
+        self.btnViewPDF.isSelect = true
+        print(reportData)
+        
+        for (i, _) in self.arrReportDetails.enumerated(){
+            
+            if self.arrReportDetails[i]["key"].stringValue == kMapSerialNo{
+                self.arrReportDetails[i]["value"].stringValue = "-"
+            }
+            if self.arrReportDetails[i]["key"].stringValue == kDateColn{
+                self.arrReportDetails[i]["value"].stringValue = reportData["ocDate"].stringValue
+            }
+            if self.arrReportDetails[i]["key"].stringValue == kMineSitenameColn{
+                self.arrReportDetails[i]["value"].stringValue = reportData["minesSiteName"].stringValue
+            }
+            if self.arrReportDetails[i]["key"].stringValue == kPitnameColn{
+                self.arrReportDetails[i]["value"].stringValue = reportData["pitName"].stringValue
+            }
+            if self.arrReportDetails[i]["key"].stringValue == kPitLocationColn{
+                self.arrReportDetails[i]["value"].stringValue = reportData["pitLoaction"].stringValue
+            }
+            if self.arrReportDetails[i]["key"].stringValue == kShiftInchargeNameColn{
+                self.arrReportDetails[i]["value"].stringValue = reportData["shiftInchargeName"].stringValue
+            }
+            if self.arrReportDetails[i]["key"].stringValue == kGeologistNameColn{
+                self.arrReportDetails[i]["value"].stringValue = reportData["geologistName"].stringValue
+            }
+            if self.arrReportDetails[i]["key"].stringValue == kMappingParametersColn{
+                self.arrReportDetails[i]["value"].stringValue = "-"
+            }
+            if self.arrReportDetails[i]["key"].stringValue == kFaceLocationColn{
+                self.arrReportDetails[i]["value"].stringValue = reportData["faceLocation"].stringValue
+            }
+            if self.arrReportDetails[i]["key"].stringValue == kFaceLenghtMColn{
+                self.arrReportDetails[i]["value"].stringValue = reportData["faceLength"].stringValue
+            }
+            if self.arrReportDetails[i]["key"].stringValue == kFaceAreaM2Coln{
+                self.arrReportDetails[i]["value"].stringValue = reportData["faceArea"].stringValue
+            }
+            if self.arrReportDetails[i]["key"].stringValue == kFaceRockTypeColn{
+                self.arrReportDetails[i]["value"].stringValue = reportData["faceRockType"].stringValue
+            }
+            if self.arrReportDetails[i]["key"].stringValue == kBenchRL{
+                self.arrReportDetails[i]["value"].stringValue = reportData["benchRl"].stringValue
+            }
+            if self.arrReportDetails[i]["key"].stringValue == kBenchHeightWidthM{
+                self.arrReportDetails[i]["value"].stringValue = reportData["benchHeightWidth"].stringValue
+            }
+            if self.arrReportDetails[i]["key"].stringValue == kBenchAngleColn{
+                self.arrReportDetails[i]["value"].stringValue = reportData["benchAngle"].stringValue
+            }
+            if self.arrReportDetails[i]["key"].stringValue == kDipDirectionAndAngleColn{
+                self.arrReportDetails[i]["value"].stringValue = reportData["dipDirectionAndAngle"].stringValue
+            }
+            if self.arrReportDetails[i]["key"].stringValue == kThicknessOfOreCoalSeam{
+                self.arrReportDetails[i]["value"].stringValue = reportData["thicknessOfOre"].stringValue
+            }
+            if self.arrReportDetails[i]["key"].stringValue == kThicknessOfOverburdenMColn{
+                self.arrReportDetails[i]["value"].stringValue = reportData["thicknessOfOverburdan"].stringValue
+            }
+            if self.arrReportDetails[i]["key"].stringValue == kThicknessOfInterburdenMColn{
+                self.arrReportDetails[i]["value"].stringValue = reportData["thicknessOfInterburden"].stringValue
+            }
+            if self.arrReportDetails[i]["key"].stringValue == kObservedGradeOfOreColn{
+                self.arrReportDetails[i]["value"].stringValue = reportData["observedGradeOfOre"].stringValue
+            }
+            if self.arrReportDetails[i]["key"].stringValue == kSampleCollectedColn{
+                self.arrReportDetails[i]["value"].stringValue = reportData["sampleColledted"].stringValue
+            }
+            if self.arrReportDetails[i]["key"].stringValue == kActualGradeOfOreLabGradeColn{
+                self.arrReportDetails[i]["value"].stringValue = reportData["actualGradeOfOre"].stringValue
+            }
+            if self.arrReportDetails[i]["key"].stringValue == kWeatheringColn{
+                self.arrReportDetails[i]["value"].stringValue = reportData["weathring"].stringValue
+            }
+            if self.arrReportDetails[i]["key"].stringValue == kRockStrengthColn{
+                self.arrReportDetails[i]["value"].stringValue = reportData["rockStregth"].stringValue
+            }
+            if self.arrReportDetails[i]["key"].stringValue == kWaterConditionColn{
+                self.arrReportDetails[i]["value"].stringValue = reportData["waterCondition"].stringValue
+            }
+            if self.arrReportDetails[i]["key"].stringValue == kTypeOfGeologicalStructuresColn{
+                self.arrReportDetails[i]["value"].stringValue = "-"
+            }
+            if self.arrReportDetails[i]["key"].stringValue == kTypeOfFaultsColn{
+                self.arrReportDetails[i]["value"].stringValue = reportData["typeOfFaults"].stringValue
+            }
+        }
+        self.tableView.reloadData()
+    }
+}
+

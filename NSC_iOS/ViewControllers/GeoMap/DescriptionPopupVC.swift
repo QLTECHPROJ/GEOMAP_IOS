@@ -42,7 +42,7 @@ class DescriptionPopupVC: ClearNaviagtionBarVC {
     // MARK: - FUNCTIONS
     
     func setUpUI(){
-        self.view.backgroundColor = .colorSkyBlue.withAlphaComponent(0.5)
+        self.view.backgroundColor = .colorSkyBlue.withAlphaComponent(0.3)
         self.view.alpha = 0
         
         self.btnUnderGroundReport.isSelect = true

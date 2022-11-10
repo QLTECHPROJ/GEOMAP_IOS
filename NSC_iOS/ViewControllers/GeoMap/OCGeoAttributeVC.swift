@@ -210,7 +210,7 @@ class OCGeoAttributeVC: ClearNaviagtionBarVC {
             || self.txtThicknessOfInterburden.text!.trim.isEmpty
             || self.txtObservedGradeOfOre.text!.trim.isEmpty
             || self.txtActualGradeOfOreLabGrade.text!.trim.isEmpty
-            || self.tvNote.text!.trim.isEmpty || (self.btnNightShift.isSelected && self.btnDayShift.isSelected){
+            || self.tvNote.text!.trim.isEmpty || (self.btnNightShift.isSelected && self.btnDayShift.isSelected) ||  self.lblSampleCollected.text == kSampleCollected || self.lblWeathering.text == kWeathering || self.lblRockStrenght.text == kRockStrength || self.lblWaterCondition.text == kWaterCondition || self.lblTypeOfGeologicalStructure.text == kTypeOfGeologicalStructures || self.lblTypeOfFault.text == kTypeOfFaults{
             
             isEnable = false
             
@@ -229,27 +229,87 @@ class OCGeoAttributeVC: ClearNaviagtionBarVC {
     func btnOtherActions(){
         
         self.vwSampleCollected.handleTapToAction {
-            // Fix action
+
+            let vc = AppStoryBoard.main.viewController(viewControllerClass: ListItemVC.self)
+            vc.listType = .sampleCollected
+            vc.modalPresentationStyle = .overFullScreen
+            self.present(vc, animated: false, completion :{
+                vc.openPopUpVisiable()
+            })
+            vc.didSelectItem = { selectedItem in
+                print(selectedItem)
+                self.lblSampleCollected.text = selectedItem["name"].stringValue
+            }
         }
         
         self.vwWeathering.handleTapToAction {
-            // Fix action
+
+            let vc = AppStoryBoard.main.viewController(viewControllerClass: ListItemVC.self)
+            vc.listType = .weathering
+            vc.modalPresentationStyle = .overFullScreen
+            self.present(vc, animated: false, completion :{
+                vc.openPopUpVisiable()
+            })
+            vc.didSelectItem = { selectedItem in
+                print(selectedItem)
+                self.lblWeathering.text = selectedItem["name"].stringValue
+            }
         }
         
         self.vwRockStrenght.handleTapToAction {
-            // Fix action
+
+            let vc = AppStoryBoard.main.viewController(viewControllerClass: ListItemVC.self)
+            vc.listType = .rockStrenght
+            vc.modalPresentationStyle = .overFullScreen
+            self.present(vc, animated: false, completion :{
+                vc.openPopUpVisiable()
+            })
+            vc.didSelectItem = { selectedItem in
+                print(selectedItem)
+                self.lblRockStrenght.text = selectedItem["name"].stringValue
+            }
         }
         
         self.vwWaterCondition.handleTapToAction {
-            // Fix action
+
+            let vc = AppStoryBoard.main.viewController(viewControllerClass: ListItemVC.self)
+            vc.listType = .waterCollection
+            vc.modalPresentationStyle = .overFullScreen
+            self.present(vc, animated: false, completion :{
+                vc.openPopUpVisiable()
+            })
+            vc.didSelectItem = { selectedItem in
+                print(selectedItem)
+                self.lblWaterCondition.text = selectedItem["name"].stringValue
+            }
         }
         
         self.vwTypeOfGeologicalStructure.handleTapToAction {
-            // Fix action
+            
+            let vc = AppStoryBoard.main.viewController(viewControllerClass: ListItemVC.self)
+            vc.listType = .typeOfGeologicalStructure
+            vc.modalPresentationStyle = .overFullScreen
+            self.present(vc, animated: false, completion :{
+                vc.openPopUpVisiable()
+            })
+            vc.didSelectItem = { selectedItem in
+                print(selectedItem)
+                self.lblTypeOfGeologicalStructure.text = selectedItem["name"].stringValue
+            }
         }
         
         self.vwTypeOfFault.handleTapToAction {
-            // Fix action
+
+            let vc = AppStoryBoard.main.viewController(viewControllerClass: ListItemVC.self)
+            vc.listType = .typeOfFaults
+            vc.modalPresentationStyle = .overFullScreen
+            self.present(vc, animated: false, completion :{
+                vc.openPopUpVisiable()
+            })
+            vc.didSelectItem = { selectedItem in
+                print(selectedItem)
+                self.lblTypeOfFault.text = selectedItem["name"].stringValue
+            }
         }
     }
     

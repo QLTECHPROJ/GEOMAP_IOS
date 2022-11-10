@@ -32,22 +32,20 @@ class ListItemVC: ClearNaviagtionBarVC {
     
     // MARK: - VARIABLES
     var listType : ListItemType = .attributes
-    var strID = ""
-    var strNoData = Theme.strings.alert_search_term_not_found
-    
-    var arrayItem = [ListItem]()
-    var arrayItemSearch = [ListItem]()
-    var didSelectItem : ((ListItem) -> Void)?
-    
+    private var strNoData = Theme.strings.alert_search_term_not_found
+
+    var didSelectItem : ((JSON) -> Void)?
     
     var arrList : [JSON] = []
-    var arrListSearch : [JSON] = []
+    private var arrListSearch : [JSON] = []
+    
+    private var searchText : String = ""
     
     // MARK: - VIEW LIFE CYCLE
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupUI()
+        self.setupUI()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -58,6 +56,7 @@ class ListItemVC: ClearNaviagtionBarVC {
     
     // MARK: - FUNCTIONS
     func setupUI() {
+        self.view.backgroundColor = .colorSkyBlue.withAlphaComponent(0.3)
         self.view.alpha = 0
         btnClear.isHidden = true
         lblNoData.isHidden = true
@@ -79,13 +78,37 @@ class ListItemVC: ClearNaviagtionBarVC {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.viewTapped(_:)))
         tapGesture.numberOfTapsRequired = 1
         tapGesture.numberOfTouchesRequired = 1
-        viewBackground.addGestureRecognizer(tapGesture)
-        viewBackground.isUserInteractionEnabled = true
+        self.viewBackground.addGestureRecognizer(tapGesture)
+        self.viewBackground.isUserInteractionEnabled = true
         
-        tableView.register(nibWithCellClass: ListItemCell.self)
-        tableView.reloadData()
+        self.tableView.register(nibWithCellClass: ListItemCell.self)
+        self.tableView.reloadData()
+                
+        self.txtSearch.addTarget(self, action: #selector(self.searchValueChanged(_:)), for: .allEditingEvents)
+    }
+    
+    
+    @objc func searchValueChanged(_ sender : UITextField){
         
-        txtSearch.addTarget(self, action: #selector(textFieldValueChanged(textField:)), for: UIControl.Event.editingChanged)
+        self.searchText = sender.text!
+        self.searchText = self.searchText.lowercased()
+        self.arrListSearch = self.arrList.compactMap({ (obj) -> JSON? in
+            
+            if obj["name"].stringValue.lowercased().contains(self.searchText){
+                
+                return obj
+            }
+            else{
+                
+                return nil
+            }
+        })
+        
+        if sender.text! == ""{
+            self.arrListSearch = self.arrList
+        }
+        self.btnClear.isHidden = self.searchText.trim.isEmpty
+        self.tableView.reloadData()
     }
     
     func setUpTitle(){
@@ -123,7 +146,12 @@ class ListItemVC: ClearNaviagtionBarVC {
             txtSearch.placeholder = kChooseYourTypeOfFault
         }
         
-        self.apiCalling()
+        if self.listType == .Nos{
+            self.setupData()
+        }
+        else{
+            self.apiCalling()
+        }
     }
     
     func apiCalling(){
@@ -132,18 +160,111 @@ class ListItemVC: ClearNaviagtionBarVC {
         
         listDataVM.callItemListAPI(parameters: parameters.toDictionary(), listType: self.listType) { responsJSON, statusCode, message, completion in
             if completion , let data = responsJSON{
-                self.arrList = data.arrayValue
+                debugPrint(data)
+                self.arrList = data["ResponseData"].arrayValue
                 self.setupData()
             }
         }
     }
     
+    /*
+     {
+       "ResponseData" : [
+         {
+           "id" : 1,
+           "name" : "test data",
+           "created_at" : "2022-10-31T17:28:00.000000Z",
+           "updated_at" : "2022-10-31T17:28:00.000000Z"
+         }
+       ],
+       "ResponseCode" : "200",
+       "ResponseMessage" : "Sample Collecteds",
+       "ResponseStatus" : "Success"
+     }
+     
+     {
+       "ResponseData" : [
+         {
+           "id" : 1,
+           "created_at" : "2022-10-31T14:32:50.000000Z",
+           "updated_at" : "2022-10-31T14:32:50.000000Z",
+           "name" : "test1"
+         },
+         {
+           "id" : 2,
+           "created_at" : "2022-10-31T14:33:03.000000Z",
+           "updated_at" : "2022-10-31T14:33:03.000000Z",
+           "name" : "test 2"
+         }
+       ],
+       "ResponseCode" : "200",
+       "ResponseMessage" : "Weathering Data",
+       "ResponseStatus" : "Success"
+     }
+     
+     {
+       "ResponseData" : [
+         {
+           "id" : 1,
+           "created_at" : "2022-10-31T16:31:24.000000Z",
+           "name" : "test data",
+           "updated_at" : "2022-10-31T16:31:24.000000Z"
+         }
+       ],
+       "ResponseCode" : "200",
+       "ResponseStatus" : "Success",
+       "ResponseMessage" : "RockStrengts Data"
+     }
+     
+     {
+       "ResponseStatus" : "Success",
+       "ResponseData" : [
+         {
+           "created_at" : "2022-10-31T16:48:10.000000Z",
+           "updated_at" : "2022-10-31T16:48:10.000000Z",
+           "id" : 1,
+           "name" : "test data"
+         }
+       ],
+       "ResponseCode" : "200",
+       "ResponseMessage" : "WaterCondition Data"
+     }
+     
+     {
+       "ResponseCode" : "200",
+       "ResponseData" : [
+         {
+           "updated_at" : "2022-10-31T17:16:37.000000Z",
+           "id" : 1,
+           "created_at" : "2022-10-31T17:16:37.000000Z",
+           "name" : "test data"
+         }
+       ],
+       "ResponseStatus" : "Success",
+       "ResponseMessage" : "Type of Geological Structure"
+     }
+     
+     {
+       "ResponseMessage" : "Type of Faults",
+       "ResponseStatus" : "Success",
+       "ResponseCode" : "200",
+       "ResponseData" : [
+         {
+           "updated_at" : "2022-10-31T16:59:11.000000Z",
+           "id" : 1,
+           "created_at" : "2022-10-31T16:59:11.000000Z",
+           "name" : "test fault"
+         }
+       ]
+     }
+     */
+    
     func setupData() {
 
         self.arrListSearch = self.arrList
-        tableView.reloadData()
-        lblNoData.isHidden = self.arrListSearch.count != 0
-        tableView.isHidden = self.arrListSearch.count == 0
+        self.tableView.reloadData()
+        self.lblNoData.isHidden = self.arrListSearch.count != 0
+        self.tableView.isHidden = self.arrListSearch.count == 0
     }
     
     func openPopUpVisiable(){
@@ -152,7 +273,7 @@ class ListItemVC: ClearNaviagtionBarVC {
         }
     }
     
-    func closePopUpVisiable(isCompletion : Bool = false,sender : UIButton,tagInt : Int?){
+    func closePopUpVisiable(isCompletion : Bool = false, selectedData : JSON? = nil){
         
         UIView.animate(withDuration: 0.25, delay: 0.0, options: [], animations: {
             
@@ -160,8 +281,10 @@ class ListItemVC: ClearNaviagtionBarVC {
             
         }, completion: { (finished: Bool) in
             self.dismiss(animated: false) {
-                if isCompletion,let _ = tagInt{
-                    
+                if isCompletion,let _ = selectedData{
+                    if let _ = self.didSelectItem{
+                        self.didSelectItem!(selectedData!)
+                    }
                 }
             }
         })
@@ -172,51 +295,18 @@ class ListItemVC: ClearNaviagtionBarVC {
     }
     
     @objc func viewTapped(_ sender: UITapGestureRecognizer) {
-        self.dismiss(animated: true, completion: nil)
+        self.closePopUpVisiable()
     }
     
     
     // MARK: - ACTIONS
     @IBAction func clearSearchClicked(_ sender: UIButton) {
         txtSearch.text = ""
-        arrayItemSearch = arrayItem
+        self.arrListSearch = self.arrList
         btnClear.isHidden = true
         lblNoData.isHidden = true
         tableView.isHidden = false
         tableView.reloadData()
-    }
-    
-}
-
-
-// MARK: - UITextFieldDelegate
-extension ListItemVC : UITextFieldDelegate {
-    
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        
-        if let text = textField.text,
-            let textRange = Range(range, in: text) {
-            let updatedText = text.replacingCharacters(in: textRange, with: string).trim
-            arrayItemSearch = arrayItem.filter({ (model:ListItem) -> Bool in
-                return model.Name.lowercased().contains(updatedText.lowercased())
-            })
-            
-            if updatedText.trim.count == 0 {
-                arrayItemSearch = arrayItem
-            }
-            
-            if arrayItemSearch.count > 0 {
-                lblNoData.isHidden = true
-            } else {
-                lblNoData.isHidden = false
-                lblNoData.text = strNoData // "Couldn't find " + updatedText + " Try searching again"
-            }
-            lblNoData.isHidden = arrayItemSearch.count != 0
-            tableView.isHidden = arrayItemSearch.count == 0
-            tableView.reloadData()
-        }
-        
-        return true
     }
     
 }
@@ -240,8 +330,8 @@ extension ListItemVC : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        didSelectItem?(arrayItemSearch[indexPath.row])
-//        self.dismiss(animated: true, completion: nil)
+
+        self.closePopUpVisiable(isCompletion: true,selectedData: self.arrListSearch[indexPath.row])
     }
     
 }

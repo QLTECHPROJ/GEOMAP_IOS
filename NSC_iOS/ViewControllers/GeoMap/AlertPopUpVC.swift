@@ -66,7 +66,7 @@ class AlertPopUpVC: ClearNaviagtionBarVC {
     // MARK: - FUNCTIONS
     func setupUI(){
         self.view.alpha = 0
-        self.view.backgroundColor = .colorSkyBlue.withAlphaComponent(0.5)
+        self.view.backgroundColor = .colorSkyBlue.withAlphaComponent(0.3)
         self.lblTitle.applyLabelStyle(text : titleText,fontSize :  16,fontName : .InterBold)
         self.lblDetail.applyLabelStyle(fontSize : 14,fontName : .InterMedium)
         

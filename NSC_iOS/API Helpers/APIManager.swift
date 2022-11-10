@@ -7,7 +7,7 @@
 
 import Foundation
 import CryptoKit
-import Alamofire
+@_exported import Alamofire
 import EVReflection
 
 
@@ -237,14 +237,15 @@ extension APIManager{
                 if let value = responseData.result.value as? NSDictionary{
                     let jsonValue = JSON(value)
                     if JSON(value)["ResponseCode"].stringValue == ApiKeys.ApiStatusCode.success.rawValue{
-                        
-                        if JSON(value)["ResponseCode"].stringValue == ApiKeys.ApiStatusCode.userSessionExpire.rawValue{
-                            AppDelegate.shared.updateWindow()
-                        }
-                        else if let message = value["ResponseMessage"] as? String, message.trim.count > 0 {
-                            if showToast { showAlertToast(message: message) }
-                        }
+                      
                         completion?(responseData,JSON(value),JSON(value)["ResponseCode"].stringValue,JSON(value)["ResponseMessage"].stringValue,true)
+                    }
+                    else if JSON(value)["ResponseCode"].stringValue == ApiKeys.ApiStatusCode.userSessionExpire.rawValue{
+                        AppDelegate.shared.updateWindow()
+                        completion?(responseData,nil,JSON(value)["ResponseCode"].stringValue,JSON(value)["ResponseMessage"].stringValue,false)
+                    }
+                    else if JSON(value)["ResponseCode"].stringValue == ApiKeys.ApiStatusCode.invalidOrFail.rawValue{
+                        completion?(responseData,nil,JSON(value)["ResponseCode"].stringValue,JSON(value)["ResponseMessage"].stringValue,false)
                     }
                 }
                 break

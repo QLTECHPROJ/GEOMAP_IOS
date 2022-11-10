@@ -34,7 +34,7 @@
                                 <rect key="frame" x="10" y="10" width="323" height="114"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="1gj-qs-8b3">
-                                        <rect key="frame" x="0.0" y="0.0" width="323" height="83"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="323" height="108"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="MY6-40-aFh">
                                                 <rect key="frame" x="0.0" y="0.0" width="323" height="18.5"/>
@@ -59,8 +59,14 @@
                                                 <color key="textColor" name="8D8B97"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City Name, India" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3k9-RM-MJf">
+                                                <rect key="frame" x="0.0" y="53.5" width="323" height="15"/>
+                                                <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="12"/>
+                                                <color key="textColor" name="8D8B97"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem Ipsum is simply dummy text of the printing and typesetting " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sJX-35-8Fx">
-                                                <rect key="frame" x="0.0" y="53.5" width="323" height="29.5"/>
+                                                <rect key="frame" x="0.0" y="78.5" width="323" height="29.5"/>
                                                 <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="12"/>
                                                 <color key="textColor" name="8D8B97"/>
                                                 <nil key="highlightedColor"/>
@@ -103,6 +109,7 @@
                 <outlet property="lblCity" destination="75c-Bb-8Av" id="F0F-Jt-paT"/>
                 <outlet property="lblDate" destination="JWG-dH-IjR" id="L82-ib-v3j"/>
                 <outlet property="lblDescription" destination="sJX-35-8Fx" id="dx4-1W-vUL"/>
+                <outlet property="lblSubtitle" destination="3k9-RM-MJf" id="Or6-86-KSp"/>
                 <outlet property="lblTitle" destination="ctc-3f-dwm" id="EEh-9O-M28"/>
             </connections>
             <point key="canvasLocation" x="143" y="80"/>

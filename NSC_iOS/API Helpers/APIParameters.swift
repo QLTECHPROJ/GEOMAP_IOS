@@ -24,6 +24,9 @@ class APIParametersModel : NSObject {
     var dob : String!
     var mobile : String!
     var userId : String!
+    var subject : String!
+    var message : String!
+    
     
     override init() {
         
@@ -50,6 +53,8 @@ class APIParametersModel : NSObject {
         dob = json["dob"].stringValue
         mobile = json["mobile"].stringValue
         userId = json["userId"].stringValue
+        subject = json["subject"].stringValue
+        message = json["message"].stringValue
         
     }
     
@@ -93,6 +98,12 @@ class APIParametersModel : NSObject {
         }
         if userId != nil{
             dictionary["userId"] = userId
+        }
+        if message != nil{
+            dictionary["message"] = message
+        }
+        if subject != nil{
+            dictionary["subject"] = subject
         }
         
         return dictionary

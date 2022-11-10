@@ -50,7 +50,7 @@ class SupportPopupVC: ClearNaviagtionBarVC, TTTAttributedLabelDelegate {
         self.lblDescription.isUserInteractionEnabled = true
         self.lblDescription.addGestureRecognizer(tap)
         
-        self.view.backgroundColor = .colorSkyBlue.withAlphaComponent(0.5)
+        self.view.backgroundColor = .colorSkyBlue.withAlphaComponent(0.3)
     }
     
     

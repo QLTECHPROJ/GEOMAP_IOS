@@ -43,7 +43,7 @@ class UGGeoAttributeVC2: ClearNaviagtionBarVC {
     // MARK: - FUNCTIONS
     func setupUI() {
         self.view.backgroundColor = .colorBGSkyBlueLight
-        self.title = kGeologicalAttributes
+        self.title = kGeologicalMapping
         
         self.txtMapSerialNo.applyStyleFlotingTextfield(placeholderTitle : kMapSerialNo, fontsize : 16,fontname : .InterSemibol)
         self.txtDate.applyStyleFlotingTextfield(placeholderTitle : kDate, fontsize : 16,fontname : .InterSemibol)

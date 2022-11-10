@@ -34,7 +34,8 @@ class UserListPopUpVC: ClearNaviagtionBarVC {
         ["type" : kLogout]
     ]
     
-
+    private let vwProfileModel : ProfileViewModel = ProfileViewModel()
+    
     // MARK: - VIEW LIFE CYCLE
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,7 +67,18 @@ class UserListPopUpVC: ClearNaviagtionBarVC {
 
         self.imgUser.setImgWebUrl(imageString: JSON(UserModelClass.current.profileImage as Any).stringValue,isUserplaceholder : true)
         
+        self.vwProfileModel.callAPIGetUserProfile { reponseData, statusCode, message, completion in
+            
+            if completion , let data = reponseData{
+                debugPrint(data)
+            }
+            else{
+                GFunctions.shared.showSnackBar(message: message ?? "Error occuered ..!")
+            }
+        }
     }
+    
+    
     
     // MARK: - ACTIONS
     @IBAction func onTappedBack(_ sender: Any) {
@@ -134,13 +146,13 @@ extension UserListPopUpVC : UITableViewDelegate, UITableViewDataSource {
             
             break
             
-//        case kAboutUs:
-//            
-//            //            openUrl(urlString:"https://nationalsportscamps.in/about-nsc")
-//            let aVC = AppStoryBoard.main.viewController(viewControllerClass: WebViewVC.self)
-//            self.navigationController?.pushViewController(aVC, animated: true)
-//            
-//            break
+        case kAboutUs:
+            
+            let aVC = AppStoryBoard.main.viewController(viewControllerClass: WebViewVC.self)
+            aVC.titleString = title
+            self.navigationController?.pushViewController(aVC, animated: true)
+            
+            break
             
         case kSupport:
             
@@ -156,13 +168,11 @@ extension UserListPopUpVC : UITableViewDelegate, UITableViewDataSource {
             
             break
             
-        case kContantUs,kAboutUs:
+        case kContantUs:
             
-            //            openUrl(urlString:"https://nationalsportscamps.in/about-nsc")
-            let aVC = AppStoryBoard.main.viewController(viewControllerClass: WebViewVC.self)
-            aVC.titleString = title
+            let aVC = AppStoryBoard.main.viewController(viewControllerClass:ContactUSVC.self)
             self.navigationController?.pushViewController(aVC, animated: true)
-            
+
             break
             
         default:

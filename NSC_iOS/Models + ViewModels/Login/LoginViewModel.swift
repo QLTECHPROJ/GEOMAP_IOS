@@ -9,7 +9,7 @@ import Foundation
 
 class LoginViewModel {
         
-    func callLoginAPI(parameters : [String:Any], completionBlock: @escaping (Bool) -> Void) {
+    func callLoginAPI(parameters : [String:Any], completionBlock: @escaping (JSON?,String?,String?,Bool) -> Void) {
         
         debugPrint(parameters)
         
@@ -24,10 +24,10 @@ class LoginViewModel {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                     showAlertToast(message: Theme.strings.welcome_message)
                 }
-                completionBlock(true)
+                completionBlock(receivdeData,statusCode,message,true)
             }
             else{
-                completionBlock(false)
+                completionBlock(nil,statusCode,message,true)
             }
         }
     }
