@@ -333,5 +333,4 @@ extension ListItemVC : UITableViewDelegate, UITableViewDataSource {
 
         self.closePopUpVisiable(isCompletion: true,selectedData: self.arrListSearch[indexPath.row])
     }
-    
 }

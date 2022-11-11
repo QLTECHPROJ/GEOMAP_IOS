@@ -194,7 +194,6 @@ class ProfileVC: ClearNaviagtionBarVC {
             parameters.mobile = JSON(self.txtMobile.text).stringValue
             parameters.profileimage = self.strImage
             parameters.dob = GFunctions.shared.convertDateFormat(dt: JSON(self.txtDOB.text as Any).stringValue, inputFormat: DateTimeFormaterEnum.ddmm_yyyy.rawValue, outputFormat: DateTimeFormaterEnum.yyyymmdd.rawValue, status: .NOCONVERSION).str
-
             
             print(parameters.toDictionary())
             self.vwProfileModel.callProfileUpdateAPI(parameters: parameters.toDictionary(), uploadParameters: [self.imageData]) { completion in
@@ -227,7 +226,6 @@ class ProfileVC: ClearNaviagtionBarVC {
         self.present(aVC, animated: false, completion :{
             aVC.openPopUpVisiable()
         })
-        
     }
     
 }
