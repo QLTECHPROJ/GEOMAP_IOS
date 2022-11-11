@@ -128,4 +128,50 @@ extension UGGeoAttributeVC2 : UITextFieldDelegate {
     func textFieldDidChangeSelection(_ textField: UITextField) {
         self.buttonEnableDisable()
     }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == self.txtMapSerialNo {
+
+            self.txtDate.becomeFirstResponder()
+            
+        } else if textField == self.txtDate {
+
+            self.txtShift.becomeFirstResponder()
+        }
+        else if textField == self.txtShift {
+
+            self.txtMappedBy.becomeFirstResponder()
+        }
+        else if textField == self.txtMappedBy {
+
+            self.txtScale.becomeFirstResponder()
+        }
+        else if textField == self.txtScale {
+
+            self.txtLocation.becomeFirstResponder()
+        }
+        else if textField == self.txtLocation {
+
+            self.txtVeinLoad.becomeFirstResponder()
+        }
+        else if textField == self.txtVeinLoad {
+
+            self.txtXCordinate.becomeFirstResponder()
+        }
+        else if textField == self.txtXCordinate {
+
+            self.txtYCordinate.becomeFirstResponder()
+        }
+        else if textField == self.txtYCordinate {
+
+            self.txtZCordinate.becomeFirstResponder()
+        }
+        else if textField == self.txtZCordinate {
+
+            textField.resignFirstResponder()
+        }
+        
+        return true
+    }
+    
 }

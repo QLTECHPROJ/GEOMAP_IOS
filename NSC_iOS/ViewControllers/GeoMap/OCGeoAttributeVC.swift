@@ -32,7 +32,7 @@ class OCGeoAttributeVC: ClearNaviagtionBarVC {
     @IBOutlet weak var lblMappingParameters : UILabel!
     
     @IBOutlet weak var txtFaceLocation : ACFloatingTextfield!
-    @IBOutlet weak var txtFaceLength : ACFloatingTextfield!
+    @IBOutlet weak var txtFaceLengthM : ACFloatingTextfield!
     @IBOutlet weak var txtFaceAreaM2 : ACFloatingTextfield!
     @IBOutlet weak var txtFaceRockType : ACFloatingTextfield!
     
@@ -145,7 +145,8 @@ class OCGeoAttributeVC: ClearNaviagtionBarVC {
         self.lblMappingParameters.applyLabelStyle(text : kMappingParameters,fontSize : 12,fontName : .InterMedium)
         
         self.txtFaceLocation.applyStyleFlotingTextfield(placeholderTitle : kFaceLocation, fontsize : 14,fontname : .InterSemibol)
-        self.txtFaceLength.applyStyleFlotingTextfield(placeholderTitle : kFaceLengthM, fontsize : 14,fontname : .InterSemibol)
+        self.txtFaceLengthM.applyStyleFlotingTextfield(placeHolderFont : UIFont.applyCustomFont(fontName: .InterSemibol, fontSize: 14),placeholderTitle : kFaceLengthM, fontsize : 14,fontname : .InterSemibol)
+
         self.txtFaceAreaM2.applyStyleFlotingTextfield(placeholderTitle : kFaceAreaM, fontsize : 14,fontname : .InterSemibol)
         self.txtFaceRockType.applyStyleFlotingTextfield(placeholderTitle : kFaceRockType, fontsize : 14,fontname : .InterSemibol)
         self.txtBenchRL.applyStyleFlotingTextfield(placeholderTitle : kBenchRL, fontsize : 14,fontname : .InterSemibol)
@@ -198,7 +199,7 @@ class OCGeoAttributeVC: ClearNaviagtionBarVC {
             || self.txtShiftinchargeName.text!.trim.isEmpty
             || self.txtGeologistName.text!.trim.isEmpty
             || self.txtFaceLocation.text!.trim.isEmpty
-            || self.txtFaceLength.text!.trim.isEmpty
+            || self.txtFaceLengthM.text!.trim.isEmpty
             || self.txtFaceAreaM2.text!.trim.isEmpty
             || self.txtFaceRockType.text!.trim.isEmpty
             || self.txtBenchRL.text!.trim.isEmpty
@@ -390,6 +391,82 @@ extension OCGeoAttributeVC : UITextFieldDelegate {
     
     func textFieldDidChangeSelection(_ textField: UITextField) {
         self.buttonEnableDisable()
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == self.txtMineSiteName {
+
+            self.txtPitName.becomeFirstResponder()
+            
+        } else if textField == self.txtPitName {
+
+            self.txtPitLocation.becomeFirstResponder()
+        }
+        else if textField == self.txtPitLocation {
+
+            self.txtShiftinchargeName.becomeFirstResponder()
+        }
+        else if textField == self.txtShiftinchargeName {
+
+            self.txtGeologistName.becomeFirstResponder()
+        }
+        else if textField == self.txtGeologistName {
+
+            self.txtFaceLocation.becomeFirstResponder()
+        }
+        else if textField == self.txtFaceLocation {
+
+            self.txtFaceLengthM.becomeFirstResponder()
+        }
+        else if textField == self.txtFaceLengthM {
+
+            self.txtFaceAreaM2.becomeFirstResponder()
+        }
+        else if textField == self.txtFaceAreaM2 {
+
+            self.txtFaceRockType.becomeFirstResponder()
+        }
+        else if textField == self.txtFaceRockType {
+
+            self.txtBenchRL.becomeFirstResponder()
+        }
+        else if textField == self.txtBenchRL {
+
+            self.txtBenchHeightWidth.becomeFirstResponder()
+        }
+        else if textField == self.txtBenchHeightWidth {
+
+            self.txtBenchAngle.becomeFirstResponder()
+        }
+        else if textField == self.txtBenchAngle {
+
+            self.txtDipDirectionAngle.becomeFirstResponder()
+        }
+        else if textField == self.txtDipDirectionAngle {
+
+            self.txtThicknessOfOre.becomeFirstResponder()
+        }
+        else if textField == self.txtThicknessOfOre {
+
+            self.txtThicknessOfOverBurden.becomeFirstResponder()
+        }
+        else if textField == self.txtThicknessOfOverBurden {
+
+            self.txtThicknessOfInterburden.becomeFirstResponder()
+        }
+        else if textField == self.txtThicknessOfInterburden {
+
+            self.txtObservedGradeOfOre.becomeFirstResponder()
+        }
+        else if textField == self.txtObservedGradeOfOre {
+
+            self.txtActualGradeOfOreLabGrade.becomeFirstResponder()
+        }
+        else if textField == self.txtActualGradeOfOreLabGrade {
+
+            self.tvNote.becomeFirstResponder()
+        }
+        return true
     }
 }
 

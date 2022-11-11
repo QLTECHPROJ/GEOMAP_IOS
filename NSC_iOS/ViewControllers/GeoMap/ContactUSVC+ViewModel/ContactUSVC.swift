@@ -96,9 +96,9 @@ class ContactUSVC: ClearNaviagtionBarVC {
         let userData = UserModelClass.current
         self.txtName.text = JSON(userData.name as Any).stringValue
         self.txtEmail.text = JSON(userData.email as Any).stringValue
-        self.txtEmail.isUserInteractionEnabled = JSON(userData.email as Any).stringValue.isEmpty
+//        self.txtEmail.isUserInteractionEnabled = JSON(userData.email as Any).stringValue.isEmpty
         self.txtMobileNo.text = JSON(userData.mobile as Any).stringValue
-        self.txtMobileNo.isUserInteractionEnabled = JSON(userData.mobile as Any).stringValue.isEmpty
+//        self.txtMobileNo.isUserInteractionEnabled = JSON(userData.mobile as Any).stringValue.isEmpty
     }
     
     func buttonEnableDisable(){
@@ -194,9 +194,22 @@ extension ContactUSVC : UITextFieldDelegate {
         return true
     }
     
-    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        return textField.resignFirstResponder()
+        if textField == self.txtName {
+
+            self.txtMobileNo.becomeFirstResponder()
+        } else if textField == self.txtMobileNo {
+
+            self.txtEmail.becomeFirstResponder()
+        } else if textField == self.txtEmail {
+
+            self.txtSubject.becomeFirstResponder()
+        }
+        else if textField == self.txtSubject {
+
+            self.tvMessage.becomeFirstResponder()
+        }
+        return true
     }
     
     func textFieldDidChangeSelection(_ textField: UITextField) {

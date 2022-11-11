@@ -144,8 +144,6 @@ var kMappingParameters = "Mapping Parameters"
 
 var kFaceLocation = "Face Location"
 
-var kFaceLengthM = "Face Lenght (m)"
-
 var kFaceAreaM = "Face Area (m2)"
 
 var kFaceRockType = "Face Rock types"
@@ -309,3 +307,5 @@ var kEnterMessage = "Enter Message"
 var kSubject = "Subject"
 
 var kAPIRequestFailed = "Response can't recieved..!"
+
+var kFaceLengthM = "Face Length (m)"

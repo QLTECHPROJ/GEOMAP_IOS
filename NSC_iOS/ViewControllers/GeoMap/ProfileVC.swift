@@ -248,7 +248,22 @@ extension ProfileVC : UITextFieldDelegate {
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        return textField.resignFirstResponder()
+        if textField == self.txtName {
+
+            self.txtEmail.becomeFirstResponder()
+        } else if textField == self.txtEmail {
+
+            self.txtMobile.becomeFirstResponder()
+        }
+        else if textField == self.txtMobile {
+
+            self.txtDOB.becomeFirstResponder()
+        }
+        else if textField == self.txtDOB {
+
+            textField.resignFirstResponder()
+        }
+        return true
     }
     
     func textFieldDidChangeSelection(_ textField: UITextField) {

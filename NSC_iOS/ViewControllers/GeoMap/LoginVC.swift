@@ -154,7 +154,14 @@ extension LoginVC : UITextFieldDelegate {
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        return textField.resignFirstResponder()
+        if textField == self.txtUser {
+
+            self.txtUser.becomeFirstResponder()
+        } else if textField == self.txtPassword {
+
+            textField.becomeFirstResponder()
+        } 
+        return true
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {

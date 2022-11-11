@@ -220,7 +220,7 @@ Data File</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Sjm-q3-xlR">
-                                <rect key="frame" x="0.0" y="91" width="375" height="687"/>
+                                <rect key="frame" x="0.0" y="101" width="375" height="677"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="dataSource" destination="5dc-fb-bpO" id="LJS-vd-9Ct"/>
@@ -233,7 +233,7 @@ Data File</string>
                         <constraints>
                             <constraint firstItem="Sjm-q3-xlR" firstAttribute="leading" secondItem="vkk-Uq-mb2" secondAttribute="leading" id="Jt2-0i-jUr"/>
                             <constraint firstItem="vkk-Uq-mb2" firstAttribute="bottom" secondItem="Sjm-q3-xlR" secondAttribute="bottom" id="O3x-Mi-Tyo"/>
-                            <constraint firstItem="Sjm-q3-xlR" firstAttribute="top" secondItem="vkk-Uq-mb2" secondAttribute="top" id="W4w-1v-5Ro"/>
+                            <constraint firstItem="Sjm-q3-xlR" firstAttribute="top" secondItem="vkk-Uq-mb2" secondAttribute="top" constant="10" id="W4w-1v-5Ro"/>
                             <constraint firstItem="vkk-Uq-mb2" firstAttribute="trailing" secondItem="Sjm-q3-xlR" secondAttribute="trailing" id="jJD-me-U7T"/>
                         </constraints>
                     </view>
@@ -586,7 +586,7 @@ QXJlIHlvdSBzdXJlIHlvdSB3YW50IHRvIGRlbGV0ZQtTZWxmLWRldmVsb3BtZW50IHBsYXlsaXN0Pw
                                                         <rect key="frame" x="0.0" y="0.0" width="325" height="60"/>
                                                         <subviews>
                                                             <textField clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Map serial no." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="srq-oO-YbT" customClass="ACFloatingTextfield" customModule="ACFloatingTextfield_Swift">
-                                                                <rect key="frame" x="16" y="6" width="293" height="44"/>
+                                                                <rect key="frame" x="16" y="6" width="293" height="42"/>
                                                                 <color key="textColor" name="textColor"/>
                                                                 <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="16"/>
                                                                 <textInputTraits key="textInputTraits"/>
@@ -613,7 +613,7 @@ QXJlIHlvdSBzdXJlIHlvdSB3YW50IHRvIGRlbGV0ZQtTZWxmLWRldmVsb3BtZW50IHBsYXlsaXN0Pw
                                                         <constraints>
                                                             <constraint firstAttribute="trailing" secondItem="srq-oO-YbT" secondAttribute="trailing" constant="16" id="3Th-6s-5G7"/>
                                                             <constraint firstAttribute="width" secondItem="xXM-9h-4J6" secondAttribute="height" multiplier="65:12" id="IKu-hK-dlc"/>
-                                                            <constraint firstAttribute="bottom" secondItem="srq-oO-YbT" secondAttribute="bottom" constant="10" id="LuL-kG-c09"/>
+                                                            <constraint firstAttribute="bottom" secondItem="srq-oO-YbT" secondAttribute="bottom" constant="12" id="LuL-kG-c09"/>
                                                             <constraint firstItem="srq-oO-YbT" firstAttribute="leading" secondItem="xXM-9h-4J6" secondAttribute="leading" constant="16" id="P9p-KF-iCH"/>
                                                             <constraint firstItem="srq-oO-YbT" firstAttribute="top" secondItem="xXM-9h-4J6" secondAttribute="top" constant="6" id="cic-eE-KVh"/>
                                                         </constraints>
@@ -622,7 +622,7 @@ QXJlIHlvdSBzdXJlIHlvdSB3YW50IHRvIGRlbGV0ZQtTZWxmLWRldmVsb3BtZW50IHBsYXlsaXN0Pw
                                                         <rect key="frame" x="0.0" y="75" width="325" height="60"/>
                                                         <subviews>
                                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="f8e-Yf-5yX" customClass="ACFloatingTextfield" customModule="ACFloatingTextfield_Swift">
-                                                                <rect key="frame" x="16" y="6" width="293" height="44"/>
+                                                                <rect key="frame" x="16" y="6" width="293" height="42"/>
                                                                 <color key="textColor" name="textColor"/>
                                                                 <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="16"/>
                                                                 <textInputTraits key="textInputTraits"/>
@@ -653,7 +653,7 @@ QXJlIHlvdSBzdXJlIHlvdSB3YW50IHRvIGRlbGV0ZQtTZWxmLWRldmVsb3BtZW50IHBsYXlsaXN0Pw
                                                         </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="bottom" secondItem="f8e-Yf-5yX" secondAttribute="bottom" constant="10" id="907-ho-dRC"/>
+                                                            <constraint firstAttribute="bottom" secondItem="f8e-Yf-5yX" secondAttribute="bottom" constant="12" id="907-ho-dRC"/>
                                                             <constraint firstAttribute="trailing" secondItem="f8e-Yf-5yX" secondAttribute="trailing" constant="16" id="CXR-bG-Vlv"/>
                                                             <constraint firstItem="f8e-Yf-5yX" firstAttribute="top" secondItem="vUJ-Y1-pe0" secondAttribute="top" constant="6" id="kyU-fm-fbr"/>
                                                             <constraint firstItem="f8e-Yf-5yX" firstAttribute="leading" secondItem="vUJ-Y1-pe0" secondAttribute="leading" constant="16" id="szG-IH-dEf"/>
@@ -663,7 +663,7 @@ QXJlIHlvdSBzdXJlIHlvdSB3YW50IHRvIGRlbGV0ZQtTZWxmLWRldmVsb3BtZW50IHBsYXlsaXN0Pw
                                                         <rect key="frame" x="0.0" y="150" width="325" height="60"/>
                                                         <subviews>
                                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Shift" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7H7-45-c7M" customClass="ACFloatingTextfield" customModule="ACFloatingTextfield_Swift">
-                                                                <rect key="frame" x="16" y="6" width="293" height="44"/>
+                                                                <rect key="frame" x="16" y="6" width="293" height="42"/>
                                                                 <color key="textColor" name="textColor"/>
                                                                 <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="16"/>
                                                                 <textInputTraits key="textInputTraits"/>
@@ -688,7 +688,7 @@ QXJlIHlvdSBzdXJlIHlvdSB3YW50IHRvIGRlbGV0ZQtTZWxmLWRldmVsb3BtZW50IHBsYXlsaXN0Pw
                                                         </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="bottom" secondItem="7H7-45-c7M" secondAttribute="bottom" constant="10" id="ALl-d7-8Pk"/>
+                                                            <constraint firstAttribute="bottom" secondItem="7H7-45-c7M" secondAttribute="bottom" constant="12" id="ALl-d7-8Pk"/>
                                                             <constraint firstItem="7H7-45-c7M" firstAttribute="top" secondItem="YZW-Rk-fbN" secondAttribute="top" constant="6" id="Hxx-C1-7YE"/>
                                                             <constraint firstAttribute="trailing" secondItem="7H7-45-c7M" secondAttribute="trailing" constant="16" id="MET-s8-xbh"/>
                                                             <constraint firstItem="7H7-45-c7M" firstAttribute="leading" secondItem="YZW-Rk-fbN" secondAttribute="leading" constant="16" id="Ve9-Rf-8ra"/>
@@ -698,7 +698,7 @@ QXJlIHlvdSBzdXJlIHlvdSB3YW50IHRvIGRlbGV0ZQtTZWxmLWRldmVsb3BtZW50IHBsYXlsaXN0Pw
                                                         <rect key="frame" x="0.0" y="225" width="325" height="60"/>
                                                         <subviews>
                                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Mapped by" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ibw-tb-H3g" customClass="ACFloatingTextfield" customModule="ACFloatingTextfield_Swift">
-                                                                <rect key="frame" x="16" y="6" width="293" height="44"/>
+                                                                <rect key="frame" x="16" y="6" width="293" height="42"/>
                                                                 <color key="textColor" name="textColor"/>
                                                                 <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="16"/>
                                                                 <textInputTraits key="textInputTraits"/>
@@ -716,11 +716,14 @@ QXJlIHlvdSBzdXJlIHlvdSB3YW50IHRvIGRlbGV0ZQtTZWxmLWRldmVsb3BtZW50IHBsYXlsaXN0Pw
                                                                         <color key="value" name="theme_dark"/>
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <outlet property="delegate" destination="9jf-Ji-inj" id="Bhe-ym-NeR"/>
+                                                                </connections>
                                                             </textField>
                                                         </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="bottom" secondItem="Ibw-tb-H3g" secondAttribute="bottom" constant="10" id="5uO-63-5na"/>
+                                                            <constraint firstAttribute="bottom" secondItem="Ibw-tb-H3g" secondAttribute="bottom" constant="12" id="5uO-63-5na"/>
                                                             <constraint firstItem="Ibw-tb-H3g" firstAttribute="leading" secondItem="GrJ-Tr-bPq" secondAttribute="leading" constant="16" id="CDf-ef-hMl"/>
                                                             <constraint firstAttribute="trailing" secondItem="Ibw-tb-H3g" secondAttribute="trailing" constant="16" id="VSf-FR-Wsr"/>
                                                             <constraint firstItem="Ibw-tb-H3g" firstAttribute="top" secondItem="GrJ-Tr-bPq" secondAttribute="top" constant="6" id="fvE-pY-QXl"/>
@@ -730,7 +733,7 @@ QXJlIHlvdSBzdXJlIHlvdSB3YW50IHRvIGRlbGV0ZQtTZWxmLWRldmVsb3BtZW50IHBsYXlsaXN0Pw
                                                         <rect key="frame" x="0.0" y="300" width="325" height="60"/>
                                                         <subviews>
                                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Scale" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="i87-nE-NFP" customClass="ACFloatingTextfield" customModule="ACFloatingTextfield_Swift">
-                                                                <rect key="frame" x="16" y="6" width="293" height="44"/>
+                                                                <rect key="frame" x="16" y="6" width="293" height="42"/>
                                                                 <color key="textColor" name="textColor"/>
                                                                 <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="16"/>
                                                                 <textInputTraits key="textInputTraits"/>
@@ -756,7 +759,7 @@ QXJlIHlvdSBzdXJlIHlvdSB3YW50IHRvIGRlbGV0ZQtTZWxmLWRldmVsb3BtZW50IHBsYXlsaXN0Pw
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstItem="i87-nE-NFP" firstAttribute="top" secondItem="cI1-lS-gWU" secondAttribute="top" constant="6" id="BZi-2Z-I0B"/>
-                                                            <constraint firstAttribute="bottom" secondItem="i87-nE-NFP" secondAttribute="bottom" constant="10" id="Wbc-kA-gxs"/>
+                                                            <constraint firstAttribute="bottom" secondItem="i87-nE-NFP" secondAttribute="bottom" constant="12" id="Wbc-kA-gxs"/>
                                                             <constraint firstItem="i87-nE-NFP" firstAttribute="leading" secondItem="cI1-lS-gWU" secondAttribute="leading" constant="16" id="nJb-rp-Hiv"/>
                                                             <constraint firstAttribute="trailing" secondItem="i87-nE-NFP" secondAttribute="trailing" constant="16" id="vQv-wh-nPz"/>
                                                         </constraints>
@@ -765,7 +768,7 @@ QXJlIHlvdSBzdXJlIHlvdSB3YW50IHRvIGRlbGV0ZQtTZWxmLWRldmVsb3BtZW50IHBsYXlsaXN0Pw
                                                         <rect key="frame" x="0.0" y="375" width="325" height="60"/>
                                                         <subviews>
                                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Location" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="j0d-Mk-JPR" customClass="ACFloatingTextfield" customModule="ACFloatingTextfield_Swift">
-                                                                <rect key="frame" x="16" y="6" width="293" height="44"/>
+                                                                <rect key="frame" x="16" y="6" width="293" height="42"/>
                                                                 <color key="textColor" name="textColor"/>
                                                                 <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="16"/>
                                                                 <textInputTraits key="textInputTraits"/>
@@ -793,14 +796,14 @@ QXJlIHlvdSBzdXJlIHlvdSB3YW50IHRvIGRlbGV0ZQtTZWxmLWRldmVsb3BtZW50IHBsYXlsaXN0Pw
                                                             <constraint firstItem="j0d-Mk-JPR" firstAttribute="top" secondItem="TEL-6K-NTz" secondAttribute="top" constant="6" id="GT7-OB-LQc"/>
                                                             <constraint firstItem="j0d-Mk-JPR" firstAttribute="leading" secondItem="TEL-6K-NTz" secondAttribute="leading" constant="16" id="hG5-YU-kxO"/>
                                                             <constraint firstAttribute="trailing" secondItem="j0d-Mk-JPR" secondAttribute="trailing" constant="16" id="ngW-CJ-Ft4"/>
-                                                            <constraint firstAttribute="bottom" secondItem="j0d-Mk-JPR" secondAttribute="bottom" constant="10" id="xWc-HF-pQA"/>
+                                                            <constraint firstAttribute="bottom" secondItem="j0d-Mk-JPR" secondAttribute="bottom" constant="12" id="xWc-HF-pQA"/>
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ThW-ch-umg" customClass="AppShadowViewClass" customModule="NSC_iOS" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="450" width="325" height="60"/>
                                                         <subviews>
                                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Vein/load" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uWv-f3-oTW" customClass="ACFloatingTextfield" customModule="ACFloatingTextfield_Swift">
-                                                                <rect key="frame" x="16" y="6" width="293" height="44"/>
+                                                                <rect key="frame" x="16" y="6" width="293" height="42"/>
                                                                 <color key="textColor" name="textColor"/>
                                                                 <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="16"/>
                                                                 <textInputTraits key="textInputTraits"/>
@@ -825,7 +828,7 @@ QXJlIHlvdSBzdXJlIHlvdSB3YW50IHRvIGRlbGV0ZQtTZWxmLWRldmVsb3BtZW50IHBsYXlsaXN0Pw
                                                         </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="bottom" secondItem="uWv-f3-oTW" secondAttribute="bottom" constant="10" id="HJF-uA-eO6"/>
+                                                            <constraint firstAttribute="bottom" secondItem="uWv-f3-oTW" secondAttribute="bottom" constant="12" id="HJF-uA-eO6"/>
                                                             <constraint firstItem="uWv-f3-oTW" firstAttribute="top" secondItem="ThW-ch-umg" secondAttribute="top" constant="6" id="ZYs-tT-HV9"/>
                                                             <constraint firstAttribute="trailing" secondItem="uWv-f3-oTW" secondAttribute="trailing" constant="16" id="k3U-Oz-PiU"/>
                                                             <constraint firstItem="uWv-f3-oTW" firstAttribute="leading" secondItem="ThW-ch-umg" secondAttribute="leading" constant="16" id="mj4-Jg-cMd"/>
@@ -835,7 +838,7 @@ QXJlIHlvdSBzdXJlIHlvdSB3YW50IHRvIGRlbGV0ZQtTZWxmLWRldmVsb3BtZW50IHBsYXlsaXN0Pw
                                                         <rect key="frame" x="0.0" y="525" width="325" height="60"/>
                                                         <subviews>
                                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="X cordinate" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fXX-1o-iQM" customClass="ACFloatingTextfield" customModule="ACFloatingTextfield_Swift">
-                                                                <rect key="frame" x="16" y="6" width="293" height="44"/>
+                                                                <rect key="frame" x="16" y="6" width="293" height="42"/>
                                                                 <color key="textColor" name="textColor"/>
                                                                 <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="16"/>
                                                                 <textInputTraits key="textInputTraits"/>
@@ -860,7 +863,7 @@ QXJlIHlvdSBzdXJlIHlvdSB3YW50IHRvIGRlbGV0ZQtTZWxmLWRldmVsb3BtZW50IHBsYXlsaXN0Pw
                                                         </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="bottom" secondItem="fXX-1o-iQM" secondAttribute="bottom" constant="10" id="Krx-xa-XuU"/>
+                                                            <constraint firstAttribute="bottom" secondItem="fXX-1o-iQM" secondAttribute="bottom" constant="12" id="Krx-xa-XuU"/>
                                                             <constraint firstAttribute="trailing" secondItem="fXX-1o-iQM" secondAttribute="trailing" constant="16" id="Ved-FP-idi"/>
                                                             <constraint firstItem="fXX-1o-iQM" firstAttribute="top" secondItem="tMP-fr-6gF" secondAttribute="top" constant="6" id="bSp-E0-Rkg"/>
                                                             <constraint firstItem="fXX-1o-iQM" firstAttribute="leading" secondItem="tMP-fr-6gF" secondAttribute="leading" constant="16" id="pNC-Lo-QLE"/>
@@ -870,7 +873,7 @@ QXJlIHlvdSBzdXJlIHlvdSB3YW50IHRvIGRlbGV0ZQtTZWxmLWRldmVsb3BtZW50IHBsYXlsaXN0Pw
                                                         <rect key="frame" x="0.0" y="600" width="325" height="60"/>
                                                         <subviews>
                                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Y cordinate" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0RR-xW-3Qh" customClass="ACFloatingTextfield" customModule="ACFloatingTextfield_Swift">
-                                                                <rect key="frame" x="16" y="6" width="293" height="44"/>
+                                                                <rect key="frame" x="16" y="6" width="293" height="42"/>
                                                                 <color key="textColor" name="textColor"/>
                                                                 <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="16"/>
                                                                 <textInputTraits key="textInputTraits"/>
@@ -896,7 +899,7 @@ QXJlIHlvdSBzdXJlIHlvdSB3YW50IHRvIGRlbGV0ZQtTZWxmLWRldmVsb3BtZW50IHBsYXlsaXN0Pw
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstItem="0RR-xW-3Qh" firstAttribute="top" secondItem="Cob-Sx-23B" secondAttribute="top" constant="6" id="8wO-7c-t5A"/>
-                                                            <constraint firstAttribute="bottom" secondItem="0RR-xW-3Qh" secondAttribute="bottom" constant="10" id="Pmr-ws-9L4"/>
+                                                            <constraint firstAttribute="bottom" secondItem="0RR-xW-3Qh" secondAttribute="bottom" constant="12" id="Pmr-ws-9L4"/>
                                                             <constraint firstAttribute="trailing" secondItem="0RR-xW-3Qh" secondAttribute="trailing" constant="16" id="su7-9z-VPC"/>
                                                             <constraint firstItem="0RR-xW-3Qh" firstAttribute="leading" secondItem="Cob-Sx-23B" secondAttribute="leading" constant="16" id="zhP-JV-vFz"/>
                                                         </constraints>
@@ -905,7 +908,7 @@ QXJlIHlvdSBzdXJlIHlvdSB3YW50IHRvIGRlbGV0ZQtTZWxmLWRldmVsb3BtZW50IHBsYXlsaXN0Pw
                                                         <rect key="frame" x="0.0" y="675" width="325" height="60"/>
                                                         <subviews>
                                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Z cordinate" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2hj-Oa-dfL" customClass="ACFloatingTextfield" customModule="ACFloatingTextfield_Swift">
-                                                                <rect key="frame" x="16" y="6" width="293" height="44"/>
+                                                                <rect key="frame" x="16" y="6" width="293" height="42"/>
                                                                 <color key="textColor" name="textColor"/>
                                                                 <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="16"/>
                                                                 <textInputTraits key="textInputTraits"/>
@@ -933,7 +936,7 @@ QXJlIHlvdSBzdXJlIHlvdSB3YW50IHRvIGRlbGV0ZQtTZWxmLWRldmVsb3BtZW50IHBsYXlsaXN0Pw
                                                             <constraint firstItem="2hj-Oa-dfL" firstAttribute="leading" secondItem="Ge2-XZ-MJa" secondAttribute="leading" constant="16" id="7ir-Zk-qbF"/>
                                                             <constraint firstItem="2hj-Oa-dfL" firstAttribute="top" secondItem="Ge2-XZ-MJa" secondAttribute="top" constant="6" id="Cvp-Rm-4SR"/>
                                                             <constraint firstAttribute="trailing" secondItem="2hj-Oa-dfL" secondAttribute="trailing" constant="16" id="N8N-OG-lzL"/>
-                                                            <constraint firstAttribute="bottom" secondItem="2hj-Oa-dfL" secondAttribute="bottom" constant="10" id="TYE-Mf-NYw"/>
+                                                            <constraint firstAttribute="bottom" secondItem="2hj-Oa-dfL" secondAttribute="bottom" constant="12" id="TYE-Mf-NYw"/>
                                                         </constraints>
                                                     </view>
                                                 </subviews>
@@ -1301,6 +1304,7 @@ Mapping Report Details</string>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u7h-40-t90">
+                                    <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
@@ -1336,7 +1340,7 @@ Mapping Report Details</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wpf-nz-oqg">
-                                <rect key="frame" x="22" y="189.66666666666663" width="331" height="433"/>
+                                <rect key="frame" x="22" y="191.99999999999997" width="331" height="428.33333333333326"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Login" translatesAutoresizingMaskIntoConstraints="NO" id="kuz-b6-no9">
                                         <rect key="frame" x="85.666666666666686" y="30" width="160" height="160"/>
@@ -1345,25 +1349,25 @@ Mapping Report Details</string>
                                         </constraints>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="BgQ-Bj-DKC">
-                                        <rect key="frame" x="25" y="205" width="281" height="118"/>
+                                        <rect key="frame" x="25" y="205.00000000000003" width="281" height="114.33333333333334"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Geo Map" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YKL-dK-nDO">
-                                                <rect key="frame" x="0.0" y="0.0" width="281" height="22"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="281" height="21"/>
                                                 <fontDescription key="fontDescription" name="Inter-Bold" family="Inter" pointSize="18"/>
                                                 <color key="textColor" name="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="T7w-ax-UKH">
-                                                <rect key="frame" x="0.0" y="32" width="281" height="86"/>
+                                                <rect key="frame" x="0.0" y="30.999999999999993" width="281" height="83.333333333333314"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Geo Map" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hyr-WP-2zs">
-                                                        <rect key="frame" x="0.0" y="0.0" width="281" height="22"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="281" height="21"/>
                                                         <fontDescription key="fontDescription" name="Inter-Bold" family="Inter" pointSize="18"/>
                                                         <color key="textColor" name="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" text="Please contact support at serotonin@lobsterapp.com.au" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OsK-VS-bCk" customClass="TTTAttributedLabel">
-                                                        <rect key="frame" x="0.0" y="47" width="281" height="39"/>
+                                                        <rect key="frame" x="0.0" y="46" width="281" height="37.333333333333343"/>
                                                         <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="16"/>
                                                         <color key="textColor" name="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -1373,7 +1377,7 @@ Mapping Report Details</string>
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t3J-BG-7fA" customClass="AppThemeBlueButton" customModule="NSC_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="108.66666666666666" y="353" width="114" height="50"/>
+                                        <rect key="frame" x="109" y="349.33333333333337" width="113" height="49"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="Inter-Bold" family="Inter" pointSize="16"/>
                                         <inset key="contentEdgeInsets" minX="30" minY="15" maxX="30" maxY="15"/>
@@ -1452,16 +1456,16 @@ Mapping Report Details</string>
                                         </constraints>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="wgi-Zm-BvV">
-                                        <rect key="frame" x="25" y="248" width="325" height="99"/>
+                                        <rect key="frame" x="25" y="247.99999999999997" width="325" height="95.666666666666657"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="Hello Again!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jNp-wZ-heV">
-                                                <rect key="frame" x="0.0" y="0.0" width="325" height="33"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="325" height="31.666666666666668"/>
                                                 <fontDescription key="fontDescription" name="Inter-Bold" family="Inter" pointSize="27"/>
                                                 <color key="textColor" name="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r3A-fM-oqD">
-                                                <rect key="frame" x="0.0" y="48" width="325" height="51"/>
+                                                <rect key="frame" x="0.0" y="46.666666666666686" width="325" height="49"/>
                                                 <string key="text">Wellcome back you’ve
 been missed!</string>
                                                 <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="21"/>
@@ -1471,7 +1475,7 @@ been missed!</string>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="SYu-LM-nxu">
-                                        <rect key="frame" x="25" y="391" width="325" height="135"/>
+                                        <rect key="frame" x="25" y="387.66666666666669" width="325" height="135.00000000000006"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F5m-py-akw" customClass="AppShadowViewClass" customModule="NSC_iOS" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="325" height="60"/>
@@ -1517,7 +1521,7 @@ been missed!</string>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N4s-qG-Iwt" customClass="AppShadowViewClass" customModule="NSC_iOS" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="75" width="325" height="60"/>
+                                                <rect key="frame" x="0.0" y="74.999999999999943" width="325" height="60"/>
                                                 <subviews>
                                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jRP-7R-DvZ">
                                                         <rect key="frame" x="15" y="19" width="22" height="22"/>
@@ -1561,7 +1565,7 @@ been missed!</string>
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZaW-NV-Cid">
-                                        <rect key="frame" x="190" y="534" width="160" height="34.333333333333371"/>
+                                        <rect key="frame" x="190" y="530.66666666666663" width="160" height="34.333333333333371"/>
                                         <inset key="contentEdgeInsets" minX="10" minY="20" maxX="10" maxY="20"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Forgot password?">
@@ -1572,7 +1576,7 @@ been missed!</string>
                                         </connections>
                                     </button>
                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U8T-UE-5qF" customClass="AppThemeBlueButton" customModule="NSC_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="25" y="605.33333333333337" width="325" height="60"/>
+                                        <rect key="frame" x="25" y="602" width="325" height="60"/>
                                         <color key="backgroundColor" name="theme_dark"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="U8T-UE-5qF" secondAttribute="height" multiplier="65:12" id="6NJ-IH-Pn6"/>
@@ -1734,7 +1738,7 @@ been missed!</string>
                                                         <rect key="frame" x="0.0" y="0.0" width="325" height="60"/>
                                                         <subviews>
                                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dRS-9q-vFW" customClass="ACFloatingTextfield" customModule="ACFloatingTextfield_Swift">
-                                                                <rect key="frame" x="15" y="6" width="295" height="44"/>
+                                                                <rect key="frame" x="15" y="6" width="295" height="42"/>
                                                                 <color key="textColor" name="textColor"/>
                                                                 <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="16"/>
                                                                 <textInputTraits key="textInputTraits"/>
@@ -1748,7 +1752,7 @@ been missed!</string>
                                                             <constraint firstItem="dRS-9q-vFW" firstAttribute="leading" secondItem="uuK-4R-qqc" secondAttribute="leading" constant="15" id="DiM-LX-HSX"/>
                                                             <constraint firstItem="dRS-9q-vFW" firstAttribute="top" secondItem="uuK-4R-qqc" secondAttribute="top" constant="6" id="QUY-pk-mI2"/>
                                                             <constraint firstAttribute="trailing" secondItem="dRS-9q-vFW" secondAttribute="trailing" constant="15" id="eq7-xF-4Jt"/>
-                                                            <constraint firstAttribute="bottom" secondItem="dRS-9q-vFW" secondAttribute="bottom" constant="10" id="fo5-LW-aR8"/>
+                                                            <constraint firstAttribute="bottom" secondItem="dRS-9q-vFW" secondAttribute="bottom" constant="12" id="fo5-LW-aR8"/>
                                                             <constraint firstAttribute="width" secondItem="uuK-4R-qqc" secondAttribute="height" multiplier="65:12" id="r25-gr-LC9"/>
                                                         </constraints>
                                                     </view>
@@ -1761,7 +1765,7 @@ been missed!</string>
                                                         <rect key="frame" x="0.0" y="0.0" width="325" height="60"/>
                                                         <subviews>
                                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rwI-IC-q1g" customClass="ACFloatingTextfield" customModule="ACFloatingTextfield_Swift">
-                                                                <rect key="frame" x="15" y="6" width="295" height="44"/>
+                                                                <rect key="frame" x="15" y="6" width="295" height="42"/>
                                                                 <color key="textColor" name="textColor"/>
                                                                 <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="16"/>
                                                                 <textInputTraits key="textInputTraits"/>
@@ -1792,7 +1796,7 @@ been missed!</string>
                                                         </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="bottom" secondItem="rwI-IC-q1g" secondAttribute="bottom" constant="10" id="D7k-Ea-Fk3"/>
+                                                            <constraint firstAttribute="bottom" secondItem="rwI-IC-q1g" secondAttribute="bottom" constant="12" id="D7k-Ea-Fk3"/>
                                                             <constraint firstItem="rwI-IC-q1g" firstAttribute="top" secondItem="5TT-bo-kDA" secondAttribute="top" constant="6" id="d1x-a5-bLW"/>
                                                             <constraint firstItem="rwI-IC-q1g" firstAttribute="leading" secondItem="5TT-bo-kDA" secondAttribute="leading" constant="15" id="en6-N8-Wkb"/>
                                                             <constraint firstAttribute="trailing" secondItem="rwI-IC-q1g" secondAttribute="trailing" constant="15" id="foS-Hp-LyG"/>
@@ -1807,7 +1811,7 @@ been missed!</string>
                                                         <rect key="frame" x="0.0" y="0.0" width="325" height="60"/>
                                                         <subviews>
                                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Mobile" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ehu-LB-T7M" customClass="ACFloatingTextfield" customModule="ACFloatingTextfield_Swift">
-                                                                <rect key="frame" x="15" y="6" width="295" height="44"/>
+                                                                <rect key="frame" x="15" y="6" width="295" height="42"/>
                                                                 <color key="textColor" name="textColor"/>
                                                                 <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="16"/>
                                                                 <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
@@ -1838,7 +1842,7 @@ been missed!</string>
                                                         </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="bottom" secondItem="ehu-LB-T7M" secondAttribute="bottom" constant="10" id="7qb-6Y-sg4"/>
+                                                            <constraint firstAttribute="bottom" secondItem="ehu-LB-T7M" secondAttribute="bottom" constant="12" id="7qb-6Y-sg4"/>
                                                             <constraint firstItem="ehu-LB-T7M" firstAttribute="top" secondItem="sUv-vy-7A8" secondAttribute="top" constant="6" id="bVy-F6-V2L"/>
                                                             <constraint firstAttribute="trailing" secondItem="ehu-LB-T7M" secondAttribute="trailing" constant="15" id="kDX-4J-SWo"/>
                                                             <constraint firstItem="ehu-LB-T7M" firstAttribute="leading" secondItem="sUv-vy-7A8" secondAttribute="leading" constant="15" id="zZQ-TH-VzN"/>
@@ -1853,7 +1857,7 @@ been missed!</string>
                                                         <rect key="frame" x="0.0" y="0.0" width="325" height="60"/>
                                                         <subviews>
                                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="DOB" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jYB-2J-yAx" customClass="ACFloatingTextfield" customModule="ACFloatingTextfield_Swift">
-                                                                <rect key="frame" x="15" y="6" width="295" height="44"/>
+                                                                <rect key="frame" x="15" y="6" width="295" height="42"/>
                                                                 <color key="textColor" name="textColor"/>
                                                                 <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="16"/>
                                                                 <textInputTraits key="textInputTraits"/>
@@ -1884,7 +1888,7 @@ been missed!</string>
                                                         </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="bottom" secondItem="jYB-2J-yAx" secondAttribute="bottom" constant="10" id="L33-jz-f4H"/>
+                                                            <constraint firstAttribute="bottom" secondItem="jYB-2J-yAx" secondAttribute="bottom" constant="12" id="L33-jz-f4H"/>
                                                             <constraint firstAttribute="trailing" secondItem="jYB-2J-yAx" secondAttribute="trailing" constant="15" id="OOe-7A-zup"/>
                                                             <constraint firstItem="jYB-2J-yAx" firstAttribute="leading" secondItem="eFz-et-H7j" secondAttribute="leading" constant="15" id="fDd-Tw-PuA"/>
                                                             <constraint firstItem="jYB-2J-yAx" firstAttribute="top" secondItem="eFz-et-H7j" secondAttribute="top" constant="6" id="tLc-KG-idE"/>
@@ -2370,7 +2374,7 @@ been missed!</string>
                                                         <rect key="frame" x="0.0" y="0.0" width="325" height="60"/>
                                                         <subviews>
                                                             <textField clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Mines Site Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CBV-Bu-WoK" customClass="ACFloatingTextfield" customModule="ACFloatingTextfield_Swift">
-                                                                <rect key="frame" x="15" y="6" width="295" height="44"/>
+                                                                <rect key="frame" x="15" y="6" width="295" height="42"/>
                                                                 <color key="textColor" name="textColor"/>
                                                                 <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="16"/>
                                                                 <textInputTraits key="textInputTraits"/>
@@ -2382,7 +2386,7 @@ been missed!</string>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstItem="CBV-Bu-WoK" firstAttribute="top" secondItem="Tre-r5-BRg" secondAttribute="top" constant="6" id="3or-2q-rfl"/>
-                                                            <constraint firstAttribute="bottom" secondItem="CBV-Bu-WoK" secondAttribute="bottom" constant="10" id="46s-r8-Zgc"/>
+                                                            <constraint firstAttribute="bottom" secondItem="CBV-Bu-WoK" secondAttribute="bottom" constant="12" id="46s-r8-Zgc"/>
                                                             <constraint firstAttribute="trailing" secondItem="CBV-Bu-WoK" secondAttribute="trailing" constant="15" id="QRn-Vw-aoQ"/>
                                                             <constraint firstItem="CBV-Bu-WoK" firstAttribute="leading" secondItem="Tre-r5-BRg" secondAttribute="leading" constant="15" id="g9b-qz-Yle"/>
                                                             <constraint firstAttribute="width" secondItem="Tre-r5-BRg" secondAttribute="height" multiplier="65:12" id="hIe-qP-27c"/>
@@ -2392,7 +2396,7 @@ been missed!</string>
                                                         <rect key="frame" x="0.0" y="75" width="325" height="60"/>
                                                         <subviews>
                                                             <textField clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Pit Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BhG-DT-qrp" customClass="ACFloatingTextfield" customModule="ACFloatingTextfield_Swift">
-                                                                <rect key="frame" x="15" y="6" width="295" height="44"/>
+                                                                <rect key="frame" x="15" y="6" width="295" height="42"/>
                                                                 <color key="textColor" name="textColor"/>
                                                                 <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="16"/>
                                                                 <textInputTraits key="textInputTraits"/>
@@ -2406,14 +2410,14 @@ been missed!</string>
                                                             <constraint firstAttribute="trailing" secondItem="BhG-DT-qrp" secondAttribute="trailing" constant="15" id="7mT-c7-IPy"/>
                                                             <constraint firstItem="BhG-DT-qrp" firstAttribute="top" secondItem="wsm-xb-8OO" secondAttribute="top" constant="6" id="QCj-Ll-2bg"/>
                                                             <constraint firstItem="BhG-DT-qrp" firstAttribute="leading" secondItem="wsm-xb-8OO" secondAttribute="leading" constant="15" id="TCN-8a-Tlj"/>
-                                                            <constraint firstAttribute="bottom" secondItem="BhG-DT-qrp" secondAttribute="bottom" constant="10" id="hwR-OI-b4M"/>
+                                                            <constraint firstAttribute="bottom" secondItem="BhG-DT-qrp" secondAttribute="bottom" constant="12" id="hwR-OI-b4M"/>
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qNZ-ae-AEf" customClass="AppShadowViewClass" customModule="NSC_iOS" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="150" width="325" height="60"/>
                                                         <subviews>
                                                             <textField clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Pit Location" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="z2e-e4-9I2" customClass="ACFloatingTextfield" customModule="ACFloatingTextfield_Swift">
-                                                                <rect key="frame" x="15" y="6" width="295" height="44"/>
+                                                                <rect key="frame" x="15" y="6" width="295" height="42"/>
                                                                 <color key="textColor" name="textColor"/>
                                                                 <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="16"/>
                                                                 <textInputTraits key="textInputTraits"/>
@@ -2426,7 +2430,7 @@ been missed!</string>
                                                         <constraints>
                                                             <constraint firstItem="z2e-e4-9I2" firstAttribute="leading" secondItem="qNZ-ae-AEf" secondAttribute="leading" constant="15" id="BJa-xS-IQw"/>
                                                             <constraint firstItem="z2e-e4-9I2" firstAttribute="top" secondItem="qNZ-ae-AEf" secondAttribute="top" constant="6" id="IeM-5d-HtG"/>
-                                                            <constraint firstAttribute="bottom" secondItem="z2e-e4-9I2" secondAttribute="bottom" constant="10" id="ZVh-Gi-4cM"/>
+                                                            <constraint firstAttribute="bottom" secondItem="z2e-e4-9I2" secondAttribute="bottom" constant="12" id="ZVh-Gi-4cM"/>
                                                             <constraint firstAttribute="trailing" secondItem="z2e-e4-9I2" secondAttribute="trailing" constant="15" id="vAu-I2-F4J"/>
                                                         </constraints>
                                                     </view>
@@ -2434,7 +2438,7 @@ been missed!</string>
                                                         <rect key="frame" x="0.0" y="225" width="325" height="60"/>
                                                         <subviews>
                                                             <textField clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Shift Incharge name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8sK-sK-mev" customClass="ACFloatingTextfield" customModule="ACFloatingTextfield_Swift">
-                                                                <rect key="frame" x="15" y="6" width="295" height="44"/>
+                                                                <rect key="frame" x="15" y="6" width="295" height="42"/>
                                                                 <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="16"/>
                                                                 <textInputTraits key="textInputTraits"/>
                                                                 <connections>
@@ -2445,7 +2449,7 @@ been missed!</string>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstItem="8sK-sK-mev" firstAttribute="leading" secondItem="jiq-6i-S14" secondAttribute="leading" constant="15" id="Pgz-BG-UvB"/>
-                                                            <constraint firstAttribute="bottom" secondItem="8sK-sK-mev" secondAttribute="bottom" constant="10" id="ai6-0u-N4L"/>
+                                                            <constraint firstAttribute="bottom" secondItem="8sK-sK-mev" secondAttribute="bottom" constant="12" id="ai6-0u-N4L"/>
                                                             <constraint firstItem="8sK-sK-mev" firstAttribute="top" secondItem="jiq-6i-S14" secondAttribute="top" constant="6" id="fcB-Lx-oqr"/>
                                                             <constraint firstAttribute="trailing" secondItem="8sK-sK-mev" secondAttribute="trailing" constant="15" id="mMU-pp-I49"/>
                                                         </constraints>
@@ -2454,7 +2458,7 @@ been missed!</string>
                                                         <rect key="frame" x="0.0" y="300" width="325" height="60"/>
                                                         <subviews>
                                                             <textField clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Geologist Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Waz-w8-Ffc" customClass="ACFloatingTextfield" customModule="ACFloatingTextfield_Swift">
-                                                                <rect key="frame" x="15" y="6" width="295" height="44"/>
+                                                                <rect key="frame" x="15" y="6" width="295" height="42"/>
                                                                 <color key="textColor" name="textColor"/>
                                                                 <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="16"/>
                                                                 <textInputTraits key="textInputTraits"/>
@@ -2465,7 +2469,7 @@ been missed!</string>
                                                         </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="bottom" secondItem="Waz-w8-Ffc" secondAttribute="bottom" constant="10" id="FzQ-4h-sZJ"/>
+                                                            <constraint firstAttribute="bottom" secondItem="Waz-w8-Ffc" secondAttribute="bottom" constant="12" id="FzQ-4h-sZJ"/>
                                                             <constraint firstItem="Waz-w8-Ffc" firstAttribute="top" secondItem="2c1-qN-qgR" secondAttribute="top" constant="6" id="Ssu-Ou-e9q"/>
                                                             <constraint firstAttribute="trailing" secondItem="Waz-w8-Ffc" secondAttribute="trailing" constant="15" id="i7u-Ej-zgB"/>
                                                             <constraint firstItem="Waz-w8-Ffc" firstAttribute="leading" secondItem="2c1-qN-qgR" secondAttribute="leading" constant="15" id="s0m-sr-SO7"/>
@@ -2551,7 +2555,7 @@ been missed!</string>
                                                         <rect key="frame" x="0.0" y="0.0" width="325" height="60"/>
                                                         <subviews>
                                                             <textField clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Face Location" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2rW-7C-Qb1" customClass="ACFloatingTextfield" customModule="ACFloatingTextfield_Swift">
-                                                                <rect key="frame" x="15" y="6" width="295" height="44"/>
+                                                                <rect key="frame" x="15" y="6" width="295" height="42"/>
                                                                 <color key="textColor" name="textColor"/>
                                                                 <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="16"/>
                                                                 <textInputTraits key="textInputTraits"/>
@@ -2577,17 +2581,17 @@ been missed!</string>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="9oj-Yq-ujP" secondAttribute="height" multiplier="65:12" id="9hS-IL-Weo"/>
-                                                            <constraint firstAttribute="bottom" secondItem="2rW-7C-Qb1" secondAttribute="bottom" constant="10" id="DJT-eB-Uyy"/>
+                                                            <constraint firstAttribute="bottom" secondItem="2rW-7C-Qb1" secondAttribute="bottom" constant="12" id="DJT-eB-Uyy"/>
                                                             <constraint firstItem="2rW-7C-Qb1" firstAttribute="leading" secondItem="9oj-Yq-ujP" secondAttribute="leading" constant="15" id="Fod-JY-aHa"/>
                                                             <constraint firstAttribute="trailing" secondItem="2rW-7C-Qb1" secondAttribute="trailing" constant="15" id="T7A-e2-uho"/>
                                                             <constraint firstItem="2rW-7C-Qb1" firstAttribute="top" secondItem="9oj-Yq-ujP" secondAttribute="top" constant="6" id="k4I-Er-3nX"/>
                                                         </constraints>
                                                     </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bSe-k2-b4B" customClass="AppShadowViewClass" customModule="NSC_iOS" customModuleProvider="target">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="heg-F5-kbP" customClass="AppShadowViewClass" customModule="NSC_iOS" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="75" width="325" height="60"/>
                                                         <subviews>
-                                                            <textField clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Face length (m)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="e0i-IC-SKU" customClass="ACFloatingTextfield" customModule="ACFloatingTextfield_Swift">
-                                                                <rect key="frame" x="15" y="6" width="295" height="44"/>
+                                                            <textField clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Face Location" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yMz-FU-OLr" customClass="ACFloatingTextfield" customModule="ACFloatingTextfield_Swift">
+                                                                <rect key="frame" x="15" y="6" width="295" height="42"/>
                                                                 <color key="textColor" name="textColor"/>
                                                                 <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="16"/>
                                                                 <textInputTraits key="textInputTraits"/>
@@ -2606,23 +2610,24 @@ been missed!</string>
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
                                                                 <connections>
-                                                                    <outlet property="delegate" destination="Yro-QS-NYD" id="p8c-Za-QBZ"/>
+                                                                    <outlet property="delegate" destination="Yro-QS-NYD" id="zlo-5m-fW7"/>
                                                                 </connections>
                                                             </textField>
                                                         </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="bottom" secondItem="e0i-IC-SKU" secondAttribute="bottom" constant="10" id="2I5-st-bxz"/>
-                                                            <constraint firstItem="e0i-IC-SKU" firstAttribute="leading" secondItem="bSe-k2-b4B" secondAttribute="leading" constant="15" id="B8v-x2-x1o"/>
-                                                            <constraint firstItem="e0i-IC-SKU" firstAttribute="top" secondItem="bSe-k2-b4B" secondAttribute="top" constant="6" id="I0S-kj-m7T"/>
-                                                            <constraint firstAttribute="trailing" secondItem="e0i-IC-SKU" secondAttribute="trailing" constant="15" id="T01-p1-0TL"/>
+                                                            <constraint firstAttribute="width" secondItem="heg-F5-kbP" secondAttribute="height" multiplier="65:12" id="NUW-Lg-tpr"/>
+                                                            <constraint firstAttribute="trailing" secondItem="yMz-FU-OLr" secondAttribute="trailing" constant="15" id="NaJ-aW-7hH"/>
+                                                            <constraint firstAttribute="bottom" secondItem="yMz-FU-OLr" secondAttribute="bottom" constant="12" id="cGY-cZ-br4"/>
+                                                            <constraint firstItem="yMz-FU-OLr" firstAttribute="leading" secondItem="heg-F5-kbP" secondAttribute="leading" constant="15" id="rwY-o7-Ace"/>
+                                                            <constraint firstItem="yMz-FU-OLr" firstAttribute="top" secondItem="heg-F5-kbP" secondAttribute="top" constant="6" id="uy6-wc-aP0"/>
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jxI-AB-q00" customClass="AppShadowViewClass" customModule="NSC_iOS" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="150" width="325" height="60"/>
                                                         <subviews>
                                                             <textField clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Face Area (m2)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XQM-L6-Sk9" customClass="ACFloatingTextfield" customModule="ACFloatingTextfield_Swift">
-                                                                <rect key="frame" x="15" y="6" width="295" height="44"/>
+                                                                <rect key="frame" x="15" y="6" width="295" height="42"/>
                                                                 <color key="textColor" name="textColor"/>
                                                                 <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="16"/>
                                                                 <textInputTraits key="textInputTraits"/>
@@ -2650,14 +2655,14 @@ been missed!</string>
                                                             <constraint firstItem="XQM-L6-Sk9" firstAttribute="leading" secondItem="jxI-AB-q00" secondAttribute="leading" constant="15" id="5Rb-NW-x21"/>
                                                             <constraint firstItem="XQM-L6-Sk9" firstAttribute="top" secondItem="jxI-AB-q00" secondAttribute="top" constant="6" id="gi4-nG-PFq"/>
                                                             <constraint firstAttribute="trailing" secondItem="XQM-L6-Sk9" secondAttribute="trailing" constant="15" id="kSl-Vc-Yjf"/>
-                                                            <constraint firstAttribute="bottom" secondItem="XQM-L6-Sk9" secondAttribute="bottom" constant="10" id="zr8-F7-iH5"/>
+                                                            <constraint firstAttribute="bottom" secondItem="XQM-L6-Sk9" secondAttribute="bottom" constant="12" id="zr8-F7-iH5"/>
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4PX-k5-PRY" customClass="AppShadowViewClass" customModule="NSC_iOS" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="225" width="325" height="60"/>
                                                         <subviews>
                                                             <textField clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Face Rock types" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Sxp-yQ-PJp" customClass="ACFloatingTextfield" customModule="ACFloatingTextfield_Swift">
-                                                                <rect key="frame" x="15" y="6" width="295" height="44"/>
+                                                                <rect key="frame" x="15" y="6" width="295" height="42"/>
                                                                 <color key="textColor" name="textColor"/>
                                                                 <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="16"/>
                                                                 <textInputTraits key="textInputTraits"/>
@@ -2682,7 +2687,7 @@ been missed!</string>
                                                         </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="bottom" secondItem="Sxp-yQ-PJp" secondAttribute="bottom" constant="10" id="9kl-44-yyd"/>
+                                                            <constraint firstAttribute="bottom" secondItem="Sxp-yQ-PJp" secondAttribute="bottom" constant="12" id="9kl-44-yyd"/>
                                                             <constraint firstItem="Sxp-yQ-PJp" firstAttribute="leading" secondItem="4PX-k5-PRY" secondAttribute="leading" constant="15" id="C9L-3n-lmV"/>
                                                             <constraint firstItem="Sxp-yQ-PJp" firstAttribute="top" secondItem="4PX-k5-PRY" secondAttribute="top" constant="6" id="asX-rF-Mi9"/>
                                                             <constraint firstAttribute="trailing" secondItem="Sxp-yQ-PJp" secondAttribute="trailing" constant="15" id="k7D-Ak-9td"/>
@@ -2692,7 +2697,7 @@ been missed!</string>
                                                         <rect key="frame" x="0.0" y="300" width="325" height="60"/>
                                                         <subviews>
                                                             <textField clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Bench RL" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dFE-fM-rS1" customClass="ACFloatingTextfield" customModule="ACFloatingTextfield_Swift">
-                                                                <rect key="frame" x="15" y="6" width="295" height="44"/>
+                                                                <rect key="frame" x="15" y="6" width="295" height="42"/>
                                                                 <color key="textColor" name="textColor"/>
                                                                 <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="16"/>
                                                                 <textInputTraits key="textInputTraits"/>
@@ -2717,7 +2722,7 @@ been missed!</string>
                                                         </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="bottom" secondItem="dFE-fM-rS1" secondAttribute="bottom" constant="10" id="2lu-2M-55b"/>
+                                                            <constraint firstAttribute="bottom" secondItem="dFE-fM-rS1" secondAttribute="bottom" constant="12" id="2lu-2M-55b"/>
                                                             <constraint firstItem="dFE-fM-rS1" firstAttribute="leading" secondItem="FJQ-Yv-ZIK" secondAttribute="leading" constant="15" id="jxg-AW-FHB"/>
                                                             <constraint firstAttribute="trailing" secondItem="dFE-fM-rS1" secondAttribute="trailing" constant="15" id="nPS-lQ-maJ"/>
                                                             <constraint firstItem="dFE-fM-rS1" firstAttribute="top" secondItem="FJQ-Yv-ZIK" secondAttribute="top" constant="6" id="oLs-aV-zPe"/>
@@ -2727,7 +2732,7 @@ been missed!</string>
                                                         <rect key="frame" x="0.0" y="375" width="325" height="60"/>
                                                         <subviews>
                                                             <textField clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Bench Height &amp; Width (m)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JJt-Vh-8wt" customClass="ACFloatingTextfield" customModule="ACFloatingTextfield_Swift">
-                                                                <rect key="frame" x="15" y="6" width="295" height="44"/>
+                                                                <rect key="frame" x="15" y="6" width="295" height="42"/>
                                                                 <color key="textColor" name="textColor"/>
                                                                 <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="16"/>
                                                                 <textInputTraits key="textInputTraits"/>
@@ -2754,7 +2759,7 @@ been missed!</string>
                                                         <constraints>
                                                             <constraint firstAttribute="trailing" secondItem="JJt-Vh-8wt" secondAttribute="trailing" constant="15" id="Hab-yO-PsS"/>
                                                             <constraint firstItem="JJt-Vh-8wt" firstAttribute="top" secondItem="Tdl-cL-Mzn" secondAttribute="top" constant="6" id="J3u-Zv-0YT"/>
-                                                            <constraint firstAttribute="bottom" secondItem="JJt-Vh-8wt" secondAttribute="bottom" constant="10" id="KEZ-6Y-B4G"/>
+                                                            <constraint firstAttribute="bottom" secondItem="JJt-Vh-8wt" secondAttribute="bottom" constant="12" id="KEZ-6Y-B4G"/>
                                                             <constraint firstItem="JJt-Vh-8wt" firstAttribute="leading" secondItem="Tdl-cL-Mzn" secondAttribute="leading" constant="15" id="asY-oI-WKW"/>
                                                         </constraints>
                                                     </view>
@@ -2762,7 +2767,7 @@ been missed!</string>
                                                         <rect key="frame" x="0.0" y="450" width="325" height="60"/>
                                                         <subviews>
                                                             <textField clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Bench Angle" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8k5-RY-G7a" customClass="ACFloatingTextfield" customModule="ACFloatingTextfield_Swift">
-                                                                <rect key="frame" x="15" y="6" width="295" height="44"/>
+                                                                <rect key="frame" x="15" y="6" width="295" height="42"/>
                                                                 <color key="textColor" name="textColor"/>
                                                                 <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="16"/>
                                                                 <textInputTraits key="textInputTraits"/>
@@ -2787,7 +2792,7 @@ been missed!</string>
                                                         </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="bottom" secondItem="8k5-RY-G7a" secondAttribute="bottom" constant="10" id="JWj-N3-ovD"/>
+                                                            <constraint firstAttribute="bottom" secondItem="8k5-RY-G7a" secondAttribute="bottom" constant="12" id="JWj-N3-ovD"/>
                                                             <constraint firstAttribute="trailing" secondItem="8k5-RY-G7a" secondAttribute="trailing" constant="15" id="bpS-Sy-XwU"/>
                                                             <constraint firstItem="8k5-RY-G7a" firstAttribute="top" secondItem="6xE-Zo-jJl" secondAttribute="top" constant="6" id="hFX-3S-MYq"/>
                                                             <constraint firstItem="8k5-RY-G7a" firstAttribute="leading" secondItem="6xE-Zo-jJl" secondAttribute="leading" constant="15" id="uFj-aj-Jyo"/>
@@ -2797,7 +2802,7 @@ been missed!</string>
                                                         <rect key="frame" x="0.0" y="525" width="325" height="60"/>
                                                         <subviews>
                                                             <textField clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Dip direction and Angle" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jth-1u-f6g" customClass="ACFloatingTextfield" customModule="ACFloatingTextfield_Swift">
-                                                                <rect key="frame" x="15" y="6" width="295" height="44"/>
+                                                                <rect key="frame" x="15" y="6" width="295" height="42"/>
                                                                 <color key="textColor" name="textColor"/>
                                                                 <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="16"/>
                                                                 <textInputTraits key="textInputTraits"/>
@@ -2824,7 +2829,7 @@ been missed!</string>
                                                         <constraints>
                                                             <constraint firstItem="Jth-1u-f6g" firstAttribute="top" secondItem="Ume-pt-cbk" secondAttribute="top" constant="6" id="LMl-SV-tJt"/>
                                                             <constraint firstAttribute="trailing" secondItem="Jth-1u-f6g" secondAttribute="trailing" constant="15" id="MHP-aD-yLn"/>
-                                                            <constraint firstAttribute="bottom" secondItem="Jth-1u-f6g" secondAttribute="bottom" constant="10" id="R6t-12-Eyi"/>
+                                                            <constraint firstAttribute="bottom" secondItem="Jth-1u-f6g" secondAttribute="bottom" constant="12" id="R6t-12-Eyi"/>
                                                             <constraint firstItem="Jth-1u-f6g" firstAttribute="leading" secondItem="Ume-pt-cbk" secondAttribute="leading" constant="15" id="ZgD-NR-AaU"/>
                                                         </constraints>
                                                     </view>
@@ -2832,7 +2837,7 @@ been missed!</string>
                                                         <rect key="frame" x="0.0" y="600" width="325" height="60"/>
                                                         <subviews>
                                                             <textField clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Thickness of ore (Coal Seam)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uT5-6A-YxA" customClass="ACFloatingTextfield" customModule="ACFloatingTextfield_Swift">
-                                                                <rect key="frame" x="15" y="6" width="295" height="44"/>
+                                                                <rect key="frame" x="15" y="6" width="295" height="42"/>
                                                                 <color key="textColor" name="textColor"/>
                                                                 <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="16"/>
                                                                 <textInputTraits key="textInputTraits"/>
@@ -2860,14 +2865,14 @@ been missed!</string>
                                                             <constraint firstItem="uT5-6A-YxA" firstAttribute="top" secondItem="O1G-7H-dgC" secondAttribute="top" constant="6" id="PCg-v1-ggA"/>
                                                             <constraint firstItem="uT5-6A-YxA" firstAttribute="leading" secondItem="O1G-7H-dgC" secondAttribute="leading" constant="15" id="cda-lj-HX6"/>
                                                             <constraint firstAttribute="trailing" secondItem="uT5-6A-YxA" secondAttribute="trailing" constant="15" id="cv6-cG-vps"/>
-                                                            <constraint firstAttribute="bottom" secondItem="uT5-6A-YxA" secondAttribute="bottom" constant="10" id="pec-cP-3hk"/>
+                                                            <constraint firstAttribute="bottom" secondItem="uT5-6A-YxA" secondAttribute="bottom" constant="12" id="pec-cP-3hk"/>
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jdC-KM-kaF" customClass="AppShadowViewClass" customModule="NSC_iOS" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="675" width="325" height="60"/>
                                                         <subviews>
                                                             <textField clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Thiness of overburden (m)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vw1-1F-EDN" customClass="ACFloatingTextfield" customModule="ACFloatingTextfield_Swift">
-                                                                <rect key="frame" x="15" y="6" width="295" height="44"/>
+                                                                <rect key="frame" x="15" y="6" width="295" height="42"/>
                                                                 <color key="textColor" name="textColor"/>
                                                                 <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="16"/>
                                                                 <textInputTraits key="textInputTraits"/>
@@ -2893,7 +2898,7 @@ been missed!</string>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstItem="vw1-1F-EDN" firstAttribute="leading" secondItem="jdC-KM-kaF" secondAttribute="leading" constant="15" id="L4b-5L-SkB"/>
-                                                            <constraint firstAttribute="bottom" secondItem="vw1-1F-EDN" secondAttribute="bottom" constant="10" id="RPO-BA-KzJ"/>
+                                                            <constraint firstAttribute="bottom" secondItem="vw1-1F-EDN" secondAttribute="bottom" constant="12" id="RPO-BA-KzJ"/>
                                                             <constraint firstItem="vw1-1F-EDN" firstAttribute="top" secondItem="jdC-KM-kaF" secondAttribute="top" constant="6" id="WnX-AE-qGP"/>
                                                             <constraint firstAttribute="trailing" secondItem="vw1-1F-EDN" secondAttribute="trailing" constant="15" id="dUk-Q1-2kX"/>
                                                         </constraints>
@@ -2902,7 +2907,7 @@ been missed!</string>
                                                         <rect key="frame" x="0.0" y="750" width="325" height="60"/>
                                                         <subviews>
                                                             <textField clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Thickness of Interburden (m)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0u1-ba-A6l" customClass="ACFloatingTextfield" customModule="ACFloatingTextfield_Swift">
-                                                                <rect key="frame" x="15" y="6" width="295" height="44"/>
+                                                                <rect key="frame" x="15" y="6" width="295" height="42"/>
                                                                 <color key="textColor" name="textColor"/>
                                                                 <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="16"/>
                                                                 <textInputTraits key="textInputTraits"/>
@@ -2929,7 +2934,7 @@ been missed!</string>
                                                         <constraints>
                                                             <constraint firstItem="0u1-ba-A6l" firstAttribute="top" secondItem="hJJ-hV-DY5" secondAttribute="top" constant="6" id="2Xc-Mx-yda"/>
                                                             <constraint firstAttribute="trailing" secondItem="0u1-ba-A6l" secondAttribute="trailing" constant="15" id="EuT-E8-9Vp"/>
-                                                            <constraint firstAttribute="bottom" secondItem="0u1-ba-A6l" secondAttribute="bottom" constant="10" id="GlA-c8-xgt"/>
+                                                            <constraint firstAttribute="bottom" secondItem="0u1-ba-A6l" secondAttribute="bottom" constant="12" id="GlA-c8-xgt"/>
                                                             <constraint firstItem="0u1-ba-A6l" firstAttribute="leading" secondItem="hJJ-hV-DY5" secondAttribute="leading" constant="15" id="jMf-9l-G5t"/>
                                                         </constraints>
                                                     </view>
@@ -2937,7 +2942,7 @@ been missed!</string>
                                                         <rect key="frame" x="0.0" y="825" width="325" height="60"/>
                                                         <subviews>
                                                             <textField clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Observed Grade of ore" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tPt-eP-irI" customClass="ACFloatingTextfield" customModule="ACFloatingTextfield_Swift">
-                                                                <rect key="frame" x="15" y="6" width="295" height="44"/>
+                                                                <rect key="frame" x="15" y="6" width="295" height="42"/>
                                                                 <color key="textColor" name="textColor"/>
                                                                 <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="16"/>
                                                                 <textInputTraits key="textInputTraits"/>
@@ -2964,7 +2969,7 @@ been missed!</string>
                                                         <constraints>
                                                             <constraint firstItem="tPt-eP-irI" firstAttribute="top" secondItem="O2b-Dd-Rt6" secondAttribute="top" constant="6" id="8tZ-vw-Cru"/>
                                                             <constraint firstAttribute="trailing" secondItem="tPt-eP-irI" secondAttribute="trailing" constant="15" id="GPB-FL-7gW"/>
-                                                            <constraint firstAttribute="bottom" secondItem="tPt-eP-irI" secondAttribute="bottom" constant="10" id="ds8-tP-ate"/>
+                                                            <constraint firstAttribute="bottom" secondItem="tPt-eP-irI" secondAttribute="bottom" constant="12" id="ds8-tP-ate"/>
                                                             <constraint firstItem="tPt-eP-irI" firstAttribute="leading" secondItem="O2b-Dd-Rt6" secondAttribute="leading" constant="15" id="x0H-Fc-pQK"/>
                                                         </constraints>
                                                     </view>
@@ -3000,7 +3005,7 @@ been missed!</string>
                                                         <rect key="frame" x="0.0" y="975" width="325" height="60"/>
                                                         <subviews>
                                                             <textField clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Actual Grade of Ore (Lab Grade)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fet-Xf-g7n" customClass="ACFloatingTextfield" customModule="ACFloatingTextfield_Swift">
-                                                                <rect key="frame" x="15" y="6" width="295" height="44"/>
+                                                                <rect key="frame" x="15" y="6" width="295" height="42"/>
                                                                 <color key="textColor" name="textColor"/>
                                                                 <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="16"/>
                                                                 <textInputTraits key="textInputTraits"/>
@@ -3027,7 +3032,7 @@ been missed!</string>
                                                         <constraints>
                                                             <constraint firstAttribute="trailing" secondItem="Fet-Xf-g7n" secondAttribute="trailing" constant="15" id="RbU-Ud-4Le"/>
                                                             <constraint firstItem="Fet-Xf-g7n" firstAttribute="leading" secondItem="Xdg-qx-SHo" secondAttribute="leading" constant="15" id="SHm-f0-nvi"/>
-                                                            <constraint firstAttribute="bottom" secondItem="Fet-Xf-g7n" secondAttribute="bottom" constant="10" id="nTI-uE-l7N"/>
+                                                            <constraint firstAttribute="bottom" secondItem="Fet-Xf-g7n" secondAttribute="bottom" constant="12" id="nTI-uE-l7N"/>
                                                             <constraint firstItem="Fet-Xf-g7n" firstAttribute="top" secondItem="Xdg-qx-SHo" secondAttribute="top" constant="6" id="pj8-Wt-M9x"/>
                                                         </constraints>
                                                     </view>
@@ -3398,7 +3403,7 @@ been missed!</string>
                         <outlet property="txtBenchRL" destination="dFE-fM-rS1" id="8yM-Dt-yqY"/>
                         <outlet property="txtDipDirectionAngle" destination="Jth-1u-f6g" id="C8a-VP-RK7"/>
                         <outlet property="txtFaceAreaM2" destination="XQM-L6-Sk9" id="Bld-Ne-ddV"/>
-                        <outlet property="txtFaceLength" destination="e0i-IC-SKU" id="Fs6-c6-zYT"/>
+                        <outlet property="txtFaceLengthM" destination="yMz-FU-OLr" id="sZR-SI-8PP"/>
                         <outlet property="txtFaceLocation" destination="2rW-7C-Qb1" id="ZW7-Eb-rgk"/>
                         <outlet property="txtFaceRockType" destination="Sxp-yQ-PJp" id="ATZ-V9-AAs"/>
                         <outlet property="txtGeologistName" destination="Waz-w8-Ffc" id="Vye-IG-yPf"/>
@@ -4034,7 +4039,7 @@ Mapping Report Details</string>
                                                         <rect key="frame" x="0.0" y="0.0" width="325" height="60"/>
                                                         <subviews>
                                                             <textField clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ySP-kX-zpu" customClass="ACFloatingTextfield" customModule="ACFloatingTextfield_Swift">
-                                                                <rect key="frame" x="15" y="6" width="295" height="44"/>
+                                                                <rect key="frame" x="15" y="6" width="295" height="42"/>
                                                                 <color key="textColor" name="textColor"/>
                                                                 <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="16"/>
                                                                 <textInputTraits key="textInputTraits"/>
@@ -4047,7 +4052,7 @@ Mapping Report Details</string>
                                                         <constraints>
                                                             <constraint firstItem="ySP-kX-zpu" firstAttribute="top" secondItem="GBh-Xx-WCC" secondAttribute="top" constant="6" id="GD1-g8-Xld"/>
                                                             <constraint firstAttribute="width" secondItem="GBh-Xx-WCC" secondAttribute="height" multiplier="65:12" id="jYj-yN-PPw"/>
-                                                            <constraint firstAttribute="bottom" secondItem="ySP-kX-zpu" secondAttribute="bottom" constant="10" id="lEd-2i-J4k"/>
+                                                            <constraint firstAttribute="bottom" secondItem="ySP-kX-zpu" secondAttribute="bottom" constant="12" id="lEd-2i-J4k"/>
                                                             <constraint firstAttribute="trailing" secondItem="ySP-kX-zpu" secondAttribute="trailing" constant="15" id="owP-6P-NO4"/>
                                                             <constraint firstItem="ySP-kX-zpu" firstAttribute="leading" secondItem="GBh-Xx-WCC" secondAttribute="leading" constant="15" id="wtw-YO-8yh"/>
                                                         </constraints>
@@ -4056,7 +4061,7 @@ Mapping Report Details</string>
                                                         <rect key="frame" x="0.0" y="75" width="325" height="60"/>
                                                         <subviews>
                                                             <textField clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Mobile No" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="u05-7d-LPj" customClass="ACFloatingTextfield" customModule="ACFloatingTextfield_Swift">
-                                                                <rect key="frame" x="15" y="6" width="295" height="44"/>
+                                                                <rect key="frame" x="15" y="6" width="295" height="42"/>
                                                                 <color key="textColor" name="textColor"/>
                                                                 <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="16"/>
                                                                 <textInputTraits key="textInputTraits"/>
@@ -4081,7 +4086,7 @@ Mapping Report Details</string>
                                                         </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="bottom" secondItem="u05-7d-LPj" secondAttribute="bottom" constant="10" id="6XQ-fL-Zvi"/>
+                                                            <constraint firstAttribute="bottom" secondItem="u05-7d-LPj" secondAttribute="bottom" constant="12" id="6XQ-fL-Zvi"/>
                                                             <constraint firstAttribute="trailing" secondItem="u05-7d-LPj" secondAttribute="trailing" constant="15" id="MFl-kV-6Tz"/>
                                                             <constraint firstItem="u05-7d-LPj" firstAttribute="top" secondItem="Lmp-qE-876" secondAttribute="top" constant="6" id="Ps3-ou-JGi"/>
                                                             <constraint firstItem="u05-7d-LPj" firstAttribute="leading" secondItem="Lmp-qE-876" secondAttribute="leading" constant="15" id="lVJ-xM-Q7g"/>
@@ -4091,7 +4096,7 @@ Mapping Report Details</string>
                                                         <rect key="frame" x="0.0" y="150" width="325" height="60"/>
                                                         <subviews>
                                                             <textField clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8xx-W6-hB3" customClass="ACFloatingTextfield" customModule="ACFloatingTextfield_Swift">
-                                                                <rect key="frame" x="15" y="6" width="295" height="44"/>
+                                                                <rect key="frame" x="15" y="6" width="295" height="42"/>
                                                                 <color key="textColor" name="textColor"/>
                                                                 <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="16"/>
                                                                 <textInputTraits key="textInputTraits"/>
@@ -4119,14 +4124,14 @@ Mapping Report Details</string>
                                                             <constraint firstAttribute="trailing" secondItem="8xx-W6-hB3" secondAttribute="trailing" constant="15" id="2ij-cW-5DN"/>
                                                             <constraint firstItem="8xx-W6-hB3" firstAttribute="top" secondItem="iJz-bR-Xe3" secondAttribute="top" constant="6" id="Uy5-y2-HYf"/>
                                                             <constraint firstItem="8xx-W6-hB3" firstAttribute="leading" secondItem="iJz-bR-Xe3" secondAttribute="leading" constant="15" id="Zw0-kg-1jG"/>
-                                                            <constraint firstAttribute="bottom" secondItem="8xx-W6-hB3" secondAttribute="bottom" constant="10" id="jxj-45-y2j"/>
+                                                            <constraint firstAttribute="bottom" secondItem="8xx-W6-hB3" secondAttribute="bottom" constant="12" id="jxj-45-y2j"/>
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kuu-LP-VIu" customClass="AppShadowViewClass" customModule="NSC_iOS" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="225" width="325" height="60"/>
                                                         <subviews>
                                                             <textField clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Subject" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xCO-ao-Mt8" customClass="ACFloatingTextfield" customModule="ACFloatingTextfield_Swift">
-                                                                <rect key="frame" x="15" y="6" width="295" height="44"/>
+                                                                <rect key="frame" x="15" y="6" width="295" height="42"/>
                                                                 <color key="textColor" name="textColor"/>
                                                                 <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="16"/>
                                                                 <textInputTraits key="textInputTraits"/>
@@ -4154,7 +4159,7 @@ Mapping Report Details</string>
                                                             <constraint firstAttribute="trailing" secondItem="xCO-ao-Mt8" secondAttribute="trailing" constant="15" id="J7y-nn-xSk"/>
                                                             <constraint firstItem="xCO-ao-Mt8" firstAttribute="leading" secondItem="Kuu-LP-VIu" secondAttribute="leading" constant="15" id="ZMy-UY-dJN"/>
                                                             <constraint firstItem="xCO-ao-Mt8" firstAttribute="top" secondItem="Kuu-LP-VIu" secondAttribute="top" constant="6" id="uvi-XD-hyN"/>
-                                                            <constraint firstAttribute="bottom" secondItem="xCO-ao-Mt8" secondAttribute="bottom" constant="10" id="x3r-XO-pU7"/>
+                                                            <constraint firstAttribute="bottom" secondItem="xCO-ao-Mt8" secondAttribute="bottom" constant="12" id="x3r-XO-pU7"/>
                                                         </constraints>
                                                     </view>
                                                 </subviews>
@@ -4269,88 +4274,85 @@ Mapping Report Details</string>
     </scenes>
     <designables>
         <designable name="0RR-xW-3Qh">
-            <size key="intrinsicContentSize" width="89" height="21.333333333333332"/>
+            <size key="intrinsicContentSize" width="82" height="20.333333333333332"/>
         </designable>
         <designable name="0u1-ba-A6l">
-            <size key="intrinsicContentSize" width="225.66666666666666" height="21.333333333333332"/>
+            <size key="intrinsicContentSize" width="203.66666666666666" height="20.333333333333332"/>
         </designable>
         <designable name="1RZ-xL-Qv4">
-            <size key="intrinsicContentSize" width="62.666666666666664" height="17"/>
+            <size key="intrinsicContentSize" width="62.333333333333336" height="17"/>
         </designable>
         <designable name="2hj-Oa-dfL">
-            <size key="intrinsicContentSize" width="88.333333333333329" height="21.333333333333332"/>
+            <size key="intrinsicContentSize" width="81.333333333333329" height="20.333333333333332"/>
         </designable>
         <designable name="2rW-7C-Qb1">
-            <size key="intrinsicContentSize" width="108.33333333333333" height="21.333333333333332"/>
+            <size key="intrinsicContentSize" width="101.66666666666667" height="20.333333333333332"/>
         </designable>
         <designable name="7H7-45-c7M">
-            <size key="intrinsicContentSize" width="36.666666666666664" height="21.333333333333332"/>
+            <size key="intrinsicContentSize" width="32.666666666666664" height="20.333333333333332"/>
         </designable>
         <designable name="8k5-RY-G7a">
-            <size key="intrinsicContentSize" width="98" height="21.333333333333332"/>
+            <size key="intrinsicContentSize" width="91" height="20.333333333333332"/>
         </designable>
         <designable name="8sK-sK-mev">
-            <size key="intrinsicContentSize" width="155.33333333333334" height="21.333333333333332"/>
+            <size key="intrinsicContentSize" width="143" height="20.333333333333332"/>
         </designable>
         <designable name="8xx-W6-hB3">
-            <size key="intrinsicContentSize" width="87" height="21.333333333333332"/>
+            <size key="intrinsicContentSize" width="81.333333333333329" height="20.333333333333332"/>
         </designable>
         <designable name="BhG-DT-qrp">
-            <size key="intrinsicContentSize" width="69.666666666666671" height="21.333333333333332"/>
+            <size key="intrinsicContentSize" width="66" height="20.333333333333332"/>
         </designable>
         <designable name="CBV-Bu-WoK">
-            <size key="intrinsicContentSize" width="129.66666666666666" height="21.333333333333332"/>
+            <size key="intrinsicContentSize" width="122" height="20.333333333333332"/>
         </designable>
         <designable name="Fet-Xf-g7n">
-            <size key="intrinsicContentSize" width="248.33333333333334" height="21.333333333333332"/>
+            <size key="intrinsicContentSize" width="230.66666666666666" height="20.333333333333332"/>
         </designable>
         <designable name="Ibw-tb-H3g">
-            <size key="intrinsicContentSize" width="86.333333333333329" height="21.333333333333332"/>
+            <size key="intrinsicContentSize" width="81.666666666666671" height="20.333333333333332"/>
         </designable>
         <designable name="JJt-Vh-8wt">
-            <size key="intrinsicContentSize" width="200.33333333333334" height="21.333333333333332"/>
+            <size key="intrinsicContentSize" width="184.66666666666666" height="20.333333333333332"/>
         </designable>
         <designable name="Jth-1u-f6g">
-            <size key="intrinsicContentSize" width="180.66666666666666" height="21.333333333333332"/>
+            <size key="intrinsicContentSize" width="167.33333333333334" height="20.333333333333332"/>
         </designable>
         <designable name="OsK-VS-bCk">
-            <size key="intrinsicContentSize" width="438" height="20"/>
+            <size key="intrinsicContentSize" width="402.33333333333331" height="18.666666666666668"/>
         </designable>
         <designable name="Sxp-yQ-PJp">
-            <size key="intrinsicContentSize" width="127.33333333333333" height="21.333333333333332"/>
+            <size key="intrinsicContentSize" width="120.33333333333333" height="20.333333333333332"/>
         </designable>
         <designable name="Txh-vo-rb3">
             <size key="intrinsicContentSize" width="38" height="18.666666666666668"/>
         </designable>
         <designable name="Waz-w8-Ffc">
-            <size key="intrinsicContentSize" width="123.33333333333333" height="21.333333333333332"/>
+            <size key="intrinsicContentSize" width="115.33333333333333" height="20.333333333333332"/>
         </designable>
         <designable name="XQM-L6-Sk9">
-            <size key="intrinsicContentSize" width="118.33333333333333" height="21.333333333333332"/>
+            <size key="intrinsicContentSize" width="107.33333333333333" height="20.333333333333332"/>
         </designable>
         <designable name="dFE-fM-rS1">
-            <size key="intrinsicContentSize" width="72.333333333333329" height="21.333333333333332"/>
+            <size key="intrinsicContentSize" width="70.333333333333329" height="20.333333333333332"/>
         </designable>
         <designable name="dRS-9q-vFW">
             <size key="intrinsicContentSize" width="45" height="21.333333333333332"/>
-        </designable>
-        <designable name="e0i-IC-SKU">
-            <size key="intrinsicContentSize" width="121.66666666666667" height="21.333333333333332"/>
         </designable>
         <designable name="ehu-LB-T7M">
             <size key="intrinsicContentSize" width="52.333333333333336" height="21.333333333333332"/>
         </designable>
         <designable name="f8e-Yf-5yX">
-            <size key="intrinsicContentSize" width="36.333333333333336" height="21.333333333333332"/>
+            <size key="intrinsicContentSize" width="33.666666666666664" height="20.333333333333332"/>
         </designable>
         <designable name="fXX-1o-iQM">
-            <size key="intrinsicContentSize" width="88.666666666666671" height="21.333333333333332"/>
+            <size key="intrinsicContentSize" width="81.333333333333329" height="20.333333333333332"/>
         </designable>
         <designable name="i87-nE-NFP">
-            <size key="intrinsicContentSize" width="42.666666666666664" height="21.333333333333332"/>
+            <size key="intrinsicContentSize" width="40" height="20.333333333333332"/>
         </designable>
         <designable name="j0d-Mk-JPR">
-            <size key="intrinsicContentSize" width="67" height="21.333333333333332"/>
+            <size key="intrinsicContentSize" width="62" height="20.333333333333332"/>
         </designable>
         <designable name="jYB-2J-yAx">
             <size key="intrinsicContentSize" width="34.666666666666664" height="21.333333333333332"/>
@@ -4359,31 +4361,34 @@ Mapping Report Details</string>
             <size key="intrinsicContentSize" width="41.666666666666664" height="21.333333333333332"/>
         </designable>
         <designable name="srq-oO-YbT">
-            <size key="intrinsicContentSize" width="108" height="21.333333333333332"/>
+            <size key="intrinsicContentSize" width="101.33333333333333" height="20.333333333333332"/>
         </designable>
         <designable name="tPt-eP-irI">
-            <size key="intrinsicContentSize" width="176" height="21.333333333333332"/>
+            <size key="intrinsicContentSize" width="164" height="20.333333333333332"/>
         </designable>
         <designable name="u05-7d-LPj">
-            <size key="intrinsicContentSize" width="123" height="21.333333333333332"/>
+            <size key="intrinsicContentSize" width="115.66666666666667" height="20.333333333333332"/>
         </designable>
         <designable name="uT5-6A-YxA">
-            <size key="intrinsicContentSize" width="227.66666666666666" height="21.333333333333332"/>
+            <size key="intrinsicContentSize" width="209" height="20.333333333333332"/>
         </designable>
         <designable name="uWv-f3-oTW">
-            <size key="intrinsicContentSize" width="73.333333333333329" height="21.333333333333332"/>
+            <size key="intrinsicContentSize" width="66.333333333333329" height="20.333333333333332"/>
         </designable>
         <designable name="vw1-1F-EDN">
-            <size key="intrinsicContentSize" width="205.33333333333334" height="21.333333333333332"/>
+            <size key="intrinsicContentSize" width="186" height="20.333333333333332"/>
         </designable>
         <designable name="xCO-ao-Mt8">
-            <size key="intrinsicContentSize" width="104.66666666666667" height="21.333333333333332"/>
+            <size key="intrinsicContentSize" width="96.666666666666671" height="20.333333333333332"/>
+        </designable>
+        <designable name="yMz-FU-OLr">
+            <size key="intrinsicContentSize" width="101.66666666666667" height="20.333333333333332"/>
         </designable>
         <designable name="ySP-kX-zpu">
-            <size key="intrinsicContentSize" width="90.333333333333329" height="21.333333333333332"/>
+            <size key="intrinsicContentSize" width="84.666666666666671" height="20.333333333333332"/>
         </designable>
         <designable name="z2e-e4-9I2">
-            <size key="intrinsicContentSize" width="91.666666666666671" height="21.333333333333332"/>
+            <size key="intrinsicContentSize" width="85.666666666666671" height="20.333333333333332"/>
         </designable>
     </designables>
     <resources>
