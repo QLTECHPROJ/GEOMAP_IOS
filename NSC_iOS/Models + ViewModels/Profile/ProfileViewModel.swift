@@ -40,6 +40,7 @@ class ProfileViewModel {
                 let userModel = UserModelClass(fromJson: receivdeData["ResponseData"])
                 userModel.saveUserSessionInToDefaults()
                 userModel.saveUserDetailInDefaults()
+                CoreDataManager.shared.insertAllTableData(receivdeData["ResponseData"])
                 completionBlock(receivdeData,statusCode,message,true)
             }
             else{

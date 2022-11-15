@@ -30,4 +30,4 @@ let USERDEFAULTS                       = UserDefaults.standard
 
 let AUTHENTICATION                              = UIStoryboard(name: "Main", bundle: nil)
 
-let supportEmailId = "support@geomap.com.in"
+

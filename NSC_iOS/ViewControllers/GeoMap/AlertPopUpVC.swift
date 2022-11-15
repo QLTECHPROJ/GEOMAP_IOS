@@ -17,7 +17,6 @@ class AlertPopUpVC: ClearNaviagtionBarVC {
     
     
     // MARK: - OUTLETS
-    @IBOutlet weak var lblTitle : UILabel!
     @IBOutlet weak var lblDetail : UILabel!
     
     @IBOutlet weak var btnDelete : AppThemeBlueButton!
@@ -66,13 +65,10 @@ class AlertPopUpVC: ClearNaviagtionBarVC {
     // MARK: - FUNCTIONS
     func setupUI(){
         self.view.alpha = 0
-        self.view.backgroundColor = .colorSkyBlue.withAlphaComponent(0.3)
-        self.lblTitle.applyLabelStyle(text : titleText,fontSize :  16,fontName : .InterBold)
-        self.lblDetail.applyLabelStyle(fontSize : 14,fontName : .InterMedium)
+        self.view.backgroundColor = .black.withAlphaComponent(0.3)
+        self.lblDetail.applyLabelStyle(fontSize : 14,fontName : .InterMedium,textColor: .colorTextPlaceHolderGray)
         
         lblDetail.attributedText = detailText.attributedString(alignment: .center, lineSpacing: 5)
-        
-        lblTitle.numberOfLines = 0
         
         btnDelete.isHidden = firstButtonTitle.count == 0
         btnClose.isHidden = secondButtonTitle.count == 0

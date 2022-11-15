@@ -14,8 +14,6 @@ class SupportPopupVC: ClearNaviagtionBarVC, TTTAttributedLabelDelegate {
     // MARK: - OUTLETS
     @IBOutlet weak var imgView : UIImageView!
     @IBOutlet weak var lblTitle : UILabel!
-    @IBOutlet weak var lblSubtitle : UILabel!
-//    @IBOutlet weak var lblDetail : TTTAttributedLabel!
     @IBOutlet weak var lblDescription : UILabel!
     @IBOutlet weak var btnClose : AppThemeBlueButton!
     
@@ -32,8 +30,10 @@ class SupportPopupVC: ClearNaviagtionBarVC, TTTAttributedLabelDelegate {
     // MARK: - Configure Support Popup
     func configureSupportPopup() {
         self.view.alpha = 0
-        self.lblTitle.applyLabelStyle(text : kGeoMap,fontSize :  30,fontName : .InterBold)
-        self.lblSubtitle.applyLabelStyle(text : kSupport,fontSize :  15,fontName : .InterSemibol)
+       
+        self.imgView.image = UIImage(named: "supportimage")!
+        
+        self.lblTitle.applyLabelStyle(text : AppDelegate.shared.appVersionDetails["supportTitle"].stringValue,fontSize :  15,fontName : .InterSemibol)
        
         self.btnClose.isSelect = true
         self.btnClose.setTitle(kClose, for: .normal)
@@ -41,8 +41,8 @@ class SupportPopupVC: ClearNaviagtionBarVC, TTTAttributedLabelDelegate {
         let defaultFontAttribute = [NSAttributedString.Key.foregroundColor: UIColor.colorTextBlack ,NSAttributedString.Key.font: UIFont.applyCustomFont(fontName: .InterMedium, fontSize: 12.0)]
         let blueFontAttribute = [NSAttributedString.Key.foregroundColor: UIColor.colorSkyBlue,NSAttributedString.Key.font: UIFont.applyCustomFont(fontName: .InterMedium, fontSize: 12.0)/*,NSAttributedString.Key.underlineColor: UIColor.colorSkyBlue, NSAttributedString.Key.underlineStyle : NSUnderlineStyle.single.rawValue*/] as [NSAttributedString.Key : Any]
                 
-        self.lblDescription.text = "\(kPleaseContactSupportAt)\n\(supportEmailId)"
-        self.lblDescription.attributedText = (self.lblDescription.text)?.getAttributedText(defaultDic: defaultFontAttribute, attributeDic: blueFontAttribute, attributedStrings: [supportEmailId])
+        self.lblDescription.text = "\(AppDelegate.shared.appVersionDetails["supportText"].stringValue)\n\(AppDelegate.shared.appVersionDetails["supportEmail"].stringValue)"
+        self.lblDescription.attributedText = (self.lblDescription.text)?.getAttributedText(defaultDic: defaultFontAttribute, attributeDic: blueFontAttribute, attributedStrings: [AppDelegate.shared.appVersionDetails["supportEmail"].stringValue])
         
         self.lblDescription.lineSpacing(lineSpacing: 10.0, alignment: self.lblDescription.textAlignment)
         
@@ -50,7 +50,7 @@ class SupportPopupVC: ClearNaviagtionBarVC, TTTAttributedLabelDelegate {
         self.lblDescription.isUserInteractionEnabled = true
         self.lblDescription.addGestureRecognizer(tap)
         
-        self.view.backgroundColor = .colorSkyBlue.withAlphaComponent(0.3)
+        self.view.backgroundColor = .black.withAlphaComponent(0.3)
     }
     
     
@@ -77,9 +77,9 @@ class SupportPopupVC: ClearNaviagtionBarVC, TTTAttributedLabelDelegate {
     
     @objc func lblDescriptionTapped(_ tapGesture : UITapGestureRecognizer) {
         
-        if tapGesture.didTapAttributedTextInLabel(label: self.lblDescription, inRange: (self.lblDescription.attributedText!.string as NSString).range(of: supportEmailId)) {
+        if tapGesture.didTapAttributedTextInLabel(label: self.lblDescription, inRange: (self.lblDescription.attributedText!.string as NSString).range(of: AppDelegate.shared.appVersionDetails["supportEmail"].stringValue)) {
             
-            debugPrint(supportEmailId)
+            debugPrint(AppDelegate.shared.appVersionDetails["supportEmail"].stringValue)
            
             
         }

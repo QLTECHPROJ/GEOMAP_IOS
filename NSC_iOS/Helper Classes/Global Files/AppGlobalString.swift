@@ -84,7 +84,7 @@ var kLogout = "Logout"
 
 var kOK = "Ok"
 
-var kLogoutPermissionAlertMsg = "Are you sure you want to log out of The Geo Map App?"
+var kLogoutPermissionAlertMsg = "Are you sure you want to logout?"
 
 var kClose = "Close"
 
@@ -309,3 +309,9 @@ var kSubject = "Subject"
 var kAPIRequestFailed = "Response can't recieved..!"
 
 var kFaceLengthM = "Face Length (m)"
+
+var kYes = "Yes"
+
+var kNo = "No"
+
+var kDeleteAccountPermission = "Are you sure you want to delete your account?"

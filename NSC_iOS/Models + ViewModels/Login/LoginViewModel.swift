@@ -32,7 +32,7 @@ class LoginViewModel {
         }
     }
     
-    func callAPIVersionUpdate(completionBlock: @escaping (JSON?,String?,String?,Bool) -> Void) {
+    func callAPIVersionUpdate(isLoader : Bool = false,completionBlock: @escaping (JSON?,String?,String?,Bool) -> Void) {
         
         let parameters = APIParametersModel()
         parameters.deviceToken = GFunctions.shared.getDeviceToken()
@@ -42,7 +42,7 @@ class LoginViewModel {
     
         debugPrint(parameters)
         
-        APIManager.shared.callAPIWithJSON(router: APIRouter.app_version(parameters.toDictionary()),showToast : false) { responseData, data, statusCode, message, completion in
+        APIManager.shared.callAPIWithJSON(router: APIRouter.app_version(parameters.toDictionary()),isLoader : isLoader,showToast : false) { responseData, data, statusCode, message, completion in
             if completion, statusCode == ApiKeys.ApiStatusCode.success.rawValue, let receivdeData = data {
                 
                 debugPrint(receivdeData)

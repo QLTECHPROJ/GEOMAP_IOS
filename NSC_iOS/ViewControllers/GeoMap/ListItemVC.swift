@@ -39,6 +39,9 @@ class ListItemVC: ClearNaviagtionBarVC {
     var arrList : [JSON] = []
     private var arrListSearch : [JSON] = []
     
+    
+    var arrAnyObject : [Any] = []
+    
     private var searchText : String = ""
     
     // MARK: - VIEW LIFE CYCLE
@@ -56,7 +59,7 @@ class ListItemVC: ClearNaviagtionBarVC {
     
     // MARK: - FUNCTIONS
     func setupUI() {
-        self.view.backgroundColor = .colorSkyBlue.withAlphaComponent(0.3)
+        self.view.backgroundColor = .black.withAlphaComponent(0.3)
         self.view.alpha = 0
         btnClear.isHidden = true
         lblNoData.isHidden = true
@@ -112,11 +115,15 @@ class ListItemVC: ClearNaviagtionBarVC {
     }
     
     func setUpTitle(){
+        
         switch listType {
+            
         case .attributes:
             lblTitle.text = kChooseYourAttributes
             txtSearch.placeholder = kChooseYourAttributes
             
+            self.arrAnyObject = AttributeDataModel.shared.arrAttributeData
+           
         case .Nos:
             lblTitle.text = kChooseYourNos
             txtSearch.placeholder = kChooseYourNos
@@ -125,31 +132,48 @@ class ListItemVC: ClearNaviagtionBarVC {
             lblTitle.text = kChooseYourSampleCollected
             txtSearch.placeholder = kChooseYourSampleCollected
             
+            self.arrAnyObject = SampleCollectedModel.shared.arrSampleCollected
+            
+            
         case .weathering:
             lblTitle.text = kChooseYourWeathering
             txtSearch.placeholder = kChooseYourWeathering
             
+            self.arrAnyObject = WeatheringDataModel.shared.arrWeathering
+           
         case .rockStrenght:
             lblTitle.text = kChooseYourRockStrenght
             txtSearch.placeholder = kChooseYourRockStrenght
+            
+            self.arrAnyObject = RockStrengthDataModel.shared.arrRockStrenght
             
         case .waterCollection:
             lblTitle.text = kChooseYourWaterCondition
             txtSearch.placeholder = kChooseYourWaterCondition
             
+            self.arrAnyObject = WaterConditionDataModel.shared.arrWaterCondition
+            
         case .typeOfGeologicalStructure:
             lblTitle.text = kChooseYourTypeOfGeologicalStructure
             txtSearch.placeholder = kChooseYourTypeOfGeologicalStructure
             
+            self.arrAnyObject = TypeOfGeologicalStructuresModel.shared.arrTypeOfGeologicalStructures
         case .typeOfFaults:
             lblTitle.text = kChooseYourTypeOfFault
             txtSearch.placeholder = kChooseYourTypeOfFault
+            
+            self.arrAnyObject = TypeOfFaultsDataModel.shared.arrTypeOfFault
         }
         
         if self.listType == .Nos{
             self.setupData()
         }
         else{
+            
+            guard checkInternet() else {
+                
+                return
+            }
             self.apiCalling()
         }
     }
@@ -166,98 +190,7 @@ class ListItemVC: ClearNaviagtionBarVC {
             }
         }
     }
-    
-    /*
-     {
-       "ResponseData" : [
-         {
-           "id" : 1,
-           "name" : "test data",
-           "created_at" : "2022-10-31T17:28:00.000000Z",
-           "updated_at" : "2022-10-31T17:28:00.000000Z"
-         }
-       ],
-       "ResponseCode" : "200",
-       "ResponseMessage" : "Sample Collecteds",
-       "ResponseStatus" : "Success"
-     }
-     
-     {
-       "ResponseData" : [
-         {
-           "id" : 1,
-           "created_at" : "2022-10-31T14:32:50.000000Z",
-           "updated_at" : "2022-10-31T14:32:50.000000Z",
-           "name" : "test1"
-         },
-         {
-           "id" : 2,
-           "created_at" : "2022-10-31T14:33:03.000000Z",
-           "updated_at" : "2022-10-31T14:33:03.000000Z",
-           "name" : "test 2"
-         }
-       ],
-       "ResponseCode" : "200",
-       "ResponseMessage" : "Weathering Data",
-       "ResponseStatus" : "Success"
-     }
-     
-     {
-       "ResponseData" : [
-         {
-           "id" : 1,
-           "created_at" : "2022-10-31T16:31:24.000000Z",
-           "name" : "test data",
-           "updated_at" : "2022-10-31T16:31:24.000000Z"
-         }
-       ],
-       "ResponseCode" : "200",
-       "ResponseStatus" : "Success",
-       "ResponseMessage" : "RockStrengts Data"
-     }
-     
-     {
-       "ResponseStatus" : "Success",
-       "ResponseData" : [
-         {
-           "created_at" : "2022-10-31T16:48:10.000000Z",
-           "updated_at" : "2022-10-31T16:48:10.000000Z",
-           "id" : 1,
-           "name" : "test data"
-         }
-       ],
-       "ResponseCode" : "200",
-       "ResponseMessage" : "WaterCondition Data"
-     }
-     
-     {
-       "ResponseCode" : "200",
-       "ResponseData" : [
-         {
-           "updated_at" : "2022-10-31T17:16:37.000000Z",
-           "id" : 1,
-           "created_at" : "2022-10-31T17:16:37.000000Z",
-           "name" : "test data"
-         }
-       ],
-       "ResponseStatus" : "Success",
-       "ResponseMessage" : "Type of Geological Structure"
-     }
-     
-     {
-       "ResponseMessage" : "Type of Faults",
-       "ResponseStatus" : "Success",
-       "ResponseCode" : "200",
-       "ResponseData" : [
-         {
-           "updated_at" : "2022-10-31T16:59:11.000000Z",
-           "id" : 1,
-           "created_at" : "2022-10-31T16:59:11.000000Z",
-           "name" : "test fault"
-         }
-       ]
-     }
-     */
+
     
     func setupData() {
 

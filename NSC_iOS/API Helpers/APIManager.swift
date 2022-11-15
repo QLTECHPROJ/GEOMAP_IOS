@@ -120,13 +120,19 @@ class APIManager {
                     self.handleError(data: response, showToast: showToast, response: { (success) in
                         if success {
                             if let value = response.result.value {
+                                
                                 responseModel(value)
+                                
                                 let dict = value.toDictionary()
+                                
                                 if (dict["ResponseCode"] as? String) != "200" {
+                                    
                                     if (dict["ResponseCode"] as? String) == "403" {
-//                                        APPDELEGATE.logout()
+
                                         AppDelegate.shared.updateWindow()
+                                        
                                     } else if let message = dict["ResponseMessage"] as? String, message.trim.count > 0 {
+                                        
                                         if showToast { showAlertToast(message: message) }
                                     }
                                 }

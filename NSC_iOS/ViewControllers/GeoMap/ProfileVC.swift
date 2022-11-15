@@ -193,7 +193,7 @@ class ProfileVC: ClearNaviagtionBarVC {
             parameters.email = JSON(self.txtEmail.text as Any).stringValue
             parameters.mobile = JSON(self.txtMobile.text).stringValue
             parameters.profileimage = self.strImage
-            parameters.dob = GFunctions.shared.convertDateFormat(dt: JSON(self.txtDOB.text as Any).stringValue, inputFormat: DateTimeFormaterEnum.ddmm_yyyy.rawValue, outputFormat: DateTimeFormaterEnum.yyyymmdd.rawValue, status: .NOCONVERSION).str
+            parameters.dob = GFunctions.shared.convertDateFormat(dt: JSON(self.txtDOB.text as Any).stringValue, inputFormat: DateTimeFormaterEnum.ddmm_yyyy.rawValue, outputFormat: DateTimeFormaterEnum.ddmm_yyyy.rawValue, status: .NOCONVERSION).str
             
             print(parameters.toDictionary())
             self.vwProfileModel.callProfileUpdateAPI(parameters: parameters.toDictionary(), uploadParameters: [self.imageData]) { completion in
@@ -218,9 +218,9 @@ class ProfileVC: ClearNaviagtionBarVC {
         
         let aVC = AppStoryBoard.main.viewController(viewControllerClass: AlertPopUpVC.self)
         aVC.titleText = Theme.strings.deleteCoach
-        aVC.detailText = Theme.strings.delete_user_alert_title
-        aVC.firstButtonTitle = Theme.strings.ok
-        aVC.secondButtonTitle = Theme.strings.close
+        aVC.detailText = kDeleteAccountPermission
+        aVC.firstButtonTitle = kYes
+        aVC.secondButtonTitle = kNo
         aVC.modalPresentationStyle = .overFullScreen
         aVC.delegate = self
         self.present(aVC, animated: false, completion :{

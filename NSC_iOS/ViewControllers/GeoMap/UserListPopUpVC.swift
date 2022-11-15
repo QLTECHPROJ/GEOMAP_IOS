@@ -15,8 +15,8 @@ class UserListPopUpVC: ClearNaviagtionBarVC {
     
     @IBOutlet weak var imgUser: ImageThemeBorderClass!
     
-    @IBOutlet weak var imgCamara: UIImageView!
-    
+    @IBOutlet weak var lblName: UILabel!
+        
     @IBOutlet weak var tableView: UITableView!
     
     
@@ -50,22 +50,15 @@ class UserListPopUpVC: ClearNaviagtionBarVC {
     func setUpUI(){
         self.view.backgroundColor = .colorBGSkyBlueLight
         self.tableView.register(nibWithCellClass: UserListCell.self)
-        /*
-        let tapGestureToChooseProfile1 = UITapGestureRecognizer(target: self, action: #selector(self.selectProfilePicture(_:)))
-        self.imgUser.isUserInteractionEnabled = true
-        self.imgUser.addGestureRecognizer(tapGestureToChooseProfile1)
         
-        let tapGestureToChooseProfile2 = UITapGestureRecognizer(target: self, action: #selector(self.selectProfilePicture(_:)))
-        self.imgCamara.isUserInteractionEnabled = true
-        self.imgCamara.addGestureRecognizer(tapGestureToChooseProfile2)
-        */
-        
+        self.lblName.applyLabelStyle(fontSize : 16,fontName : .InterBold)
         self.setupData()
     }
     
     func setupData() {
 
         self.imgUser.setImgWebUrl(imageString: JSON(UserModelClass.current.profileImage as Any).stringValue,isUserplaceholder : true)
+        self.lblName.text = JSON(UserModelClass.current.name as Any).stringValue
         
         self.vwProfileModel.callAPIGetUserProfile { reponseData, statusCode, message, completion in
             
@@ -184,8 +177,8 @@ extension UserListPopUpVC : UITableViewDelegate, UITableViewDataSource {
             let aVC = AppStoryBoard.main.viewController(viewControllerClass: AlertPopUpVC.self)
             aVC.titleText = kLogout
             aVC.detailText = kLogoutPermissionAlertMsg
-            aVC.firstButtonTitle = kOK
-            aVC.secondButtonTitle = kClose
+            aVC.firstButtonTitle = kYes
+            aVC.secondButtonTitle = kNo
             aVC.modalPresentationStyle = .overFullScreen
             aVC.delegate = self
             //            self.present(aVC, animated: false, completion: nil)

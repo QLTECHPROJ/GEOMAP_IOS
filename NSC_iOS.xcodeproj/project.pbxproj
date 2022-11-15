@@ -16,6 +16,8 @@
 		12291696290C0BC90093BE93 /* TTGSnackbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12291695290C0BC90093BE93 /* TTGSnackbar.swift */; };
 		12291697290C0BC90093BE93 /* TTGSnackbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12291695290C0BC90093BE93 /* TTGSnackbar.swift */; };
 		12310D2E290BBF7F00F10DE3 /* ViewPDFVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12310D2D290BBF7F00F10DE3 /* ViewPDFVC.swift */; };
+		12469E62291E804200A4DAC8 /* SampleCollected+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12469E60291E804200A4DAC8 /* SampleCollected+CoreDataClass.swift */; };
+		12469E64291E804200A4DAC8 /* SampleCollected+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12469E61291E804200A4DAC8 /* SampleCollected+CoreDataProperties.swift */; };
 		124A4E4B29127FC700C21A00 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 124A4E4A29127FC700C21A00 /* SwiftyJSON */; };
 		1251DD9128FFDE2400E1E712 /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1251DD9028FFDE2400E1E712 /* UIButton+Extension.swift */; };
 		1251DD9328FFDE3700E1E712 /* UIButtonClasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1251DD9228FFDE3700E1E712 /* UIButtonClasses.swift */; };
@@ -46,6 +48,32 @@
 		1278BD17290028670061A7DD /* BaseClassForrNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1278BD16290028670061A7DD /* BaseClassForrNavigationBar.swift */; };
 		1278BD182900287E0061A7DD /* BaseClassForrNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1278BD16290028670061A7DD /* BaseClassForrNavigationBar.swift */; };
 		127A6942290ABCD900DF71BC /* UploadUnderMappingImagesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127A6941290ABCD900DF71BC /* UploadUnderMappingImagesVC.swift */; };
+		127C800229235A3400DC6E99 /* TypeOfFaultsDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127C800129235A3400DC6E99 /* TypeOfFaultsDataModel.swift */; };
+		127C800329235A3900DC6E99 /* TypeOfFaultsDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127C800129235A3400DC6E99 /* TypeOfFaultsDataModel.swift */; };
+		127C800729235BB000DC6E99 /* TypeOfGeologicalStructuresDataTable+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127C800529235BB000DC6E99 /* TypeOfGeologicalStructuresDataTable+CoreDataClass.swift */; };
+		127C800829235BB000DC6E99 /* TypeOfGeologicalStructuresDataTable+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127C800629235BB000DC6E99 /* TypeOfGeologicalStructuresDataTable+CoreDataProperties.swift */; };
+		127C800929235BB400DC6E99 /* TypeOfGeologicalStructuresDataTable+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127C800629235BB000DC6E99 /* TypeOfGeologicalStructuresDataTable+CoreDataProperties.swift */; };
+		127C800A29235BB700DC6E99 /* TypeOfGeologicalStructuresDataTable+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127C800529235BB000DC6E99 /* TypeOfGeologicalStructuresDataTable+CoreDataClass.swift */; };
+		127C800C29235BEA00DC6E99 /* TypeOfGeologicalStructures Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127C800B29235BEA00DC6E99 /* TypeOfGeologicalStructures Model.swift */; };
+		127C800D29235BEA00DC6E99 /* TypeOfGeologicalStructures Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127C800B29235BEA00DC6E99 /* TypeOfGeologicalStructures Model.swift */; };
+		127C8016292362B100DC6E99 /* UnderGroundMappingReportDataTable+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127C8014292362B100DC6E99 /* UnderGroundMappingReportDataTable+CoreDataClass.swift */; };
+		127C8017292362B100DC6E99 /* UnderGroundMappingReportDataTable+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127C8014292362B100DC6E99 /* UnderGroundMappingReportDataTable+CoreDataClass.swift */; };
+		127C8018292362B100DC6E99 /* UnderGroundMappingReportDataTable+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127C8015292362B100DC6E99 /* UnderGroundMappingReportDataTable+CoreDataProperties.swift */; };
+		127C8019292362B100DC6E99 /* UnderGroundMappingReportDataTable+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127C8015292362B100DC6E99 /* UnderGroundMappingReportDataTable+CoreDataProperties.swift */; };
+		127C801C292362EA00DC6E99 /* UnderGroundMappingReportDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127C801B292362EA00DC6E99 /* UnderGroundMappingReportDataModel.swift */; };
+		127C801D292362EA00DC6E99 /* UnderGroundMappingReportDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127C801B292362EA00DC6E99 /* UnderGroundMappingReportDataModel.swift */; };
+		127C802129236E3D00DC6E99 /* OpenCastMappingReportDataTable+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127C801F29236E3D00DC6E99 /* OpenCastMappingReportDataTable+CoreDataClass.swift */; };
+		127C802229236E3D00DC6E99 /* OpenCastMappingReportDataTable+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127C801F29236E3D00DC6E99 /* OpenCastMappingReportDataTable+CoreDataClass.swift */; };
+		127C802329236E3D00DC6E99 /* OpenCastMappingReportDataTable+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127C802029236E3D00DC6E99 /* OpenCastMappingReportDataTable+CoreDataProperties.swift */; };
+		127C802429236E3D00DC6E99 /* OpenCastMappingReportDataTable+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127C802029236E3D00DC6E99 /* OpenCastMappingReportDataTable+CoreDataProperties.swift */; };
+		127C802629236E9300DC6E99 /* OpenCastMappingReportDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127C802529236E9300DC6E99 /* OpenCastMappingReportDataModel.swift */; };
+		127C802729236E9300DC6E99 /* OpenCastMappingReportDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127C802529236E9300DC6E99 /* OpenCastMappingReportDataModel.swift */; };
+		127C802B292373C700DC6E99 /* AttributeDataTable+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127C8029292373C700DC6E99 /* AttributeDataTable+CoreDataClass.swift */; };
+		127C802C292373C700DC6E99 /* AttributeDataTable+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127C8029292373C700DC6E99 /* AttributeDataTable+CoreDataClass.swift */; };
+		127C802D292373C700DC6E99 /* AttributeDataTable+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127C802A292373C700DC6E99 /* AttributeDataTable+CoreDataProperties.swift */; };
+		127C802E292373C700DC6E99 /* AttributeDataTable+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127C802A292373C700DC6E99 /* AttributeDataTable+CoreDataProperties.swift */; };
+		127C80302923740700DC6E99 /* AttributeDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127C802F2923740700DC6E99 /* AttributeDataModel.swift */; };
+		127C80312923740700DC6E99 /* AttributeDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127C802F2923740700DC6E99 /* AttributeDataModel.swift */; };
 		12A26AC729028B81005ED851 /* UITextView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A26AC629028B81005ED851 /* UITextView+Extension.swift */; };
 		12A26AC829028B8D005ED851 /* UITextView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A26AC629028B81005ED851 /* UITextView+Extension.swift */; };
 		12B2F303291A56E20019CADA /* UGReportDetailVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B2F302291A56E20019CADA /* UGReportDetailVM.swift */; };
@@ -55,6 +83,34 @@
 		12D0F75B29153A1900549066 /* ReportListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D0F75A29153A1900549066 /* ReportListVM.swift */; };
 		12D0F75C2915424300549066 /* ReportListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D0F75A29153A1900549066 /* ReportListVM.swift */; };
 		12E2AE56290ACA5F00209D28 /* AddOpenCastMappingImagesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E2AE55290ACA5F00209D28 /* AddOpenCastMappingImagesVC.swift */; };
+		12E787352922177A00702EBE /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E787342922177A00702EBE /* CoreDataManager.swift */; };
+		12E787372922196400702EBE /* SampleCollectedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E787362922196400702EBE /* SampleCollectedModel.swift */; };
+		12E787382922603C00702EBE /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E787342922177A00702EBE /* CoreDataManager.swift */; };
+		12E78739292264E100702EBE /* SampleCollectedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E787362922196400702EBE /* SampleCollectedModel.swift */; };
+		12E7873A2922651300702EBE /* SampleCollected+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12469E61291E804200A4DAC8 /* SampleCollected+CoreDataProperties.swift */; };
+		12E7873B2922651600702EBE /* SampleCollected+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12469E60291E804200A4DAC8 /* SampleCollected+CoreDataClass.swift */; };
+		12E7873E29226AA800702EBE /* WeatheringData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E7873C29226AA800702EBE /* WeatheringData+CoreDataClass.swift */; };
+		12E7873F29226AA800702EBE /* WeatheringData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E7873C29226AA800702EBE /* WeatheringData+CoreDataClass.swift */; };
+		12E7874029226AA800702EBE /* WeatheringData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E7873D29226AA800702EBE /* WeatheringData+CoreDataProperties.swift */; };
+		12E7874129226AA800702EBE /* WeatheringData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E7873D29226AA800702EBE /* WeatheringData+CoreDataProperties.swift */; };
+		12E7874529226B2600702EBE /* WeatheringDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E7874429226B2600702EBE /* WeatheringDataModel.swift */; };
+		12E7874629226B2600702EBE /* WeatheringDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E7874429226B2600702EBE /* WeatheringDataModel.swift */; };
+		12E7874A29226D4C00702EBE /* RockStrengthDataTable+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E7874829226D4C00702EBE /* RockStrengthDataTable+CoreDataClass.swift */; };
+		12E7874B29226D4C00702EBE /* RockStrengthDataTable+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E7874829226D4C00702EBE /* RockStrengthDataTable+CoreDataClass.swift */; };
+		12E7874C29226D4C00702EBE /* RockStrengthDataTable+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E7874929226D4C00702EBE /* RockStrengthDataTable+CoreDataProperties.swift */; };
+		12E7874D29226D4C00702EBE /* RockStrengthDataTable+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E7874929226D4C00702EBE /* RockStrengthDataTable+CoreDataProperties.swift */; };
+		12E7874F29226D7D00702EBE /* RockStrengthDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E7874E29226D7D00702EBE /* RockStrengthDataModel.swift */; };
+		12E7875029226D7D00702EBE /* RockStrengthDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E7874E29226D7D00702EBE /* RockStrengthDataModel.swift */; };
+		12E7875429226EFE00702EBE /* WaterConditionDataTable+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E7875229226EFE00702EBE /* WaterConditionDataTable+CoreDataClass.swift */; };
+		12E7875529226EFE00702EBE /* WaterConditionDataTable+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E7875229226EFE00702EBE /* WaterConditionDataTable+CoreDataClass.swift */; };
+		12E7875629226EFE00702EBE /* WaterConditionDataTable+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E7875329226EFE00702EBE /* WaterConditionDataTable+CoreDataProperties.swift */; };
+		12E7875729226EFE00702EBE /* WaterConditionDataTable+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E7875329226EFE00702EBE /* WaterConditionDataTable+CoreDataProperties.swift */; };
+		12E7875C29226F6600702EBE /* WaterConditionDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E7875B29226F6600702EBE /* WaterConditionDataModel.swift */; };
+		12E7875D29226F6600702EBE /* WaterConditionDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E7875B29226F6600702EBE /* WaterConditionDataModel.swift */; };
+		12E787612922793900702EBE /* TypeOfFaultsDataTable+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E7875F2922793900702EBE /* TypeOfFaultsDataTable+CoreDataClass.swift */; };
+		12E787622922793900702EBE /* TypeOfFaultsDataTable+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E7875F2922793900702EBE /* TypeOfFaultsDataTable+CoreDataClass.swift */; };
+		12E787632922793900702EBE /* TypeOfFaultsDataTable+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E787602922793900702EBE /* TypeOfFaultsDataTable+CoreDataProperties.swift */; };
+		12E787642922793900702EBE /* TypeOfFaultsDataTable+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E787602922793900702EBE /* TypeOfFaultsDataTable+CoreDataProperties.swift */; };
 		12F3B465290F8FBD00EB13BE /* GFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12291693290C06800093BE93 /* GFunctions.swift */; };
 		12F3B466290F8FD700EB13BE /* AppShadowViewClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1278BD1129000A8B0061A7DD /* AppShadowViewClass.swift */; };
 		12F3B467290F8FF400EB13BE /* AddOpenCastMappingImagesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E2AE55290ACA5F00209D28 /* AddOpenCastMappingImagesVC.swift */; };
@@ -401,6 +457,8 @@
 		12291693290C06800093BE93 /* GFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFunctions.swift; sourceTree = "<group>"; };
 		12291695290C0BC90093BE93 /* TTGSnackbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTGSnackbar.swift; sourceTree = "<group>"; };
 		12310D2D290BBF7F00F10DE3 /* ViewPDFVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewPDFVC.swift; sourceTree = "<group>"; };
+		12469E60291E804200A4DAC8 /* SampleCollected+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SampleCollected+CoreDataClass.swift"; sourceTree = "<group>"; };
+		12469E61291E804200A4DAC8 /* SampleCollected+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SampleCollected+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		1251DD9028FFDE2400E1E712 /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		1251DD9228FFDE3700E1E712 /* UIButtonClasses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonClasses.swift; sourceTree = "<group>"; };
 		1251DD9428FFDEDD00E1E712 /* UIFont+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
@@ -417,11 +475,37 @@
 		1278BD13290023BA0061A7DD /* Genum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Genum.swift; sourceTree = "<group>"; };
 		1278BD16290028670061A7DD /* BaseClassForrNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseClassForrNavigationBar.swift; sourceTree = "<group>"; };
 		127A6941290ABCD900DF71BC /* UploadUnderMappingImagesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadUnderMappingImagesVC.swift; sourceTree = "<group>"; };
+		127C800129235A3400DC6E99 /* TypeOfFaultsDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeOfFaultsDataModel.swift; sourceTree = "<group>"; };
+		127C800529235BB000DC6E99 /* TypeOfGeologicalStructuresDataTable+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TypeOfGeologicalStructuresDataTable+CoreDataClass.swift"; sourceTree = "<group>"; };
+		127C800629235BB000DC6E99 /* TypeOfGeologicalStructuresDataTable+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TypeOfGeologicalStructuresDataTable+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		127C800B29235BEA00DC6E99 /* TypeOfGeologicalStructures Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TypeOfGeologicalStructures Model.swift"; sourceTree = "<group>"; };
+		127C8014292362B100DC6E99 /* UnderGroundMappingReportDataTable+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UnderGroundMappingReportDataTable+CoreDataClass.swift"; sourceTree = "<group>"; };
+		127C8015292362B100DC6E99 /* UnderGroundMappingReportDataTable+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UnderGroundMappingReportDataTable+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		127C801B292362EA00DC6E99 /* UnderGroundMappingReportDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderGroundMappingReportDataModel.swift; sourceTree = "<group>"; };
+		127C801F29236E3D00DC6E99 /* OpenCastMappingReportDataTable+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OpenCastMappingReportDataTable+CoreDataClass.swift"; sourceTree = "<group>"; };
+		127C802029236E3D00DC6E99 /* OpenCastMappingReportDataTable+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OpenCastMappingReportDataTable+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		127C802529236E9300DC6E99 /* OpenCastMappingReportDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenCastMappingReportDataModel.swift; sourceTree = "<group>"; };
+		127C8029292373C700DC6E99 /* AttributeDataTable+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AttributeDataTable+CoreDataClass.swift"; sourceTree = "<group>"; };
+		127C802A292373C700DC6E99 /* AttributeDataTable+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AttributeDataTable+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		127C802F2923740700DC6E99 /* AttributeDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributeDataModel.swift; sourceTree = "<group>"; };
 		12A26AC629028B81005ED851 /* UITextView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Extension.swift"; sourceTree = "<group>"; };
 		12B2F302291A56E20019CADA /* UGReportDetailVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UGReportDetailVM.swift; sourceTree = "<group>"; };
 		12D0F7562915291700549066 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		12D0F75A29153A1900549066 /* ReportListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportListVM.swift; sourceTree = "<group>"; };
 		12E2AE55290ACA5F00209D28 /* AddOpenCastMappingImagesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddOpenCastMappingImagesVC.swift; sourceTree = "<group>"; };
+		12E787342922177A00702EBE /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		12E787362922196400702EBE /* SampleCollectedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleCollectedModel.swift; sourceTree = "<group>"; };
+		12E7873C29226AA800702EBE /* WeatheringData+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WeatheringData+CoreDataClass.swift"; sourceTree = "<group>"; };
+		12E7873D29226AA800702EBE /* WeatheringData+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WeatheringData+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		12E7874429226B2600702EBE /* WeatheringDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatheringDataModel.swift; sourceTree = "<group>"; };
+		12E7874829226D4C00702EBE /* RockStrengthDataTable+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RockStrengthDataTable+CoreDataClass.swift"; sourceTree = "<group>"; };
+		12E7874929226D4C00702EBE /* RockStrengthDataTable+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RockStrengthDataTable+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		12E7874E29226D7D00702EBE /* RockStrengthDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RockStrengthDataModel.swift; sourceTree = "<group>"; };
+		12E7875229226EFE00702EBE /* WaterConditionDataTable+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WaterConditionDataTable+CoreDataClass.swift"; sourceTree = "<group>"; };
+		12E7875329226EFE00702EBE /* WaterConditionDataTable+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WaterConditionDataTable+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		12E7875B29226F6600702EBE /* WaterConditionDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterConditionDataModel.swift; sourceTree = "<group>"; };
+		12E7875F2922793900702EBE /* TypeOfFaultsDataTable+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TypeOfFaultsDataTable+CoreDataClass.swift"; sourceTree = "<group>"; };
+		12E787602922793900702EBE /* TypeOfFaultsDataTable+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TypeOfFaultsDataTable+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		15FF71ED063A7E208A8A060D /* Pods-NSC_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NSC_iOS.release.xcconfig"; path = "Target Support Files/Pods-NSC_iOS/Pods-NSC_iOS.release.xcconfig"; sourceTree = "<group>"; };
 		280C1227283F9AA80034898A /* ApplyForCampCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplyForCampCell.swift; sourceTree = "<group>"; };
 		280C1228283F9AA80034898A /* ApplyForCampCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ApplyForCampCell.xib; sourceTree = "<group>"; };
@@ -666,6 +750,46 @@
 			path = "FAQKListVC+ViewModel";
 			sourceTree = "<group>";
 		};
+		127C800429235B3400DC6E99 /* TypeOfGeologicalStructures Models Files */ = {
+			isa = PBXGroup;
+			children = (
+				127C800529235BB000DC6E99 /* TypeOfGeologicalStructuresDataTable+CoreDataClass.swift */,
+				127C800629235BB000DC6E99 /* TypeOfGeologicalStructuresDataTable+CoreDataProperties.swift */,
+				127C800B29235BEA00DC6E99 /* TypeOfGeologicalStructures Model.swift */,
+			);
+			path = "TypeOfGeologicalStructures Models Files";
+			sourceTree = "<group>";
+		};
+		127C801A292362C500DC6E99 /* UnderGroundMappingReportData Models Files */ = {
+			isa = PBXGroup;
+			children = (
+				127C8014292362B100DC6E99 /* UnderGroundMappingReportDataTable+CoreDataClass.swift */,
+				127C8015292362B100DC6E99 /* UnderGroundMappingReportDataTable+CoreDataProperties.swift */,
+				127C801B292362EA00DC6E99 /* UnderGroundMappingReportDataModel.swift */,
+			);
+			path = "UnderGroundMappingReportData Models Files";
+			sourceTree = "<group>";
+		};
+		127C801E29236E2700DC6E99 /* OpenCastMappingReportDataTable Models Files */ = {
+			isa = PBXGroup;
+			children = (
+				127C801F29236E3D00DC6E99 /* OpenCastMappingReportDataTable+CoreDataClass.swift */,
+				127C802029236E3D00DC6E99 /* OpenCastMappingReportDataTable+CoreDataProperties.swift */,
+				127C802529236E9300DC6E99 /* OpenCastMappingReportDataModel.swift */,
+			);
+			path = "OpenCastMappingReportDataTable Models Files";
+			sourceTree = "<group>";
+		};
+		127C8028292373AE00DC6E99 /* AttributeDataTable Model Files */ = {
+			isa = PBXGroup;
+			children = (
+				127C8029292373C700DC6E99 /* AttributeDataTable+CoreDataClass.swift */,
+				127C802A292373C700DC6E99 /* AttributeDataTable+CoreDataProperties.swift */,
+				127C802F2923740700DC6E99 /* AttributeDataModel.swift */,
+			);
+			path = "AttributeDataTable Model Files";
+			sourceTree = "<group>";
+		};
 		12A2F49D2917B2880008CD28 /* HomeVC+ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -690,6 +814,74 @@
 				12D0F75A29153A1900549066 /* ReportListVM.swift */,
 			);
 			path = "UGListVC+Model";
+			sourceTree = "<group>";
+		};
+		12E787332922175400702EBE /* Core Data Files */ = {
+			isa = PBXGroup;
+			children = (
+				28A9C4142817B7C9001B252F /* NSC_iOS.xcdatamodeld */,
+				12E787342922177A00702EBE /* CoreDataManager.swift */,
+				127C801E29236E2700DC6E99 /* OpenCastMappingReportDataTable Models Files */,
+				127C801A292362C500DC6E99 /* UnderGroundMappingReportData Models Files */,
+				127C8028292373AE00DC6E99 /* AttributeDataTable Model Files */,
+				127C800429235B3400DC6E99 /* TypeOfGeologicalStructures Models Files */,
+				12E7875E2922790300702EBE /* TypeOfFaultsDataModels Files */,
+				12E7875129226EE900702EBE /* WaterConditionDataModels Files */,
+				12E7874729226D1F00702EBE /* RockStrengthDataModels Files */,
+				12E7874329226ACF00702EBE /* WeatheringDataModels Files */,
+				12E7874229226AB300702EBE /* SampleCollectedModels Files */,
+			);
+			path = "Core Data Files";
+			sourceTree = "<group>";
+		};
+		12E7874229226AB300702EBE /* SampleCollectedModels Files */ = {
+			isa = PBXGroup;
+			children = (
+				12E787362922196400702EBE /* SampleCollectedModel.swift */,
+				12469E60291E804200A4DAC8 /* SampleCollected+CoreDataClass.swift */,
+				12469E61291E804200A4DAC8 /* SampleCollected+CoreDataProperties.swift */,
+			);
+			path = "SampleCollectedModels Files";
+			sourceTree = "<group>";
+		};
+		12E7874329226ACF00702EBE /* WeatheringDataModels Files */ = {
+			isa = PBXGroup;
+			children = (
+				12E7873C29226AA800702EBE /* WeatheringData+CoreDataClass.swift */,
+				12E7873D29226AA800702EBE /* WeatheringData+CoreDataProperties.swift */,
+				12E7874429226B2600702EBE /* WeatheringDataModel.swift */,
+			);
+			path = "WeatheringDataModels Files";
+			sourceTree = "<group>";
+		};
+		12E7874729226D1F00702EBE /* RockStrengthDataModels Files */ = {
+			isa = PBXGroup;
+			children = (
+				12E7874829226D4C00702EBE /* RockStrengthDataTable+CoreDataClass.swift */,
+				12E7874929226D4C00702EBE /* RockStrengthDataTable+CoreDataProperties.swift */,
+				12E7874E29226D7D00702EBE /* RockStrengthDataModel.swift */,
+			);
+			path = "RockStrengthDataModels Files";
+			sourceTree = "<group>";
+		};
+		12E7875129226EE900702EBE /* WaterConditionDataModels Files */ = {
+			isa = PBXGroup;
+			children = (
+				12E7875B29226F6600702EBE /* WaterConditionDataModel.swift */,
+				12E7875229226EFE00702EBE /* WaterConditionDataTable+CoreDataClass.swift */,
+				12E7875329226EFE00702EBE /* WaterConditionDataTable+CoreDataProperties.swift */,
+			);
+			path = "WaterConditionDataModels Files";
+			sourceTree = "<group>";
+		};
+		12E7875E2922790300702EBE /* TypeOfFaultsDataModels Files */ = {
+			isa = PBXGroup;
+			children = (
+				12E7875F2922793900702EBE /* TypeOfFaultsDataTable+CoreDataClass.swift */,
+				12E787602922793900702EBE /* TypeOfFaultsDataTable+CoreDataProperties.swift */,
+				127C800129235A3400DC6E99 /* TypeOfFaultsDataModel.swift */,
+			);
+			path = "TypeOfFaultsDataModels Files";
 			sourceTree = "<group>";
 		};
 		2813A0122834DBC200E6194D /* Earning */ = {
@@ -845,6 +1037,7 @@
 		28A9C40A2817B7C9001B252F /* NSC_iOS */ = {
 			isa = PBXGroup;
 			children = (
+				12E787332922175400702EBE /* Core Data Files */,
 				28AEAB4B28195B1100325C90 /* NSC_iOS.entitlements */,
 				28A9C40B2817B7C9001B252F /* AppDelegate.swift */,
 				28A9C4262817BF8D001B252F /* ViewControllers */,
@@ -875,7 +1068,6 @@
 				9A0F6F5A281BA15F008CAA4B /* Font */,
 				28A9C4172817B7CA001B252F /* Assets.xcassets */,
 				281AAE57281AAEAE0070D758 /* NSC-Bridging-Header.h */,
-				28A9C4142817B7C9001B252F /* NSC_iOS.xcdatamodeld */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -1544,32 +1736,42 @@
 				9AD5EDA22824EC1400E0A11F /* UserListCell.swift in Sources */,
 				282ACD69282BB8FC005A8634 /* CampDetailDataModel.swift in Sources */,
 				28AE7222282CD987000845D0 /* Font.swift in Sources */,
+				127C800329235A3900DC6E99 /* TypeOfFaultsDataModel.swift in Sources */,
+				12E78739292264E100702EBE /* SampleCollectedModel.swift in Sources */,
+				127C800A29235BB700DC6E99 /* TypeOfGeologicalStructuresDataTable+CoreDataClass.swift in Sources */,
 				28F830F7281977F000CAF99C /* UISearchBar+Extension.swift in Sources */,
 				9AE6D6F528F9461A008C41C9 /* OCGeoAttributeVC.swift in Sources */,
 				281AAE56281AAA970070D758 /* UICollectionView+Extension.swift in Sources */,
 				1278BD15290023F60061A7DD /* Genum.swift in Sources */,
 				1227CA0E291B87E200761787 /* ContactUSVC.swift in Sources */,
 				281AAE4A281AA4D30070D758 /* AppVersionViewModel.swift in Sources */,
+				127C802229236E3D00DC6E99 /* OpenCastMappingReportDataTable+CoreDataClass.swift in Sources */,
 				12F3B467290F8FF400EB13BE /* AddOpenCastMappingImagesVC.swift in Sources */,
 				28F830DF281977F000CAF99C /* UIColor+Extension.swift in Sources */,
 				1251DDA028FFE9CE00E1E712 /* UILabel+Extension.swift in Sources */,
 				28D1A5B72823FBB200B3A179 /* CoachStatusModel.swift in Sources */,
 				281AAE42281AA3B40070D758 /* ListDataModel.swift in Sources */,
+				127C80312923740700DC6E99 /* AttributeDataModel.swift in Sources */,
 				9A694AA228FE5C3C000AC3C7 /* FAQCell.swift in Sources */,
 				284C3194282681B300F8A63B /* ListItemVC.swift in Sources */,
+				12E7875D29226F6600702EBE /* WaterConditionDataModel.swift in Sources */,
 				28F830FB281977F000CAF99C /* UITableView+Extension.swift in Sources */,
 				12F3B468290F901C00EB13BE /* ViewPDFVC.swift in Sources */,
+				12E7874129226AA800702EBE /* WeatheringData+CoreDataProperties.swift in Sources */,
 				28F83137281977F000CAF99C /* WhereAmIRunning.swift in Sources */,
 				289B6A35288936840095FE32 /* NotificationListCell.swift in Sources */,
 				2898FA8C28360FFF006DF4B8 /* SaveAppliedCampsViewModel.swift in Sources */,
 				2804E39F2819847D00AF4A62 /* String+Timepiece.swift in Sources */,
 				28F83119281977F000CAF99C /* Config.swift in Sources */,
 				1251DD9E28FFE9C900E1E712 /* UIFont+Extension.swift in Sources */,
+				127C802E292373C700DC6E99 /* AttributeDataTable+CoreDataProperties.swift in Sources */,
 				1263BD2D290FFA3100E3DED9 /* DeviceDetail.swift in Sources */,
+				12E787642922793900702EBE /* TypeOfFaultsDataTable+CoreDataProperties.swift in Sources */,
 				28515AA7282E81F4004C7229 /* ContactCell.swift in Sources */,
 				2804E3A02819847D00AF4A62 /* NSDateComponents+Timepiece.swift in Sources */,
 				282C33642819617D009401FD /* AppDelegate.swift in Sources */,
 				28F830EB281977F000CAF99C /* ImagePicker.swift in Sources */,
+				127C8017292362B100DC6E99 /* UnderGroundMappingReportDataTable+CoreDataClass.swift in Sources */,
 				9A48A7452829047600D0A728 /* CampListModel.swift in Sources */,
 				28F830ED281977F000CAF99C /* UIViewController+Extension.swift in Sources */,
 				9A48A74D28290A8500D0A728 /* DeleteCoachViewModel.swift in Sources */,
@@ -1580,20 +1782,26 @@
 				2804E3A22819847D00AF4A62 /* WWCalendarTimeSelector.swift in Sources */,
 				2898FA932836720F006DF4B8 /* KidsAttendanceModel.swift in Sources */,
 				28F83121281977F000CAF99C /* UIImageView+Letters.m in Sources */,
+				127C802C292373C700DC6E99 /* AttributeDataTable+CoreDataClass.swift in Sources */,
 				28543628282544F8009BBEDA /* UGGeoAttributeVC.swift in Sources */,
 				28F8311D281977F000CAF99C /* MediaType.swift in Sources */,
 				2813A01B2834FD9000E6194D /* InviteViewModel.swift in Sources */,
 				282C336A2819617D009401FD /* ListItemCell.swift in Sources */,
+				127C800929235BB400DC6E99 /* TypeOfGeologicalStructuresDataTable+CoreDataProperties.swift in Sources */,
 				12F3B465290F8FBD00EB13BE /* GFunctions.swift in Sources */,
+				12E7873F29226AA800702EBE /* WeatheringData+CoreDataClass.swift in Sources */,
 				284A3EC72823EDD600B511FB /* CoachDetailViewModel.swift in Sources */,
 				28F8311F281977F000CAF99C /* MimeType.swift in Sources */,
 				282C336B2819617D009401FD /* LoginVC.swift in Sources */,
+				127C801D292362EA00DC6E99 /* UnderGroundMappingReportDataModel.swift in Sources */,
+				12E7875729226EFE00702EBE /* WaterConditionDataTable+CoreDataProperties.swift in Sources */,
 				28961238282A85C200BC2AC7 /* BankDetailViewModel.swift in Sources */,
 				12D0F75C2915424300549066 /* ReportListVM.swift in Sources */,
 				2813A00E2834DB5E00E6194D /* EarningViewModel.swift in Sources */,
 				2895546A284E1D090044FA06 /* CampDayFeesCell.swift in Sources */,
 				28F830E1281977F000CAF99C /* DJExtensions.swift in Sources */,
 				28300C44282A62DF00695E7B /* PersonalDetailModel.swift in Sources */,
+				12E787622922793900702EBE /* TypeOfFaultsDataTable+CoreDataClass.swift in Sources */,
 				9A96F94A28F995EA00879A89 /* DrawVC.swift in Sources */,
 				28AE7225282CDF0F000845D0 /* AppStrings.swift in Sources */,
 				28F830F9281977F000CAF99C /* NSDate+Extension.swift in Sources */,
@@ -1618,6 +1826,7 @@
 				289B6A332889367A0095FE32 /* UGListVC.swift in Sources */,
 				12F3B469290F904B00EB13BE /* UIImageViewClasses.swift in Sources */,
 				1263BD2A290FF20400E3DED9 /* APIParameters.swift in Sources */,
+				12E7875529226EFE00702EBE /* WaterConditionDataTable+CoreDataClass.swift in Sources */,
 				9A694A9E28FE5BEA000AC3C7 /* FAQListVC.swift in Sources */,
 				28F83107281977F000CAF99C /* KDCircularProgress.swift in Sources */,
 				1251DDA428FFEE9A00E1E712 /* ACFloatingTextfield+Extesion.swift in Sources */,
@@ -1651,6 +1860,7 @@
 				12F3B466290F8FD700EB13BE /* AppShadowViewClass.swift in Sources */,
 				282C33722819617D009401FD /* SplashVC.swift in Sources */,
 				9A48A74928290A5800D0A728 /* LogoutViewModel.swift in Sources */,
+				127C802729236E9300DC6E99 /* OpenCastMappingReportDataModel.swift in Sources */,
 				28F830E7281977F000CAF99C /* UIImage+Extension.swift in Sources */,
 				9A48A7422829045A00D0A728 /* CampListViewModel.swift in Sources */,
 				28ABEDBC2833C6DD001C3911 /* TitleLabelCell.swift in Sources */,
@@ -1658,6 +1868,7 @@
 				28F830E5281977F000CAF99C /* UIView+Extension.swift in Sources */,
 				1251DD9C28FFE9C000E1E712 /* AppGlobalString.swift in Sources */,
 				9A7740BA282BB7A1000BDC8C /* UploaddataModel.swift in Sources */,
+				127C8019292362B100DC6E99 /* UnderGroundMappingReportDataTable+CoreDataProperties.swift in Sources */,
 				28515AA3282E8187004C7229 /* UGReportDetailVC.swift in Sources */,
 				2898FA90283671F7006DF4B8 /* KidsAttendanceViewModel.swift in Sources */,
 				9AD5ED9C2824EBDE00E0A11F /* UserListPopUpVC.swift in Sources */,
@@ -1671,12 +1882,16 @@
 				9A694A9B28FE5BBF000AC3C7 /* SupportPopupVC.swift in Sources */,
 				2813A0112834DBBC00E6194D /* EarningModel.swift in Sources */,
 				1251DD9F28FFE9CB00E1E712 /* UIButtonClasses.swift in Sources */,
+				12E7873B2922651600702EBE /* SampleCollected+CoreDataClass.swift in Sources */,
 				28470DAC281C0CC500FE9C66 /* AlertPopUpVC.swift in Sources */,
 				9A96F94728F96BE200879A89 /* SyncDataVC.swift in Sources */,
+				12E7874B29226D4C00702EBE /* RockStrengthDataTable+CoreDataClass.swift in Sources */,
 				28AE722B282CDFF5000845D0 /* AppFonts.swift in Sources */,
 				28F83131281977F000CAF99C /* AppConstants.swift in Sources */,
+				12E7874D29226D4C00702EBE /* RockStrengthDataTable+CoreDataProperties.swift in Sources */,
 				281AAE47281AA44D0070D758 /* AppVersionModel.swift in Sources */,
 				28F83143281977F000CAF99C /* ReadMore_Helper.swift in Sources */,
+				12E7874629226B2600702EBE /* WeatheringDataModel.swift in Sources */,
 				281AAE53281AA8D30070D758 /* APIRouter.swift in Sources */,
 				28F83123281977F000CAF99C /* NavigationClass.swift in Sources */,
 				2851D2572840F28A00D9D9F9 /* ReferDataModel.swift in Sources */,
@@ -1685,6 +1900,7 @@
 				28F830FF281977F000CAF99C /* TagFlowLayout.swift in Sources */,
 				2867950B282150B60010892E /* DynamicContents.swift in Sources */,
 				28F83103281977F000CAF99C /* ExpandableLabel.swift in Sources */,
+				12E7873A2922651300702EBE /* SampleCollected+CoreDataProperties.swift in Sources */,
 				12F3B46A290F905600EB13BE /* WebViewVC.swift in Sources */,
 				28ABEDB12833B9CB001C3911 /* CampDaysModel.swift in Sources */,
 				282C33732819617D009401FD /* NSC_iOS.xcdatamodeld in Sources */,
@@ -1694,16 +1910,20 @@
 				1251DD9D28FFE9C400E1E712 /* GConstant.swift in Sources */,
 				2804E39E2819847D00AF4A62 /* Duration.swift in Sources */,
 				28F830DD281977F000CAF99C /* NSAttributedString+Extension.swift in Sources */,
+				12E787382922603C00702EBE /* CoreDataManager.swift in Sources */,
 				28C8DA292822B74F0048A172 /* LoginViewModel.swift in Sources */,
 				28F830EF281977F000CAF99C /* String+Extension.swift in Sources */,
 				287554772833907E002FC9BD /* VerifyReferCodeViewModel.swift in Sources */,
 				281AAE39281A85B00070D758 /* APIManager.swift in Sources */,
 				1227CA11291B905200761787 /* ContactUSVM.swift in Sources */,
+				12E7875029226D7D00702EBE /* RockStrengthDataModel.swift in Sources */,
 				12F3B46B290F906A00EB13BE /* UploadUnderMappingImagesVC.swift in Sources */,
 				289B6A362889368D0095FE32 /* NotificationListViewModel.swift in Sources */,
 				28F8312D281977F000CAF99C /* AnimationFrames.swift in Sources */,
 				28ED59712822601C0035402F /* LoginCheckModel.swift in Sources */,
+				127C802429236E3D00DC6E99 /* OpenCastMappingReportDataTable+CoreDataProperties.swift in Sources */,
 				9A694AA928FE60F8000AC3C7 /* FAQModel.swift in Sources */,
+				127C800D29235BEA00DC6E99 /* TypeOfGeologicalStructures Model.swift in Sources */,
 				28F830D3281977F000CAF99C /* DJCheckBox.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1715,6 +1935,7 @@
 				9AD5EDA12824EC1400E0A11F /* UserListCell.swift in Sources */,
 				28F830F6281977F000CAF99C /* UISearchBar+Extension.swift in Sources */,
 				28AE7221282CD93E000845D0 /* Font.swift in Sources */,
+				127C800229235A3400DC6E99 /* TypeOfFaultsDataModel.swift in Sources */,
 				281AAE55281AAA970070D758 /* UICollectionView+Extension.swift in Sources */,
 				9AE6D6F428F9461A008C41C9 /* OCGeoAttributeVC.swift in Sources */,
 				281AAE49281AA4D30070D758 /* AppVersionViewModel.swift in Sources */,
@@ -1723,24 +1944,33 @@
 				28D1A5B62823FBB200B3A179 /* CoachStatusModel.swift in Sources */,
 				281AAE41281AA3B40070D758 /* ListDataModel.swift in Sources */,
 				284C3193282681B300F8A63B /* ListItemVC.swift in Sources */,
+				127C802129236E3D00DC6E99 /* OpenCastMappingReportDataTable+CoreDataClass.swift in Sources */,
 				9A694AA128FE5C3C000AC3C7 /* FAQCell.swift in Sources */,
 				28F830DE281977F000CAF99C /* UIColor+Extension.swift in Sources */,
 				28F830FA281977F000CAF99C /* UITableView+Extension.swift in Sources */,
 				1251DD9128FFDE2400E1E712 /* UIButton+Extension.swift in Sources */,
 				28F8316328197B0600CAF99C /* String+Timepiece.swift in Sources */,
+				127C80302923740700DC6E99 /* AttributeDataModel.swift in Sources */,
 				289B6A2C288934C80095FE32 /* NotificationListCell.swift in Sources */,
+				12E7875C29226F6600702EBE /* WaterConditionDataModel.swift in Sources */,
 				2898FA8B28360FFF006DF4B8 /* SaveAppliedCampsViewModel.swift in Sources */,
 				28F83136281977F000CAF99C /* WhereAmIRunning.swift in Sources */,
+				12E7874029226AA800702EBE /* WeatheringData+CoreDataProperties.swift in Sources */,
 				1251DD9528FFDEDD00E1E712 /* UIFont+Extension.swift in Sources */,
 				28F83118281977F000CAF99C /* Config.swift in Sources */,
 				28515AA6282E81F4004C7229 /* ContactCell.swift in Sources */,
 				28A9C40C2817B7C9001B252F /* AppDelegate.swift in Sources */,
 				9A48A7442829047600D0A728 /* CampListModel.swift in Sources */,
 				1263BD2C290FFA0000E3DED9 /* DeviceDetail.swift in Sources */,
+				12E787352922177A00702EBE /* CoreDataManager.swift in Sources */,
+				127C802D292373C700DC6E99 /* AttributeDataTable+CoreDataProperties.swift in Sources */,
+				12E787632922793900702EBE /* TypeOfFaultsDataTable+CoreDataProperties.swift in Sources */,
+				12469E64291E804200A4DAC8 /* SampleCollected+CoreDataProperties.swift in Sources */,
 				28F830EA281977F000CAF99C /* ImagePicker.swift in Sources */,
 				9A48A74C28290A8500D0A728 /* DeleteCoachViewModel.swift in Sources */,
 				28300C3D282A600000695E7B /* PersonalDetailViewModel.swift in Sources */,
 				28F830EC281977F000CAF99C /* UIViewController+Extension.swift in Sources */,
+				127C8016292362B100DC6E99 /* UnderGroundMappingReportDataTable+CoreDataClass.swift in Sources */,
 				2854362A2825450B009BBEDA /* UGGeoAttributeVC2.swift in Sources */,
 				28F830F4281977F000CAF99C /* UITextField+Extension.swift in Sources */,
 				28F83120281977F000CAF99C /* UIImageView+Letters.m in Sources */,
@@ -1751,18 +1981,24 @@
 				28F8311C281977F000CAF99C /* MediaType.swift in Sources */,
 				2813A01A2834FD9000E6194D /* InviteViewModel.swift in Sources */,
 				1251DD9328FFDE3700E1E712 /* UIButtonClasses.swift in Sources */,
+				127C802B292373C700DC6E99 /* AttributeDataTable+CoreDataClass.swift in Sources */,
 				28F8316528197B0600CAF99C /* WWCalendarTimeSelector.swift in Sources */,
 				12A26AC729028B81005ED851 /* UITextView+Extension.swift in Sources */,
 				284A3EC62823EDD600B511FB /* CoachDetailViewModel.swift in Sources */,
 				9AE824402817E25200A29373 /* ListItemCell.swift in Sources */,
+				12E7873E29226AA800702EBE /* WeatheringData+CoreDataClass.swift in Sources */,
 				28F8311E281977F000CAF99C /* MimeType.swift in Sources */,
 				28961237282A85C200BC2AC7 /* BankDetailViewModel.swift in Sources */,
+				12E787372922196400702EBE /* SampleCollectedModel.swift in Sources */,
+				12E7875629226EFE00702EBE /* WaterConditionDataTable+CoreDataProperties.swift in Sources */,
 				2813A00D2834DB5E00E6194D /* EarningViewModel.swift in Sources */,
+				127C801C292362EA00DC6E99 /* UnderGroundMappingReportDataModel.swift in Sources */,
 				28955469284E1D090044FA06 /* CampDayFeesCell.swift in Sources */,
 				9AE8243A2817DF8800A29373 /* LoginVC.swift in Sources */,
 				12D0F75B29153A1900549066 /* ReportListVM.swift in Sources */,
 				28300C43282A62DF00695E7B /* PersonalDetailModel.swift in Sources */,
 				28AE7224282CDF0F000845D0 /* AppStrings.swift in Sources */,
+				12E787612922793900702EBE /* TypeOfFaultsDataTable+CoreDataClass.swift in Sources */,
 				9A96F94928F995EA00879A89 /* DrawVC.swift in Sources */,
 				28F830E0281977F000CAF99C /* DJExtensions.swift in Sources */,
 				2851D2532840F27C00D9D9F9 /* ReferDataViewModel.swift in Sources */,
@@ -1787,6 +2023,7 @@
 				28F8315F28197B0600CAF99C /* NSDateComponents+Timepiece.swift in Sources */,
 				9A694A9D28FE5BEA000AC3C7 /* FAQListVC.swift in Sources */,
 				12291696290C0BC90093BE93 /* TTGSnackbar.swift in Sources */,
+				12E7875429226EFE00702EBE /* WaterConditionDataTable+CoreDataClass.swift in Sources */,
 				1251DDA328FFEE3F00E1E712 /* ACFloatingTextfield+Extesion.swift in Sources */,
 				1263BD29290FF13B00E3DED9 /* APIParameters.swift in Sources */,
 				28F830E8281977F000CAF99C /* DJContants.swift in Sources */,
@@ -1822,12 +2059,15 @@
 				1251DD9728FFDFB000E1E712 /* AppGlobalString.swift in Sources */,
 				12310D2E290BBF7F00F10DE3 /* ViewPDFVC.swift in Sources */,
 				28F830E2281977F000CAF99C /* Int+Extension.swift in Sources */,
+				127C802629236E9300DC6E99 /* OpenCastMappingReportDataModel.swift in Sources */,
 				28ABEDBB2833C6DD001C3911 /* TitleLabelCell.swift in Sources */,
 				28F830E4281977F000CAF99C /* UIView+Extension.swift in Sources */,
+				127C800829235BB000DC6E99 /* TypeOfGeologicalStructuresDataTable+CoreDataProperties.swift in Sources */,
 				9A7740B9282BB7A1000BDC8C /* UploaddataModel.swift in Sources */,
 				9AD5ED9B2824EBDE00E0A11F /* UserListPopUpVC.swift in Sources */,
 				28515AA2282E8187004C7229 /* UGReportDetailVC.swift in Sources */,
 				2898FA8F283671F7006DF4B8 /* KidsAttendanceViewModel.swift in Sources */,
+				127C8018292362B100DC6E99 /* UnderGroundMappingReportDataTable+CoreDataProperties.swift in Sources */,
 				28F83132281977F000CAF99C /* Theme.swift in Sources */,
 				1278BD17290028670061A7DD /* BaseClassForrNavigationBar.swift in Sources */,
 				12291692290BE4190093BE93 /* WebViewVC.swift in Sources */,
@@ -1843,10 +2083,13 @@
 				9A694A9A28FE5BBF000AC3C7 /* SupportPopupVC.swift in Sources */,
 				28F83142281977F000CAF99C /* ReadMore_Helper.swift in Sources */,
 				282ACD66282BB898005A8634 /* CampDetailViewModel.swift in Sources */,
+				12E7874A29226D4C00702EBE /* RockStrengthDataTable+CoreDataClass.swift in Sources */,
 				9A96F94628F96BE200879A89 /* SyncDataVC.swift in Sources */,
 				28AE722A282CDFF5000845D0 /* AppFonts.swift in Sources */,
+				12E7874C29226D4C00702EBE /* RockStrengthDataTable+CoreDataProperties.swift in Sources */,
 				28F83122281977F000CAF99C /* NavigationClass.swift in Sources */,
 				281AAE46281AA44D0070D758 /* AppVersionModel.swift in Sources */,
+				12E7874529226B2600702EBE /* WeatheringDataModel.swift in Sources */,
 				28F83134281977F000CAF99C /* GradientView.swift in Sources */,
 				281AAE52281AA8D30070D758 /* APIRouter.swift in Sources */,
 				28F830FE281977F000CAF99C /* TagFlowLayout.swift in Sources */,
@@ -1871,11 +2114,16 @@
 				289B6A31288934E10095FE32 /* NotificationListViewModel.swift in Sources */,
 				1227CA10291B87F100761787 /* ContactUSVM.swift in Sources */,
 				28F8312C281977F000CAF99C /* AnimationFrames.swift in Sources */,
+				12E7874F29226D7D00702EBE /* RockStrengthDataModel.swift in Sources */,
 				12291694290C06800093BE93 /* GFunctions.swift in Sources */,
 				28ED59702822601C0035402F /* LoginCheckModel.swift in Sources */,
+				127C800729235BB000DC6E99 /* TypeOfGeologicalStructuresDataTable+CoreDataClass.swift in Sources */,
 				9A694AA828FE60F8000AC3C7 /* FAQModel.swift in Sources */,
 				1278BD14290023BA0061A7DD /* Genum.swift in Sources */,
+				127C802329236E3D00DC6E99 /* OpenCastMappingReportDataTable+CoreDataProperties.swift in Sources */,
 				28F830D2281977F000CAF99C /* DJCheckBox.swift in Sources */,
+				127C800C29235BEA00DC6E99 /* TypeOfGeologicalStructures Model.swift in Sources */,
+				12469E62291E804200A4DAC8 /* SampleCollected+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
