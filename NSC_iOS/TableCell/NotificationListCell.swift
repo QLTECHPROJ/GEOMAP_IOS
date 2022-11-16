@@ -24,10 +24,10 @@ class NotificationListCell: UITableViewCell {
     }
     
     func setUpUI(){
-        self.lblTitle.applyLabelStyle(fontSize :  14,fontName : .InterSemibol, textColor : .colorTextPlaceHolderGray)
-        self.lblCity.applyLabelStyle(fontSize :  12,fontName : .InterMedium, textColor : .colorTextPlaceHolderGray)
+        self.lblTitle.applyLabelStyle(fontSize :  14,fontName : .InterSemibol)
+        self.lblCity.applyLabelStyle(fontSize :  12,fontName : .InterMedium)
         self.lblSubtitle.applyLabelStyle(fontSize :  12,fontName : .InterMedium, textColor : .colorTextPlaceHolderGray)
-        self.lblDate.applyLabelStyle(fontSize :  12,fontName : .InterMedium, textColor : .colorTextPlaceHolderGray)
+        self.lblDate.applyLabelStyle(fontSize :  12,fontName : .InterMedium)
         self.lblDescription.applyLabelStyle(fontSize :  12,fontName : .InterMedium, textColor : .colorTextPlaceHolderGray)
     }
     
@@ -39,15 +39,32 @@ class NotificationListCell: UITableViewCell {
             self.lblTitle.text = reportData["name"].stringValue
             self.lblDate.text = reportData["ugDate"].stringValue
             self.lblCity.text = reportData["location"].stringValue
-            self.lblSubtitle.text = "\(kScaleColnm) \(reportData["scale"].stringValue)"
-            self.lblDescription.text = "\(kMapSerialNoColmn) \(reportData["mapSerialNo"].stringValue)"
+            
+            let attributedScale: NSMutableAttributedString = NSMutableAttributedString(string: "\(kScaleColnm) \(reportData["scale"].stringValue)")
+            attributedScale.setAttributes(color: UIColor.colorTextPlaceHolderGray, forText: kScaleColnm, font: 12, fontname: .InterMedium)
+            attributedScale.setAttributes(color: UIColor.colorTextBlack, forText: reportData["scale"].stringValue, font: 12, fontname: .InterMedium)
+            self.lblSubtitle.attributedText = attributedScale
+            
+            let attributedMapSerialNo: NSMutableAttributedString = NSMutableAttributedString(string: "\(kMapSerialNoColmn) \(reportData["mapSerialNo"].stringValue)")
+            attributedMapSerialNo.setAttributes(color: UIColor.colorTextPlaceHolderGray, forText: kMapSerialNoColmn, font: 12, fontname: .InterMedium)
+            attributedMapSerialNo.setAttributes(color: UIColor.colorTextBlack, forText: reportData["mapSerialNo"].stringValue, font: 12, fontname: .InterMedium)
+            self.lblDescription.attributedText = attributedMapSerialNo
+            
         }
         else{
             self.lblTitle.text = reportData["pitName"].stringValue
             self.lblDate.text = reportData["ocDate"].stringValue
             self.lblCity.text = reportData["pitLoaction"].stringValue
-            self.lblSubtitle.text = "\(kMinesSiteNameColmn) \(reportData["kMinesSiteNameColmn"].stringValue)"
-            self.lblDescription.text = "\(kMappingSheetNoColn) \(reportData["mappingSheetNo"].stringValue)"
+    
+            let attributedMineSite: NSMutableAttributedString = NSMutableAttributedString(string: "\(kMinesSiteNameColmn) \(reportData["minesSiteName"].stringValue)")
+            attributedMineSite.setAttributes(color: UIColor.colorTextPlaceHolderGray, forText: kMinesSiteNameColmn, font: 12, fontname: .InterMedium)
+            attributedMineSite.setAttributes(color: UIColor.colorTextBlack, forText: reportData["minesSiteName"].stringValue, font: 12, fontname: .InterMedium)
+            self.lblSubtitle.attributedText = attributedMineSite
+            
+            let attributedMapSerialNo: NSMutableAttributedString = NSMutableAttributedString(string: "\(kMappingSheetNoColn) \(reportData["mappingSheetNo"].stringValue)")
+            attributedMapSerialNo.setAttributes(color: UIColor.colorTextPlaceHolderGray, forText: kMappingSheetNoColn, font: 12, fontname: .InterMedium)
+            attributedMapSerialNo.setAttributes(color: UIColor.colorTextBlack, forText: reportData["mappingSheetNo"].stringValue, font: 12, fontname: .InterMedium)
+            self.lblDescription.attributedText = attributedMapSerialNo
         }
     }
     

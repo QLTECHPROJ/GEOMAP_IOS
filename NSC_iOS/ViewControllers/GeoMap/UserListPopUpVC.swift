@@ -57,8 +57,15 @@ class UserListPopUpVC: ClearNaviagtionBarVC {
     
     func setupData() {
 
-        self.imgUser.setImgWebUrl(imageString: JSON(UserModelClass.current.profileImage as Any).stringValue,isUserplaceholder : true)
         self.lblName.text = JSON(UserModelClass.current.name as Any).stringValue
+        
+        self.imgUser.sd_setImage(with: JSON(UserModelClass.current.profileImage as Any).stringValue.url()) { (image, error, sdchahe, returnUrl) in
+            if error != nil {
+                self.imgUser.image = UIImage()
+                self.imgUser.image = GFunctions.shared.setDefaultTextInProfile(text: JSON(UserModelClass.current.name as Any).stringValue)
+               // self.imgUser.isView = false
+            }
+        }
         
         self.vwProfileModel.callAPIGetUserProfile { reponseData, statusCode, message, completion in
             
@@ -92,7 +99,6 @@ extension UserListPopUpVC : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withClass: UserListCell.self)
         cell.lblName.text = self.arrMenu[indexPath.row]["type"].stringValue
-        //cell.imgView.image = UIImage(named: arrImage[indexPath.row])
         return cell
     }
     
@@ -181,7 +187,7 @@ extension UserListPopUpVC : UITableViewDelegate, UITableViewDataSource {
             aVC.secondButtonTitle = kNo
             aVC.modalPresentationStyle = .overFullScreen
             aVC.delegate = self
-            //            self.present(aVC, animated: false, completion: nil)
+            
             self.present(aVC, animated: false, completion :{
                 aVC.openPopUpVisiable()
             })
@@ -208,12 +214,12 @@ extension UserListPopUpVC : AlertPopUpVCDelegate {
             }
             
             AppDelegate.shared.updateWindow()
-            /*
+            
             let logoutVM = LogoutViewModel()
             logoutVM.callLogoutAPI(completion: { success in
 //                APPDELEGATE.logout()
             })
-         */
+         
         }
     }
     

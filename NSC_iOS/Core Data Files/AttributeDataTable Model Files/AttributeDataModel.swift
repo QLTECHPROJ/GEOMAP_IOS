@@ -5,6 +5,21 @@
 
 import Foundation
 
+extension NSSet {
+    func toArray<T>() -> [T] {
+        let array = self.map({ $0 as! T})
+        return array
+    }
+}
+
+extension Optional where Wrapped == NSSet {
+    func array<T: Hashable>(of: T.Type) -> [T] {
+        if let set = self as? Set<T> {
+            return Array(set)
+        }
+        return [T]()
+    }
+}
 class AttributeDataModel : NSObject{
     
     
@@ -18,13 +33,23 @@ class AttributeDataModel : NSObject{
     
     
     
-    private func insertAttributeData(_ iD : String,_ name : String, _ createDate : String, _ updateDate : String){
+    private func insertAttributeData(_ attributedData : JSON){
         // Add
         let attributesData = AttributeDataTable(context: CoreDataManager.shared.context)
-        attributesData.createDate = createDate
-        attributesData.iD = Int64(iD)!
-        attributesData.name = name
-        attributesData.updateDate =  updateDate
+        attributesData.iD = Int64(attributedData["id"].stringValue)!
+        attributesData.name = attributedData["name"].stringValue
+        attributesData.updateDate =  attributedData["updated_at"].stringValue
+        attributesData.createDate = attributedData["created_at"].stringValue
+        
+        for nosData in attributedData["nos"].arrayValue{
+            let nosAttribute = Nos(context: CoreDataManager.shared.context)
+            nosAttribute.iD = Int64(nosData["id"].stringValue)!
+            nosAttribute.name = nosData["name"].stringValue
+            nosAttribute.attributeId = Int64(nosData["attributeId"].stringValue)!
+            nosAttribute.createDate = nosData["created_at"].stringValue
+            nosAttribute.updateDate = nosData["updated_at"].stringValue
+            attributesData.addToNos(nosAttribute)
+        }
         CoreDataManager.shared.saveContext()
     }
     
@@ -49,7 +74,7 @@ class AttributeDataModel : NSObject{
         }
     }
     
-    func deleteAttributeTableData(_ completionBlock : (Bool)->Void){
+    private func deleteAttributeTableData(_ completionBlock : (Bool)->Void){
         
         self.getAttributeTabledData { completion in
             
@@ -83,14 +108,14 @@ class AttributeDataModel : NSObject{
                 
                 for insertData in sampleData{
                     
-                    AttributeDataModel.shared.insertAttributeData(insertData["id"].stringValue, insertData["name"].stringValue, insertData["created_at"].stringValue, insertData["updated_at"].stringValue)
+                    AttributeDataModel.shared.insertAttributeData(insertData)
                 }
             }
         }
         else{
             for insertData in sampleData{
                 
-                AttributeDataModel.shared.insertAttributeData(insertData["id"].stringValue, insertData["name"].stringValue, insertData["created_at"].stringValue, insertData["updated_at"].stringValue)
+                AttributeDataModel.shared.insertAttributeData(insertData)
             }
         }
         AttributeDataModel.shared.getAttributeTabledData { completionBlock in

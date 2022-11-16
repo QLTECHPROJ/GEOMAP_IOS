@@ -39,9 +39,7 @@ class ListItemVC: ClearNaviagtionBarVC {
     var arrList : [JSON] = []
     private var arrListSearch : [JSON] = []
     
-    
-    var arrAnyObject : [Any] = []
-    
+ 
     private var searchText : String = ""
     
     // MARK: - VIEW LIFE CYCLE
@@ -69,8 +67,8 @@ class ListItemVC: ClearNaviagtionBarVC {
         
         self.setUpTitle()
         
-        if checkInternet(showToast: true) == false {
-            txtSearch.isUserInteractionEnabled = false
+        if checkInternet(showToast: false) == false {
+            txtSearch.isUserInteractionEnabled = true
             lblNoData.isHidden = true
         } else {
             txtSearch.isUserInteractionEnabled = true
@@ -115,14 +113,33 @@ class ListItemVC: ClearNaviagtionBarVC {
     }
     
     func setUpTitle(){
-        
+        CoreDataManager.shared.getAllListDataFromLocalDatabase()
         switch listType {
             
         case .attributes:
             lblTitle.text = kChooseYourAttributes
             txtSearch.placeholder = kChooseYourAttributes
             
-            self.arrAnyObject = AttributeDataModel.shared.arrAttributeData
+            for data in AttributeDataModel.shared.arrAttributeData{
+            
+                var arrNos : [JSON] = []
+                if let array = data.nos,let nosArray = array.allObjects as? [Nos]{
+                    for nosData in nosArray{
+                        debugPrint(nosData)
+                        arrNos.append(["id" : JSON(nosData.iD as Any).stringValue,
+                                       "name" : JSON(nosData.name as Any).stringValue,
+                                       "updated_at" : JSON(nosData.updateDate as Any).stringValue,
+                                       "created_at" : JSON(nosData.createDate as Any).stringValue,
+                                       "attributeId" : JSON(nosData.attributeId as Any).stringValue])
+                    }
+                }
+                debugPrint(arrNos)
+                self.arrList.append(["id" : JSON(data.iD as Any).stringValue,
+                                     "name" : JSON(data.name as Any).stringValue,
+                                     "updated_at" : JSON(data.updateDate as Any).stringValue,
+                                     "created_at" : JSON(data.createDate as Any).stringValue,
+                                     "nos" : arrNos])
+            }
            
         case .Nos:
             lblTitle.text = kChooseYourNos
@@ -132,37 +149,69 @@ class ListItemVC: ClearNaviagtionBarVC {
             lblTitle.text = kChooseYourSampleCollected
             txtSearch.placeholder = kChooseYourSampleCollected
             
-            self.arrAnyObject = SampleCollectedModel.shared.arrSampleCollected
-            
+            for data in SampleCollectedModel.shared.arrSampleCollected{
+                
+                self.arrList.append(["id" : JSON(data.iD as Any).stringValue,
+                                     "name" : JSON(data.name as Any).stringValue,
+                                     "updated_at" : JSON(data.updateDate as Any).stringValue,
+                                     "created_at" : JSON(data.createDate as Any).stringValue])
+            }
             
         case .weathering:
             lblTitle.text = kChooseYourWeathering
             txtSearch.placeholder = kChooseYourWeathering
             
-            self.arrAnyObject = WeatheringDataModel.shared.arrWeathering
-           
+            
+            for data in WeatheringDataModel.shared.arrWeathering{
+                self.arrList.append(["id" : JSON(data.iD as Any).stringValue,
+                                     "name" : JSON(data.name as Any).stringValue,
+                                     "updated_at" : JSON(data.updateDate as Any).stringValue,
+                                     "created_at" : JSON(data.createDate as Any).stringValue])
+            }
+            
         case .rockStrenght:
             lblTitle.text = kChooseYourRockStrenght
             txtSearch.placeholder = kChooseYourRockStrenght
-            
-            self.arrAnyObject = RockStrengthDataModel.shared.arrRockStrenght
+           
+            for data in RockStrengthDataModel.shared.arrRockStrenght{
+                self.arrList.append(["id" : JSON(data.iD as Any).stringValue,
+                                     "name" : JSON(data.name as Any).stringValue,
+                                     "updated_at" : JSON(data.updateDate as Any).stringValue,
+                                     "created_at" : JSON(data.createDate as Any).stringValue])
+            }
             
         case .waterCollection:
             lblTitle.text = kChooseYourWaterCondition
             txtSearch.placeholder = kChooseYourWaterCondition
-            
-            self.arrAnyObject = WaterConditionDataModel.shared.arrWaterCondition
+         
+            for data in WaterConditionDataModel.shared.arrWaterCondition{
+                self.arrList.append(["id" : JSON(data.iD as Any).stringValue,
+                                     "name" : JSON(data.name as Any).stringValue,
+                                     "updated_at" : JSON(data.updateDate as Any).stringValue,
+                                     "created_at" : JSON(data.createDate as Any).stringValue])
+            }
             
         case .typeOfGeologicalStructure:
             lblTitle.text = kChooseYourTypeOfGeologicalStructure
             txtSearch.placeholder = kChooseYourTypeOfGeologicalStructure
             
-            self.arrAnyObject = TypeOfGeologicalStructuresModel.shared.arrTypeOfGeologicalStructures
+            for data in TypeOfGeologicalStructuresModel.shared.arrTypeOfGeologicalStructures{
+                self.arrList.append(["id" : JSON(data.iD as Any).stringValue,
+                                     "name" : JSON(data.name as Any).stringValue,
+                                     "updated_at" : JSON(data.updateDate as Any).stringValue,
+                                     "created_at" : JSON(data.createDate as Any).stringValue])
+            }
+            
         case .typeOfFaults:
             lblTitle.text = kChooseYourTypeOfFault
             txtSearch.placeholder = kChooseYourTypeOfFault
             
-            self.arrAnyObject = TypeOfFaultsDataModel.shared.arrTypeOfFault
+            for data in TypeOfFaultsDataModel.shared.arrTypeOfFault{
+                self.arrList.append(["id" : JSON(data.iD as Any).stringValue,
+                                     "name" : JSON(data.name as Any).stringValue,
+                                     "updated_at" : JSON(data.updateDate as Any).stringValue,
+                                     "created_at" : JSON(data.createDate as Any).stringValue])
+            }
         }
         
         if self.listType == .Nos{
@@ -171,7 +220,8 @@ class ListItemVC: ClearNaviagtionBarVC {
         else{
             
             guard checkInternet() else {
-                
+                self.arrListSearch = self.arrList
+                self.tableView.reloadData()
                 return
             }
             self.apiCalling()

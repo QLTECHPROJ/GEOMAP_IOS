@@ -47,7 +47,7 @@ class TypeOfFaultsDataModel : NSObject{
         }
     }
     
-    func deleteTypeOfFaultsTableData(_ completionBlock : (Bool)->Void){
+    private func deleteTypeOfFaultsTableData(_ completionBlock : (Bool)->Void){
         
         self.getTypeOfFaultData { completion in
             

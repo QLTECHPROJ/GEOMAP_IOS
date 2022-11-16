@@ -10,22 +10,25 @@ import Foundation
 class LogoutViewModel {
     
      func callLogoutAPI(completion: @escaping (Bool) -> Void) {
-//        let parameters = ["deviceType":APP_TYPE,
-//                          "deviceId":DEVICE_UUID,
-//                          "deviceToken":FCM_TOKEN,
-//                          "coachId":LoginDataModel.currentUser?.ID ?? ""]
-//        
-//        APIManager.shared.callAPI(router: APIRouter.logout(parameters)) { (response : LogoutModel?) in
-//            if response?.ResponseCode == "200" {
-//                completion(true)
-//                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-//                    showAlertToast(message: response?.ResponseMessage ?? "")
-//                }
-//            } else {
-//                completion(false)
-//            }
-//        }
+     
+         let parameters = APIParametersModel()
+         parameters.userId = JSON(UserModelClass.current.userId as Any).stringValue
+         parameters.deviceType = DeviceDetail.shared.deviceType
+         parameters.deviceToken = GFunctions.shared.getDeviceToken()
+         parameters.deviceId = DeviceDetail.shared.uuid
+        
+         APIManager.shared.callAPIWithJSON(router: APIRouter.logout(parameters.toDictionary())) { responseJSON, data, statusCode, message, completion in
+             
+             if completion{
+                 
+                 GFunctions.shared.showSnackBar(message: message)
+                 
+                 DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                   
+                     AppDelegate.shared.updateWindow()
+                 }
+             }
+         }
     }
-    
 }
 

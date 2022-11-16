@@ -48,7 +48,7 @@ class TypeOfGeologicalStructuresModel : NSObject{
         }
     }
     
-    func deleteTypeOfGeologicalStructuresData(_ completionBlock : (Bool)->Void){
+    private func deleteTypeOfGeologicalStructuresData(_ completionBlock : (Bool)->Void){
         
         self.getTypeOfGeologicalStructuresData { completion in
             

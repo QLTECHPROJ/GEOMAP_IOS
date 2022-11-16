@@ -73,7 +73,17 @@ class ProfileVC: ClearNaviagtionBarVC {
     
     func setupData() {
         let userModel = UserModelClass.current
-        self.imgUser.setImgWebUrl(imageString: JSON(userModel.profileImage as Any).stringValue,isUserplaceholder : true)
+      //  self.imgUser.setImgWebUrl(imageString: JSON(userModel.profileImage as Any).stringValue,isUserplaceholder : true)
+        
+        self.imgUser.sd_setImage(with: JSON(userModel.profileImage as Any).stringValue.url()) { (image, error, sdchahe, returnUrl) in
+            if error != nil {
+                self.imgUser.image = UIImage()
+                self.imgUser.image = GFunctions.shared.setDefaultTextInProfile(text: JSON(userModel.name as Any).stringValue)
+               // self.imgUser.isView = false
+            }
+        }
+        
+        
         self.txtName.text = JSON(userModel.name as Any).stringValue
         self.txtEmail.text = JSON(userModel.email as Any).stringValue
         self.txtMobile.text = JSON(userModel.mobile as Any).stringValue

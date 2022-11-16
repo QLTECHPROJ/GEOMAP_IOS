@@ -66,6 +66,38 @@ class GFunctions: NSObject {
         snackbar.animationType = animation
         snackbar.show()
     }
+    
+    func setDefaultTextInProfile(text : String)-> UIImage{
+        let lblNameInitialize = UILabel()
+        lblNameInitialize.frame.size = CGSize(width: 100.0, height: 100.0)
+        lblNameInitialize.textColor = UIColor.colorSkyBlue
+        lblNameInitialize.font = UIFont.applyCustomFont(fontName: .InterBold, fontSize: 30)
+        let nameArr = text.components(separatedBy: " ")
+        
+        var str : String = ""
+        
+        
+        let firstWord = nameArr.first
+        let lastWord = nameArr.last
+        
+        if let _ = firstWord, let ch = firstWord!.first{
+            str.append(ch)
+        }
+        if nameArr.count > 1, let _ = lastWord,let ch = lastWord!.first{
+            str.append(ch)
+        }
+        
+        lblNameInitialize.text = str
+        lblNameInitialize.textAlignment = NSTextAlignment.center
+        lblNameInitialize.backgroundColor = UIColor.white
+        lblNameInitialize.layer.cornerRadius = 50.0
+        
+        UIGraphicsBeginImageContext(lblNameInitialize.frame.size)
+        lblNameInitialize.layer.render(in: UIGraphicsGetCurrentContext()!)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return image!
+    }
 }
 
 extension GFunctions{

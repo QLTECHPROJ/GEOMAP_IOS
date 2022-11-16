@@ -5,6 +5,15 @@
         <attribute name="iD" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="updateDate" optional="YES" attributeType="String"/>
+        <relationship name="nos" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Nos" inverseName="attributedData" inverseEntity="Nos"/>
+    </entity>
+    <entity name="Nos" representedClassName="Nos" syncable="YES">
+        <attribute name="attributeId" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="createDate" optional="YES" attributeType="String"/>
+        <attribute name="iD" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="updateDate" optional="YES" attributeType="String"/>
+        <relationship name="attributedData" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="AttributeDataTable" inverseName="nos" inverseEntity="AttributeDataTable"/>
     </entity>
     <entity name="OpenCastMappingReportDataTable" representedClassName="OpenCastMappingReportDataTable" syncable="YES">
         <attribute name="actualGradOfOre" optional="YES" attributeType="String"/>

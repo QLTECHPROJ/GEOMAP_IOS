@@ -166,7 +166,7 @@ extension CoreDataManager {
 extension CoreDataManager {
     
     func insertAllTableData(_ allContentData : JSON){
-        debugPrint(allContentData)
+        
         SampleCollectedModel.shared.insertAllSampleCollectedData(allContentData["sampleCollected"].arrayValue) { completion in
             if completion {}
         }
@@ -191,8 +191,39 @@ extension CoreDataManager {
             if completion {}
         }
         
-//        AttributeDataModel.shared.insertAllAttributedDataInTable(allContentData["attributeData"].arrayValue) { completion in
-//            if completion {}
-//        }
+        AttributeDataModel.shared.insertAllAttributedDataInTable(allContentData["attributeData"].arrayValue) { completion in
+            if completion {}
+        }
+    }
+    
+    func getAllListDataFromLocalDatabase(){
+        
+        SampleCollectedModel.shared.getSampleCollectedData { completion in
+            if completion{}
+        }
+        
+        WeatheringDataModel.shared.getWeatheringData { completion in
+            if completion{}
+        }
+        
+        RockStrengthDataModel.shared.getRockStrengthData { completion in
+            if completion{}
+        }
+        
+        WaterConditionDataModel.shared.getWaterConditionData { completion in
+            if completion{}
+        }
+        
+        TypeOfFaultsDataModel.shared.getTypeOfFaultData { completion in
+            if completion{}
+        }
+        
+        TypeOfGeologicalStructuresModel.shared.getTypeOfGeologicalStructuresData { completion in
+            if completion{}
+        }
+        
+        AttributeDataModel.shared.getAttributeTabledData { completion in
+            if completion{}
+        }
     }
 }

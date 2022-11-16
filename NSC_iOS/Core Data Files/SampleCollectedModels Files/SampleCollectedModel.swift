@@ -50,7 +50,7 @@ class SampleCollectedModel : NSObject{
 //        }
 //    }
     
-   private func getSampleCollectedData(_ completionBlock : (Bool)->Void?){
+    func getSampleCollectedData(_ completionBlock : (Bool)->Void?){
         
         let fetchRequest: NSFetchRequest<SampleCollected> = SampleCollected.fetchRequest()
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "iD", ascending: false)]

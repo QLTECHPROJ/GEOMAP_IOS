@@ -48,7 +48,7 @@ class WeatheringDataModel : NSObject{
         }
     }
     
-    func deleteWeatheringData(_ completionBlock : (Bool)->Void){
+   private func deleteWeatheringData(_ completionBlock : (Bool)->Void){
         
         self.getWeatheringData { completion in
             

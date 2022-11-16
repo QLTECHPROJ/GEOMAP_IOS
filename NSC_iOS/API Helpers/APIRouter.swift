@@ -26,7 +26,7 @@ enum APIRouter : URLRequestConvertible {
     case referdata([String:String])
     
     case deleteAccount([String:Any])
-    case logout([String:String])
+    case logout([String:Any])
     
     case camplisting([String:String])
     case campdetails([String:String])

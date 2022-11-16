@@ -49,7 +49,7 @@ class RockStrengthDataModel : NSObject{
         }
     }
     
-    func deleteRockStrengthRockStrengthTableData(_ completionBlock : (Bool)->Void){
+    private func deleteRockStrengthRockStrengthTableData(_ completionBlock : (Bool)->Void){
         
         self.getRockStrengthData { completion in
             

@@ -47,7 +47,7 @@ class WaterConditionDataModel : NSObject{
         }
     }
     
-    func deleteWaterConditionTableData(_ completionBlock : (Bool)->Void){
+    private func deleteWaterConditionTableData(_ completionBlock : (Bool)->Void){
         
         self.getWaterConditionData { completion in
             
