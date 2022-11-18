@@ -66,7 +66,7 @@ var kAddUndergroundsMappingReport = "Add Under Grounds Mapping Report"
 
 var kAddOpenCastMappingReport = "Add OpenCast Mapping Report"
 
-var kUnderGroundReportList = "UnderGroud Report List"
+var kUnderGroundReportList = "UnderGround Report List"
 
 var kOpenCastReportlist = "OpenCast Report List"
 
@@ -315,3 +315,31 @@ var kYes = "Yes"
 var kNo = "No"
 
 var kDeleteAccountPermission = "Are you sure you want to delete your account?"
+
+var kAdd = "Add"
+
+var kClear = "Clear"
+
+var kROOF = "ROOF"
+
+var kLEFT = "LEFT"
+
+var kRIGHT = "RIGHT"
+
+var kFACE = "FACE"
+
+var kUnderGroundReportDraft = "UnderGround Report Draft"
+
+var kOpenCastReportDraft = "OpenCast Report Draft"
+
+var kMappingSheetNo = "Mapping Sheet No."
+
+var kUnderGroundMappingReportSavedSuccessfully = "UnderGround Mapping Report saved successfully..!"
+
+var kOpenCastMappingReportSavedSuccessfully = "OpenCast Mapping Report saved successfully..!"
+
+var kNoOfflineReportFound = "No offline report found..!"
+
+var kCancel = "Cancel"
+
+

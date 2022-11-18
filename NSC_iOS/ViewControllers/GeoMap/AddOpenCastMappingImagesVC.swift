@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import IQKeyboardManagerSwift
+import SignaturePad
 
 class AddOpenCastMappingImagesVC: ClearNaviagtionBarVC {
     
@@ -14,17 +14,20 @@ class AddOpenCastMappingImagesVC: ClearNaviagtionBarVC {
     //MARK: - UIControl's Outlets
     //----------------------------------------------------------------------------
     
-    @IBOutlet weak var imgFront : UIImageView!
-    @IBOutlet weak var tvDescription : IQTextView!
-    
+    @IBOutlet weak var vwDrawPad : SignaturePad!
    
+    @IBOutlet weak var btnClearDraw : AppThemeBorderBlueButton!
     @IBOutlet weak var btnSubmit : AppThemeBlueButton!
     
     //----------------------------------------------------------------------------
     //MARK: - Class Variables
     //----------------------------------------------------------------------------
     
-   
+    var isDrawStart : Bool = Bool()
+    
+    var openCastMappingDetails : JSON = .null
+    var geologistSignImage : UIImage?
+    var clientGeologistSignImage : UIImage?
     
     //----------------------------------------------------------------------------
     //MARK: - Memory management
@@ -56,30 +59,16 @@ class AddOpenCastMappingImagesVC: ClearNaviagtionBarVC {
 
         self.title = kGeologicalMapping
         
-        self.imgFront.backgroundColor = .colorSkyBlue
-       
-        self.imgFront.layer.cornerRadius = 30
-       
-        self.tvDescription.applyTextViewStyle(placeholderText : kAddDescripstion, fontSize : 14,fontName : .InterSemibol,placeholerColor : .colorTextPlaceHolderGray)
+        self.vwDrawPad.delegate = self
         
         self.buttonEnableDisable()
         self.btnSubmit.setTitle(kSubmit, for: .normal)
-        self.btnSubmit.isSelect = true
-        
-        let tapGestureToFace = UITapGestureRecognizer(target: self, action: #selector(self.selectPhoto(_:)))
-        self.imgFront.isUserInteractionEnabled = true
-        self.imgFront.addGestureRecognizer(tapGestureToFace)
+        self.btnClearDraw.setTitle(kClear, for: .normal)
+
     }
  
     func buttonEnableDisable(){
-        
-        var isEnable : Bool = false
-        
-        if !self.tvDescription.text!.trim.isEmpty{
-            
-            isEnable = true
-        }
-        self.btnSubmit.isSelect = isEnable
+        self.btnSubmit.isSelect = self.vwDrawPad.isSigned
     }
     
     //----------------------------------------------------------------------------
@@ -92,11 +81,56 @@ class AddOpenCastMappingImagesVC: ClearNaviagtionBarVC {
         self.navigationController?.popViewController(animated: true)
     }
     
+    @IBAction func btnClearDrawTapped(_ sender : UIButton){
+        self.view.endEditing(true)
+        
+        self.vwDrawPad.clear()
+        self.buttonEnableDisable()
+    }
+    
     @IBAction func btnSubmitTapped(_ sender : UIButton){
         self.view.endEditing(true)
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5){
-            AppDelegate.shared.updateWindow(.home)
+        guard let drawImage = self.vwDrawPad.getSignature() , let geologistSign = self.geologistSignImage, let clientGeologistSignature = self.clientGeologistSignImage else { return }
+        
+        OpenCastMappingReportDataModel.shared.insertUnderGroundMappingReportData(self.openCastMappingDetails["iD"].stringValue,
+                                                                                 self.openCastMappingDetails["ocDate"].stringValue,
+                                                                                 self.openCastMappingDetails["mappingSheetNo"].stringValue,
+                                                                                 self.openCastMappingDetails["minesSiteName"].stringValue,
+                                                                                 self.openCastMappingDetails["pitName"].stringValue,
+                                                                                 self.openCastMappingDetails["pitLoaction"].stringValue,
+                                                                                 self.openCastMappingDetails["shiftInchargeName"].stringValue,
+                                                                                 self.openCastMappingDetails["geologistName"].stringValue,
+                                                                                 self.openCastMappingDetails["shift"].stringValue,
+                                                                                 self.openCastMappingDetails["faceLocation"].stringValue,
+                                                                                 self.openCastMappingDetails["faceLength"].stringValue,
+                                                                                 self.openCastMappingDetails["faceArea"].stringValue,
+                                                                                 self.openCastMappingDetails["faceRockType"].stringValue,
+                                                                                 self.openCastMappingDetails["benchRl"].stringValue,
+                                                                                 self.openCastMappingDetails["benchHeightWidth"].stringValue,
+                                                                                 self.openCastMappingDetails["benchAngle"].stringValue,
+                                                                                 self.openCastMappingDetails["dipDirectionAndAngle"].stringValue,
+                                                                                 self.openCastMappingDetails["thicknessOfOre"].stringValue,
+                                                                                 self.openCastMappingDetails["thicknessOfOverburdan"].stringValue,
+                                                                                 self.openCastMappingDetails["thicknessOfInterburden"].stringValue,
+                                                                                 self.openCastMappingDetails["observedGradeOfOre"].stringValue,
+                                                                                 self.openCastMappingDetails["sampleColledted"].stringValue,
+                                                                                 self.openCastMappingDetails["actualGradeOfOre"].stringValue,
+                                                                                 self.openCastMappingDetails["weathring"].stringValue,
+                                                                                 self.openCastMappingDetails["rockStregth"].stringValue,
+                                                                                 self.openCastMappingDetails["waterCondition"].stringValue,
+                                                                                 self.openCastMappingDetails["typeOfGeologistStruture"].stringValue,
+                                                                                 self.openCastMappingDetails["typeOfFaults"].stringValue,
+                                                                                 geologistSign,
+                                                                                 clientGeologistSignature,
+                                                                                 drawImage) { completion in
+            
+            if completion{
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5){
+                    AppDelegate.shared.updateWindow(.home)
+                    GFunctions.shared.showSnackBar(message: kOpenCastMappingReportSavedSuccessfully)
+                }
+            }
         }
     }
     
@@ -143,95 +177,19 @@ class AddOpenCastMappingImagesVC: ClearNaviagtionBarVC {
 
 }
 
+    
+    
 //--------------------------------------------------------------------------------------
-// MARK: - UITextFieldDelegate
-
-extension AddOpenCastMappingImagesVC : UITextFieldDelegate {
+// MARK: - SignaturePadDelegate Methods
+//--------------------------------------------------------------------------------------
+extension AddOpenCastMappingImagesVC : SignaturePadDelegate{
     
-    func textFieldDidChangeSelection(_ textField: UITextField) {
+    func didStart() {
+        
+    }
+    
+    func didFinish() {
+        
         self.buttonEnableDisable()
-    }
-}
-
-//----------------------------------------------------------------------------
-//MARK: - Image Upload
-//----------------------------------------------------------------------------
-extension AddOpenCastMappingImagesVC{
-    
-    @objc func selectPhoto(_ gesture : UIGestureRecognizer){
-        if checkInternet(showToast: true) == false {
-            return
-        }
-        
-        self.view.endEditing(true)
-        let arrayTitles = [kTakeAPhoto, kChooseFromGallary]
-        
-        
-        showActionSheet(title: "", message: Theme.strings.profile_image_options, titles: arrayTitles, cancelButtonTitle: Theme.strings.cancel_small) { (buttonTitle) in
-            DispatchQueue.main.async {
-                self.handleImageOptions(buttonTitle: buttonTitle)
-            }
-        }
-    }
-    
-    
-    //MARK:- IMAGE UPLOAD
-    func handleImageOptions(buttonTitle : String) {
-        
-        
-        switch buttonTitle {
-        case kTakeAPhoto:
-            DispatchQueue.main.async {
-                if UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.camera) {
-                    let picker = UIImagePickerController()
-                    picker.sourceType = .camera
-                    picker.delegate = self
-                    picker.allowsEditing = true
-                    self.present(picker, animated: true, completion: nil)
-                } else {
-                    //                    showAlertToast(message: Theme.strings.alert_camera_not_available)
-                    GFunctions.shared.showSnackBar(message: kAlert_camera_not_available)
-                }
-            }
-        case kChooseFromGallary:
-            DispatchQueue.main.async {
-                let picker = UIImagePickerController()
-                picker.sourceType = .photoLibrary
-                picker.delegate = self
-                picker.allowsEditing = true
-                self.present(picker, animated: true, completion: nil)
-            }
-        case kRemovePhoto:
-            print("Remove photo")
-
-        default:
-            break
-        }
-    }
-
-}
-    
-    
-//----------------------------------------------------------------------------
-//MARK: - UIImagePickerControllerDelegate Methods
-//----------------------------------------------------------------------------
-extension AddOpenCastMappingImagesVC : UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        
-        if let image = info[.editedImage] as? UIImage {
-            
-            self.imgFront.image = image
-            
-        }
-        else if let image = info[.originalImage] as? UIImage {
-            
-            self.imgFront.image = image
-        }
-        picker.dismiss(animated: true)
-    }
-    
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        picker.dismiss(animated: true, completion: nil)
     }
 }

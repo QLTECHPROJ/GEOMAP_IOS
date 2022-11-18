@@ -15,7 +15,7 @@ class ProfileViewModel {
        
         debugPrint(parameters)
         
-        APIManager.shared.callUploadWebService(apiUrl: APIRouter.profileUpdate(parameters).urlRequest!.url!.absoluteString, includeHeader: true, parameters: parameters, uploadParameters: uploadParameters, httpMethod: .post) { [weak self] (response : LoginModel?) in
+        APIManager.shared.callUploadWebService(apiUrl: APIRouter.profile_update(parameters).urlRequest!.url!.absoluteString, includeHeader: true, parameters: parameters, uploadParameters: uploadParameters, httpMethod: .post) { [weak self] (response : LoginModel?) in
             if response?.ResponseCode == "200", let responseData = response?.ResponseData {
                 self?.profileData = responseData
                 LoginDataModel.currentUser = responseData

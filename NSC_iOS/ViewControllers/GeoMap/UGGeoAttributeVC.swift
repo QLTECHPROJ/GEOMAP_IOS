@@ -35,6 +35,8 @@ class UGGeoAttributeVC: ClearNaviagtionBarVC {
  
     private var arrAttributeNos : [JSON] = []
     
+    private var arrAddedAttributes : [JSON] = []
+    
     
     // MARK: - VIEW LIFE CYCLE
     override func viewDidLoad() {
@@ -72,6 +74,7 @@ class UGGeoAttributeVC: ClearNaviagtionBarVC {
         self.otherActions()
         self.setupData()
         self.buttonEnableDisable()
+//        self.btnNextStep.isSelect = true
     }
     
     func setupData() {
@@ -91,7 +94,7 @@ class UGGeoAttributeVC: ClearNaviagtionBarVC {
         else{
             isEnable = true
         }
-        self.btnNextStep.isSelect = isEnable
+        self.btnNextStep.isSelect = !self.arrAddedAttributes.isEmpty || isEnable
     }
     
    
@@ -103,12 +106,29 @@ class UGGeoAttributeVC: ClearNaviagtionBarVC {
     
     @IBAction func btnAddAttributes(_ sender: UIButton) {
         self.view.endEditing(true)
+        
+        guard self.lblMineralization.text != kSelectAttributes,self.lblMineralizationNos.text != kSelectNos, !self.tvAddDescription.text.trim.isEmpty else {return}
+        
+        self.arrAddedAttributes.append(["name" : JSON(self.lblMineralization.text as Any).stringValue, "nose" : JSON(self.lblMineralizationNos.text as Any).stringValue, "properties" : JSON(self.tvAddDescription.text as Any).stringValue])
+        
+        
+        self.lblMineralization.text = kSelectAttributes
+        self.lblMineralizationNos.text = kSelectNos
+        self.tvAddDescription.text = ""
+        
+        self.buttonEnableDisable()
     }
     
     @IBAction func btnNextStepTapped(_ sender: UIButton) {
         self.view.endEditing(true)
-        let aVC = AppStoryBoard.main.viewController(viewControllerClass: UGGeoAttributeVC2.self)
-        self.navigationController?.pushViewController(aVC, animated: true)
+        
+        if self.lblMineralization.text != kSelectAttributes && self.lblMineralizationNos.text != kSelectNos && !self.tvAddDescription.text.isEmpty{
+            self.arrAddedAttributes.append(["name" : JSON(self.lblMineralization.text as Any).stringValue, "nose" : JSON(self.lblMineralizationNos.text as Any).stringValue, "properties" : JSON(self.tvAddDescription.text as Any).stringValue])
+        }
+        
+        let vc = AppStoryBoard.main.viewController(viewControllerClass: UGGeoAttributeVC2.self)
+        vc.arrAddedAttributes = self.arrAddedAttributes
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     func otherActions(){
@@ -132,6 +152,7 @@ class UGGeoAttributeVC: ClearNaviagtionBarVC {
                 self.buttonEnableDisable()
             }
         }
+//        APIParametersModel
         
         self.vwMineralizationNos.handleTapToAction {
             self.view.endEditing(true)

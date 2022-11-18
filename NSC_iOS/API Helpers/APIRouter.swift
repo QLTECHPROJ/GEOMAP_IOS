@@ -36,7 +36,7 @@ enum APIRouter : URLRequestConvertible {
     
     case coachupdatepersonaldetails([String:String])
     case coachupdatebankdetails([String:String])
-    case profileUpdate([String:Any])
+    case profile_update([String:Any])
     case verify_refercode([String:String])
     case myearning([String:String])
     case inviteuser([String:String])
@@ -71,6 +71,8 @@ enum APIRouter : URLRequestConvertible {
     case app_version([String:Any])
     
     case faq_data
+    
+    case forgot_password([String:Any])
     
     var route: APIRoute {
         
@@ -120,8 +122,9 @@ enum APIRouter : URLRequestConvertible {
             return APIRoute(path: "coachupdatepersonaldetails", method: .post, data: data)
         case .coachupdatebankdetails(let data):
             return APIRoute(path: "coachupdatebankdetails", method: .post, data: data)
-        case .profileUpdate(let data):
-            return APIRoute(path: "profile-update", method: .post, data: data)
+        case .profile_update(let data):
+            return APIRoute(path: "profile_update", method: .post, data: data)
+            
         case .verify_refercode(let data):
             return APIRoute(path: "verify-refercode", method: .post, data: data)
         case .myearning(let data):
@@ -191,6 +194,9 @@ enum APIRouter : URLRequestConvertible {
             
             return APIRoute(path: "faq_data", method: .get)
             
+        case .forgot_password(let data) :
+            
+            return APIRoute(path: "forgot_password", method: .post, data: data)
         }
         
     }

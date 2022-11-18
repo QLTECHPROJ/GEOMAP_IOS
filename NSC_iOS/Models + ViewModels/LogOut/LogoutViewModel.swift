@@ -17,6 +17,7 @@ class LogoutViewModel {
          parameters.deviceToken = GFunctions.shared.getDeviceToken()
          parameters.deviceId = DeviceDetail.shared.uuid
         
+         debugPrint(parameters.toDictionary())
          APIManager.shared.callAPIWithJSON(router: APIRouter.logout(parameters.toDictionary())) { responseJSON, data, statusCode, message, completion in
              
              if completion{

@@ -23,6 +23,8 @@ class LoginVC: ClearNaviagtionBarVC {
     
     @IBOutlet weak var btnPassword: UIButton!
     
+    @IBOutlet weak var btnPasswordVisisble: UIButton!
+    
     @IBOutlet weak var btnForgotPassword: UIButton!
     @IBOutlet weak var btnGetSMSCode: AppThemeBlueButton!
     
@@ -116,7 +118,25 @@ class LoginVC: ClearNaviagtionBarVC {
     // MARK: - ACTIONS
     
     @IBAction func btnForgotPassowrdTapped(_ sender: UIButton) {
-       
+        self.view.endEditing(true)
+        
+        let vc = AppStoryBoard.main.viewController(viewControllerClass: ForgotPasswordVC.self)
+        vc.modalPresentationStyle = .overFullScreen
+        self.present(vc, animated: false, completion :{
+            vc.openPopUpVisiable()
+        })
+        vc.didCompleteOperation = { completed in
+            if completed{
+                
+            }
+        }
+    }
+    
+    @IBAction func btnPasswordVisibiltyTapped(_ sender: UIButton) {
+        self.view.endEditing(true)
+        guard !self.txtPassword.text!.trim.isEmpty else {return}
+        self.txtPassword.isSecureTextEntry = !self.txtPassword.isSecureTextEntry
+        self.btnPasswordVisisble.isSelected = !self.btnPasswordVisisble.isSelected
     }
     
     @IBAction func loginClicked(_ sender: UIButton) {

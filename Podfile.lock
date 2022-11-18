@@ -1,6 +1,7 @@
 PODS:
   - ACFloatingTextfield-Swift (1.8)
   - Alamofire (4.9.1)
+  - DZNEmptyDataSet (1.8.1)
   - EVReflection/Alamofire (5.10.1):
     - Alamofire
     - EVReflection/Core
@@ -88,6 +89,7 @@ PODS:
 DEPENDENCIES:
   - ACFloatingTextfield-Swift (~> 1.7)
   - Alamofire (~> 4.9.1)
+  - DZNEmptyDataSet
   - EVReflection/Alamofire (~> 5.10.1)
   - Firebase/Auth
   - Firebase/Crashlytics
@@ -103,6 +105,7 @@ SPEC REPOS:
   trunk:
     - ACFloatingTextfield-Swift
     - Alamofire
+    - DZNEmptyDataSet
     - EVReflection
     - Firebase
     - FirebaseAuth
@@ -126,6 +129,7 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   ACFloatingTextfield-Swift: c3212cef9548ae58fa914ea1c26a2f9a4f7cd7df
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
+  DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   EVReflection: 8124de482178d34ccd56473e16cd95990f9a1113
   Firebase: 1b810f3d0c0532e27a48f1961f8c0400a668a2cf
   FirebaseAuth: 493382cf533cc45e2862b00e9aa4cfe4c98daf71
@@ -146,6 +150,6 @@ SPEC CHECKSUMS:
   Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
   TTTAttributedLabel: 8cffe8e127e4e82ff3af1e5386d4cd0ad000b656
 
-PODFILE CHECKSUM: 0b27b48e7e9e9e104869cf91e9056b131cec01d4
+PODFILE CHECKSUM: c2dda6c30c74090132d5385782c691b01b87a421
 
 COCOAPODS: 1.11.3

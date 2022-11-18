@@ -6,6 +6,15 @@
 //
 
 import UIKit
+import SignaturePad
+
+
+enum DrawingType : String{
+    case roof = "Roof"
+    case left = "Left"
+    case right = "Right"
+    case face = "Face"
+}
 
 class UploadUnderMappingImagesVC: ClearNaviagtionBarVC {
     
@@ -13,19 +22,26 @@ class UploadUnderMappingImagesVC: ClearNaviagtionBarVC {
     //MARK: - UIControl's Outlets
     //----------------------------------------------------------------------------
     
-    @IBOutlet weak var imgRoof : UIImageView!
-    @IBOutlet weak var imgFace : UIImageView!
-    @IBOutlet weak var imgLeft : UIImageView!
-    @IBOutlet weak var imgRight : UIImageView!
+    @IBOutlet weak var vwDrawPad : SignaturePad!
     
+    @IBOutlet weak var btnAdd : AppThemeBlueButton!
+    @IBOutlet weak var btnClearDraw : AppThemeBorderBlueButton!
     
-    @IBOutlet weak var btnSubmit : AppThemeBlueButton!
+    @IBOutlet weak var stackView : UIStackView!
     
     //----------------------------------------------------------------------------
     //MARK: - Class Variables
     //----------------------------------------------------------------------------
     
+    var isDrawStart : Bool = Bool()
+    var drawingType = DrawingType.roof.rawValue
     
+    var arrDrawing : [[String:Any]] = [["title" : kROOF,"type" : DrawingType.roof.rawValue,"isDraw" : false,"draw_image" : UIImage()],
+                                       ["title" : kLEFT,"type" : DrawingType.left.rawValue,"isDraw" : false,"draw_image" : UIImage()],
+                                       ["title" : kRIGHT,"type" : DrawingType.right.rawValue,"isDraw" : false,"draw_image" : UIImage()],
+                                       ["title" : kFACE,"type" : DrawingType.face.rawValue,"isDraw" : false,"draw_image" : UIImage()]]
+    
+    var underGroundMappingDetail : JSON = .null
     
     //----------------------------------------------------------------------------
     //MARK: - Memory management
@@ -55,45 +71,46 @@ class UploadUnderMappingImagesVC: ClearNaviagtionBarVC {
     func configureUI(){
         self.view.backgroundColor = .colorBGSkyBlueLight
         
-        self.title = kGeologicalMapping
+        self.vwDrawPad.delegate = self
         
-        self.imgRoof.backgroundColor = .colorSkyBlue
-        self.imgLeft.backgroundColor = .colorSkyBlue
-        self.imgRight.backgroundColor = .colorSkyBlue
-        self.imgFace.backgroundColor = .colorSkyBlue
+        self.btnAdd.setTitle(kAdd, for: .normal)
+        self.btnClearDraw.setTitle(kClear, for: .normal)
+       
         
-        self.imgRoof.tag = 1
-        self.imgLeft.tag = 2
-        self.imgRight.tag = 3
-        self.imgFace.tag = 4
+        self.buttonEnableDisable()
+    }
+    
+    func buttonEnableDisable(_ isDrawn : Bool = false){
+        self.isDrawStart = isDrawn
+        self.btnAdd.isSelect = isDrawn
+       
+        switch self.drawingType {
+            
+        case DrawingType.roof.rawValue:
+            
+            self.title = kROOF
+            
+            break
+            
+        case DrawingType.left.rawValue:
+            
+            self.title = kLEFT
+            
+            break
+            
+        case DrawingType.right.rawValue:
+            
+            self.title = kRIGHT
+            
+            break
+            
+        default:
+            self.btnAdd.setTitle(kSubmit, for: .normal)
+            self.title = kFACE
+            
+            break
+        }
         
-        self.imgRoof.layer.cornerRadius = 30
-        self.imgLeft.layer.cornerRadius = 30
-        self.imgRight.layer.cornerRadius = 30
-        self.imgFace.layer.cornerRadius = 30
-        
-        self.btnSubmit.setTitle(kSubmit, for: .normal)
-        self.btnSubmit.isSelect = true
-        
-        let tapGestureToRoof = UITapGestureRecognizer(target: self, action: #selector(self.selectPhoto(_:)))
-        self.imgRoof.isUserInteractionEnabled = true
-        tapGestureToRoof.view?.tag = self.imgRoof.tag
-        self.imgRoof.addGestureRecognizer(tapGestureToRoof)
-        
-        let tapGestureToLeft = UITapGestureRecognizer(target: self, action: #selector(self.selectPhoto(_:)))
-        self.imgLeft.isUserInteractionEnabled = true
-        tapGestureToLeft.view?.tag = self.imgLeft.tag
-        self.imgLeft.addGestureRecognizer(tapGestureToLeft)
-        
-        let tapGestureToRight = UITapGestureRecognizer(target: self, action: #selector(self.selectPhoto(_:)))
-        self.imgRight.isUserInteractionEnabled = true
-        tapGestureToRight.view?.tag = self.imgRight.tag
-        self.imgRight.addGestureRecognizer(tapGestureToRight)
-        
-        let tapGestureToFace = UITapGestureRecognizer(target: self, action: #selector(self.selectPhoto(_:)))
-        self.imgFace.isUserInteractionEnabled = true
-        tapGestureToFace.view?.tag = self.imgFace.tag
-        self.imgFace.addGestureRecognizer(tapGestureToFace)
     }
     
     //----------------------------------------------------------------------------
@@ -106,13 +123,92 @@ class UploadUnderMappingImagesVC: ClearNaviagtionBarVC {
         self.navigationController?.popViewController(animated: true)
     }
     
-    @IBAction func btnSubmitTapped(_ sender : UIButton){
+    @IBAction func btnAddDrawTapped(_ sender : UIButton){
+        self.view.endEditing(true)
+        if let image = self.vwDrawPad.getSignature(){
+            debugPrint(image)
+            
+            for (i,_) in self.arrDrawing.enumerated(){
+                if JSON(self.arrDrawing[i]["type"] as Any).stringValue == self.drawingType{
+                    self.arrDrawing[i]["draw_image"] = image
+                    self.arrDrawing[i]["isDraw"] = true
+                }
+            }
+            
+            switch self.drawingType {
+                
+            case DrawingType.roof.rawValue:
+                
+                self.drawingType = DrawingType.left.rawValue
+                break
+                
+            case DrawingType.left.rawValue:
+                
+                self.drawingType = DrawingType.right.rawValue
+                break
+                
+            case DrawingType.right.rawValue:
+                
+                self.drawingType = DrawingType.face.rawValue
+                
+                break
+                
+            default:
+                self.stackView.isHidden = true
+
+                var rootImg = UIImage()
+                var leftImg = UIImage()
+                var rightImg = UIImage()
+                var faceImg = UIImage()
+                
+                if let rootImageData = self.arrDrawing.filter({JSON($0["type"] as Any).stringValue == DrawingType.roof.rawValue}).first, let rootImage = rootImageData["draw_image"] as? UIImage{
+                    
+                    rootImg = rootImage
+                }
+                if let leftImageData = self.arrDrawing.filter({JSON($0["type"] as Any).stringValue == DrawingType.left.rawValue}).first, let leftImage = leftImageData["draw_image"] as? UIImage{
+                    
+                    leftImg = leftImage
+                }
+                if let rightImageData = self.arrDrawing.filter({JSON($0["type"] as Any).stringValue == DrawingType.right.rawValue}).first, let rightImage = rightImageData["draw_image"] as? UIImage{
+                    
+                    rightImg = rightImage
+                }
+                if let faceImageData = self.arrDrawing.filter({JSON($0["type"] as Any).stringValue == DrawingType.face.rawValue}).first, let faceImage = faceImageData["draw_image"] as? UIImage{
+                    
+                    faceImg = faceImage
+                }
+                
+                UnderGroundMappingReportDataModel.shared.insertUnderGroundMappingReportData(self.underGroundMappingDetail["iD"].stringValue, self.underGroundMappingDetail["mapSerialNo"].stringValue, self.underGroundMappingDetail["ugDate"].stringValue, self.underGroundMappingDetail["shift"].stringValue, self.underGroundMappingDetail["mappedBy"].stringValue, self.underGroundMappingDetail["scale"].stringValue, self.underGroundMappingDetail["locations"].stringValue, self.underGroundMappingDetail["veinOrLoad"].stringValue, self.underGroundMappingDetail["xCoordinate"].stringValue, self.underGroundMappingDetail["yCoordinate"].stringValue, self.underGroundMappingDetail["zCoordinate"].stringValue, self.underGroundMappingDetail["attributes"].arrayValue, rootImg, leftImg, rightImg, faceImg) { completion in
+                    
+                    if completion{
+                        
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5){
+                            AppDelegate.shared.updateWindow(.home)
+                            GFunctions.shared.showSnackBar(message: kUnderGroundMappingReportSavedSuccessfully)
+                        }
+                    }
+                }
+                break
+            }
+        }
+        self.vwDrawPad.clear()
+        self.buttonEnableDisable()
+    }
+    
+    @IBAction func btnClearDrawTapped(_ sender : UIButton){
         self.view.endEditing(true)
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5){
-            AppDelegate.shared.updateWindow(.home)
+        for (i,_) in self.arrDrawing.enumerated(){
+            if JSON(self.arrDrawing[i]["type"] as Any).stringValue == self.drawingType{
+                self.arrDrawing[i]["draw_image"] = UIImage()
+                self.arrDrawing[i]["isDraw"] = false
+            }
         }
+        
+        self.vwDrawPad.clear()
+        self.buttonEnableDisable()
     }
+    
     
     
     
@@ -157,105 +253,21 @@ class UploadUnderMappingImagesVC: ClearNaviagtionBarVC {
     
 }
 
-//----------------------------------------------------------------------------
-//MARK: - Image Upload
-//----------------------------------------------------------------------------
-extension UploadUnderMappingImagesVC{
-    
-    @objc func selectPhoto(_ gesture : UIGestureRecognizer){
-        if checkInternet(showToast: true) == false {
-            return
-        }
-        
-        self.view.endEditing(true)
-        let arrayTitles = [kTakeAPhoto, kChooseFromGallary]
-        
-        
-        showActionSheet(title: "", message: Theme.strings.profile_image_options, titles: arrayTitles, cancelButtonTitle: Theme.strings.cancel_small) { (buttonTitle) in
-            DispatchQueue.main.async {
-                self.handleImageOptions(buttonTitle: buttonTitle, tag: gesture.view!.tag)
-            }
-        }
-    }
     
     
-    //MARK:- IMAGE UPLOAD
-    func handleImageOptions(buttonTitle : String,tag : Int) {
-        
-        
-        switch buttonTitle {
-        case kTakeAPhoto:
-            DispatchQueue.main.async {
-                if UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.camera) {
-                    let picker = UIImagePickerController()
-                    picker.navigationBar.tag = tag
-                    picker.sourceType = .camera
-                    picker.delegate = self
-                    picker.allowsEditing = true
-                    self.present(picker, animated: true, completion: nil)
-                } else {
-                    //                    showAlertToast(message: Theme.strings.alert_camera_not_available)
-                    GFunctions.shared.showSnackBar(message: kAlert_camera_not_available)
-                }
-            }
-        case kChooseFromGallary:
-            DispatchQueue.main.async {
-                let picker = UIImagePickerController()
-                picker.navigationBar.tag = tag
-                picker.sourceType = .photoLibrary
-                picker.delegate = self
-                picker.allowsEditing = true
-                self.present(picker, animated: true, completion: nil)
-            }
-        case kRemovePhoto:
-            print("Remove photo")
-            LoginDataModel.currentUser?.profileInformation?.profileimage = ""
-        default:
-            break
-        }
-    }
-    
-    func setPhoto(_ tag : Int, _ selectedImage : UIImage){
-        if tag == self.imgRoof.tag{
-            self.imgRoof.image = selectedImage
-        }
-        
-        if tag == self.imgLeft.tag{
-            self.imgLeft.image = selectedImage
-        }
-        
-        if tag == self.imgRight.tag{
-            self.imgRight.image = selectedImage
-        }
-        
-        if tag == self.imgFace.tag{
-            self.imgFace.image = selectedImage
-        }
-    }
-}
-    
-    
-//----------------------------------------------------------------------------
-//MARK: - UIImagePickerControllerDelegate Methods
-//----------------------------------------------------------------------------
-extension UploadUnderMappingImagesVC : UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        if let image = info[.editedImage] as? UIImage {
-            
-            self.setPhoto(picker.navigationBar.tag, image)
-            
-        }
-        else if let image = info[.originalImage] as? UIImage {
-            
-            self.setPhoto(picker.navigationBar.tag, image)
-        }
-        
-        picker.dismiss(animated: true)
-    }
-    
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        picker.dismiss(animated: true, completion: nil)
-    }
-}
 
+//--------------------------------------------------------------------------------------
+// MARK: - SignaturePadDelegate Methods
+//--------------------------------------------------------------------------------------
+extension UploadUnderMappingImagesVC : SignaturePadDelegate{
+    
+    func didStart() {
+        
+//        self.buttonEnableDisable()
+    }
+    
+    func didFinish() {
+        
+        self.buttonEnableDisable(true)
+    }
+}

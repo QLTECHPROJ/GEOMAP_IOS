@@ -25,6 +25,8 @@ class UserListPopUpVC: ClearNaviagtionBarVC {
     var arrMenu : [JSON] = [
         ["type" : kUnderGroundReportList],
         ["type" : kOpenCastReportlist],
+        ["type" : kUnderGroundReportDraft],
+        ["type" : kOpenCastReportDraft],
         ["type" : kEditProfile],
         ["type" : kSyncData],
         ["type" : kFAQs],
@@ -124,6 +126,18 @@ extension UserListPopUpVC : UITableViewDelegate, UITableViewDataSource {
             
             break
             
+        case kUnderGroundReportDraft:
+           
+            let vc = AppStoryBoard.main.viewController(viewControllerClass:UnderGroundMappingReportListDraftVC.self)
+            self.navigationController?.pushViewController(vc, animated: true)
+            break
+            
+        case kOpenCastReportDraft :
+            
+            let vc = AppStoryBoard.main.viewController(viewControllerClass:OpenCastMappingListDraftVC.self)
+            self.navigationController?.pushViewController(vc, animated: true)
+            break
+            
         case kEditProfile:
             
             let aVC = AppStoryBoard.main.viewController(viewControllerClass: ProfileVC.self)
@@ -212,9 +226,7 @@ extension UserListPopUpVC : AlertPopUpVCDelegate {
             if checkInternet(showToast: true) == false {
                 return
             }
-            
-            AppDelegate.shared.updateWindow()
-            
+                        
             let logoutVM = LogoutViewModel()
             logoutVM.callLogoutAPI(completion: { success in
 //                APPDELEGATE.logout()

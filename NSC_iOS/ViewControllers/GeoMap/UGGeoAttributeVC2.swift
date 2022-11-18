@@ -14,7 +14,6 @@ class UGGeoAttributeVC2: ClearNaviagtionBarVC {
     
     @IBOutlet weak var txtMapSerialNo : ACFloatingTextfield!
     @IBOutlet weak var txtDate : ACFloatingTextfield!
-    @IBOutlet weak var txtShift : ACFloatingTextfield!
     @IBOutlet weak var txtMappedBy : ACFloatingTextfield!
     @IBOutlet weak var txtScale : ACFloatingTextfield!
     @IBOutlet weak var txtLocation : ACFloatingTextfield!
@@ -23,6 +22,11 @@ class UGGeoAttributeVC2: ClearNaviagtionBarVC {
     @IBOutlet weak var txtYCordinate : ACFloatingTextfield!
     @IBOutlet weak var txtZCordinate : ACFloatingTextfield!
     
+    @IBOutlet weak var btnNightShift : UIButton!
+    @IBOutlet weak var btnDayShift : UIButton!
+    
+    @IBOutlet weak var lblShift : UILabel!
+    
     
     @IBOutlet weak var btnNextStep: AppThemeBlueButton!
     
@@ -30,7 +34,8 @@ class UGGeoAttributeVC2: ClearNaviagtionBarVC {
     // MARK: - VARIABLES
     var isFromEdit = false
     var arrayErrorLabels = [UILabel]()
-    let dateDatePicker = UIDatePicker()
+    var arrAddedAttributes : [JSON] = []
+//    let dateDatePicker = UIDatePicker()
     
     // MARK: - VIEW LIFE CYCLE
     override func viewDidLoad() {
@@ -47,7 +52,12 @@ class UGGeoAttributeVC2: ClearNaviagtionBarVC {
         
         self.txtMapSerialNo.applyStyleFlotingTextfield(placeholderTitle : kMapSerialNo, fontsize : 14,fontname : .InterSemibol)
         self.txtDate.applyStyleFlotingTextfield(placeholderTitle : kDate, fontsize : 14,fontname : .InterSemibol)
-        self.txtShift.applyStyleFlotingTextfield(placeholderTitle : kShift, fontsize : 14,fontname : .InterSemibol)
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = DateTimeFormaterEnum.ddmm_yyyy.rawValue
+        self.txtDate.text = dateFormatter.string(from: Date())
+        self.txtDate.isUserInteractionEnabled = false
+        
         self.txtMappedBy.applyStyleFlotingTextfield(placeholderTitle : kMappedBy, fontsize : 14,fontname : .InterSemibol)
         self.txtScale.applyStyleFlotingTextfield(placeholderTitle : kScale, fontsize : 14,fontname : .InterSemibol)
         self.txtLocation.applyStyleFlotingTextfield(placeholderTitle : kLocation, fontsize : 14,fontname : .InterSemibol)
@@ -56,42 +66,40 @@ class UGGeoAttributeVC2: ClearNaviagtionBarVC {
         self.txtYCordinate.applyStyleFlotingTextfield(placeholderTitle : kYCordinate, fontsize : 14,fontname : .InterSemibol)
         self.txtZCordinate.applyStyleFlotingTextfield(placeholderTitle : kZCordinate, fontsize : 14,fontname : .InterSemibol)
         
+        self.lblShift.applyLabelStyle(text : kShift,fontSize : 12,fontName : .InterMedium, textColor: .colorTextPlaceHolderGray)
+        
+        self.btnNightShift.applystyle(fontname : .InterSemibol,fontsize : 14,titleText : kNightShift,titleColor : .colorTextBlack)
+        self.btnNightShift.setContentEdges(titleEngesLeft : 5, ImageEngesLeft : -10)
+        self.btnDayShift.applystyle(fontname : .InterSemibol,fontsize : 14,titleText : kDayShift,titleColor : .colorTextBlack)
+        self.btnDayShift.setContentEdges(titleEngesLeft : 5, ImageEngesLeft : -10)
+        
         self.btnNextStep.setTitle(kNextStep, for: .normal)
         
         self.buttonEnableDisable()
-        self.initDatePicker()
+        self.selectShift()
+//        self.btnNextStep.isSelect = true
+//        self.initDatePicker()
     }
     
     func buttonEnableDisable(){
         
         var isEnable : Bool = false
         
-        if !self.txtMapSerialNo.text!.trim.isEmpty && !self.txtDate.text!.trim.isEmpty && !self.txtShift.text!.trim.isEmpty && !self.txtMappedBy.text!.trim.isEmpty && !self.txtScale.text!.trim.isEmpty && !self.txtLocation.text!.trim.isEmpty && !self.txtVeinLoad.text!.trim.isEmpty && !self.txtXCordinate.text!.trim.isEmpty && !self.txtYCordinate.text!.trim.isEmpty && !self.txtZCordinate.text!.trim.isEmpty{
+        if !self.txtMapSerialNo.text!.trim.isEmpty && !self.txtDate.text!.trim.isEmpty && !self.txtMappedBy.text!.trim.isEmpty && !self.txtScale.text!.trim.isEmpty && !self.txtLocation.text!.trim.isEmpty && !self.txtVeinLoad.text!.trim.isEmpty && !self.txtXCordinate.text!.trim.isEmpty && !self.txtYCordinate.text!.trim.isEmpty && !self.txtZCordinate.text!.trim.isEmpty{
             
             isEnable = true
         }
         self.btnNextStep.isSelect = isEnable
     }
-    
-    func initDatePicker(){
-        self.dateDatePicker.datePickerMode = .date
-        self.dateDatePicker.maximumDate = Date()
-        self.txtDate.inputView = self.dateDatePicker
-        
-        if #available(iOS 14, *) {// Added condition for iOS 14
-            self.dateDatePicker.preferredDatePickerStyle  = .wheels
-            self.dateDatePicker.sizeToFit()
-        }
-        
-        let dateFormattor = DateFormatter()
-        dateFormattor.dateFormat = DateTimeFormaterEnum.ddmm_yyyy.rawValue
-        self.dateDatePicker.addTarget(self, action: #selector(self.datePickerValueChanged(sender:)), for: .valueChanged)
+
+    func selectShift(_ selectiontag : Int = 1){
+        self.btnDayShift.isSelected = selectiontag == self.btnDayShift.tag
+        self.btnNightShift.isSelected = selectiontag == self.btnNightShift.tag
     }
     
-    @objc func datePickerValueChanged(sender:UIDatePicker) {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = DateTimeFormaterEnum.ddmm_yyyy.rawValue
-        self.txtDate.text = dateFormatter.string(from: sender.date)
+    func getShiftType()-> String{
+        
+        return self.btnDayShift.isSelected ? kDayShift : kNightShift
     }
     
     // MARK: - ACTION
@@ -100,11 +108,30 @@ class UGGeoAttributeVC2: ClearNaviagtionBarVC {
         self.view.endEditing(true)
         self.navigationController?.popViewController(animated: true)
     }
+    
+    @IBAction func btnSelectShiftTapped(_ sender : UIButton){
+        self.selectShift(sender.tag)
+    }
 
     @IBAction func btnNextStepTapped(_ sender: UIButton) {
         self.view.endEditing(true)
-        let aVC = AppStoryBoard.main.viewController(viewControllerClass: UploadUnderMappingImagesVC.self)
-        self.navigationController?.pushViewController(aVC, animated: true)
+        let mappingData : JSON = [
+            "iD" : UnderGroundMappingReportDataTable.nextAvailble(),
+            "attributes" : self.arrAddedAttributes,
+            "mapSerialNo" : JSON(self.txtMapSerialNo.text as Any).stringValue,
+            "ugDate" : JSON(self.txtDate.text as Any).stringValue,
+            "shift" : self.getShiftType(),
+            "mappedBy" : JSON(self.txtMappedBy.text as Any).stringValue,
+            "scale" : JSON(self.txtScale.text as Any).stringValue,
+            "locations" : JSON(self.txtLocation.text as Any).stringValue,
+            "veinOrLoad" : JSON(self.txtVeinLoad.text as Any).stringValue,
+            "xCoordinate" : JSON(self.txtXCordinate.text as Any).stringValue,
+            "yCoordinate" : JSON(self.txtYCordinate.text as Any).stringValue,
+            "zCoordinate" : JSON(self.txtZCordinate.text as Any).stringValue
+        ]
+        let vc = AppStoryBoard.main.viewController(viewControllerClass: UploadUnderMappingImagesVC.self)
+        vc.underGroundMappingDetail = mappingData
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
 
@@ -132,16 +159,15 @@ extension UGGeoAttributeVC2 : UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == self.txtMapSerialNo {
 
-            self.txtDate.becomeFirstResponder()
-            
-        } else if textField == self.txtDate {
-
-            self.txtShift.becomeFirstResponder()
-        }
-        else if textField == self.txtShift {
-
             self.txtMappedBy.becomeFirstResponder()
+//            self.txtDate.becomeFirstResponder()
+            
         }
+//        else if textField == self.txtDate {
+//
+//            self.txtShift.becomeFirstResponder()
+//        }
+        
         else if textField == self.txtMappedBy {
 
             self.txtScale.becomeFirstResponder()
