@@ -17,7 +17,7 @@ class OpenCastMappingReportDataModel : NSObject{
         
     }
     
-    private func insertUnderGroundMappingReportData(_ iD : String,
+    func insertUnderGroundMappingReportData(_ iD : String,
                                                     _ ocDate : String,
                                                     _ mappingSheetNo : String,
                                                     _ minesSiteName: String,
@@ -45,10 +45,10 @@ class OpenCastMappingReportDataModel : NSObject{
                                                     _ waterCondition :String,
                                                     _ typeOfGeologicalStructures :String,
                                                     _ typeOfFaults :String,
-                                                    _ geologistSign :String,
-                                                    _ clientsGeologistSign :String,
-                                                    _ createDate :String,
-                                                    _ updateDate :String){
+                                                    _ geologistSign :UIImage,
+                                                    _ clientsGeologistSign :UIImage,
+                                                    _ imageDraw : UIImage,
+                                                    _ completionBlock : (Bool)->Void?){
         // Add
         let tableViewAttributes = OpenCastMappingReportDataTable(context: CoreDataManager.shared.context)
         
@@ -80,17 +80,35 @@ class OpenCastMappingReportDataModel : NSObject{
         tableViewAttributes.waterCondition = waterCondition
         tableViewAttributes.typeOfGeologicalStructures = typeOfGeologicalStructures
         tableViewAttributes.typeOfFaults = typeOfFaults
-        tableViewAttributes.geologistSign = geologistSign
-        tableViewAttributes.clientsGeologistSign = clientsGeologistSign
-        tableViewAttributes.createDate = createDate
-        tableViewAttributes.updateDate = updateDate
-        
-        
+        tableViewAttributes.geologistSign = geologistSign.jpegData(compressionQuality: 1)
+        tableViewAttributes.clientsGeologistSign = clientsGeologistSign.jpegData(compressionQuality: 1)
+        tableViewAttributes.imagedrawn = imageDraw.jpegData(compressionQuality: 1) 
         CoreDataManager.shared.saveContext()
+        completionBlock(true)
     }
     
+    func getOpenCastMappingReportData(_ completionBlock : (Bool)->Void?){
+        
+        let fetchRequest: NSFetchRequest<OpenCastMappingReportDataTable> = OpenCastMappingReportDataTable.fetchRequest()
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "iD", ascending: false)]
+        
+        
+        do {
+            let fetchUserData = try CoreDataManager.shared.context.fetch(fetchRequest)
+            
+            fetchUserData.forEach({print($0.mappingSheetNo)})
+            
+            self.arrOpenCastMappingReportData = fetchUserData
+            
+            completionBlock(true)
+                        
+        } catch(let error) {
+            debugPrint("Error in fetch data : ", error.localizedDescription)
+            completionBlock(false)
+        }
+    }
     
-    func deleteOpenCastMappingReportData(_ iD : String){
+    func deleteOpenCastMappingReportData(_ iD : String, _ completionBlock : (Bool)->Void){
         let fetchRequest: NSFetchRequest<OpenCastMappingReportDataTable> = OpenCastMappingReportDataTable.fetchRequest()
         
         fetchRequest.predicate = NSPredicate(format: "iD = %@", "\(iD)")
@@ -98,13 +116,19 @@ class OpenCastMappingReportDataModel : NSObject{
         let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest as! NSFetchRequest<NSFetchRequestResult>)
         
         do {
-            
+        
             try CoreDataManager.shared.context.execute(deleteRequest)
             CoreDataManager.shared.saveContext()
             
+            if let data = self.arrOpenCastMappingReportData.filter({$0.iD == Int64(iD)}).first, let indexOfReportData = self.arrOpenCastMappingReportData.firstIndex(of: data){
+                self.arrOpenCastMappingReportData.remove(at: indexOfReportData)
+            }
+            
+            completionBlock(true)
+            
         } catch(let error) {
             debugPrint("Error in fetch data : ", error.localizedDescription)
-            
+            completionBlock(false)
         }
     }
 }

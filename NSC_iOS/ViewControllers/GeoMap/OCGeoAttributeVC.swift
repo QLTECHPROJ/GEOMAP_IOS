@@ -16,9 +16,9 @@ class OCGeoAttributeVC: ClearNaviagtionBarVC {
     //MARK: - UIControl's Outlets
     //----------------------------------------------------------------------------
     
-    @IBOutlet weak var lblMappingSheetNo : UILabel!
     @IBOutlet weak var lblDate : UILabel!
     
+    @IBOutlet weak var txtMappingSheetNo : ACFloatingTextfield!
     @IBOutlet weak var txtMineSiteName : ACFloatingTextfield!
     @IBOutlet weak var txtPitName : ACFloatingTextfield!
     @IBOutlet weak var txtPitLocation : ACFloatingTextfield!
@@ -84,7 +84,8 @@ class OCGeoAttributeVC: ClearNaviagtionBarVC {
     //MARK: - Class Variables
     //----------------------------------------------------------------------------
     
-    
+    var isGeologistSigned : Bool = false
+    var isClientGeologistSigned : Bool = false
     
     //----------------------------------------------------------------------------
     //MARK: - Memory management
@@ -124,9 +125,14 @@ class OCGeoAttributeVC: ClearNaviagtionBarVC {
         self.selectShift()
         self.btnOtherActions()
         
-        self.lblMappingSheetNo.applyLabelStyle(text : "\(kMappingSheetNoColn) 1523",fontSize : 12,fontName : .InterSemibol)
-        self.lblDate.applyLabelStyle(text : "14 July 2022",fontSize : 12,fontName : .InterSemibol)
         
+    
+        let dateFormat = DateFormatter()
+        dateFormat.dateFormat = DateTimeFormaterEnum.ddmm_yyyy.rawValue
+        
+        self.lblDate.applyLabelStyle(text : dateFormat.string(from: Date()),fontSize : 12,fontName : .InterSemibol)
+        
+        self.txtMappingSheetNo.applyStyleFlotingTextfield(placeholderTitle : kMappingSheetNo, fontsize : 14,fontname : .InterSemibol)
         self.txtMineSiteName.applyStyleFlotingTextfield(placeholderTitle : kMinesSiteName, fontsize : 14,fontname : .InterSemibol)
         self.txtPitName.applyStyleFlotingTextfield(placeholderTitle : kPitName, fontsize : 14,fontname : .InterSemibol)
         self.txtPitLocation.applyStyleFlotingTextfield(placeholderTitle : kPitLocation, fontsize : 14,fontname : .InterSemibol)
@@ -185,15 +191,21 @@ class OCGeoAttributeVC: ClearNaviagtionBarVC {
         self.btnNightShift.isSelected = selectiontag == self.btnNightShift.tag
     }
     
+    func getShiftType()-> String{
+        
+        return self.btnDayShift.isSelected ? kDayShift : kNightShift
+    }
+    
     func buttonEnableDisable(){
         
         var isEnable : Bool = false
         
-        self.btnClearGeologistSign.isSelect = self.vwGeologistSign.getSignature() != nil
+        self.btnClearGeologistSign.isSelect = self.vwGeologistSign.isSigned
         
-        self.btnClearClientGeologistSign.isSelect = self.vwClientGeologistSign.getSignature() != nil
+        self.btnClearClientGeologistSign.isSelect = self.vwClientGeologistSign.isSigned
         
-        if self.txtMineSiteName.text!.trim.isEmpty
+        if self.txtMappingSheetNo.text!.trim.isEmpty
+            || self.txtMineSiteName.text!.trim.isEmpty
             || self.txtPitName.text!.trim.isEmpty
             || self.txtPitLocation.text!.trim.isEmpty
             || self.txtShiftinchargeName.text!.trim.isEmpty
@@ -211,7 +223,7 @@ class OCGeoAttributeVC: ClearNaviagtionBarVC {
             || self.txtThicknessOfInterburden.text!.trim.isEmpty
             || self.txtObservedGradeOfOre.text!.trim.isEmpty
             || self.txtActualGradeOfOreLabGrade.text!.trim.isEmpty
-            || self.tvNote.text!.trim.isEmpty || (self.btnNightShift.isSelected && self.btnDayShift.isSelected) ||  self.lblSampleCollected.text == kSampleCollected || self.lblWeathering.text == kWeathering || self.lblRockStrenght.text == kRockStrength || self.lblWaterCondition.text == kWaterCondition || self.lblTypeOfGeologicalStructure.text == kTypeOfGeologicalStructures || self.lblTypeOfFault.text == kTypeOfFaults{
+            || self.tvNote.text!.trim.isEmpty || (self.btnNightShift.isSelected && self.btnDayShift.isSelected) ||  self.lblSampleCollected.text == kSampleCollected || self.lblWeathering.text == kWeathering || self.lblRockStrenght.text == kRockStrength || self.lblWaterCondition.text == kWaterCondition || self.lblTypeOfGeologicalStructure.text == kTypeOfGeologicalStructures || self.lblTypeOfFault.text == kTypeOfFaults || !self.vwGeologistSign.isSigned || !self.vwClientGeologistSign.isSigned{
             
             isEnable = false
             
@@ -230,7 +242,7 @@ class OCGeoAttributeVC: ClearNaviagtionBarVC {
     func btnOtherActions(){
         
         self.vwSampleCollected.handleTapToAction {
-
+            self.view.endEditing(true)
             let vc = AppStoryBoard.main.viewController(viewControllerClass: ListItemVC.self)
             vc.listType = .sampleCollected
             vc.modalPresentationStyle = .overFullScreen
@@ -244,7 +256,7 @@ class OCGeoAttributeVC: ClearNaviagtionBarVC {
         }
         
         self.vwWeathering.handleTapToAction {
-
+            self.view.endEditing(true)
             let vc = AppStoryBoard.main.viewController(viewControllerClass: ListItemVC.self)
             vc.listType = .weathering
             vc.modalPresentationStyle = .overFullScreen
@@ -258,7 +270,7 @@ class OCGeoAttributeVC: ClearNaviagtionBarVC {
         }
         
         self.vwRockStrenght.handleTapToAction {
-
+            self.view.endEditing(true)
             let vc = AppStoryBoard.main.viewController(viewControllerClass: ListItemVC.self)
             vc.listType = .rockStrenght
             vc.modalPresentationStyle = .overFullScreen
@@ -272,7 +284,7 @@ class OCGeoAttributeVC: ClearNaviagtionBarVC {
         }
         
         self.vwWaterCondition.handleTapToAction {
-
+            self.view.endEditing(true)
             let vc = AppStoryBoard.main.viewController(viewControllerClass: ListItemVC.self)
             vc.listType = .waterCollection
             vc.modalPresentationStyle = .overFullScreen
@@ -286,7 +298,7 @@ class OCGeoAttributeVC: ClearNaviagtionBarVC {
         }
         
         self.vwTypeOfGeologicalStructure.handleTapToAction {
-            
+            self.view.endEditing(true)
             let vc = AppStoryBoard.main.viewController(viewControllerClass: ListItemVC.self)
             vc.listType = .typeOfGeologicalStructure
             vc.modalPresentationStyle = .overFullScreen
@@ -300,7 +312,7 @@ class OCGeoAttributeVC: ClearNaviagtionBarVC {
         }
         
         self.vwTypeOfFault.handleTapToAction {
-
+            self.view.endEditing(true)
             let vc = AppStoryBoard.main.viewController(viewControllerClass: ListItemVC.self)
             vc.listType = .typeOfFaults
             vc.modalPresentationStyle = .overFullScreen
@@ -338,8 +350,46 @@ class OCGeoAttributeVC: ClearNaviagtionBarVC {
     
     @IBAction func btnSubmitTapped(_ sender : UIButton){
         self.view.endEditing(true)
-        let aVC = AppStoryBoard.main.viewController(viewControllerClass: AddOpenCastMappingImagesVC.self)
-        self.navigationController?.pushViewController(aVC, animated: true)
+     
+        guard let geologistSignImage = self.vwGeologistSign.getSignature(), let clientGeologistSignImage = self.vwClientGeologistSign.getSignature() else {return}
+        
+        let openCastMappingDetails : JSON = [
+            "iD" :OpenCastMappingReportDataTable.nextAvailble(),
+            "minesSiteName" : JSON(self.txtMineSiteName.text as Any).stringValue,
+            "mappingSheetNo" : JSON(self.txtMappingSheetNo.text as Any).stringValue,
+            "pitName" : JSON(self.txtPitName.text as Any).stringValue,
+            "pitLoaction" : JSON(self.txtPitLocation.text as Any).stringValue,
+            "shiftInchargeName" : JSON(self.txtShiftinchargeName.text as Any).stringValue,
+            "geologistName" : JSON(self.txtGeologistName.text as Any).stringValue,
+            "faceLocation" : JSON(self.txtFaceLocation.text as Any).stringValue,
+            "faceLength" : JSON(self.txtFaceLengthM.text as Any).stringValue,
+            "faceArea" : JSON(self.txtFaceAreaM2.text as Any).stringValue,
+            "faceRockType" : JSON(self.txtFaceRockType.text as Any).stringValue,
+            "benchRl" : JSON(self.txtBenchRL.text as Any).stringValue,
+            "benchHeightWidth" : JSON(self.txtBenchHeightWidth.text as Any).stringValue,
+            "benchAngle" : JSON(self.txtBenchAngle.text as Any).stringValue,
+            "thicknessOfOre" : JSON(self.txtThicknessOfOre.text as Any).stringValue,
+            "thicknessOfOverburdan" : JSON(self.txtThicknessOfOverBurden.text as Any).stringValue,
+            "thicknessOfInterburden" : JSON(self.txtThicknessOfInterburden.text as Any).stringValue,
+            "observedGradeOfOre" : JSON(self.txtObservedGradeOfOre.text as Any).stringValue,
+            "sampleColledted" : JSON(self.lblSampleCollected.text as Any).stringValue,
+            "actualGradeOfOre" : JSON(self.txtActualGradeOfOreLabGrade.text as Any).stringValue,
+            "weathring" : JSON(self.lblWeathering.text as Any).stringValue,
+            "rockStregth" : JSON(self.lblRockStrenght.text as Any).stringValue,
+            "waterCondition" : JSON(self.lblWaterCondition.text as Any).stringValue,
+            "typeOfGeologistStruture" : JSON(self.lblTypeOfGeologicalStructure.text as Any).stringValue,
+            "typeOfFaults" : JSON(self.lblTypeOfFault.text as Any).stringValue,
+            "notes" : JSON(self.tvNote.text as Any).stringValue,
+            "shift" : self.getShiftType(),
+            "ocDate" : JSON(self.lblDate.text as Any).stringValue,
+            "dipDirectionAndAngle" : JSON(self.txtDipDirectionAngle.text as Any).stringValue
+        ]
+        
+        let vc = AppStoryBoard.main.viewController(viewControllerClass: AddOpenCastMappingImagesVC.self)
+        vc.openCastMappingDetails = openCastMappingDetails
+        vc.geologistSignImage = geologistSignImage
+        vc.clientGeologistSignImage = clientGeologistSignImage
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     
@@ -394,7 +444,12 @@ extension OCGeoAttributeVC : UITextFieldDelegate {
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if textField == self.txtMineSiteName {
+        
+        if textField == self.txtMappingSheetNo{
+            
+            self.txtMineSiteName.becomeFirstResponder()
+        }
+        else if textField == self.txtMineSiteName {
 
             self.txtPitName.becomeFirstResponder()
             
@@ -471,7 +526,7 @@ extension OCGeoAttributeVC : UITextFieldDelegate {
 }
 
 //--------------------------------------------------------------------------------------
-// MARK: - UITextViewDelegate
+// MARK: - UITextViewDelegate Methods
 //--------------------------------------------------------------------------------------
 extension OCGeoAttributeVC : UITextViewDelegate {
     
@@ -480,11 +535,14 @@ extension OCGeoAttributeVC : UITextViewDelegate {
     }
 }
 
+//--------------------------------------------------------------------------------------
+// MARK: - SignaturePadDelegate Methods
+//--------------------------------------------------------------------------------------
 extension OCGeoAttributeVC : SignaturePadDelegate{
     
     func didStart() {
+        self.view.endEditing(true)
         self.scrollView.isScrollEnabled = false
-        
         self.buttonEnableDisable()
     }
     

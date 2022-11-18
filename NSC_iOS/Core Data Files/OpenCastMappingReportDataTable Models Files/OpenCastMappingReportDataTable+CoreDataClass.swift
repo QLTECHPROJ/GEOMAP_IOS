@@ -1,8 +1,8 @@
 //
 //  OpenCastMappingReportDataTable+CoreDataClass.swift
 
-
 import Foundation
+
 
 @objc(OpenCastMappingReportDataTable)
 public class OpenCastMappingReportDataTable: NSManagedObject {

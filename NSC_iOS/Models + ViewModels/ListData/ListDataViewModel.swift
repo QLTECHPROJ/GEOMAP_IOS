@@ -10,7 +10,7 @@ import Foundation
 class ListDataViewModel {
 
     
-    func callItemListAPI(parameters : [String:Any], listType : ListItemType, completionBlock: @escaping (JSON?,String?,String?,Bool) -> Void) {
+    func callItemListAPI(parameters : [String:Any], listType : ListItemType,isLoader : Bool = false, completionBlock: @escaping (JSON?,String?,String?,Bool) -> Void) {
         
         var apiRequest : APIRouter?
         
@@ -65,7 +65,7 @@ class ListDataViewModel {
             return
         }
 
-        APIManager.shared.callAPIWithJSON(router: apiRequest,showToast : false) { responseData, data, statusCode, message, completion in
+        APIManager.shared.callAPIWithJSON(router: apiRequest,isLoader : isLoader,showToast : false) { responseData, data, statusCode, message, completion in
             if completion, statusCode == ApiKeys.ApiStatusCode.success.rawValue, let receivdeData = data {
                 completionBlock(receivdeData,statusCode,message,true)
             }
