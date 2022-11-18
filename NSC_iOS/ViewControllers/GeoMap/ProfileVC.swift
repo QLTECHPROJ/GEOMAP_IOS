@@ -43,6 +43,7 @@ class ProfileVC: ClearNaviagtionBarVC {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupUI()
+        self.setupData()
     }
     
     
