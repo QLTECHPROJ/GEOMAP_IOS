@@ -37,6 +37,7 @@ class ProfileVC: ClearNaviagtionBarVC {
     let vwProfileModel : ProfileViewModel = ProfileViewModel()
     
     let bodDatePicker = UIDatePicker()
+    var didCompletion : ((Bool)->Void)?
     
     
     // MARK: - VIEW LIFE CYCLE
@@ -137,7 +138,7 @@ class ProfileVC: ClearNaviagtionBarVC {
     
     
    @objc func selectProfilePicture(_ gesture : UIGestureRecognizer){
-        if checkInternet(showToast: true) == false {
+        if checkInternet(true) == false {
             return
         }
         
@@ -210,6 +211,9 @@ class ProfileVC: ClearNaviagtionBarVC {
             self.vwProfileModel.callProfileUpdateAPI(parameters: parameters.toDictionary(), uploadParameters: [self.imageData]) { completion in
                 if completion{
                     self.navigationController?.popViewController(animated: true)
+                    if let _ = self.didCompletion{
+                        self.didCompletion!(true)
+                    }
                 }
             }
         }
@@ -223,7 +227,7 @@ class ProfileVC: ClearNaviagtionBarVC {
     
     @IBAction func btnDeleteAccountTapped(_ sender: UIButton) {
         
-        if checkInternet(showToast: true) == false {
+        if checkInternet(true) == false {
             return
         }
         
@@ -343,7 +347,7 @@ extension ProfileVC : AlertPopUpVCDelegate {
     
     func handleAction(sender: UIButton, popUpTag: Int) {
         if sender.tag == 0 {
-            if checkInternet(showToast: true) == false {
+            if checkInternet(true) == false {
                 return
             }
             

@@ -42,6 +42,7 @@ class UploadUnderMappingImagesVC: ClearNaviagtionBarVC {
                                        ["title" : kFACE,"type" : DrawingType.face.rawValue,"isDraw" : false,"draw_image" : UIImage()]]
     
     var underGroundMappingDetail : JSON = .null
+    var viewModelSyncData : SyncDataVM = SyncDataVM()
     
     //----------------------------------------------------------------------------
     //MARK: - Memory management
@@ -154,7 +155,7 @@ class UploadUnderMappingImagesVC: ClearNaviagtionBarVC {
                 break
                 
             default:
-                self.stackView.isHidden = true
+//                self.stackView.isHidden = true
 
                 var rootImg = UIImage()
                 var leftImg = UIImage()
@@ -177,17 +178,7 @@ class UploadUnderMappingImagesVC: ClearNaviagtionBarVC {
                     
                     faceImg = faceImage
                 }
-                
-                UnderGroundMappingReportDataModel.shared.insertUnderGroundMappingReportData(self.underGroundMappingDetail["iD"].stringValue, self.underGroundMappingDetail["mapSerialNo"].stringValue, self.underGroundMappingDetail["ugDate"].stringValue, self.underGroundMappingDetail["shift"].stringValue, self.underGroundMappingDetail["mappedBy"].stringValue, self.underGroundMappingDetail["scale"].stringValue, self.underGroundMappingDetail["locations"].stringValue, self.underGroundMappingDetail["veinOrLoad"].stringValue, self.underGroundMappingDetail["xCoordinate"].stringValue, self.underGroundMappingDetail["yCoordinate"].stringValue, self.underGroundMappingDetail["zCoordinate"].stringValue, self.underGroundMappingDetail["attributes"].arrayValue, rootImg, leftImg, rightImg, faceImg) { completion in
-                    
-                    if completion{
-                        
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5){
-                            AppDelegate.shared.updateWindow(.home)
-                            GFunctions.shared.showSnackBar(message: kUnderGroundMappingReportSavedSuccessfully)
-                        }
-                    }
-                }
+                self.callAPIOrSavedOffline(rootImg, leftImg, rightImg, faceImg)
                 break
             }
         }
@@ -269,5 +260,88 @@ extension UploadUnderMappingImagesVC : SignaturePadDelegate{
     func didFinish() {
         
         self.buttonEnableDisable(true)
+    }
+}
+
+
+//--------------------------------------------------------------------------------------
+// MARK: - API Calling Methods
+//--------------------------------------------------------------------------------------
+extension UploadUnderMappingImagesVC{
+    
+    func callAPIOrSavedOffline(_ rootImage : UIImage, _ leftImage : UIImage, _ rightImage : UIImage, _ faceImage : UIImage)
+    {
+        
+        if checkInternet(true){
+            
+            let parameters = APIParametersModel()
+            parameters.shift = self.underGroundMappingDetail["shift"].stringValue
+            parameters.mappedBy = self.underGroundMappingDetail["mappedBy"].stringValue
+            parameters.name = self.underGroundMappingDetail["name"].stringValue
+            parameters.scale = self.underGroundMappingDetail["scale"].stringValue
+            parameters.location = self.underGroundMappingDetail["locations"].stringValue
+            parameters.venieLoad = self.underGroundMappingDetail["veinOrLoad"].stringValue
+            parameters.xCordinate = self.underGroundMappingDetail["xCoordinate"].stringValue
+            parameters.yCordinate = self.underGroundMappingDetail["yCoordinate"].stringValue
+            parameters.zCordinate = self.underGroundMappingDetail["zCoordinate"].stringValue
+            parameters.mapSerialNo = self.underGroundMappingDetail["mapSerialNo"].stringValue
+            parameters.ugDate = GFunctions.shared.convertDateFormat(dt: self.underGroundMappingDetail["ugDate"].stringValue, inputFormat: DateTimeFormaterEnum.ddmm_yyyy.rawValue, outputFormat: DateTimeFormaterEnum.ddMMMyyyy.rawValue, status: .NOCONVERSION).str
+            parameters.comment = self.underGroundMappingDetail["comment"].stringValue
+                    
+            let faceImageObj = UploadDataModel(name: "image.jpeg", key: "faceImage", data: faceImage.jpegData(compressionQuality: 0.5), extention: "jpeg", mimeType: "image/jpeg")
+            let rightImageObj = UploadDataModel(name: "image.jpeg", key: "rightImage", data: rightImage.jpegData(compressionQuality: 0.5), extention: "jpeg", mimeType: "image/jpeg")
+            let leftImageObj = UploadDataModel(name: "image.jpeg", key: "leftImage", data: leftImage.jpegData(compressionQuality: 0.5), extention: "jpeg", mimeType: "image/jpeg")
+            let rootImageObj = UploadDataModel(name: "image.jpeg", key: "roofImage", data: rootImage.jpegData(compressionQuality: 0.5), extention: "jpeg", mimeType: "image/jpeg")
+            
+            parameters.attribute = self.underGroundMappingDetail["attributes"].arrayValue.compactMap({ obj -> Attribute in
+                let attributeObj = Attribute()
+                attributeObj.name = obj["name"].stringValue
+                attributeObj.nose = obj["nose"].stringValue
+                attributeObj.properties = obj["properties"].stringValue
+                return attributeObj
+            })
+            
+            parameters.faceImage = faceImageObj.name
+            parameters.rightImage = rightImageObj.name
+            parameters.leftImage = leftImageObj.name
+            parameters.roofImage = rootImageObj.name
+                   
+            let arrUploadDataModel : [UploadDataModel] = [faceImageObj,rightImageObj,leftImageObj,rootImageObj]
+            parameters.userId = JSON(UserModelClass.current.userId as Any).stringValue
+            
+            /*
+             attribute
+             name
+             nose
+
+             properties
+             */
+            debugPrint(parameters.toDictionary())
+            
+            self.viewModelSyncData.callAPIUploadUnderGroungMappingReport(parameters: parameters.toDictionary(), uploadParameters: arrUploadDataModel) { completion,message in
+                if completion{
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5){
+                        AppDelegate.shared.updateWindow(.home)
+                        GFunctions.shared.showSnackBar(message: JSON(message as Any).stringValue)
+                    }
+                }
+                else{
+                    GFunctions.shared.showSnackBar(message: JSON(message as Any).stringValue)
+                }
+            }
+            
+        }
+        else{
+            UnderGroundMappingReportDataModel.shared.insertUnderGroundMappingReportData(self.underGroundMappingDetail["iD"].stringValue, self.underGroundMappingDetail["mapSerialNo"].stringValue,self.underGroundMappingDetail["name"].stringValue, self.underGroundMappingDetail["ugDate"].stringValue, self.underGroundMappingDetail["shift"].stringValue, self.underGroundMappingDetail["mappedBy"].stringValue, self.underGroundMappingDetail["scale"].stringValue, self.underGroundMappingDetail["locations"].stringValue, self.underGroundMappingDetail["veinOrLoad"].stringValue, self.underGroundMappingDetail["xCoordinate"].stringValue, self.underGroundMappingDetail["yCoordinate"].stringValue, self.underGroundMappingDetail["zCoordinate"].stringValue, self.underGroundMappingDetail["attributes"].arrayValue, rootImage, leftImage, rightImage, faceImage,self.underGroundMappingDetail["comment"].stringValue) { completion in
+                
+                if completion{
+                    
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5){
+                        AppDelegate.shared.updateWindow(.home)
+                        GFunctions.shared.showSnackBar(message: kUnderGroundMappingReportSavedSuccessfully)
+                    }
+                }
+            }
+        }
     }
 }

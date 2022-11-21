@@ -137,7 +137,7 @@ enum DateTimeFormaterEnum : String
     
     case MMyy               = "MM/yy"
     
-    case ddMMMyyyy          = "dd - MMM - yyyy"
+    case ddMMMyyyy          = "dd-MMM-yyyy"
     
     case ddMMMYYYYhhmma                             = "dd MMM, yyyy hh:mm a"
     
@@ -158,6 +158,7 @@ enum DateTimeFormaterEnum : String
     case EEEE = "EEEE"
     
     case ddMMyyHHmmAWithDOT = "dd.MM.yy hh:mma"
+    
 }
 
 enum ScreenHeightResolution : CGFloat {

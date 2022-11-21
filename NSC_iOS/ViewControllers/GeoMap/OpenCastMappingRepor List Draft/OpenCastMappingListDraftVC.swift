@@ -61,11 +61,11 @@ class OpenCastMappingListDraftVC: ClearNaviagtionBarVC {
     
     func setReportData(){
 
-        self.viewModel.getUnderGroundMappingReportList { completion in
+        self.viewModel.getOpenCastMappingReportList(with: { completion in
             if completion{
                 self.tblView.reloadData()
             }
-        }
+        })
     }
     
    

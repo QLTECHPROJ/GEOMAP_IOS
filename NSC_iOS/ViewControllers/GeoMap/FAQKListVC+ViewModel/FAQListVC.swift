@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import DZNEmptyDataSet
 
 class FAQListVC: ClearNaviagtionBarVC {
     
@@ -15,7 +16,7 @@ class FAQListVC: ClearNaviagtionBarVC {
     
     
     // MARK: - VARIABLES
-   
+    private var emptyMessage : String = ""
     
     let vmFAQList = FAQListVM()
     
@@ -33,6 +34,8 @@ class FAQListVC: ClearNaviagtionBarVC {
     func setupUI() {
         self.title = kFAQs
         
+        self.tableView.emptyDataSetSource = self
+        self.tableView.emptyDataSetDelegate = self
         self.tableView.register(nibWithCellClass: FAQCell.self)
         self.view.backgroundColor = .colorBGSkyBlueLight
       
@@ -45,6 +48,10 @@ class FAQListVC: ClearNaviagtionBarVC {
             if completion{
                 self.tableView.reloadData()
             }
+            else if let _ = message{
+                self.emptyMessage = message!
+                self.tableView.reloadData()
+            }
         }
     }
     
@@ -55,8 +62,26 @@ class FAQListVC: ClearNaviagtionBarVC {
     
 }
 
+//-------------------------------------------------------------------
+//MARK: - Empty TableView Methods
+//-------------------------------------------------------------------
+extension FAQListVC : DZNEmptyDataSetDelegate, DZNEmptyDataSetSource{
+    
+    func emptyDataSetShouldDisplay(_ scrollView: UIScrollView!) -> Bool {
+        return true
+    }
+    
+    func title(forEmptyDataSet scrollView: UIScrollView) -> NSAttributedString {
+        
+        let text = self.emptyMessage
+        let attributes = [NSAttributedString.Key.font: UIFont.applyCustomFont(fontName: .InterMedium, fontSize: 13), NSAttributedString.Key.foregroundColor: UIColor.colorTextBlack]
+        return NSAttributedString(string: text, attributes: attributes)
+    }
+}
 
-// MARK: - UITableViewDelegate, UITableViewDataSource
+//-------------------------------------------------------------------
+//MARK: - UITableView Methods
+//-------------------------------------------------------------------
 extension FAQListVC : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

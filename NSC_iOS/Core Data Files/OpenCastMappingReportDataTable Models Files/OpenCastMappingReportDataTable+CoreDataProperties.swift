@@ -25,6 +25,7 @@ extension OpenCastMappingReportDataTable {
     @NSManaged public var geologistName: String?
     @NSManaged public var geologistSign: Data?
     @NSManaged public var iD: Int64
+    @NSManaged public var imagedrawn: Data?
     @NSManaged public var mappingSheetNo: String?
     @NSManaged public var minesSiteName: String?
     @NSManaged public var observedGradeOfOre: String?
@@ -42,6 +43,6 @@ extension OpenCastMappingReportDataTable {
     @NSManaged public var typeOfGeologicalStructures: String?
     @NSManaged public var waterCondition: String?
     @NSManaged public var weathering: String?
-    @NSManaged public var imagedrawn: Data?
+    @NSManaged public var notes: String?
 
 }

@@ -45,6 +45,7 @@ class OpenCastMappingReportDataModel : NSObject{
                                                     _ waterCondition :String,
                                                     _ typeOfGeologicalStructures :String,
                                                     _ typeOfFaults :String,
+                                                    _ notes : String,
                                                     _ geologistSign :UIImage,
                                                     _ clientsGeologistSign :UIImage,
                                                     _ imageDraw : UIImage,
@@ -80,9 +81,10 @@ class OpenCastMappingReportDataModel : NSObject{
         tableViewAttributes.waterCondition = waterCondition
         tableViewAttributes.typeOfGeologicalStructures = typeOfGeologicalStructures
         tableViewAttributes.typeOfFaults = typeOfFaults
-        tableViewAttributes.geologistSign = geologistSign.jpegData(compressionQuality: 1)
-        tableViewAttributes.clientsGeologistSign = clientsGeologistSign.jpegData(compressionQuality: 1)
-        tableViewAttributes.imagedrawn = imageDraw.jpegData(compressionQuality: 1) 
+        tableViewAttributes.notes = notes
+        tableViewAttributes.geologistSign = geologistSign.jpegData(compressionQuality: 0.5)
+        tableViewAttributes.clientsGeologistSign = clientsGeologistSign.jpegData(compressionQuality: 0.5)
+        tableViewAttributes.imagedrawn = imageDraw.jpegData(compressionQuality: 0.5) 
         CoreDataManager.shared.saveContext()
         completionBlock(true)
     }

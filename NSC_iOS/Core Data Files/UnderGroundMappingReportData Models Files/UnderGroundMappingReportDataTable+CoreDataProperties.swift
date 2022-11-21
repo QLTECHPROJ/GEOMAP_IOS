@@ -1,7 +1,9 @@
 //
 //  UnderGroundMappingReportDataTable+CoreDataProperties.swift
 
+
 import Foundation
+
 
 
 extension UnderGroundMappingReportDataTable {
@@ -26,6 +28,8 @@ extension UnderGroundMappingReportDataTable {
     @NSManaged public var xCoordinate: String?
     @NSManaged public var yCoordinate: String?
     @NSManaged public var zCoordinate: String?
+    @NSManaged public var name: String?
+    @NSManaged public var comment: String?
     @NSManaged public var attributeUndergroundMapping: NSSet?
 
 }

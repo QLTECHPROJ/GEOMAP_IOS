@@ -13,7 +13,7 @@ import AVKit
 
 /************************ Check network connection ************************/
 
-func checkInternet(showToast : Bool = false) -> Bool {
+func checkInternet(_ showToast : Bool = false) -> Bool {
     
     let status = DJReachability().connectionStatus()
     switch status {

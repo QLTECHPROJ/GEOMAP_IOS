@@ -14,6 +14,8 @@ class ReportListVM {
     
     func callHomeReportListAPI(parameters : [String:Any],isLoader : Bool = true, completionBlock: @escaping (JSON?,String?,String?,Bool) -> Void) {
         
+        
+        guard checkInternet(true) else {return completionBlock(nil,nil,kNoInternetConnection,false)}
         debugPrint(parameters)
         
         APIManager.shared.callAPIWithJSON(router: APIRouter.ur_or_listing(parameters),isLoader : isLoader,showToast : false) { responseData, data, statusCode, message, completion in
@@ -44,6 +46,8 @@ class ReportListVM {
     
     
     func callReportListAPI(router : URLRequestConvertible, isLoader : Bool = true, completionBlock: @escaping (JSON?,String?,String?,Bool) -> Void) {
+        
+        guard checkInternet(true) else {return completionBlock(nil,nil,kNoInternetConnection,false)}
         
         APIManager.shared.callAPIWithJSON(router: router,isLoader : isLoader, showToast : false) { responseData, data, statusCode, message, completion in
             if completion, statusCode == ApiKeys.ApiStatusCode.success.rawValue, let receivdeData = data {

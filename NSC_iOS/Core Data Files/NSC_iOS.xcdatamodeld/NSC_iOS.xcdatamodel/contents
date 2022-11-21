@@ -38,6 +38,7 @@
         <attribute name="imagedrawn" optional="YES" attributeType="Binary"/>
         <attribute name="mappingSheetNo" optional="YES" attributeType="String"/>
         <attribute name="minesSiteName" optional="YES" attributeType="String"/>
+        <attribute name="notes" optional="YES" attributeType="String"/>
         <attribute name="observedGradeOfOre" optional="YES" attributeType="String"/>
         <attribute name="ocDate" optional="YES" attributeType="String"/>
         <attribute name="pitLocation" optional="YES" attributeType="String"/>
@@ -80,12 +81,14 @@
         <attribute name="updateDate" optional="YES" attributeType="String"/>
     </entity>
     <entity name="UnderGroundMappingReportDataTable" representedClassName="UnderGroundMappingReportDataTable" syncable="YES">
+        <attribute name="comment" optional="YES" attributeType="String"/>
         <attribute name="faceImage" optional="YES" attributeType="Binary"/>
         <attribute name="iD" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="leftImage" optional="YES" attributeType="Binary"/>
         <attribute name="locations" optional="YES" attributeType="String"/>
         <attribute name="mappedBy" optional="YES" attributeType="String"/>
         <attribute name="mapSerialNo" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="rightImage" optional="YES" attributeType="Binary"/>
         <attribute name="roofImage" optional="YES" attributeType="Binary"/>
         <attribute name="scale" optional="YES" attributeType="String"/>

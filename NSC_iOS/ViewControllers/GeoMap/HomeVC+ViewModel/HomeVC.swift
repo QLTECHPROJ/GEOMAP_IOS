@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import DZNEmptyDataSet
 
 class HomeVC: ClearNaviagtionBarVC {
     
@@ -31,6 +32,8 @@ class HomeVC: ClearNaviagtionBarVC {
         refreshControl.tintColor = UIColor.colorSkyBlue
         return refreshControl
     }()
+    
+    private var emptyMessage : String = ""
     
     // MARK: - VIEW LIFE CYCLE
     override func viewDidLoad() {
@@ -68,6 +71,8 @@ class HomeVC: ClearNaviagtionBarVC {
         self.tableView.register(nibWithCellClass: NotificationListCell.self)
         self.tableView.register(nibWithCellClass: TitleLabelCell.self)
         self.tableView.register(nibWithCellClass: NotificationListCell.self)
+        self.tableView.emptyDataSetSource = self
+        self.tableView.emptyDataSetDelegate = self
         self.tableView.addSubview(self.refreshControl)
         self.apiCallReportList(true)
     }
@@ -89,6 +94,11 @@ class HomeVC: ClearNaviagtionBarVC {
                 
                 self.tableView.reloadData()
             }
+            else if let _ = message{
+                self.emptyMessage = message!
+                self.tableView.reloadData()
+            }
+            
         }
     }
 
@@ -110,7 +120,26 @@ class HomeVC: ClearNaviagtionBarVC {
 }
 
 
-// MARK: - UITableViewDelegate, UITableViewDataSource
+//-------------------------------------------------------------------
+//MARK: - Empty TableView Methods
+//-------------------------------------------------------------------
+extension HomeVC : DZNEmptyDataSetDelegate, DZNEmptyDataSetSource{
+    
+    func emptyDataSetShouldDisplay(_ scrollView: UIScrollView!) -> Bool {
+        return true
+    }
+    
+    func title(forEmptyDataSet scrollView: UIScrollView) -> NSAttributedString {
+        
+        let text = self.emptyMessage
+        let attributes = [NSAttributedString.Key.font: UIFont.applyCustomFont(fontName: .InterMedium, fontSize: 13), NSAttributedString.Key.foregroundColor: UIColor.colorTextBlack]
+        return NSAttributedString(string: text, attributes: attributes)
+    }
+}
+
+//-------------------------------------------------------------------
+//MARK: - UITableView Methods
+//-------------------------------------------------------------------
 extension HomeVC: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {

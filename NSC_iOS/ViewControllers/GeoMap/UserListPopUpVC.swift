@@ -68,18 +68,29 @@ class UserListPopUpVC: ClearNaviagtionBarVC {
                // self.imgUser.isView = false
             }
         }
-        
+        self.apiCalling()
+    }
+    
+    func apiCalling(){
         self.vwProfileModel.callAPIGetUserProfile { reponseData, statusCode, message, completion in
             
             if completion , let data = reponseData{
                 debugPrint(data)
+                self.lblName.text = JSON(UserModelClass.current.name as Any).stringValue
+                
+                self.imgUser.sd_setImage(with: JSON(UserModelClass.current.profileImage as Any).stringValue.url()) { (image, error, sdchahe, returnUrl) in
+                    if error != nil {
+                        self.imgUser.image = UIImage()
+                        self.imgUser.image = GFunctions.shared.setDefaultTextInProfile(text: JSON(UserModelClass.current.name as Any).stringValue)
+                       // self.imgUser.isView = false
+                    }
+                }
             }
             else{
                 GFunctions.shared.showSnackBar(message: message ?? "Error occuered ..!")
             }
         }
     }
-    
     
     
     // MARK: - ACTIONS
@@ -141,6 +152,10 @@ extension UserListPopUpVC : UITableViewDelegate, UITableViewDataSource {
         case kEditProfile:
             
             let aVC = AppStoryBoard.main.viewController(viewControllerClass: ProfileVC.self)
+            aVC.didCompletion = { completion in
+                
+                self.apiCalling()
+            }
             self.navigationController?.pushViewController(aVC, animated: true)
             
             break
@@ -169,7 +184,7 @@ extension UserListPopUpVC : UITableViewDelegate, UITableViewDataSource {
             
         case kSupport:
             
-            if checkInternet(showToast: true) == false {
+            if checkInternet(true) == false {
                 return
             }
             
@@ -190,7 +205,7 @@ extension UserListPopUpVC : UITableViewDelegate, UITableViewDataSource {
             
         default:
             
-            if checkInternet(showToast: true) == false {
+            if checkInternet(true) == false {
                 return
             }
             
@@ -223,7 +238,7 @@ extension UserListPopUpVC : AlertPopUpVCDelegate {
     
     func handleAction(sender: UIButton, popUpTag: Int) {
         if sender.tag == 0 {
-            if checkInternet(showToast: true) == false {
+            if checkInternet(true) == false {
                 return
             }
                         

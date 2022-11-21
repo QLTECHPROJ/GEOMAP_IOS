@@ -13,7 +13,7 @@ class OpenCastMappingReportListDraftVM {
     private var arrOpenCastMappingReportDraft : [OpenCastMappingReportDataTable] = []
     
     
-    func getUnderGroundMappingReportList(with completionBlock : (Bool)->Void){
+    func getOpenCastMappingReportList(with completionBlock : (Bool)->Void){
         OpenCastMappingReportDataModel.shared.getOpenCastMappingReportData { completion in
             if completion{
                 self.arrOpenCastMappingReportDraft = OpenCastMappingReportDataModel.shared.arrOpenCastMappingReportData

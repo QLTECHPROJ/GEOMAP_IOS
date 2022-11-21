@@ -31,19 +31,17 @@
 		12291694290C06800093BE93 /* GFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12291693290C06800093BE93 /* GFunctions.swift */; };
 		12291696290C0BC90093BE93 /* TTGSnackbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12291695290C0BC90093BE93 /* TTGSnackbar.swift */; };
 		12291697290C0BC90093BE93 /* TTGSnackbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12291695290C0BC90093BE93 /* TTGSnackbar.swift */; };
+		122B46AD2927980A00820F38 /* SyncDataVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122B46AC2927980A00820F38 /* SyncDataVM.swift */; };
+		122B46AE2927980F00820F38 /* SyncDataVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122B46AC2927980A00820F38 /* SyncDataVM.swift */; };
+		122B46B12927BB4C00820F38 /* OpenCastMappingReportDataTable+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122B46AF2927BB4C00820F38 /* OpenCastMappingReportDataTable+CoreDataClass.swift */; };
+		122B46B22927BB4C00820F38 /* OpenCastMappingReportDataTable+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122B46AF2927BB4C00820F38 /* OpenCastMappingReportDataTable+CoreDataClass.swift */; };
+		122B46B32927BB4C00820F38 /* OpenCastMappingReportDataTable+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122B46B02927BB4C00820F38 /* OpenCastMappingReportDataTable+CoreDataProperties.swift */; };
+		122B46B42927BB4C00820F38 /* OpenCastMappingReportDataTable+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122B46B02927BB4C00820F38 /* OpenCastMappingReportDataTable+CoreDataProperties.swift */; };
 		12310D2E290BBF7F00F10DE3 /* ViewPDFVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12310D2D290BBF7F00F10DE3 /* ViewPDFVC.swift */; };
-		124452D729263BDA00550B4D /* UnderGroundMappingReportDataTable+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124452D329263BDA00550B4D /* UnderGroundMappingReportDataTable+CoreDataClass.swift */; };
-		124452D829263BDA00550B4D /* UnderGroundMappingReportDataTable+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124452D329263BDA00550B4D /* UnderGroundMappingReportDataTable+CoreDataClass.swift */; };
-		124452D929263BDA00550B4D /* UnderGroundMappingReportDataTable+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124452D429263BDA00550B4D /* UnderGroundMappingReportDataTable+CoreDataProperties.swift */; };
-		124452DA29263BDA00550B4D /* UnderGroundMappingReportDataTable+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124452D429263BDA00550B4D /* UnderGroundMappingReportDataTable+CoreDataProperties.swift */; };
 		124452E1292650F100550B4D /* AttributeUndergroundMappingTable+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124452DF292650F100550B4D /* AttributeUndergroundMappingTable+CoreDataClass.swift */; };
 		124452E2292650F100550B4D /* AttributeUndergroundMappingTable+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124452DF292650F100550B4D /* AttributeUndergroundMappingTable+CoreDataClass.swift */; };
 		124452E3292650F100550B4D /* AttributeUndergroundMappingTable+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124452E0292650F100550B4D /* AttributeUndergroundMappingTable+CoreDataProperties.swift */; };
 		124452E4292650F100550B4D /* AttributeUndergroundMappingTable+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124452E0292650F100550B4D /* AttributeUndergroundMappingTable+CoreDataProperties.swift */; };
-		124452ED29265A5900550B4D /* OpenCastMappingReportDataTable+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124452EB29265A5900550B4D /* OpenCastMappingReportDataTable+CoreDataClass.swift */; };
-		124452EE29265A5900550B4D /* OpenCastMappingReportDataTable+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124452EB29265A5900550B4D /* OpenCastMappingReportDataTable+CoreDataClass.swift */; };
-		124452EF29265A5900550B4D /* OpenCastMappingReportDataTable+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124452EC29265A5900550B4D /* OpenCastMappingReportDataTable+CoreDataProperties.swift */; };
-		124452F029265A5900550B4D /* OpenCastMappingReportDataTable+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124452EC29265A5900550B4D /* OpenCastMappingReportDataTable+CoreDataProperties.swift */; };
 		12469E62291E804200A4DAC8 /* SampleCollected+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12469E60291E804200A4DAC8 /* SampleCollected+CoreDataClass.swift */; };
 		12469E64291E804200A4DAC8 /* SampleCollected+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12469E61291E804200A4DAC8 /* SampleCollected+CoreDataProperties.swift */; };
 		124A4E4B29127FC700C21A00 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 124A4E4A29127FC700C21A00 /* SwiftyJSON */; };
@@ -61,6 +59,10 @@
 		1251DDA128FFE9D100E1E712 /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1251DD9028FFDE2400E1E712 /* UIButton+Extension.swift */; };
 		1251DDA328FFEE3F00E1E712 /* ACFloatingTextfield+Extesion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1251DDA228FFEE3F00E1E712 /* ACFloatingTextfield+Extesion.swift */; };
 		1251DDA428FFEE9A00E1E712 /* ACFloatingTextfield+Extesion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1251DDA228FFEE3F00E1E712 /* ACFloatingTextfield+Extesion.swift */; };
+		1253633B2928E06000E902C9 /* UndergroundReportModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1253633A2928E06000E902C9 /* UndergroundReportModel.swift */; };
+		1253633C2928E06000E902C9 /* UndergroundReportModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1253633A2928E06000E902C9 /* UndergroundReportModel.swift */; };
+		125363412928E0AA00E902C9 /* OpenCastReportModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125363402928E0AA00E902C9 /* OpenCastReportModel.swift */; };
+		125363422928E0AA00E902C9 /* OpenCastReportModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125363402928E0AA00E902C9 /* OpenCastReportModel.swift */; };
 		125C815C29012DC8004331F0 /* UIImageViewClasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125C815B29012DC8004331F0 /* UIImageViewClasses.swift */; };
 		1260209D291CDF10000E2128 /* UIBundle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1260209C291CDF10000E2128 /* UIBundle+Extension.swift */; };
 		1260209E291CDF4F000E2128 /* UIBundle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1260209C291CDF10000E2128 /* UIBundle+Extension.swift */; };
@@ -90,6 +92,10 @@
 		127C802729236E9300DC6E99 /* OpenCastMappingReportDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127C802529236E9300DC6E99 /* OpenCastMappingReportDataModel.swift */; };
 		127C80302923740700DC6E99 /* AttributeDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127C802F2923740700DC6E99 /* AttributeDataModel.swift */; };
 		127C80312923740700DC6E99 /* AttributeDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127C802F2923740700DC6E99 /* AttributeDataModel.swift */; };
+		128D76ED292B45C100ABDBCB /* UnderGroundMappingReportDataTable+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128D76EB292B45C100ABDBCB /* UnderGroundMappingReportDataTable+CoreDataClass.swift */; };
+		128D76EE292B45C100ABDBCB /* UnderGroundMappingReportDataTable+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128D76EB292B45C100ABDBCB /* UnderGroundMappingReportDataTable+CoreDataClass.swift */; };
+		128D76EF292B45C100ABDBCB /* UnderGroundMappingReportDataTable+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128D76EC292B45C100ABDBCB /* UnderGroundMappingReportDataTable+CoreDataProperties.swift */; };
+		128D76F0292B45C100ABDBCB /* UnderGroundMappingReportDataTable+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128D76EC292B45C100ABDBCB /* UnderGroundMappingReportDataTable+CoreDataProperties.swift */; };
 		12A26AC729028B81005ED851 /* UITextView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A26AC629028B81005ED851 /* UITextView+Extension.swift */; };
 		12A26AC829028B8D005ED851 /* UITextView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A26AC629028B81005ED851 /* UITextView+Extension.swift */; };
 		12B2F303291A56E20019CADA /* UGReportDetailVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B2F302291A56E20019CADA /* UGReportDetailVM.swift */; };
@@ -488,13 +494,12 @@
 		12291691290BE4190093BE93 /* WebViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewVC.swift; sourceTree = "<group>"; };
 		12291693290C06800093BE93 /* GFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFunctions.swift; sourceTree = "<group>"; };
 		12291695290C0BC90093BE93 /* TTGSnackbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTGSnackbar.swift; sourceTree = "<group>"; };
+		122B46AC2927980A00820F38 /* SyncDataVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncDataVM.swift; sourceTree = "<group>"; };
+		122B46AF2927BB4C00820F38 /* OpenCastMappingReportDataTable+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OpenCastMappingReportDataTable+CoreDataClass.swift"; sourceTree = "<group>"; };
+		122B46B02927BB4C00820F38 /* OpenCastMappingReportDataTable+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OpenCastMappingReportDataTable+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		12310D2D290BBF7F00F10DE3 /* ViewPDFVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewPDFVC.swift; sourceTree = "<group>"; };
-		124452D329263BDA00550B4D /* UnderGroundMappingReportDataTable+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UnderGroundMappingReportDataTable+CoreDataClass.swift"; sourceTree = "<group>"; };
-		124452D429263BDA00550B4D /* UnderGroundMappingReportDataTable+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UnderGroundMappingReportDataTable+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		124452DF292650F100550B4D /* AttributeUndergroundMappingTable+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AttributeUndergroundMappingTable+CoreDataClass.swift"; sourceTree = "<group>"; };
 		124452E0292650F100550B4D /* AttributeUndergroundMappingTable+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AttributeUndergroundMappingTable+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		124452EB29265A5900550B4D /* OpenCastMappingReportDataTable+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OpenCastMappingReportDataTable+CoreDataClass.swift"; sourceTree = "<group>"; };
-		124452EC29265A5900550B4D /* OpenCastMappingReportDataTable+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OpenCastMappingReportDataTable+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		12469E60291E804200A4DAC8 /* SampleCollected+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SampleCollected+CoreDataClass.swift"; sourceTree = "<group>"; };
 		12469E61291E804200A4DAC8 /* SampleCollected+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SampleCollected+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		1251DD9028FFDE2400E1E712 /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
@@ -504,6 +509,8 @@
 		1251DD9828FFDFBB00E1E712 /* GConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GConstant.swift; sourceTree = "<group>"; };
 		1251DD9A28FFE22700E1E712 /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
 		1251DDA228FFEE3F00E1E712 /* ACFloatingTextfield+Extesion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ACFloatingTextfield+Extesion.swift"; sourceTree = "<group>"; };
+		1253633A2928E06000E902C9 /* UndergroundReportModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UndergroundReportModel.swift; sourceTree = "<group>"; };
+		125363402928E0AA00E902C9 /* OpenCastReportModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenCastReportModel.swift; sourceTree = "<group>"; };
 		125C815B29012DC8004331F0 /* UIImageViewClasses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewClasses.swift; sourceTree = "<group>"; };
 		1260209C291CDF10000E2128 /* UIBundle+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBundle+Extension.swift"; sourceTree = "<group>"; };
 		1263BD28290FF13B00E3DED9 /* APIParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIParameters.swift; sourceTree = "<group>"; };
@@ -520,6 +527,8 @@
 		127C801B292362EA00DC6E99 /* UnderGroundMappingReportDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderGroundMappingReportDataModel.swift; sourceTree = "<group>"; };
 		127C802529236E9300DC6E99 /* OpenCastMappingReportDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenCastMappingReportDataModel.swift; sourceTree = "<group>"; };
 		127C802F2923740700DC6E99 /* AttributeDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributeDataModel.swift; sourceTree = "<group>"; };
+		128D76EB292B45C100ABDBCB /* UnderGroundMappingReportDataTable+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UnderGroundMappingReportDataTable+CoreDataClass.swift"; sourceTree = "<group>"; };
+		128D76EC292B45C100ABDBCB /* UnderGroundMappingReportDataTable+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UnderGroundMappingReportDataTable+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		12A26AC629028B81005ED851 /* UITextView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Extension.swift"; sourceTree = "<group>"; };
 		12B2F302291A56E20019CADA /* UGReportDetailVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UGReportDetailVM.swift; sourceTree = "<group>"; };
 		12D0F7562915291700549066 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
@@ -782,6 +791,15 @@
 			path = "ContactUSVC+ViewModel";
 			sourceTree = "<group>";
 		};
+		122B46AB292797F300820F38 /* SyncData */ = {
+			isa = PBXGroup;
+			children = (
+				9A96F94528F96BE200879A89 /* SyncDataVC.swift */,
+				122B46AC2927980A00820F38 /* SyncDataVM.swift */,
+			);
+			path = SyncData;
+			sourceTree = "<group>";
+		};
 		1251DD8F28FFDE0600E1E712 /* Global Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -826,10 +844,10 @@
 		127C801A292362C500DC6E99 /* UnderGroundMappingReportData Models Files */ = {
 			isa = PBXGroup;
 			children = (
+				128D76EB292B45C100ABDBCB /* UnderGroundMappingReportDataTable+CoreDataClass.swift */,
+				128D76EC292B45C100ABDBCB /* UnderGroundMappingReportDataTable+CoreDataProperties.swift */,
 				124452DF292650F100550B4D /* AttributeUndergroundMappingTable+CoreDataClass.swift */,
 				124452E0292650F100550B4D /* AttributeUndergroundMappingTable+CoreDataProperties.swift */,
-				124452D329263BDA00550B4D /* UnderGroundMappingReportDataTable+CoreDataClass.swift */,
-				124452D429263BDA00550B4D /* UnderGroundMappingReportDataTable+CoreDataProperties.swift */,
 				127C801B292362EA00DC6E99 /* UnderGroundMappingReportDataModel.swift */,
 			);
 			path = "UnderGroundMappingReportData Models Files";
@@ -838,8 +856,8 @@
 		127C801E29236E2700DC6E99 /* OpenCastMappingReportDataTable Models Files */ = {
 			isa = PBXGroup;
 			children = (
-				124452EB29265A5900550B4D /* OpenCastMappingReportDataTable+CoreDataClass.swift */,
-				124452EC29265A5900550B4D /* OpenCastMappingReportDataTable+CoreDataProperties.swift */,
+				122B46AF2927BB4C00820F38 /* OpenCastMappingReportDataTable+CoreDataClass.swift */,
+				122B46B02927BB4C00820F38 /* OpenCastMappingReportDataTable+CoreDataProperties.swift */,
 				127C802529236E9300DC6E99 /* OpenCastMappingReportDataModel.swift */,
 			);
 			path = "OpenCastMappingReportDataTable Models Files";
@@ -1365,6 +1383,8 @@
 				28679509282150B60010892E /* DynamicContents.swift */,
 				28F8316628197B8C00CAF99C /* CommonFunctions.swift */,
 				1263BD28290FF13B00E3DED9 /* APIParameters.swift */,
+				125363402928E0AA00E902C9 /* OpenCastReportModel.swift */,
+				1253633A2928E06000E902C9 /* UndergroundReportModel.swift */,
 				28F8316928197BEA00CAF99C /* DJReachability.swift */,
 			);
 			path = "API Helpers";
@@ -1474,7 +1494,7 @@
 				121615AF29274BA8003CAED8 /* OpenCastMappingRepor List Draft */,
 				9AE6D6F028F9452E008C41C9 /* OCReportDetailVC.swift */,
 				9AE6D6F328F9461A008C41C9 /* OCGeoAttributeVC.swift */,
-				9A96F94528F96BE200879A89 /* SyncDataVC.swift */,
+				122B46AB292797F300820F38 /* SyncData */,
 				1227CA0B291B87B900761787 /* ContactUSVC+ViewModel */,
 				12310D2D290BBF7F00F10DE3 /* ViewPDFVC.swift */,
 				9A96F94828F995EA00879A89 /* DrawVC.swift */,
@@ -1827,6 +1847,7 @@
 				281AAE42281AA3B40070D758 /* ListDataModel.swift in Sources */,
 				127C80312923740700DC6E99 /* AttributeDataModel.swift in Sources */,
 				9A694AA228FE5C3C000AC3C7 /* FAQCell.swift in Sources */,
+				125363422928E0AA00E902C9 /* OpenCastReportModel.swift in Sources */,
 				284C3194282681B300F8A63B /* ListItemVC.swift in Sources */,
 				12E7875D29226F6600702EBE /* WaterConditionDataModel.swift in Sources */,
 				28F830FB281977F000CAF99C /* UITableView+Extension.swift in Sources */,
@@ -1839,6 +1860,7 @@
 				28F83119281977F000CAF99C /* Config.swift in Sources */,
 				121615B229274BD0003CAED8 /* OpenCastMappingListDraftVC.swift in Sources */,
 				1251DD9E28FFE9C900E1E712 /* UIFont+Extension.swift in Sources */,
+				122B46B22927BB4C00820F38 /* OpenCastMappingReportDataTable+CoreDataClass.swift in Sources */,
 				124452E2292650F100550B4D /* AttributeUndergroundMappingTable+CoreDataClass.swift in Sources */,
 				121615B829274BFE003CAED8 /* UnderGroundMappingReportListDraftVM.swift in Sources */,
 				1263BD2D290FFA3100E3DED9 /* DeviceDetail.swift in Sources */,
@@ -1857,7 +1879,6 @@
 				2804E3A22819847D00AF4A62 /* WWCalendarTimeSelector.swift in Sources */,
 				2898FA932836720F006DF4B8 /* KidsAttendanceModel.swift in Sources */,
 				28F83121281977F000CAF99C /* UIImageView+Letters.m in Sources */,
-				124452F029265A5900550B4D /* OpenCastMappingReportDataTable+CoreDataProperties.swift in Sources */,
 				28543628282544F8009BBEDA /* UGGeoAttributeVC.swift in Sources */,
 				28F8311D281977F000CAF99C /* MediaType.swift in Sources */,
 				2813A01B2834FD9000E6194D /* InviteViewModel.swift in Sources */,
@@ -1878,7 +1899,6 @@
 				28F830E1281977F000CAF99C /* DJExtensions.swift in Sources */,
 				28300C44282A62DF00695E7B /* PersonalDetailModel.swift in Sources */,
 				12E787622922793900702EBE /* TypeOfFaultsDataTable+CoreDataClass.swift in Sources */,
-				124452EE29265A5900550B4D /* OpenCastMappingReportDataTable+CoreDataClass.swift in Sources */,
 				9A96F94A28F995EA00879A89 /* DrawVC.swift in Sources */,
 				28AE7225282CDF0F000845D0 /* AppStrings.swift in Sources */,
 				28F830F9281977F000CAF99C /* NSDate+Extension.swift in Sources */,
@@ -1888,6 +1908,7 @@
 				28F3C257281A5D170092A077 /* KidsAttendenceCell.swift in Sources */,
 				281AAE3C281A85BA0070D758 /* APIRoute.swift in Sources */,
 				281AAE3F281AA39D0070D758 /* ListDataViewModel.swift in Sources */,
+				122B46B42927BB4C00820F38 /* OpenCastMappingReportDataTable+CoreDataProperties.swift in Sources */,
 				28F8311B281977F000CAF99C /* UIViewExtension.swift in Sources */,
 				28F8316828197BDD00CAF99C /* CommonFunctions.swift in Sources */,
 				2813A0162834EED300E6194D /* TransationsCell.swift in Sources */,
@@ -1896,6 +1917,7 @@
 				289B6A37288936900095FE32 /* NotificationListModel.swift in Sources */,
 				28F830D9281977F000CAF99C /* DJPickerView.swift in Sources */,
 				9A48A7502829384000D0A728 /* LogoutModel.swift in Sources */,
+				122B46AE2927980F00820F38 /* SyncDataVM.swift in Sources */,
 				12E699D22924B89C0099DCEE /* Nos+CoreDataClass.swift in Sources */,
 				282C336F2819617D009401FD /* ProfileVC.swift in Sources */,
 				1278BD182900287E0061A7DD /* BaseClassForrNavigationBar.swift in Sources */,
@@ -1922,10 +1944,12 @@
 				282ACD6A282BBB91005A8634 /* CampDetailViewModel.swift in Sources */,
 				280C122A283F9AA80034898A /* ApplyForCampCell.swift in Sources */,
 				28F83153281977F000CAF99C /* TabBarController.swift in Sources */,
+				128D76F0292B45C100ABDBCB /* UnderGroundMappingReportDataTable+CoreDataProperties.swift in Sources */,
 				28AE7228282CDF3A000845D0 /* AppColors.swift in Sources */,
 				12A26AC829028B8D005ED851 /* UITextView+Extension.swift in Sources */,
 				282C33702819617D009401FD /* CampListCell.swift in Sources */,
 				28F83101281977F000CAF99C /* BaseViewController.swift in Sources */,
+				1253633C2928E06000E902C9 /* UndergroundReportModel.swift in Sources */,
 				2804E39B2819846B00AF4A62 /* NSDate+Timepiece.swift in Sources */,
 				12291697290C0BC90093BE93 /* TTGSnackbar.swift in Sources */,
 				28F83127281977F000CAF99C /* JSONSerializable+Helper.swift in Sources */,
@@ -1954,7 +1978,6 @@
 				28F83133281977F000CAF99C /* Theme.swift in Sources */,
 				2813A01F2835058800E6194D /* ApplyForACampViewModel.swift in Sources */,
 				28ABEDB62833C0D0001C3911 /* DayListCell.swift in Sources */,
-				124452DA29263BDA00550B4D /* UnderGroundMappingReportDataTable+CoreDataProperties.swift in Sources */,
 				2813A0232835089900E6194D /* ApplyForACampModel.swift in Sources */,
 				124452E4292650F100550B4D /* AttributeUndergroundMappingTable+CoreDataProperties.swift in Sources */,
 				28F830F1281977F000CAF99C /* UINavigationBar+Extension.swift in Sources */,
@@ -1968,7 +1991,6 @@
 				9A96F94728F96BE200879A89 /* SyncDataVC.swift in Sources */,
 				12E7874B29226D4C00702EBE /* RockStrengthDataTable+CoreDataClass.swift in Sources */,
 				28AE722B282CDFF5000845D0 /* AppFonts.swift in Sources */,
-				124452D829263BDA00550B4D /* UnderGroundMappingReportDataTable+CoreDataClass.swift in Sources */,
 				28F83131281977F000CAF99C /* AppConstants.swift in Sources */,
 				12E7874D29226D4C00702EBE /* RockStrengthDataTable+CoreDataProperties.swift in Sources */,
 				121615B529274BE9003CAED8 /* OpenCastMappingReportListDraftVM.swift in Sources */,
@@ -1989,6 +2011,7 @@
 				12F3B46A290F905600EB13BE /* WebViewVC.swift in Sources */,
 				28ABEDB12833B9CB001C3911 /* CampDaysModel.swift in Sources */,
 				282C33732819617D009401FD /* NSC_iOS.xcdatamodeld in Sources */,
+				128D76EE292B45C100ABDBCB /* UnderGroundMappingReportDataTable+CoreDataClass.swift in Sources */,
 				2804E39D2819847D00AF4A62 /* Int+Timepiece.swift in Sources */,
 				28470DAF281C0ED700FE9C66 /* DescriptionPopupVC.swift in Sources */,
 				28F830DB281977F000CAF99C /* UIImageView+Extension.swift in Sources */,
@@ -2037,6 +2060,7 @@
 				28F8316328197B0600CAF99C /* String+Timepiece.swift in Sources */,
 				127C80302923740700DC6E99 /* AttributeDataModel.swift in Sources */,
 				289B6A2C288934C80095FE32 /* NotificationListCell.swift in Sources */,
+				125363412928E0AA00E902C9 /* OpenCastReportModel.swift in Sources */,
 				12E7875C29226F6600702EBE /* WaterConditionDataModel.swift in Sources */,
 				2898FA8B28360FFF006DF4B8 /* SaveAppliedCampsViewModel.swift in Sources */,
 				28F83136281977F000CAF99C /* WhereAmIRunning.swift in Sources */,
@@ -2049,6 +2073,7 @@
 				1263BD2C290FFA0000E3DED9 /* DeviceDetail.swift in Sources */,
 				121615B129274BD0003CAED8 /* OpenCastMappingListDraftVC.swift in Sources */,
 				12E787352922177A00702EBE /* CoreDataManager.swift in Sources */,
+				122B46B12927BB4C00820F38 /* OpenCastMappingReportDataTable+CoreDataClass.swift in Sources */,
 				124452E1292650F100550B4D /* AttributeUndergroundMappingTable+CoreDataClass.swift in Sources */,
 				121615B729274BFE003CAED8 /* UnderGroundMappingReportListDraftVM.swift in Sources */,
 				12E787632922793900702EBE /* TypeOfFaultsDataTable+CoreDataProperties.swift in Sources */,
@@ -2067,7 +2092,6 @@
 				28F8311C281977F000CAF99C /* MediaType.swift in Sources */,
 				2813A01A2834FD9000E6194D /* InviteViewModel.swift in Sources */,
 				1251DD9328FFDE3700E1E712 /* UIButtonClasses.swift in Sources */,
-				124452EF29265A5900550B4D /* OpenCastMappingReportDataTable+CoreDataProperties.swift in Sources */,
 				28F8316528197B0600CAF99C /* WWCalendarTimeSelector.swift in Sources */,
 				12A26AC729028B81005ED851 /* UITextView+Extension.swift in Sources */,
 				284A3EC62823EDD600B511FB /* CoachDetailViewModel.swift in Sources */,
@@ -2088,7 +2112,6 @@
 				12E787612922793900702EBE /* TypeOfFaultsDataTable+CoreDataClass.swift in Sources */,
 				9A96F94928F995EA00879A89 /* DrawVC.swift in Sources */,
 				28F830E0281977F000CAF99C /* DJExtensions.swift in Sources */,
-				124452ED29265A5900550B4D /* OpenCastMappingReportDataTable+CoreDataClass.swift in Sources */,
 				2851D2532840F27C00D9D9F9 /* ReferDataViewModel.swift in Sources */,
 				28F830F8281977F000CAF99C /* NSDate+Extension.swift in Sources */,
 				28D1A5B32823FBA200B3A179 /* CoachStatusViewModel.swift in Sources */,
@@ -2098,6 +2121,7 @@
 				28F8311A281977F000CAF99C /* UIViewExtension.swift in Sources */,
 				2813A0152834EED300E6194D /* TransationsCell.swift in Sources */,
 				28F83124281977F000CAF99C /* NotificationName+Extention.swift in Sources */,
+				122B46B32927BB4C00820F38 /* OpenCastMappingReportDataTable+CoreDataProperties.swift in Sources */,
 				127A6942290ABCD900DF71BC /* UploadUnderMappingImagesVC.swift in Sources */,
 				28F830D8281977F000CAF99C /* DJPickerView.swift in Sources */,
 				9A7740B6282B8927000BDC8C /* ProfileViewModel.swift in Sources */,
@@ -2106,6 +2130,7 @@
 				9A48A74F2829384000D0A728 /* LogoutModel.swift in Sources */,
 				28F830D6281977F000CAF99C /* DJTextField.swift in Sources */,
 				28C8DA2B2822B7590048A172 /* LoginModel.swift in Sources */,
+				122B46AD2927980A00820F38 /* SyncDataVM.swift in Sources */,
 				28F83106281977F000CAF99C /* KDCircularProgress.swift in Sources */,
 				289B6A29288934B40095FE32 /* UGListVC.swift in Sources */,
 				28F8315F28197B0600CAF99C /* NSDateComponents+Timepiece.swift in Sources */,
@@ -2132,10 +2157,12 @@
 				28AE7227282CDF3A000845D0 /* AppColors.swift in Sources */,
 				28F83100281977F000CAF99C /* BaseViewController.swift in Sources */,
 				12E699CB2924B8950099DCEE /* AttributeDataTable+CoreDataClass.swift in Sources */,
+				128D76EF292B45C100ABDBCB /* UnderGroundMappingReportDataTable+CoreDataProperties.swift in Sources */,
 				28F83126281977F000CAF99C /* JSONSerializable+Helper.swift in Sources */,
 				28F830F2281977F000CAF99C /* DJValidation.swift in Sources */,
 				9A53D4CA281929B500226853 /* HomeVC.swift in Sources */,
 				28DA2108283BA4DA00EAA0B9 /* SaveKidsAttendanceViewModel.swift in Sources */,
+				1253633B2928E06000E902C9 /* UndergroundReportModel.swift in Sources */,
 				9AE824392817DF8800A29373 /* SplashVC.swift in Sources */,
 				28ABEDAD2833B987001C3911 /* CampDaysViewModel.swift in Sources */,
 				9AE6D6F128F9452E008C41C9 /* OCReportDetailVC.swift in Sources */,
@@ -2164,7 +2191,6 @@
 				28F830F0281977F000CAF99C /* UINavigationBar+Extension.swift in Sources */,
 				2813A01E2835058800E6194D /* ApplyForACampViewModel.swift in Sources */,
 				28ABEDB52833C0D0001C3911 /* DayListCell.swift in Sources */,
-				124452D929263BDA00550B4D /* UnderGroundMappingReportDataTable+CoreDataProperties.swift in Sources */,
 				2813A0222835089900E6194D /* ApplyForACampModel.swift in Sources */,
 				124452E3292650F100550B4D /* AttributeUndergroundMappingTable+CoreDataProperties.swift in Sources */,
 				28F83130281977F000CAF99C /* AppConstants.swift in Sources */,
@@ -2178,7 +2204,6 @@
 				12E7874A29226D4C00702EBE /* RockStrengthDataTable+CoreDataClass.swift in Sources */,
 				9A96F94628F96BE200879A89 /* SyncDataVC.swift in Sources */,
 				28AE722A282CDFF5000845D0 /* AppFonts.swift in Sources */,
-				124452D729263BDA00550B4D /* UnderGroundMappingReportDataTable+CoreDataClass.swift in Sources */,
 				12E7874C29226D4C00702EBE /* RockStrengthDataTable+CoreDataProperties.swift in Sources */,
 				28F83122281977F000CAF99C /* NavigationClass.swift in Sources */,
 				121615B429274BE9003CAED8 /* OpenCastMappingReportListDraftVM.swift in Sources */,
@@ -2199,6 +2224,7 @@
 				28ABEDB02833B9CB001C3911 /* CampDaysModel.swift in Sources */,
 				28F830DA281977F000CAF99C /* UIImageView+Extension.swift in Sources */,
 				28F830DC281977F000CAF99C /* NSAttributedString+Extension.swift in Sources */,
+				128D76ED292B45C100ABDBCB /* UnderGroundMappingReportDataTable+CoreDataClass.swift in Sources */,
 				28470DAE281C0ED700FE9C66 /* DescriptionPopupVC.swift in Sources */,
 				28F830EE281977F000CAF99C /* String+Extension.swift in Sources */,
 				28F8316428197B0600CAF99C /* Duration.swift in Sources */,

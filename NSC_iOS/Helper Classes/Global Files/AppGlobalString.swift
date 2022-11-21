@@ -342,4 +342,6 @@ var kNoOfflineReportFound = "No offline report found..!"
 
 var kCancel = "Cancel"
 
+var kNoInternetConnection = "Internet connection seems to be offline."
 
+var kComment = "Comment"

@@ -16,6 +16,8 @@ class FAQListVM {
     
     func callAPIFAQList(isLoader : Bool = true, completionBlock: @escaping (JSON?,String?,String?,Bool) -> Void) {
         
+        guard checkInternet(true) else {return completionBlock(nil,nil,kNoInternetConnection,false)}
+        
         APIManager.shared.callAPIWithJSON(router: APIRouter.faq_data,isLoader : isLoader, showToast : false) { responseData, data, statusCode, message, completion in
             if completion, statusCode == ApiKeys.ApiStatusCode.success.rawValue, let receivdeData = data {
                 

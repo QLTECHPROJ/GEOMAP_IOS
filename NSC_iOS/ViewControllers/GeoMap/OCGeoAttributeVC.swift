@@ -382,7 +382,8 @@ class OCGeoAttributeVC: ClearNaviagtionBarVC {
             "notes" : JSON(self.tvNote.text as Any).stringValue,
             "shift" : self.getShiftType(),
             "ocDate" : JSON(self.lblDate.text as Any).stringValue,
-            "dipDirectionAndAngle" : JSON(self.txtDipDirectionAngle.text as Any).stringValue
+            "dipDirectionAndAngle" : JSON(self.txtDipDirectionAngle.text as Any).stringValue,
+            
         ]
         
         let vc = AppStoryBoard.main.viewController(viewControllerClass: AddOpenCastMappingImagesVC.self)

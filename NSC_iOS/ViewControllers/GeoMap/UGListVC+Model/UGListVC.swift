@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import DZNEmptyDataSet
 
 enum ReportListType  : String{
     case underGroundReport = "underGroundReport"
@@ -35,6 +36,7 @@ class UGListVC: ClearNaviagtionBarVC {
     }()
     
     var reportListType : ReportListType = .underGroundReport
+    private var emptyMessage : String = ""
     
     private var vwReportList : ReportListVM = ReportListVM()
     
@@ -56,6 +58,8 @@ class UGListVC: ClearNaviagtionBarVC {
         self.view.backgroundColor = .colorBGSkyBlueLight
         
         self.tableView.addSubview(self.refreshControl)
+        self.tableView.emptyDataSetSource = self
+        self.tableView.emptyDataSetDelegate = self
         self.tableView.register(nibWithCellClass: NotificationListCell.self)
         self.apiCallReportList(true)
     }
@@ -80,6 +84,10 @@ class UGListVC: ClearNaviagtionBarVC {
                 
                 self.tableView.reloadData()
             }
+            else if let _ = message{
+                self.emptyMessage = message!
+                self.tableView.reloadData()
+            }
         }
     }
    
@@ -94,7 +102,27 @@ class UGListVC: ClearNaviagtionBarVC {
 }
 
 
-// MARK: - UITableViewDelegate, UITableViewDataSource
+//-------------------------------------------------------------------
+//MARK: - Empty TableView Methods
+//-------------------------------------------------------------------
+extension UGListVC : DZNEmptyDataSetDelegate, DZNEmptyDataSetSource{
+    
+    func emptyDataSetShouldDisplay(_ scrollView: UIScrollView!) -> Bool {
+        return true
+    }
+    
+    func title(forEmptyDataSet scrollView: UIScrollView) -> NSAttributedString {
+        
+        let text = self.emptyMessage
+        let attributes = [NSAttributedString.Key.font: UIFont.applyCustomFont(fontName: .InterMedium, fontSize: 13), NSAttributedString.Key.foregroundColor: UIColor.colorTextBlack]
+        return NSAttributedString(string: text, attributes: attributes)
+    }
+}
+
+//-------------------------------------------------------------------
+//MARK: - UITableView Methods
+//-------------------------------------------------------------------
+
 extension UGListVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

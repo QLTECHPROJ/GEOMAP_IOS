@@ -74,6 +74,12 @@ enum APIRouter : URLRequestConvertible {
     
     case forgot_password([String:Any])
     
+    case sync_data([String:Any])
+    
+    case underground_insert([String:Any])
+    
+    case open_cast_insert([String:Any])
+    
     var route: APIRoute {
         
         switch self {
@@ -197,6 +203,19 @@ enum APIRouter : URLRequestConvertible {
         case .forgot_password(let data) :
             
             return APIRoute(path: "forgot_password", method: .post, data: data)
+            
+        case .sync_data(let data) :
+            
+            return APIRoute(path: "sync_data", method: .post, data: data)
+            
+            
+        case .underground_insert(let data) :
+            
+            return APIRoute(path: "underground_insert", method: .post, data: data)
+            
+        case .open_cast_insert(let data) :
+            
+            return APIRoute(path: "open_cast_insert", method: .post, data: data)
         }
         
     }

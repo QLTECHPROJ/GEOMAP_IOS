@@ -67,7 +67,7 @@ class ListItemVC: ClearNaviagtionBarVC {
         
         self.setUpTitle()
         
-        if checkInternet(showToast: false) == false {
+        if checkInternet(false) == false {
             txtSearch.isUserInteractionEnabled = true
             lblNoData.isHidden = true
         } else {

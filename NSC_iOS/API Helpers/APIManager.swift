@@ -92,6 +92,8 @@ class APIManager {
             if parameters != nil {
                 for (key, value) in parameters! {
                     multipartFormData.append("\(value)".data(using: String.Encoding.utf8)!, withName: key)
+                    
+                    debugPrint("\(value)".data(using: String.Encoding.utf8)!)
                 }
             }
             

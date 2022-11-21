@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import IQKeyboardManagerSwift
 
 class UGGeoAttributeVC2: ClearNaviagtionBarVC {
     
@@ -13,6 +14,7 @@ class UGGeoAttributeVC2: ClearNaviagtionBarVC {
    
     
     @IBOutlet weak var txtMapSerialNo : ACFloatingTextfield!
+    @IBOutlet weak var txtName : ACFloatingTextfield!
     @IBOutlet weak var txtDate : ACFloatingTextfield!
     @IBOutlet weak var txtMappedBy : ACFloatingTextfield!
     @IBOutlet weak var txtScale : ACFloatingTextfield!
@@ -21,6 +23,10 @@ class UGGeoAttributeVC2: ClearNaviagtionBarVC {
     @IBOutlet weak var txtXCordinate : ACFloatingTextfield!
     @IBOutlet weak var txtYCordinate : ACFloatingTextfield!
     @IBOutlet weak var txtZCordinate : ACFloatingTextfield!
+    
+    
+    @IBOutlet weak var tvComment : IQTextView!
+    
     
     @IBOutlet weak var btnNightShift : UIButton!
     @IBOutlet weak var btnDayShift : UIButton!
@@ -51,6 +57,7 @@ class UGGeoAttributeVC2: ClearNaviagtionBarVC {
         self.title = kGeologicalMapping
         
         self.txtMapSerialNo.applyStyleFlotingTextfield(placeholderTitle : kMapSerialNo, fontsize : 14,fontname : .InterSemibol)
+        self.txtName.applyStyleFlotingTextfield(placeholderTitle : kName, fontsize : 14,fontname : .InterSemibol)
         self.txtDate.applyStyleFlotingTextfield(placeholderTitle : kDate, fontsize : 14,fontname : .InterSemibol)
         
         let dateFormatter = DateFormatter()
@@ -73,6 +80,8 @@ class UGGeoAttributeVC2: ClearNaviagtionBarVC {
         self.btnDayShift.applystyle(fontname : .InterSemibol,fontsize : 14,titleText : kDayShift,titleColor : .colorTextBlack)
         self.btnDayShift.setContentEdges(titleEngesLeft : 5, ImageEngesLeft : -10)
         
+        self.tvComment.applyTextViewStyle(placeholderText : kComment, fontSize : 14,fontName : .InterSemibol,placeholerColor : .colorTextPlaceHolderGray)
+        
         self.btnNextStep.setTitle(kNextStep, for: .normal)
         
         self.buttonEnableDisable()
@@ -85,7 +94,7 @@ class UGGeoAttributeVC2: ClearNaviagtionBarVC {
         
         var isEnable : Bool = false
         
-        if !self.txtMapSerialNo.text!.trim.isEmpty && !self.txtDate.text!.trim.isEmpty && !self.txtMappedBy.text!.trim.isEmpty && !self.txtScale.text!.trim.isEmpty && !self.txtLocation.text!.trim.isEmpty && !self.txtVeinLoad.text!.trim.isEmpty && !self.txtXCordinate.text!.trim.isEmpty && !self.txtYCordinate.text!.trim.isEmpty && !self.txtZCordinate.text!.trim.isEmpty{
+        if !self.txtMapSerialNo.text!.trim.isEmpty && !self.txtName.text!.trim.isEmpty && !self.txtDate.text!.trim.isEmpty && !self.txtMappedBy.text!.trim.isEmpty && !self.txtScale.text!.trim.isEmpty && !self.txtLocation.text!.trim.isEmpty && !self.txtVeinLoad.text!.trim.isEmpty && !self.txtXCordinate.text!.trim.isEmpty && !self.txtYCordinate.text!.trim.isEmpty && !self.txtZCordinate.text!.trim.isEmpty && !self.tvComment.text!.trim.isEmpty{
             
             isEnable = true
         }
@@ -119,6 +128,7 @@ class UGGeoAttributeVC2: ClearNaviagtionBarVC {
             "iD" : UnderGroundMappingReportDataTable.nextAvailble(),
             "attributes" : self.arrAddedAttributes,
             "mapSerialNo" : JSON(self.txtMapSerialNo.text as Any).stringValue,
+            "name" : JSON(self.txtName.text as Any).stringValue,
             "ugDate" : JSON(self.txtDate.text as Any).stringValue,
             "shift" : self.getShiftType(),
             "mappedBy" : JSON(self.txtMappedBy.text as Any).stringValue,
@@ -127,7 +137,8 @@ class UGGeoAttributeVC2: ClearNaviagtionBarVC {
             "veinOrLoad" : JSON(self.txtVeinLoad.text as Any).stringValue,
             "xCoordinate" : JSON(self.txtXCordinate.text as Any).stringValue,
             "yCoordinate" : JSON(self.txtYCordinate.text as Any).stringValue,
-            "zCoordinate" : JSON(self.txtZCordinate.text as Any).stringValue
+            "zCoordinate" : JSON(self.txtZCordinate.text as Any).stringValue,
+            "comment" : JSON(self.tvComment.text as Any).stringValue
         ]
         let vc = AppStoryBoard.main.viewController(viewControllerClass: UploadUnderMappingImagesVC.self)
         vc.underGroundMappingDetail = mappingData
@@ -159,15 +170,14 @@ extension UGGeoAttributeVC2 : UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == self.txtMapSerialNo {
 
-            self.txtMappedBy.becomeFirstResponder()
+            self.txtName.becomeFirstResponder()
 //            self.txtDate.becomeFirstResponder()
             
         }
-//        else if textField == self.txtDate {
-//
-//            self.txtShift.becomeFirstResponder()
-//        }
-        
+        else if textField == self.txtName {
+
+            self.txtMappedBy.becomeFirstResponder()
+        }
         else if textField == self.txtMappedBy {
 
             self.txtScale.becomeFirstResponder()
