@@ -25,7 +25,7 @@ enum APIRouter : URLRequestConvertible {
     case coachstatus([String:String])
     case referdata([String:String])
     
-    case deleteAccount([String:Any])
+    case delete_user([String:Any])
     case logout([String:Any])
     
     case camplisting([String:String])
@@ -109,8 +109,8 @@ enum APIRouter : URLRequestConvertible {
         case .referdata(let data):
             return APIRoute(path: "referdata", method: .post, data: data)
             
-        case .deleteAccount(let data):
-            return APIRoute(path: "delete-user", method: .post, data: data)
+        case .delete_user(let data):
+            return APIRoute(path: "delete_user", method: .post, data: data)
         case .logout(let data):
             return APIRoute(path: "logout", method: .post, data: data)
             

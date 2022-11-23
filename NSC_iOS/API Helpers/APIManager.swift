@@ -20,7 +20,9 @@ class APIManager {
     func callAPI<M : EVObject>(router : URLRequestConvertible, isLoader : Bool = true, showToast : Bool = true, response : @escaping (M) -> Void) {
         
         if checkInternet() == false {
-            showAlertToast(message: Theme.strings.alert_check_internet)
+            
+            
+            GFunctions.shared.showSnackBar(message: kNoInternetConnection)
             response(M())
             return
         }
@@ -47,10 +49,14 @@ class APIManager {
                         let dict = value.toDictionary()
                         if (dict["ResponseCode"] as? String) != "200" {
                             if (dict["ResponseCode"] as? String) == "403" {
-//                                APPDELEGATE.logout()
+                                //                                APPDELEGATE.logout()
                                 AppDelegate.shared.updateWindow()
                             } else if let message = dict["ResponseMessage"] as? String, message.trim.count > 0 , message != "Reminder not Available for any playlist!" {
-                                if showToast { showAlertToast(message: message) }
+                                
+                                if showToast {
+                                    
+                                    GFunctions.shared.showSnackBar(message: message)
+                                }
                             }
                         }
                     }
@@ -68,7 +74,8 @@ class APIManager {
     func callUploadWebService<M : EVObject>(apiUrl : String, includeHeader : Bool, parameters : [String:Any]?, uploadParameters : [UploadDataModel], httpMethod : Alamofire.HTTPMethod, displayHud : Bool = true, showToast : Bool = true, responseModel : @escaping (M) -> Void) {
         
         if checkInternet() == false {
-            showAlertToast(message: Theme.strings.alert_check_internet)
+            
+            GFunctions.shared.showSnackBar(message: kNoInternetConnection)
             responseModel(M())
             return
         }
@@ -130,12 +137,12 @@ class APIManager {
                                 if (dict["ResponseCode"] as? String) != "200" {
                                     
                                     if (dict["ResponseCode"] as? String) == "403" {
-
+                                        
                                         AppDelegate.shared.updateWindow()
                                         
                                     } else if let message = dict["ResponseMessage"] as? String, message.trim.count > 0 {
                                         
-                                        if showToast { showAlertToast(message: message) }
+                                        if showToast { GFunctions.shared.showSnackBar(message: message) }
                                     }
                                 }
                             }
@@ -148,7 +155,8 @@ class APIManager {
             case .failure(let error):
                 hideHud()
                 print("Error in upload: \(error.localizedDescription)")
-                showAlertToast(message: error.localizedDescription)
+                GFunctions.shared.showSnackBar(message: error.localizedDescription)
+                
             }
         }
         
@@ -158,12 +166,12 @@ class APIManager {
         //        print(data)
         
         guard let dict = data.result.value?.toDictionary() else {
-            // showAlertToast(message: Theme.strings.alert_something_went_wrong)
+            
             return
         }
         
         guard let message = dict.value(forKey: "ResponseMessage") as? String else {
-            // showAlertToast(message: Theme.strings.alert_something_went_wrong)
+            
             return
         }
         
@@ -173,14 +181,13 @@ class APIManager {
         case 401:
             // UnAuthenticated request
             response(false)
-            if showToast && message.trim.count > 0 { showAlertToast(message: message) }
+            if showToast && message.trim.count > 0 { GFunctions.shared.showSnackBar(message: message) }
         default:
             response(false)
-            if showToast && message.trim.count > 0 { showAlertToast(message: message) }
-        }
+            if showToast && message.trim.count > 0 { GFunctions.shared.showSnackBar(message: message) }}
     }
-    
 }
+    
 
 
 extension APIManager {
@@ -225,8 +232,9 @@ extension APIManager{
                          showToast : Bool = true,
                          withBlock completion :((DataResponse<Any>,_ data : JSON?,_ statusCode : String?,_ message : String,_ completion : Bool) -> Void)?){
         if checkInternet() == false {
-            showAlertToast(message: Theme.strings.alert_check_internet)
-//            response(nil,false)
+            
+            GFunctions.shared.showSnackBar(message: kNoInternetConnection)
+
             return
         }
 
@@ -275,7 +283,7 @@ extension APIManager{
     func calerwerlAPI<M : EVObject>(router : URLRequestConvertible, isLoader : Bool = true, showToast : Bool = true, response : @escaping (M) -> Void) {
         
         if checkInternet() == false {
-            showAlertToast(message: Theme.strings.alert_check_internet)
+            GFunctions.shared.showSnackBar(message: kNoInternetConnection)
             response(M())
             return
         }
@@ -305,7 +313,7 @@ extension APIManager{
 //                                APPDELEGATE.logout()
                                 AppDelegate.shared.updateWindow()
                             } else if let message = dict["ResponseMessage"] as? String, message.trim.count > 0 , message != "Reminder not Available for any playlist!" {
-                                if showToast { showAlertToast(message: message) }
+                                if showToast { GFunctions.shared.showSnackBar(message: message)}
                             }
                         }
                     }

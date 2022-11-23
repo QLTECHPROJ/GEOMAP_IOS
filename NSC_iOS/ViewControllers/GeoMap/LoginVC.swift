@@ -176,7 +176,7 @@ extension LoginVC : UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == self.txtUser {
 
-            self.txtUser.becomeFirstResponder()
+            self.txtPassword.becomeFirstResponder()
         } else if textField == self.txtPassword {
 
             textField.becomeFirstResponder()

@@ -38,8 +38,8 @@ class SupportPopupVC: ClearNaviagtionBarVC, TTTAttributedLabelDelegate {
         self.btnClose.isSelect = true
         self.btnClose.setTitle(kClose, for: .normal)
         
-        let defaultFontAttribute = [NSAttributedString.Key.foregroundColor: UIColor.colorTextBlack ,NSAttributedString.Key.font: UIFont.applyCustomFont(fontName: .InterMedium, fontSize: 12.0)]
-        let blueFontAttribute = [NSAttributedString.Key.foregroundColor: UIColor.colorSkyBlue,NSAttributedString.Key.font: UIFont.applyCustomFont(fontName: .InterMedium, fontSize: 12.0)/*,NSAttributedString.Key.underlineColor: UIColor.colorSkyBlue, NSAttributedString.Key.underlineStyle : NSUnderlineStyle.single.rawValue*/] as [NSAttributedString.Key : Any]
+        let defaultFontAttribute = [NSAttributedString.Key.foregroundColor: UIColor.colorTextPlaceHolderGray ,NSAttributedString.Key.font: UIFont.applyCustomFont(fontName: .InterMedium, fontSize: 12.0)]
+        let blueFontAttribute = [NSAttributedString.Key.foregroundColor: UIColor.colorTextBlack,NSAttributedString.Key.font: UIFont.applyCustomFont(fontName: .InterMedium, fontSize: 12.0)/*,NSAttributedString.Key.underlineColor: UIColor.colorSkyBlue, NSAttributedString.Key.underlineStyle : NSUnderlineStyle.single.rawValue*/] as [NSAttributedString.Key : Any]
                 
         self.lblDescription.text = "\(AppDelegate.shared.appVersionDetails["supportText"].stringValue)\n\(AppDelegate.shared.appVersionDetails["supportEmail"].stringValue)"
         self.lblDescription.attributedText = (self.lblDescription.text)?.getAttributedText(defaultDic: defaultFontAttribute, attributeDic: blueFontAttribute, attributedStrings: [AppDelegate.shared.appVersionDetails["supportEmail"].stringValue])
@@ -81,7 +81,9 @@ class SupportPopupVC: ClearNaviagtionBarVC, TTTAttributedLabelDelegate {
             
             debugPrint(AppDelegate.shared.appVersionDetails["supportEmail"].stringValue)
            
-            
+            if let url = URL(string: "mailto:\(AppDelegate.shared.appVersionDetails["supportEmail"].stringValue)") {
+               UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            }
         }
     }
     @IBAction func closeClicked(sender : UIButton) {

@@ -19,7 +19,8 @@ func checkInternet(_ showToast : Bool = false) -> Bool {
     switch status {
     case .unknown, .offline:
         if showToast {
-            showAlertToast(message: Theme.strings.alert_check_internet)
+           
+            GFunctions.shared.showSnackBar(message: kNoInternetConnection)
         }
         return false
     case .online(.wwan), .online(.wiFi):
@@ -304,55 +305,6 @@ extension UIButton {
         attributedString.apply(color: Theme.colors.theme_dark, subString: strSubString)
         attributedString.apply(font:UIFont(name: Theme.fonts.semiBold, size: CGFloat(size))!, subString: strSubString)
         self.setAttributedTitle(attributedString, for: .normal)
-    }
-    
-}
-
-
-extension UIImageView {
-    
-    func loadUserProfileImage(fontSize : CGFloat) {
-        self.image = nil
-        
-        if let userImage = LoginDataModel.profileImage {
-            self.image = userImage
-            return
-        }
-        
-        if let userData = LoginDataModel.currentUser {
-            DispatchQueue.global().async {
-                if let imgUrl = URL(string: (userData.profileInformation?.profileimage.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)!) {
-                    do {
-                        let imageData = try Data(contentsOf: imgUrl)
-                        let profileImage = UIImage(data: imageData)
-                        DispatchQueue.main.async {
-                            LoginDataModel.profileImage = profileImage
-                            self.image = profileImage
-                            if profileImage == nil {
-                                self.setUserInitialProfileImage(user: LoginDataModel.currentUser, fontSize: fontSize)
-                            }
-                        }
-                    } catch {
-                        print("Image Download Error : \(error.localizedDescription)")
-                        self.setUserInitialProfileImage(user: LoginDataModel.currentUser, fontSize: fontSize)
-                    }
-                } else {
-                    self.setUserInitialProfileImage(user: LoginDataModel.currentUser, fontSize: fontSize)
-                }
-            }
-        }
-    }
-    
-    func setUserInitialProfileImage(user : LoginDataModel?, fontSize : CGFloat) {
-        let userName = (user?.profileInformation?.name ?? "").trim.count > 0 ? (user?.profileInformation?.name ?? "") : "Guest"
-        let nameInitial : String = "\(userName.first ?? "G")"
-        self.setInitialProfileImage(initial: nameInitial, fontSize: fontSize)
-    }
-    
-    func setInitialProfileImage(initial : String, fontSize : CGFloat) {
-        DispatchQueue.main.async {
-            self.setImageWith(initial, color: Theme.colors.theme_dark, circular: false, textAttributes: [NSAttributedString.Key.font : UIFont(name: Theme.fonts.bold, size: fontSize) as Any, NSAttributedString.Key.foregroundColor : Theme.colors.theme_light])
-        }
     }
     
 }

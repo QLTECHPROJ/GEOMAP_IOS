@@ -70,7 +70,7 @@ class GFunctions: NSObject {
     func setDefaultTextInProfile(text : String)-> UIImage{
         let lblNameInitialize = UILabel()
         lblNameInitialize.frame.size = CGSize(width: 100.0, height: 100.0)
-        lblNameInitialize.textColor = UIColor.colorSkyBlue
+        lblNameInitialize.textColor = UIColor.white
         lblNameInitialize.font = UIFont.applyCustomFont(fontName: .InterBold, fontSize: 30)
         let nameArr = text.components(separatedBy: " ")
         
@@ -89,7 +89,7 @@ class GFunctions: NSObject {
         
         lblNameInitialize.text = str
         lblNameInitialize.textAlignment = NSTextAlignment.center
-        lblNameInitialize.backgroundColor = UIColor.white
+        lblNameInitialize.backgroundColor = UIColor.colorSkyBlue
         lblNameInitialize.layer.cornerRadius = 50.0
         
         UIGraphicsBeginImageContext(lblNameInitialize.frame.size)
@@ -123,6 +123,21 @@ extension GFunctions{
 }
 
 extension GFunctions{
+    
+    func getYearDifferentFromToday(_ compareDate : String , _ dateFormat : String)->(year : Int, months : Int, days : Int){
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = dateFormat //DateTimeFormaterEnum.ddmm_yyyy.rawValue
+        if let date = dateFormatter.date(from: compareDate) {
+            let time = Calendar.current.dateComponents([.year,.month,.day], from: date, to: Date())
+            
+            
+            print("Year = \(time.year), Months =\(time.month), Days =\(time.day)")
+            return (time.year ?? 0,time.month ?? 0,time.day ?? 0)
+        }
+        else{
+            return (0,0,0)
+        }
+    }
     
     func convertDateFormat(dt: String, inputFormat: String, outputFormat: String, status: ConvertType) -> (str : String, date : Date) {
         let dateFormatter: DateFormatter = DateFormatter()
@@ -185,3 +200,4 @@ extension GFunctions{
     }
     
 }
+

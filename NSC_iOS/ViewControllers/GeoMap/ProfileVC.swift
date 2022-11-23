@@ -75,16 +75,13 @@ class ProfileVC: ClearNaviagtionBarVC {
     
     func setupData() {
         let userModel = UserModelClass.current
-      //  self.imgUser.setImgWebUrl(imageString: JSON(userModel.profileImage as Any).stringValue,isUserplaceholder : true)
-        
+     
         self.imgUser.sd_setImage(with: JSON(userModel.profileImage as Any).stringValue.url()) { (image, error, sdchahe, returnUrl) in
             if error != nil {
                 self.imgUser.image = UIImage()
-                self.imgUser.image = GFunctions.shared.setDefaultTextInProfile(text: JSON(userModel.name as Any).stringValue)
-               // self.imgUser.isView = false
+                self.imgUser.addInitialsImage(text: JSON(userModel.name as Any).stringValue)
             }
         }
-        
         
         self.txtName.text = JSON(userModel.name as Any).stringValue
         self.txtEmail.text = JSON(userModel.email as Any).stringValue
@@ -133,6 +130,11 @@ class ProfileVC: ClearNaviagtionBarVC {
             
             message = kPleaseProvideDOB
         }
+        else if GFunctions.shared.getYearDifferentFromToday(self.txtDOB.text!, DateTimeFormaterEnum.ddmm_yyyy.rawValue).year < 18{
+            
+            message = kAgeLimitAlertMessage
+        }
+        
         return message
     }
     
@@ -164,7 +166,7 @@ class ProfileVC: ClearNaviagtionBarVC {
                     picker.allowsEditing = true
                     self.present(picker, animated: true, completion: nil)
                 } else {
-                    showAlertToast(message: Theme.strings.alert_camera_not_available)
+                    GFunctions.shared.showSnackBar(message: kCameraIsNotAvailable)
                 }
             }
         case kChooseFromGallary:

@@ -46,6 +46,11 @@ class UserListPopUpVC: ClearNaviagtionBarVC {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+    }
+    
     
     //MARK: - FUNCTIONS
     
@@ -55,6 +60,7 @@ class UserListPopUpVC: ClearNaviagtionBarVC {
         
         self.lblName.applyLabelStyle(fontSize : 16,fontName : .InterBold)
         self.setupData()
+        self.apiCalling()
     }
     
     func setupData() {
@@ -64,11 +70,12 @@ class UserListPopUpVC: ClearNaviagtionBarVC {
         self.imgUser.sd_setImage(with: JSON(UserModelClass.current.profileImage as Any).stringValue.url()) { (image, error, sdchahe, returnUrl) in
             if error != nil {
                 self.imgUser.image = UIImage()
-                self.imgUser.image = GFunctions.shared.setDefaultTextInProfile(text: JSON(UserModelClass.current.name as Any).stringValue)
-               // self.imgUser.isView = false
+        
+                self.imgUser.addInitialsImage(text: JSON(UserModelClass.current.name as Any).stringValue)
             }
         }
-        self.apiCalling()
+        
+        
     }
     
     func apiCalling(){
@@ -78,13 +85,7 @@ class UserListPopUpVC: ClearNaviagtionBarVC {
                 debugPrint(data)
                 self.lblName.text = JSON(UserModelClass.current.name as Any).stringValue
                 
-                self.imgUser.sd_setImage(with: JSON(UserModelClass.current.profileImage as Any).stringValue.url()) { (image, error, sdchahe, returnUrl) in
-                    if error != nil {
-                        self.imgUser.image = UIImage()
-                        self.imgUser.image = GFunctions.shared.setDefaultTextInProfile(text: JSON(UserModelClass.current.name as Any).stringValue)
-                       // self.imgUser.isView = false
-                    }
-                }
+                self.setupData()
             }
             else{
                 GFunctions.shared.showSnackBar(message: message ?? "Error occuered ..!")

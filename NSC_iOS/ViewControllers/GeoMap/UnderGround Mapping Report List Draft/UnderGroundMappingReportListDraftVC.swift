@@ -47,7 +47,7 @@ class UnderGroundMappingReportListDraftVC: ClearNaviagtionBarVC {
     func configureUI(){
         self.view.backgroundColor = .colorBGSkyBlueLight
        
-        self.lblTitle.applyLabelStyle(text: kUnderGroundReportDraft,fontSize :  16,fontName : .InterBold)
+        self.lblTitle.applyLabelStyle(isAdjustFontWidth: true,text: kUnderGroundMappingReportDraft,fontSize :  16,fontName : .InterBold)
         self.tblView.emptyDataSetSource = self
         self.tblView.emptyDataSetDelegate = self
         self.tblView.register(nibWithCellClass: UnderGroundMappingReportDraftTableviewCell.self)
@@ -152,16 +152,9 @@ extension UnderGroundMappingReportListDraftVC: UITableViewDelegate, UITableViewD
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        /*
-         self.viewModel.deleteUnderGroundMappingReportDataFromTable(JSON(self.viewModel.cellForRowAtInTableviewList(indexPath).iD as Any).stringValue) { completion in
-            
-            if completion{
-                
-            }
-            self.viewModel.getUnderGroundMappingReportList { completion in
-                self.tblView.reloadData()
-            }
-        }*/
+        let vc = AppStoryBoard.main.viewController(viewControllerClass:UnderGroundReportOfflineDetailVC.self)
+        vc.reportData = self.viewModel.cellForRowAtInTableviewList(indexPath)
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
 }

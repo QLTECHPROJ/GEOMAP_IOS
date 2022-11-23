@@ -28,14 +28,13 @@ class SyncDataVM {
     }
     
     
-    func callAPIUploadUnderGroungMappingReport(parameters : [String:Any], uploadParameters : [UploadDataModel], completion: @escaping (Bool,String?) -> Void) {
+    func callAPIUploadUnderGroungMappingReport(isLoader : Bool = true,parameters : [String:Any], uploadParameters : [UploadDataModel], completion: @escaping (Bool,String?) -> Void) {
        
         debugPrint(parameters)
         
-        APIManager.shared.callUploadWebService(apiUrl: APIRouter.underground_insert(parameters).urlRequest!.url!.absoluteString, includeHeader: true, parameters: parameters, uploadParameters: uploadParameters, httpMethod: .post) { [weak self] (response : LoginModel?) in
-            if response?.ResponseCode == "200", let responseData = response?.ResponseData {
+        APIManager.shared.callUploadWebService(apiUrl: APIRouter.underground_insert(parameters).urlRequest!.url!.absoluteString, includeHeader: true, parameters: parameters, uploadParameters: uploadParameters, httpMethod: .post,displayHud: isLoader) { [weak self] (response : LoginModel?) in
+            if JSON(response?.ResponseCode as Any).stringValue == ApiKeys.ApiStatusCode.success.rawValue {
                
-//                showAlertToast(message: response?.ResponseMessage ?? "")
                 completion(true,response?.ResponseMessage ?? nil)
             } else {
                 completion(false,response?.ResponseMessage ?? nil)
@@ -45,14 +44,14 @@ class SyncDataVM {
     
 
     
-    func callAPIUploadOpenCastMappingReport(parameters : [String:Any], uploadParameters : [UploadDataModel], completion: @escaping (Bool,String?) -> Void) {
+    func callAPIUploadOpenCastMappingReport(isLoader : Bool = true,parameters : [String:Any], uploadParameters : [UploadDataModel], completion: @escaping (Bool,String?) -> Void) {
        
         debugPrint(parameters)
         
-        APIManager.shared.callUploadWebService(apiUrl: APIRouter.open_cast_insert(parameters).urlRequest!.url!.absoluteString, includeHeader: true, parameters: parameters, uploadParameters: uploadParameters, httpMethod: .post) { [weak self] (response : LoginModel?) in
-            if response?.ResponseCode == "200", let responseData = response?.ResponseData {
+        APIManager.shared.callUploadWebService(apiUrl: APIRouter.open_cast_insert(parameters).urlRequest!.url!.absoluteString, includeHeader: true, parameters: parameters, uploadParameters: uploadParameters, httpMethod: .post,displayHud : isLoader)
+        { [weak self] (response : LoginModel?) in
+            if JSON(response?.ResponseCode as Any).stringValue == ApiKeys.ApiStatusCode.success.rawValue, let responseData = response?.ResponseData {
                
-//                showAlertToast(message: response?.ResponseMessage ?? "")
                 completion(true,response?.ResponseMessage)
             } else {
                 completion(false,response?.ResponseMessage)

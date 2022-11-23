@@ -33,12 +33,12 @@ extension UILabel{
         self.layer.shadowColor = shadowColor.cgColor
     }
     
-    func applyLabelStyle(isApsectRadio : Bool = true, text : String = "",fontSize : CGFloat = kMediumFontSize,fontName : CustomFont,textColor : UIColor = .colorTextBlack){
+    func applyLabelStyle(isAdjustFontWidth : Bool = false,isApsectRadio : Bool = true, text : String = "",fontSize : CGFloat = kMediumFontSize,fontName : CustomFont,textColor : UIColor = .colorTextBlack){
         
         if text != ""{
             self.text = text
         }
-      
+        self.adjustsFontSizeToFitWidth = isAdjustFontWidth
         self.textColor = textColor
         
         self.font = UIFont.applyCustomFont(fontName: fontName, fontSize: fontSize, isAspectRasio: isApsectRadio)

@@ -58,10 +58,10 @@ class OCReportDetailVC : ClearNaviagtionBarVC {
             "key" : kGeologistNameColn,
             "value" : ""
         ],
-        [
-            "key" : kMappingParametersColn,
-            "value" : ""
-        ],
+//        [
+//            "key" : kMappingParametersColn,
+//            "value" : ""
+//        ],
         [
             "key" : kFaceLocationColn,
             "value" : ""
@@ -213,46 +213,7 @@ extension OCReportDetailVC: UITableViewDelegate, UITableViewDataSource {
 }
 
 
-/*
- 
- {
-   "thicknessOfOre" : "jgjkgj",
-   "typeOfFaults" : "456564",
-   "benchRl" : "jkgjgjkgkjgkj",
-   "shift" : "Day Shift",
-   "notes" : "6464613132vmgfjfjfhjfjh",
-   "benchAngle" : "gkjgjk",
-   "thicknessOfInterburden" : "jg",
-   "dipDirectionAndAngle" : "mbmbm",
-   "observedGradeOfOre" : "jgkjgkjgkjg",
-   "typeOfGeologist" : "564",
-   "weathring" : "jhgjk",
-   "faceLocation" : "gjkgkjgjg",
-   "pitName" : "9797",
-   "geologistName" : "jgjgkjgkjg",
-   "pitLoaction" : "gkgk",
-   "faceRockType" : "kjgjgjgjg",
-   "geologistSign" : "mnbnmnbmnbm",
-   "ocDate" : "1-Nov-2022",
-   "faceArea" : "gjhk",
-   "minesSiteName" : "test name",
-   "id" : 1,
-   "clientsGeologistSign" : "",
-   "mappingSheetNo" : "12312",
-   "rockStregth" : "jgkjkkggg",
-   "sampleColledted" : "jhg",
-   "image" : null,
-   "thicknessOfOverburdan" : "gkjgkjgkjgkjgjgjg",
-   "shiftInchargeName" : "gkjggkjg",
-   "faceLength" : "gjhgg",
-   "created_at" : "2022-10-27T13:55:38.000000Z",
-   "actualGradeOfOre" : "jghkj",
-   "updated_at" : "2022-10-27T13:55:38.000000Z",
-   "userId" : "1",
-   "benchHeightWidth" : "gjkgkjgjgj",
-   "waterCondition" : "5+5"
- }
- */
+
 //----------------------------------------------------------------------------
 // MARK: - Data Manipulate Methods
 //----------------------------------------------------------------------------
@@ -266,7 +227,7 @@ extension OCReportDetailVC {
         for (i, _) in self.arrReportDetails.enumerated(){
             
             if self.arrReportDetails[i]["key"].stringValue == kMapSerialNo{
-                self.arrReportDetails[i]["value"].stringValue = "-"
+                self.arrReportDetails[i]["value"].stringValue = reportData["mappingSheetNo"].stringValue 
             }
             if self.arrReportDetails[i]["key"].stringValue == kDateColn{
                 self.arrReportDetails[i]["value"].stringValue = reportData["ocDate"].stringValue
@@ -286,9 +247,9 @@ extension OCReportDetailVC {
             if self.arrReportDetails[i]["key"].stringValue == kGeologistNameColn{
                 self.arrReportDetails[i]["value"].stringValue = reportData["geologistName"].stringValue
             }
-            if self.arrReportDetails[i]["key"].stringValue == kMappingParametersColn{
-                self.arrReportDetails[i]["value"].stringValue = "-"
-            }
+//            if self.arrReportDetails[i]["key"].stringValue == kMappingParametersColn{
+//                self.arrReportDetails[i]["value"].stringValue = "-"
+//            }
             if self.arrReportDetails[i]["key"].stringValue == kFaceLocationColn{
                 self.arrReportDetails[i]["value"].stringValue = reportData["faceLocation"].stringValue
             }
@@ -341,7 +302,7 @@ extension OCReportDetailVC {
                 self.arrReportDetails[i]["value"].stringValue = reportData["waterCondition"].stringValue
             }
             if self.arrReportDetails[i]["key"].stringValue == kTypeOfGeologicalStructuresColn{
-                self.arrReportDetails[i]["value"].stringValue = "-"
+                self.arrReportDetails[i]["value"].stringValue = reportData["typeOfGeologist"].stringValue
             }
             if self.arrReportDetails[i]["key"].stringValue == kTypeOfFaultsColn{
                 self.arrReportDetails[i]["value"].stringValue = reportData["typeOfFaults"].stringValue

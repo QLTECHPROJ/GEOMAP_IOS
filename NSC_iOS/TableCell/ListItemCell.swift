@@ -22,6 +22,7 @@ class ListItemCell: UITableViewCell {
         
         
         self.lblName.applyLabelStyle(fontSize :  12,fontName : .InterMedium)
+        self.lblName.numberOfLines = 0
     }
     
     // Configure Cell

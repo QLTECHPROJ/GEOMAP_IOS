@@ -51,7 +51,7 @@ class OpenCastMappingListDraftVC: ClearNaviagtionBarVC {
     func configureUI(){
         self.view.backgroundColor = .colorBGSkyBlueLight
        
-        self.lblTitle.applyLabelStyle(text: kOpenCastReportDraft,fontSize :  16,fontName : .InterBold)
+        self.lblTitle.applyLabelStyle(text: kOpenCastMappingReportDraft,fontSize :  16,fontName : .InterBold)
         self.tblView.emptyDataSetSource = self
         self.tblView.emptyDataSetDelegate = self
         self.tblView.register(nibWithCellClass: UnderGroundMappingReportDraftTableviewCell.self)
@@ -156,16 +156,9 @@ extension OpenCastMappingListDraftVC: UITableViewDelegate, UITableViewDataSource
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        /*
-        self.viewModel.deleteOpenCastMappingReportDataFromTable(JSON(self.viewModel.cellForRowAtInTableviewList(indexPath).iD as Any).stringValue) { completion in
-            
-            if completion{
-                
-            }
-            self.viewModel.getUnderGroundMappingReportList { completion in
-                self.tblView.reloadData()
-            }
-        }*/
+        let vc = AppStoryBoard.main.viewController(viewControllerClass:OpenCastReportOfflineDetailVC.self)
+        vc.reportData = self.viewModel.cellForRowAtInTableviewList(indexPath)
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
 }

@@ -100,6 +100,10 @@
 		12A26AC829028B8D005ED851 /* UITextView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A26AC629028B81005ED851 /* UITextView+Extension.swift */; };
 		12B2F303291A56E20019CADA /* UGReportDetailVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B2F302291A56E20019CADA /* UGReportDetailVM.swift */; };
 		12B2F304291A58120019CADA /* UGReportDetailVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B2F302291A56E20019CADA /* UGReportDetailVM.swift */; };
+		12CCA29C292E3A0C00E659BA /* UnderGroundReportOfflineDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12CCA29B292E3A0C00E659BA /* UnderGroundReportOfflineDetailVC.swift */; };
+		12CCA29D292E3A0C00E659BA /* UnderGroundReportOfflineDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12CCA29B292E3A0C00E659BA /* UnderGroundReportOfflineDetailVC.swift */; };
+		12CCA29F292E4AF600E659BA /* OpenCastReportOfflineDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12CCA29E292E4AF600E659BA /* OpenCastReportOfflineDetailVC.swift */; };
+		12CCA2A0292E4AF600E659BA /* OpenCastReportOfflineDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12CCA29E292E4AF600E659BA /* OpenCastReportOfflineDetailVC.swift */; };
 		12D0F7572915291700549066 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D0F7562915291700549066 /* UserModel.swift */; };
 		12D0F7582915293900549066 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D0F7562915291700549066 /* UserModel.swift */; };
 		12D0F75B29153A1900549066 /* ReportListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D0F75A29153A1900549066 /* ReportListVM.swift */; };
@@ -531,6 +535,8 @@
 		128D76EC292B45C100ABDBCB /* UnderGroundMappingReportDataTable+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UnderGroundMappingReportDataTable+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		12A26AC629028B81005ED851 /* UITextView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Extension.swift"; sourceTree = "<group>"; };
 		12B2F302291A56E20019CADA /* UGReportDetailVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UGReportDetailVM.swift; sourceTree = "<group>"; };
+		12CCA29B292E3A0C00E659BA /* UnderGroundReportOfflineDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderGroundReportOfflineDetailVC.swift; sourceTree = "<group>"; };
+		12CCA29E292E4AF600E659BA /* OpenCastReportOfflineDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenCastReportOfflineDetailVC.swift; sourceTree = "<group>"; };
 		12D0F7562915291700549066 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		12D0F75A29153A1900549066 /* ReportListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportListVM.swift; sourceTree = "<group>"; };
 		12E2AE55290ACA5F00209D28 /* AddOpenCastMappingImagesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddOpenCastMappingImagesVC.swift; sourceTree = "<group>"; };
@@ -759,6 +765,7 @@
 			isa = PBXGroup;
 			children = (
 				121615AC29274BA4003CAED8 /* UnderGroundMappingReportListDraftVC.swift */,
+				12CCA29B292E3A0C00E659BA /* UnderGroundReportOfflineDetailVC.swift */,
 				121615B629274BFE003CAED8 /* UnderGroundMappingReportListDraftVM.swift */,
 			);
 			path = "UnderGround Mapping Report List Draft";
@@ -768,6 +775,7 @@
 			isa = PBXGroup;
 			children = (
 				121615B029274BD0003CAED8 /* OpenCastMappingListDraftVC.swift */,
+				12CCA29E292E4AF600E659BA /* OpenCastReportOfflineDetailVC.swift */,
 				121615B329274BE9003CAED8 /* OpenCastMappingReportListDraftVM.swift */,
 			);
 			path = "OpenCastMappingRepor List Draft";
@@ -1122,9 +1130,9 @@
 		28A9C40A2817B7C9001B252F /* NSC_iOS */ = {
 			isa = PBXGroup;
 			children = (
+				28A9C40B2817B7C9001B252F /* AppDelegate.swift */,
 				12E787332922175400702EBE /* Core Data Files */,
 				28AEAB4B28195B1100325C90 /* NSC_iOS.entitlements */,
-				28A9C40B2817B7C9001B252F /* AppDelegate.swift */,
 				28A9C4262817BF8D001B252F /* ViewControllers */,
 				9AE824412817E25B00A29373 /* TableCell */,
 				28ED596928225F940035402F /* Models + ViewModels */,
@@ -1930,6 +1938,7 @@
 				9A694A9E28FE5BEA000AC3C7 /* FAQListVC.swift in Sources */,
 				28F83107281977F000CAF99C /* KDCircularProgress.swift in Sources */,
 				1251DDA428FFEE9A00E1E712 /* ACFloatingTextfield+Extesion.swift in Sources */,
+				12CCA29D292E3A0C00E659BA /* UnderGroundReportOfflineDetailVC.swift in Sources */,
 				1251DDA128FFE9D100E1E712 /* UIButton+Extension.swift in Sources */,
 				9A694AAB28FE60F8000AC3C7 /* FAQViewModel.swift in Sources */,
 				121615AE29274BA4003CAED8 /* UnderGroundMappingReportListDraftVC.swift in Sources */,
@@ -1992,6 +2001,7 @@
 				12E7874B29226D4C00702EBE /* RockStrengthDataTable+CoreDataClass.swift in Sources */,
 				28AE722B282CDFF5000845D0 /* AppFonts.swift in Sources */,
 				28F83131281977F000CAF99C /* AppConstants.swift in Sources */,
+				12CCA2A0292E4AF600E659BA /* OpenCastReportOfflineDetailVC.swift in Sources */,
 				12E7874D29226D4C00702EBE /* RockStrengthDataTable+CoreDataProperties.swift in Sources */,
 				121615B529274BE9003CAED8 /* OpenCastMappingReportListDraftVM.swift in Sources */,
 				281AAE47281AA44D0070D758 /* AppVersionModel.swift in Sources */,
@@ -2143,6 +2153,7 @@
 				9A694AAA28FE60F8000AC3C7 /* FAQViewModel.swift in Sources */,
 				28F3C253281A5CC80092A077 /* KidsAttendenceCell.swift in Sources */,
 				28F830D4281977F000CAF99C /* DJTextView.swift in Sources */,
+				12CCA29C292E3A0C00E659BA /* UnderGroundReportOfflineDetailVC.swift in Sources */,
 				28F8312A281977F000CAF99C /* BackspaceTextField.swift in Sources */,
 				28F83138281977F000CAF99C /* CryptLib.m in Sources */,
 				121615AD29274BA4003CAED8 /* UnderGroundMappingReportListDraftVC.swift in Sources */,
@@ -2205,6 +2216,7 @@
 				9A96F94628F96BE200879A89 /* SyncDataVC.swift in Sources */,
 				28AE722A282CDFF5000845D0 /* AppFonts.swift in Sources */,
 				12E7874C29226D4C00702EBE /* RockStrengthDataTable+CoreDataProperties.swift in Sources */,
+				12CCA29F292E4AF600E659BA /* OpenCastReportOfflineDetailVC.swift in Sources */,
 				28F83122281977F000CAF99C /* NavigationClass.swift in Sources */,
 				121615B429274BE9003CAED8 /* OpenCastMappingReportListDraftVM.swift in Sources */,
 				281AAE46281AA44D0070D758 /* AppVersionModel.swift in Sources */,

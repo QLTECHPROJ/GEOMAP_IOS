@@ -22,19 +22,37 @@ class ReportListVM {
             if completion, statusCode == ApiKeys.ApiStatusCode.success.rawValue, let receivdeData = data {
                 
                 debugPrint(receivdeData)
-                
-                self.arrReportHeader = [
-                    [
+                self.arrReportHeader = []
+                if !receivdeData["ResponseData"]["underGround"].arrayValue.isEmpty{
+                    
+                    var arrData : [JSON] = []
+                    for (i, innerdata) in receivdeData["ResponseData"]["underGround"].arrayValue.enumerated(){
+                        if i < 2{
+                            arrData.append(innerdata)
+                        }
+                    }
+                    self.arrReportHeader.append([
                         "title" : kUndergroundsMappingReport,
                         "type" : ReportListType.underGroundReport.rawValue,
-                        "data" : receivdeData["ResponseData"]["underGround"].arrayValue
-                    ],
-                    [
+                        "data" : arrData
+                    ])
+                }
+                
+                if !receivdeData["ResponseData"]["openCast"].arrayValue.isEmpty{
+                    
+                    
+                    var arrData : [JSON] = []
+                    for (i, innerdata) in receivdeData["ResponseData"]["openCast"].arrayValue.enumerated(){
+                        if i < 2{
+                            arrData.append(innerdata)
+                        }
+                    }
+                    self.arrReportHeader.append([
                         "title" : kOpenCastMappingReport,
                         "type" : ReportListType.opneCastReport.rawValue,
-                        "data" : receivdeData["ResponseData"]["openCast"].arrayValue
-                    ]
-                ]
+                        "data" : arrData
+                    ])
+                }
                 
                 completionBlock(receivdeData,statusCode,message,true)
             }
@@ -62,6 +80,19 @@ class ReportListVM {
                 completionBlock(nil,statusCode,message,false)
             }
         }
+    }
+}
+
+//---------------------------------------------------------------------------
+//MARK: - Helping methods
+//---------------------------------------------------------------------------
+
+
+
+extension ReportListVM{
+    
+    var isDataEmpty : Bool {
+        return self.arrReportHeader.isEmpty
     }
 }
 

@@ -1,15 +1,9 @@
 //
 //  ProfileViewModel.swift
-//  
-//
-//  Created by on 11/05/22.
-//
 
 import Foundation
 
 class ProfileViewModel {
-    
-    var profileData: LoginDataModel?
     
     func callProfileUpdateAPI(parameters : [String:Any], uploadParameters : [UploadDataModel], completion: @escaping (Bool) -> Void) {
        
@@ -17,9 +11,8 @@ class ProfileViewModel {
         
         APIManager.shared.callUploadWebService(apiUrl: APIRouter.profile_update(parameters).urlRequest!.url!.absoluteString, includeHeader: true, parameters: parameters, uploadParameters: uploadParameters, httpMethod: .post) { [weak self] (response : LoginModel?) in
             if response?.ResponseCode == "200", let responseData = response?.ResponseData {
-                self?.profileData = responseData
-                LoginDataModel.currentUser = responseData
-                showAlertToast(message: response?.ResponseMessage ?? "")
+               
+                GFunctions.shared.showSnackBar(message: response?.ResponseMessage ?? "Error")
                 completion(true)
             } else {
                 completion(false)

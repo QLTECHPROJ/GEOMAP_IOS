@@ -61,154 +61,183 @@ class SyncDataVC: ClearNaviagtionBarVC {
 
     @IBAction func btnSyncDataTapped(_ sender: UIButton) {
         self.view.endEditing(true)
-        self.navigationController?.popViewController(animated: true)
+    
         
-        var arrUnderGroundDraftReportList : [UnderGroundMappingReportDataTable] = []
+        let arrUnderGroundReportList : [UnderGroundMappingReportDataTable] = self.getReportListFromOfflineDatabase().underGroundReportList
+        let arrOpenCastReportList : [OpenCastMappingReportDataTable] = self.getReportListFromOfflineDatabase().openCastReportList
         
-        UnderGroundMappingReportDataModel.shared.getUndergroundMappingReportData { completion in
-            if completion{
-                arrUnderGroundDraftReportList = UnderGroundMappingReportDataModel.shared.arrUnderGroundMappingReportData
-            }
+        
+        guard checkInternet(true) else {return}
+        
+        guard !arrUnderGroundReportList.isEmpty || !arrOpenCastReportList.isEmpty else {
+            GFunctions.shared.showSnackBar(message: kNoOfflineReportFound)
+            return
         }
         
-        
-        var arrOpenCastDraftReportList : [OpenCastMappingReportDataTable] = []
-        
-        OpenCastMappingReportDataModel.shared.getOpenCastMappingReportData { completion in
-            if completion{
-                arrOpenCastDraftReportList = OpenCastMappingReportDataModel.shared.arrOpenCastMappingReportData
-                
-            }
-        }
-        
-        let finalParameters = APIParametersModel()
-        finalParameters.underGroundReport = self.setUnderGroundReportList(arrUnderGroundDraftReportList)
-        finalParameters.openCastReport = self.setOpenCastReportList(arrOpenCastDraftReportList).openCastDetails
-        
-        debugPrint(finalParameters.toDictionary())
-        
-        self.viewModelSyncData.callAPISyncData(parameters: finalParameters.toDictionary()) { responseJSON, statucCode, message, completion in
-           if completion{
+        let dispatchGroup = DispatchGroup()
+        showHud()
+        for uGReportData in arrUnderGroundReportList{
+            dispatchGroup.enter()
             
-               DispatchQueue.main.asyncAfter(deadline: .now() + 0.5){
-                   self.navigationController?.popViewController(animated: true)
-                   GFunctions.shared.showSnackBar(message: JSON(message as Any).stringValue)
-               }
+            let uGReport = self.getUnderGroundReportDetailsParameters(underGroundReportDetail: uGReportData)
+            
+            self.viewModelSyncData.callAPIUploadUnderGroungMappingReport(isLoader : false,parameters: uGReport.underGroundParam, uploadParameters: uGReport.arrUnderGroundImages) { completion, message in
+                
+                if completion{
+                    
+                    UnderGroundMappingReportDataModel.shared.deleteUnderGroundMappingReportData(JSON(uGReportData.iD as Any).stringValue) { completion in
+                        
+                        if completion{
+                            
+                        }
+                    }
+                }
+                dispatchGroup.leave()
             }
-            else if let _ = message{
-                GFunctions.shared.showSnackBar(message: message!)
-            }
+        }
+        
+        for oCReportData in arrOpenCastReportList{
+            dispatchGroup.enter()
+            
+            let uCReport = self.getOpenCastReportDetailsParameters(openCastReportDetail: oCReportData)
+            self.viewModelSyncData.callAPIUploadOpenCastMappingReport(isLoader : false,parameters: uCReport.openCastParam, uploadParameters: uCReport.arrOpenCastImages, completion: { completion,message  in
+                
+                if completion{
+                   
+                    OpenCastMappingReportDataModel.shared.deleteOpenCastMappingReportData(JSON(oCReportData.iD as Any).stringValue) { completion in
+                       
+                        if completion{
+                            
+                        }
+                    }
+                }
+                dispatchGroup.leave()
+            })
+        }
+        
+        dispatchGroup.notify(queue: .main) {
+            hideHud()
+            
+            GFunctions.shared.showSnackBar(message: kAllReportDataAreUploaded)
+            self.navigationController?.popViewController(animated: true)
         }
     }
     
 }
 
-
+//----------------------------------------------------------------------------
+// MARK: - Get parameters methods
+//----------------------------------------------------------------------------
 extension SyncDataVC{
     
-    func setUnderGroundReportList(_ underGroundReport : [UnderGroundMappingReportDataTable])->[UndergroundReport]{
+    func getReportListFromOfflineDatabase()-> (underGroundReportList : [UnderGroundMappingReportDataTable], openCastReportList : [OpenCastMappingReportDataTable]){
+       
         
-        var arrUnderGroundDraftReportList : [UndergroundReport] = []
-        var arrUploadImages : [UploadDataModel] = []
-        
-        for data in underGroundReport{
-            
-            let parameters = UndergroundReport()
-            parameters.shift = JSON(data.shift as Any).stringValue
-            parameters.mappedBy = JSON(data.mappedBy as Any).stringValue
-            parameters.name = JSON(data.name as Any).stringValue
-            parameters.comment = JSON(data.comment as Any).stringValue
-            parameters.scale = JSON(data.scale as Any).stringValue
-            parameters.location = JSON(data.locations as Any).stringValue
-            parameters.venieLoad = JSON(data.veinOrLoad as Any).stringValue
-            parameters.xCordinate = JSON(data.xCoordinate as Any).stringValue
-            parameters.yCordinate = JSON(data.yCoordinate as Any).stringValue
-            parameters.zCordinate = JSON(data.zCoordinate as Any).stringValue
-            parameters.mapSerialNo = JSON(data.mapSerialNo as Any).stringValue
-            parameters.ugDate = GFunctions.shared.convertDateFormat(dt: JSON(data.ugDate as Any).stringValue, inputFormat: DateTimeFormaterEnum.ddmm_yyyy.rawValue, outputFormat: DateTimeFormaterEnum.ddMMMyyyy.rawValue, status: .NOCONVERSION).str
-            parameters.userId = JSON(UserModelClass.current.userId as Any).stringValue
-            
-            parameters.faceImage = UploadDataModel(name: "image.jpeg", key: "faceImage", data: data.faceImage, extention: "jpeg", mimeType: "image/jpeg").name
-            parameters.rightImage = UploadDataModel(name: "image.jpeg", key: "rightImage", data: data.rightImage, extention: "jpeg", mimeType: "image/jpeg").name
-            parameters.leftImage = UploadDataModel(name: "image.jpeg", key: "leftImage", data: data.leftImage, extention: "jpeg", mimeType: "image/jpeg").name
-            parameters.roofImage = UploadDataModel(name: "image.jpeg", key: "roofImage", data: data.roofImage, extention: "jpeg", mimeType: "image/jpeg").name
-            
-            var attributesArr : [Attribute] = []
-            if let attAry = data.attributeUndergroundMapping,let attArray = attAry.allObjects as? [AttributeUndergroundMappingTable]{
-                for att in attArray{
-                
-                    let attributeObj = Attribute()
-                    attributeObj.name = JSON(att.name as Any).stringValue
-                    attributeObj.nose = JSON(att.nose as Any).stringValue
-                    attributeObj.properties = JSON(att.properties as Any).stringValue
-                    attributesArr.append(attributeObj)
-                }
+        UnderGroundMappingReportDataModel.shared.getUndergroundMappingReportData { completion in
+            if completion{
+               debugPrint("UnderGround report list found")
             }
-            parameters.attribute = attributesArr
-            
-            arrUnderGroundDraftReportList.append(parameters)
         }
         
-        return arrUnderGroundDraftReportList
+        OpenCastMappingReportDataModel.shared.getOpenCastMappingReportData { completion in
+            if completion{
+                debugPrint("OpenCast report list found")
+            }
+        }
+        return (UnderGroundMappingReportDataModel.shared.arrUnderGroundMappingReportData,OpenCastMappingReportDataModel.shared.arrOpenCastMappingReportData)
     }
     
-    
-    func setOpenCastReportList(_ openCastReports : [OpenCastMappingReportDataTable])->(openCastDetails : [OpenCastReport], arrImages : [UploadDataModel]){
+    func getUnderGroundReportDetailsParameters(underGroundReportDetail : UnderGroundMappingReportDataTable)-> (underGroundParam : [String:Any],arrUnderGroundImages : [UploadDataModel]){
         
-        var arrOpenCastDraftReportList : [OpenCastReport] = []
        
-        var arrUploadImages : [UploadDataModel] = []
-        for data in openCastReports{
-            
-            let parameters = OpenCastReport()
-            parameters.minesSiteName = JSON(data.minesSiteName as Any).stringValue
-            parameters.mappingSheetNo = JSON(data.mappingSheetNo as Any).stringValue
-            parameters.pitName = JSON(data.pitName as Any).stringValue
-            parameters.pitLoaction = JSON(data.pitLocation as Any).stringValue
-            parameters.shiftInchargeName = JSON(data.shiftInChargeName as Any).stringValue
-            parameters.geologistName = JSON(data.geologistName as Any).stringValue
-            parameters.faceLocation = JSON(data.faceLocation as Any).stringValue
-            parameters.faceLength = JSON(data.faceLength as Any).stringValue
-            parameters.faceArea = JSON(data.faceArea as Any).stringValue
-            parameters.faceRockType = JSON(data.faceRockTypes as Any).stringValue
-            parameters.benchRl = JSON(data.benchRL as Any).stringValue
-            parameters.benchHeightWidth = JSON(data.benchHeightWidth as Any).stringValue
-            parameters.benchAngle = JSON(data.benchAngle as Any).stringValue
-            parameters.thicknessOfOre = JSON(data.thicknessOfOre as Any).stringValue
-            parameters.thicknessOfOverburdan = JSON(data.thicknessOfOverburden as Any).stringValue
-            parameters.thicknessOfInterburden = JSON(data.thicknessOfInterBurden as Any).stringValue
-            parameters.observedGradeOfOre = JSON(data.observedGradeOfOre as Any).stringValue
-            parameters.sampleColledted = JSON(data.sampleCollected as Any).stringValue
-            parameters.actualGradeOfOre = JSON(data.actualGradOfOre as Any).stringValue
-            parameters.weathring = JSON(data.weathering as Any).stringValue
-            parameters.rockStregth = JSON(data.rockStrength as Any).stringValue
-            parameters.waterCondition = JSON(data.waterCondition as Any).stringValue
-            parameters.typeOfGeologist = JSON(data.typeOfGeologicalStructures as Any).stringValue
-            parameters.typeOfFaults = JSON(data.typeOfFaults as Any).stringValue
-            
-            parameters.shift = JSON(data.shift as Any).stringValue
-            parameters.ocDate = GFunctions.shared.convertDateFormat(dt: JSON(data.ocDate as Any).stringValue, inputFormat: DateTimeFormaterEnum.ddmm_yyyy.rawValue, outputFormat: DateTimeFormaterEnum.ddMMMyyyy.rawValue, status: .NOCONVERSION).str
-            
-            parameters.userId = JSON(UserModelClass.current.userId as Any).stringValue
-            parameters.dipDirectionAndAngle = JSON(data.dipdirectionandAngle as Any).stringValue
-            parameters.notes = JSON(data.notes as Any).stringValue
-            
-            let imageDraw = UploadDataModel(name: "image.jpeg", key: "image", data: data.imagedrawn, extention: "jpeg", mimeType: "image/jpeg")
-            arrUploadImages.append(imageDraw)
-            parameters.image = imageDraw.name
-            
-            let clientGeologistSign = UploadDataModel(name: "image.jpeg", key: "clientsGeologistSign", data: data.clientsGeologistSign, extention: "jpeg", mimeType: "image/jpeg")
-            arrUploadImages.append(clientGeologistSign)
-            parameters.clientsGeologistSign = clientGeologistSign.name
-            
-            let geologistSign = UploadDataModel(name: "image.jpeg", key: "geologistSign", data: data.geologistSign, extention: "jpeg", mimeType: "image/jpeg")
-            arrUploadImages.append(geologistSign)
-            parameters.geologistSign = geologistSign.name
-            
-            arrOpenCastDraftReportList.append(parameters)
+        var arrOfDict : [[String:Any]] = [[String:Any]]()
+        if let attAry = underGroundReportDetail.attributeUndergroundMapping,let attArray = attAry.allObjects as? [AttributeUndergroundMappingTable]{
+            for att in attArray{
+                
+                var dict = [String:Any]()
+                dict["name"] = JSON(att.name as Any).stringValue
+                dict["nose"]  = JSON(att.nose as Any).stringValue
+                dict["properties"] = JSON(att.properties as Any).stringValue
+                arrOfDict.append(dict)
+            }
         }
+        let faceImageObj = UploadDataModel(name: "image.jpeg", key: "faceImage", data: underGroundReportDetail.faceImage, extention: "jpeg", mimeType: "image/jpeg")
+        let rightImageObj = UploadDataModel(name: "image.jpeg", key: "rightImage", data: underGroundReportDetail.rightImage, extention: "jpeg", mimeType: "image/jpeg")
+        let leftImageObj = UploadDataModel(name: "image.jpeg", key: "leftImage", data: underGroundReportDetail.leftImage, extention: "jpeg", mimeType: "image/jpeg")
+        let rootImageObj = UploadDataModel(name: "image.jpeg", key: "roofImage", data: underGroundReportDetail.roofImage, extention: "jpeg", mimeType: "image/jpeg")
         
-        return (arrOpenCastDraftReportList,arrUploadImages)
+        let arrUploadDataModelForUGR : [UploadDataModel] = [faceImageObj,rightImageObj,leftImageObj,rootImageObj]
+        
+        let underGroundReportParam : [String:Any] = [
+            "shift" : JSON(underGroundReportDetail.shift as Any).stringValue,
+            "mappedBy" : JSON(underGroundReportDetail.mappedBy as Any).stringValue,
+            "name" : JSON(underGroundReportDetail.name as Any).stringValue,
+            "scale" : JSON(underGroundReportDetail.scale as Any).stringValue,
+            "location" : JSON(underGroundReportDetail.locations as Any).stringValue,
+            "venieLoad" : JSON(underGroundReportDetail.veinOrLoad as Any).stringValue,
+            "xCordinate" : JSON(underGroundReportDetail.xCoordinate as Any).stringValue,
+            "yCordinate" : JSON(underGroundReportDetail.yCoordinate as Any).stringValue,
+            "zCordinate" : JSON(underGroundReportDetail.zCoordinate as Any).stringValue,
+            "mapSerialNo" : JSON(underGroundReportDetail.mapSerialNo as Any).stringValue,
+            "ugDate" : GFunctions.shared.convertDateFormat(dt: JSON(underGroundReportDetail.ugDate as Any).stringValue, inputFormat: DateTimeFormaterEnum.ddmm_yyyy.rawValue, outputFormat: DateTimeFormaterEnum.ddMMMyyyy.rawValue, status: .NOCONVERSION).str,
+            "comment" : JSON(underGroundReportDetail.comment as Any).stringValue,
+            "faceImage" : faceImageObj.name,
+            "rightImage" : rightImageObj.name,
+            "leftImage" : leftImageObj.name,
+            "roofImage" : rootImageObj.name,
+            "userId" : JSON(UserModelClass.current.userId as Any).stringValue,
+            "attribute" : arrOfDict.toJSON()
+        ]
+        
+        return (underGroundReportParam,arrUploadDataModelForUGR)
+    }
+    
+    func getOpenCastReportDetailsParameters(openCastReportDetail : OpenCastMappingReportDataTable)-> (openCastParam : [String:Any],arrOpenCastImages : [UploadDataModel]){
+        
+        
+        let drawImage = UploadDataModel(name: "image.jpeg", key: "image", data: openCastReportDetail.imagedrawn, extention: "jpeg", mimeType: "image/jpeg")
+        let clientGeologistSignImage = UploadDataModel(name: "image.jpeg", key: "clientsGeologistSign", data: openCastReportDetail.clientsGeologistSign, extention: "jpeg", mimeType: "image/jpeg")
+        let geologistSignImage = UploadDataModel(name: "image.jpeg", key: "geologistSign", data: openCastReportDetail.geologistSign, extention: "jpeg", mimeType: "image/jpeg")
+        
+         let arrUploadImagesForOCR : [UploadDataModel] = [drawImage,clientGeologistSignImage,geologistSignImage]
+        
+        
+        let openCastReportParam : [String:Any] = [
+            "userId" : JSON(UserModelClass.current.userId as Any).stringValue,
+            "minesSiteName" : JSON(openCastReportDetail.minesSiteName as Any).stringValue,
+            "mappingSheetNo" : JSON(openCastReportDetail.mappingSheetNo as Any).stringValue,
+            "pitName" : JSON(openCastReportDetail.pitName as Any).stringValue,
+            "pitLoaction" : JSON(openCastReportDetail.pitLocation as Any).stringValue,
+            "shiftInchargeName" : JSON(openCastReportDetail.shiftInChargeName as Any).stringValue,
+            "geologistName" : JSON(openCastReportDetail.geologistName as Any).stringValue,
+            "faceLocation" : JSON(openCastReportDetail.faceLocation as Any).stringValue,
+            "faceLength" : JSON(openCastReportDetail.faceLength as Any).stringValue,
+            "faceArea" : JSON(openCastReportDetail.faceArea as Any).stringValue,
+            "faceRockType" : JSON(openCastReportDetail.faceRockTypes as Any).stringValue,
+            "benchRl" : JSON(openCastReportDetail.benchRL as Any).stringValue,
+            "benchHeightWidth" : JSON(openCastReportDetail.benchHeightWidth as Any).stringValue,
+            "benchAngle" : JSON(openCastReportDetail.benchAngle as Any).stringValue,
+            "thicknessOfOre" : JSON(openCastReportDetail.thicknessOfOre as Any).stringValue,
+            "thicknessOfOverburdan" : JSON(openCastReportDetail.thicknessOfOverburden as Any).stringValue,
+            "thicknessOfInterburden" : JSON(openCastReportDetail.thicknessOfInterBurden as Any).stringValue,
+            "observedGradeOfOre" : JSON(openCastReportDetail.observedGradeOfOre as Any).stringValue,
+            "sampleColledted" : JSON(openCastReportDetail.sampleCollected as Any).stringValue,
+            "actualGradeOfOre" : JSON(openCastReportDetail.actualGradOfOre as Any).stringValue,
+            "weathring" : JSON(openCastReportDetail.weathering as Any).stringValue,
+            "rockStregth" : JSON(openCastReportDetail.rockStrength as Any).stringValue,
+            "waterCondition" : JSON(openCastReportDetail.waterCondition as Any).stringValue,
+            "typeOfGeologist" : JSON(openCastReportDetail.typeOfGeologicalStructures as Any).stringValue,
+            "dipDirectionAndAngle" : JSON(openCastReportDetail.dipdirectionandAngle as Any).stringValue,
+            "typeOfFaults" : JSON(openCastReportDetail.typeOfFaults as Any).stringValue,
+            "shift" : JSON(openCastReportDetail.shift as Any).stringValue,
+            "ocDate" : GFunctions.shared.convertDateFormat(dt: JSON(openCastReportDetail.ocDate as Any).stringValue, inputFormat: DateTimeFormaterEnum.ddmm_yyyy.rawValue, outputFormat: DateTimeFormaterEnum.ddMMMyyyy.rawValue, status: .NOCONVERSION).str,
+            "notes" : JSON(openCastReportDetail.notes as Any).stringValue,
+            "image" : drawImage.name,
+            "clientsGeologistSign" : clientGeologistSignImage.name,
+            "geologistSign" : geologistSignImage.name
+        ]
+        
+        return (openCastReportParam,arrUploadImagesForOCR)
     }
 }
 

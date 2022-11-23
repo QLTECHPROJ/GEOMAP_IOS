@@ -58,6 +58,36 @@ extension UIImageView {
         }
         self.sd_setImage(with: imageString.url(), placeholderImage: placeholderImage ?? nil)
     }
+    
+    func addInitialsImage(text : String) {
+        DispatchQueue.main.async {
+            let initials = UILabel(frame: self.frame)
+            
+            initials.layer.cornerRadius = self.frame.height / 2
+            
+            initials.center = CGPoint(x: self.bounds.width / 2 , y: self.bounds.height / 2)
+            
+            initials.textAlignment = .center
+            initials.font = UIFont.applyCustomFont(fontName: .InterBold, fontSize: 30)
+            
+            var str : String = ""
+            let nameArr = text.components(separatedBy: " ")
+            let firstWord = nameArr.first
+            let lastWord = nameArr.last
+            
+            if let _ = firstWord, let ch = firstWord!.first{
+                str.append(ch)
+            }
+            if nameArr.count > 1, let _ = lastWord,let ch = lastWord!.first{
+                str.append(ch)
+            }
+            initials.text = str
+            initials.textColor = .white
+            initials.backgroundColor = .colorSkyBlue
+            
+            self.addSubview(initials)
+        }
+    }
 }
 
 extension PHAsset {

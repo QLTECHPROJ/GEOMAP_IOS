@@ -23,9 +23,6 @@ class LoginViewModel {
 
                 CoreDataManager.shared.insertAllTableData(receivdeData["ResponseData"])
                 
-                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                    showAlertToast(message: Theme.strings.welcome_message)
-                }
                 completionBlock(receivdeData,statusCode,message,true)
             }
             else{
@@ -49,10 +46,6 @@ class LoginViewModel {
                 
                 debugPrint(receivdeData)
            
-
-                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                    showAlertToast(message: Theme.strings.welcome_message)
-                }
                 completionBlock(receivdeData,statusCode,message,true)
             }
             else{

@@ -55,7 +55,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func applicationWillEnterForeground(_ application: UIApplication) {
-        
+        self.checkEnableNotificationOrNot()
         
     }
     
@@ -69,6 +69,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     
     func onResumeApp(){
+        
+        NotificationCenter.default.post(name: UIApplication.didBecomeActiveNotification, object: nil)
         
         let value = USERDEFAULTS.bool(forKey: UserDefaultsKeys.isUserLogin.rawValue)
         print(value)
@@ -115,6 +117,37 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
             let settings = UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
             UIApplication.shared.registerUserNotificationSettings(settings)
             UIApplication.shared.registerForRemoteNotifications()
+        }
+    }
+    
+    
+    func checkEnableNotificationOrNot() {
+        
+        let value = USERDEFAULTS.bool(forKey: UserDefaultsKeys.isUserLogin.rawValue)
+       
+        guard value , USERDEFAULTS.value(forKey: UserDefaultsKeys.kLoginUserData.rawValue) != nil else {
+            return
+        }
+        
+        UNUserNotificationCenter.current().getNotificationSettings { (settings) in
+            if settings.authorizationStatus == .authorized {
+                // Notifications are allowed
+            }
+            else {
+                // Either denied or notDetermined
+                let alertController = UIAlertController(title: kPushNotification, message: kPleaseEnableNotification, preferredStyle: UIAlertController.Style.alert)
+                let setting = UIAlertAction(title: kGotoSetting, style: UIAlertAction.Style.default, handler: { (UIAlertAction) in
+                    UIApplication.shared.open(UIApplication.openSettingsURLString.url(), options: [:], completionHandler: nil)
+                })
+                let close = UIAlertAction(title: kClose, style: UIAlertAction.Style.default, handler: { (UIAlertAction) in
+                    
+                })
+                alertController.addAction(setting)
+                alertController.addAction(close)
+                DispatchQueue.main.async {
+                    UIApplication.shared.keyWindow?.rootViewController!.present(alertController, animated: true, completion: nil)
+                }
+            }
         }
     }
     
@@ -258,6 +291,5 @@ extension AppDelegate{
         let loginNavVC = AUTHENTICATION.instantiateViewController(withIdentifier: "NavLogin") as! UINavigationController
         UIApplication.shared.windows.first?.rootViewController = loginNavVC
         UIApplication.shared.windows.first?.makeKeyAndVisible()
-        
     }
 }

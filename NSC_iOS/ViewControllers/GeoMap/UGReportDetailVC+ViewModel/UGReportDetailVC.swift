@@ -209,13 +209,10 @@ extension UGReportDetailVC {
                 }).joined(separator: ",")
             }
             if self.arrReportDetails[i]["key"].stringValue == kPropertiesColn{
-                self.arrReportDetails[i]["value"].stringValue = "-" //reportData["ugDate"].stringValue
-                
-                let arr = reportData["attribute"].compactMap({ (_ , Obj) -> JSON in
+                self.arrReportDetails[i]["value"].stringValue = reportData["attribute"].compactMap({ (_ , Obj) -> String in
                     print(Obj["properties"])
-                    return Obj
-                })
-                print(arr)
+                    return Obj["properties"].stringValue
+                }).joined(separator: ",")
             }
         }
         self.tableView.reloadData()

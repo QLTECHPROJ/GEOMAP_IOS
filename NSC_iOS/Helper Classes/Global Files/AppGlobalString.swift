@@ -46,6 +46,8 @@ var kPleaseProvideValidMobileNumber = "Mobile Number content length must be in m
 
 var kPleaseProvideDOB = "Please provide DOB"
 
+var kAgeLimitAlertMessage = "Please confirm whether you are above 18 years old"
+
 var kTakeAPhoto = "Take a Photo"
 
 var kChooseFromGallary = "Choose from Gallary"
@@ -62,15 +64,15 @@ var kOpenCastMappingReport = "OpenCast Mapping Report"
 
 var kViewAll = "View All"
 
-var kAddUndergroundsMappingReport = "Add Under Grounds Mapping Report"
+var kAddUndergroundsMappingReport = "Underground Mapping"
 
-var kAddOpenCastMappingReport = "Add OpenCast Mapping Report"
+var kAddOpenCastMappingReport = "OpenCast Mapping"
 
-var kUnderGroundReportList = "UnderGround Report List"
+var kUnderGroundReportList = "Underground Report List"
 
 var kOpenCastReportlist = "OpenCast Report List"
 
-var kEditProfile = "Edit Profle"
+var kEditProfile = "Edit Profile"
 
 var kFAQs = "FAQ"
 
@@ -328,13 +330,17 @@ var kRIGHT = "RIGHT"
 
 var kFACE = "FACE"
 
-var kUnderGroundReportDraft = "UnderGround Report Draft"
+var kUnderGroundReportDraft = "Underground Report List Draft"
 
-var kOpenCastReportDraft = "OpenCast Report Draft"
+var kOpenCastReportDraft = "OpenCast Report List Draft"
+
+var kUnderGroundMappingReportDraft = "Underground Mapping Report Draft"
+
+var kOpenCastMappingReportDraft = "OpenCast Mapping Report Draft"
 
 var kMappingSheetNo = "Mapping Sheet No."
 
-var kUnderGroundMappingReportSavedSuccessfully = "UnderGround Mapping Report saved successfully..!"
+var kUnderGroundMappingReportSavedSuccessfully = "Underground Mapping Report saved successfully..!"
 
 var kOpenCastMappingReportSavedSuccessfully = "OpenCast Mapping Report saved successfully..!"
 
@@ -345,3 +351,16 @@ var kCancel = "Cancel"
 var kNoInternetConnection = "Internet connection seems to be offline."
 
 var kComment = "Comment"
+
+var kAllReportDataAreUploaded = "All Reports data are uploaded..!"
+
+var kCameraIsNotAvailable = "Camera is not available on this device."
+
+var kAlertSomethingWentWrong = "Oops something went wrong please try again"
+
+var kPushNotification = "Push Notifications"
+
+var kPleaseEnableNotification = "Please go to the App Settings, tap on Notifications and then select Allow Notifications."
+
+var kGotoSetting = "Go to Settings"
+

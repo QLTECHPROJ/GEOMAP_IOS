@@ -35,6 +35,18 @@ class HomeVC: ClearNaviagtionBarVC {
     
     private var emptyMessage : String = ""
     
+    //----------------------------------------------------------------------------
+    //MARK: - Memory management
+    //----------------------------------------------------------------------------
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    deinit {
+        self.removeClassObservers()
+    }
+    
     // MARK: - VIEW LIFE CYCLE
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,13 +59,15 @@ class HomeVC: ClearNaviagtionBarVC {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-       
+        if self.vwReportList.isDataEmpty{
+            self.apiCallReportList(true)
+        }
     }
     
     
     // MARK: - FUNCTIONS
     func setupUI() {
-        
+        self.addClassObservers()
         self.view.backgroundColor = .colorBGSkyBlueLight
         self.btnAddReport.applystyle(isAdjustToFont : true ,fontname : .InterSemibol,fontsize : 14,titleText : kAddReport,titleColor : .colorSkyBlue)
         
@@ -85,7 +99,7 @@ class HomeVC: ClearNaviagtionBarVC {
     func apiCallReportList(_ isLoader : Bool = false) {
         
         let parameters = APIParametersModel()
-        parameters.userId = DeviceDetail.shared.isSimulator ? "1" : JSON(UserModelClass.current.userId as Any).stringValue
+        parameters.userId = JSON(UserModelClass.current.userId as Any).stringValue
         
         self.vwReportList.callHomeReportListAPI(parameters: parameters.toDictionary(),isLoader : isLoader) { responseJson, statusCode, message, completion in
             self.refreshControl.endRefreshing()
@@ -219,5 +233,26 @@ extension HomeVC : AddReportPopUpDelegate {
             let aVC = AppStoryBoard.main.viewController(viewControllerClass: OCGeoAttributeVC.self)
             self.navigationController?.pushViewController(aVC, animated: true)
         }
+    }
+}
+
+//----------------------------------------------------------------------------
+//MARK: - Class observers Methods
+//----------------------------------------------------------------------------
+extension HomeVC {
+    func addClassObservers() {
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.reploadPageDate(_:)), name: UIApplication.didBecomeActiveNotification, object: nil)
+    }
+    
+    func removeClassObservers() {
+        
+        NotificationCenter.default.removeObserver(self, name: UIApplication.didBecomeActiveNotification, object: nil)
+    }
+
+    
+    @objc func reploadPageDate(_ notification : NSNotification){
+        
+        self.apiCallReportList()
     }
 }

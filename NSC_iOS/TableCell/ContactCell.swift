@@ -20,6 +20,7 @@ class ContactCell: UITableViewCell {
         
         self.lblTitle.applyLabelStyle(fontSize :  12,fontName : .InterMedium, textColor: .colorTextPlaceHolderGray)
         self.lblSubtitle.applyLabelStyle(fontSize :  16,fontName : .InterMedium)
+        self.lblSubtitle.numberOfLines = 0
     }
     
     // Configure Cell

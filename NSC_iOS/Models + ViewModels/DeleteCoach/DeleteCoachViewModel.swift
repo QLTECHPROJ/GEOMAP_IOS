@@ -11,14 +11,12 @@ class DeleteCoachViewModel {
     
     func callDeleteAccountAPI(completion: @escaping (Bool) -> Void) {
         let parameters = APIParametersModel()
-        parameters.iD = JSON(LoginDataModel.currentUser?.profileInformation?.id as Any).stringValue
+        parameters.userId = JSON(UserModelClass.current.userId as Any).stringValue
                                           
-        APIManager.shared.callAPI(router: APIRouter.deleteAccount(parameters.toDictionary())) { (response : LogoutModel?) in
+        APIManager.shared.callAPI(router: APIRouter.delete_user(parameters.toDictionary())) { (response : LogoutModel?) in
             if response?.ResponseCode == "200" {
                 completion(true)
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                    showAlertToast(message: response?.ResponseMessage ?? "")
-                }
+                
             } else {
                 completion(false)
             }
