@@ -17,7 +17,8 @@ class UnderGroundMappingReportDataModel : NSObject{
         
     }
     
-    func insertUnderGroundMappingReportData(_ iD : String,
+    func insertUnderGroundMappingReportData(_ userId : String,
+                                            _ iD : String,
                                             _ mapSerialNo : String,
                                             _ name : String,
                                             _ ugDate : String,
@@ -39,8 +40,8 @@ class UnderGroundMappingReportDataModel : NSObject{
         // Add
         let tableViewAttributes = UnderGroundMappingReportDataTable(context: CoreDataManager.shared.context)
         
+        tableViewAttributes.userId = userId
         tableViewAttributes.iD = Int64(UnderGroundMappingReportDataTable.nextAvailble())
-        
         tableViewAttributes.mapSerialNo = mapSerialNo
         tableViewAttributes.name = name
         tableViewAttributes.comment = comment
@@ -83,7 +84,7 @@ class UnderGroundMappingReportDataModel : NSObject{
             
             fetchUserData.forEach({print($0.mapSerialNo)})
             
-            self.arrUnderGroundMappingReportData = fetchUserData
+            self.arrUnderGroundMappingReportData = fetchUserData.filter{$0.userId == JSON(UserModelClass.current.userId as Any).stringValue}
             
             completionBlock(true)
                         
@@ -104,6 +105,7 @@ class UnderGroundMappingReportDataModel : NSObject{
         
         do {
         
+            
             try CoreDataManager.shared.context.execute(deleteRequest)
             CoreDataManager.shared.saveContext()
             

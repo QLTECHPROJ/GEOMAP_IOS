@@ -364,3 +364,6 @@ var kPleaseEnableNotification = "Please go to the App Settings, tap on Notificat
 
 var kGotoSetting = "Go to Settings"
 
+var kNameColn = "Name:"
+
+var kDeleteAttributesPermissionAlert = "Are you sure you want to delete?"

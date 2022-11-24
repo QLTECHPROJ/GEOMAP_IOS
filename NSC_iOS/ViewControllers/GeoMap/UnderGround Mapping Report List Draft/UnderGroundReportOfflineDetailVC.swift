@@ -62,17 +62,12 @@ class UnderGroundReportOfflineDetailVC : ClearNaviagtionBarVC {
         ],
         [
             "key" : kAttributesColn,
-            "value" : ""
-        ],
-        [
-            "key" : kNosColn,
-            "value" : ""
-        ],
-        [
-            "key" : kPropertiesColn,
+            "type" : kAttributes,
             "value" : ""
         ]
     ]
+    
+   
     
     //----------------------------------------------------------------------------
     //MARK: - Memory management
@@ -104,7 +99,7 @@ class UnderGroundReportOfflineDetailVC : ClearNaviagtionBarVC {
        
         self.lblTitle.applyLabelStyle(isAdjustFontWidth : true,text: kUndergroundsMappingReportDetails,fontSize :  16,fontName : .InterBold)
         self.tblView.register(nibWithCellClass: ContactCell.self)
-        
+        self.tblView.register(nibWithCellClass: AttributesDataTblCell.self)
         self.setDraftDetail(self.reportData)
         
     }
@@ -179,9 +174,10 @@ extension UnderGroundReportOfflineDetailVC: UITableViewDelegate, UITableViewData
         return cell
     }
     
+    /*
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
-    }
+    }*/
 }
 
 //----------------------------------------------------------------------------
@@ -222,33 +218,23 @@ extension UnderGroundReportOfflineDetailVC {
             if self.arrReportDetails[i]["key"].stringValue == kZCoordinateColn{
                 self.arrReportDetails[i]["value"].stringValue = JSON(reportData.zCoordinate as Any).stringValue
             }
-            
-            var arrAttributes : [JSON] = []
-            if let array = reportData.attributeUndergroundMapping,let nosArray = array.allObjects as? [AttributeUndergroundMappingTable]{
-                for nosData in nosArray{
-                    debugPrint(nosData)
-                    arrAttributes.append([
-                                   "name" : JSON(nosData.name as Any).stringValue,
-                                   "nose" : JSON(nosData.nose as Any).stringValue,
-                                   "properties" : JSON(nosData.properties as Any).stringValue])
-                }
-            }
+    
             if self.arrReportDetails[i]["key"].stringValue == kAttributesColn{
                 
-                self.arrReportDetails[i]["value"].stringValue = arrAttributes.compactMap { obj -> String in
-                   return obj["name"].stringValue
-                }.joined(separator: ",")
+                var arrAttributes : [JSON] = []
                 
-            }
-            if self.arrReportDetails[i]["key"].stringValue == kNosColn{
-                self.arrReportDetails[i]["value"].stringValue = arrAttributes.compactMap { obj -> String in
-                    return obj["nose"].stringValue
-                 }.joined(separator: ",")
-            }
-            if self.arrReportDetails[i]["key"].stringValue == kPropertiesColn{
-                self.arrReportDetails[i]["value"].stringValue = arrAttributes.compactMap { obj -> String in
-                    return obj["properties"].stringValue
-                 }.joined(separator: ",")
+                if let array = reportData.attributeUndergroundMapping,let nosArray = array.allObjects as? [AttributeUndergroundMappingTable]{
+                    for nosData in nosArray{
+                        debugPrint(nosData)
+                        arrAttributes.append([
+                                       "name" : JSON(nosData.name as Any).stringValue,
+                                       "nose" : JSON(nosData.nose as Any).stringValue,
+                                       "properties" : JSON(nosData.properties as Any).stringValue])
+                        
+                        
+                    }
+                }
+                self.arrReportDetails[i]["value"].arrayObject = arrAttributes
             }
         }
         self.tblView.reloadData()

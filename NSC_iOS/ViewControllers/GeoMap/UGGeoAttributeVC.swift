@@ -30,6 +30,14 @@ class UGGeoAttributeVC: ClearNaviagtionBarVC {
     @IBOutlet weak var vwMineralizationNos: AppShadowViewClass!
     
     @IBOutlet weak var tvAddDescription: IQTextView!
+    
+    @IBOutlet weak var lblAttributesTitle: UILabel!
+    
+    @IBOutlet weak var tblAttributes: UITableView!
+    
+    @IBOutlet weak var tblAttributesHeight: NSLayoutConstraint!
+    
+    @IBOutlet weak var vwAttributes: UIView!
         
     // MARK: - VARIABLES
  
@@ -37,6 +45,14 @@ class UGGeoAttributeVC: ClearNaviagtionBarVC {
     
     private var arrAddedAttributes : [JSON] = []
     
+    
+    
+    deinit {
+        if let _ = self.tblAttributes {
+            self.tblAttributes.removeObserver(self, forKeyPath: "contentSize")
+        }
+    }
+       
     
     // MARK: - VIEW LIFE CYCLE
     override func viewDidLoad() {
@@ -57,6 +73,7 @@ class UGGeoAttributeVC: ClearNaviagtionBarVC {
         self.title = kGeologicalAttributes
         
         self.lblAttributes.applyLabelStyle(text : kAttributes,fontSize : 14,fontName : .InterSemibol)
+        
         self.lblNos.applyLabelStyle(text : kNos,fontSize : 14,fontName : .InterSemibol)
         self.lblProperties.applyLabelStyle(text : kProperties,fontSize : 14,fontName : .InterSemibol)
         
@@ -66,6 +83,8 @@ class UGGeoAttributeVC: ClearNaviagtionBarVC {
         
         self.tvAddDescription.applyTextViewStyle(placeholderText : kAddDescripstion, fontSize : 14,fontName : .InterSemibol,placeholerColor : .colorTextPlaceHolderGray)
         
+        self.lblAttributesTitle.applyLabelStyle(text : kAttributesColn,fontSize : 14,fontName : .InterSemibol)
+        
         DispatchQueue.main.async {
             
             self.btnAddAttributes.applystyle(fontname : .InterSemibol,fontsize : 14,titleText : kAddAttributes,titleColor : .colorSkyBlue)
@@ -74,7 +93,16 @@ class UGGeoAttributeVC: ClearNaviagtionBarVC {
         self.otherActions()
         self.setupData()
         self.buttonEnableDisable()
-//        self.btnNextStep.isSelect = true
+        self.setDataOnTableView()
+        self.tblAttributes.register(nibWithCellClass: AttributesDataTblCell.self)
+        self.tblAttributes.addObserver(self, forKeyPath: "contentSize", options: [.new ], context: nil)
+    }
+    
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        if keyPath == "contentSize", let newSize = change?[.newKey] as? CGSize {
+            
+            self.tblAttributesHeight.constant = newSize.height
+        }
     }
     
     func setupData() {
@@ -83,6 +111,11 @@ class UGGeoAttributeVC: ClearNaviagtionBarVC {
         self.lblMineralizationNos.text = kSelectNos
     }
     
+    func setDataOnTableView(){
+        self.tblAttributes.reloadData()
+        self.vwAttributes.isHidden = self.arrAddedAttributes.isEmpty
+        
+    }
     
     func buttonEnableDisable(){
         
@@ -117,7 +150,9 @@ class UGGeoAttributeVC: ClearNaviagtionBarVC {
         self.tvAddDescription.text = ""
         
         self.buttonEnableDisable()
+        self.setDataOnTableView()
     }
+
     
     @IBAction func btnNextStepTapped(_ sender: UIButton) {
         self.view.endEditing(true)
@@ -187,3 +222,51 @@ extension UGGeoAttributeVC : UITextViewDelegate {
 
 
 
+
+// MARK: - UITableViewDelegate, UITableViewDataSource
+extension UGGeoAttributeVC : UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.arrAddedAttributes.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withClass: AttributesDataTblCell.self)
+        cell.configuredCell(with:self.arrAddedAttributes[indexPath.row])
+        
+        cell.btnDelete.tag = indexPath.row
+        
+        cell.btnDelete.addTarget(self, action: #selector(self.btnDeleteTapped(_:)), for: .touchUpInside)
+        
+        return cell
+    }
+    
+    @objc func btnDeleteTapped(_ sender : UIButton){
+        self.setDataOnTableView()
+        let aVC = AppStoryBoard.main.viewController(viewControllerClass: AlertPopUpVC.self)
+        aVC.titleText = kLogout
+        aVC.detailText = kDeleteAttributesPermissionAlert
+        aVC.firstButtonTitle = kYes
+        aVC.secondButtonTitle = kNo
+        aVC.modalPresentationStyle = .overFullScreen
+        
+        
+        self.present(aVC, animated: false, completion :{
+            aVC.openPopUpVisiable()
+        })
+        
+        aVC.didCompletion = { isOK in
+            if isOK{
+                
+                self.arrAddedAttributes.remove(at: sender.tag)
+                self.setDataOnTableView()
+                self.buttonEnableDisable()
+                UIColor.colorSkyBlue
+            }
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+    }
+}

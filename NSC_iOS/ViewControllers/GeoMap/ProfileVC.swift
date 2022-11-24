@@ -239,10 +239,22 @@ class ProfileVC: ClearNaviagtionBarVC {
         aVC.firstButtonTitle = kYes
         aVC.secondButtonTitle = kNo
         aVC.modalPresentationStyle = .overFullScreen
-        aVC.delegate = self
+       
         self.present(aVC, animated: false, completion :{
             aVC.openPopUpVisiable()
         })
+        aVC.didCompletion = { isOK in
+            if isOK{
+                if checkInternet(true) == false {
+                    return
+                }
+                
+                let deleteCoachVM = DeleteCoachViewModel()
+                deleteCoachVM.callDeleteAccountAPI(completion: { success in
+                    AppDelegate.shared.updateWindow()
+                })
+            }
+        }
     }
     
 }
@@ -342,24 +354,6 @@ extension ProfileVC : UIImagePickerControllerDelegate, UINavigationControllerDel
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true, completion: nil)
     }
-}
-
-// MARK: - AlertPopUpVCDelegate
-extension ProfileVC : AlertPopUpVCDelegate {
-    
-    func handleAction(sender: UIButton, popUpTag: Int) {
-        if sender.tag == 0 {
-            if checkInternet(true) == false {
-                return
-            }
-            
-            let deleteCoachVM = DeleteCoachViewModel()
-            deleteCoachVM.callDeleteAccountAPI(completion: { success in
-                AppDelegate.shared.updateWindow()
-            })
-        }
-    }
-    
 }
 
 

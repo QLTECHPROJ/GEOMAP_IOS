@@ -15,7 +15,7 @@ class AddOpenCastMappingImagesVC: ClearNaviagtionBarVC {
     //----------------------------------------------------------------------------
     
     @IBOutlet weak var vwDrawPad : SignaturePad!
-   
+    
     @IBOutlet weak var btnClearDraw : AppThemeBorderBlueButton!
     @IBOutlet weak var btnSubmit : AppThemeBlueButton!
     
@@ -55,7 +55,7 @@ class AddOpenCastMappingImagesVC: ClearNaviagtionBarVC {
     
     func configureUI(){
         self.view.backgroundColor = .colorBGSkyBlueLight
-
+        
         self.title = kGeologicalMapping
         
         self.vwDrawPad.delegate = self
@@ -63,9 +63,9 @@ class AddOpenCastMappingImagesVC: ClearNaviagtionBarVC {
         self.buttonEnableDisable()
         self.btnSubmit.setTitle(kSubmit, for: .normal)
         self.btnClearDraw.setTitle(kClear, for: .normal)
-
+        
     }
- 
+    
     func buttonEnableDisable(){
         self.btnSubmit.isSelect = self.vwDrawPad.isSigned
     }
@@ -135,11 +135,11 @@ class AddOpenCastMappingImagesVC: ClearNaviagtionBarVC {
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
     }
-
+    
 }
 
-    
-    
+
+
 //--------------------------------------------------------------------------------------
 // MARK: - SignaturePadDelegate Methods
 //--------------------------------------------------------------------------------------
@@ -199,7 +199,7 @@ extension AddOpenCastMappingImagesVC{
             let drawImage = UploadDataModel(name: "image.jpeg", key: "image", data: drawImage.jpegData(compressionQuality: 0.5), extention: "jpeg", mimeType: "image/jpeg")
             let clientGeologistSignImage = UploadDataModel(name: "image.jpeg", key: "clientsGeologistSign", data: clientGeologistSignature.jpegData(compressionQuality: 0.5), extention: "jpeg", mimeType: "image/jpeg")
             let geologistSignImage = UploadDataModel(name: "image.jpeg", key: "geologistSign", data: geologistSign.jpegData(compressionQuality: 0.5), extention: "jpeg", mimeType: "image/jpeg")
-                               
+            
             parameters.imageDraaw = drawImage.name
             parameters.clientsGeologistSign = clientGeologistSignImage.name
             parameters.geologistSign = geologistSignImage.name
@@ -221,8 +221,9 @@ extension AddOpenCastMappingImagesVC{
             })
         }
         else{
-                        
-            OpenCastMappingReportDataModel.shared.insertUnderGroundMappingReportData(self.openCastMappingDetails["iD"].stringValue,
+            
+            OpenCastMappingReportDataModel.shared.insertUnderGroundMappingReportData(JSON(UserModelClass.current.userId as Any).stringValue,
+                                                                                     self.openCastMappingDetails["iD"].stringValue,
                                                                                      self.openCastMappingDetails["ocDate"].stringValue,
                                                                                      self.openCastMappingDetails["mappingSheetNo"].stringValue,
                                                                                      self.openCastMappingDetails["minesSiteName"].stringValue,

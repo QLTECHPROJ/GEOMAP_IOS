@@ -15,6 +15,8 @@ class DescriptionPopupVC: ClearNaviagtionBarVC {
     
     // MARK: - OUTLETS
   
+    @IBOutlet weak var lblTitle : UILabel!
+    
     @IBOutlet var mainView: UIView!
     @IBOutlet weak var btnUnderGroundReport: AppThemeBlueButton!
     @IBOutlet weak var btnOpencastReport: AppThemeBorderBlueButton!
@@ -44,17 +46,16 @@ class DescriptionPopupVC: ClearNaviagtionBarVC {
     func setUpUI(){
         self.view.backgroundColor = .black.withAlphaComponent(0.3)
         self.view.alpha = 0
+       
+        self.lblTitle.applyLabelStyle(text :kAddReport,fontSize : 16,fontName : .InterBold,textColor: .colorSkyBlue)
         
         self.btnUnderGroundReport.isSelect = true
         
         DispatchQueue.main.async {
             self.btnUnderGroundReport.setTitle(kAddUndergroundsMappingReport, for: .normal)
-           // self.btnUnderGroundReport.titleLabel?.adjustsFontSizeToFitWidth = true
             
             self.btnOpencastReport.setTitle(kAddOpenCastMappingReport, for: .normal)
-            //self.btnOpencastReport.titleLabel?.adjustsFontSizeToFitWidth = true
         }
-       
     }
     
     
@@ -98,5 +99,4 @@ class DescriptionPopupVC: ClearNaviagtionBarVC {
 //        }
         self.closePopUpVisiable(isCompletion : true,sender : sender,tagInt : 1)
     }
-    
 }

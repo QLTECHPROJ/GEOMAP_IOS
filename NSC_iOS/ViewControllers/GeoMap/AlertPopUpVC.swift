@@ -47,6 +47,7 @@ class AlertPopUpVC: ClearNaviagtionBarVC {
     // 0 : Delete, 1 : Close
     var delegate : AlertPopUpVCDelegate?
     
+    var didCompletion : ((Bool)->Void)?
     
     // MARK: - VIEW LIFE CYCLE
     override func viewDidLoad() {
@@ -112,10 +113,8 @@ class AlertPopUpVC: ClearNaviagtionBarVC {
             self.dismiss(animated: false) {
                 if isCompletion{
                     
-                    self.delegate?.handleAction(sender: sender, popUpTag: self.popUpTag)
-                    
-                    DispatchQueue.main.asyncAfter(wallDeadline: .now() + 0.5) {
-                        AppDelegate.shared.updateWindow()
+                    if let _ = self.didCompletion{
+                        self.didCompletion!(isCompletion)
                     }
                 }
             }
@@ -125,19 +124,10 @@ class AlertPopUpVC: ClearNaviagtionBarVC {
     // MARK: - ACTIONS
     @IBAction func btnOkTapped(_ sender : UIButton) {
         self.closePopUpVisiable(isCompletion : true,sender: sender)
-//        self.dismiss(animated: false) {
-//            self.delegate?.handleAction(sender: sender, popUpTag: self.popUpTag)
-//
-//            DispatchQueue.main.asyncAfter(wallDeadline: .now() + 0.5) {
-//                AppDelegate.shared.updateWindow()
-//            }
-//        }
     }
     
     @IBAction func btnCancelTapped(_ sender : UIButton) {
-//        self.dismiss(animated: false) {
-//
-//        }
+
         self.closePopUpVisiable(sender: sender)
     }
     

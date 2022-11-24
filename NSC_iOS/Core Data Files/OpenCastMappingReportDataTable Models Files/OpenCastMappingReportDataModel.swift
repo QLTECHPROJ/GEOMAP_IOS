@@ -17,42 +17,44 @@ class OpenCastMappingReportDataModel : NSObject{
         
     }
     
-    func insertUnderGroundMappingReportData(_ iD : String,
-                                                    _ ocDate : String,
-                                                    _ mappingSheetNo : String,
-                                                    _ minesSiteName: String,
-                                                    _ pitName: String,
-                                                    _ pitLocation: String,
-                                                    _ shiftInChargeName: String,
-                                                    _ geologistName: String,
-                                                    _ shift: String,
-                                                    _ faceLocation: String,
-                                                    _ faceLength: String,
-                                                    _ faceArea: String,
-                                                    _ faceRockTypes: String,
-                                                    _ benchRL: String,
-                                                    _ benchHeightWidth: String,
-                                                    _ benchAngle: String,
-                                                    _ dipdirectionandAngle: String,
-                                                    _ thicknessOfOre: String,
-                                                    _ thicknessOfOverburden :String,
-                                                    _ thicknessOfInterBurden :String,
-                                                    _ observedGradeOfOre :String,
-                                                    _ sampleCollected :String,
-                                                    _ actualGradOfOre:String,
-                                                    _ weathering :String,
-                                                    _ rockStrength :String,
-                                                    _ waterCondition :String,
-                                                    _ typeOfGeologicalStructures :String,
-                                                    _ typeOfFaults :String,
-                                                    _ notes : String,
-                                                    _ geologistSign :UIImage,
-                                                    _ clientsGeologistSign :UIImage,
-                                                    _ imageDraw : UIImage,
-                                                    _ completionBlock : (Bool)->Void?){
+    func insertUnderGroundMappingReportData(_ userId : String,
+                                            _ iD : String,
+                                            _ ocDate : String,
+                                            _ mappingSheetNo : String,
+                                            _ minesSiteName: String,
+                                            _ pitName: String,
+                                            _ pitLocation: String,
+                                            _ shiftInChargeName: String,
+                                            _ geologistName: String,
+                                            _ shift: String,
+                                            _ faceLocation: String,
+                                            _ faceLength: String,
+                                            _ faceArea: String,
+                                            _ faceRockTypes: String,
+                                            _ benchRL: String,
+                                            _ benchHeightWidth: String,
+                                            _ benchAngle: String,
+                                            _ dipdirectionandAngle: String,
+                                            _ thicknessOfOre: String,
+                                            _ thicknessOfOverburden :String,
+                                            _ thicknessOfInterBurden :String,
+                                            _ observedGradeOfOre :String,
+                                            _ sampleCollected :String,
+                                            _ actualGradOfOre:String,
+                                            _ weathering :String,
+                                            _ rockStrength :String,
+                                            _ waterCondition :String,
+                                            _ typeOfGeologicalStructures :String,
+                                            _ typeOfFaults :String,
+                                            _ notes : String,
+                                            _ geologistSign :UIImage,
+                                            _ clientsGeologistSign :UIImage,
+                                            _ imageDraw : UIImage,
+                                            _ completionBlock : (Bool)->Void?){
         // Add
         let tableViewAttributes = OpenCastMappingReportDataTable(context: CoreDataManager.shared.context)
         
+        tableViewAttributes.userId = userId
         tableViewAttributes.iD = Int64(OpenCastMappingReportDataTable.nextAvailble())
         tableViewAttributes.ocDate = ocDate
         tableViewAttributes.mappingSheetNo = mappingSheetNo
@@ -100,7 +102,7 @@ class OpenCastMappingReportDataModel : NSObject{
             
             fetchUserData.forEach({print($0.mappingSheetNo)})
             
-            self.arrOpenCastMappingReportData = fetchUserData
+            self.arrOpenCastMappingReportData = fetchUserData.filter{$0.userId == JSON(UserModelClass.current.userId as Any).stringValue}
             
             completionBlock(true)
                         

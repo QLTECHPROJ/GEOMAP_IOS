@@ -216,13 +216,24 @@ extension UserListPopUpVC : UITableViewDelegate, UITableViewDataSource {
             aVC.firstButtonTitle = kYes
             aVC.secondButtonTitle = kNo
             aVC.modalPresentationStyle = .overFullScreen
-            aVC.delegate = self
             
             self.present(aVC, animated: false, completion :{
                 aVC.openPopUpVisiable()
             })
             
             
+            aVC.didCompletion = { isOK in
+                if isOK{
+                    if checkInternet(true) == false {
+                        return
+                    }
+                    
+                    let logoutVM = LogoutViewModel()
+                    logoutVM.callLogoutAPI(completion: { success in
+       
+                    })
+                }
+            }
             break
         }
     }
@@ -234,21 +245,3 @@ extension UserListPopUpVC : UITableViewDelegate, UITableViewDataSource {
 }
 
 
-// MARK: - AlertPopUpVCDelegate
-extension UserListPopUpVC : AlertPopUpVCDelegate {
-    
-    func handleAction(sender: UIButton, popUpTag: Int) {
-        if sender.tag == 0 {
-            if checkInternet(true) == false {
-                return
-            }
-                        
-            let logoutVM = LogoutViewModel()
-            logoutVM.callLogoutAPI(completion: { success in
-//                APPDELEGATE.logout()
-            })
-         
-        }
-    }
-    
-}

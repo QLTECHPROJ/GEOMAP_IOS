@@ -76,7 +76,7 @@ class UploadUnderMappingImagesVC: ClearNaviagtionBarVC {
         
         self.btnAdd.setTitle(kAdd, for: .normal)
         self.btnClearDraw.setTitle(kClear, for: .normal)
-       
+        
         
         self.buttonEnableDisable()
     }
@@ -84,7 +84,7 @@ class UploadUnderMappingImagesVC: ClearNaviagtionBarVC {
     func buttonEnableDisable(_ isDrawn : Bool = false){
         self.isDrawStart = isDrawn
         self.btnAdd.isSelect = isDrawn
-       
+        
         switch self.drawingType {
             
         case DrawingType.roof.rawValue:
@@ -96,7 +96,7 @@ class UploadUnderMappingImagesVC: ClearNaviagtionBarVC {
         case DrawingType.left.rawValue:
             
             self.title = kLEFT
-           
+            
             self.btnAdd.setTitle(kAdd, for: .normal)
             break
             
@@ -120,7 +120,7 @@ class UploadUnderMappingImagesVC: ClearNaviagtionBarVC {
     //----------------------------------------------------------------------------
     //MARK: - Action Methods
     //----------------------------------------------------------------------------
-   
+    
     @IBAction func btnBackTapped(_ sender : Any){
         
         if self.drawingType == DrawingType.roof.rawValue{
@@ -173,8 +173,8 @@ class UploadUnderMappingImagesVC: ClearNaviagtionBarVC {
                 break
                 
             default:
-//                self.stackView.isHidden = true
-
+                //                self.stackView.isHidden = true
+                
                 var rootImg = UIImage()
                 var leftImg = UIImage()
                 var rightImg = UIImage()
@@ -262,8 +262,8 @@ class UploadUnderMappingImagesVC: ClearNaviagtionBarVC {
     
 }
 
-    
-    
+
+
 
 //--------------------------------------------------------------------------------------
 // MARK: - SignaturePadDelegate Methods
@@ -272,7 +272,7 @@ extension UploadUnderMappingImagesVC : SignaturePadDelegate{
     
     func didStart() {
         
-//        self.buttonEnableDisable()
+        //        self.buttonEnableDisable()
     }
     
     func didFinish() {
@@ -300,7 +300,7 @@ extension UploadUnderMappingImagesVC{
             
             var arrOfDict : [[String:Any]] = [[String:Any]]()
             let _ = self.underGroundMappingDetail["attributes"].arrayValue.compactMap({ obj in
-
+                
                 var dict = [String:Any]()
                 dict["name"] = obj["name"].stringValue
                 dict["nose"]  = obj["nose"].stringValue
@@ -345,7 +345,25 @@ extension UploadUnderMappingImagesVC{
             }
         }
         else{
-            UnderGroundMappingReportDataModel.shared.insertUnderGroundMappingReportData(self.underGroundMappingDetail["iD"].stringValue, self.underGroundMappingDetail["mapSerialNo"].stringValue,self.underGroundMappingDetail["name"].stringValue, self.underGroundMappingDetail["ugDate"].stringValue, self.underGroundMappingDetail["shift"].stringValue, self.underGroundMappingDetail["mappedBy"].stringValue, self.underGroundMappingDetail["scale"].stringValue, self.underGroundMappingDetail["locations"].stringValue, self.underGroundMappingDetail["veinOrLoad"].stringValue, self.underGroundMappingDetail["xCoordinate"].stringValue, self.underGroundMappingDetail["yCoordinate"].stringValue, self.underGroundMappingDetail["zCoordinate"].stringValue, self.underGroundMappingDetail["attributes"].arrayValue, rootImage, leftImage, rightImage, faceImage,self.underGroundMappingDetail["comment"].stringValue) { completion in
+            UnderGroundMappingReportDataModel.shared.insertUnderGroundMappingReportData(JSON(UserModelClass.current.userId as Any).stringValue,
+                                                                                        self.underGroundMappingDetail["iD"].stringValue,
+                                                                                        self.underGroundMappingDetail["mapSerialNo"].stringValue,
+                                                                                        self.underGroundMappingDetail["name"].stringValue,
+                                                                                        self.underGroundMappingDetail["ugDate"].stringValue,
+                                                                                        self.underGroundMappingDetail["shift"].stringValue,
+                                                                                        self.underGroundMappingDetail["mappedBy"].stringValue,
+                                                                                        self.underGroundMappingDetail["scale"].stringValue,
+                                                                                        self.underGroundMappingDetail["locations"].stringValue,
+                                                                                        self.underGroundMappingDetail["veinOrLoad"].stringValue,
+                                                                                        self.underGroundMappingDetail["xCoordinate"].stringValue,
+                                                                                        self.underGroundMappingDetail["yCoordinate"].stringValue,
+                                                                                        self.underGroundMappingDetail["zCoordinate"].stringValue,
+                                                                                        self.underGroundMappingDetail["attributes"].arrayValue,
+                                                                                        rootImage,
+                                                                                        leftImage,
+                                                                                        rightImage,
+                                                                                        faceImage,
+                                                                                        self.underGroundMappingDetail["comment"].stringValue) { completion in
                 
                 if completion{
                     
