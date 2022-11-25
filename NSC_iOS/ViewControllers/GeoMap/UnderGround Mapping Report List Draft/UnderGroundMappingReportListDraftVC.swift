@@ -143,6 +143,7 @@ extension UnderGroundMappingReportListDraftVC: UITableViewDelegate, UITableViewD
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withClass: UnderGroundMappingReportDraftTableviewCell.self)
         cell.configureCellUnderGroundMappingReportData(self.viewModel.cellForRowAtInTableviewList(indexPath))
+       
         return cell
     }
     

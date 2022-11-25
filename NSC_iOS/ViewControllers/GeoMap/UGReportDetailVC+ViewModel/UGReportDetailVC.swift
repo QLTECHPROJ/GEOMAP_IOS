@@ -13,8 +13,14 @@ import EVReflection
 class UGReportDetailVC: ClearNaviagtionBarVC {
     
     // MARK: - OUTLETS
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var lblAttribute : UILabel!
     
+    @IBOutlet weak var tblView : UITableView!
+    
+    @IBOutlet weak var tblViewHeight: NSLayoutConstraint!
+    
+    @IBOutlet weak var tblAttribute : UITableView!
+    @IBOutlet weak var tblAttributeHeight: NSLayoutConstraint!
     
     @IBOutlet weak var lblTitle: UILabel!
     
@@ -68,21 +74,9 @@ class UGReportDetailVC: ClearNaviagtionBarVC {
         [
             "key" : kZCoordinateColn,
             "value" : ""
-        ],
-        [
-            "key" : kAttributesColn,
-            "value" : ""
-        ],
-        [
-            "key" : kNosColn,
-            "value" : ""
-        ],
-        [
-            "key" : kPropertiesColn,
-            "value" : ""
         ]
     ]
-    
+    private var arrAttribute : [JSON] = []
     var underGroundDetail : JSON = .null
     
     // MARK: - VIEW LIFE CYCLE
@@ -95,7 +89,6 @@ class UGReportDetailVC: ClearNaviagtionBarVC {
     
     // MARK: - FUNCTIONS
     func setupUI() {
-        self.tableView.register(nibWithCellClass: ContactCell.self)
         
         self.lblTitle.applyLabelStyle(text: kUndergroundsMappingReportDetails,fontSize :  20,fontName : .InterBold)
         self.lblTitle.adjustsFontSizeToFitWidth = true
@@ -104,8 +97,32 @@ class UGReportDetailVC: ClearNaviagtionBarVC {
         self.btnViewPDF.isSelect = false
         self.btnViewPDF.setTitle(kViewPDF, for: .normal)
         
+        self.lblAttribute.applyLabelStyle(text: kAttributesColn,fontSize :  12,fontName : .InterMedium,textColor: .colorTextPlaceHolderGray)
+        
+        self.tblView.register(nibWithCellClass: ContactCell.self)
+        self.tblView.isScrollEnabled = false
+        self.tblAttribute.register(nibWithCellClass: AttributesDataTblCell.self)
+        self.tblAttribute.isScrollEnabled = false
+        self.tblView.addObserver(self, forKeyPath: "contentSize", options: [.new ], context: nil)
+        self.tblAttribute.addObserver(self, forKeyPath: "contentSize", options: [.new ], context: nil)
+        
         self.apiCallForDetail()
     }
+    
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        if keyPath == "contentSize", let newSize = change?[.newKey] as? CGSize {
+            
+            if let tblView = object as? UITableView{
+                if tblView == self.tblView {
+                    self.tblViewHeight.constant = newSize.height
+                }
+                if tblView == self.tblAttribute {
+                    self.tblAttributeHeight.constant = newSize.height
+                }
+            }
+        }
+    }
+    
     
     func apiCallForDetail(){
         let parameters = APIParametersModel()
@@ -140,14 +157,23 @@ extension UGReportDetailVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return self.arrReportDetails.count
+        return tableView == self.tblView ? self.arrReportDetails.count : self.arrAttribute.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withClass: ContactCell.self)
-        cell.configureDataInCell(self.arrReportDetails[indexPath.row])
-        return cell
+        if tableView == self.tblView{
+            let cell = tableView.dequeueReusableCell(withClass: ContactCell.self)
+            cell.configureDataInCell(self.arrReportDetails[indexPath.row])
+            return cell
+        }
+        else{
+            
+            let cell = tableView.dequeueReusableCell(withClass: AttributesDataTblCell.self)
+            cell.configuredCell(with: self.arrAttribute[indexPath.row])
+            cell.btnDelete.isHidden = true
+            return cell
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -197,24 +223,10 @@ extension UGReportDetailVC {
             if self.arrReportDetails[i]["key"].stringValue == kZCoordinateColn{
                 self.arrReportDetails[i]["value"].stringValue = reportData["zCordinate"].stringValue
             }
-            if self.arrReportDetails[i]["key"].stringValue == kAttributesColn{
-                self.arrReportDetails[i]["value"].stringValue = reportData["attribute"].compactMap({ (_ , Obj) -> String in
-                    return Obj["name"].stringValue
-                }).joined(separator: ",")
-                
-            }
-            if self.arrReportDetails[i]["key"].stringValue == kNosColn{
-                self.arrReportDetails[i]["value"].stringValue = reportData["attribute"].compactMap({ (_ , Obj) -> String in
-                    return Obj["nose"].stringValue
-                }).joined(separator: ",")
-            }
-            if self.arrReportDetails[i]["key"].stringValue == kPropertiesColn{
-                self.arrReportDetails[i]["value"].stringValue = reportData["attribute"].compactMap({ (_ , Obj) -> String in
-                    print(Obj["properties"])
-                    return Obj["properties"].stringValue
-                }).joined(separator: ",")
-            }
         }
-        self.tableView.reloadData()
+        self.arrAttribute = reportData["attribute"].arrayValue
+//        self.lblAttribute.isHidden = reportData["attribute"].arrayValue.isEmpty
+        self.tblView.reloadData()
+        self.tblAttribute.reloadData()
     }
 }

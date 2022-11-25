@@ -23,14 +23,14 @@
                 <rect key="frame" x="0.0" y="0.0" width="375" height="210"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="QeM-M3-uVe">
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="QeM-M3-uVe">
                         <rect key="frame" x="0.0" y="8" width="375" height="194"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hv0-jf-Neu">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="15"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="Contact Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3nW-QA-TQL">
-                                        <rect key="frame" x="15" y="0.0" width="345" height="15"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contact Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3nW-QA-TQL">
+                                        <rect key="frame" x="15" y="0.0" width="345" height="50"/>
                                         <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="12"/>
                                         <color key="textColor" name="8D8B97"/>
                                         <nil key="highlightedColor"/>
@@ -44,18 +44,11 @@
                                     <constraint firstItem="3nW-QA-TQL" firstAttribute="top" secondItem="hv0-jf-Neu" secondAttribute="top" id="zMd-NO-DFW"/>
                                 </constraints>
                             </view>
-                            <tableView contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="ORo-aZ-Gwj">
-                                <rect key="frame" x="0.0" y="20" width="375" height="139.5"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="139.5" id="L4l-lf-njQ"/>
-                                </constraints>
-                            </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CFx-EE-nxt">
-                                <rect key="frame" x="0.0" y="164.5" width="375" height="29.5"/>
+                                <rect key="frame" x="0.0" y="144" width="375" height="50"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contact Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uFZ-Ku-Qoe">
-                                        <rect key="frame" x="15" y="0.0" width="345" height="29.5"/>
+                                        <rect key="frame" x="15" y="0.0" width="345" height="50"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="16"/>
                                         <color key="textColor" name="textColor"/>
@@ -85,8 +78,6 @@
             <connections>
                 <outlet property="lblSubtitle" destination="uFZ-Ku-Qoe" id="fPL-eh-yD4"/>
                 <outlet property="lblTitle" destination="3nW-QA-TQL" id="Z0D-4B-LFK"/>
-                <outlet property="tblView" destination="ORo-aZ-Gwj" id="H0Q-GO-bjE"/>
-                <outlet property="tblViewHeight" destination="L4l-lf-njQ" id="5K7-E5-ZkK"/>
             </connections>
             <point key="canvasLocation" x="136.95652173913044" y="63.616071428571423"/>
         </tableViewCell>

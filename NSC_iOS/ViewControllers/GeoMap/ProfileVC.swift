@@ -7,6 +7,7 @@
 
 import UIKit
 import SDWebImage
+import AVFoundation
 
 class ProfileVC: ClearNaviagtionBarVC {
     
@@ -71,6 +72,61 @@ class ProfileVC: ClearNaviagtionBarVC {
         let tapGestureToChooseProfile2 = UITapGestureRecognizer(target: self, action: #selector(self.selectProfilePicture(_:)))
         self.imgCamara.isUserInteractionEnabled = true
         self.imgCamara.addGestureRecognizer(tapGestureToChooseProfile2)
+    }
+    
+    func checkCameraAccess() {
+        let cameraAuthorizationStatus = AVCaptureDevice.authorizationStatus(for: .video)
+        
+        switch cameraAuthorizationStatus {
+        case .notDetermined:
+            requestCameraPermission()
+            
+        case .authorized:
+            presentCamera()
+            
+        case .restricted, .denied:
+            alertCameraAccessNeeded()
+        default:
+            break
+        }
+    }
+    
+    func requestCameraPermission() {
+        AVCaptureDevice.requestAccess(for: .video, completionHandler: {accessGranted in
+            guard accessGranted == true else { return }
+            self.presentCamera()
+        })
+    }
+    
+    func presentCamera() {
+        
+        DispatchQueue.main.async {
+            if UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.camera) {
+                let picker = UIImagePickerController()
+                picker.sourceType = .camera
+                picker.delegate = self
+                picker.allowsEditing = true
+                self.present(picker, animated: true, completion: nil)
+            } else {
+                GFunctions.shared.showSnackBar(message: kCameraIsNotAvailable)
+            }
+        }
+    }
+    
+    func alertCameraAccessNeeded() {
+    
+        let alertController = UIAlertController(title: kNeedCameraAccess, message: kPleaseEnableCamera, preferredStyle: UIAlertController.Style.alert)
+        let setting = UIAlertAction(title: kGotoSetting, style: UIAlertAction.Style.default, handler: { (UIAlertAction) in
+            UIApplication.shared.open(UIApplication.openSettingsURLString.url(), options: [:], completionHandler: nil)
+        })
+        let close = UIAlertAction(title: kClose, style: UIAlertAction.Style.default, handler: { (UIAlertAction) in
+            
+        })
+        alertController.addAction(setting)
+        alertController.addAction(close)
+        DispatchQueue.main.async {
+            UIApplication.shared.keyWindow?.rootViewController!.present(alertController, animated: true, completion: nil)
+        }
     }
     
     func setupData() {
@@ -158,17 +214,9 @@ class ProfileVC: ClearNaviagtionBarVC {
     func handleImageOptions(buttonTitle : String) {
         switch buttonTitle {
         case kTakeAPhoto:
-            DispatchQueue.main.async {
-                if UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.camera) {
-                    let picker = UIImagePickerController()
-                    picker.sourceType = .camera
-                    picker.delegate = self
-                    picker.allowsEditing = true
-                    self.present(picker, animated: true, completion: nil)
-                } else {
-                    GFunctions.shared.showSnackBar(message: kCameraIsNotAvailable)
-                }
-            }
+     
+                self.checkCameraAccess()
+            
         case kChooseFromGallary:
             DispatchQueue.main.async {
                 let picker = UIImagePickerController()

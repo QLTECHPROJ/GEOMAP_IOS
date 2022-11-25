@@ -367,3 +367,8 @@ var kGotoSetting = "Go to Settings"
 var kNameColn = "Name:"
 
 var kDeleteAttributesPermissionAlert = "Are you sure you want to delete?"
+
+var kNeedCameraAccess = "Need Camera Access"
+
+
+var kPleaseEnableCamera = "Camera access is required to make full use of this app."

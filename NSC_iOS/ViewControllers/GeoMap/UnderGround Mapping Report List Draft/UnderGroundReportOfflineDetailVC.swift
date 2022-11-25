@@ -10,16 +10,24 @@ class UnderGroundReportOfflineDetailVC : ClearNaviagtionBarVC {
     //MARK: - UIControl's Outlets
     //----------------------------------------------------------------------------
     @IBOutlet weak var lblTitle : UILabel!
-   
+    
+    @IBOutlet weak var lblAttribute : UILabel!
+    
     @IBOutlet weak var tblView : UITableView!
+    
+    @IBOutlet weak var tblViewHeight: NSLayoutConstraint!
+    
+    @IBOutlet weak var tblAttribute : UITableView!
+    @IBOutlet weak var tblAttributeHeight: NSLayoutConstraint!
+    
     
     //----------------------------------------------------------------------------
     //MARK: - Class Variables
     //----------------------------------------------------------------------------
-
-    var reportData = UnderGroundMappingReportDataTable()
     
-   private var arrReportDetails : [JSON] = [
+    var reportData = UnderGroundMappingReportDataTable()
+    private var arrAttribute : [JSON] = []
+    private var arrReportDetails : [JSON] = [
         [
             "key" : kMapSerialNo,
             "value" : ""
@@ -59,15 +67,10 @@ class UnderGroundReportOfflineDetailVC : ClearNaviagtionBarVC {
         [
             "key" : kZCoordinateColn,
             "value" : ""
-        ],
-        [
-            "key" : kAttributesColn,
-            "type" : kAttributes,
-            "value" : ""
         ]
     ]
     
-   
+    
     
     //----------------------------------------------------------------------------
     //MARK: - Memory management
@@ -78,7 +81,12 @@ class UnderGroundReportOfflineDetailVC : ClearNaviagtionBarVC {
     }
     
     deinit {
-        
+        if let _ = self.tblView {
+            self.tblView.removeObserver(self, forKeyPath: "contentSize")
+        }
+        if let _ = self.tblAttribute {
+            self.tblAttribute.removeObserver(self, forKeyPath: "contentSize")
+        }
     }
     
     //----------------------------------------------------------------------------
@@ -96,17 +104,35 @@ class UnderGroundReportOfflineDetailVC : ClearNaviagtionBarVC {
     
     func configureUI(){
         self.view.backgroundColor = .colorBGSkyBlueLight
-       
+        
         self.lblTitle.applyLabelStyle(isAdjustFontWidth : true,text: kUndergroundsMappingReportDetails,fontSize :  16,fontName : .InterBold)
-        self.tblView.register(nibWithCellClass: ContactCell.self)
-        self.tblView.register(nibWithCellClass: AttributesDataTblCell.self)
+        self.lblAttribute.applyLabelStyle(text: kAttributesColn,fontSize :  12,fontName : .InterMedium,textColor: .colorTextPlaceHolderGray)
+        
         self.setDraftDetail(self.reportData)
         
+        self.tblView.register(nibWithCellClass: ContactCell.self)
+        self.tblView.isScrollEnabled = false
+        self.tblAttribute.register(nibWithCellClass: AttributesDataTblCell.self)
+        self.tblAttribute.isScrollEnabled = false
+        self.tblView.addObserver(self, forKeyPath: "contentSize", options: [.new ], context: nil)
+        self.tblAttribute.addObserver(self, forKeyPath: "contentSize", options: [.new ], context: nil)
+    }
+    
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        if keyPath == "contentSize", let newSize = change?[.newKey] as? CGSize {
+            
+            if let tblView = object as? UITableView{
+                if tblView == self.tblView {
+                    self.tblViewHeight.constant = newSize.height
+                }
+                if tblView == self.tblAttribute {
+                    self.tblAttributeHeight.constant = newSize.height
+                }
+            }
+        }
     }
     
     
-    
-   
     //----------------------------------------------------------------------------
     //MARK: - Action Methods
     //----------------------------------------------------------------------------
@@ -116,7 +142,7 @@ class UnderGroundReportOfflineDetailVC : ClearNaviagtionBarVC {
     @IBAction func btnBackTapped(_ sender : Any){
         self.navigationController?.popViewController(animated: true)
     }
-   
+    
     
     //----------------------------------------------------------------------------
     //MARK: - View life cycle
@@ -164,20 +190,30 @@ extension UnderGroundReportOfflineDetailVC: UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return self.arrReportDetails.count
+        return tableView == self.tblView ? self.arrReportDetails.count : self.arrAttribute.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withClass: ContactCell.self)
-        cell.configureDataInCell(self.arrReportDetails[indexPath.row])
-        return cell
+        if tableView == self.tblView{
+            let cell = tableView.dequeueReusableCell(withClass: ContactCell.self)
+            cell.configureDataInCell(self.arrReportDetails[indexPath.row])
+            return cell
+        }
+        else{
+            
+            let cell = tableView.dequeueReusableCell(withClass: AttributesDataTblCell.self)
+            cell.configuredCell(with: self.arrAttribute[indexPath.row])
+            cell.btnDelete.isHidden = true
+            return cell
+        }
+        
     }
     
-    /*
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableView.automaticDimension
-    }*/
+    
+    //    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    //        return UITableView.automaticDimension
+    //    }
 }
 
 //----------------------------------------------------------------------------
@@ -186,7 +222,7 @@ extension UnderGroundReportOfflineDetailVC: UITableViewDelegate, UITableViewData
 extension UnderGroundReportOfflineDetailVC {
     
     func setDraftDetail(_ reportData : UnderGroundMappingReportDataTable){
-    
+        
         for (i, _) in self.arrReportDetails.enumerated(){
             if self.arrReportDetails[i]["key"].stringValue == kMapSerialNo{
                 self.arrReportDetails[i]["value"].stringValue = JSON(reportData.mapSerialNo as Any).stringValue
@@ -218,25 +254,19 @@ extension UnderGroundReportOfflineDetailVC {
             if self.arrReportDetails[i]["key"].stringValue == kZCoordinateColn{
                 self.arrReportDetails[i]["value"].stringValue = JSON(reportData.zCoordinate as Any).stringValue
             }
-    
-            if self.arrReportDetails[i]["key"].stringValue == kAttributesColn{
-                
-                var arrAttributes : [JSON] = []
-                
-                if let array = reportData.attributeUndergroundMapping,let nosArray = array.allObjects as? [AttributeUndergroundMappingTable]{
-                    for nosData in nosArray{
-                        debugPrint(nosData)
-                        arrAttributes.append([
-                                       "name" : JSON(nosData.name as Any).stringValue,
-                                       "nose" : JSON(nosData.nose as Any).stringValue,
-                                       "properties" : JSON(nosData.properties as Any).stringValue])
-                        
-                        
-                    }
-                }
-                self.arrReportDetails[i]["value"].arrayObject = arrAttributes
+            
+        }
+        
+        if let array = reportData.attributeUndergroundMapping,let nosArray = array.allObjects as? [AttributeUndergroundMappingTable]{
+            for nosData in nosArray{
+                debugPrint(nosData)
+                self.arrAttribute.append([
+                    "name" : JSON(nosData.name as Any).stringValue,
+                    "nose" : JSON(nosData.nose as Any).stringValue,
+                    "properties" : JSON(nosData.properties as Any).stringValue])
             }
         }
         self.tblView.reloadData()
+        self.tblAttribute.reloadData()
     }
 }
