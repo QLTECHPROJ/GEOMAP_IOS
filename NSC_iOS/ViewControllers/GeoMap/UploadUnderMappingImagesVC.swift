@@ -327,7 +327,7 @@ extension UploadUnderMappingImagesVC{
                 "leftImage" : leftImageObj.name,
                 "roofImage" : rootImageObj.name,
                 "userId" : JSON(UserModelClass.current.userId as Any).stringValue,
-                "attribute" : arrOfDict.toJSON()
+                "attribute" : arrOfDict.toJSON()!
             ]
             
             debugPrint(dictionary)
@@ -345,6 +345,7 @@ extension UploadUnderMappingImagesVC{
             }
         }
         else{
+            
             UnderGroundMappingReportDataModel.shared.insertUnderGroundMappingReportData(JSON(UserModelClass.current.userId as Any).stringValue,
                                                                                         self.underGroundMappingDetail["iD"].stringValue,
                                                                                         self.underGroundMappingDetail["mapSerialNo"].stringValue,

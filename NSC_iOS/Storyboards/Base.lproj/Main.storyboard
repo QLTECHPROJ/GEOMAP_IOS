@@ -1360,6 +1360,7 @@ Mapping Report Details</string>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u7h-40-t90">
+                                    <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
@@ -1721,58 +1722,58 @@ been missed!</string>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="K92-yp-VUA">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="20"/>
+                            <rect key="frame" x="0.0" y="0.0" width="399" height="20.666666666666668"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="myb-f2-Y14">
-                                    <rect key="frame" x="0.0" y="0.0" width="41.666666666666664" height="20"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="46.333333333333336" height="20.666666666666668"/>
                                     <fontDescription key="fontDescription" name="Inter-Black" family="Inter" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kNj-Cy-hgj">
-                                    <rect key="frame" x="41.666666666666671" y="0.0" width="41.666666666666671" height="20"/>
+                                    <rect key="frame" x="46.333333333333329" y="0.0" width="45.333333333333329" height="20.666666666666668"/>
                                     <fontDescription key="fontDescription" name="Inter-Bold" family="Inter" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KEG-qm-LvR">
-                                    <rect key="frame" x="83.333333333333329" y="0.0" width="41.666666666666671" height="20"/>
+                                    <rect key="frame" x="91.666666666666671" y="0.0" width="45.666666666666671" height="20.666666666666668"/>
                                     <fontDescription key="fontDescription" name="Inter-ExtraBold" family="Inter" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3lM-2f-xSy">
-                                    <rect key="frame" x="125.00000000000001" y="0.0" width="41.666666666666671" height="20"/>
+                                    <rect key="frame" x="137.33333333333334" y="0.0" width="43" height="20.666666666666668"/>
                                     <fontDescription key="fontDescription" name="Inter-ExtraLight" family="Inter" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lWf-D9-9H3">
-                                    <rect key="frame" x="166.66666666666666" y="0.0" width="41.666666666666657" height="20"/>
+                                    <rect key="frame" x="180.33333333333334" y="0.0" width="43.333333333333343" height="20.666666666666668"/>
                                     <fontDescription key="fontDescription" name="Inter-Light" family="Inter" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8q8-Ig-xXW">
-                                    <rect key="frame" x="208.33333333333334" y="0.0" width="41.666666666666657" height="20"/>
+                                    <rect key="frame" x="223.66666666666666" y="0.0" width="44.333333333333343" height="20.666666666666668"/>
                                     <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FOS-eZ-SaI">
-                                    <rect key="frame" x="249.99999999999997" y="0.0" width="41.666666666666657" height="20"/>
+                                    <rect key="frame" x="268" y="0.0" width="43.666666666666686" height="20.666666666666668"/>
                                     <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Cw-Oo-ptX">
-                                    <rect key="frame" x="291.66666666666669" y="0.0" width="41.666666666666686" height="20"/>
+                                    <rect key="frame" x="311.66666666666669" y="0.0" width="44.666666666666686" height="20.666666666666668"/>
                                     <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VeZ-1w-geP">
-                                    <rect key="frame" x="333.33333333333331" y="0.0" width="41.666666666666686" height="20"/>
+                                    <rect key="frame" x="356.33333333333331" y="0.0" width="42.666666666666686" height="20.666666666666668"/>
                                     <fontDescription key="fontDescription" name="Inter-Thin" family="Inter" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
@@ -4295,7 +4296,6 @@ Mapping Report Details</string>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3HE-Qh-ViO">
-                                    <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
@@ -4359,6 +4359,7 @@ Mapping Report Details</string>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S9d-Es-tXn">
+                                    <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
