@@ -1,0 +1,28 @@
+//
+//  SignUpViewModel.swift
+//  Geo_Map
+//
+//  Created by Dhruvit on 05/05/22.
+//
+
+import Foundation
+
+class SignUpViewModel {
+    
+    var userData: LoginDataModel?
+    
+    func callCoachRegisterAPI(parameters : [String:String], completion: @escaping (Bool) -> Void) {
+        APIManager.shared.callAPI(router: APIRouter.coachregister(parameters)) { [weak self] (response : LoginModel?) in
+            if response?.ResponseCode == "200", let responseData = response?.ResponseData {
+                self?.userData = responseData
+                
+                LoginDataModel.currentUser = responseData
+                
+                completion(true)
+            } else {
+                completion(false)
+            }
+        }
+    }
+    
+}

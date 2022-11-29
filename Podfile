@@ -27,21 +27,21 @@ end
 
 
 
-target 'NSC_iOS' do
+target 'Geo_Map' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
   
-  # Pods for NSC_iOS
+  # Pods for Geo_Map
   shared_pods
   
 end
 
 
-target 'NSC_iOS_Staging' do
+target 'Geo_Map_Staging' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
   
-  # Pods for NSC_iOS
+  # Pods for Geo_Map
   shared_pods
   
 end
