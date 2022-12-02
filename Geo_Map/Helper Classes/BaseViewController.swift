@@ -1,6 +1,6 @@
 //
 //  BaseViewController.swift
-//  Geo_Map
+//  NSC_iOS
 //
 //  Created by Dhruvit on 12/08/20.
 //  Copyright © 2020 Dhruvit. All rights reserved.
@@ -97,16 +97,6 @@ class BaseViewController: UIViewController {
     
     @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
         refreshControl.endRefreshing()
-    }
-    
-    /**
-     Fetch Coach Details
-     */
-    func fetchCoachDetails(completion : (() -> Void)? = nil) {
-        let coachDetailVM = CoachDetailViewModel()
-        coachDetailVM.callCoachDetailsAPI { success in
-            self.setupData()
-        }
     }
     
     

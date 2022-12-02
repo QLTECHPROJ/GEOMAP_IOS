@@ -36,7 +36,7 @@ class UnderGroundMappingReportDraftTableviewCell: UITableViewCell {
         
         self.lblTitle.text = JSON(reportData.mapSerialNo as Any).stringValue
         self.lblDate.text = JSON(reportData.ugDate as Any).stringValue
-        self.lblCity.text = JSON(reportData.locations as Any).stringValue
+        self.lblCity.text = JSON(reportData.location as Any).stringValue
         
         let attributedText1: NSMutableAttributedString = NSMutableAttributedString(string: "\(kScaleColnm) \(JSON(reportData.scale as Any).stringValue)")
         attributedText1.setAttributes(color: UIColor.colorTextPlaceHolderGray, forText: kScaleColnm, font: 12, fontname: .InterMedium)

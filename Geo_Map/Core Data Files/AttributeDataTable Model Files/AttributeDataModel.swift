@@ -45,7 +45,6 @@ class AttributeDataModel : NSObject{
             let nosAttribute = Nos(context: CoreDataManager.shared.context)
             nosAttribute.iD = Int64(nosData["id"].stringValue)!
             nosAttribute.name = nosData["name"].stringValue
-            nosAttribute.attributeId = Int64(nosData["attributeId"].stringValue)!
             nosAttribute.createDate = nosData["created_at"].stringValue
             nosAttribute.updateDate = nosData["updated_at"].stringValue
             attributesData.addToNos(nosAttribute)
@@ -62,7 +61,7 @@ class AttributeDataModel : NSObject{
         do {
             let fetchUserData = try CoreDataManager.shared.context.fetch(fetchRequest)
             
-            fetchUserData.forEach({print($0.name)})
+            fetchUserData.forEach({print($0.name as Any)})
             
             self.arrAttributeData = fetchUserData
             

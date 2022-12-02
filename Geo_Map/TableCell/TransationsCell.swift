@@ -1,8 +1,8 @@
 //
 //  TransationsCell.swift
-//  Geo_Map
+//   
 //
-//  Created by Dhruvit on 18/05/22.
+//  Created by   on 18/05/22.
 //
 
 import UIKit

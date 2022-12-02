@@ -1,7 +1,6 @@
 //
 //  WaterConditionDataTable+CoreDataClass.swift
 
-
 import Foundation
 
 

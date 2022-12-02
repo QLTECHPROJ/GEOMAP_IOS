@@ -1,6 +1,6 @@
 //
 //  CommonFunctions.swift
-//  Geo_Map
+//  NSC_iOS
 //
 //  Created by Dhruvit on 12/03/21.
 //  Copyright © 2021 Dhruvit. All rights reserved.

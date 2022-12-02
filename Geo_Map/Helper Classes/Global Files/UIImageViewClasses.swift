@@ -1,6 +1,6 @@
 //
 //  UIImageViewClasses.swift
-//  Geo_Map
+//  NSC_iOS
 //
 //  Created by vishal parmar on 20/10/22.
 //

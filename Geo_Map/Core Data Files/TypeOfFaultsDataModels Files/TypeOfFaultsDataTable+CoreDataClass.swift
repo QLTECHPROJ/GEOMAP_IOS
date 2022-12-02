@@ -1,9 +1,10 @@
 //
 //  TypeOfFaultsDataTable+CoreDataClass.swift
-//
+//  Geo_Map
+
 
 import Foundation
-import CoreData
+
 
 @objc(TypeOfFaultsDataTable)
 public class TypeOfFaultsDataTable: NSManagedObject {

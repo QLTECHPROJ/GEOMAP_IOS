@@ -1,6 +1,6 @@
 //
 //  APIParameters.swift
-//  Geo_Map
+//  NSC_iOS
 //
 //  Created by vishal parmar on 31/10/22.
 //
@@ -79,8 +79,8 @@ class APIParametersModel : NSObject {
     var clientsGeologistSign : String!
     var geologistSign : String!
     var comment : String!
-    
-    
+    var reportType : String!
+
     
     override init() {
         
@@ -179,6 +179,7 @@ class APIParametersModel : NSObject {
         clientsGeologistSign = json["clientsGeologistSign"].stringValue
         geologistSign = json["geologistSign"].stringValue
         comment = json["comment"].stringValue
+        reportType = json["reportType"].stringValue
     }
     
     func toDictionary() -> [String:Any]
@@ -392,6 +393,9 @@ class APIParametersModel : NSObject {
         }
         if comment != nil{
             dictionary["comment"] = comment
+        }
+        if reportType != nil{
+            dictionary["reportType"] = reportType
         }
         return dictionary
     }

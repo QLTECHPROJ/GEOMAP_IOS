@@ -1,6 +1,6 @@
 //
 //  DynamicContents.swift
-//  Geo_Map
+//  NSC_iOS
 //
 //  Created by Dhruvit on 03/05/22.
 //

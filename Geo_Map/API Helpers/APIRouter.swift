@@ -1,6 +1,6 @@
 //
 //  APIRouter.swift
-//  Geo_Map
+//  NSC_iOS
 //
 //  Created by Dhruvit on 28/04/22.
 //
@@ -79,6 +79,8 @@ enum APIRouter : URLRequestConvertible {
     case underground_insert([String:Any])
     
     case open_cast_insert([String:Any])
+    
+    case report_pdf([String:Any])
     
     var route: APIRoute {
         
@@ -216,6 +218,10 @@ enum APIRouter : URLRequestConvertible {
         case .open_cast_insert(let data) :
             
             return APIRoute(path: "open_cast_insert", method: .post, data: data)
+            
+        case .report_pdf(let data) :
+            
+            return APIRoute(path: "report_pdf", method: .post, data: data)
         }
         
     }

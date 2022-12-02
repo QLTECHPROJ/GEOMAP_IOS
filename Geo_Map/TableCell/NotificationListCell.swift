@@ -1,8 +1,8 @@
 //
 //  NotificationListCell.swift
-//  Geo_Map
+//   
 //
-//  Created by Dhruvit on 19/07/22.
+//  Created by   on 19/07/22.
 //
 
 import UIKit

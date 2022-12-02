@@ -1,6 +1,6 @@
 //
 //  AnimationFrames.swift
-//  Geo_Map
+//  NSC_iOS
 //
 //  Created by Dhruvit on 07/11/20.
 //  Copyright © 2020 Dhruvit. All rights reserved.

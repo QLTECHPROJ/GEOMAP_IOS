@@ -49,7 +49,7 @@ class UnderGroundMappingReportDataModel : NSObject{
         tableViewAttributes.shift = shift
         tableViewAttributes.mappedBy = mappedBy
         tableViewAttributes.scale = scale
-        tableViewAttributes.locations = locations
+        tableViewAttributes.location = locations
         tableViewAttributes.veinOrLoad = veinOrLoad
         tableViewAttributes.xCoordinate = xCoordinate
         tableViewAttributes.yCoordinate = yCoordinate

@@ -1,7 +1,11 @@
 # Uncomment the next line to define a global platform for your project
 # platform :ios, '9.0'
 
-def shared_pods
+target 'Geo_Map' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+  
+  # Pods for Geo_Map
   pod 'IQKeyboardManagerSwift'
   pod 'SVProgressHUD'
   pod 'SDWebImage'
@@ -17,31 +21,11 @@ def shared_pods
   pod 'Firebase/Crashlytics'
   pod 'Firebase/Messaging'
   pod 'Firebase/Auth'
-  pod 'ACFloatingTextfield-Swift', '~> 1.7'
+  pod 'ACFloatingTextfield-Swift'
+#  , '~> 1.7'
   
   pod 'SignaturePad'
   
   pod 'DZNEmptyDataSet'
-  
-end
-
-
-
-target 'Geo_Map' do
-  # Comment the next line if you don't want to use dynamic frameworks
-  use_frameworks!
-  
-  # Pods for Geo_Map
-  shared_pods
-  
-end
-
-
-target 'Geo_Map_Staging' do
-  # Comment the next line if you don't want to use dynamic frameworks
-  use_frameworks!
-  
-  # Pods for Geo_Map
-  shared_pods
-  
+  pod 'SwiftyJSON'
 end

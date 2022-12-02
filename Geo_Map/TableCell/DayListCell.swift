@@ -1,8 +1,8 @@
 //
 //  DayListCell.swift
-//  Geo_Map
+//   
 //
-//  Created by Dhruvit on 17/05/22.
+//  Created by   on 17/05/22.
 //
 
 import UIKit

@@ -1,6 +1,6 @@
 //
 //  DeviceDetail.swift
-//  Geo_Map
+//  NSC_iOS
 //
 //  Created by vishal parmar on 31/10/22.
 //

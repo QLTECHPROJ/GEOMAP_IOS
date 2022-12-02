@@ -1,6 +1,6 @@
 //
 //  Genum.swift
-//  Geo_Map
+//  NSC_iOS
 //
 //  Created by vishal parmar on 19/10/22.
 //
@@ -30,7 +30,12 @@ enum Validations {
     
     enum NameLength : Int{
         case Maximum = 32
-        case MAXIMUM_PIN = 4
+        case Minimum = 4
+    }
+    
+    enum UserNameLenght : Int{
+        case Maximum = 32
+        case MAXIMUM_PIN = 3
     }
     
     enum PhoneNo : Int {
@@ -41,16 +46,6 @@ enum Validations {
     enum Password : Int {
         case Minimum = 8
         case Maximum = 16
-    }
-    
-    enum UserNameLenght : Int {
-        case Minimum = 3
-        case Maximum = 16
-    }
-    
-    enum ChatNameLenght : Int {
-        case Minimum = 3
-        case Maximum = 50
     }
     
     enum NameLenght : Int {
@@ -64,25 +59,8 @@ enum Validations {
     }
     
     enum PhoneNumber : Int {
-        case Minimum = 7
-        case Maximum = 12
-    }
-    
-    enum PollLimit : Int {
-
-        case Minimum = 2
-        case Maximum = 4
-    }
-    
-    enum ChatGroupMembersLimit : Int {
-
-        case Minimum = 1
-        case Maximum = 10
-    }
-    
-    enum DescriptionLimit : Int {
-      
-        case Maximum = 200
+        case Minimum = 4//7
+        case Maximum = 15//12
     }
     
     enum RegexType : String {
@@ -173,4 +151,11 @@ enum ScreenHeightResolution : CGFloat {
     case height1112   = 1112   // 10.5-inch iPad Pro
     case height1194   = 1194   // 11.0-inch iPad Pro
     case height1366   = 1366   // 12.9 inch iPad
+}
+
+
+extension Notification.Name {
+    
+    static let reloadUGOCReportList = Notification.Name("reloadUGOCReportList")
+
 }

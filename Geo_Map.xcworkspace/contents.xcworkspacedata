@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:/Users/macmini/Desktop/QLTech_Projects/GEO_MAP_IOS/GEO_MAP_IOS/Geo_Map.xcodeproj">
+      location = "group:Geo_Map.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">

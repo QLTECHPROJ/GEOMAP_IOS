@@ -1,8 +1,7 @@
 //
 //  SampleCollected+CoreDataClass.swift
+//  Geo_Map
 
-//
-//
 
 import Foundation
 

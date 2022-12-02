@@ -1,5 +1,7 @@
 //
 //  TypeOfGeologicalStructuresDataTable+CoreDataClass.swift
+//  Geo_Map
+
 
 import Foundation
 

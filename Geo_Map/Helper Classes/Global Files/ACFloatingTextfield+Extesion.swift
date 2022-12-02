@@ -1,6 +1,6 @@
 //
 //  ACFloatingTextfield+Extesion.swift
-//  Geo_Map
+//  NSC_iOS
 //
 //  Created by vishal parmar on 19/10/22.
 //
@@ -8,8 +8,6 @@
 import Foundation
 import UIKit
 @_exported import ACFloatingTextfield_Swift
-
-
 
 
 var kRegex = "kRegex"
@@ -84,9 +82,9 @@ extension ACFloatingTextfield : UITextFieldDelegate{
         
         self.font = UIFont.applyCustomFont(fontName: fontname, fontSize: fontsize, isAspectRasio: isAspectRatio)
                         
-        self.placeHolderFont = placeHolderFont
+        self.setPlaceholderFont(placeHolderString: "", fontColor: noramlPlaceHolderColor, font: placeHolderFont)
         self.selectedPlaceHolderColor = .colorSkyBlue
-        self.placeHolderColor = noramlPlaceHolderColor
+     
         
         if let placeHolder = placeholderTitle{
             self.placeholder = placeHolder

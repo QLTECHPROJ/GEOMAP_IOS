@@ -1,9 +1,6 @@
 //
 //  BaseClassForrNavigationBar.swift
-//  Geo_Map
-//
-//  Created by vishal parmar on 19/10/22.
-//
+
 
 import Foundation
 import UIKit

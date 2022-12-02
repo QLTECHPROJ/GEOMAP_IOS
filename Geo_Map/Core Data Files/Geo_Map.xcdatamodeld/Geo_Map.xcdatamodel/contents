@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21279" systemVersion="21G115" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="AttributeDataTable" representedClassName="AttributeDataTable" syncable="YES">
+        <attribute name="createDate" optional="YES" attributeType="String"/>
+        <attribute name="iD" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="updateDate" optional="YES" attributeType="String"/>
+        <relationship name="nos" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Nos" inverseName="attributedData" inverseEntity="Nos"/>
+    </entity>
+    <entity name="AttributeUndergroundMappingTable" representedClassName="AttributeUndergroundMappingTable" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="nose" optional="YES" attributeType="String"/>
+        <attribute name="properties" optional="YES" attributeType="String"/>
+        <relationship name="undergroundMappingReport" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="UnderGroundMappingReportDataTable" inverseName="attributeUndergroundMapping" inverseEntity="UnderGroundMappingReportDataTable"/>
+    </entity>
+    <entity name="Nos" representedClassName="Nos" syncable="YES">
+        <attribute name="attributeId" optional="YES" attributeType="String"/>
+        <attribute name="createDate" optional="YES" attributeType="String"/>
+        <attribute name="iD" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="updateDate" optional="YES" attributeType="String"/>
+        <relationship name="attributedData" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="AttributeDataTable" inverseName="nos" inverseEntity="AttributeDataTable"/>
+    </entity>
+    <entity name="OpenCastMappingReportDataTable" representedClassName="OpenCastMappingReportDataTable" syncable="YES">
+        <attribute name="actualGradOfOre" optional="YES" attributeType="String"/>
+        <attribute name="benchAngle" optional="YES" attributeType="String"/>
+        <attribute name="benchHeightWidth" optional="YES" attributeType="String"/>
+        <attribute name="benchRL" optional="YES" attributeType="String"/>
+        <attribute name="clientsGeologistSign" optional="YES" attributeType="Binary"/>
+        <attribute name="dipdirectionandAngle" optional="YES" attributeType="String"/>
+        <attribute name="faceArea" optional="YES" attributeType="String"/>
+        <attribute name="faceLength" optional="YES" attributeType="String"/>
+        <attribute name="faceLocation" optional="YES" attributeType="String"/>
+        <attribute name="faceRockTypes" optional="YES" attributeType="String"/>
+        <attribute name="geologistName" optional="YES" attributeType="String"/>
+        <attribute name="geologistSign" optional="YES" attributeType="Binary"/>
+        <attribute name="iD" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="imagedrawn" optional="YES" attributeType="Binary"/>
+        <attribute name="mappingSheetNo" optional="YES" attributeType="String"/>
+        <attribute name="minesSiteName" optional="YES" attributeType="String"/>
+        <attribute name="notes" optional="YES" attributeType="String"/>
+        <attribute name="observedGradeOfOre" optional="YES" attributeType="String"/>
+        <attribute name="ocDate" optional="YES" attributeType="String"/>
+        <attribute name="pitLocation" optional="YES" attributeType="String"/>
+        <attribute name="pitName" optional="YES" attributeType="String"/>
+        <attribute name="rockStrength" optional="YES" attributeType="String"/>
+        <attribute name="sampleCollected" optional="YES" attributeType="String"/>
+        <attribute name="shift" optional="YES" attributeType="String"/>
+        <attribute name="shiftInChargeName" optional="YES" attributeType="String"/>
+        <attribute name="thicknessOfInterBurden" optional="YES" attributeType="String"/>
+        <attribute name="thicknessOfOre" optional="YES" attributeType="String"/>
+        <attribute name="thicknessOfOverburden" optional="YES" attributeType="String"/>
+        <attribute name="typeOfFaults" optional="YES" attributeType="String"/>
+        <attribute name="typeOfGeologicalStructures" optional="YES" attributeType="String"/>
+        <attribute name="userId" optional="YES" attributeType="String"/>
+        <attribute name="waterCondition" optional="YES" attributeType="String"/>
+        <attribute name="weathering" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="RockStrengthDataTable" representedClassName="RockStrengthDataTable" syncable="YES">
+        <attribute name="createDate" optional="YES" attributeType="String"/>
+        <attribute name="iD" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="updateDate" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="SampleCollected" representedClassName="SampleCollected" syncable="YES">
+        <attribute name="createDate" optional="YES" attributeType="String"/>
+        <attribute name="iD" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="updateDate" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="TypeOfFaultsDataTable" representedClassName="TypeOfFaultsDataTable" syncable="YES">
+        <attribute name="createDate" optional="YES" attributeType="String"/>
+        <attribute name="iD" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="updateDate" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="TypeOfGeologicalStructuresDataTable" representedClassName="TypeOfGeologicalStructuresDataTable" syncable="YES">
+        <attribute name="createDate" optional="YES" attributeType="String"/>
+        <attribute name="iD" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="updateDate" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="UnderGroundMappingReportDataTable" representedClassName="UnderGroundMappingReportDataTable" syncable="YES">
+        <attribute name="comment" optional="YES" attributeType="String"/>
+        <attribute name="faceImage" optional="YES" attributeType="Binary"/>
+        <attribute name="iD" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="leftImage" optional="YES" attributeType="Binary"/>
+        <attribute name="location" optional="YES" attributeType="String"/>
+        <attribute name="mappedBy" optional="YES" attributeType="String"/>
+        <attribute name="mapSerialNo" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="rightImage" optional="YES" attributeType="Binary"/>
+        <attribute name="roofImage" optional="YES" attributeType="Binary"/>
+        <attribute name="scale" optional="YES" attributeType="String"/>
+        <attribute name="shift" optional="YES" attributeType="String"/>
+        <attribute name="ugDate" optional="YES" attributeType="String"/>
+        <attribute name="userId" optional="YES" attributeType="String"/>
+        <attribute name="veinOrLoad" optional="YES" attributeType="String"/>
+        <attribute name="xCoordinate" optional="YES" attributeType="String"/>
+        <attribute name="yCoordinate" optional="YES" attributeType="String"/>
+        <attribute name="zCoordinate" optional="YES" attributeType="String"/>
+        <relationship name="attributeUndergroundMapping" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="AttributeUndergroundMappingTable" inverseName="undergroundMappingReport" inverseEntity="AttributeUndergroundMappingTable"/>
+    </entity>
+    <entity name="WaterConditionDataTable" representedClassName="WaterConditionDataTable" syncable="YES">
+        <attribute name="createDate" optional="YES" attributeType="String"/>
+        <attribute name="iD" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="updateDate" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="WeatheringData" representedClassName="WeatheringData" syncable="YES">
+        <attribute name="createDate" optional="YES" attributeType="String"/>
+        <attribute name="iD" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="updateDate" optional="YES" attributeType="String"/>
+    </entity>
+</model>

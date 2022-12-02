@@ -3,11 +3,11 @@
 
 
 import Foundation
-import CoreData
+
 
 @objc(OpenCastMappingReportDataTable)
 public class OpenCastMappingReportDataTable: NSManagedObject {
-
+    
     static func nextAvailble(_ idKey: String = "iD") -> Int {
         let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: String(describing: self))
         fetchRequest.propertiesToFetch = [idKey]

@@ -3,7 +3,7 @@
 
 
 import Foundation
-
+import UIKit
 
 
 class OpenCastMappingReportDataModel : NSObject{
@@ -86,7 +86,7 @@ class OpenCastMappingReportDataModel : NSObject{
         tableViewAttributes.notes = notes
         tableViewAttributes.geologistSign = geologistSign.jpegData(compressionQuality: 0.5)
         tableViewAttributes.clientsGeologistSign = clientsGeologistSign.jpegData(compressionQuality: 0.5)
-        tableViewAttributes.imagedrawn = imageDraw.jpegData(compressionQuality: 0.5) 
+        tableViewAttributes.imagedrawn = imageDraw.jpegData(compressionQuality: 0.5)
         CoreDataManager.shared.saveContext()
         completionBlock(true)
     }

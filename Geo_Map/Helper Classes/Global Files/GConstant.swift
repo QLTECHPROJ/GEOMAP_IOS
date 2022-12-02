@@ -1,6 +1,6 @@
 //
 //  GConstant.swift
-//  Geo_Map
+//  NSC_iOS
 //
 //  Created by vishal parmar on 19/10/22.
 //
@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 
 
+let API_BASE_URL = "https://admin.qlresources.com.au/geomap/api/v1/"
 
 //MARK: - Screen (Width - Height)
 let kScreenWidth                                =  UIScreen.main.bounds.size.width
@@ -30,4 +31,4 @@ let USERDEFAULTS                       = UserDefaults.standard
 
 let AUTHENTICATION                              = UIStoryboard(name: "Main", bundle: nil)
 
-
+var sharedCache : NSCache<AnyObject, AnyObject> = NSCache()

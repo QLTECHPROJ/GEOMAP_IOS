@@ -1,7 +1,9 @@
 //
 //  OpenCastMappingReportDataTable+CoreDataProperties.swift
 
+
 import Foundation
+
 
 
 extension OpenCastMappingReportDataTable {
@@ -40,8 +42,12 @@ extension OpenCastMappingReportDataTable {
     @NSManaged public var thicknessOfOverburden: String?
     @NSManaged public var typeOfFaults: String?
     @NSManaged public var typeOfGeologicalStructures: String?
+    @NSManaged public var userId: String?
     @NSManaged public var waterCondition: String?
     @NSManaged public var weathering: String?
-    @NSManaged public var userId: String?
+
+}
+
+extension OpenCastMappingReportDataTable : Identifiable {
 
 }

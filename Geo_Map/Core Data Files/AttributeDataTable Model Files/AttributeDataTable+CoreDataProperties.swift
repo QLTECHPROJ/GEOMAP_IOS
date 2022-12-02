@@ -1,10 +1,7 @@
 //
 //  AttributeDataTable+CoreDataProperties.swift
 //  Geo_Map
-//
-//  Created by vishal parmar on 16/11/22.
-//
-//
+
 
 import Foundation
 
@@ -15,10 +12,10 @@ extension AttributeDataTable {
         return NSFetchRequest<AttributeDataTable>(entityName: "AttributeDataTable")
     }
 
-    @NSManaged public var createDate: String?
-    @NSManaged public var iD: Int64
-    @NSManaged public var name: String?
     @NSManaged public var updateDate: String?
+    @NSManaged public var name: String?
+    @NSManaged public var iD: Int64
+    @NSManaged public var createDate: String?
     @NSManaged public var nos: NSSet?
 
 }
@@ -37,5 +34,9 @@ extension AttributeDataTable {
 
     @objc(removeNos:)
     @NSManaged public func removeFromNos(_ values: NSSet)
+
+}
+
+extension AttributeDataTable : Identifiable {
 
 }

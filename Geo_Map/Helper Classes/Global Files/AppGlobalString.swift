@@ -1,6 +1,6 @@
 //
 //  AppGlobalString.swift
-//  Geo_Map
+//  NSC_iOS
 //
 //  Created by vishal parmar on 19/10/22.
 //
@@ -40,13 +40,13 @@ var kSyncData = "Sync Data"
 
 var kEnterValidName = "Name content length must be in either minimum 3 characters or maximum 16 characters"
 
-var kPleaseProvideValidEmailAddress = "Please provide valid email address"
+var kPleaseProvideValidEmailAddress = "Please provide us with a valid email ID"
 
-var kPleaseProvideValidMobileNumber = "Mobile Number content length must be in minimum 7 characters"
+var kPleaseProvideValidMobileNumber = "Mobile Number content length must be in minimum 7 digits"
 
 var kPleaseProvideDOB = "Please provide DOB"
 
-var kAgeLimitAlertMessage = "Please confirm whether you are above 18 years old"
+var kAgeLimitAlertMessage = "You must be 18 years or above in order to access the app"
 
 var kTakeAPhoto = "Take a Photo"
 
@@ -86,7 +86,7 @@ var kLogout = "Logout"
 
 var kOK = "Ok"
 
-var kLogoutPermissionAlertMsg = "Are you sure you want to logout?"
+var kLogoutPermissionAlertMsg = "Are you sure your wish to logout of the app?"
 
 var kClose = "Close"
 
@@ -186,7 +186,7 @@ var kClearGeologistSign = "Clear Geologist Sign"
 
 var kClientGeologistSign = "Client’s Geologist Sign"
 
-var kClearClientGeologistSign = "Client’s Geologist Sign"
+var kClearClientGeologistSign = "Clear Client’s Geologist Sign"
 
 var kSubmit = "Submit"
 
@@ -304,7 +304,7 @@ var kSelectAttributes = "Select Attributes"
 
 var kSelectNos = "Select Nos"
 
-var kEnterMessage = "Enter Message"
+var kEnterMessage = "Message"
 
 var kSubject = "Subject"
 
@@ -316,7 +316,7 @@ var kYes = "Yes"
 
 var kNo = "No"
 
-var kDeleteAccountPermission = "Are you sure you want to delete your account?"
+var kDeleteAccountPermission = "Are you sure you wish to permanently delete your account?"
 
 var kAdd = "Add"
 
@@ -352,7 +352,7 @@ var kNoInternetConnection = "Internet connection seems to be offline."
 
 var kComment = "Comment"
 
-var kAllReportDataAreUploaded = "All Reports data are uploaded..!"
+var kAllDataHasBeenSynchronised = "All data has been synchronised"
 
 var kCameraIsNotAvailable = "Camera is not available on this device."
 
@@ -372,3 +372,15 @@ var kNeedCameraAccess = "Need Camera Access"
 
 
 var kPleaseEnableCamera = "Camera access is required to make full use of this app."
+
+var kWelcomeToTheAppAfterLogin = "Welcome to the Geo Map app"
+
+var kSyncDataWithNoInternetConnection = "Need an active internet connection to synchronise data"
+
+var kNoteColmn = "Note:"
+
+var kAddMultipleAttributesInMappingReportInstrcution = "You can add multiple attributes in the mapping report using the add attribute button"
+
+var kUpdate = "Update"
+
+var kNext = "Next"

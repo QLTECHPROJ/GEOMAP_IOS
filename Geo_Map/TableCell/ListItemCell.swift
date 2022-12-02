@@ -1,9 +1,9 @@
 //
 //  ListItemCell.swift
-//  Geo_Map
+//   
 //
 //  Created by Sapu on 13/08/20.
-//  Copyright © 2020 Dhruvit. All rights reserved.
+//  Copyright © 2020  . All rights reserved.
 //
 
 import UIKit

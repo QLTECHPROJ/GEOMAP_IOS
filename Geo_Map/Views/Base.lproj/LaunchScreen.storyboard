@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="z1s-xf-6LM">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="xNc-Eh-k83">
+            <objects>
+                <viewController id="z1s-xf-6LM" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="KDU-f7-AOJ">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RLg-yU-xgy">
+                                <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Splash" translatesAutoresizingMaskIntoConstraints="NO" id="A78-nL-cyr">
+                                <rect key="frame" x="95" y="322" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="15F-MH-yrM"/>
+                                    <constraint firstAttribute="width" constant="200" id="p6g-Sa-Twl"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="JbS-Yr-gH9"/>
+                        <color key="backgroundColor" red="0.97254901959999995" green="0.98823529409999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="RLg-yU-xgy" firstAttribute="trailing" secondItem="JbS-Yr-gH9" secondAttribute="trailing" id="0Vh-hD-PRj"/>
+                            <constraint firstItem="A78-nL-cyr" firstAttribute="centerY" secondItem="KDU-f7-AOJ" secondAttribute="centerY" id="5r2-ax-QlT"/>
+                            <constraint firstAttribute="bottom" secondItem="RLg-yU-xgy" secondAttribute="bottom" id="8PK-mX-EVS"/>
+                            <constraint firstItem="RLg-yU-xgy" firstAttribute="leading" secondItem="JbS-Yr-gH9" secondAttribute="leading" id="SfJ-Dl-TRc"/>
+                            <constraint firstItem="RLg-yU-xgy" firstAttribute="top" secondItem="KDU-f7-AOJ" secondAttribute="top" id="csk-eq-9i9"/>
+                            <constraint firstItem="A78-nL-cyr" firstAttribute="centerX" secondItem="KDU-f7-AOJ" secondAttribute="centerX" id="w4p-Ru-dp4"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2WU-Jb-xCb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="52.173913043478265" y="375"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Splash" width="201.66667175292969" height="218"/>
+    </resources>
+</document>

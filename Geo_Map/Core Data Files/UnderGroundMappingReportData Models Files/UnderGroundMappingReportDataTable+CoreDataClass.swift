@@ -1,5 +1,6 @@
 //
 //  UnderGroundMappingReportDataTable+CoreDataClass.swift
+//  Geo_Map
 
 
 import Foundation
@@ -8,7 +9,6 @@ import Foundation
 @objc(UnderGroundMappingReportDataTable)
 public class UnderGroundMappingReportDataTable: NSManagedObject {
 
-    
     static func nextAvailble(_ idKey: String = "iD") -> Int {
         let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: String(describing: self))
         fetchRequest.propertiesToFetch = [idKey]
