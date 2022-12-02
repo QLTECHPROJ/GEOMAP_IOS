@@ -1182,12 +1182,13 @@ Data File</string>
                                                             <constraint firstAttribute="bottom" secondItem="gzx-CC-L0x" secondAttribute="bottom" id="oNC-Q9-dEz"/>
                                                         </constraints>
                                                     </view>
-                                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="e0M-UD-Akt">
+                                                    <tableView contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="e0M-UD-Akt">
                                                         <rect key="frame" x="0.0" y="350" width="343" height="321.66666666666674"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="321.66666666666674" id="rNN-oT-hmr"/>
                                                         </constraints>
+                                                        <inset key="separatorInset" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
                                                         <connections>
                                                             <outlet property="dataSource" destination="Mlx-dE-cRm" id="bSm-uk-n9O"/>
                                                             <outlet property="delegate" destination="Mlx-dE-cRm" id="ljU-5I-yhX"/>
@@ -1261,7 +1262,7 @@ Data File</string>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VJ9-Ph-bfA">
-                                    <rect key="frame" x="5" y="0.0" width="169.33333333333334" height="37.333333333333336"/>
+                                    <rect key="frame" x="5" y="0.0" width="181.66666666666666" height="0.0"/>
                                     <string key="text">Undergrounds
 Mapping Report Details</string>
                                     <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="16"/>
@@ -1369,7 +1370,7 @@ Mapping Report Details</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wpf-nz-oqg">
-                                <rect key="frame" x="22" y="194.99999999999997" width="331" height="422.33333333333326"/>
+                                <rect key="frame" x="22" y="193" width="331" height="426"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kuz-b6-no9">
                                         <rect key="frame" x="0.0" y="0.0" width="331" height="230"/>
@@ -1378,19 +1379,19 @@ Mapping Report Details</string>
                                         </constraints>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="BgQ-Bj-DKC">
-                                        <rect key="frame" x="25" y="245.00000000000003" width="281" height="68.333333333333343"/>
+                                        <rect key="frame" x="25" y="245" width="281" height="71"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Geo Map" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YKL-dK-nDO">
-                                                <rect key="frame" x="0.0" y="0.0" width="281" height="21"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="281" height="22"/>
                                                 <fontDescription key="fontDescription" name="Inter-Bold" family="Inter" pointSize="18"/>
                                                 <color key="textColor" name="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="T7w-ax-UKH">
-                                                <rect key="frame" x="0.0" y="31.000000000000004" width="281" height="37.333333333333343"/>
+                                                <rect key="frame" x="0.0" y="32" width="281" height="39"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" text="Please contact support at serotonin@lobsterapp.com.au" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OsK-VS-bCk" customClass="TTTAttributedLabel">
-                                                        <rect key="frame" x="0.0" y="0.0" width="281" height="37.333333333333336"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="281" height="39"/>
                                                         <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="16"/>
                                                         <color key="textColor" name="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -1400,7 +1401,7 @@ Mapping Report Details</string>
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t3J-BG-7fA" customClass="AppThemeBlueButton" customModule="Geo_Map" customModuleProvider="target">
-                                        <rect key="frame" x="109" y="343.33333333333337" width="113" height="49"/>
+                                        <rect key="frame" x="108.66666666666666" y="346" width="114" height="50"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="Inter-Bold" family="Inter" pointSize="16"/>
                                         <inset key="contentEdgeInsets" minX="30" minY="15" maxX="30" maxY="15"/>
@@ -1479,16 +1480,16 @@ Mapping Report Details</string>
                                         </constraints>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="wgi-Zm-BvV">
-                                        <rect key="frame" x="25" y="247.99999999999997" width="325" height="95.666666666666657"/>
+                                        <rect key="frame" x="25" y="248" width="325" height="99"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="Hello Again!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jNp-wZ-heV">
-                                                <rect key="frame" x="0.0" y="0.0" width="325" height="31.666666666666668"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="325" height="33"/>
                                                 <fontDescription key="fontDescription" name="Inter-Bold" family="Inter" pointSize="27"/>
                                                 <color key="textColor" name="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r3A-fM-oqD">
-                                                <rect key="frame" x="0.0" y="46.666666666666686" width="325" height="49"/>
+                                                <rect key="frame" x="0.0" y="48" width="325" height="51"/>
                                                 <string key="text">Wellcome back you’ve
 been missed!</string>
                                                 <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="21"/>
@@ -1498,7 +1499,7 @@ been missed!</string>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="SYu-LM-nxu">
-                                        <rect key="frame" x="25" y="387.66666666666669" width="325" height="135.00000000000006"/>
+                                        <rect key="frame" x="25" y="391" width="325" height="135"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F5m-py-akw" customClass="AppShadowViewClass" customModule="Geo_Map" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="325" height="60"/>
@@ -1544,7 +1545,7 @@ been missed!</string>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N4s-qG-Iwt" customClass="AppShadowViewClass" customModule="Geo_Map" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="74.999999999999943" width="325" height="60"/>
+                                                <rect key="frame" x="0.0" y="75" width="325" height="60"/>
                                                 <subviews>
                                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jRP-7R-DvZ">
                                                         <rect key="frame" x="15" y="19" width="22" height="22"/>
@@ -1612,7 +1613,7 @@ been missed!</string>
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZaW-NV-Cid">
-                                        <rect key="frame" x="190" y="530.66666666666663" width="160" height="34.333333333333371"/>
+                                        <rect key="frame" x="190" y="534" width="160" height="34.333333333333371"/>
                                         <inset key="contentEdgeInsets" minX="10" minY="20" maxX="10" maxY="20"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Forgot password?">
@@ -1623,7 +1624,7 @@ been missed!</string>
                                         </connections>
                                     </button>
                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U8T-UE-5qF" customClass="AppThemeBlueButton" customModule="Geo_Map" customModuleProvider="target">
-                                        <rect key="frame" x="25" y="602" width="325" height="60"/>
+                                        <rect key="frame" x="25" y="605.33333333333337" width="325" height="60"/>
                                         <color key="backgroundColor" name="theme_dark"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="U8T-UE-5qF" secondAttribute="height" multiplier="65:12" id="6NJ-IH-Pn6"/>
@@ -1695,58 +1696,58 @@ been missed!</string>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="K92-yp-VUA">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="20"/>
+                            <rect key="frame" x="0.0" y="0.0" width="399" height="20.666666666666668"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="myb-f2-Y14">
-                                    <rect key="frame" x="0.0" y="0.0" width="41.666666666666664" height="20"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="46.333333333333336" height="20.666666666666668"/>
                                     <fontDescription key="fontDescription" name="Inter-Black" family="Inter" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kNj-Cy-hgj">
-                                    <rect key="frame" x="41.666666666666671" y="0.0" width="41.666666666666671" height="20"/>
+                                    <rect key="frame" x="46.333333333333329" y="0.0" width="45.333333333333329" height="20.666666666666668"/>
                                     <fontDescription key="fontDescription" name="Inter-Bold" family="Inter" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KEG-qm-LvR">
-                                    <rect key="frame" x="83.333333333333329" y="0.0" width="41.666666666666671" height="20"/>
+                                    <rect key="frame" x="91.666666666666671" y="0.0" width="45.666666666666671" height="20.666666666666668"/>
                                     <fontDescription key="fontDescription" name="Inter-ExtraBold" family="Inter" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3lM-2f-xSy">
-                                    <rect key="frame" x="125.00000000000001" y="0.0" width="41.666666666666671" height="20"/>
+                                    <rect key="frame" x="137.33333333333334" y="0.0" width="43" height="20.666666666666668"/>
                                     <fontDescription key="fontDescription" name="Inter-ExtraLight" family="Inter" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lWf-D9-9H3">
-                                    <rect key="frame" x="166.66666666666666" y="0.0" width="41.666666666666657" height="20"/>
+                                    <rect key="frame" x="180.33333333333334" y="0.0" width="43.333333333333343" height="20.666666666666668"/>
                                     <fontDescription key="fontDescription" name="Inter-Light" family="Inter" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8q8-Ig-xXW">
-                                    <rect key="frame" x="208.33333333333334" y="0.0" width="41.666666666666657" height="20"/>
+                                    <rect key="frame" x="223.66666666666666" y="0.0" width="44.333333333333343" height="20.666666666666668"/>
                                     <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FOS-eZ-SaI">
-                                    <rect key="frame" x="249.99999999999997" y="0.0" width="41.666666666666657" height="20"/>
+                                    <rect key="frame" x="268" y="0.0" width="43.666666666666686" height="20.666666666666668"/>
                                     <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Cw-Oo-ptX">
-                                    <rect key="frame" x="291.66666666666669" y="0.0" width="41.666666666666686" height="20"/>
+                                    <rect key="frame" x="311.66666666666669" y="0.0" width="44.666666666666686" height="20.666666666666668"/>
                                     <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VeZ-1w-geP">
-                                    <rect key="frame" x="333.33333333333331" y="0.0" width="41.666666666666686" height="20"/>
+                                    <rect key="frame" x="356.33333333333331" y="0.0" width="42.666666666666686" height="20.666666666666668"/>
                                     <fontDescription key="fontDescription" name="Inter-Thin" family="Inter" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
@@ -2286,7 +2287,7 @@ been missed!</string>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a3r-tw-0S8" customClass="AppShadowViewClass" customModule="Geo_Map" customModuleProvider="target">
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a3r-tw-0S8">
                                                                 <rect key="frame" x="0.0" y="40.333333333333286" width="325" height="459.66666666666674"/>
                                                                 <subviews>
                                                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Kdr-XQ-lSX">
@@ -2295,13 +2296,14 @@ been missed!</string>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="459.66666666666669" id="dHQ-kL-nOH"/>
                                                                         </constraints>
+                                                                        <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <connections>
                                                                             <outlet property="dataSource" destination="DHs-tN-aCv" id="kDp-yy-JQq"/>
                                                                             <outlet property="delegate" destination="DHs-tN-aCv" id="1DP-cM-Ggo"/>
                                                                         </connections>
                                                                     </tableView>
                                                                 </subviews>
-                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="trailing" secondItem="Kdr-XQ-lSX" secondAttribute="trailing" id="0Jc-Zc-OUM"/>
                                                                     <constraint firstItem="Kdr-XQ-lSX" firstAttribute="leading" secondItem="a3r-tw-0S8" secondAttribute="leading" id="S2u-6j-Li5"/>
@@ -3574,8 +3576,18 @@ been missed!</string>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="2uw-ml-MvE">
                                         <rect key="frame" x="0.0" y="0.0" width="325" height="60.333333333333336"/>
                                         <subviews>
-                                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sOa-0r-qDL" customClass="AppThemeBlueButton" customModule="Geo_Map" customModuleProvider="target">
+                                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uTB-bZ-cMh" customClass="AppThemeBorderBlueButton" customModule="Geo_Map" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="152.66666666666666" height="60.333333333333336"/>
+                                                <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="16"/>
+                                                <state key="normal" title="Submit">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="btnClearDrawTapped:" destination="Hp5-jU-OcN" eventType="touchUpInside" id="nXK-fa-IwX"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sOa-0r-qDL" customClass="AppThemeBlueButton" customModule="Geo_Map" customModuleProvider="target">
+                                                <rect key="frame" x="172.66666666666663" y="0.0" width="152.33333333333337" height="60.333333333333336"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="sOa-0r-qDL" secondAttribute="height" multiplier="38:15" id="n45-hi-w6K"/>
                                                 </constraints>
@@ -3585,16 +3597,6 @@ been missed!</string>
                                                 </state>
                                                 <connections>
                                                     <action selector="btnAddDrawTapped:" destination="Hp5-jU-OcN" eventType="touchUpInside" id="4iS-bW-9ud"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uTB-bZ-cMh" customClass="AppThemeBorderBlueButton" customModule="Geo_Map" customModuleProvider="target">
-                                                <rect key="frame" x="172.66666666666663" y="0.0" width="152.33333333333337" height="60.333333333333336"/>
-                                                <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="16"/>
-                                                <state key="normal" title="Submit">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="btnClearDrawTapped:" destination="Hp5-jU-OcN" eventType="touchUpInside" id="nXK-fa-IwX"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -3716,7 +3718,7 @@ been missed!</string>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dSt-f6-fHF">
-                                    <rect key="frame" x="5" y="0.0" width="169.33333333333334" height="37.333333333333336"/>
+                                    <rect key="frame" x="5" y="0.0" width="181.66666666666666" height="39"/>
                                     <string key="text">Undergrounds
 Mapping Report Details</string>
                                     <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="16"/>
@@ -4189,8 +4191,18 @@ Mapping Report Details</string>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="alt-ir-KYR">
                                         <rect key="frame" x="0.0" y="0.0" width="325" height="60.333333333333336"/>
                                         <subviews>
-                                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jqm-iG-099" customClass="AppThemeBlueButton" customModule="Geo_Map" customModuleProvider="target">
+                                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IcL-Qj-C1e" customClass="AppThemeBorderBlueButton" customModule="Geo_Map" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="152.66666666666666" height="60.333333333333336"/>
+                                                <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="16"/>
+                                                <state key="normal" title="Submit">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="btnClearDrawTapped:" destination="f5j-1L-OZt" eventType="touchUpInside" id="Q3E-1Q-zXs"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jqm-iG-099" customClass="AppThemeBlueButton" customModule="Geo_Map" customModuleProvider="target">
+                                                <rect key="frame" x="172.66666666666663" y="0.0" width="152.33333333333337" height="60.333333333333336"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="Jqm-iG-099" secondAttribute="height" multiplier="38:15" id="EBY-Ea-NUs"/>
                                                 </constraints>
@@ -4200,16 +4212,6 @@ Mapping Report Details</string>
                                                 </state>
                                                 <connections>
                                                     <action selector="btnSubmitTapped:" destination="f5j-1L-OZt" eventType="touchUpInside" id="bYu-xX-ZoA"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IcL-Qj-C1e" customClass="AppThemeBorderBlueButton" customModule="Geo_Map" customModuleProvider="target">
-                                                <rect key="frame" x="172.66666666666663" y="0.0" width="152.33333333333337" height="60.333333333333336"/>
-                                                <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="16"/>
-                                                <state key="normal" title="Submit">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="btnClearDrawTapped:" destination="f5j-1L-OZt" eventType="touchUpInside" id="Q3E-1Q-zXs"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -4701,7 +4703,7 @@ QXJlIHlvdSBzdXJlIHlvdSB3YW50IHRvIGRlbGV0ZQtTZWxmLWRldmVsb3BtZW50IHBsYXlsaXN0Pw
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CfL-57-5ai">
-                                    <rect key="frame" x="5" y="0.0" width="169.33333333333334" height="37.333333333333336"/>
+                                    <rect key="frame" x="5" y="0.0" width="181.66666666666666" height="39"/>
                                     <string key="text">Undergrounds
 Mapping Report Details</string>
                                     <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="16"/>
@@ -4777,12 +4779,13 @@ Mapping Report Details</string>
                                                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Tzq-bS-vbS" secondAttribute="trailing" constant="15" id="qEn-H1-ahQ"/>
                                                         </constraints>
                                                     </view>
-                                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="iz8-lr-roT">
+                                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="iz8-lr-roT">
                                                         <rect key="frame" x="0.0" y="350" width="343" height="321.66666666666674"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="321.66666666666674" id="X7C-y0-Tbm"/>
                                                         </constraints>
+                                                        <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
                                                         <connections>
                                                             <outlet property="dataSource" destination="sAu-iU-HX3" id="xiI-gn-E9q"/>
                                                         </connections>
@@ -4829,7 +4832,7 @@ Mapping Report Details</string>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r2q-Bg-2F5">
-                                    <rect key="frame" x="5" y="0.0" width="169.33333333333334" height="37.333333333333336"/>
+                                    <rect key="frame" x="5" y="0.0" width="181.66666666666666" height="39"/>
                                     <string key="text">Undergrounds
 Mapping Report Details</string>
                                     <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="16"/>
@@ -4866,124 +4869,124 @@ Mapping Report Details</string>
     </scenes>
     <designables>
         <designable name="0RR-xW-3Qh">
-            <size key="intrinsicContentSize" width="82" height="20.333333333333332"/>
+            <size key="intrinsicContentSize" width="89" height="21.333333333333332"/>
         </designable>
         <designable name="0u1-ba-A6l">
-            <size key="intrinsicContentSize" width="203.66666666666666" height="20.333333333333332"/>
+            <size key="intrinsicContentSize" width="225.66666666666666" height="21.333333333333332"/>
         </designable>
         <designable name="1RZ-xL-Qv4">
             <size key="intrinsicContentSize" width="62.333333333333336" height="17"/>
         </designable>
         <designable name="2hj-Oa-dfL">
-            <size key="intrinsicContentSize" width="81.333333333333329" height="20.333333333333332"/>
+            <size key="intrinsicContentSize" width="88.333333333333329" height="21.333333333333332"/>
         </designable>
         <designable name="2rW-7C-Qb1">
-            <size key="intrinsicContentSize" width="101.66666666666667" height="20.333333333333332"/>
+            <size key="intrinsicContentSize" width="108.33333333333333" height="21.333333333333332"/>
         </designable>
         <designable name="8k5-RY-G7a">
-            <size key="intrinsicContentSize" width="91" height="20.333333333333332"/>
+            <size key="intrinsicContentSize" width="98" height="21.333333333333332"/>
         </designable>
         <designable name="8sK-sK-mev">
-            <size key="intrinsicContentSize" width="143" height="20.333333333333332"/>
+            <size key="intrinsicContentSize" width="155.33333333333334" height="21.333333333333332"/>
         </designable>
         <designable name="8xx-W6-hB3">
-            <size key="intrinsicContentSize" width="81.333333333333329" height="20.333333333333332"/>
+            <size key="intrinsicContentSize" width="87" height="21.333333333333332"/>
         </designable>
         <designable name="BhG-DT-qrp">
-            <size key="intrinsicContentSize" width="66" height="20.333333333333332"/>
+            <size key="intrinsicContentSize" width="69.666666666666671" height="21.333333333333332"/>
         </designable>
         <designable name="CBV-Bu-WoK">
-            <size key="intrinsicContentSize" width="139" height="20.333333333333332"/>
+            <size key="intrinsicContentSize" width="147.33333333333334" height="21.333333333333332"/>
         </designable>
         <designable name="Fet-Xf-g7n">
-            <size key="intrinsicContentSize" width="230.66666666666666" height="20.333333333333332"/>
+            <size key="intrinsicContentSize" width="248.33333333333334" height="21.333333333333332"/>
         </designable>
         <designable name="Hq0-l8-hif">
-            <size key="intrinsicContentSize" width="122" height="20.333333333333332"/>
+            <size key="intrinsicContentSize" width="129.66666666666666" height="21.333333333333332"/>
         </designable>
         <designable name="Ibw-tb-H3g">
-            <size key="intrinsicContentSize" width="81.666666666666671" height="20.333333333333332"/>
+            <size key="intrinsicContentSize" width="86.333333333333329" height="21.333333333333332"/>
         </designable>
         <designable name="JJt-Vh-8wt">
-            <size key="intrinsicContentSize" width="184.66666666666666" height="20.333333333333332"/>
+            <size key="intrinsicContentSize" width="200.33333333333334" height="21.333333333333332"/>
         </designable>
         <designable name="Jth-1u-f6g">
-            <size key="intrinsicContentSize" width="167.33333333333334" height="20.333333333333332"/>
+            <size key="intrinsicContentSize" width="180.66666666666666" height="21.333333333333332"/>
         </designable>
         <designable name="NNm-bz-MfJ">
-            <size key="intrinsicContentSize" width="101.33333333333333" height="20.333333333333332"/>
+            <size key="intrinsicContentSize" width="108" height="21.333333333333332"/>
         </designable>
         <designable name="OsK-VS-bCk">
-            <size key="intrinsicContentSize" width="402.33333333333331" height="18.666666666666668"/>
+            <size key="intrinsicContentSize" width="438" height="20"/>
         </designable>
         <designable name="Sxp-yQ-PJp">
-            <size key="intrinsicContentSize" width="120.33333333333333" height="20.333333333333332"/>
+            <size key="intrinsicContentSize" width="127.33333333333333" height="21.333333333333332"/>
         </designable>
         <designable name="Txh-vo-rb3">
             <size key="intrinsicContentSize" width="38" height="18.666666666666668"/>
         </designable>
         <designable name="Waz-w8-Ffc">
-            <size key="intrinsicContentSize" width="115.33333333333333" height="20.333333333333332"/>
+            <size key="intrinsicContentSize" width="123.33333333333333" height="21.333333333333332"/>
         </designable>
         <designable name="XQM-L6-Sk9">
-            <size key="intrinsicContentSize" width="107.33333333333333" height="20.333333333333332"/>
+            <size key="intrinsicContentSize" width="118.33333333333333" height="21.333333333333332"/>
         </designable>
         <designable name="dFE-fM-rS1">
-            <size key="intrinsicContentSize" width="70.333333333333329" height="20.333333333333332"/>
+            <size key="intrinsicContentSize" width="72.333333333333329" height="21.333333333333332"/>
         </designable>
         <designable name="dRS-9q-vFW">
-            <size key="intrinsicContentSize" width="42.666666666666664" height="20.333333333333332"/>
+            <size key="intrinsicContentSize" width="45" height="21.333333333333332"/>
         </designable>
         <designable name="ehu-LB-T7M">
-            <size key="intrinsicContentSize" width="48.333333333333336" height="20.333333333333332"/>
+            <size key="intrinsicContentSize" width="52.333333333333336" height="21.333333333333332"/>
         </designable>
         <designable name="fXX-1o-iQM">
-            <size key="intrinsicContentSize" width="81.333333333333329" height="20.333333333333332"/>
+            <size key="intrinsicContentSize" width="88.666666666666671" height="21.333333333333332"/>
         </designable>
         <designable name="i87-nE-NFP">
-            <size key="intrinsicContentSize" width="40" height="20.333333333333332"/>
+            <size key="intrinsicContentSize" width="42.666666666666664" height="21.333333333333332"/>
         </designable>
         <designable name="j0d-Mk-JPR">
-            <size key="intrinsicContentSize" width="62" height="20.333333333333332"/>
+            <size key="intrinsicContentSize" width="67" height="21.333333333333332"/>
         </designable>
         <designable name="jYB-2J-yAx">
-            <size key="intrinsicContentSize" width="34.666666666666664" height="20.333333333333332"/>
+            <size key="intrinsicContentSize" width="34.666666666666664" height="21.333333333333332"/>
         </designable>
         <designable name="rwI-IC-q1g">
-            <size key="intrinsicContentSize" width="39.333333333333336" height="20.333333333333332"/>
+            <size key="intrinsicContentSize" width="41.666666666666664" height="21.333333333333332"/>
         </designable>
         <designable name="srq-oO-YbT">
-            <size key="intrinsicContentSize" width="101.33333333333333" height="20.333333333333332"/>
+            <size key="intrinsicContentSize" width="108" height="21.333333333333332"/>
         </designable>
         <designable name="tPt-eP-irI">
-            <size key="intrinsicContentSize" width="164" height="20.333333333333332"/>
+            <size key="intrinsicContentSize" width="176" height="21.333333333333332"/>
         </designable>
         <designable name="u05-7d-LPj">
-            <size key="intrinsicContentSize" width="115.66666666666667" height="20.333333333333332"/>
+            <size key="intrinsicContentSize" width="123" height="21.333333333333332"/>
         </designable>
         <designable name="uT5-6A-YxA">
-            <size key="intrinsicContentSize" width="209" height="20.333333333333332"/>
+            <size key="intrinsicContentSize" width="227.66666666666666" height="21.333333333333332"/>
         </designable>
         <designable name="uWv-f3-oTW">
-            <size key="intrinsicContentSize" width="66.333333333333329" height="20.333333333333332"/>
+            <size key="intrinsicContentSize" width="73.333333333333329" height="21.333333333333332"/>
         </designable>
         <designable name="vw1-1F-EDN">
-            <size key="intrinsicContentSize" width="186" height="20.333333333333332"/>
+            <size key="intrinsicContentSize" width="205.33333333333334" height="21.333333333333332"/>
         </designable>
         <designable name="xCO-ao-Mt8">
-            <size key="intrinsicContentSize" width="96.666666666666671" height="20.333333333333332"/>
+            <size key="intrinsicContentSize" width="104.66666666666667" height="21.333333333333332"/>
         </designable>
         <designable name="yMz-FU-OLr">
-            <size key="intrinsicContentSize" width="101.66666666666667" height="20.333333333333332"/>
+            <size key="intrinsicContentSize" width="108.33333333333333" height="21.333333333333332"/>
         </designable>
         <designable name="ySP-kX-zpu">
-            <size key="intrinsicContentSize" width="84.666666666666671" height="20.333333333333332"/>
+            <size key="intrinsicContentSize" width="90.333333333333329" height="21.333333333333332"/>
         </designable>
         <designable name="z2e-e4-9I2">
-            <size key="intrinsicContentSize" width="85.666666666666671" height="20.333333333333332"/>
+            <size key="intrinsicContentSize" width="91.666666666666671" height="21.333333333333332"/>
         </designable>
         <designable name="zfE-fX-Wsh">
-            <size key="intrinsicContentSize" width="81.333333333333329" height="20.333333333333332"/>
+            <size key="intrinsicContentSize" width="87" height="21.333333333333332"/>
         </designable>
     </designables>
     <resources>

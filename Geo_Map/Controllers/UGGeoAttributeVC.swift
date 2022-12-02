@@ -1,6 +1,9 @@
 //
 //  PersonalDetailsVC.swift
-
+//  NSC_iOS
+//
+//  Created by Dhruvit on 06/05/22.
+//
 
 import UIKit
 import IQKeyboardManagerSwift
@@ -96,10 +99,10 @@ class UGGeoAttributeVC: ClearNaviagtionBarVC {
         }
         
         self.otherActions()
-        self.setupData()
+        self.setEmptyField()
         self.buttonEnableDisable()
         self.setDataOnTableView()
-        self.tblAttributes.register(nibWithCellClass: AttributesDataTblCell.self)
+        self.tblAttributes.register(nibWithCellClass: AttributeNewListTblCell.self)
         self.tblAttributes.addObserver(self, forKeyPath: "contentSize", options: [.new ], context: nil)
     }
     
@@ -110,10 +113,14 @@ class UGGeoAttributeVC: ClearNaviagtionBarVC {
         }
     }
     
-    func setupData() {
+    
+    func setEmptyField(){
         
         self.lblMineralization.text = kSelectAttributes
         self.lblMineralizationNos.text = kSelectNos
+        self.lblMineralization.textColor = self.lblMineralization.text != kSelectAttributes ? UIColor.colorTextBlack : .colorTextPlaceHolderGray
+        self.lblMineralizationNos.textColor = self.lblMineralizationNos.text != kSelectNos ? UIColor.colorTextBlack : .colorTextPlaceHolderGray
+        self.tvAddDescription.text = ""
     }
     
     func setDataOnTableView(){
@@ -150,10 +157,7 @@ class UGGeoAttributeVC: ClearNaviagtionBarVC {
         self.arrAddedAttributes.append(["name" : JSON(self.lblMineralization.text as Any).stringValue, "nose" : JSON(self.lblMineralizationNos.text as Any).stringValue, "properties" : JSON(self.tvAddDescription.text as Any).stringValue])
         
         
-        self.lblMineralization.text = kSelectAttributes
-        self.lblMineralizationNos.text = kSelectNos
-        self.tvAddDescription.text = ""
-        
+        self.setEmptyField()
         self.buttonEnableDisable()
         self.setDataOnTableView()
     }
@@ -165,7 +169,9 @@ class UGGeoAttributeVC: ClearNaviagtionBarVC {
         if self.lblMineralization.text != kSelectAttributes && self.lblMineralizationNos.text != kSelectNos && !self.tvAddDescription.text.isEmpty{
             self.arrAddedAttributes.append(["name" : JSON(self.lblMineralization.text as Any).stringValue, "nose" : JSON(self.lblMineralizationNos.text as Any).stringValue, "properties" : JSON(self.tvAddDescription.text as Any).stringValue])
         }
-        
+        self.setEmptyField()
+        self.setDataOnTableView()
+        self.buttonEnableDisable()
         let vc = AppStoryBoard.main.viewController(viewControllerClass: UGGeoAttributeVC2.self)
         vc.arrAddedAttributes = self.arrAddedAttributes
         self.navigationController?.pushViewController(vc, animated: true)
@@ -186,7 +192,9 @@ class UGGeoAttributeVC: ClearNaviagtionBarVC {
             vc.didSelectItem = { selectedItem in
                 
                 self.lblMineralization.text = selectedItem["name"].stringValue
+                self.lblMineralization.textColor = .colorTextBlack
                 self.lblMineralizationNos.text = kSelectNos
+                self.lblMineralizationNos.textColor = .colorTextPlaceHolderGray
                 print(selectedItem)
                 self.arrAttributeNos = selectedItem["nos"].arrayValue
                 self.buttonEnableDisable()
@@ -209,6 +217,7 @@ class UGGeoAttributeVC: ClearNaviagtionBarVC {
                 
                 print(selectedItem)
                 self.lblMineralizationNos.text = selectedItem["name"].stringValue
+                self.lblMineralizationNos.textColor = .colorTextBlack
                 self.buttonEnableDisable()
             }
         }
@@ -236,7 +245,8 @@ extension UGGeoAttributeVC : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withClass: AttributesDataTblCell.self)
+        let cell = tableView.dequeueReusableCell(withClass: AttributeNewListTblCell.self)
+        
         cell.configuredCell(with:self.arrAddedAttributes[indexPath.row])
         
         cell.btnDelete.tag = indexPath.row

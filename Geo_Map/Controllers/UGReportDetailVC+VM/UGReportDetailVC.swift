@@ -195,6 +195,7 @@ extension UGReportDetailVC: UITableViewDelegate, UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withClass: AttributesDataTblCell.self)
             cell.configuredCell(with: self.arrAttribute[indexPath.row])
             cell.btnDelete.isHidden = true
+            cell.lblNameLeadingConstraint.constant = 15
             return cell
         }
     }

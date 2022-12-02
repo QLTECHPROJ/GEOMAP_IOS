@@ -204,6 +204,7 @@ extension UnderGroundReportOfflineDetailVC: UITableViewDelegate, UITableViewData
             
             let cell = tableView.dequeueReusableCell(withClass: AttributesDataTblCell.self)
             cell.configuredCell(with: self.arrAttribute[indexPath.row])
+            cell.lblNameLeadingConstraint.constant = 15
             cell.btnDelete.isHidden = true
             return cell
         }

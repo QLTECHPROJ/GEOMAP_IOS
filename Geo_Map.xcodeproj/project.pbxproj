@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1216B8862939D29A008B2B52 /* AttributeNewListTblCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1216B8852939D29A008B2B52 /* AttributeNewListTblCell.swift */; };
+		1216B8882939D316008B2B52 /* AttributeNewListTblCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1216B8872939D316008B2B52 /* AttributeNewListTblCell.xib */; };
 		123C64992938B54200CB5734 /* LogoutModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123C64982938B54200CB5734 /* LogoutModel.swift */; };
 		123C649B2938B58500CB5734 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123C649A2938B58500CB5734 /* Date+Extension.swift */; };
 		123C649F2938B64C00CB5734 /* WWCalendarTimeSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123C649D2938B64C00CB5734 /* WWCalendarTimeSelector.swift */; };
@@ -199,6 +201,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1216B8852939D29A008B2B52 /* AttributeNewListTblCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributeNewListTblCell.swift; sourceTree = "<group>"; };
+		1216B8872939D316008B2B52 /* AttributeNewListTblCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AttributeNewListTblCell.xib; sourceTree = "<group>"; };
 		123C64982938B54200CB5734 /* LogoutModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutModel.swift; sourceTree = "<group>"; };
 		123C649A2938B58500CB5734 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		123C649D2938B64C00CB5734 /* WWCalendarTimeSelector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WWCalendarTimeSelector.swift; sourceTree = "<group>"; };
@@ -708,6 +712,8 @@
 			children = (
 				12D30878293888030073AB90 /* ApplyForCampCell.swift */,
 				12D30871293888030073AB90 /* ApplyForCampCell.xib */,
+				1216B8852939D29A008B2B52 /* AttributeNewListTblCell.swift */,
+				1216B8872939D316008B2B52 /* AttributeNewListTblCell.xib */,
 				12D30874293888030073AB90 /* AttributesDataTblCell.swift */,
 				12D30876293888030073AB90 /* AttributesDataTblCell.xib */,
 				12D30875293888030073AB90 /* CampDayFeesCell.swift */,
@@ -1012,6 +1018,7 @@
 				12D3092329388B130073AB90 /* Inter-Medium.ttf in Resources */,
 				12D3092429388B130073AB90 /* Inter-ExtraLight.ttf in Resources */,
 				12D3088D293888040073AB90 /* ApplyForCampCell.xib in Resources */,
+				1216B8882939D316008B2B52 /* AttributeNewListTblCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1208,6 +1215,7 @@
 				12D3083B293884200073AB90 /* UGGeoAttributeVC.swift in Sources */,
 				12D308B92938889E0073AB90 /* DJReachability.swift in Sources */,
 				12D3092C29388D8B0073AB90 /* UploaddataModel.swift in Sources */,
+				1216B8862939D29A008B2B52 /* AttributeNewListTblCell.swift in Sources */,
 				12D3082F293883990073AB90 /* DescriptionPopupVC.swift in Sources */,
 				12D307FC29387F3B0073AB90 /* UnderGroundMappingReportDataTable+CoreDataProperties.swift in Sources */,
 				12D3080329387F3B0073AB90 /* OpenCastMappingReportDataTable+CoreDataClass.swift in Sources */,
