@@ -75,11 +75,19 @@ class UGGeoAttributeVC: ClearNaviagtionBarVC {
         self.title = kGeologicalAttributes
         
         let attributedScale: NSMutableAttributedString = NSMutableAttributedString(string: "\(kNoteColmn) \(kAddMultipleAttributesInMappingReportInstrcution)")
-        attributedScale.setAttributes(color: UIColor.colorTextBlack, forText: kNoteColmn, font: 12, fontname: .InterSemibol)
-        attributedScale.setAttributes(color: UIColor.colorTextBlack, forText: kAddMultipleAttributesInMappingReportInstrcution, font: 12, fontname: .InterMedium)
+        attributedScale.setAttributes(color: UIColor.colorTextBlack, forText: kNoteColmn, font: 10, fontname: .InterBold)
+        attributedScale.setAttributes(color: UIColor.colorTextBlack, forText: kAddMultipleAttributesInMappingReportInstrcution, font: 10, fontname: .InterItalic)
         self.lblInstruction.attributedText = attributedScale
         
+        /*
+        let defaultFontAttribute = [NSAttributedString.Key.foregroundColor: UIColor.colorTextBlack ,NSAttributedString.Key.font: UIFont.italicSystemFont(ofSize: 13 * kFontAspectRatio)]
+        let blueFontAttribute = [NSAttributedString.Key.foregroundColor: UIColor.colorTextPlaceHolderGray,NSAttributedString.Key.font: UIFont.italicSystemFont(ofSize: 13 * kFontAspectRatio)/*,NSAttributedString.Key.underlineColor: UIColor.colorSkyBlue, NSAttributedString.Key.underlineStyle : NSUnderlineStyle.single.rawValue*/] as [NSAttributedString.Key : Any]
+                
+        self.lblInstruction.text = "\(kNoteColmn) \(kAddMultipleAttributesInMappingReportInstrcution)"
+        self.lblInstruction.attributedText = (self.lblInstruction.text)?.getAttributedText(defaultDic: defaultFontAttribute, attributeDic: blueFontAttribute, attributedStrings: [kAddMultipleAttributesInMappingReportInstrcution])
         
+        self.lblInstruction.lineSpacing(lineSpacing: 10.0, alignment: self.lblInstruction.textAlignment)
+        */
         self.lblAttributes.applyLabelStyle(text : kAttributes,fontSize : 14,fontName : .InterSemibol)
         
         self.lblNos.applyLabelStyle(text : kNos,fontSize : 14,fontName : .InterSemibol)

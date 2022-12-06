@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1216B8862939D29A008B2B52 /* AttributeNewListTblCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1216B8852939D29A008B2B52 /* AttributeNewListTblCell.swift */; };
 		1216B8882939D316008B2B52 /* AttributeNewListTblCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1216B8872939D316008B2B52 /* AttributeNewListTblCell.xib */; };
+		122EF089293F3BFA00B23284 /* Inter-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 122EF088293F3BFA00B23284 /* Inter-Italic.otf */; };
 		123C64992938B54200CB5734 /* LogoutModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123C64982938B54200CB5734 /* LogoutModel.swift */; };
 		123C649B2938B58500CB5734 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123C649A2938B58500CB5734 /* Date+Extension.swift */; };
 		123C649F2938B64C00CB5734 /* WWCalendarTimeSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123C649D2938B64C00CB5734 /* WWCalendarTimeSelector.swift */; };
@@ -203,6 +204,7 @@
 /* Begin PBXFileReference section */
 		1216B8852939D29A008B2B52 /* AttributeNewListTblCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributeNewListTblCell.swift; sourceTree = "<group>"; };
 		1216B8872939D316008B2B52 /* AttributeNewListTblCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AttributeNewListTblCell.xib; sourceTree = "<group>"; };
+		122EF088293F3BFA00B23284 /* Inter-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Italic.otf"; sourceTree = "<group>"; };
 		123C64982938B54200CB5734 /* LogoutModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutModel.swift; sourceTree = "<group>"; };
 		123C649A2938B58500CB5734 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		123C649D2938B64C00CB5734 /* WWCalendarTimeSelector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WWCalendarTimeSelector.swift; sourceTree = "<group>"; };
@@ -874,6 +876,7 @@
 				12D3091C29388B130073AB90 /* Inter-Bold.ttf */,
 				12D3091D29388B130073AB90 /* Inter-ExtraBold.ttf */,
 				12D3091B29388B130073AB90 /* Inter-ExtraLight.ttf */,
+				122EF088293F3BFA00B23284 /* Inter-Italic.otf */,
 				12D3091929388B130073AB90 /* Inter-Light.ttf */,
 				12D3091A29388B130073AB90 /* Inter-Medium.ttf */,
 				12D3091629388B130073AB90 /* Inter-Regular.ttf */,
@@ -990,6 +993,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				122EF089293F3BFA00B23284 /* Inter-Italic.otf in Resources */,
 				12D3089C293888040073AB90 /* CampDayFeesCell.xib in Resources */,
 				128285D7293735B8005AF777 /* LaunchScreen.storyboard in Resources */,
 				12D30892293888040073AB90 /* AttributesDataTblCell.xib in Resources */,

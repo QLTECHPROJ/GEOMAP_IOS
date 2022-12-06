@@ -103,6 +103,7 @@ class HomeVC: ClearNaviagtionBarVC {
             if completion, let data = responseJson{
                 debugPrint(data)
                 
+                
                 self.tableView.reloadData()
             }
             else if let _ = message{
@@ -140,15 +141,15 @@ extension HomeVC : DZNEmptyDataSetDelegate, DZNEmptyDataSetSource{
         return true
     }
     
-//    func title(forEmptyDataSet scrollView: UIScrollView) -> NSAttributedString {
-//
-//        let text = self.emptyMessage
-//        let attributes = [NSAttributedString.Key.font: UIFont.applyCustomFont(fontName: .InterMedium, fontSize: 13), NSAttributedString.Key.foregroundColor: UIColor.colorTextBlack]
-//        return NSAttributedString(string: text, attributes: attributes)
-//    }
+    func title(forEmptyDataSet scrollView: UIScrollView) -> NSAttributedString {
+
+        let text = checkInternet() ? self.emptyMessage : ""
+        let attributes = [NSAttributedString.Key.font: UIFont.applyCustomFont(fontName: .InterMedium, fontSize: 13), NSAttributedString.Key.foregroundColor: UIColor.colorTextBlack]
+        return NSAttributedString(string: text, attributes: attributes)
+    }
     
     func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
-        return UIImage(named: "offline_page")!
+        return !checkInternet() ? UIImage(named: "offline_page")! : UIImage()
     }
 }
 

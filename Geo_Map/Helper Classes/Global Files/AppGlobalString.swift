@@ -10,7 +10,7 @@ import UIKit
 
 var kHelloAgian = "Hello Again!"
 
-var kInstructionTitleLogin  = "Welcome back you’ve been missed!"
+var kInstructionTitleLogin  = "Harnessing the full potential of resource mining"
 
 var kName = "Name"
 
@@ -42,7 +42,7 @@ var kEnterValidName = "Name content length must be in either minimum 3 character
 
 var kPleaseProvideValidEmailAddress = "Please provide us with a valid email ID"
 
-var kPleaseProvideValidMobileNumber = "Mobile Number content length must be in minimum 7 digits"
+var kPleaseProvideValidMobileNumber = "Mobile Number content length must be in minimum 4 digits"
 
 var kPleaseProvideDOB = "Please provide DOB"
 

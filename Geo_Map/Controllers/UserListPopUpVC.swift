@@ -120,6 +120,7 @@ extension UserListPopUpVC : UITableViewDelegate, UITableViewDataSource {
             
         case kUnderGroundReportList:
             
+            guard checkInternet(true) else { return }
             let aVC = AppStoryBoard.main.viewController(viewControllerClass:UGListVC.self)
             aVC.reportListType = .underGroundReport
             self.navigationController?.pushViewController(aVC, animated: true)
@@ -127,7 +128,7 @@ extension UserListPopUpVC : UITableViewDelegate, UITableViewDataSource {
             break
             
         case kOpenCastReportlist:
-            
+            guard checkInternet(true) else { return }
             let aVC = AppStoryBoard.main.viewController(viewControllerClass:UGListVC.self)
             aVC.reportListType = .openCastReport
             self.navigationController?.pushViewController(aVC, animated: true)
@@ -147,7 +148,7 @@ extension UserListPopUpVC : UITableViewDelegate, UITableViewDataSource {
             break
             
         case kEditProfile:
-            
+            guard checkInternet(true) else { return }
             let aVC = AppStoryBoard.main.viewController(viewControllerClass: ProfileVC.self)
             aVC.didCompletion = { completion in
                 
@@ -158,21 +159,21 @@ extension UserListPopUpVC : UITableViewDelegate, UITableViewDataSource {
             break
             
         case kSyncData:
-            
+            guard checkInternet(true) else { return }
             let aVC = AppStoryBoard.main.viewController(viewControllerClass: SyncDataVC.self)
             self.navigationController?.pushViewController(aVC, animated: true)
             
             break
             
         case kFAQs:
-            
+            guard checkInternet(true) else { return }
             let aVC = AppStoryBoard.main.viewController(viewControllerClass: FAQListVC.self)
             self.navigationController?.pushViewController(aVC, animated: true)
             
             break
             
         case kAboutUs:
-            
+            guard checkInternet(true) else { return }
             let vc = AppStoryBoard.main.viewController(viewControllerClass: WebViewVC.self)
             vc.titleString = title
             vc.loadUrl = "https://www.qlresources.com.au/about"
@@ -195,7 +196,7 @@ extension UserListPopUpVC : UITableViewDelegate, UITableViewDataSource {
             break
             
         case kContantUs:
-            
+            guard checkInternet(true) else { return }
             let aVC = AppStoryBoard.main.viewController(viewControllerClass:ContactUSVC.self)
             self.navigationController?.pushViewController(aVC, animated: true)
 

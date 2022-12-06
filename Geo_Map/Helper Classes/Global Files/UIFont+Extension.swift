@@ -13,10 +13,16 @@ enum CustomFont : String {
     
     //MARK: - Inter Font Family
     
-    case InterMedium    = "Inter-Medium"
-    case InterSemibol   = "Inter-SemiBold"
-    case InterBold      = "Inter-Bold"
-    
+    case InterMedium              = "Inter-Medium"
+    case InterSemibol             = "Inter-SemiBold"
+    case InterBold                = "Inter-Bold"
+    case InterRegular             = "Inter-Regular"
+    case InterThin                = "Inter-Thin"
+    case InterExtraLight          = "Inter-ExtraLight"
+    case InterLight               = "Inter-Light"
+    case InterExtraBold           = "Inter-ExtraBold"
+    case InterBlack               = "Inter-Black"
+    case InterItalic              = "Inter-Italic"
 }
 
 extension UIFontDescriptor.AttributeName {

@@ -91,10 +91,10 @@ class ContactUSVC: ClearNaviagtionBarVC {
     
     func setUserData(){
         let userData = UserModelClass.current
-        self.txtName.text = JSON(userData.name as Any).stringValue
-        self.txtEmail.text = JSON(userData.email as Any).stringValue
+//        self.txtName.text = JSON(userData.name as Any).stringValue
+//        self.txtEmail.text = JSON(userData.email as Any).stringValue
 //        self.txtEmail.isUserInteractionEnabled = JSON(userData.email as Any).stringValue.isEmpty
-        self.txtMobileNo.text = JSON(userData.mobile as Any).stringValue
+//        self.txtMobileNo.text = JSON(userData.mobile as Any).stringValue
 //        self.txtMobileNo.isUserInteractionEnabled = JSON(userData.mobile as Any).stringValue.isEmpty
     }
     
