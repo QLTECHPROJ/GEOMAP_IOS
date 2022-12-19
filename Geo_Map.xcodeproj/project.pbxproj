@@ -9,7 +9,9 @@
 /* Begin PBXBuildFile section */
 		1216B8862939D29A008B2B52 /* AttributeNewListTblCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1216B8852939D29A008B2B52 /* AttributeNewListTblCell.swift */; };
 		1216B8882939D316008B2B52 /* AttributeNewListTblCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1216B8872939D316008B2B52 /* AttributeNewListTblCell.xib */; };
+		121A2707294C9D5800CCE01C /* CustomPhotoAlbum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 121A2706294C9D5800CCE01C /* CustomPhotoAlbum.swift */; };
 		122EF089293F3BFA00B23284 /* Inter-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 122EF088293F3BFA00B23284 /* Inter-Italic.otf */; };
+		123B8A68294B4B5B00C0A6EA /* UIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123B8A67294B4B5B00C0A6EA /* UIApplication+Extension.swift */; };
 		123C64992938B54200CB5734 /* LogoutModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123C64982938B54200CB5734 /* LogoutModel.swift */; };
 		123C649B2938B58500CB5734 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123C649A2938B58500CB5734 /* Date+Extension.swift */; };
 		123C649F2938B64C00CB5734 /* WWCalendarTimeSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123C649D2938B64C00CB5734 /* WWCalendarTimeSelector.swift */; };
@@ -21,12 +23,20 @@
 		123C64AC2938B66E00CB5734 /* Duration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123C64A62938B66E00CB5734 /* Duration.swift */; };
 		123C64AD2938B66E00CB5734 /* Int+Timepiece.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123C64A72938B66E00CB5734 /* Int+Timepiece.swift */; };
 		123C64AF2938B6C800CB5734 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 123C64AE2938B6C800CB5734 /* GoogleService-Info.plist */; };
+		125E3480294853A800C76978 /* EditOCGeoAttributeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125E347F294853A800C76978 /* EditOCGeoAttributeVC.swift */; };
+		125E34822948A0FC00C76978 /* EditOpenCastMappingImagesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125E34812948A0FC00C76978 /* EditOpenCastMappingImagesVC.swift */; };
+		125E34892948ABF400C76978 /* GeologistDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125E34882948ABF400C76978 /* GeologistDataModel.swift */; };
+		126219E929499A00006CFE72 /* GeologistDataTable+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126219E729499A00006CFE72 /* GeologistDataTable+CoreDataClass.swift */; };
+		126219EA29499A00006CFE72 /* GeologistDataTable+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126219E829499A00006CFE72 /* GeologistDataTable+CoreDataProperties.swift */; };
 		128285C8293735B6005AF777 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128285C7293735B6005AF777 /* AppDelegate.swift */; };
 		128285CA293735B6005AF777 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128285C9293735B6005AF777 /* SceneDelegate.swift */; };
 		128285CF293735B6005AF777 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 128285CD293735B6005AF777 /* Main.storyboard */; };
 		128285D2293735B6005AF777 /* Geo_Map.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 128285D0293735B6005AF777 /* Geo_Map.xcdatamodeld */; };
 		128285D4293735B8005AF777 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 128285D3293735B8005AF777 /* Assets.xcassets */; };
 		128285D7293735B8005AF777 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 128285D5293735B8005AF777 /* LaunchScreen.storyboard */; };
+		12B855FB2947529B009490EC /* EditUploadUnderMappingImagesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B855FA2947529B009490EC /* EditUploadUnderMappingImagesVC.swift */; };
+		12C21FB529473A980030A23D /* EditAttributeUGGeoAttributeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C21FB429473A980030A23D /* EditAttributeUGGeoAttributeVC.swift */; };
+		12C21FB72947486F0030A23D /* EditUGMappingDataVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C21FB62947486F0030A23D /* EditUGMappingDataVC.swift */; };
 		12D307DE293876230073AB90 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D307DD293876230073AB90 /* CoreDataManager.swift */; };
 		12D307F529387F3B0073AB90 /* WaterConditionDataTable+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D307DF29387F3B0073AB90 /* WaterConditionDataTable+CoreDataClass.swift */; };
 		12D307F629387F3B0073AB90 /* WaterConditionDataTable+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D307E029387F3B0073AB90 /* WaterConditionDataTable+CoreDataProperties.swift */; };
@@ -204,7 +214,9 @@
 /* Begin PBXFileReference section */
 		1216B8852939D29A008B2B52 /* AttributeNewListTblCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributeNewListTblCell.swift; sourceTree = "<group>"; };
 		1216B8872939D316008B2B52 /* AttributeNewListTblCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AttributeNewListTblCell.xib; sourceTree = "<group>"; };
+		121A2706294C9D5800CCE01C /* CustomPhotoAlbum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPhotoAlbum.swift; sourceTree = "<group>"; };
 		122EF088293F3BFA00B23284 /* Inter-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Italic.otf"; sourceTree = "<group>"; };
+		123B8A67294B4B5B00C0A6EA /* UIApplication+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extension.swift"; sourceTree = "<group>"; };
 		123C64982938B54200CB5734 /* LogoutModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutModel.swift; sourceTree = "<group>"; };
 		123C649A2938B58500CB5734 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		123C649D2938B64C00CB5734 /* WWCalendarTimeSelector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WWCalendarTimeSelector.swift; sourceTree = "<group>"; };
@@ -216,6 +228,11 @@
 		123C64A62938B66E00CB5734 /* Duration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Duration.swift; sourceTree = "<group>"; };
 		123C64A72938B66E00CB5734 /* Int+Timepiece.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Int+Timepiece.swift"; sourceTree = "<group>"; };
 		123C64AE2938B6C800CB5734 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		125E347F294853A800C76978 /* EditOCGeoAttributeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditOCGeoAttributeVC.swift; sourceTree = "<group>"; };
+		125E34812948A0FC00C76978 /* EditOpenCastMappingImagesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditOpenCastMappingImagesVC.swift; sourceTree = "<group>"; };
+		125E34882948ABF400C76978 /* GeologistDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeologistDataModel.swift; sourceTree = "<group>"; };
+		126219E729499A00006CFE72 /* GeologistDataTable+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GeologistDataTable+CoreDataClass.swift"; sourceTree = "<group>"; };
+		126219E829499A00006CFE72 /* GeologistDataTable+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GeologistDataTable+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		128285C4293735B6005AF777 /* Geo_Map.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Geo_Map.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		128285C7293735B6005AF777 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		128285C9293735B6005AF777 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -224,6 +241,9 @@
 		128285D3293735B8005AF777 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		128285D6293735B8005AF777 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		128285D8293735B8005AF777 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		12B855FA2947529B009490EC /* EditUploadUnderMappingImagesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUploadUnderMappingImagesVC.swift; sourceTree = "<group>"; };
+		12C21FB429473A980030A23D /* EditAttributeUGGeoAttributeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAttributeUGGeoAttributeVC.swift; sourceTree = "<group>"; };
+		12C21FB62947486F0030A23D /* EditUGMappingDataVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUGMappingDataVC.swift; sourceTree = "<group>"; };
 		12D307DD293876230073AB90 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		12D307DF29387F3B0073AB90 /* WaterConditionDataTable+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WaterConditionDataTable+CoreDataClass.swift"; sourceTree = "<group>"; };
 		12D307E029387F3B0073AB90 /* WaterConditionDataTable+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WaterConditionDataTable+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -438,6 +458,23 @@
 			path = ClockHelper;
 			sourceTree = "<group>";
 		};
+		125E347E2948536000C76978 /* Edit OpenCast Mapping Report */ = {
+			isa = PBXGroup;
+			children = (
+				125E347F294853A800C76978 /* EditOCGeoAttributeVC.swift */,
+				125E34812948A0FC00C76978 /* EditOpenCastMappingImagesVC.swift */,
+			);
+			path = "Edit OpenCast Mapping Report";
+			sourceTree = "<group>";
+		};
+		125E34832948AB2900C76978 /* GeologistDataModels Files */ = {
+			isa = PBXGroup;
+			children = (
+				125E34882948ABF400C76978 /* GeologistDataModel.swift */,
+			);
+			path = "GeologistDataModels Files";
+			sourceTree = "<group>";
+		};
 		128285BB293735B6005AF777 = {
 			isa = PBXGroup;
 			children = (
@@ -475,11 +512,24 @@
 			path = Geo_Map;
 			sourceTree = "<group>";
 		};
+		12B855FC29475725009490EC /* Edit Underground Mapping Report */ = {
+			isa = PBXGroup;
+			children = (
+				12C21FB429473A980030A23D /* EditAttributeUGGeoAttributeVC.swift */,
+				12C21FB62947486F0030A23D /* EditUGMappingDataVC.swift */,
+				12B855FA2947529B009490EC /* EditUploadUnderMappingImagesVC.swift */,
+			);
+			path = "Edit Underground Mapping Report";
+			sourceTree = "<group>";
+		};
 		12D307DB293875E30073AB90 /* Core Data Files */ = {
 			isa = PBXGroup;
 			children = (
 				128285D0293735B6005AF777 /* Geo_Map.xcdatamodeld */,
 				12D307DD293876230073AB90 /* CoreDataManager.swift */,
+				126219E729499A00006CFE72 /* GeologistDataTable+CoreDataClass.swift */,
+				126219E829499A00006CFE72 /* GeologistDataTable+CoreDataProperties.swift */,
+				125E34832948AB2900C76978 /* GeologistDataModels Files */,
 				12D3081E293881AA0073AB90 /* SampleCollectedModels Files */,
 				12D3081B293881690073AB90 /* WeatheringDataModels Files */,
 				12D30818293881480073AB90 /* RockStrengthDataModels Files */,
@@ -611,7 +661,9 @@
 				12D3092D29389DE90073AB90 /* ProfileVC+VM */,
 				12D3083A293884200073AB90 /* UGGeoAttributeVC.swift */,
 				12D3083C293884350073AB90 /* UGGeoAttributeVC2.swift */,
+				12B855FC29475725009490EC /* Edit Underground Mapping Report */,
 				12D30846293884CB0073AB90 /* WebViewVC.swift */,
+				125E347E2948536000C76978 /* Edit OpenCast Mapping Report */,
 				12D30859293885C20073AB90 /* UserListPopUpVC.swift */,
 				12D30862293886230073AB90 /* OCReportDetailVC.swift */,
 				12D30864293886390073AB90 /* OCGeoAttributeVC.swift */,
@@ -810,7 +862,9 @@
 			children = (
 				12D308C32938895C0073AB90 /* ACFloatingTextfield+Extesion.swift */,
 				12D308C52938895C0073AB90 /* AppGlobalString.swift */,
+				121A2706294C9D5800CCE01C /* CustomPhotoAlbum.swift */,
 				12D309492938A6160073AB90 /* UIViewController+Extension.swift */,
+				123B8A67294B4B5B00C0A6EA /* UIApplication+Extension.swift */,
 				123C649A2938B58500CB5734 /* Date+Extension.swift */,
 				12D308CD2938895C0073AB90 /* AppShadowViewClass.swift */,
 				12D3093629389F630073AB90 /* Data+Extension.swift */,
@@ -1106,6 +1160,7 @@
 				12D307F729387F3B0073AB90 /* AttributeUndergroundMappingTable+CoreDataClass.swift in Sources */,
 				12D30840293884590073AB90 /* ForgotPasswordVC.swift in Sources */,
 				12D3084C293885100073AB90 /* ReportListVM.swift in Sources */,
+				126219EA29499A00006CFE72 /* GeologistDataTable+CoreDataProperties.swift in Sources */,
 				12D308F9293889F40073AB90 /* ReadMore_Helper.swift in Sources */,
 				12D30837293883F70073AB90 /* AddOpenCastMappingImagesVC.swift in Sources */,
 				12D307F529387F3B0073AB90 /* WaterConditionDataTable+CoreDataClass.swift in Sources */,
@@ -1133,11 +1188,13 @@
 				12D308DB2938895C0073AB90 /* UITextView+Extension.swift in Sources */,
 				12D309502938A7A10073AB90 /* TransactionModel.swift in Sources */,
 				12D309442938A4600073AB90 /* ListDataViewModel.swift in Sources */,
+				125E34822948A0FC00C76978 /* EditOpenCastMappingImagesVC.swift in Sources */,
 				12D308FA293889F40073AB90 /* Theme.swift in Sources */,
 				12D3089E293888040073AB90 /* UnderGroundMappingReportDraftTableviewCell.swift in Sources */,
 				12D30891293888040073AB90 /* CampDayFeesCell.swift in Sources */,
 				12D3088F293888040073AB90 /* DayListCell.swift in Sources */,
 				12D309522938A84A0073AB90 /* UIImageView+Extension.swift in Sources */,
+				12B855FB2947529B009490EC /* EditUploadUnderMappingImagesVC.swift in Sources */,
 				12D308292938833D0073AB90 /* FAQListVM.swift in Sources */,
 				12D3080829387F3B0073AB90 /* TypeOfFaultsDataTable+CoreDataProperties.swift in Sources */,
 				12D30906293889F40073AB90 /* TagFlowLayout.swift in Sources */,
@@ -1166,6 +1223,7 @@
 				12D3093129389E600073AB90 /* String+Extension.swift in Sources */,
 				12D308DA2938895C0073AB90 /* UIFont+Extension.swift in Sources */,
 				12D3080C29387F7A0073AB90 /* OpenCastMappingReportDataModel.swift in Sources */,
+				125E34892948ABF400C76978 /* GeologistDataModel.swift in Sources */,
 				12D3081A293881580073AB90 /* RockStrengthDataModel.swift in Sources */,
 				12D30863293886230073AB90 /* OCReportDetailVC.swift in Sources */,
 				12D3086A2938867E0073AB90 /* SyncDataVM.swift in Sources */,
@@ -1180,6 +1238,7 @@
 				12D308612938860B0073AB90 /* OpenCastMappingReportListDraftVM.swift in Sources */,
 				12D307FF29387F3B0073AB90 /* Nos+CoreDataClass.swift in Sources */,
 				12D308B62938889E0073AB90 /* DynamicContents.swift in Sources */,
+				126219E929499A00006CFE72 /* GeologistDataTable+CoreDataClass.swift in Sources */,
 				12D309462938A4960073AB90 /* UnderGroundMappingReportDataModel.swift in Sources */,
 				12D3086F293886B50073AB90 /* ContactUSVC.swift in Sources */,
 				12D307DE293876230073AB90 /* CoreDataManager.swift in Sources */,
@@ -1205,8 +1264,10 @@
 				128285CA293735B6005AF777 /* SceneDelegate.swift in Sources */,
 				12D308A1293888040073AB90 /* FAQCell.swift in Sources */,
 				12D307FB29387F3B0073AB90 /* UnderGroundMappingReportDataTable+CoreDataClass.swift in Sources */,
+				125E3480294853A800C76978 /* EditOCGeoAttributeVC.swift in Sources */,
 				12D308D12938895C0073AB90 /* UIImageViewClasses.swift in Sources */,
 				12D308422938846C0073AB90 /* ForgotPasswordVM.swift in Sources */,
+				123B8A68294B4B5B00C0A6EA /* UIApplication+Extension.swift in Sources */,
 				12D308D32938895C0073AB90 /* DeviceDetail.swift in Sources */,
 				12D30831293883B20073AB90 /* AlertPopUpVC.swift in Sources */,
 				12D308B42938889E0073AB90 /* OpenCastReportModel.swift in Sources */,
@@ -1218,13 +1279,16 @@
 				12D308FF293889F40073AB90 /* BaseViewController.swift in Sources */,
 				12D3083B293884200073AB90 /* UGGeoAttributeVC.swift in Sources */,
 				12D308B92938889E0073AB90 /* DJReachability.swift in Sources */,
+				121A2707294C9D5800CCE01C /* CustomPhotoAlbum.swift in Sources */,
 				12D3092C29388D8B0073AB90 /* UploaddataModel.swift in Sources */,
+				12C21FB72947486F0030A23D /* EditUGMappingDataVC.swift in Sources */,
 				1216B8862939D29A008B2B52 /* AttributeNewListTblCell.swift in Sources */,
 				12D3082F293883990073AB90 /* DescriptionPopupVC.swift in Sources */,
 				12D307FC29387F3B0073AB90 /* UnderGroundMappingReportDataTable+CoreDataProperties.swift in Sources */,
 				12D3080329387F3B0073AB90 /* OpenCastMappingReportDataTable+CoreDataClass.swift in Sources */,
 				123C64AC2938B66E00CB5734 /* Duration.swift in Sources */,
 				12D3094C2938A6FC0073AB90 /* NSMutableAttributedString+Extension.swift in Sources */,
+				12C21FB529473A980030A23D /* EditAttributeUGGeoAttributeVC.swift in Sources */,
 				12D308A0293888040073AB90 /* CampListCell.swift in Sources */,
 				12D307FD29387F3B0073AB90 /* AttributeDataTable+CoreDataClass.swift in Sources */,
 				12D309402938A3BD0073AB90 /* AppVersionModel.swift in Sources */,
@@ -1389,17 +1453,20 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Geo_Map/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "GEO MAP";
+				INFOPLIST_KEY_NSCameraUsageDescription = "$(PRODUCT_NAME) app requires access to the photo library for uploading profile picture.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "$(PRODUCT_NAME) app requires access to the photo library for uploading profile picture.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "QLTech.Geo-Map";
+				PRODUCT_BUNDLE_IDENTIFIER = com.nsc.customer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -1426,17 +1493,20 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Geo_Map/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "GEO MAP";
+				INFOPLIST_KEY_NSCameraUsageDescription = "$(PRODUCT_NAME) app requires access to the photo library for uploading profile picture.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "$(PRODUCT_NAME) app requires access to the photo library for uploading profile picture.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "QLTech.Geo-Map";
+				PRODUCT_BUNDLE_IDENTIFIER = com.nsc.customer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;

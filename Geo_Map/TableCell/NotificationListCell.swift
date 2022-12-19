@@ -40,9 +40,9 @@ class NotificationListCell: UITableViewCell {
             self.lblDate.text = reportData["ugDate"].stringValue
             self.lblCity.text = reportData["location"].stringValue
             
-            let attributedScale: NSMutableAttributedString = NSMutableAttributedString(string: "\(kScaleColnm) \(reportData["scale"].stringValue)")
-            attributedScale.setAttributes(color: UIColor.colorTextPlaceHolderGray, forText: kScaleColnm, font: 12, fontname: .InterMedium)
-            attributedScale.setAttributes(color: UIColor.colorTextBlack, forText: reportData["scale"].stringValue, font: 12, fontname: .InterMedium)
+            let attributedScale: NSMutableAttributedString = NSMutableAttributedString(string: "\(kMappedByColn) \(reportData["mappedBy"].stringValue)")
+            attributedScale.setAttributes(color: UIColor.colorTextPlaceHolderGray, forText: kMappedByColn, font: 12, fontname: .InterMedium)
+            attributedScale.setAttributes(color: UIColor.colorTextBlack, forText: reportData["mappedBy"].stringValue, font: 12, fontname: .InterMedium)
             self.lblSubtitle.attributedText = attributedScale
             
             let attributedMapSerialNo: NSMutableAttributedString = NSMutableAttributedString(string: "\(kMapSerialNoColmn) \(reportData["mapSerialNo"].stringValue)")
@@ -66,6 +66,7 @@ class NotificationListCell: UITableViewCell {
             attributedMapSerialNo.setAttributes(color: UIColor.colorTextBlack, forText: reportData["mappingSheetNo"].stringValue, font: 12, fontname: .InterMedium)
             self.lblDescription.attributedText = attributedMapSerialNo
         }
+        
     }
     
 }

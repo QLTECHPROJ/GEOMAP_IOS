@@ -86,6 +86,7 @@ extension UIImageView {
             initials.backgroundColor = .colorSkyBlue
             
             self.addSubview(initials)
+            
         }
     }
 }

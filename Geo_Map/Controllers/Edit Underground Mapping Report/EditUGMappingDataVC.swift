@@ -1,11 +1,13 @@
 //
-//  BankDetailsVC.swift
-
+//  EditUGMappingDataVC.swift
+//  Geo_Map
+//
+//  Created by vishal parmar on 12/12/22.
+//
 
 import UIKit
 
-
-class UGGeoAttributeVC2: ClearNaviagtionBarVC {
+class EditUGMappingDataVC: ClearNaviagtionBarVC {
     
     // MARK: - OUTLETS
    
@@ -37,7 +39,14 @@ class UGGeoAttributeVC2: ClearNaviagtionBarVC {
     var isFromEdit = false
     var arrayErrorLabels = [UILabel]()
     var arrAddedAttributes : [JSON] = []
-//    let dateDatePicker = UIDatePicker()
+    var ugReportDetail : JSON = .null
+    var isOfflineDataUpdate : Bool = false
+    
+    var faceImage = UIImage()
+    var roofImage = UIImage()
+    var leftImage = UIImage()
+    var rightImage = UIImage()
+    
     
     // MARK: - VIEW LIFE CYCLE
     override func viewDidLoad() {
@@ -52,13 +61,9 @@ class UGGeoAttributeVC2: ClearNaviagtionBarVC {
         self.view.backgroundColor = .colorBGSkyBlueLight
         self.title = kGeologicalMapping
         
-//        self.txtMapSerialNo.applyStyleFlotingTextfield(placeholderTitle : kMapSerialNo, fontsize : 14,fontname : .InterSemibol)
         self.txtName.applyStyleFlotingTextfield(placeholderTitle : kName, fontsize : 14,fontname : .InterSemibol)
         
-        let dateFormat = DateFormatter()
-        dateFormat.dateFormat = DateTimeFormaterEnum.ddmm_yyyy.rawValue
-       
-        self.lblDate.applyLabelStyle(text : dateFormat.string(from: Date()),fontSize : 12,fontName : .InterSemibol)
+        self.lblDate.applyLabelStyle(fontSize : 12,fontName : .InterSemibol)
         
         self.txtMappedBy.applyStyleFlotingTextfield(placeholderTitle : kMappedBy, fontsize : 14,fontname : .InterSemibol)
         self.txtScale.applyStyleFlotingTextfield(placeholderTitle : kScale, fontsize : 14,fontname : .InterSemibol)
@@ -79,10 +84,31 @@ class UGGeoAttributeVC2: ClearNaviagtionBarVC {
         
         self.btnNextStep.setTitle(kNextStep, for: .normal)
         
-//        self.buttonEnableDisable()
-        self.selectShift()
-        self.btnNextStep.isSelect = true
-//        self.initDatePicker()
+        self.setMappingDetail()
+        self.buttonEnableDisable()
+        
+    }
+    
+    private func setMappingDetail(){
+        guard self.ugReportDetail != .null else {return}
+        
+        debugPrint(self.ugReportDetail)
+        let dateFormat = DateFormatter()
+        dateFormat.dateFormat = DateTimeFormaterEnum.ddmm_yyyy.rawValue
+        
+        self.txtName.text = self.ugReportDetail["name"].stringValue
+        
+        self.lblDate.text = GFunctions.shared.convertDateFormat(dt: self.ugReportDetail["ugDate"].stringValue, inputFormat: DateTimeFormaterEnum.ddmm_yyyy.rawValue, outputFormat: DateTimeFormaterEnum.ddmm_yyyy.rawValue, status: .NOCONVERSION).str
+        self.txtMappedBy.text = self.ugReportDetail["mappedBy"].stringValue
+        self.txtScale.text = self.ugReportDetail["scale"].stringValue
+        self.txtLocation.text = self.ugReportDetail["location"].stringValue
+        self.txtVeinLoad.text = self.ugReportDetail["venieLoad"].stringValue
+        self.txtXCordinate.text = self.ugReportDetail["xCordinate"].stringValue
+        self.txtYCordinate.text = self.ugReportDetail["yCordinate"].stringValue
+        self.txtZCordinate.text = self.ugReportDetail["zCordinate"].stringValue
+        self.tvComment.text = self.ugReportDetail["comment"].stringValue
+        
+        self.selectShift(self.ugReportDetail["shift"].stringValue == kDayShift ? 2 : 1)
     }
     
     func buttonEnableDisable(){
@@ -120,9 +146,8 @@ class UGGeoAttributeVC2: ClearNaviagtionBarVC {
     @IBAction func btnNextStepTapped(_ sender: UIButton) {
         self.view.endEditing(true)
         let mappingData : JSON = [
-            "iD" : UnderGroundMappingReportDataTable.nextAvailble(),
             "attributes" : self.arrAddedAttributes,
-//            "mapSerialNo" : JSON(self.txtMapSerialNo.text as Any).stringValue,
+            "mapSerialNo" : self.ugReportDetail["mapSerialNo"].stringValue,
             "name" : JSON(self.txtName.text as Any).stringValue,
             "ugDate" : JSON(self.lblDate.text as Any).stringValue,
             "shift" : self.getShiftType(),
@@ -135,20 +160,24 @@ class UGGeoAttributeVC2: ClearNaviagtionBarVC {
             "zCoordinate" : JSON(self.txtZCordinate.text as Any).stringValue,
             "comment" : JSON(self.tvComment.text as Any).stringValue
         ]
-        let vc = AppStoryBoard.main.viewController(viewControllerClass: UploadUnderMappingImagesVC.self)
+        let vc = AppStoryBoard.main.viewController(viewControllerClass: EditUploadUnderMappingImagesVC.self)
         vc.underGroundMappingDetail = mappingData
+        vc.isOfflineDataUpdate = self.isOfflineDataUpdate
+        vc.roofImage = self.roofImage
+        vc.leftImage = self.leftImage
+        vc.rightImage = self.rightImage
+        vc.faceImage = self.faceImage
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }
 
-
 //--------------------------------------------------------------------------------------
 // MARK: - UITextViewDelegate
 
-extension UGGeoAttributeVC2 : UITextViewDelegate {
+extension EditUGMappingDataVC : UITextViewDelegate {
    
     func textViewDidChangeSelection(_ textView: UITextView) {
-//        self.buttonEnableDisable()
+        self.buttonEnableDisable()
     }
     
 }
@@ -156,17 +185,17 @@ extension UGGeoAttributeVC2 : UITextViewDelegate {
 //--------------------------------------------------------------------------------------
 // MARK: - UITextFieldDelegate
 
-extension UGGeoAttributeVC2 : UITextFieldDelegate {
+extension EditUGMappingDataVC : UITextFieldDelegate {
     
     func textFieldDidChangeSelection(_ textField: UITextField) {
-//        self.buttonEnableDisable()
+        self.buttonEnableDisable()
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
 //        if textField == self.txtMapSerialNo {
 //
 //            self.txtName.becomeFirstResponder()
-//            
+//
 //        }
 //        else
         if textField == self.txtName {

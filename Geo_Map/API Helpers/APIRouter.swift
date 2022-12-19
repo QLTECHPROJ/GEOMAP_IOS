@@ -82,6 +82,8 @@ enum APIRouter : URLRequestConvertible {
     
     case report_pdf([String:Any])
     
+    case geologist_data
+    
     var route: APIRoute {
         
         switch self {
@@ -222,6 +224,11 @@ enum APIRouter : URLRequestConvertible {
         case .report_pdf(let data) :
             
             return APIRoute(path: "report_pdf", method: .post, data: data)
+            
+        case .geologist_data :
+            
+            return APIRoute(path: "geologist_data", method: .get)
+            
         }
         
     }

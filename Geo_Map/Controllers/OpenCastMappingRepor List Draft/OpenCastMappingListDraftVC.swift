@@ -29,7 +29,7 @@ class OpenCastMappingListDraftVC: ClearNaviagtionBarVC {
     }
     
     deinit {
-        
+        self.removeClassObservers()
     }
     
     //----------------------------------------------------------------------------
@@ -37,7 +37,7 @@ class OpenCastMappingListDraftVC: ClearNaviagtionBarVC {
     //----------------------------------------------------------------------------
     //Desc:- Centre method to call Of View Config.
     func setUpView(){
-        
+        self.addClassObservers()
         self.configureUI()
     }
     
@@ -158,4 +158,27 @@ extension OpenCastMappingListDraftVC: UITableViewDelegate, UITableViewDataSource
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
+}
+
+
+//----------------------------------------------------------------------------
+//MARK: - Class observers Methods
+//----------------------------------------------------------------------------
+extension OpenCastMappingListDraftVC {
+    
+    func addClassObservers() {
+       
+        NotificationCenter.default.addObserver(self, selector: #selector(self.reploadPageData(_:)), name: NSNotification.Name.updateOCOfflineReport, object: nil)
+    }
+    
+    func removeClassObservers() {
+        
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.updateOCOfflineReport, object: nil)
+       
+    }
+
+    
+    @objc func reploadPageData(_ notification : NSNotification){
+        self.setReportData()
+    }
 }

@@ -28,7 +28,7 @@ class UnderGroundMappingReportListDraftVC: ClearNaviagtionBarVC {
     }
     
     deinit {
-        
+        self.removeClassObservers()
     }
     
     //----------------------------------------------------------------------------
@@ -36,7 +36,7 @@ class UnderGroundMappingReportListDraftVC: ClearNaviagtionBarVC {
     //----------------------------------------------------------------------------
     //Desc:- Centre method to call Of View Config.
     func setUpView(){
-        
+        self.addClassObservers()
         self.configureUI()
     }
     
@@ -45,6 +45,7 @@ class UnderGroundMappingReportListDraftVC: ClearNaviagtionBarVC {
     //Desc:- Set layout desing customize
     
     func configureUI(){
+       
         self.view.backgroundColor = .colorBGSkyBlueLight
        
         self.lblTitle.applyLabelStyle(isAdjustFontWidth: true,text: kUnderGroundMappingReportDraft,fontSize :  16,fontName : .InterBold)
@@ -158,4 +159,26 @@ extension UnderGroundMappingReportListDraftVC: UITableViewDelegate, UITableViewD
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
+}
+
+
+//----------------------------------------------------------------------------
+//MARK: - Class observers Methods
+//----------------------------------------------------------------------------
+extension UnderGroundMappingReportListDraftVC {
+    func addClassObservers() {
+       
+        NotificationCenter.default.addObserver(self, selector: #selector(self.reploadPageData(_:)), name: NSNotification.Name.updateUGOfflineReport, object: nil)
+    }
+    
+    func removeClassObservers() {
+        
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.updateUGOfflineReport, object: nil)
+       
+    }
+
+    
+    @objc func reploadPageData(_ notification : NSNotification){
+        self.setReportData()
+    }
 }

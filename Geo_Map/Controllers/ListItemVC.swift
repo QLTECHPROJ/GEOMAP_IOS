@@ -8,6 +8,7 @@ enum ListItemType {
     
     case attributes
     case Nos
+    case geologistName
     case sampleCollected
     case weathering
     case rockStrenght
@@ -113,12 +114,29 @@ class ListItemVC: ClearNaviagtionBarVC {
         CoreDataManager.shared.getAllListDataFromLocalDatabase()
         switch listType {
             
+        case .geologistName:
+            lblTitle.text = kChooseYourGeologistName
+            txtSearch.placeholder = kChooseYourGeologistName
+            
+            for data in GeologistDataModel.shared.arrGeologistData{
+                
+                self.arrList.append(["id" : JSON(data.iD as Any).stringValue,
+                                     "name" : JSON(data.name as Any).stringValue,
+                                     "company_type" : JSON(data.company_type as Any).stringValue,
+                                     "email" : JSON(data.email as Any).stringValue,
+                                     "password" : JSON(data.password as Any).stringValue,
+                                     "phone" : JSON(data.phone as Any).stringValue,
+                                     "position" : JSON(data.position as Any).stringValue
+                                    ])
+            }
+            
+            
         case .attributes:
             lblTitle.text = kChooseYourAttributes
             txtSearch.placeholder = kChooseYourAttributes
             
             for data in AttributeDataModel.shared.arrAttributeData{
-            
+                
                 var arrNos : [JSON] = []
                 if let array = data.nos,let nosArray = array.allObjects as? [Nos]{
                     for nosData in nosArray{
@@ -137,7 +155,7 @@ class ListItemVC: ClearNaviagtionBarVC {
                                      "created_at" : JSON(data.createDate as Any).stringValue,
                                      "nos" : arrNos])
             }
-           
+            
         case .Nos:
             lblTitle.text = kChooseYourNos
             txtSearch.placeholder = kChooseYourNos
@@ -169,7 +187,7 @@ class ListItemVC: ClearNaviagtionBarVC {
         case .rockStrenght:
             lblTitle.text = kChooseYourRockStrenght
             txtSearch.placeholder = kChooseYourRockStrenght
-           
+            
             for data in RockStrengthDataModel.shared.arrRockStrenght{
                 self.arrList.append(["id" : JSON(data.iD as Any).stringValue,
                                      "name" : JSON(data.name as Any).stringValue,
@@ -180,7 +198,7 @@ class ListItemVC: ClearNaviagtionBarVC {
         case .waterCollection:
             lblTitle.text = kChooseYourWaterCondition
             txtSearch.placeholder = kChooseYourWaterCondition
-         
+            
             for data in WaterConditionDataModel.shared.arrWaterCondition{
                 self.arrList.append(["id" : JSON(data.iD as Any).stringValue,
                                      "name" : JSON(data.name as Any).stringValue,

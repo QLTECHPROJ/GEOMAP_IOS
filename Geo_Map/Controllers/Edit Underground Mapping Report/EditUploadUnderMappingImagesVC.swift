@@ -1,19 +1,14 @@
 //
-//  UploadUnderMappingImagesVC.swift
-
+//  EditUploadUnderMappingImagesVC.swift
+//  Geo_Map
+//
+//  Created by vishal parmar on 12/12/22.
+//
 
 import UIKit
 import SignaturePad
 
-
-enum DrawingType : String{
-    case roof = "Roof"
-    case left = "Left"
-    case right = "Right"
-    case face = "Face"
-}
-
-class UploadUnderMappingImagesVC: ClearNaviagtionBarVC {
+class EditUploadUnderMappingImagesVC:ClearNaviagtionBarVC {
     
     //----------------------------------------------------------------------------
     //MARK: - UIControl's Outlets
@@ -32,6 +27,7 @@ class UploadUnderMappingImagesVC: ClearNaviagtionBarVC {
     //MARK: - Class Variables
     //----------------------------------------------------------------------------
     
+    var isOfflineDataUpdate : Bool = false
     var isDrawStart : Bool = Bool()
     var drawingType = DrawingType.roof.rawValue
     
@@ -42,6 +38,14 @@ class UploadUnderMappingImagesVC: ClearNaviagtionBarVC {
     
     var underGroundMappingDetail : JSON = .null
     var viewModelSyncData : SyncDataVM = SyncDataVM()
+    private var vmUGMappingReportDraft : UnderGroundMappingReportListDraftVM = UnderGroundMappingReportListDraftVM()
+    
+    
+    var faceImage = UIImage()
+    var roofImage = UIImage()
+    var leftImage = UIImage()
+    var rightImage = UIImage()
+    
     
     //----------------------------------------------------------------------------
     //MARK: - Memory management
@@ -65,22 +69,47 @@ class UploadUnderMappingImagesVC: ClearNaviagtionBarVC {
     }
     
     
-    
+    func setData(){
+        for (i,_) in self.arrDrawing.enumerated(){
+            
+            if JSON(self.arrDrawing[i]["type"] as Any).stringValue == DrawingType.roof.rawValue{
+                self.arrDrawing[i]["draw_image"] = self.roofImage
+                self.arrDrawing[i]["isDraw"] = true
+            }
+            else if JSON(self.arrDrawing[i]["type"] as Any).stringValue == DrawingType.face.rawValue{
+                self.arrDrawing[i]["draw_image"] = self.faceImage
+                
+            }
+            else if JSON(self.arrDrawing[i]["type"] as Any).stringValue == DrawingType.left.rawValue{
+                self.arrDrawing[i]["draw_image"] = self.leftImage
+                
+            }
+            else if JSON(self.arrDrawing[i]["type"] as Any).stringValue == DrawingType.right.rawValue{
+                self.arrDrawing[i]["draw_image"] = self.rightImage
+                
+            }
+            
+        }
+        self.drawingType == DrawingType.roof.rawValue
+        self.vwDrawPad.setSignature(_image: (self.arrDrawing.filter{JSON($0["type"] as Any).stringValue == DrawingType.roof.rawValue}.first!["draw_image"] as? UIImage)!)
+    }
     //Desc:- Set layout desing customize
     
     func configureUI(){
         self.view.backgroundColor = .colorBGSkyBlueLight
         self.title = kGeologicalMapping
         
-        self.vwDrawPad.isDisplay = true
-        
         self.lblContent.applyLabelStyle(fontSize : 16,fontName : .InterBold)
         self.vwDrawPad.delegate = self
         
-        self.btnAdd.setTitle(kNext, for: .normal)
+        self.vwDrawPad.isDisplay = true
+        
+        
+        self.btnAdd.setTitle(kEdit, for: .normal)
         self.btnClearDraw.setTitle(kClear, for: .normal)
         
-        self.buttonEnableDisable()
+        self.setData()
+        self.buttonEnableDisable(true)
     }
     
     func buttonEnableDisable(_ isDrawn : Bool = false){
@@ -92,25 +121,25 @@ class UploadUnderMappingImagesVC: ClearNaviagtionBarVC {
         case DrawingType.roof.rawValue:
             
             self.lblContent.text = kROOF
-            self.btnAdd.setTitle(kNext, for: .normal)
+            self.btnAdd.setTitle(kEdit, for: .normal)
             break
             
         case DrawingType.left.rawValue:
             
             self.lblContent.text = kLEFT
             
-            self.btnAdd.setTitle(kNext, for: .normal)
+            self.btnAdd.setTitle(kEdit, for: .normal)
             break
             
         case DrawingType.right.rawValue:
             
             self.lblContent.text = kRIGHT
-            self.btnAdd.setTitle(kNext, for: .normal)
+            self.btnAdd.setTitle(kEdit, for: .normal)
             
             break
             
         default:
-            self.btnAdd.setTitle(kSubmit, for: .normal)
+            self.btnAdd.setTitle(kSave, for: .normal)
             self.lblContent.text = kFACE
             
             
@@ -146,7 +175,7 @@ class UploadUnderMappingImagesVC: ClearNaviagtionBarVC {
     
     @IBAction func btnAddDrawTapped(_ sender : UIButton){
         self.view.endEditing(true)
-        if let image = self.vwDrawPad.getSignature(){
+        if let image = self.vwDrawPad.getSignature(), self.vwDrawPad.isSigned{
             debugPrint(image)
             
             for (i,_) in self.arrDrawing.enumerated(){
@@ -161,16 +190,26 @@ class UploadUnderMappingImagesVC: ClearNaviagtionBarVC {
             case DrawingType.roof.rawValue:
                 
                 self.drawingType = DrawingType.left.rawValue
+                
+                if let data = self.arrDrawing.filter({JSON($0["type"] as Any).stringValue == DrawingType.left.rawValue}).first, let img = data["draw_image"] as? UIImage{
+                    self.vwDrawPad.setSignature(_image: img)
+                    self.buttonEnableDisable(true)
+                }
+                
                 break
                 
             case DrawingType.left.rawValue:
                 
                 self.drawingType = DrawingType.right.rawValue
+                self.vwDrawPad.setSignature(_image: (self.arrDrawing.filter{JSON($0["type"] as Any).stringValue == DrawingType.right.rawValue}.first!["draw_image"] as? UIImage)!)
+                self.buttonEnableDisable(true)
                 break
                 
             case DrawingType.right.rawValue:
                 
                 self.drawingType = DrawingType.face.rawValue
+                self.vwDrawPad.setSignature(_image: (self.arrDrawing.filter{JSON($0["type"] as Any).stringValue == DrawingType.face.rawValue}.first!["draw_image"] as? UIImage)!)
+                self.buttonEnableDisable(true)
                 
                 break
                 
@@ -198,12 +237,20 @@ class UploadUnderMappingImagesVC: ClearNaviagtionBarVC {
                     
                     faceImg = faceImage
                 }
+                
+                if self.isOfflineDataUpdate{
+                    
+                }
+                else{
+                    
+                }
                 self.callAPIOrSavedOffline(rootImg, leftImg, rightImg, faceImg)
+                
                 break
             }
         }
-        self.vwDrawPad.clear()
-        self.buttonEnableDisable()
+//        self.vwDrawPad.clear()
+//        self.buttonEnableDisable()
     }
     
     @IBAction func btnClearDrawTapped(_ sender : UIButton){
@@ -270,7 +317,7 @@ class UploadUnderMappingImagesVC: ClearNaviagtionBarVC {
 //--------------------------------------------------------------------------------------
 // MARK: - SignaturePadDelegate Methods
 //--------------------------------------------------------------------------------------
-extension UploadUnderMappingImagesVC : SignaturePadDelegate{
+extension EditUploadUnderMappingImagesVC : SignaturePadDelegate{
     
     func didStart() {
         
@@ -287,7 +334,7 @@ extension UploadUnderMappingImagesVC : SignaturePadDelegate{
 //--------------------------------------------------------------------------------------
 // MARK: - API Calling Methods
 //--------------------------------------------------------------------------------------
-extension UploadUnderMappingImagesVC{
+extension EditUploadUnderMappingImagesVC{
     
     func callAPIOrSavedOffline(_ rootImage : UIImage, _ leftImage : UIImage, _ rightImage : UIImage, _ faceImage : UIImage)
     {
@@ -299,9 +346,7 @@ extension UploadUnderMappingImagesVC{
                 MyAppPhotoAlbum.shared.save(image: imageData)
 //            }
         }
-        
-        if checkInternet(true){
-            
+        if !self.isOfflineDataUpdate{
             let faceImageObj = UploadDataModel(name: "image.jpeg", key: "faceImage", data: faceImage.jpegData(compressionQuality: 0.5), extention: "jpeg", mimeType: "image/jpeg")
             let rightImageObj = UploadDataModel(name: "image.jpeg", key: "rightImage", data: rightImage.jpegData(compressionQuality: 0.5), extention: "jpeg", mimeType: "image/jpeg")
             let leftImageObj = UploadDataModel(name: "image.jpeg", key: "leftImage", data: leftImage.jpegData(compressionQuality: 0.5), extention: "jpeg", mimeType: "image/jpeg")
@@ -330,7 +375,7 @@ extension UploadUnderMappingImagesVC{
                 "xCordinate" : self.underGroundMappingDetail["xCoordinate"].stringValue,
                 "yCordinate" : self.underGroundMappingDetail["yCoordinate"].stringValue,
                 "zCordinate" : self.underGroundMappingDetail["zCoordinate"].stringValue,
-                "mapSerialNo" : "",//self.underGroundMappingDetail["mapSerialNo"].stringValue,
+                "mapSerialNo" : self.underGroundMappingDetail["mapSerialNo"].stringValue,
                 "ugDate" : GFunctions.shared.convertDateFormat(dt: self.underGroundMappingDetail["ugDate"].stringValue, inputFormat: DateTimeFormaterEnum.ddmm_yyyy.rawValue, outputFormat: DateTimeFormaterEnum.ddMMMyyyy.rawValue, status: .NOCONVERSION).str,
                 "comment" : self.underGroundMappingDetail["comment"].stringValue,
                 "faceImage" : faceImageObj.name,
@@ -357,31 +402,43 @@ extension UploadUnderMappingImagesVC{
         }
         else{
             
-            UnderGroundMappingReportDataModel.shared.insertUnderGroundMappingReportData(JSON(UserModelClass.current.userId as Any).stringValue,
-//                                                                                        self.underGroundMappingDetail["iD"].stringValue,
-//                                                                                        self.underGroundMappingDetail["iD"].stringValue,
-                                                                                        self.underGroundMappingDetail["name"].stringValue,
-                                                                                        self.underGroundMappingDetail["ugDate"].stringValue,
-                                                                                        self.underGroundMappingDetail["shift"].stringValue,
-                                                                                        self.underGroundMappingDetail["mappedBy"].stringValue,
-                                                                                        self.underGroundMappingDetail["scale"].stringValue,
-                                                                                        self.underGroundMappingDetail["locations"].stringValue,
-                                                                                        self.underGroundMappingDetail["veinOrLoad"].stringValue,
-                                                                                        self.underGroundMappingDetail["xCoordinate"].stringValue,
-                                                                                        self.underGroundMappingDetail["yCoordinate"].stringValue,
-                                                                                        self.underGroundMappingDetail["zCoordinate"].stringValue,
-                                                                                        self.underGroundMappingDetail["attributes"].arrayValue,
-                                                                                        rootImage,
-                                                                                        leftImage,
-                                                                                        rightImage,
-                                                                                        faceImage,
-                                                                                        self.underGroundMappingDetail["comment"].stringValue) { completion in
+            UnderGroundMappingReportDataModel.shared.editUnderGroundMappingReportData(JSON(UserModelClass.current.userId as Any).stringValue,
+                                                                                      self.underGroundMappingDetail["mapSerialNo"].stringValue,
+                                                                                      self.underGroundMappingDetail["name"].stringValue,
+                                                                                      self.underGroundMappingDetail["ugDate"].stringValue,
+                                                                                      self.underGroundMappingDetail["shift"].stringValue,
+                                                                                      self.underGroundMappingDetail["mappedBy"].stringValue,
+                                                                                      self.underGroundMappingDetail["scale"].stringValue,
+                                                                                      self.underGroundMappingDetail["locations"].stringValue,
+                                                                                      self.underGroundMappingDetail["veinOrLoad"].stringValue,
+                                                                                      self.underGroundMappingDetail["xCoordinate"].stringValue,
+                                                                                      self.underGroundMappingDetail["yCoordinate"].stringValue,
+                                                                                      self.underGroundMappingDetail["zCoordinate"].stringValue,
+                                                                                      self.underGroundMappingDetail["attributes"].arrayValue,
+                                                                                      rootImage,
+                                                                                      leftImage,
+                                                                                      rightImage,
+                                                                                      faceImage,
+                                                                                      self.underGroundMappingDetail["comment"].stringValue) { completion in
                 
                 if completion{
                     
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.5){
-                        AppDelegate.shared.updateWindow(.home)
-                        GFunctions.shared.showSnackBar(message: kUnderGroundMappingReportSavedSuccessfully)
+                        //                        AppDelegate.shared.updateWindow(.home)
+                        //                        GFunctions.shared.showSnackBar(message: kUnderGroundMappingReportSavedSuccessfully)
+                        
+                        self.vmUGMappingReportDraft.getUnderGroundMappingReportList { completion in
+                            if completion{
+                                let dict : JSON = ["offline_id" : self.underGroundMappingDetail["mapSerialNo"].stringValue]
+                                for previousVC in self.navigationController!.viewControllers{
+                                    
+                                    if previousVC.isKind(of: UnderGroundReportOfflineDetailVC.self){
+                                        NotificationCenter.default.post(name: NSNotification.Name.updateUGOfflineReport, object: dict)
+                                        self.navigationController?.popToViewController(previousVC, animated: true)
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }

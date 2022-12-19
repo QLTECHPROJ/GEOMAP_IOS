@@ -39,9 +39,9 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pJm-eC-7Ve">
-                                <rect key="frame" x="360" y="10" width="0.0" height="0.0"/>
+                                <rect key="frame" x="325" y="10" width="35" height="34"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" id="o4e-2h-dsM"/>
+                                    <constraint firstAttribute="width" constant="35" id="o4e-2h-dsM"/>
                                     <constraint firstAttribute="width" secondItem="pJm-eC-7Ve" secondAttribute="height" multiplier="35:34" id="xub-hx-09T"/>
                                 </constraints>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
@@ -78,6 +78,7 @@
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="VIM-fv-NHc" secondAttribute="trailing" constant="10" id="436-QI-a6P"/>
                             <constraint firstItem="Js0-II-VpK" firstAttribute="top" secondItem="Swe-Ax-URS" secondAttribute="top" constant="10" id="Aba-xQ-Lr8"/>
                             <constraint firstItem="Js0-II-VpK" firstAttribute="leading" secondItem="Swe-Ax-URS" secondAttribute="leading" constant="10" id="KCf-m4-69q"/>
+                            <constraint firstItem="pJm-eC-7Ve" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="HnB-HJ-MrJ" secondAttribute="trailing" constant="15" id="Pjf-fF-ERu"/>
                             <constraint firstItem="HnB-HJ-MrJ" firstAttribute="leading" secondItem="VIM-fv-NHc" secondAttribute="leading" id="UhI-Er-pLb"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="41i-g8-4Pr" secondAttribute="trailing" constant="10" id="WFa-e3-Qcb"/>
                             <constraint firstItem="41i-g8-4Pr" firstAttribute="leading" secondItem="VIM-fv-NHc" secondAttribute="leading" id="cYU-vY-W1J"/>
@@ -91,7 +92,6 @@
                             <constraint firstItem="3xp-ah-lU2" firstAttribute="top" secondItem="41i-g8-4Pr" secondAttribute="top" id="peX-rr-xHA"/>
                             <constraint firstItem="3xp-ah-lU2" firstAttribute="leading" secondItem="Js0-II-VpK" secondAttribute="leading" id="qTC-JH-EWu"/>
                             <constraint firstItem="HnB-HJ-MrJ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Js0-II-VpK" secondAttribute="trailing" constant="5" id="sLT-lF-ioh"/>
-                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="HnB-HJ-MrJ" secondAttribute="trailing" constant="10" id="vd5-0p-2Oc"/>
                             <constraint firstAttribute="trailing" secondItem="pJm-eC-7Ve" secondAttribute="trailing" constant="5" id="w5B-ut-iqm"/>
                         </constraints>
                     </view>

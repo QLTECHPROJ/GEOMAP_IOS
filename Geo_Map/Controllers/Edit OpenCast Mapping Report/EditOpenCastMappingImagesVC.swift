@@ -1,11 +1,14 @@
 //
-//  AddOpenCastMappingImagesVC.swift
-
+//  EditOpenCastMappingImagesVC.swift
+//  Geo_Map
+//
+//  Created by vishal parmar on 13/12/22.
+//
 
 import UIKit
 import SignaturePad
 
-class AddOpenCastMappingImagesVC: ClearNaviagtionBarVC {
+class EditOpenCastMappingImagesVC: ClearNaviagtionBarVC {
     
     //----------------------------------------------------------------------------
     //MARK: - UIControl's Outlets
@@ -21,9 +24,12 @@ class AddOpenCastMappingImagesVC: ClearNaviagtionBarVC {
     //----------------------------------------------------------------------------
     
     var openCastMappingDetails : JSON = .null
+    var drawImage : UIImage?
     var geologistSignImage : UIImage?
     var clientGeologistSignImage : UIImage?
+    var isOfflineDataUpdate : Bool = false
     var viewModelSyncData : SyncDataVM = SyncDataVM()
+    private var vmOCMappingReportDraft : OpenCastMappingReportDataModel = OpenCastMappingReportDataModel()
     
     //----------------------------------------------------------------------------
     //MARK: - Memory management
@@ -56,12 +62,21 @@ class AddOpenCastMappingImagesVC: ClearNaviagtionBarVC {
         self.title = kGeologicalMapping
         
         self.vwDrawPad.delegate = self
+        
         self.vwDrawPad.isDisplay = false
         
+        
+        self.setDataForReport()
         self.buttonEnableDisable()
-        self.btnSubmit.setTitle(kSubmit, for: .normal)
+        self.btnSubmit.setTitle(kSave, for: .normal)
         self.btnClearDraw.setTitle(kClear, for: .normal)
         
+    }
+    
+    private func setDataForReport(){
+        
+        guard let drawImage = self.drawImage else {return}
+        self.vwDrawPad.setSignature(_image: drawImage)
     }
     
     func buttonEnableDisable(){
@@ -141,7 +156,7 @@ class AddOpenCastMappingImagesVC: ClearNaviagtionBarVC {
 //--------------------------------------------------------------------------------------
 // MARK: - SignaturePadDelegate Methods
 //--------------------------------------------------------------------------------------
-extension AddOpenCastMappingImagesVC : SignaturePadDelegate{
+extension EditOpenCastMappingImagesVC : SignaturePadDelegate{
     
     func didStart() {
         
@@ -156,7 +171,7 @@ extension AddOpenCastMappingImagesVC : SignaturePadDelegate{
 //--------------------------------------------------------------------------------------
 // MARK: - API Calling Methods
 //--------------------------------------------------------------------------------------
-extension AddOpenCastMappingImagesVC{
+extension EditOpenCastMappingImagesVC{
     
     func callAPIOrSavedOffline(_ geologistSign : UIImage, _ clientGeologistSignature : UIImage, _ drawImage : UIImage){
         
@@ -168,7 +183,8 @@ extension AddOpenCastMappingImagesVC{
                 MyAppPhotoAlbum.shared.save(image: imageData)
 //            }
         }
-        if checkInternet(true){
+        
+        if !self.isOfflineDataUpdate{
             
             let parameters = APIParametersModel()
             parameters.minesSiteName = self.openCastMappingDetails["minesSiteName"].stringValue
@@ -228,48 +244,62 @@ extension AddOpenCastMappingImagesVC{
         }
         else{
             
-            OpenCastMappingReportDataModel.shared.insertOpenCastMappingReportData(
-                JSON(UserModelClass.current.userId as Any).stringValue,
-                                                                                     self.openCastMappingDetails["iD"].stringValue,
-                                                                                     self.openCastMappingDetails["ocDate"].stringValue,
-                                                                                     self.openCastMappingDetails["mappingSheetNo"].stringValue,
-                                                                                     self.openCastMappingDetails["minesSiteName"].stringValue,
-                                                                                     self.openCastMappingDetails["pitName"].stringValue,
-                                                                                     self.openCastMappingDetails["pitLoaction"].stringValue,
-                                                                                     self.openCastMappingDetails["shiftInchargeName"].stringValue,
-                                                                                     self.openCastMappingDetails["geologistName"].stringValue,
-                                                                                     self.openCastMappingDetails["shift"].stringValue,
-                                                                                     self.openCastMappingDetails["faceLocation"].stringValue,
-                                                                                     self.openCastMappingDetails["faceLength"].stringValue,
-                                                                                     self.openCastMappingDetails["faceArea"].stringValue,
-                                                                                     self.openCastMappingDetails["faceRockType"].stringValue,
-                                                                                     self.openCastMappingDetails["benchRl"].stringValue,
-                                                                                     self.openCastMappingDetails["benchHeightWidth"].stringValue,
-                                                                                     self.openCastMappingDetails["benchAngle"].stringValue,
-                                                                                     self.openCastMappingDetails["dipDirectionAndAngle"].stringValue,
-                                                                                     self.openCastMappingDetails["thicknessOfOre"].stringValue,
-                                                                                     self.openCastMappingDetails["thicknessOfOverburdan"].stringValue,
-                                                                                     self.openCastMappingDetails["thicknessOfInterburden"].stringValue,
-                                                                                     self.openCastMappingDetails["observedGradeOfOre"].stringValue,
-                                                                                     self.openCastMappingDetails["sampleColledted"].stringValue,
-                                                                                     self.openCastMappingDetails["actualGradeOfOre"].stringValue,
-                                                                                     self.openCastMappingDetails["weathring"].stringValue,
-                                                                                     self.openCastMappingDetails["rockStregth"].stringValue,
-                                                                                     self.openCastMappingDetails["waterCondition"].stringValue,
-                                                                                     self.openCastMappingDetails["typeOfGeologistStruture"].stringValue,
-                                                                                     self.openCastMappingDetails["typeOfFaults"].stringValue,
-                                                                                     self.openCastMappingDetails["notes"].stringValue,
-                                                                                     geologistSign,
-                                                                                     clientGeologistSignature,
-                                                                                     drawImage) { completion in
+            OpenCastMappingReportDataModel.shared.editOpenCastMappingReportData(JSON(UserModelClass.current.userId as Any).stringValue,
+                                                                                self.openCastMappingDetails["mappingSheetNo"].stringValue,
+                                                                                self.openCastMappingDetails["ocDate"].stringValue,
+                                                                                self.openCastMappingDetails["mappingSheetNo"].stringValue,
+                                                                                self.openCastMappingDetails["minesSiteName"].stringValue,
+                                                                                self.openCastMappingDetails["pitName"].stringValue,
+                                                                                self.openCastMappingDetails["pitLoaction"].stringValue,
+                                                                                self.openCastMappingDetails["shiftInchargeName"].stringValue,
+                                                                                self.openCastMappingDetails["geologistName"].stringValue,
+                                                                                self.openCastMappingDetails["shift"].stringValue,
+                                                                                self.openCastMappingDetails["faceLocation"].stringValue,
+                                                                                self.openCastMappingDetails["faceLength"].stringValue,
+                                                                                self.openCastMappingDetails["faceArea"].stringValue,
+                                                                                self.openCastMappingDetails["faceRockType"].stringValue,
+                                                                                self.openCastMappingDetails["benchRl"].stringValue,
+                                                                                self.openCastMappingDetails["benchHeightWidth"].stringValue,
+                                                                                self.openCastMappingDetails["benchAngle"].stringValue,
+                                                                                self.openCastMappingDetails["dipDirectionAndAngle"].stringValue,
+                                                                                self.openCastMappingDetails["thicknessOfOre"].stringValue,
+                                                                                self.openCastMappingDetails["thicknessOfOverburdan"].stringValue,
+                                                                                self.openCastMappingDetails["thicknessOfInterburden"].stringValue,
+                                                                                self.openCastMappingDetails["observedGradeOfOre"].stringValue,
+                                                                                self.openCastMappingDetails["sampleColledted"].stringValue,
+                                                                                self.openCastMappingDetails["actualGradeOfOre"].stringValue,
+                                                                                self.openCastMappingDetails["weathring"].stringValue,
+                                                                                self.openCastMappingDetails["rockStregth"].stringValue,
+                                                                                self.openCastMappingDetails["waterCondition"].stringValue,
+                                                                                self.openCastMappingDetails["typeOfGeologistStruture"].stringValue,
+                                                                                self.openCastMappingDetails["typeOfFaults"].stringValue,
+                                                                                self.openCastMappingDetails["notes"].stringValue,
+                                                                                geologistSign,
+                                                                                clientGeologistSignature,
+                                                                                drawImage) { completion in
                 
                 if completion{
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.5){
-                        AppDelegate.shared.updateWindow(.home)
-                        GFunctions.shared.showSnackBar(message: kOpenCastMappingReportSavedSuccessfully)
+                        //                        AppDelegate.shared.updateWindow(.home)
+                        //                        GFunctions.shared.showSnackBar(message: kOpenCastMappingReportSavedSuccessfully)
+                        
+                        self.vmOCMappingReportDraft.getOpenCastMappingReportData{ completion in
+                            if completion{
+                                let dict : JSON = ["offline_id" : self.openCastMappingDetails["mappingSheetNo"].stringValue]
+                                for previousVC in self.navigationController!.viewControllers{
+                                    
+                                    if previousVC.isKind(of: OpenCastReportOfflineDetailVC.self){
+                                        NotificationCenter.default.post(name: NSNotification.Name.updateOCOfflineReport, object: dict)
+                                        self.navigationController?.popToViewController(previousVC, animated: true)
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }
         }
     }
 }
+
+

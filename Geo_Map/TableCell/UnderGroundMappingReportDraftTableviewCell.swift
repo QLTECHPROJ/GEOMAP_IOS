@@ -34,13 +34,13 @@ class UnderGroundMappingReportDraftTableviewCell: UITableViewCell {
         
         debugPrint(reportData)
         
-        self.lblTitle.text = JSON(reportData.mapSerialNo as Any).stringValue
+        self.lblTitle.text = JSON(reportData.name as Any).stringValue
         self.lblDate.text = JSON(reportData.ugDate as Any).stringValue
         self.lblCity.text = JSON(reportData.location as Any).stringValue
         
-        let attributedText1: NSMutableAttributedString = NSMutableAttributedString(string: "\(kScaleColnm) \(JSON(reportData.scale as Any).stringValue)")
-        attributedText1.setAttributes(color: UIColor.colorTextPlaceHolderGray, forText: kScaleColnm, font: 12, fontname: .InterMedium)
-        attributedText1.setAttributes(color: UIColor.colorTextBlack, forText: JSON(reportData.scale as Any).stringValue, font: 12, fontname: .InterMedium)
+        let attributedText1: NSMutableAttributedString = NSMutableAttributedString(string: "\(kMappedByColn) \(JSON(reportData.mappedBy as Any).stringValue)")
+        attributedText1.setAttributes(color: UIColor.colorTextPlaceHolderGray, forText: kMappedByColn, font: 12, fontname: .InterMedium)
+        attributedText1.setAttributes(color: UIColor.colorTextBlack, forText: JSON(reportData.mappedBy as Any).stringValue, font: 12, fontname: .InterMedium)
         self.lblSubtitle.attributedText = attributedText1
         
         let attributedText2: NSMutableAttributedString = NSMutableAttributedString(string: "\(kMapSerialNoColmn) \(JSON(reportData.mapSerialNo as Any).stringValue)")
@@ -55,7 +55,7 @@ class UnderGroundMappingReportDraftTableviewCell: UITableViewCell {
         
         debugPrint(reportData)
         
-        self.lblTitle.text = JSON(reportData.mappingSheetNo as Any).stringValue
+        self.lblTitle.text = JSON(reportData.pitName as Any).stringValue
         self.lblDate.text = JSON(reportData.ocDate as Any).stringValue
         self.lblCity.text = JSON(reportData.pitLocation as Any).stringValue
         

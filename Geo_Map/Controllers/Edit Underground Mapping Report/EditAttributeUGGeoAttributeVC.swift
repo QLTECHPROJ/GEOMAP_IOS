@@ -1,14 +1,13 @@
 //
-//  PersonalDetailsVC.swift
-//  NSC_iOS
+//  EditAttributeUGGeoAttributeVC.swift
+//  Geo_Map
 //
-//  Created by Dhruvit on 06/05/22.
+//  Created by vishal parmar on 12/12/22.
 //
 
 import UIKit
 
-
-class UGGeoAttributeVC: ClearNaviagtionBarVC {
+class EditAttributeUGGeoAttributeVC: ClearNaviagtionBarVC {
     
     // MARK: - OUTLETS
     
@@ -47,6 +46,15 @@ class UGGeoAttributeVC: ClearNaviagtionBarVC {
     
     private var arrAddedAttributes : [JSON] = []
     
+    var ugReportDetail : JSON = .null
+    
+    var isOfflineDataUpdate : Bool = false
+    
+    var faceImage = UIImage()
+    var roofImage = UIImage()
+    var leftImage = UIImage()
+    var rightImage = UIImage()
+    
     
     
     deinit {
@@ -79,15 +87,6 @@ class UGGeoAttributeVC: ClearNaviagtionBarVC {
         attributedScale.setAttributes(color: UIColor.colorTextBlack, forText: kAddMultipleAttributesInMappingReportInstrcution, font: 10, fontname: .InterItalic)
         self.lblInstruction.attributedText = attributedScale
         
-        /*
-        let defaultFontAttribute = [NSAttributedString.Key.foregroundColor: UIColor.colorTextBlack ,NSAttributedString.Key.font: UIFont.italicSystemFont(ofSize: 13 * kFontAspectRatio)]
-        let blueFontAttribute = [NSAttributedString.Key.foregroundColor: UIColor.colorTextPlaceHolderGray,NSAttributedString.Key.font: UIFont.italicSystemFont(ofSize: 13 * kFontAspectRatio)/*,NSAttributedString.Key.underlineColor: UIColor.colorSkyBlue, NSAttributedString.Key.underlineStyle : NSUnderlineStyle.single.rawValue*/] as [NSAttributedString.Key : Any]
-                
-        self.lblInstruction.text = "\(kNoteColmn) \(kAddMultipleAttributesInMappingReportInstrcution)"
-        self.lblInstruction.attributedText = (self.lblInstruction.text)?.getAttributedText(defaultDic: defaultFontAttribute, attributeDic: blueFontAttribute, attributedStrings: [kAddMultipleAttributesInMappingReportInstrcution])
-        
-        self.lblInstruction.lineSpacing(lineSpacing: 10.0, alignment: self.lblInstruction.textAlignment)
-        */
         self.lblAttributes.applyLabelStyle(text : kAttributes,fontSize : 14,fontName : .InterSemibol)
         
         self.lblNos.applyLabelStyle(text : kNos,fontSize : 14,fontName : .InterSemibol)
@@ -105,7 +104,7 @@ class UGGeoAttributeVC: ClearNaviagtionBarVC {
             
             self.btnAddAttributes.applystyle(fontname : .InterSemibol,fontsize : 14,titleText : kAddAttributes,titleColor : .colorSkyBlue)
         }
-        
+        self.setAttributesData()
         self.otherActions()
         self.setEmptyField()
         self.buttonEnableDisable()
@@ -121,6 +120,16 @@ class UGGeoAttributeVC: ClearNaviagtionBarVC {
         }
     }
     
+    private func setAttributesData(){
+        guard self.ugReportDetail != .null else {return}
+        self.arrAddedAttributes = []
+        
+        debugPrint(self.ugReportDetail)
+        
+        for data in self.ugReportDetail["attribute"].arrayValue{
+            self.arrAddedAttributes.append(["name" : data["name"].stringValue, "nose" : data["nose"].stringValue, "properties" : data["properties"].stringValue])
+        }
+    }
     
     func setEmptyField(){
         
@@ -180,8 +189,15 @@ class UGGeoAttributeVC: ClearNaviagtionBarVC {
         self.setEmptyField()
         self.setDataOnTableView()
         self.buttonEnableDisable()
-        let vc = AppStoryBoard.main.viewController(viewControllerClass: UGGeoAttributeVC2.self)
+        
+        let vc = AppStoryBoard.main.viewController(viewControllerClass: EditUGMappingDataVC.self)
         vc.arrAddedAttributes = self.arrAddedAttributes
+        vc.ugReportDetail = self.ugReportDetail
+        vc.isOfflineDataUpdate = self.isOfflineDataUpdate
+        vc.faceImage = self.faceImage
+        vc.roofImage = self.roofImage
+        vc.leftImage = self.leftImage
+        vc.rightImage = self.rightImage
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -234,7 +250,7 @@ class UGGeoAttributeVC: ClearNaviagtionBarVC {
 
 
 // MARK: - UITextFieldDelegate
-extension UGGeoAttributeVC : UITextViewDelegate {
+extension EditAttributeUGGeoAttributeVC : UITextViewDelegate {
  
     func textViewDidChangeSelection(_ textView: UITextView) {
         self.buttonEnableDisable()
@@ -246,7 +262,7 @@ extension UGGeoAttributeVC : UITextViewDelegate {
 
 
 // MARK: - UITableViewDelegate, UITableViewDataSource
-extension UGGeoAttributeVC : UITableViewDelegate, UITableViewDataSource {
+extension EditAttributeUGGeoAttributeVC : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.arrAddedAttributes.count
@@ -283,7 +299,6 @@ extension UGGeoAttributeVC : UITableViewDelegate, UITableViewDataSource {
                 self.arrAddedAttributes.remove(at: sender.tag)
                 self.setDataOnTableView()
                 self.buttonEnableDisable()
-                UIColor.colorSkyBlue
             }
         }
     }

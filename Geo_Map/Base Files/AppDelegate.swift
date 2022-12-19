@@ -8,7 +8,7 @@
 import UIKit
 
 import Firebase
-import IQKeyboardManagerSwift
+@_exported import IQKeyboardManagerSwift
 
 @_exported import SwiftyJSON
 

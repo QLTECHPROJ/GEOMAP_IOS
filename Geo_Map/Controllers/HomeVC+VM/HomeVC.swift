@@ -209,14 +209,14 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
 
             let vc = AppStoryBoard.main.viewController(viewControllerClass: UGReportDetailVC.self)
             vc.reportListType = .underGroundReport
-            vc.reportId = self.vwReportList.viewForHeaderInSectionData(indexPath.section)["data"][indexPath.row]["id"].stringValue
+            vc.reportId = self.vwReportList.viewForHeaderInSectionData(indexPath.section)["data"][indexPath.row]["mapSerialNo"].stringValue
             self.navigationController?.pushViewController(vc, animated: true)
             
         }else {
 
             let vc = AppStoryBoard.main.viewController(viewControllerClass: OCReportDetailVC.self)
             vc.reportListType = .openCastReport
-            vc.reportId = self.vwReportList.viewForHeaderInSectionData(indexPath.section)["data"][indexPath.row]["id"].stringValue
+            vc.reportId = self.vwReportList.viewForHeaderInSectionData(indexPath.section)["data"][indexPath.row]["mappingSheetNo"].stringValue
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }

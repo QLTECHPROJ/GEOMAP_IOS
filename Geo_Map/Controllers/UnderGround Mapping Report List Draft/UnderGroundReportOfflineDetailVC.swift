@@ -20,16 +20,40 @@ class UnderGroundReportOfflineDetailVC : ClearNaviagtionBarVC {
     @IBOutlet weak var tblAttribute : UITableView!
     @IBOutlet weak var tblAttributeHeight: NSLayoutConstraint!
     
+    @IBOutlet weak var btnEditReport : AppThemeBlueButton!
+    
+    @IBOutlet weak var imgLeft : UIImageView!
+    @IBOutlet weak var lblLeftImage : UILabel!
+    
+    @IBOutlet weak var imgRight : UIImageView!
+    @IBOutlet weak var lblRightImage : UILabel!
+    
+    @IBOutlet weak var imgFace : UIImageView!
+    @IBOutlet weak var lblFaceImage : UILabel!
+    
+    @IBOutlet weak var imgRoof : UIImageView!
+    @IBOutlet weak var lblRoofImage : UILabel!
     
     //----------------------------------------------------------------------------
     //MARK: - Class Variables
     //----------------------------------------------------------------------------
     
+    
+    private var faceImage = UIImage()
+    private var roofImage = UIImage()
+    private var leftImage = UIImage()
+    private var rightImage = UIImage()
+    
+    
     var reportData = UnderGroundMappingReportDataTable()
     private var arrAttribute : [JSON] = []
     private var arrReportDetails : [JSON] = [
+//        [
+//            "key" : kMapSerialNo,
+//            "value" : ""
+//        ],
         [
-            "key" : kMapSerialNo,
+            "key" : kNameColn,
             "value" : ""
         ],
         [
@@ -70,7 +94,8 @@ class UnderGroundReportOfflineDetailVC : ClearNaviagtionBarVC {
         ]
     ]
     
-    
+    var ugOfflineReportDetail : JSON = .null
+    private var vwUGMappingReportListOffline : UnderGroundMappingReportListDraftVM = UnderGroundMappingReportListDraftVM()
     
     //----------------------------------------------------------------------------
     //MARK: - Memory management
@@ -87,6 +112,7 @@ class UnderGroundReportOfflineDetailVC : ClearNaviagtionBarVC {
         if let _ = self.tblAttribute {
             self.tblAttribute.removeObserver(self, forKeyPath: "contentSize")
         }
+        self.removeClassObservers()
     }
     
     //----------------------------------------------------------------------------
@@ -103,7 +129,12 @@ class UnderGroundReportOfflineDetailVC : ClearNaviagtionBarVC {
     //Desc:- Set layout desing customize
     
     func configureUI(){
+        self.addClassObservers()
+        
         self.view.backgroundColor = .colorBGSkyBlueLight
+        
+        self.btnEditReport.isSelect = true
+        self.btnEditReport.setTitle(kEdit, for: .normal)
         
         self.lblTitle.applyLabelStyle(isAdjustFontWidth : true,text: kUndergroundsMappingReportDetails,fontSize :  16,fontName : .InterBold)
         self.lblAttribute.applyLabelStyle(text: kAttributesColn,fontSize :  12,fontName : .InterMedium,textColor: .colorTextPlaceHolderGray)
@@ -116,6 +147,23 @@ class UnderGroundReportOfflineDetailVC : ClearNaviagtionBarVC {
         self.tblAttribute.isScrollEnabled = false
         self.tblView.addObserver(self, forKeyPath: "contentSize", options: [.new ], context: nil)
         self.tblAttribute.addObserver(self, forKeyPath: "contentSize", options: [.new ], context: nil)
+        
+        self.lblFaceImage.applyLabelStyle(text: kFACE,fontSize :  14,fontName : .InterSemibol)
+        self.imgFace.contentMode = .scaleAspectFit
+        self.imgFace.layer.cornerRadius = 10
+        
+        self.lblLeftImage.applyLabelStyle(text: kLEFT,fontSize :  14,fontName : .InterSemibol)
+        self.imgLeft.contentMode = .scaleAspectFit
+        self.imgLeft.layer.cornerRadius = 10
+        
+        self.lblRoofImage.applyLabelStyle(text: kROOF,fontSize :  14,fontName : .InterSemibol)
+        self.imgRoof.contentMode = .scaleAspectFit
+        self.imgRoof.layer.cornerRadius = 10
+        
+        self.lblRightImage.applyLabelStyle(text: kRIGHT,fontSize :  14,fontName : .InterSemibol)
+        self.imgRight.contentMode = .scaleAspectFit
+        self.imgRight.layer.cornerRadius = 10
+        
     }
     
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
@@ -136,11 +184,21 @@ class UnderGroundReportOfflineDetailVC : ClearNaviagtionBarVC {
     //----------------------------------------------------------------------------
     //MARK: - Action Methods
     //----------------------------------------------------------------------------
-    
-    
-    
+        
     @IBAction func btnBackTapped(_ sender : Any){
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func btnEditTapped(_ sender : UIButton){
+        self.view.endEditing(true)
+        let vc = AppStoryBoard.main.viewController(viewControllerClass: EditAttributeUGGeoAttributeVC.self)
+        vc.ugReportDetail = self.ugOfflineReportDetail
+        vc.isOfflineDataUpdate = true
+        vc.faceImage = self.faceImage
+        vc.roofImage = self.roofImage
+        vc.leftImage = self.leftImage
+        vc.rightImage = self.rightImage
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     
@@ -225,8 +283,12 @@ extension UnderGroundReportOfflineDetailVC {
     func setDraftDetail(_ reportData : UnderGroundMappingReportDataTable){
         
         for (i, _) in self.arrReportDetails.enumerated(){
-            if self.arrReportDetails[i]["key"].stringValue == kMapSerialNo{
+           /* if self.arrReportDetails[i]["key"].stringValue == kMapSerialNo{
                 self.arrReportDetails[i]["value"].stringValue = JSON(reportData.mapSerialNo as Any).stringValue
+            }
+            */
+            if self.arrReportDetails[i]["key"].stringValue == kNameColn{
+                self.arrReportDetails[i]["value"].stringValue = JSON(reportData.name as Any).stringValue
             }
             if self.arrReportDetails[i]["key"].stringValue == kDateColn{
                 self.arrReportDetails[i]["value"].stringValue = JSON(reportData.ugDate as Any).stringValue
@@ -255,9 +317,8 @@ extension UnderGroundReportOfflineDetailVC {
             if self.arrReportDetails[i]["key"].stringValue == kZCoordinateColn{
                 self.arrReportDetails[i]["value"].stringValue = JSON(reportData.zCoordinate as Any).stringValue
             }
-            
         }
-        
+        arrAttribute = []
         if let array = reportData.attributeUndergroundMapping,let nosArray = array.allObjects as? [AttributeUndergroundMappingTable]{
             for nosData in nosArray{
                 debugPrint(nosData)
@@ -269,5 +330,69 @@ extension UnderGroundReportOfflineDetailVC {
         }
         self.tblView.reloadData()
         self.tblAttribute.reloadData()
+        
+        
+        self.ugOfflineReportDetail = [
+            "xCordinate" : JSON(reportData.xCoordinate as Any).stringValue,
+            "venieLoad" : JSON(reportData.veinOrLoad as Any).stringValue,
+            "yCordinate" : JSON(reportData.yCoordinate as Any).stringValue,
+            "leftImage" : "",
+            "name" : JSON(reportData.name as Any).stringValue,
+            "mappedBy" : JSON(reportData.mappedBy as Any).stringValue,
+            "ugDate" : JSON(reportData.ugDate as Any).stringValue,
+            "scale" : JSON(reportData.scale as Any).stringValue,
+            "location" : JSON(reportData.location as Any).stringValue,
+            "faceImage" : "",
+            "userId" : JSON(reportData.userId as Any).stringValue,
+            "zCordinate" : JSON(reportData.zCoordinate as Any).stringValue,
+            "attribute" : self.arrAttribute,
+            "roofImage" : "",
+            "shift" : JSON(reportData.shift as Any).stringValue,
+            "mapSerialNo" : JSON(reportData.mapSerialNo as Any).stringValue,
+            "rightImage" : "",
+            "comment" : JSON(reportData.comment as Any).stringValue,
+//            "iD" : JSON(reportData.iD as Any).stringValue
+        ]
+        
+        guard let faceimg = reportData.faceImage , let rightimg = reportData.rightImage , let leftimg = reportData.leftImage, let roofimg = reportData.roofImage else {return}
+        
+        self.faceImage = UIImage(data: faceimg)!
+        self.roofImage = UIImage(data: roofimg)!
+        self.leftImage = UIImage(data: leftimg)!
+        self.rightImage = UIImage(data: rightimg)!
+        
+        self.imgRoof.image = UIImage(data: roofimg)!
+        self.imgRight.image = UIImage(data: rightimg)!
+        self.imgFace.image = UIImage(data: faceimg)!
+        self.imgLeft.image = UIImage(data: leftimg)!
+    }
+    
+    
+}
+
+//----------------------------------------------------------------------------
+//MARK: - Class observers Methods
+//----------------------------------------------------------------------------
+extension UnderGroundReportOfflineDetailVC {
+    func addClassObservers() {
+       
+        NotificationCenter.default.addObserver(self, selector: #selector(self.reploadPageData(_:)), name: NSNotification.Name.updateUGOfflineReport, object: nil)
+    }
+    
+    func removeClassObservers() {
+        
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.updateUGOfflineReport, object: nil)
+       
+    }
+
+    
+    @objc func reploadPageData(_ notification : NSNotification){
+        
+        if let dataModel = notification.object as? JSON ,dataModel["offline_id"].stringValue == JSON(self.reportData.mapSerialNo as Any).stringValue{
+            
+            self.reportData = UnderGroundMappingReportDataModel.shared.arrUnderGroundMappingReportData.filter{JSON($0.mapSerialNo as Any).stringValue == dataModel["offline_id"].stringValue}.first!
+            
+            self.setDraftDetail(self.reportData)
+        }
     }
 }

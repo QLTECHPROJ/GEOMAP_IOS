@@ -157,5 +157,7 @@ enum ScreenHeightResolution : CGFloat {
 extension Notification.Name {
     
     static let reloadUGOCReportList = Notification.Name("reloadUGOCReportList")
+    static let updateUGOfflineReport = Notification.Name("updateUGOfflineReport")
+    static let updateOCOfflineReport = Notification.Name("updateOCOfflineReport")
 
 }

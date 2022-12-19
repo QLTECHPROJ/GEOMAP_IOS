@@ -73,6 +73,7 @@ class SyncDataVC: ClearNaviagtionBarVC {
         
         guard !arrUnderGroundReportList.isEmpty || !arrOpenCastReportList.isEmpty else {
             GFunctions.shared.showSnackBar(message: kNoOfflineReportFound)
+            self.navigationController?.popViewController(animated: true)
             return
         }
         
@@ -87,7 +88,7 @@ class SyncDataVC: ClearNaviagtionBarVC {
                 
                 if completion{
                     
-                    UnderGroundMappingReportDataModel.shared.deleteUnderGroundMappingReportData(JSON(uGReportData.iD as Any).stringValue) { completion in
+                    UnderGroundMappingReportDataModel.shared.deleteUnderGroundMappingReportData(JSON(uGReportData.mapSerialNo as Any).stringValue) { completion in
                         
                         if completion{
                             
@@ -106,7 +107,7 @@ class SyncDataVC: ClearNaviagtionBarVC {
                 
                 if completion{
                    
-                    OpenCastMappingReportDataModel.shared.deleteOpenCastMappingReportData(JSON(oCReportData.iD as Any).stringValue) { completion in
+                    OpenCastMappingReportDataModel.shared.deleteOpenCastMappingReportData(JSON(oCReportData.mappingSheetNo as Any).stringValue) { completion in
                        
                         if completion{
                             

@@ -17,7 +17,6 @@ class SyncDataVM {
             if completion, statusCode == ApiKeys.ApiStatusCode.success.rawValue, let receivdeData = data {
                 
                 debugPrint(receivdeData)
-                
                
                 completionBlock(receivdeData,statusCode,message,true)
             }
@@ -35,6 +34,7 @@ class SyncDataVM {
         APIManager.shared.callUploadWebService(apiUrl: APIRouter.underground_insert(parameters).urlRequest!.url!.absoluteString, includeHeader: true, parameters: parameters, uploadParameters: uploadParameters, httpMethod: .post,displayHud: isLoader) { [weak self] (response : LoginModel?) in
             if JSON(response?.ResponseCode as Any).stringValue == ApiKeys.ApiStatusCode.success.rawValue {
                
+                
                 completion(true,response?.ResponseMessage ?? nil)
             } else {
                 completion(false,response?.ResponseMessage ?? nil)
@@ -50,7 +50,8 @@ class SyncDataVM {
         
         APIManager.shared.callUploadWebService(apiUrl: APIRouter.open_cast_insert(parameters).urlRequest!.url!.absoluteString, includeHeader: true, parameters: parameters, uploadParameters: uploadParameters, httpMethod: .post,displayHud : isLoader)
         { [weak self] (response : LoginModel?) in
-            if JSON(response?.ResponseCode as Any).stringValue == ApiKeys.ApiStatusCode.success.rawValue, let responseData = response?.ResponseData {
+            
+            if JSON(response?.ResponseCode as Any).stringValue == ApiKeys.ApiStatusCode.success.rawValue{
                
                 completion(true,response?.ResponseMessage)
             } else {

@@ -10,9 +10,19 @@ class OCReportDetailVC : ClearNaviagtionBarVC {
     
     // MARK: - OUTLETS
     @IBOutlet weak var tableView: UITableView!
-    
+    @IBOutlet weak var tblViewHeight: NSLayoutConstraint!
     
     @IBOutlet weak var lblTitle: UILabel!
+    
+    @IBOutlet weak var lblGeologistSign: UILabel!
+    @IBOutlet weak var imgGeologistSign: UIImageView!
+    
+    @IBOutlet weak var lblClientGeologistSign: UILabel!
+    @IBOutlet weak var imgClientGeologistSign: UIImageView!
+    
+    @IBOutlet weak var lblDrawImage : UILabel!
+    @IBOutlet weak var imgDrawImage: UIImageView!
+    
     
     @IBOutlet weak var btnViewPDF: AppThemeBlueButton!
     
@@ -26,10 +36,10 @@ class OCReportDetailVC : ClearNaviagtionBarVC {
     
     
     var arrReportDetails : [JSON] = [
-        [
-            "key" : kMapSerialNo,
-            "value" : ""
-        ],
+//        [
+//            "key" : kMapSerialNo,
+//            "value" : ""
+//        ],
         [
             "key" : kDateColn,
             "value" : ""
@@ -136,6 +146,12 @@ class OCReportDetailVC : ClearNaviagtionBarVC {
         ]
     ]
     
+    deinit {
+        if let _ = self.tableView {
+            self.tableView.removeObserver(self, forKeyPath: "contentSize")
+        }
+    }
+    
     private var openCastDetail : JSON = .null
     
     // MARK: - VIEW LIFE CYCLE
@@ -150,7 +166,14 @@ class OCReportDetailVC : ClearNaviagtionBarVC {
     func setupUI() {
         self.tableView.register(nibWithCellClass: ContactCell.self)
       
+        self.tableView.addObserver(self, forKeyPath: "contentSize", options: [.new ], context: nil)
+        
         self.lblTitle.applyLabelStyle(text: kOpenCastMappingReportDetails,fontSize :  20,fontName : .InterBold)
+        
+        self.lblGeologistSign.applyLabelStyle(text: kGeologistSign,fontSize :  15,fontName : .InterSemibol)
+        self.lblClientGeologistSign.applyLabelStyle(text: kClientGeologistSign,fontSize :  15,fontName : .InterSemibol)
+        self.lblDrawImage.applyLabelStyle(text: kImage,fontSize :  15,fontName : .InterSemibol)
+        
         self.lblTitle.adjustsFontSizeToFitWidth = true
         self.view.backgroundColor = .colorBGSkyBlueLight
         self.tableView.reloadData()
@@ -160,9 +183,20 @@ class OCReportDetailVC : ClearNaviagtionBarVC {
         self.apiCallForDetail()
     }
     
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        if keyPath == "contentSize", let newSize = change?[.newKey] as? CGSize {
+            
+            if let tblView = object as? UITableView{
+                if tblView == self.tableView {
+                    self.tblViewHeight.constant = newSize.height
+                }
+            }
+        }
+    }
+    
     func apiCallForDetail(){
         let parameters = APIParametersModel()
-        parameters.iD = self.reportId
+        parameters.mappingSheetNo = self.reportId
         self.vwUnderGroundReportDetail.callAPIOpenCastReportDetails(parameters: parameters.toDictionary()) { responseData, statusCode, message, completion in
             if completion , let data = responseData{
                 debugPrint(data)
@@ -180,6 +214,14 @@ class OCReportDetailVC : ClearNaviagtionBarVC {
         self.navigationController?.popViewController(animated: true)
     }
     
+    @IBAction func btnEditDetailTapped(_ sender : UIButton){
+        
+        self.view.endEditing(true)
+        let vc = AppStoryBoard.main.viewController(viewControllerClass: EditOCGeoAttributeVC.self)
+        vc.ocReportDetail = self.openCastDetail
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
     @IBAction func btnViewPDF(_ sender : UIButton) {
         
         self.view.endEditing(true)
@@ -194,10 +236,6 @@ class OCReportDetailVC : ClearNaviagtionBarVC {
         vwUnderGroundReportDetail.callAPIGetReportDetailViewInPDF(parameters: parameters.toDictionary()) { responseJson, statusCode, message, completion in
             if completion , let data = responseJson{
                debugPrint(data)
-//                let vc = AppStoryBoard.main.viewController(viewControllerClass: WebViewVC.self)
-//                vc.loadUrl = data["ResponseData"]["pdfLink"].stringValue
-//                self.navigationController?.pushViewController(vc, animated: true)
-                
                 if let url = URL(string: data["ResponseData"]["pdfLink"].stringValue) {
                     UIApplication.shared.open(url)
                 }
@@ -246,11 +284,11 @@ extension OCReportDetailVC {
         
         for (i, _) in self.arrReportDetails.enumerated(){
             
-            if self.arrReportDetails[i]["key"].stringValue == kMapSerialNo{
-                self.arrReportDetails[i]["value"].stringValue = reportData["mappingSheetNo"].stringValue
-            }
+//            if self.arrReportDetails[i]["key"].stringValue == kMapSerialNo{
+//                self.arrReportDetails[i]["value"].stringValue = reportData["mappingSheetNo"].stringValue
+//            }
             if self.arrReportDetails[i]["key"].stringValue == kDateColn{
-                self.arrReportDetails[i]["value"].stringValue = reportData["ocDate"].stringValue
+                self.arrReportDetails[i]["value"].stringValue = GFunctions.shared.convertDateFormat(dt: reportData["ocDate"].stringValue, inputFormat: DateTimeFormaterEnum.ddMMMyyyy.rawValue, outputFormat: DateTimeFormaterEnum.ddmm_yyyy.rawValue, status: .NOCONVERSION).str 
             }
             if self.arrReportDetails[i]["key"].stringValue == kMineSitenameColn{
                 self.arrReportDetails[i]["value"].stringValue = reportData["minesSiteName"].stringValue
@@ -329,6 +367,36 @@ extension OCReportDetailVC {
             }
         }
         self.tableView.reloadData()
+        
+        if let imgGeologistSign = self.fetchImage(reportData["geologistSign"].stringValue.url()){
+           
+            self.imgGeologistSign.image = imgGeologistSign
+        }
+        if let imgClientsGeologistSign = self.fetchImage(reportData["clientsGeologistSign"].stringValue.url()){
+
+            self.imgClientGeologistSign.image = imgClientsGeologistSign
+        }
+        if let imgDraw = self.fetchImage(reportData["image"].stringValue.url()){
+
+            self.imgDrawImage.image = imgDraw
+        }
+    }
+    
+    func fetchImage(_ imgUrl: URL) -> UIImage?{
+        
+        //        DispatchQueue.main.async {
+        do{
+            let imageData: Data = try Data(contentsOf: imgUrl)
+            
+            
+            let image = UIImage(data: imageData)
+            return image
+            //                }
+        }catch{
+            print("Unable to load data: \(error)")
+            return nil
+        }
+        //        }
     }
 }
 

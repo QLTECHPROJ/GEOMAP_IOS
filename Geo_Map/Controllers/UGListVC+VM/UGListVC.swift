@@ -141,14 +141,14 @@ extension UGListVC: UITableViewDelegate, UITableViewDataSource {
 
             let vc = AppStoryBoard.main.viewController(viewControllerClass: UGReportDetailVC.self)
             vc.reportListType = .underGroundReport
-            vc.reportId = self.vwReportList.cellForRowAtInTableviewList(indexPath)["id"].stringValue
+            vc.reportId = self.vwReportList.cellForRowAtInTableviewList(indexPath)["mapSerialNo"].stringValue
             self.navigationController?.pushViewController(vc, animated: true)
             
         }else {
 
             let vc = AppStoryBoard.main.viewController(viewControllerClass: OCReportDetailVC.self)
             vc.reportListType = .openCastReport
-            vc.reportId = self.vwReportList.cellForRowAtInTableviewList(indexPath)["id"].stringValue
+            vc.reportId = self.vwReportList.cellForRowAtInTableviewList(indexPath)["mappingSheetNo"].stringValue
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }

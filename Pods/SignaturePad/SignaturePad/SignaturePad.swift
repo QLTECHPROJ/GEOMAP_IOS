@@ -41,12 +41,17 @@ public protocol SignaturePadDelegate: class {
         }
     }
     
+    open var isDisplay:Bool?
+    
     // Only override draw() if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
     override open func draw(_ rect: CGRect) {
         // Drawing code
         incrementalImage?.draw(in: rect)
         strokeColor.setStroke()
+        if isDisplay == true {
+            UIImage(named: "SplashBackground")?.draw(at: CGPoint.zero)
+        }
         path.stroke()
     }
     
@@ -140,6 +145,9 @@ public protocol SignaturePadDelegate: class {
         UIGraphicsBeginImageContextWithOptions(self.bounds.size, true, 0.0)
         if incrementalImage == nil {
             let rectPath = UIBezierPath(rect: self.bounds)
+            if isDisplay == true {
+                UIImage(named: "SplashBackground")?.draw(at: CGPoint.zero)
+            }
             UIColor.white.setFill()
             rectPath.fill()
         }

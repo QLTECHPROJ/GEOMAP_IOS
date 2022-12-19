@@ -19,7 +19,7 @@ class AttributeNewListTblCell : UITableViewCell{
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.btnDelete.isHidden = true
+
         self.lblName.applyLabelStyle(text : kNameColn,fontSize :  12,fontName : .InterMedium,textColor: .colorTextPlaceHolderGray)
         self.lblNameValue.applyLabelStyle(fontSize :  14,fontName : .InterMedium)
         

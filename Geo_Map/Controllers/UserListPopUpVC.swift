@@ -62,12 +62,15 @@ class UserListPopUpVC: ClearNaviagtionBarVC {
     func setupData() {
 
         self.lblName.text = JSON(UserModelClass.current.name as Any).stringValue
-        
+        self.imgUser.removeSubviews()
         self.imgUser.sd_setImage(with: JSON(UserModelClass.current.profileImage as Any).stringValue.url()) { (image, error, sdchahe, returnUrl) in
             if error != nil {
                 self.imgUser.image = UIImage()
         
                 self.imgUser.addInitialsImage(text: JSON(UserModelClass.current.name as Any).stringValue)
+            }
+            else{
+                
             }
         }
         

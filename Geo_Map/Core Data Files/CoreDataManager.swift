@@ -72,6 +72,18 @@ extension CoreDataManager {
     
     // Check SampleCollected data is empty or not
     
+    var isEmptyGeologistData: Bool {
+        do {
+            let request = NSFetchRequest<NSFetchRequestResult>(entityName: "GeologistDataTable")
+            let count  = try  CoreDataManager.shared.context.count(for: request)
+            return count == 0
+        } catch {
+            return true
+        }
+    }
+    
+    // Check SampleCollected data is empty or not
+    
     var isEmptyCollectedData: Bool {
         do {
             let request = NSFetchRequest<NSFetchRequestResult>(entityName: "SampleCollected")
@@ -162,6 +174,10 @@ extension CoreDataManager {
 extension CoreDataManager {
     
     func insertAllTableData(_ allContentData : JSON){
+        
+        GeologistDataModel.shared.insertAllGeologistData(allContentData["Geologist"].arrayValue) { completion in
+            if completion {}
+        }
         
         SampleCollectedModel.shared.insertAllSampleCollectedData(allContentData["sampleCollected"].arrayValue) { completion in
             if completion {}

@@ -50,6 +50,11 @@ class DeviceDetail: NSObject {
         #endif
     }
     
+    func imageNameWithTimeStamp(_ name : String) -> String{
+        var currentTimeStamp = String(Int(NSDate().timeIntervalSince1970))
+        return "\(name)_\(currentTimeStamp)"
+    }
+    
     //--------------------------------------------------------------
     //MARK: Get Device Token
     

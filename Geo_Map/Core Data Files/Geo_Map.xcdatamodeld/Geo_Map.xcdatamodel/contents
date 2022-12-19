@@ -13,6 +13,15 @@
         <attribute name="properties" optional="YES" attributeType="String"/>
         <relationship name="undergroundMappingReport" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="UnderGroundMappingReportDataTable" inverseName="attributeUndergroundMapping" inverseEntity="UnderGroundMappingReportDataTable"/>
     </entity>
+    <entity name="GeologistDataTable" representedClassName="GeologistDataTable" syncable="YES">
+        <attribute name="company_type" optional="YES" attributeType="String"/>
+        <attribute name="email" optional="YES" attributeType="String"/>
+        <attribute name="iD" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="password" optional="YES" attributeType="String"/>
+        <attribute name="phone" optional="YES" attributeType="String"/>
+        <attribute name="position" optional="YES" attributeType="String"/>
+    </entity>
     <entity name="Nos" representedClassName="Nos" syncable="YES">
         <attribute name="attributeId" optional="YES" attributeType="String"/>
         <attribute name="createDate" optional="YES" attributeType="String"/>

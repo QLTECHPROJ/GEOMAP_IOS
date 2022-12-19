@@ -281,8 +281,8 @@ func showActionSheet( title : String? = nil , message : String? = nil , titles :
                 }
             }))
         }
-        
-        APPDELEGATE.window?.rootViewController?.present(alert, animated: true, completion: nil)
+        UIApplication.topViewController()?.present(alert, animated: true, completion: nil)
+//        APPDELEGATE.window?.rootViewController?.present(alert, animated: true, completion: nil)
     }
     
 }

@@ -11,14 +11,27 @@ class OpenCastReportOfflineDetailVC: ClearNaviagtionBarVC {
     //----------------------------------------------------------------------------
     @IBOutlet weak var lblTitle : UILabel!
     
+    @IBOutlet weak var btnEdit : AppThemeBlueButton!
+    
     @IBOutlet weak var tblView : UITableView!
+    
+    @IBOutlet weak var tblViewHeight: NSLayoutConstraint!
+    
+    @IBOutlet weak var lblGeologistSign: UILabel!
+    @IBOutlet weak var imgGeologistSign: UIImageView!
+    
+    @IBOutlet weak var lblClientGeologistSign: UILabel!
+    @IBOutlet weak var imgClientGeologistSign: UIImageView!
+    
+    @IBOutlet weak var lblDrawImage : UILabel!
+    @IBOutlet weak var imgDrawImage: UIImageView!
     
     //----------------------------------------------------------------------------
     //MARK: - Class Variables
     //----------------------------------------------------------------------------
     
     var reportData = OpenCastMappingReportDataTable()
-    
+    var ocOfflineReportDetail : JSON = .null
     private var arrReportDetails : [JSON] = [
         [
             "key" : kMapSerialNo,
@@ -126,6 +139,10 @@ class OpenCastReportOfflineDetailVC: ClearNaviagtionBarVC {
         ]
     ]
     
+    var geologistSignImage : UIImage?
+    var clientGeologistSignImage : UIImage?
+    var drawImage : UIImage?
+    
     //----------------------------------------------------------------------------
     //MARK: - Memory management
     //----------------------------------------------------------------------------
@@ -135,15 +152,17 @@ class OpenCastReportOfflineDetailVC: ClearNaviagtionBarVC {
     }
     
     deinit {
-        
+        if let _ = self.tblView {
+            self.tblView.removeObserver(self, forKeyPath: "contentSize")
+        }
+        self.removeClassObservers()
     }
-    
     //----------------------------------------------------------------------------
     //MARK: - Custome Methods
     //----------------------------------------------------------------------------
     //Desc:- Centre method to call Of View Config.
     func setUpView(){
-        
+        self.addClassObservers()
         self.configureUI()
     }
     
@@ -157,11 +176,28 @@ class OpenCastReportOfflineDetailVC: ClearNaviagtionBarVC {
         self.lblTitle.applyLabelStyle(isAdjustFontWidth : true,text: kOpenCastMappingReportDetails,fontSize :  16,fontName : .InterBold)
         self.tblView.register(nibWithCellClass: ContactCell.self)
         
+        self.tblView.addObserver(self, forKeyPath: "contentSize", options: [.new ], context: nil)
+        
+        self.lblGeologistSign.applyLabelStyle(text: kGeologistSign,fontSize :  15,fontName : .InterSemibol)
+        self.lblClientGeologistSign.applyLabelStyle(text: kClientGeologistSign,fontSize :  15,fontName : .InterSemibol)
+        self.lblDrawImage.applyLabelStyle(text: kImage,fontSize :  15,fontName : .InterSemibol)
+        
+        self.btnEdit.setTitle(kEdit, for: .normal)
+        self.btnEdit.isSelect = true
         self.setDraftDetail(self.reportData)
         
     }
     
-    
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        if keyPath == "contentSize", let newSize = change?[.newKey] as? CGSize {
+            
+            if let tblView = object as? UITableView{
+                if tblView == self.tblView {
+                    self.tblViewHeight.constant = newSize.height
+                }
+            }
+        }
+    }
     
     
     //----------------------------------------------------------------------------
@@ -172,6 +208,17 @@ class OpenCastReportOfflineDetailVC: ClearNaviagtionBarVC {
     
     @IBAction func btnBackTapped(_ sender : Any){
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func btnEditDetailTapped(_ sender : Any){
+        self.view.endEditing(true)
+        let vc = AppStoryBoard.main.viewController(viewControllerClass: EditOCGeoAttributeVC.self)
+        vc.ocReportDetail = self.ocOfflineReportDetail
+        vc.isOfflineDataUpdate = true
+        vc.geologistSignImage = self.geologistSignImage
+        vc.clientGeologistSignImage = self.clientGeologistSignImage
+        vc.drawImage = self.drawImage
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     
@@ -327,5 +374,73 @@ extension OpenCastReportOfflineDetailVC {
             }
         }
         self.tblView.reloadData()
+        
+        self.ocOfflineReportDetail = [
+            "mappingSheetNo" : JSON(reportData.iD as Any).stringValue,
+            "minesSiteName" : JSON(reportData.minesSiteName as Any).stringValue,
+            "pitName" : JSON(reportData.pitName as Any).stringValue,
+            "pitLoaction" : JSON(reportData.pitLocation as Any).stringValue,
+            "shiftInchargeName" : JSON(reportData.shiftInChargeName as Any).stringValue,
+            "geologistName" : JSON(reportData.geologistName as Any).stringValue,
+            "faceLocation" : JSON(reportData.faceLocation as Any).stringValue,
+            "faceLength" : JSON(reportData.faceLength as Any).stringValue,
+            "faceArea" : JSON(reportData.faceArea as Any).stringValue,
+            "faceRockType" : JSON(reportData.faceRockTypes as Any).stringValue,
+            "benchRl" : JSON(reportData.benchRL as Any).stringValue,
+            "benchHeightWidth" : JSON(reportData.benchHeightWidth as Any).stringValue,
+            "benchAngle" : JSON(reportData.benchAngle as Any).stringValue,
+            "thicknessOfOre" : JSON(reportData.thicknessOfOre as Any).stringValue,
+            "thicknessOfOverburdan" : JSON(reportData.thicknessOfOverburden as Any).stringValue,
+            "thicknessOfInterburden" : JSON(reportData.thicknessOfInterBurden as Any).stringValue,
+            "observedGradeOfOre" : JSON(reportData.observedGradeOfOre as Any).stringValue,
+            "sampleColledted" : JSON(reportData.sampleCollected as Any).stringValue,
+            "actualGradeOfOre" : JSON(reportData.actualGradOfOre as Any).stringValue,
+            "weathring" : JSON(reportData.weathering as Any).stringValue,
+            "rockStregth" : JSON(reportData.rockStrength as Any).stringValue,
+            "waterCondition" : JSON(reportData.waterCondition as Any).stringValue,
+            "typeOfGeologist" : JSON(reportData.typeOfGeologicalStructures as Any).stringValue,
+            "typeOfFaults" : JSON(reportData.typeOfFaults as Any).stringValue,
+            "notes" : JSON(reportData.notes as Any).stringValue,
+            "shift" : JSON(reportData.shift as Any).stringValue,
+            "ocDate" : JSON(reportData.ocDate as Any).stringValue,
+            "dipDirectionAndAngle" : JSON(reportData.dipdirectionandAngle as Any).stringValue,
+        ]
+        
+        guard let geologistSignature = reportData.geologistSign , let clientGeologistSignature = reportData.clientsGeologistSign , let imageDrawn = reportData.imagedrawn else {return}
+        self.geologistSignImage = UIImage(data: geologistSignature)
+        self.clientGeologistSignImage = UIImage(data: clientGeologistSignature)
+        self.drawImage = UIImage(data: imageDrawn)
+        
+        self.imgGeologistSign.image = UIImage(data: geologistSignature)
+        self.imgClientGeologistSign.image = UIImage(data: clientGeologistSignature)
+        self.imgDrawImage.image = UIImage(data: imageDrawn)
+    }
+}
+
+
+//----------------------------------------------------------------------------
+//MARK: - Class observers Methods
+//----------------------------------------------------------------------------
+extension OpenCastReportOfflineDetailVC {
+    func addClassObservers() {
+       
+        NotificationCenter.default.addObserver(self, selector: #selector(self.reploadPageData(_:)), name: NSNotification.Name.updateOCOfflineReport, object: nil)
+    }
+    
+    func removeClassObservers() {
+        
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.updateOCOfflineReport, object: nil)
+       
+    }
+
+    
+    @objc func reploadPageData(_ notification : NSNotification){
+        
+        if let dataModel = notification.object as? JSON ,dataModel["offline_id"].stringValue == JSON(self.reportData.iD as Any).stringValue{
+            
+            self.reportData = OpenCastMappingReportDataModel.shared.arrOpenCastMappingReportData.filter{JSON($0.iD as Any).stringValue == dataModel["offline_id"].stringValue}.first!
+            
+            self.setDraftDetail(self.reportData)
+        }
     }
 }

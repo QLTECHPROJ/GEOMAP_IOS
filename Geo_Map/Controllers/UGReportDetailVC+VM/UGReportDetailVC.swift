@@ -29,6 +29,18 @@ class UGReportDetailVC: ClearNaviagtionBarVC {
     
     @IBOutlet weak var btnViewPDF: AppThemeBlueButton!
     
+    @IBOutlet weak var imgLeft : UIImageView!
+    @IBOutlet weak var lblLeftImage : UILabel!
+    
+    @IBOutlet weak var imgRight : UIImageView!
+    @IBOutlet weak var lblRightImage : UILabel!
+    
+    @IBOutlet weak var imgFace : UIImageView!
+    @IBOutlet weak var lblFaceImage : UILabel!
+    
+    @IBOutlet weak var imgRoof : UIImageView!
+    @IBOutlet weak var lblRoofImage : UILabel!
+    
     // MARK: - VARIABLES
     
     var reportListType : ReportListType = .underGroundReport
@@ -38,8 +50,12 @@ class UGReportDetailVC: ClearNaviagtionBarVC {
     var reportId : String = ""
     
     var arrReportDetails : [JSON] = [
+//        [
+        //            "key" : kMapSerialNo,
+        //            "value" : ""
+        //        ],
         [
-            "key" : kMapSerialNo,
+            "key" : kNameColn,
             "value" : ""
         ],
         [
@@ -82,6 +98,22 @@ class UGReportDetailVC: ClearNaviagtionBarVC {
     private var arrAttribute : [JSON] = []
     var underGroundDetail : JSON = .null
     
+    var faceImage = UIImage()
+    var roofImage = UIImage()
+    var leftImage = UIImage()
+    var rightImage = UIImage()
+    
+    
+    deinit {
+        if let _ = self.tblAttribute {
+            self.tblAttribute.removeObserver(self, forKeyPath: "contentSize")
+        }
+        
+        if let _ = self.tblView {
+            self.tblView.removeObserver(self, forKeyPath: "contentSize")
+        }
+    }
+    
     // MARK: - VIEW LIFE CYCLE
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -109,6 +141,22 @@ class UGReportDetailVC: ClearNaviagtionBarVC {
         self.tblView.addObserver(self, forKeyPath: "contentSize", options: [.new ], context: nil)
         self.tblAttribute.addObserver(self, forKeyPath: "contentSize", options: [.new ], context: nil)
         
+        self.lblFaceImage.applyLabelStyle(text: kFACE,fontSize :  14,fontName : .InterSemibol)
+        self.imgFace.contentMode = .scaleAspectFit
+        self.imgFace.layer.cornerRadius = 10
+        
+        self.lblLeftImage.applyLabelStyle(text: kLEFT,fontSize :  14,fontName : .InterSemibol)
+        self.imgLeft.contentMode = .scaleAspectFit
+        self.imgLeft.layer.cornerRadius = 10
+        
+        self.lblRoofImage.applyLabelStyle(text: kROOF,fontSize :  14,fontName : .InterSemibol)
+        self.imgRoof.contentMode = .scaleAspectFit
+        self.imgRoof.layer.cornerRadius = 10
+        
+        self.lblRightImage.applyLabelStyle(text: kRIGHT,fontSize :  14,fontName : .InterSemibol)
+        self.imgRight.contentMode = .scaleAspectFit
+        self.imgRight.layer.cornerRadius = 10
+        
         self.apiCallForDetail()
     }
     
@@ -129,7 +177,7 @@ class UGReportDetailVC: ClearNaviagtionBarVC {
     
     func apiCallForDetail(){
         let parameters = APIParametersModel()
-        parameters.iD = self.reportId
+        parameters.mapSerialNo = self.reportId
         self.vwUnderGroundReportDetail.callAPIUnderGroundReportDetails(parameters: parameters.toDictionary()) { responseData, statusCode, message, completion in
             if completion , let data = responseData{
                 debugPrint(data)
@@ -147,6 +195,17 @@ class UGReportDetailVC: ClearNaviagtionBarVC {
         self.navigationController?.popViewController(animated: true)
     }
     
+    @IBAction func btnEditDetailTapped(_ sender : UIButton){
+        self.view.endEditing(true)
+        let vc = AppStoryBoard.main.viewController(viewControllerClass: EditAttributeUGGeoAttributeVC.self)
+        vc.ugReportDetail = self.underGroundDetail
+        vc.faceImage = self.faceImage
+        vc.leftImage = self.leftImage
+        vc.rightImage = self.rightImage
+        vc.roofImage = self.roofImage
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
     @IBAction func btnViewPDF(_ sender : UIButton) {
     
         self.view.endEditing(true)
@@ -161,10 +220,7 @@ class UGReportDetailVC: ClearNaviagtionBarVC {
         vwUnderGroundReportDetail.callAPIGetReportDetailViewInPDF(parameters: parameters.toDictionary()) { responseJson, statusCode, message, completion in
             if completion , let data = responseJson{
                debugPrint(data)
-//                let vc = AppStoryBoard.main.viewController(viewControllerClass: WebViewVC.self)
-//                vc.loadUrl = data["ResponseData"]["pdfLink"].stringValue
-//                self.navigationController?.pushViewController(vc, animated: true)
-                
+
                 if let url = URL(string: data["ResponseData"]["pdfLink"].stringValue) {
                     UIApplication.shared.open(url)
                 }
@@ -216,12 +272,16 @@ extension UGReportDetailVC {
     
         self.btnViewPDF.isSelect = true
         print(reportData)
+        let ugDate =  GFunctions.shared.convertDateFormat(dt: reportData["ugDate"].stringValue, inputFormat: DateTimeFormaterEnum.ddMMMyyyy.rawValue, outputFormat: DateTimeFormaterEnum.ddmm_yyyy.rawValue, status: .NOCONVERSION).str
         for (i, _) in self.arrReportDetails.enumerated(){
-            if self.arrReportDetails[i]["key"].stringValue == kMapSerialNo{
-                self.arrReportDetails[i]["value"].stringValue = reportData["mapSerialNo"].stringValue
+//            if self.arrReportDetails[i]["key"].stringValue == kMapSerialNo{
+//                self.arrReportDetails[i]["value"].stringValue = reportData["mapSerialNo"].stringValue
+//            }
+            if self.arrReportDetails[i]["key"].stringValue == kNameColn{
+                self.arrReportDetails[i]["value"].stringValue = reportData["name"].stringValue
             }
             if self.arrReportDetails[i]["key"].stringValue == kDateColn{
-                self.arrReportDetails[i]["value"].stringValue = reportData["ugDate"].stringValue
+                self.arrReportDetails[i]["value"].stringValue = ugDate
             }
             if self.arrReportDetails[i]["key"].stringValue == kShiftColn{
                 self.arrReportDetails[i]["value"].stringValue = reportData["shift"].stringValue
@@ -249,8 +309,42 @@ extension UGReportDetailVC {
             }
         }
         self.arrAttribute = reportData["attribute"].arrayValue
-//        self.lblAttribute.isHidden = reportData["attribute"].arrayValue.isEmpty
         self.tblView.reloadData()
         self.tblAttribute.reloadData()
+        
+        self.underGroundDetail["ugDate"].stringValue = ugDate
+        if let imgRoof = self.fetchImage(reportData["roofImage"].stringValue.url()){
+            self.roofImage = self.fetchImage(reportData["roofImage"].stringValue.url())!
+            self.imgRoof.image = imgRoof
+        }
+        if let imgRight = self.fetchImage(reportData["rightImage"].stringValue.url()){
+            self.rightImage = self.fetchImage(reportData["rightImage"].stringValue.url())!
+            self.imgRight.image = imgRight
+        }
+        if let imgFace = self.fetchImage(reportData["faceImage"].stringValue.url()){
+            self.faceImage = self.fetchImage(reportData["faceImage"].stringValue.url())!
+            self.imgFace.image = imgFace
+        }
+        if let imgLeft = self.fetchImage(reportData["leftImage"].stringValue.url()){
+            self.leftImage = self.fetchImage(reportData["leftImage"].stringValue.url())!
+            self.imgLeft.image = imgLeft
+        }
+    }
+    
+    func fetchImage(_ imgUrl: URL) -> UIImage?{
+        
+        //        DispatchQueue.main.async {
+        do{
+            let imageData: Data = try Data(contentsOf: imgUrl)
+            
+            
+            let image = UIImage(data: imageData)
+            return image
+            //                }
+        }catch{
+            print("Unable to load data: \(error)")
+            return nil
+        }
+        //        }
     }
 }

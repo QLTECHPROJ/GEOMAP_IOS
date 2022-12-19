@@ -14,6 +14,12 @@ class ListDataViewModel {
        
         switch listType {
             
+        case .geologistName:
+            
+            apiRequest = APIRouter.geologist_data
+            
+            break
+            
         case .attributes:
             
             apiRequest = APIRouter.attribute_data_number

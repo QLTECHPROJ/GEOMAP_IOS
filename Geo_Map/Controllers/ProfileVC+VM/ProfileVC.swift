@@ -196,9 +196,10 @@ class ProfileVC: ClearNaviagtionBarVC {
             return
         }
         
-        self.view.endEditing(true)
+//        self.view.endEditing(true)
         let arrayTitles = [kTakeAPhoto, kChooseFromGallary]
         
+       
         showActionSheet(title: "", message: Theme.strings.profile_image_options, titles: arrayTitles, cancelButtonTitle: Theme.strings.cancel_small) { (buttonTitle) in
             DispatchQueue.main.async {
                 self.handleImageOptions(buttonTitle: buttonTitle)
@@ -381,12 +382,13 @@ extension ProfileVC : UIImagePickerControllerDelegate, UINavigationControllerDel
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[.editedImage] as? UIImage {
             imgUser.image = image
-            
+            self.imgUser.removeSubviews()
             imageData = UploadDataModel(name: "image.jpeg", key: "profileimage", data: image.jpegData(compressionQuality: 0.5), extention: "jpeg", mimeType: "image/jpeg")
             self.strImage = imageData.name
             
         } else if let image = info[.originalImage] as? UIImage {
             imgUser.image = image
+            self.imgUser.removeSubviews()
             imageData = UploadDataModel(name: "image.jpeg", key: "profileimage", data: image.jpegData(compressionQuality: 0.5), extention: "jpeg", mimeType: "image/jpeg")
             self.strImage = imageData.name
         }
