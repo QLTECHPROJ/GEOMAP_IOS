@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "944B4F91-AFA4-49EB-BC80-96838D47289E"
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A3B50AF0-5A85-4297-A009-98CFB20395E0"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Geo_Map/Helper Classes/Global Files/CustomPhotoAlbum.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
+            landmarkName = "createAlbumIfNeeded(completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "A3B50AF0-5A85-4297-A009-98CFB20395E0 - 78f4dfa8208be569"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Geo_Map.MyAppPhotoAlbum.createAlbumIfNeeded(completion: (Swift.Bool) -&gt; ()) -&gt; ()"
+                  moduleName = "Geo_Map"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macmini/Desktop/QLTech_Projects/GEO_MAP_IOS/GEO_MAP_IOS/Geo_Map/Helper%20Classes/Global%20Files/CustomPhotoAlbum.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "54"
+                  endingLineNumber = "54"
+                  offsetFromSymbolStart = "248">
+               </Location>
+               <Location
+                  uuid = "A3B50AF0-5A85-4297-A009-98CFB20395E0 - 79b6a593c2365914"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in Geo_Map.MyAppPhotoAlbum.createAlbumIfNeeded(completion: (Swift.Bool) -&gt; ()) -&gt; ()"
+                  moduleName = "Geo_Map"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macmini/Desktop/QLTech_Projects/GEO_MAP_IOS/GEO_MAP_IOS/Geo_Map/Helper%20Classes/Global%20Files/CustomPhotoAlbum.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "55"
+                  endingLineNumber = "55"
+                  offsetFromSymbolStart = "8">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
