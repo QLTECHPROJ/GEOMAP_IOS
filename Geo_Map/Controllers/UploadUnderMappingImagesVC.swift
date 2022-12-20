@@ -408,6 +408,10 @@ extension UploadUnderMappingImagesVC{
     }
 }
 
+
+//--------------------------------------------------------------------------------------
+// MARK: - UIColorPickerViewControllerDelegate Methods
+//--------------------------------------------------------------------------------------
 extension UploadUnderMappingImagesVC: UIColorPickerViewControllerDelegate {
     
     //  Called once you have finished picking the color.

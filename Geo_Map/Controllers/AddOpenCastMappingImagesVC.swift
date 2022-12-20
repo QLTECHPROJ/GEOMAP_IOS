@@ -4,6 +4,7 @@
 
 import UIKit
 import SignaturePad
+import Combine
 
 class AddOpenCastMappingImagesVC: ClearNaviagtionBarVC {
     
@@ -23,6 +24,9 @@ class AddOpenCastMappingImagesVC: ClearNaviagtionBarVC {
     var openCastMappingDetails : JSON = .null
     var geologistSignImage : UIImage?
     var clientGeologistSignImage : UIImage?
+    
+    var cancellable: AnyCancellable?
+    
     var viewModelSyncData : SyncDataVM = SyncDataVM()
     
     //----------------------------------------------------------------------------
@@ -93,7 +97,24 @@ class AddOpenCastMappingImagesVC: ClearNaviagtionBarVC {
         self.callAPIOrSavedOffline(geologistSign, clientGeologistSignature, drawImage)
     }
     
-    
+    @IBAction func onTappedChangeColor(_ sender: UIButton) {
+        
+        let picker = UIColorPickerViewController()
+        picker.selectedColor = self.vwDrawPad.strokeColor
+        
+        //  Subscribing selectedColor property changes.
+        self.cancellable = picker.publisher(for: \.selectedColor)
+            .sink { color in
+                
+                //  Changing view color on main thread.
+                DispatchQueue.main.async {
+                    self.vwDrawPad.strokeColor = color
+                }
+            }
+        
+        self.present(picker, animated: true, completion: nil)
+    }
+
     
     
     //----------------------------------------------------------------------------
@@ -272,4 +293,28 @@ extension AddOpenCastMappingImagesVC{
             }
         }
     }
+}
+
+
+//--------------------------------------------------------------------------------------
+// MARK: - UIColorPickerViewControllerDelegate Methods
+//--------------------------------------------------------------------------------------
+extension AddOpenCastMappingImagesVC: UIColorPickerViewControllerDelegate {
+    
+    //  Called once you have finished picking the color.
+    func colorPickerViewControllerDidFinish(_ viewController: UIColorPickerViewController) {
+        self.vwDrawPad.strokeColor = viewController.selectedColor
+        
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
+            self.cancellable?.cancel()
+            print(self.cancellable == nil)
+        }
+    }
+    
+    //  Called on every color selection done in the picker.
+    func colorPickerViewControllerDidSelectColor(_ viewController: UIColorPickerViewController) {
+        self.vwDrawPad.strokeColor = viewController.selectedColor
+        
+    }
+    
 }

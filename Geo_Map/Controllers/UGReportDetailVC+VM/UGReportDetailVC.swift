@@ -278,34 +278,34 @@ extension UGReportDetailVC {
 //                self.arrReportDetails[i]["value"].stringValue = reportData["mapSerialNo"].stringValue
 //            }
             if self.arrReportDetails[i]["key"].stringValue == kNameColn{
-                self.arrReportDetails[i]["value"].stringValue = reportData["name"].stringValue
+                self.arrReportDetails[i]["value"].stringValue = reportData["name"].stringValue.trim.isEmpty ? "-" : reportData["name"].stringValue
             }
             if self.arrReportDetails[i]["key"].stringValue == kDateColn{
                 self.arrReportDetails[i]["value"].stringValue = ugDate
             }
             if self.arrReportDetails[i]["key"].stringValue == kShiftColn{
-                self.arrReportDetails[i]["value"].stringValue = reportData["shift"].stringValue
+                self.arrReportDetails[i]["value"].stringValue = reportData["shift"].stringValue.trim.isEmpty ? "-" : reportData["shift"].stringValue
             }
             if self.arrReportDetails[i]["key"].stringValue == kMappedByColn{
-                self.arrReportDetails[i]["value"].stringValue = reportData["mappedBy"].stringValue
+                self.arrReportDetails[i]["value"].stringValue = reportData["mappedBy"].stringValue.trim.isEmpty ? "-" : reportData["mappedBy"].stringValue
             }
             if self.arrReportDetails[i]["key"].stringValue == kScale{
-                self.arrReportDetails[i]["value"].stringValue = reportData["scale"].stringValue
+                self.arrReportDetails[i]["value"].stringValue = reportData["scale"].stringValue.trim.isEmpty ? "-" : reportData["scale"].stringValue
             }
             if self.arrReportDetails[i]["key"].stringValue == kLocationColn{
-                self.arrReportDetails[i]["value"].stringValue = reportData["location"].stringValue
+                self.arrReportDetails[i]["value"].stringValue = reportData["location"].stringValue.trim.isEmpty ? "-" : reportData["location"].stringValue
             }
             if self.arrReportDetails[i]["key"].stringValue == kVeinloadColn{
-                self.arrReportDetails[i]["value"].stringValue = reportData["venieLoad"].stringValue
+                self.arrReportDetails[i]["value"].stringValue = reportData["venieLoad"].stringValue.trim.isEmpty ? "-" : reportData["venieLoad"].stringValue
             }
             if self.arrReportDetails[i]["key"].stringValue == kXCoordinateColn{
-                self.arrReportDetails[i]["value"].stringValue = reportData["xCordinate"].stringValue
+                self.arrReportDetails[i]["value"].stringValue = reportData["xCordinate"].stringValue.trim.isEmpty ? "-" : reportData["xCordinate"].stringValue
             }
             if self.arrReportDetails[i]["key"].stringValue == kYCoordinateColn{
-                self.arrReportDetails[i]["value"].stringValue = reportData["yCordinate"].stringValue
+                self.arrReportDetails[i]["value"].stringValue = reportData["yCordinate"].stringValue.trim.isEmpty ? "-" : reportData["yCordinate"].stringValue
             }
             if self.arrReportDetails[i]["key"].stringValue == kZCoordinateColn{
-                self.arrReportDetails[i]["value"].stringValue = reportData["zCordinate"].stringValue
+                self.arrReportDetails[i]["value"].stringValue = reportData["zCordinate"].stringValue.trim.isEmpty ? "-" : reportData["zCordinate"].stringValue
             }
         }
         self.arrAttribute = reportData["attribute"].arrayValue
@@ -337,10 +337,9 @@ extension UGReportDetailVC {
         do{
             let imageData: Data = try Data(contentsOf: imgUrl)
             
-            
             let image = UIImage(data: imageData)
             return image
-            //                }
+        
         }catch{
             print("Unable to load data: \(error)")
             return nil
