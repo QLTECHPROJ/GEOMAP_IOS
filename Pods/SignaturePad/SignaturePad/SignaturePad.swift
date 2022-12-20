@@ -27,7 +27,7 @@ public protocol SignaturePadDelegate: class {
     private var points: [CGPoint] = [CGPoint](repeating: CGPoint(), count: 5)
     private var ctr: Int = 0
     
-    @IBInspectable private var strokeColor: UIColor = UIColor.black
+    @IBInspectable public var strokeColor: UIColor = UIColor.black
     @IBInspectable private var lineWidth: CGFloat = 3.0
     
     weak open var delegate: SignaturePadDelegate?
