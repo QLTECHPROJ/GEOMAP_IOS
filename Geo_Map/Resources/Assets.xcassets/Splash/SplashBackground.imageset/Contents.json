@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "Rectangle 20.png",
+      "filename" : "Mask group 1x.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "Rectangle 20@2x.png",
+      "filename" : "Mask group 2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "Rectangle 20@3x.png",
+      "filename" : "Mask group 3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

@@ -156,7 +156,7 @@ class EditAttributeUGGeoAttributeVC: ClearNaviagtionBarVC {
         else{
             isEnable = true
         }
-        self.btnNextStep.isSelect = !self.arrAddedAttributes.isEmpty || isEnable
+        self.btnNextStep.isSelect = true//!self.arrAddedAttributes.isEmpty || isEnable
     }
     
    
@@ -172,7 +172,6 @@ class EditAttributeUGGeoAttributeVC: ClearNaviagtionBarVC {
         guard self.lblMineralization.text != kSelectAttributes,self.lblMineralizationNos.text != kSelectNos, !self.tvAddDescription.text.trim.isEmpty else {return}
         
         self.arrAddedAttributes.append(["name" : JSON(self.lblMineralization.text as Any).stringValue, "nose" : JSON(self.lblMineralizationNos.text as Any).stringValue, "properties" : JSON(self.tvAddDescription.text as Any).stringValue])
-        
         
         self.setEmptyField()
         self.buttonEnableDisable()

@@ -190,9 +190,8 @@ class EditOCGeoAttributeVC: ClearNaviagtionBarVC {
         
         self.setOCReportDetail()
         self.signatureButtonEnable()
-        self.btnSubmit.isSelect = true
         
-//        self.buttonEnableDisable()
+        self.buttonEnableDisable()
     }
     
     private func signatureButtonEnable(){
@@ -241,7 +240,7 @@ class EditOCGeoAttributeVC: ClearNaviagtionBarVC {
             isEnable = false
         }
         
-        self.btnSubmit.isSelect = isEnable
+        self.btnSubmit.isSelect = true//isEnable
     }
         
     
@@ -388,7 +387,7 @@ class EditOCGeoAttributeVC: ClearNaviagtionBarVC {
             "pitName" : JSON(self.txtPitName.text as Any).stringValue,
             "pitLoaction" : JSON(self.txtPitLocation.text as Any).stringValue,
             "shiftInchargeName" : JSON(self.txtShiftinchargeName.text as Any).stringValue,
-            "geologistName" : JSON(self.lblGeologistName.text as Any).stringValue,
+            "geologistName" : JSON(self.lblGeologistName.text as Any).stringValue.trim != kGeologistName ? JSON(self.lblGeologistName.text as Any).stringValue : "",
             "faceLocation" : JSON(self.txtFaceLocation.text as Any).stringValue,
             "faceLength" : JSON(self.txtFaceLengthM.text as Any).stringValue,
             "faceArea" : JSON(self.txtFaceAreaM2.text as Any).stringValue,
@@ -400,13 +399,13 @@ class EditOCGeoAttributeVC: ClearNaviagtionBarVC {
             "thicknessOfOverburdan" : JSON(self.txtThicknessOfOverBurden.text as Any).stringValue,
             "thicknessOfInterburden" : JSON(self.txtThicknessOfInterburden.text as Any).stringValue,
             "observedGradeOfOre" : JSON(self.txtObservedGradeOfOre.text as Any).stringValue,
-            "sampleColledted" : JSON(self.lblSampleCollected.text as Any).stringValue,
+            "sampleColledted" : JSON(self.lblSampleCollected.text as Any).stringValue.trim != kSampleCollected ? JSON(self.lblSampleCollected.text as Any).stringValue : "",
             "actualGradeOfOre" : JSON(self.txtActualGradeOfOreLabGrade.text as Any).stringValue,
-            "weathring" : JSON(self.lblWeathering.text as Any).stringValue,
-            "rockStregth" : JSON(self.lblRockStrenght.text as Any).stringValue,
-            "waterCondition" : JSON(self.lblWaterCondition.text as Any).stringValue,
-            "typeOfGeologistStruture" : JSON(self.lblTypeOfGeologicalStructure.text as Any).stringValue,
-            "typeOfFaults" : JSON(self.lblTypeOfFault.text as Any).stringValue,
+            "weathring" : JSON(self.lblWeathering.text as Any).stringValue.trim != kWeathering ? JSON(self.lblWeathering.text as Any).stringValue : "",
+            "rockStregth" : JSON(self.lblRockStrenght.text as Any).stringValue.trim != kRockStrength ? JSON(self.lblRockStrenght.text as Any).stringValue : "",
+            "waterCondition" : JSON(self.lblWaterCondition.text as Any).stringValue.trim != kWaterCondition ? JSON(self.lblWaterCondition.text as Any).stringValue : "",
+            "typeOfGeologistStruture" : JSON(self.lblTypeOfGeologicalStructure.text as Any).stringValue.trim != kTypeOfGeologicalStructures ? JSON(self.lblTypeOfGeologicalStructure.text as Any).stringValue : "",
+            "typeOfFaults" : JSON(self.lblTypeOfFault.text as Any).stringValue.trim != kTypeOfFaults ? JSON(self.lblTypeOfFault.text as Any).stringValue : "",
             "notes" : JSON(self.tvNote.text as Any).stringValue,
             "shift" : self.getShiftType(),
             "ocDate" : JSON(self.lblDate.text as Any).stringValue,
@@ -713,42 +712,42 @@ extension EditOCGeoAttributeVC {
     
     private func setWeathering(_ text : String){
         self.lblWeathering.text = text
-        self.lblWeathering.textColor = .colorTextBlack
+        self.lblWeathering.textColor = text.isEmpty ? .colorTextPlaceHolderGray : .colorTextBlack
     }
     
     private func setSampleCollected(_ text : String){
     
         self.lblSampleCollected.text = text
-        self.lblSampleCollected.textColor = .colorTextBlack
+        self.lblSampleCollected.textColor = text.isEmpty ? .colorTextPlaceHolderGray : .colorTextBlack
     }
     
     private func setGeologistName(_ text : String){
     
         self.lblGeologistName.text = text
-        self.lblGeologistName.textColor = .colorTextBlack
+        self.lblGeologistName.textColor = text.isEmpty ? .colorTextPlaceHolderGray : .colorTextBlack
     }
     
     private func setRockStrenght(_ text : String){
     
         self.lblRockStrenght.text = text
-        self.lblRockStrenght.textColor = .colorTextBlack
+        self.lblRockStrenght.textColor = text.isEmpty ? .colorTextPlaceHolderGray : .colorTextBlack
     }
     
     private func setWaterCondition(_ text : String){
 
         self.lblWaterCondition.text = text
-        self.lblWaterCondition.textColor = .colorTextBlack
+        self.lblWaterCondition.textColor = text.isEmpty ? .colorTextPlaceHolderGray : .colorTextBlack
     }
     
     private func setTypeOfGeologicalStructure(_ text : String){
         
         self.lblTypeOfGeologicalStructure.text = text
-        self.lblTypeOfGeologicalStructure.textColor = .colorTextBlack
+        self.lblTypeOfGeologicalStructure.textColor = text.isEmpty ? .colorTextPlaceHolderGray : .colorTextBlack
     }
     
     private func setTypeOfFault(_ text : String){
       
         self.lblTypeOfFault.text = text
-        self.lblTypeOfFault.textColor = .colorTextBlack
+        self.lblTypeOfFault.textColor = text.isEmpty ? .colorTextPlaceHolderGray : .colorTextBlack
     }
 }

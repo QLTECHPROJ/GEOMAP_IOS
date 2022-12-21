@@ -66,7 +66,7 @@ class EditOpenCastMappingImagesVC: ClearNaviagtionBarVC {
         
         self.vwDrawPad.delegate = self
         
-        self.vwDrawPad.isDisplay = false
+        self.vwDrawPad.isDisplay = true
         
         
         self.setDataForReport()
@@ -196,12 +196,17 @@ extension EditOpenCastMappingImagesVC{
         
         
         var arrImages : [UIImage] = [geologistSign,clientGeologistSignature,drawImage]
-        for imageData in arrImages{
-            
-//            if let image = imageData{
-                MyAppPhotoAlbum.shared.save(image: imageData)
-//            }
+       
+        MyAppPhotoAlbum.shared.checkAuthorizationWithHandler { success in
+            if success{
+                
+                for imageData in arrImages{
+                    
+                    MyAppPhotoAlbum.shared.save(image: imageData)
+                }
+            }
         }
+        
         
         if !self.isOfflineDataUpdate{
             

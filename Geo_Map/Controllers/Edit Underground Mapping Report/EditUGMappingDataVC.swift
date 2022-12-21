@@ -119,7 +119,7 @@ class EditUGMappingDataVC: ClearNaviagtionBarVC {
             
             isEnable = true
         }
-        self.btnNextStep.isSelect = isEnable
+        self.btnNextStep.isSelect = true //isEnable
     }
 
     func selectShift(_ selectiontag : Int = 1){

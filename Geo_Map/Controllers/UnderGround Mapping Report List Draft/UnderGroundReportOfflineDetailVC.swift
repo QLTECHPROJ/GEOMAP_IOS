@@ -69,7 +69,7 @@ class UnderGroundReportOfflineDetailVC : ClearNaviagtionBarVC {
             "value" : ""
         ],
         [
-            "key" : kScale,
+            "key" : kScaleColnm,
             "value" : ""
         ],
         [
@@ -288,34 +288,34 @@ extension UnderGroundReportOfflineDetailVC {
             }
             */
             if self.arrReportDetails[i]["key"].stringValue == kNameColn{
-                self.arrReportDetails[i]["value"].stringValue = JSON(reportData.name as Any).stringValue.trim.isEmpty ? "-" : JSON(reportData.name as Any).stringValue
+                self.arrReportDetails[i]["value"].stringValue = JSON(reportData.name as Any).stringValue.deshOrText
             }
             if self.arrReportDetails[i]["key"].stringValue == kDateColn{
-                self.arrReportDetails[i]["value"].stringValue = JSON(reportData.ugDate as Any).stringValue.trim.isEmpty ? "-" : JSON(reportData.ugDate as Any).stringValue
+                self.arrReportDetails[i]["value"].stringValue = JSON(reportData.ugDate as Any).stringValue.deshOrText
             }
             if self.arrReportDetails[i]["key"].stringValue == kShiftColn{
-                self.arrReportDetails[i]["value"].stringValue = JSON(reportData.shift as Any).stringValue.trim.isEmpty ? "-" : JSON(reportData.shift as Any).stringValue
+                self.arrReportDetails[i]["value"].stringValue = JSON(reportData.shift as Any).stringValue.deshOrText
             }
             if self.arrReportDetails[i]["key"].stringValue == kMappedByColn{
-                self.arrReportDetails[i]["value"].stringValue = JSON(reportData.mappedBy as Any).stringValue.trim.isEmpty ? "-" : JSON(reportData.mappedBy as Any).stringValue
+                self.arrReportDetails[i]["value"].stringValue = JSON(reportData.mappedBy as Any).stringValue.deshOrText
             }
-            if self.arrReportDetails[i]["key"].stringValue == kScale{
-                self.arrReportDetails[i]["value"].stringValue = JSON(reportData.scale as Any).stringValue.trim.isEmpty ? "-" : JSON(reportData.scale as Any).stringValue
+            if self.arrReportDetails[i]["key"].stringValue == kScaleColnm{
+                self.arrReportDetails[i]["value"].stringValue = JSON(reportData.scale as Any).stringValue.deshOrText
             }
             if self.arrReportDetails[i]["key"].stringValue == kLocationColn{
-                self.arrReportDetails[i]["value"].stringValue = JSON(reportData.location as Any).stringValue.trim.isEmpty ? "-" : JSON(reportData.location as Any).stringValue
+                self.arrReportDetails[i]["value"].stringValue = JSON(reportData.location as Any).stringValue.deshOrText
             }
             if self.arrReportDetails[i]["key"].stringValue == kVeinloadColn{
-                self.arrReportDetails[i]["value"].stringValue = JSON(reportData.veinOrLoad as Any).stringValue.trim.isEmpty ? "-" : JSON(reportData.veinOrLoad as Any).stringValue
+                self.arrReportDetails[i]["value"].stringValue = JSON(reportData.veinOrLoad as Any).stringValue.deshOrText
             }
             if self.arrReportDetails[i]["key"].stringValue == kXCoordinateColn{
-                self.arrReportDetails[i]["value"].stringValue = JSON(reportData.xCoordinate as Any).stringValue.trim.isEmpty ? "-" : JSON(reportData.xCoordinate as Any).stringValue
+                self.arrReportDetails[i]["value"].stringValue = JSON(reportData.xCoordinate as Any).stringValue.deshOrText
             }
             if self.arrReportDetails[i]["key"].stringValue == kYCoordinateColn{
-                self.arrReportDetails[i]["value"].stringValue = JSON(reportData.yCoordinate as Any).stringValue.trim.isEmpty ? "-" : JSON(reportData.yCoordinate as Any).stringValue
+                self.arrReportDetails[i]["value"].stringValue = JSON(reportData.yCoordinate as Any).stringValue.deshOrText
             }
             if self.arrReportDetails[i]["key"].stringValue == kZCoordinateColn{
-                self.arrReportDetails[i]["value"].stringValue = JSON(reportData.zCoordinate as Any).stringValue.trim.isEmpty ? "-" : JSON(reportData.zCoordinate as Any).stringValue
+                self.arrReportDetails[i]["value"].stringValue = JSON(reportData.zCoordinate as Any).stringValue.deshOrText
             }
         }
         arrAttribute = []
@@ -360,6 +360,11 @@ extension UnderGroundReportOfflineDetailVC {
         self.roofImage = UIImage(data: roofimg)!
         self.leftImage = UIImage(data: leftimg)!
         self.rightImage = UIImage(data: rightimg)!
+        
+        self.imgRoof.contentMode = .scaleAspectFill
+        self.imgRight.contentMode = .scaleAspectFill
+        self.imgFace.contentMode = .scaleAspectFill
+        self.imgLeft.contentMode = .scaleAspectFill
         
         self.imgRoof.image = UIImage(data: roofimg)!
         self.imgRight.image = UIImage(data: rightimg)!

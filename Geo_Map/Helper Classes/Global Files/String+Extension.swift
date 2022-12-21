@@ -332,6 +332,10 @@ extension String {
         return self.trimmingCharacters(in: .whitespacesAndNewlines)
     }
     
+    var deshOrText : String {
+        return self.trim.isEmpty ? "-" : self
+    }
+    
     var ns: NSString {
         return self as NSString
     }

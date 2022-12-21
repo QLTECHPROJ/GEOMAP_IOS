@@ -152,6 +152,8 @@ var kFaceRockType = "Face Rock types"
 
 var kBenchRL = "Bench RL"
 
+var kBenchRLColmn = "Bench RL :"
+
 var kBenchHeightWidthM = "Bench Height & Width (m)"
 
 var kBenchAngle = "Bench Angle"
@@ -198,75 +200,75 @@ var kUndergroundsMappingReportDetails = "Undergrounds Mapping Report Details"
 
 var kOpenCastMappingReportDetails = "OpenCast Mapping Report Details"
 
-var kDateColn = "Date:"
+var kDateColn = "Date :"
 
-var kShiftColn = "Shift:"
+var kShiftColn = "Shift :"
 
-var kMappedByColn = "Mapped by:"
+var kMappedByColn = "Mapped by :"
 
-var kLocationColn = "Location:"
+var kLocationColn = "Location :"
 
-var kVeinloadColn = "Vein/load:"
+var kVeinloadColn = "Vein/load :"
 
-var kXCoordinateColn = "X coordinate:"
+var kXCoordinateColn = "X coordinate :"
 
-var kYCoordinateColn = "Y coordinate:"
+var kYCoordinateColn = "Y coordinate :"
 
-var kZCoordinateColn = "Z coordinate:"
+var kZCoordinateColn = "Z coordinate :"
 
-var kAttributesColn = "Attributes:"
+var kAttributesColn = "Attributes :"
 
-var kNosColn = "Nos:"
+var kNosColn = "Nos :"
 
-var kPropertiesColn = "Properties:"
+var kPropertiesColn = "Properties :"
 
-var kMineSitenameColn = "Mine site name:"
+var kMineSitenameColn = "Mine site name :"
 
-var kPitnameColn = "Pit name:"
+var kPitnameColn = "Pit name :"
 
-var kPitLocationColn = "Pit location:"
+var kPitLocationColn = "Pit location :"
 
-var kShiftInchargeNameColn = "Shift incharge name:"
+var kShiftInchargeNameColn = "Shift incharge name :"
 
-var kGeologistNameColn = "Geologist name:"
+var kGeologistNameColn = "Geologist name :"
 
-var kMappingParametersColn = "Mapping parameters:"
+var kMappingParametersColn = "Mapping parameters :"
 
-var kFaceLocationColn = "Face location:"
+var kFaceLocationColn = "Face location :"
 
-var kFaceLenghtMColn = "Face lenght (m):"
+var kFaceLenghtMColn = "Face lenght (m) :"
 
-var kFaceAreaM2Coln = "Face area (m2):"
+var kFaceAreaM2Coln = "Face area (m2) :"
 
-var kFaceRockTypeColn = "Face rock types:"
+var kFaceRockTypeColn = "Face rock types :"
 
-var kBenchHeightAndWidthMColn = "Bench height & width (m):"
+var kBenchHeightAndWidthMColn = "Bench height & width (m) :"
 
-var kBenchAngleColn = "Bench angle:"
+var kBenchAngleColn = "Bench angle :"
 
-var kDipDirectionAndAngleColn = "Dip direction and angle:"
+var kDipDirectionAndAngleColn = "Dip direction and angle :"
 
-var kThicknessOfOreCoalseamColn = "Thickness of ore (Coal seam):"
+var kThicknessOfOreCoalseamColn = "Thickness of ore (Coal seam) :"
 
-var kThicknessOfInterburdenMColn = "Thickness of interburden (m):"
+var kThicknessOfInterburdenMColn = "Thickness of interburden (m) :"
 
-var kThicknessOfOverburdenMColn = "Thickness of overburden (m):"
+var kThicknessOfOverburdenMColn = "Thickness of overburden (m) :"
 
-var kObservedGradeOfOreColn = "Observed grade of ore:"
+var kObservedGradeOfOreColn = "Observed grade of ore :"
 
-var kSampleCollectedColn = "Sample collected:"
+var kSampleCollectedColn = "Sample collected :"
 
-var kActualGradeOfOreLabGradeColn = "Actual grade of ore (Lab grade):"
+var kActualGradeOfOreLabGradeColn = "Actual grade of ore (Lab grade) :"
 
-var kWeatheringColn = "Weathering:"
+var kWeatheringColn = "Weathering :"
 
-var kRockStrengthColn = "Rock strength:"
+var kRockStrengthColn = "Rock strength :"
 
-var kWaterConditionColn = "Water condition:"
+var kWaterConditionColn = "Water condition :"
 
 var kTypeOfGeologicalStructuresColn = "Type of geological structures:"
 
-var kTypeOfFaultsColn = "Type of faults:"
+var kTypeOfFaultsColn = "Type of faults :"
 
 var kPDF = "PDF"
 
@@ -366,7 +368,7 @@ var kPleaseEnableNotification = "Please go to the App Settings, tap on Notificat
 
 var kGotoSetting = "Go to Settings"
 
-var kNameColn = "Name:"
+var kNameColn = "Name :"
 
 var kDeleteAttributesPermissionAlert = "Are you sure you want to delete?"
 
@@ -379,7 +381,7 @@ var kWelcomeToTheAppAfterLogin = "Welcome to the Geo Map app"
 
 var kSyncDataWithNoInternetConnection = "Need an active internet connection to synchronise data"
 
-var kNoteColmn = "Note:"
+var kNoteColmn = "Note :"
 
 var kAddMultipleAttributesInMappingReportInstrcution = "You can add multiple attributes in the mapping report using the add attribute button"
 

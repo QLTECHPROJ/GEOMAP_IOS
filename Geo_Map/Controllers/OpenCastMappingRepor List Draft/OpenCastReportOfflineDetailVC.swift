@@ -78,11 +78,11 @@ class OpenCastReportOfflineDetailVC: ClearNaviagtionBarVC {
             "value" : ""
         ],
         [
-            "key" : kBenchRL,
+            "key" : kBenchRLColmn,
             "value" : ""
         ],
         [
-            "key" : kBenchHeightWidthM,
+            "key" : kBenchHeightAndWidthMColn,
             "value" : ""
         ],
         [
@@ -94,7 +94,7 @@ class OpenCastReportOfflineDetailVC: ClearNaviagtionBarVC {
             "value" : ""
         ],
         [
-            "key" : kThicknessOfOreCoalSeam,
+            "key" : kThicknessOfOreCoalseamColn,
             "value" : ""
         ],
         [
@@ -295,82 +295,82 @@ extension OpenCastReportOfflineDetailVC {
         for (i, _) in self.arrReportDetails.enumerated(){
             
             if self.arrReportDetails[i]["key"].stringValue == kMapSerialNo{
-                self.arrReportDetails[i]["value"].stringValue = JSON(reportData.mappingSheetNo as Any).stringValue.trim.isEmpty ? "-" : JSON(reportData.mappingSheetNo as Any).stringValue
+                self.arrReportDetails[i]["value"].stringValue = JSON(reportData.mappingSheetNo as Any).stringValue.deshOrText
             }
             if self.arrReportDetails[i]["key"].stringValue == kDateColn{
-                self.arrReportDetails[i]["value"].stringValue = JSON(reportData.ocDate as Any).stringValue
+                self.arrReportDetails[i]["value"].stringValue = JSON(reportData.ocDate as Any).stringValue.deshOrText
             }
             if self.arrReportDetails[i]["key"].stringValue == kMineSitenameColn{
-                self.arrReportDetails[i]["value"].stringValue = JSON(reportData.minesSiteName as Any).stringValue.trim.isEmpty ? "-" : JSON(reportData.minesSiteName as Any).stringValue
+                self.arrReportDetails[i]["value"].stringValue = JSON(reportData.minesSiteName as Any).stringValue.deshOrText
             }
             if self.arrReportDetails[i]["key"].stringValue == kPitnameColn{
-                self.arrReportDetails[i]["value"].stringValue = JSON(reportData.pitName as Any).stringValue.trim.isEmpty ? "-" : JSON(reportData.pitName as Any).stringValue
+                self.arrReportDetails[i]["value"].stringValue = JSON(reportData.pitName as Any).stringValue.deshOrText
             }
             if self.arrReportDetails[i]["key"].stringValue == kPitLocationColn{
-                self.arrReportDetails[i]["value"].stringValue = JSON(reportData.pitLocation as Any).stringValue.trim.isEmpty ? "-" : JSON(reportData.pitLocation as Any).stringValue
+                self.arrReportDetails[i]["value"].stringValue = JSON(reportData.pitLocation as Any).stringValue.deshOrText
             }
             if self.arrReportDetails[i]["key"].stringValue == kShiftInchargeNameColn{
-                self.arrReportDetails[i]["value"].stringValue = JSON(reportData.shiftInChargeName as Any).stringValue.trim.isEmpty ? "-" : JSON(reportData.shiftInChargeName as Any).stringValue
+                self.arrReportDetails[i]["value"].stringValue = JSON(reportData.shiftInChargeName as Any).stringValue.deshOrText
             }
             if self.arrReportDetails[i]["key"].stringValue == kGeologistNameColn{
-                self.arrReportDetails[i]["value"].stringValue = JSON(reportData.geologistName as Any).stringValue.trim.isEmpty ? "-" : JSON(reportData.geologistName as Any).stringValue
+                self.arrReportDetails[i]["value"].stringValue = JSON(reportData.geologistName as Any).stringValue.deshOrText
             }
             if self.arrReportDetails[i]["key"].stringValue == kFaceLocationColn{
-                self.arrReportDetails[i]["value"].stringValue = JSON(reportData.faceLocation as Any).stringValue.trim.isEmpty ? "-" : JSON(reportData.faceLocation as Any).stringValue
+                self.arrReportDetails[i]["value"].stringValue = JSON(reportData.faceLocation as Any).stringValue.deshOrText
             }
             if self.arrReportDetails[i]["key"].stringValue == kFaceLenghtMColn{
-                self.arrReportDetails[i]["value"].stringValue = JSON(reportData.faceLength as Any).stringValue.trim.isEmpty ? "-" : JSON(reportData.faceLength as Any).stringValue
+                self.arrReportDetails[i]["value"].stringValue = JSON(reportData.faceLength as Any).stringValue.deshOrText
             }
             if self.arrReportDetails[i]["key"].stringValue == kFaceAreaM2Coln{
-                self.arrReportDetails[i]["value"].stringValue = JSON(reportData.faceArea as Any).stringValue.trim.isEmpty ? "-" : JSON(reportData.faceArea as Any).stringValue
+                self.arrReportDetails[i]["value"].stringValue = JSON(reportData.faceArea as Any).stringValue.deshOrText
             }
             if self.arrReportDetails[i]["key"].stringValue == kFaceRockTypeColn{
-                self.arrReportDetails[i]["value"].stringValue = JSON(reportData.faceRockTypes as Any).stringValue.trim.isEmpty ? "-" : JSON(reportData.faceRockTypes as Any).stringValue
+                self.arrReportDetails[i]["value"].stringValue = JSON(reportData.faceRockTypes as Any).stringValue.deshOrText
             }
-            if self.arrReportDetails[i]["key"].stringValue == kBenchRL{
-                self.arrReportDetails[i]["value"].stringValue = JSON(reportData.benchRL as Any).stringValue.trim.isEmpty ? "-" : JSON(reportData.benchRL as Any).stringValue
+            if self.arrReportDetails[i]["key"].stringValue == kBenchRLColmn{
+                self.arrReportDetails[i]["value"].stringValue = JSON(reportData.benchRL as Any).stringValue.deshOrText
             }
-            if self.arrReportDetails[i]["key"].stringValue == kBenchHeightWidthM{
-                self.arrReportDetails[i]["value"].stringValue = JSON(reportData.benchHeightWidth as Any).stringValue.trim.isEmpty ? "-" : JSON(reportData.benchHeightWidth as Any).stringValue
+            if self.arrReportDetails[i]["key"].stringValue == kBenchHeightAndWidthMColn{
+                self.arrReportDetails[i]["value"].stringValue = JSON(reportData.benchHeightWidth as Any).stringValue.deshOrText
             }
             if self.arrReportDetails[i]["key"].stringValue == kBenchAngleColn{
-                self.arrReportDetails[i]["value"].stringValue = JSON(reportData.benchAngle as Any).stringValue.trim.isEmpty ? "-" : JSON(reportData.benchAngle as Any).stringValue
+                self.arrReportDetails[i]["value"].stringValue = JSON(reportData.benchAngle as Any).stringValue.deshOrText
             }
             if self.arrReportDetails[i]["key"].stringValue == kDipDirectionAndAngleColn{
-                self.arrReportDetails[i]["value"].stringValue = JSON(reportData.dipdirectionandAngle as Any).stringValue.trim.isEmpty ? "-" : JSON(reportData.dipdirectionandAngle as Any).stringValue
+                self.arrReportDetails[i]["value"].stringValue = JSON(reportData.dipdirectionandAngle as Any).stringValue.deshOrText
             }
-            if self.arrReportDetails[i]["key"].stringValue == kThicknessOfOreCoalSeam{
-                self.arrReportDetails[i]["value"].stringValue = JSON(reportData.thicknessOfOre as Any).stringValue.trim.isEmpty ? "-" : JSON(reportData.thicknessOfOre as Any).stringValue
+            if self.arrReportDetails[i]["key"].stringValue == kThicknessOfOreCoalseamColn{
+                self.arrReportDetails[i]["value"].stringValue = JSON(reportData.thicknessOfOre as Any).stringValue.deshOrText
             }
             if self.arrReportDetails[i]["key"].stringValue == kThicknessOfOverburdenMColn{
-                self.arrReportDetails[i]["value"].stringValue = JSON(reportData.thicknessOfOverburden as Any).stringValue.trim.isEmpty ? "-" : JSON(reportData.thicknessOfOverburden as Any).stringValue
+                self.arrReportDetails[i]["value"].stringValue = JSON(reportData.thicknessOfOverburden as Any).stringValue.deshOrText
             }
             if self.arrReportDetails[i]["key"].stringValue == kThicknessOfInterburdenMColn{
-                self.arrReportDetails[i]["value"].stringValue = JSON(reportData.thicknessOfInterBurden as Any).stringValue.trim.isEmpty ? "-" : JSON(reportData.thicknessOfInterBurden as Any).stringValue
+                self.arrReportDetails[i]["value"].stringValue = JSON(reportData.thicknessOfInterBurden as Any).stringValue.deshOrText
             }
             if self.arrReportDetails[i]["key"].stringValue == kObservedGradeOfOreColn{
-                self.arrReportDetails[i]["value"].stringValue = JSON(reportData.observedGradeOfOre as Any).stringValue.trim.isEmpty ? "-" : JSON(reportData.observedGradeOfOre as Any).stringValue
+                self.arrReportDetails[i]["value"].stringValue = JSON(reportData.observedGradeOfOre as Any).stringValue.deshOrText
             }
             if self.arrReportDetails[i]["key"].stringValue == kSampleCollectedColn{
-                self.arrReportDetails[i]["value"].stringValue = JSON(reportData.sampleCollected as Any).stringValue.trim.isEmpty ? "-" : JSON(reportData.sampleCollected as Any).stringValue
+                self.arrReportDetails[i]["value"].stringValue = JSON(reportData.sampleCollected as Any).stringValue.deshOrText
             }
             if self.arrReportDetails[i]["key"].stringValue == kActualGradeOfOreLabGradeColn{
-                self.arrReportDetails[i]["value"].stringValue = JSON(reportData.actualGradOfOre as Any).stringValue.trim.isEmpty ? "-" : JSON(reportData.actualGradOfOre as Any).stringValue
+                self.arrReportDetails[i]["value"].stringValue = JSON(reportData.actualGradOfOre as Any).stringValue.deshOrText
             }
             if self.arrReportDetails[i]["key"].stringValue == kWeatheringColn{
-                self.arrReportDetails[i]["value"].stringValue = JSON(reportData.weathering as Any).stringValue.trim.isEmpty ? "-" : JSON(reportData.weathering as Any).stringValue
+                self.arrReportDetails[i]["value"].stringValue = JSON(reportData.weathering as Any).stringValue.deshOrText
             }
             if self.arrReportDetails[i]["key"].stringValue == kRockStrengthColn{
-                self.arrReportDetails[i]["value"].stringValue = JSON(reportData.rockStrength as Any).stringValue.trim.isEmpty ? "-" : JSON(reportData.rockStrength as Any).stringValue
+                self.arrReportDetails[i]["value"].stringValue = JSON(reportData.rockStrength as Any).stringValue.deshOrText
             }
             if self.arrReportDetails[i]["key"].stringValue == kWaterConditionColn{
-                self.arrReportDetails[i]["value"].stringValue = JSON(reportData.waterCondition as Any).stringValue.trim.isEmpty ? "-" : JSON(reportData.waterCondition as Any).stringValue
+                self.arrReportDetails[i]["value"].stringValue = JSON(reportData.waterCondition as Any).stringValue.deshOrText
             }
             if self.arrReportDetails[i]["key"].stringValue == kTypeOfGeologicalStructuresColn{
-                self.arrReportDetails[i]["value"].stringValue = JSON(reportData.typeOfGeologicalStructures as Any).stringValue.trim.isEmpty ? "-" : JSON(reportData.typeOfGeologicalStructures as Any).stringValue
+                self.arrReportDetails[i]["value"].stringValue = JSON(reportData.typeOfGeologicalStructures as Any).stringValue.deshOrText
             }
             if self.arrReportDetails[i]["key"].stringValue == kTypeOfFaultsColn{
-                self.arrReportDetails[i]["value"].stringValue = JSON(reportData.typeOfFaults as Any).stringValue.trim.isEmpty ? "-" : JSON(reportData.typeOfFaults as Any).stringValue
+                self.arrReportDetails[i]["value"].stringValue = JSON(reportData.typeOfFaults as Any).stringValue.deshOrText
             }
         }
         self.tblView.reloadData()
@@ -413,6 +413,7 @@ extension OpenCastReportOfflineDetailVC {
         
         self.imgGeologistSign.image = UIImage(data: geologistSignature)
         self.imgClientGeologistSign.image = UIImage(data: clientGeologistSignature)
+        self.imgDrawImage.contentMode = .scaleAspectFill
         self.imgDrawImage.image = UIImage(data: imageDrawn)
     }
 }

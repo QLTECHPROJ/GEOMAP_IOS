@@ -87,7 +87,7 @@ class UploadUnderMappingImagesVC: ClearNaviagtionBarVC {
     
     func buttonEnableDisable(_ isDrawn : Bool = false){
         self.isDrawStart = isDrawn
-        self.btnAdd.isSelect = isDrawn
+        self.btnAdd.isSelect = true//isDrawn
         
         switch self.drawingType {
             
@@ -310,14 +310,17 @@ extension UploadUnderMappingImagesVC{
     
     func callAPIOrSavedOffline(_ rootImage : UIImage, _ leftImage : UIImage, _ rightImage : UIImage, _ faceImage : UIImage)
     {
-        
         var arrImages : [UIImage] = [rootImage,leftImage,rightImage,faceImage]
-        for imageData in arrImages{
-            
-//            if let image = imageData{
-                MyAppPhotoAlbum.shared.save(image: imageData)
-//            }
+        MyAppPhotoAlbum.shared.checkAuthorizationWithHandler { success in
+            if success{
+                
+                for imageData in arrImages{
+                    
+                    MyAppPhotoAlbum.shared.save(image: imageData)
+                }
+            }
         }
+        
         
         if checkInternet(true){
             

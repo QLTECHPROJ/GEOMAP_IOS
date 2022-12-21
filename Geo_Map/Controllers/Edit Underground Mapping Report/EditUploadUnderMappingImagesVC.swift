@@ -115,7 +115,7 @@ class EditUploadUnderMappingImagesVC:ClearNaviagtionBarVC {
     
     func buttonEnableDisable(_ isDrawn : Bool = false){
         self.isDrawStart = isDrawn
-        self.btnAdd.isSelect = isDrawn
+        self.btnAdd.isSelect = true//isDrawn
         
         switch self.drawingType {
             
@@ -194,7 +194,7 @@ class EditUploadUnderMappingImagesVC:ClearNaviagtionBarVC {
     
     @IBAction func btnAddDrawTapped(_ sender : UIButton){
         self.view.endEditing(true)
-        if let image = self.vwDrawPad.getSignature(), self.vwDrawPad.isSigned{
+        if let image = self.vwDrawPad.getSignature()/*, self.vwDrawPad.isSigned*/{
             debugPrint(image)
             
             for (i,_) in self.arrDrawing.enumerated(){
@@ -359,12 +359,17 @@ extension EditUploadUnderMappingImagesVC{
     {
         
         var arrImages : [UIImage] = [rootImage,leftImage,rightImage,faceImage]
-        for imageData in arrImages{
-            
-//            if let image = imageData{
-                MyAppPhotoAlbum.shared.save(image: imageData)
-//            }
+        MyAppPhotoAlbum.shared.checkAuthorizationWithHandler { success in
+            if success{
+                
+                for imageData in arrImages{
+                    
+                    MyAppPhotoAlbum.shared.save(image: imageData)
+                }
+            }
         }
+        
+        
         if !self.isOfflineDataUpdate{
             let faceImageObj = UploadDataModel(name: "image.jpeg", key: "faceImage", data: faceImage.jpegData(compressionQuality: 0.5), extention: "jpeg", mimeType: "image/jpeg")
             let rightImageObj = UploadDataModel(name: "image.jpeg", key: "rightImage", data: rightImage.jpegData(compressionQuality: 0.5), extention: "jpeg", mimeType: "image/jpeg")

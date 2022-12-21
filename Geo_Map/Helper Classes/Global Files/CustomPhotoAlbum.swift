@@ -23,7 +23,7 @@ class MyAppPhotoAlbum: NSObject {
     }
   }
 
-  private func checkAuthorizationWithHandler(completion: @escaping ((_ success: Bool) -> Void)) {
+func checkAuthorizationWithHandler(completion: @escaping ((_ success: Bool) -> Void)) {
     if PHPhotoLibrary.authorizationStatus() == .notDetermined {
       PHPhotoLibrary.requestAuthorization({ (status) in
         self.checkAuthorizationWithHandler(completion: completion)
@@ -65,7 +65,7 @@ class MyAppPhotoAlbum: NSObject {
     }
   }
 
-  private func fetchAssetCollectionForAlbum() -> PHAssetCollection? {
+func fetchAssetCollectionForAlbum() -> PHAssetCollection? {
     let fetchOptions = PHFetchOptions()
     fetchOptions.predicate = NSPredicate(format: "title = %@", MyAppPhotoAlbum.albumName)
     let collection = PHAssetCollection.fetchAssetCollections(with: .album, subtype: .any, options: fetchOptions)
@@ -129,3 +129,4 @@ class MyAppPhotoAlbum: NSObject {
 
   }
 }
+

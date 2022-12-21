@@ -4673,7 +4673,6 @@ Mapping Report Details</string>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3HE-Qh-ViO">
-                                    <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
@@ -4737,7 +4736,6 @@ Mapping Report Details</string>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S9d-Es-tXn">
-                                    <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
@@ -7895,34 +7893,29 @@ Mapping Report Details</string>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yfi-zk-g7h" customClass="SignatureView" customModule="Geo_Map" customModuleProvider="target">
                                 <rect key="frame" x="5" y="131.33333333333331" width="365" height="585.33333333333348"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nX1-ZC-two">
-                                        <rect key="frame" x="309" y="495.33333333333326" width="40" height="40"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="3e7-C8-RDm"/>
-                                            <constraint firstAttribute="width" secondItem="nX1-ZC-two" secondAttribute="height" multiplier="1:1" id="fZi-Jo-Unz"/>
-                                        </constraints>
-                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" image="colorWheel"/>
-                                        <connections>
-                                            <action selector="onTappedChangeColor:" destination="SvT-9a-ZiW" eventType="touchUpInside" id="Mis-Ka-fpv"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="nX1-ZC-two" secondAttribute="bottom" constant="50" id="863-YF-tng"/>
-                                    <constraint firstAttribute="trailing" secondItem="nX1-ZC-two" secondAttribute="trailing" constant="16" id="zmc-pd-DEm"/>
-                                </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nX1-ZC-two">
+                                <rect key="frame" x="314" y="626.66666666666663" width="40" height="40"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="3e7-C8-RDm"/>
+                                    <constraint firstAttribute="width" secondItem="nX1-ZC-two" secondAttribute="height" multiplier="1:1" id="fZi-Jo-Unz"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="colorWheel"/>
+                                <connections>
+                                    <action selector="onTappedChangeColor:" destination="SvT-9a-ZiW" eventType="touchUpInside" id="Mis-Ka-fpv"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="KM6-GA-Fpo"/>
                         <color key="backgroundColor" name="theme_light"/>
                         <constraints>
                             <constraint firstItem="ZYo-kj-fL3" firstAttribute="leading" secondItem="KM6-GA-Fpo" secondAttribute="leading" constant="25" id="1LO-JG-iZy"/>
                             <constraint firstAttribute="bottom" secondItem="ZYo-kj-fL3" secondAttribute="bottom" constant="25" id="B64-Al-LyR"/>
+                            <constraint firstItem="nX1-ZC-two" firstAttribute="bottom" secondItem="Yfi-zk-g7h" secondAttribute="bottom" constant="-50" id="Ju7-fg-PWh"/>
                             <constraint firstItem="KM6-GA-Fpo" firstAttribute="trailing" secondItem="ZYo-kj-fL3" secondAttribute="trailing" constant="25" id="KGL-sb-GIF"/>
                             <constraint firstItem="KM6-GA-Fpo" firstAttribute="trailing" secondItem="5ri-ya-vn2" secondAttribute="trailing" constant="25" id="Mzl-UH-ncD"/>
                             <constraint firstItem="ZYo-kj-fL3" firstAttribute="top" secondItem="Yfi-zk-g7h" secondAttribute="bottom" constant="10" id="VyZ-Yw-zSq"/>
@@ -7931,6 +7924,7 @@ Mapping Report Details</string>
                             <constraint firstItem="5ri-ya-vn2" firstAttribute="leading" secondItem="KM6-GA-Fpo" secondAttribute="leading" constant="25" id="ju0-Aj-B5x"/>
                             <constraint firstItem="Yfi-zk-g7h" firstAttribute="top" secondItem="5ri-ya-vn2" secondAttribute="bottom" constant="10" id="lNE-pL-l4r"/>
                             <constraint firstItem="5ri-ya-vn2" firstAttribute="top" secondItem="KM6-GA-Fpo" secondAttribute="top" constant="10" id="to6-2V-BfW"/>
+                            <constraint firstItem="nX1-ZC-two" firstAttribute="trailing" secondItem="Yfi-zk-g7h" secondAttribute="trailing" constant="-16" id="zcF-ra-x6Q"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Nce-cU-3e9">

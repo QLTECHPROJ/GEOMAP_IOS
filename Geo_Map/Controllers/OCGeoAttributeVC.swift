@@ -106,7 +106,7 @@ class OCGeoAttributeVC: ClearNaviagtionBarVC {
     func setUpView(){
         
         self.configureUI()
-//        self.buttonEnableDisable()
+        self.buttonEnableDisable()
     }
     
     
@@ -182,7 +182,7 @@ class OCGeoAttributeVC: ClearNaviagtionBarVC {
         self.btnClearGeologistSign.setTitle(kClearGeologistSign, for: .normal)
         self.btnClearClientGeologistSign.setTitle(kClearClientGeologistSign, for: .normal)
         self.btnSubmit.setTitle(kSubmit, for: .normal)
-        self.btnSubmit.isSelect = true
+        
         
         self.vwGeologistSign.isDisplay = false
         self.vwClientGeologistSign.isDisplay = false
@@ -245,7 +245,7 @@ class OCGeoAttributeVC: ClearNaviagtionBarVC {
             isEnable = false
         }
         
-        self.btnSubmit.isSelect = isEnable
+        self.btnSubmit.isSelect = true// isEnable
     }
     
     //----------------------------------------------------------------------------
@@ -396,7 +396,7 @@ class OCGeoAttributeVC: ClearNaviagtionBarVC {
             "pitName" : JSON(self.txtPitName.text as Any).stringValue,
             "pitLoaction" : JSON(self.txtPitLocation.text as Any).stringValue,
             "shiftInchargeName" : JSON(self.txtShiftinchargeName.text as Any).stringValue,
-            "geologistName" : JSON(self.lblGeologistName.text as Any).stringValue,
+            "geologistName" : JSON(self.lblGeologistName.text as Any).stringValue.trim != kGeologistName ? JSON(self.lblGeologistName.text as Any).stringValue : "",
             "faceLocation" : JSON(self.txtFaceLocation.text as Any).stringValue,
             "faceLength" : JSON(self.txtFaceLengthM.text as Any).stringValue,
             "faceArea" : JSON(self.txtFaceAreaM2.text as Any).stringValue,
@@ -408,13 +408,13 @@ class OCGeoAttributeVC: ClearNaviagtionBarVC {
             "thicknessOfOverburdan" : JSON(self.txtThicknessOfOverBurden.text as Any).stringValue,
             "thicknessOfInterburden" : JSON(self.txtThicknessOfInterburden.text as Any).stringValue,
             "observedGradeOfOre" : JSON(self.txtObservedGradeOfOre.text as Any).stringValue,
-            "sampleColledted" : JSON(self.lblSampleCollected.text as Any).stringValue,
-            "actualGradeOfOre" : JSON(self.txtActualGradeOfOreLabGrade.text as Any).stringValue,
-            "weathring" : JSON(self.lblWeathering.text as Any).stringValue,
-            "rockStregth" : JSON(self.lblRockStrenght.text as Any).stringValue,
-            "waterCondition" : JSON(self.lblWaterCondition.text as Any).stringValue,
-            "typeOfGeologistStruture" : JSON(self.lblTypeOfGeologicalStructure.text as Any).stringValue,
-            "typeOfFaults" : JSON(self.lblTypeOfFault.text as Any).stringValue,
+            "sampleColledted" : JSON(self.lblSampleCollected.text as Any).stringValue.trim != kSampleCollected ? JSON(self.lblSampleCollected.text as Any).stringValue : "",
+            "actualGradeOfOre" : JSON(self.txtActualGradeOfOreLabGrade.text as Any).stringValue.trim != kActualGradeOfOreLabGrade ? JSON(self.txtActualGradeOfOreLabGrade.text as Any).stringValue : "",
+            "weathring" : JSON(self.lblWeathering.text as Any).stringValue.trim != kWeathering ? JSON(self.lblWeathering.text as Any).stringValue : "",
+            "rockStregth" : JSON(self.lblRockStrenght.text as Any).stringValue.trim != kRockStrength ? JSON(self.lblRockStrenght.text as Any).stringValue : "",
+            "waterCondition" : JSON(self.lblWaterCondition.text as Any).stringValue.trim != kWaterCondition ? JSON(self.lblWaterCondition.text as Any).stringValue : "",
+            "typeOfGeologistStruture" : JSON(self.lblTypeOfGeologicalStructure.text as Any).stringValue.trim != kTypeOfGeologicalStructures ? JSON(self.lblTypeOfGeologicalStructure.text as Any).stringValue : "",
+            "typeOfFaults" : JSON(self.lblTypeOfFault.text as Any).stringValue.trim != kTypeOfFaults ? JSON(self.lblTypeOfFault.text as Any).stringValue : "",
             "notes" : JSON(self.tvNote.text as Any).stringValue,
             "shift" : self.getShiftType(),
             "ocDate" : JSON(self.lblDate.text as Any).stringValue,

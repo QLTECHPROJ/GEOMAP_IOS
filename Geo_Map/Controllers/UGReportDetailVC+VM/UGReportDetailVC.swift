@@ -71,7 +71,7 @@ class UGReportDetailVC: ClearNaviagtionBarVC {
             "value" : ""
         ],
         [
-            "key" : kScale,
+            "key" : kScaleColnm,
             "value" : ""
         ],
         [
@@ -278,34 +278,34 @@ extension UGReportDetailVC {
 //                self.arrReportDetails[i]["value"].stringValue = reportData["mapSerialNo"].stringValue
 //            }
             if self.arrReportDetails[i]["key"].stringValue == kNameColn{
-                self.arrReportDetails[i]["value"].stringValue = reportData["name"].stringValue.trim.isEmpty ? "-" : reportData["name"].stringValue
+                self.arrReportDetails[i]["value"].stringValue = reportData["name"].stringValue.deshOrText
             }
             if self.arrReportDetails[i]["key"].stringValue == kDateColn{
                 self.arrReportDetails[i]["value"].stringValue = ugDate
             }
             if self.arrReportDetails[i]["key"].stringValue == kShiftColn{
-                self.arrReportDetails[i]["value"].stringValue = reportData["shift"].stringValue.trim.isEmpty ? "-" : reportData["shift"].stringValue
+                self.arrReportDetails[i]["value"].stringValue = reportData["shift"].stringValue.deshOrText
             }
             if self.arrReportDetails[i]["key"].stringValue == kMappedByColn{
-                self.arrReportDetails[i]["value"].stringValue = reportData["mappedBy"].stringValue.trim.isEmpty ? "-" : reportData["mappedBy"].stringValue
+                self.arrReportDetails[i]["value"].stringValue = reportData["mappedBy"].stringValue.deshOrText
             }
-            if self.arrReportDetails[i]["key"].stringValue == kScale{
-                self.arrReportDetails[i]["value"].stringValue = reportData["scale"].stringValue.trim.isEmpty ? "-" : reportData["scale"].stringValue
+            if self.arrReportDetails[i]["key"].stringValue == kScaleColnm{
+                self.arrReportDetails[i]["value"].stringValue = reportData["scale"].stringValue.deshOrText
             }
             if self.arrReportDetails[i]["key"].stringValue == kLocationColn{
-                self.arrReportDetails[i]["value"].stringValue = reportData["location"].stringValue.trim.isEmpty ? "-" : reportData["location"].stringValue
+                self.arrReportDetails[i]["value"].stringValue = reportData["location"].stringValue.deshOrText
             }
             if self.arrReportDetails[i]["key"].stringValue == kVeinloadColn{
-                self.arrReportDetails[i]["value"].stringValue = reportData["venieLoad"].stringValue.trim.isEmpty ? "-" : reportData["venieLoad"].stringValue
+                self.arrReportDetails[i]["value"].stringValue = reportData["venieLoad"].stringValue.deshOrText
             }
             if self.arrReportDetails[i]["key"].stringValue == kXCoordinateColn{
-                self.arrReportDetails[i]["value"].stringValue = reportData["xCordinate"].stringValue.trim.isEmpty ? "-" : reportData["xCordinate"].stringValue
+                self.arrReportDetails[i]["value"].stringValue = reportData["xCordinate"].stringValue.deshOrText
             }
             if self.arrReportDetails[i]["key"].stringValue == kYCoordinateColn{
-                self.arrReportDetails[i]["value"].stringValue = reportData["yCordinate"].stringValue.trim.isEmpty ? "-" : reportData["yCordinate"].stringValue
+                self.arrReportDetails[i]["value"].stringValue = reportData["yCordinate"].stringValue.deshOrText
             }
             if self.arrReportDetails[i]["key"].stringValue == kZCoordinateColn{
-                self.arrReportDetails[i]["value"].stringValue = reportData["zCordinate"].stringValue.trim.isEmpty ? "-" : reportData["zCordinate"].stringValue
+                self.arrReportDetails[i]["value"].stringValue = reportData["zCordinate"].stringValue.deshOrText
             }
         }
         self.arrAttribute = reportData["attribute"].arrayValue
@@ -314,18 +314,22 @@ extension UGReportDetailVC {
         
         self.underGroundDetail["ugDate"].stringValue = ugDate
         if let imgRoof = self.fetchImage(reportData["roofImage"].stringValue.url()){
+            self.imgRoof.contentMode = .scaleAspectFill
             self.roofImage = self.fetchImage(reportData["roofImage"].stringValue.url())!
             self.imgRoof.image = imgRoof
         }
         if let imgRight = self.fetchImage(reportData["rightImage"].stringValue.url()){
+            self.imgRight.contentMode = .scaleAspectFill
             self.rightImage = self.fetchImage(reportData["rightImage"].stringValue.url())!
             self.imgRight.image = imgRight
         }
         if let imgFace = self.fetchImage(reportData["faceImage"].stringValue.url()){
+            self.imgFace.contentMode = .scaleAspectFill
             self.faceImage = self.fetchImage(reportData["faceImage"].stringValue.url())!
             self.imgFace.image = imgFace
         }
         if let imgLeft = self.fetchImage(reportData["leftImage"].stringValue.url()){
+            self.imgLeft.contentMode = .scaleAspectFill
             self.leftImage = self.fetchImage(reportData["leftImage"].stringValue.url())!
             self.imgLeft.image = imgLeft
         }

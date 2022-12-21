@@ -85,11 +85,11 @@ class OCReportDetailVC : ClearNaviagtionBarVC {
             "value" : ""
         ],
         [
-            "key" : kBenchRL,
+            "key" : kBenchRLColmn,
             "value" : ""
         ],
         [
-            "key" : kBenchHeightWidthM,
+            "key" : kBenchHeightAndWidthMColn,
             "value" : ""
         ],
         [
@@ -101,7 +101,7 @@ class OCReportDetailVC : ClearNaviagtionBarVC {
             "value" : ""
         ],
         [
-            "key" : kThicknessOfOreCoalSeam,
+            "key" : kThicknessOfOreCoalseamColn,
             "value" : ""
         ],
         [
@@ -291,79 +291,79 @@ extension OCReportDetailVC {
                 self.arrReportDetails[i]["value"].stringValue = GFunctions.shared.convertDateFormat(dt: reportData["ocDate"].stringValue, inputFormat: DateTimeFormaterEnum.ddMMMyyyy.rawValue, outputFormat: DateTimeFormaterEnum.ddmm_yyyy.rawValue, status: .NOCONVERSION).str 
             }
             if self.arrReportDetails[i]["key"].stringValue == kMineSitenameColn{
-                self.arrReportDetails[i]["value"].stringValue = reportData["minesSiteName"].stringValue.trim.isEmpty ? "-" : reportData["minesSiteName"].stringValue
+                self.arrReportDetails[i]["value"].stringValue = reportData["minesSiteName"].stringValue.deshOrText
             }
             if self.arrReportDetails[i]["key"].stringValue == kPitnameColn{
-                self.arrReportDetails[i]["value"].stringValue = reportData["pitName"].stringValue.trim.isEmpty ? "-" : reportData["pitName"].stringValue
+                self.arrReportDetails[i]["value"].stringValue = reportData["pitName"].stringValue.deshOrText
             }
             if self.arrReportDetails[i]["key"].stringValue == kPitLocationColn{
-                self.arrReportDetails[i]["value"].stringValue = reportData["pitLoaction"].stringValue.trim.isEmpty ? "-" : reportData["pitLoaction"].stringValue
+                self.arrReportDetails[i]["value"].stringValue = reportData["pitLoaction"].stringValue.deshOrText
             }
             if self.arrReportDetails[i]["key"].stringValue == kShiftInchargeNameColn{
-                self.arrReportDetails[i]["value"].stringValue = reportData["shiftInchargeName"].stringValue.trim.isEmpty ? "-" : reportData["shiftInchargeName"].stringValue
+                self.arrReportDetails[i]["value"].stringValue = reportData["shiftInchargeName"].stringValue.deshOrText
             }
             if self.arrReportDetails[i]["key"].stringValue == kGeologistNameColn{
-                self.arrReportDetails[i]["value"].stringValue = reportData["geologistName"].stringValue.trim.isEmpty ? "-" : reportData["geologistName"].stringValue
+                self.arrReportDetails[i]["value"].stringValue = reportData["geologistName"].stringValue.deshOrText
             }
 //            if self.arrReportDetails[i]["key"].stringValue == kMappingParametersColn{
 //                self.arrReportDetails[i]["value"].stringValue = "-"
 //            }
             if self.arrReportDetails[i]["key"].stringValue == kFaceLocationColn{
-                self.arrReportDetails[i]["value"].stringValue = reportData["faceLocation"].stringValue.trim.isEmpty ? "-" : reportData["faceLocation"].stringValue
+                self.arrReportDetails[i]["value"].stringValue = reportData["faceLocation"].stringValue.deshOrText
             }
             if self.arrReportDetails[i]["key"].stringValue == kFaceLenghtMColn{
-                self.arrReportDetails[i]["value"].stringValue = reportData["faceLength"].stringValue.trim.isEmpty ? "-" : reportData["faceLength"].stringValue
+                self.arrReportDetails[i]["value"].stringValue = reportData["faceLength"].stringValue.deshOrText
             }
             if self.arrReportDetails[i]["key"].stringValue == kFaceAreaM2Coln{
-                self.arrReportDetails[i]["value"].stringValue = reportData["faceArea"].stringValue.trim.isEmpty ? "-" : reportData["faceArea"].stringValue
+                self.arrReportDetails[i]["value"].stringValue = reportData["faceArea"].stringValue.deshOrText
             }
             if self.arrReportDetails[i]["key"].stringValue == kFaceRockTypeColn{
-                self.arrReportDetails[i]["value"].stringValue = reportData["faceRockType"].stringValue.trim.isEmpty ? "-" : reportData["faceRockType"].stringValue
+                self.arrReportDetails[i]["value"].stringValue = reportData["faceRockType"].stringValue.deshOrText
             }
-            if self.arrReportDetails[i]["key"].stringValue == kBenchRL{
-                self.arrReportDetails[i]["value"].stringValue = reportData["benchRl"].stringValue.trim.isEmpty ? "-" : reportData["benchRl"].stringValue
+            if self.arrReportDetails[i]["key"].stringValue == kBenchRLColmn{
+                self.arrReportDetails[i]["value"].stringValue = reportData["benchRl"].stringValue.deshOrText
             }
-            if self.arrReportDetails[i]["key"].stringValue == kBenchHeightWidthM{
-                self.arrReportDetails[i]["value"].stringValue = reportData["benchHeightWidth"].stringValue.trim.isEmpty ? "-" : reportData["benchHeightWidth"].stringValue
+            if self.arrReportDetails[i]["key"].stringValue == kBenchHeightAndWidthMColn{
+                self.arrReportDetails[i]["value"].stringValue = reportData["benchHeightWidth"].stringValue.deshOrText
             }
             if self.arrReportDetails[i]["key"].stringValue == kBenchAngleColn{
-                self.arrReportDetails[i]["value"].stringValue = reportData["benchAngle"].stringValue.trim.isEmpty ? "-" : reportData["benchAngle"].stringValue
+                self.arrReportDetails[i]["value"].stringValue = reportData["benchAngle"].stringValue.deshOrText
             }
             if self.arrReportDetails[i]["key"].stringValue == kDipDirectionAndAngleColn{
-                self.arrReportDetails[i]["value"].stringValue = reportData["dipDirectionAndAngle"].stringValue.trim.isEmpty ? "-" : reportData["dipDirectionAndAngle"].stringValue
+                self.arrReportDetails[i]["value"].stringValue = reportData["dipDirectionAndAngle"].stringValue.deshOrText
             }
-            if self.arrReportDetails[i]["key"].stringValue == kThicknessOfOreCoalSeam{
-                self.arrReportDetails[i]["value"].stringValue = reportData["thicknessOfOre"].stringValue.trim.isEmpty ? "-" : reportData["thicknessOfOre"].stringValue
+            if self.arrReportDetails[i]["key"].stringValue == kThicknessOfOreCoalseamColn{
+                self.arrReportDetails[i]["value"].stringValue = reportData["thicknessOfOre"].stringValue.deshOrText
             }
             if self.arrReportDetails[i]["key"].stringValue == kThicknessOfOverburdenMColn{
-                self.arrReportDetails[i]["value"].stringValue = reportData["thicknessOfOverburdan"].stringValue.trim.isEmpty ? "-" : reportData["thicknessOfOverburdan"].stringValue
+                self.arrReportDetails[i]["value"].stringValue = reportData["thicknessOfOverburdan"].stringValue.deshOrText
             }
             if self.arrReportDetails[i]["key"].stringValue == kThicknessOfInterburdenMColn{
-                self.arrReportDetails[i]["value"].stringValue = reportData["thicknessOfInterburden"].stringValue.trim.isEmpty ? "-" : reportData["thicknessOfInterburden"].stringValue
+                self.arrReportDetails[i]["value"].stringValue = reportData["thicknessOfInterburden"].stringValue.deshOrText
             }
             if self.arrReportDetails[i]["key"].stringValue == kObservedGradeOfOreColn{
-                self.arrReportDetails[i]["value"].stringValue = reportData["observedGradeOfOre"].stringValue.trim.isEmpty ? "-" : reportData["observedGradeOfOre"].stringValue
+                self.arrReportDetails[i]["value"].stringValue = reportData["observedGradeOfOre"].stringValue.deshOrText
             }
             if self.arrReportDetails[i]["key"].stringValue == kSampleCollectedColn{
-                self.arrReportDetails[i]["value"].stringValue = reportData["sampleColledted"].stringValue.trim.isEmpty ? "-" : reportData["sampleColledted"].stringValue
+                self.arrReportDetails[i]["value"].stringValue = reportData["sampleColledted"].stringValue.deshOrText
             }
             if self.arrReportDetails[i]["key"].stringValue == kActualGradeOfOreLabGradeColn{
-                self.arrReportDetails[i]["value"].stringValue = reportData["actualGradeOfOre"].stringValue.trim.isEmpty ? "-" : reportData["actualGradeOfOre"].stringValue
+                self.arrReportDetails[i]["value"].stringValue = reportData["actualGradeOfOre"].stringValue.deshOrText
             }
             if self.arrReportDetails[i]["key"].stringValue == kWeatheringColn{
-                self.arrReportDetails[i]["value"].stringValue = reportData["weathring"].stringValue.trim.isEmpty ? "-" : reportData["weathring"].stringValue
+                self.arrReportDetails[i]["value"].stringValue = reportData["weathring"].stringValue.deshOrText
             }
             if self.arrReportDetails[i]["key"].stringValue == kRockStrengthColn{
-                self.arrReportDetails[i]["value"].stringValue = reportData["rockStregth"].stringValue.trim.isEmpty ? "-" : reportData["rockStregth"].stringValue
+                self.arrReportDetails[i]["value"].stringValue = reportData["rockStregth"].stringValue.deshOrText
             }
             if self.arrReportDetails[i]["key"].stringValue == kWaterConditionColn{
-                self.arrReportDetails[i]["value"].stringValue = reportData["waterCondition"].stringValue.trim.isEmpty ? "-" : reportData["waterCondition"].stringValue
+                self.arrReportDetails[i]["value"].stringValue = reportData["waterCondition"].stringValue.deshOrText
             }
             if self.arrReportDetails[i]["key"].stringValue == kTypeOfGeologicalStructuresColn{
-                self.arrReportDetails[i]["value"].stringValue = reportData["typeOfGeologist"].stringValue.trim.isEmpty ? "-" : reportData["typeOfGeologist"].stringValue
+                self.arrReportDetails[i]["value"].stringValue = reportData["typeOfGeologist"].stringValue.deshOrText
             }
             if self.arrReportDetails[i]["key"].stringValue == kTypeOfFaultsColn{
-                self.arrReportDetails[i]["value"].stringValue = reportData["typeOfFaults"].stringValue.trim.isEmpty ? "-" : reportData["typeOfFaults"].stringValue
+                self.arrReportDetails[i]["value"].stringValue = reportData["typeOfFaults"].stringValue.deshOrText
             }
         }
         self.tableView.reloadData()
@@ -377,7 +377,7 @@ extension OCReportDetailVC {
             self.imgClientGeologistSign.image = imgClientsGeologistSign
         }
         if let imgDraw = self.fetchImage(reportData["image"].stringValue.url()){
-
+            self.imgDrawImage.contentMode = .scaleAspectFill
             self.imgDrawImage.image = imgDraw
         }
     }

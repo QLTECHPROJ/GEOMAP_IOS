@@ -36,34 +36,34 @@ class NotificationListCell: UITableViewCell {
        
         debugPrint(reportData)
         if type == ReportListType.underGroundReport.rawValue{
-            self.lblTitle.text = reportData["name"].stringValue
-            self.lblDate.text = reportData["ugDate"].stringValue
-            self.lblCity.text = reportData["location"].stringValue
+            self.lblTitle.text = reportData["name"].stringValue.deshOrText
+            self.lblDate.text = reportData["ugDate"].stringValue.deshOrText
+            self.lblCity.text = reportData["location"].stringValue.deshOrText
             
-            let attributedScale: NSMutableAttributedString = NSMutableAttributedString(string: "\(kMappedByColn) \(reportData["mappedBy"].stringValue)")
+            let attributedScale: NSMutableAttributedString = NSMutableAttributedString(string: "\(kMappedByColn) \(reportData["mappedBy"].stringValue.deshOrText)")
             attributedScale.setAttributes(color: UIColor.colorTextPlaceHolderGray, forText: kMappedByColn, font: 12, fontname: .InterMedium)
-            attributedScale.setAttributes(color: UIColor.colorTextBlack, forText: reportData["mappedBy"].stringValue, font: 12, fontname: .InterMedium)
+            attributedScale.setAttributes(color: UIColor.colorTextBlack, forText: reportData["mappedBy"].stringValue.deshOrText, font: 12, fontname: .InterMedium)
             self.lblSubtitle.attributedText = attributedScale
             
-            let attributedMapSerialNo: NSMutableAttributedString = NSMutableAttributedString(string: "\(kMapSerialNoColmn) \(reportData["mapSerialNo"].stringValue)")
+            let attributedMapSerialNo: NSMutableAttributedString = NSMutableAttributedString(string: "\(kMapSerialNoColmn) \(reportData["mapSerialNo"].stringValue.deshOrText)")
             attributedMapSerialNo.setAttributes(color: UIColor.colorTextPlaceHolderGray, forText: kMapSerialNoColmn, font: 12, fontname: .InterMedium)
-            attributedMapSerialNo.setAttributes(color: UIColor.colorTextBlack, forText: reportData["mapSerialNo"].stringValue, font: 12, fontname: .InterMedium)
+            attributedMapSerialNo.setAttributes(color: UIColor.colorTextBlack, forText: reportData["mapSerialNo"].stringValue.deshOrText, font: 12, fontname: .InterMedium)
             self.lblDescription.attributedText = attributedMapSerialNo
             
         }
         else{
-            self.lblTitle.text = reportData["pitName"].stringValue
-            self.lblDate.text = reportData["ocDate"].stringValue
-            self.lblCity.text = reportData["pitLoaction"].stringValue
+            self.lblTitle.text = reportData["pitName"].stringValue.deshOrText
+            self.lblDate.text = reportData["ocDate"].stringValue.deshOrText
+            self.lblCity.text = reportData["pitLoaction"].stringValue.deshOrText
     
-            let attributedMineSite: NSMutableAttributedString = NSMutableAttributedString(string: "\(kMinesSiteNameColmn) \(reportData["minesSiteName"].stringValue)")
+            let attributedMineSite: NSMutableAttributedString = NSMutableAttributedString(string: "\(kMinesSiteNameColmn) \(reportData["minesSiteName"].stringValue.deshOrText)")
             attributedMineSite.setAttributes(color: UIColor.colorTextPlaceHolderGray, forText: kMinesSiteNameColmn, font: 12, fontname: .InterMedium)
-            attributedMineSite.setAttributes(color: UIColor.colorTextBlack, forText: reportData["minesSiteName"].stringValue, font: 12, fontname: .InterMedium)
+            attributedMineSite.setAttributes(color: UIColor.colorTextBlack, forText: reportData["minesSiteName"].stringValue.deshOrText, font: 12, fontname: .InterMedium)
             self.lblSubtitle.attributedText = attributedMineSite
             
-            let attributedMapSerialNo: NSMutableAttributedString = NSMutableAttributedString(string: "\(kMappingSheetNoColn) \(reportData["mappingSheetNo"].stringValue)")
+            let attributedMapSerialNo: NSMutableAttributedString = NSMutableAttributedString(string: "\(kMappingSheetNoColn) \(reportData["mappingSheetNo"].stringValue.deshOrText)")
             attributedMapSerialNo.setAttributes(color: UIColor.colorTextPlaceHolderGray, forText: kMappingSheetNoColn, font: 12, fontname: .InterMedium)
-            attributedMapSerialNo.setAttributes(color: UIColor.colorTextBlack, forText: reportData["mappingSheetNo"].stringValue, font: 12, fontname: .InterMedium)
+            attributedMapSerialNo.setAttributes(color: UIColor.colorTextBlack, forText: reportData["mappingSheetNo"].stringValue.deshOrText, font: 12, fontname: .InterMedium)
             self.lblDescription.attributedText = attributedMapSerialNo
         }
         

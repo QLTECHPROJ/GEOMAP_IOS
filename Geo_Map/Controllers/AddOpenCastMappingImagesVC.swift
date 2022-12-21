@@ -60,7 +60,7 @@ class AddOpenCastMappingImagesVC: ClearNaviagtionBarVC {
         self.title = kGeologicalMapping
         
         self.vwDrawPad.delegate = self
-        self.vwDrawPad.isDisplay = false
+        self.vwDrawPad.isDisplay = true
         
         self.buttonEnableDisable()
         self.btnSubmit.setTitle(kSubmit, for: .normal)
@@ -69,7 +69,7 @@ class AddOpenCastMappingImagesVC: ClearNaviagtionBarVC {
     }
     
     func buttonEnableDisable(){
-        self.btnSubmit.isSelect = self.vwDrawPad.isSigned
+        self.btnSubmit.isSelect = true //self.vwDrawPad.isSigned
     }
     
     //----------------------------------------------------------------------------
@@ -183,12 +183,17 @@ extension AddOpenCastMappingImagesVC{
         
         
         var arrImages : [UIImage] = [geologistSign,clientGeologistSignature,drawImage]
-        for imageData in arrImages{
-            
-//            if let image = imageData{
-                MyAppPhotoAlbum.shared.save(image: imageData)
-//            }
+        
+        MyAppPhotoAlbum.shared.checkAuthorizationWithHandler { success in
+            if success{
+                
+                for imageData in arrImages{
+                    
+                    MyAppPhotoAlbum.shared.save(image: imageData)
+                }
+            }
         }
+        
         if checkInternet(true){
             
             let parameters = APIParametersModel()
