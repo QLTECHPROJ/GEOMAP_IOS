@@ -430,8 +430,10 @@ class EditOCGeoAttributeVC: ClearNaviagtionBarVC {
     //----------------------------------------------------------------------------
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setUpView()
         
+        DispatchQueue.main.async {
+            self.setUpView()
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {

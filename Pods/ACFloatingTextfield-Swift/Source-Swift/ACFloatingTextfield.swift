@@ -27,7 +27,7 @@ import UIKit
      @IBInspectable open var shakeLineWithError : Bool = true
     
      /// Change Bottom Line Color.
-    @IBInspectable open var lineColor : UIColor = UIColor.black {
+    @IBInspectable open var lineColor : UIColor = UIColor.clear {
         didSet{
             self.floatTheLabel()
         }
@@ -189,6 +189,7 @@ fileprivate extension ACFloatingTextfield {
         }
         //Bottom Line UIView Configuration.
         bottomLineView = UIView()
+        bottomLineView?.backgroundColor = .clear
         bottomLineView?.backgroundColor = lineColor
         bottomLineView?.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(bottomLineView!)
