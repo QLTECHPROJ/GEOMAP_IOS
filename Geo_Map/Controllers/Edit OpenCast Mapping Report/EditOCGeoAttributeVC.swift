@@ -713,43 +713,76 @@ extension EditOCGeoAttributeVC {
     }
     
     private func setWeathering(_ text : String){
-        self.lblWeathering.text = text
-        self.lblWeathering.textColor = text.isEmpty ? .colorTextPlaceHolderGray : .colorTextBlack
+        
+        if text == "" {
+            self.lblWeathering.applyLabelStyle(text : kWeathering,fontSize : 14,fontName : .InterSemibol,textColor: .colorTextPlaceHolderGray)
+        }else {
+            self.lblWeathering.text = text
+            self.lblWeathering.textColor = text.isEmpty ? .colorTextPlaceHolderGray : .colorTextBlack
+        }
+        
     }
     
     private func setSampleCollected(_ text : String){
-    
-        self.lblSampleCollected.text = text
-        self.lblSampleCollected.textColor = text.isEmpty ? .colorTextPlaceHolderGray : .colorTextBlack
+        
+        if text == "" {
+            self.lblSampleCollected.applyLabelStyle(text : kSampleCollected,fontSize : 14,fontName : .InterSemibol,textColor: .colorTextPlaceHolderGray)
+        }else {
+            self.lblSampleCollected.text = text
+            self.lblSampleCollected.textColor = text.isEmpty ? .colorTextPlaceHolderGray : .colorTextBlack
+        }
+        
     }
     
     private func setGeologistName(_ text : String){
-    
-        self.lblGeologistName.text = text
-        self.lblGeologistName.textColor = text.isEmpty ? .colorTextPlaceHolderGray : .colorTextBlack
+        
+        if text == "" {
+            self.lblGeologistSign.applyLabelStyle(text : kGeologistSign,fontSize : 14,fontName : .InterSemibol)
+        }else {
+            self.lblGeologistName.text = text
+            self.lblGeologistName.textColor = text.isEmpty ? .colorTextPlaceHolderGray : .colorTextBlack
+        }
     }
     
     private func setRockStrenght(_ text : String){
     
-        self.lblRockStrenght.text = text
-        self.lblRockStrenght.textColor = text.isEmpty ? .colorTextPlaceHolderGray : .colorTextBlack
+        if text == "" {
+            self.lblRockStrenght.applyLabelStyle(text : kRockStrength,fontSize : 14,fontName : .InterSemibol,textColor: .colorTextPlaceHolderGray)
+        }else {
+            self.lblRockStrenght.text = text
+            self.lblRockStrenght.textColor = text.isEmpty ? .colorTextPlaceHolderGray : .colorTextBlack
+        }
+       
     }
     
     private func setWaterCondition(_ text : String){
-
-        self.lblWaterCondition.text = text
-        self.lblWaterCondition.textColor = text.isEmpty ? .colorTextPlaceHolderGray : .colorTextBlack
+        
+        if text == "" {
+            self.lblWaterCondition.applyLabelStyle(text : kWaterCondition,fontSize : 14,fontName : .InterSemibol,textColor: .colorTextPlaceHolderGray)
+        }else {
+            self.lblWaterCondition.text = text
+            self.lblWaterCondition.textColor = text.isEmpty ? .colorTextPlaceHolderGray : .colorTextBlack
+        }
     }
     
     private func setTypeOfGeologicalStructure(_ text : String){
         
-        self.lblTypeOfGeologicalStructure.text = text
-        self.lblTypeOfGeologicalStructure.textColor = text.isEmpty ? .colorTextPlaceHolderGray : .colorTextBlack
+        if text == "" {
+            self.lblTypeOfGeologicalStructure.applyLabelStyle(text : kTypeOfGeologicalStructures,fontSize : 14,fontName : .InterSemibol,textColor: .colorTextPlaceHolderGray)
+        }else {
+            self.lblTypeOfGeologicalStructure.text = text
+            self.lblTypeOfGeologicalStructure.textColor = text.isEmpty ? .colorTextPlaceHolderGray : .colorTextBlack
+        }
+        
     }
     
     private func setTypeOfFault(_ text : String){
-      
-        self.lblTypeOfFault.text = text
-        self.lblTypeOfFault.textColor = text.isEmpty ? .colorTextPlaceHolderGray : .colorTextBlack
+        
+        if text == "" {
+            self.lblTypeOfFault.applyLabelStyle(text : kTypeOfFaults,fontSize : 14,fontName : .InterSemibol,textColor: .colorTextPlaceHolderGray)
+        }else {
+            self.lblTypeOfFault.text = text
+            self.lblTypeOfFault.textColor = text.isEmpty ? .colorTextPlaceHolderGray : .colorTextBlack
+        }
     }
 }
