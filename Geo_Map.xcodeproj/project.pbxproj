@@ -28,6 +28,7 @@
 		125E34892948ABF400C76978 /* GeologistDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125E34882948ABF400C76978 /* GeologistDataModel.swift */; };
 		126219E929499A00006CFE72 /* GeologistDataTable+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126219E729499A00006CFE72 /* GeologistDataTable+CoreDataClass.swift */; };
 		126219EA29499A00006CFE72 /* GeologistDataTable+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126219E829499A00006CFE72 /* GeologistDataTable+CoreDataProperties.swift */; };
+		1267C77829598A64005DB36F /* SplashVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1267C77729598A64005DB36F /* SplashVC.swift */; };
 		128285C8293735B6005AF777 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128285C7293735B6005AF777 /* AppDelegate.swift */; };
 		128285CA293735B6005AF777 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128285C9293735B6005AF777 /* SceneDelegate.swift */; };
 		128285CF293735B6005AF777 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 128285CD293735B6005AF777 /* Main.storyboard */; };
@@ -233,6 +234,7 @@
 		125E34882948ABF400C76978 /* GeologistDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeologistDataModel.swift; sourceTree = "<group>"; };
 		126219E729499A00006CFE72 /* GeologistDataTable+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GeologistDataTable+CoreDataClass.swift"; sourceTree = "<group>"; };
 		126219E829499A00006CFE72 /* GeologistDataTable+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GeologistDataTable+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		1267C77729598A64005DB36F /* SplashVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashVC.swift; sourceTree = "<group>"; };
 		128285C4293735B6005AF777 /* Geo_Map.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Geo_Map.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		128285C7293735B6005AF777 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		128285C9293735B6005AF777 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -653,6 +655,7 @@
 				12D30825293882FD0073AB90 /* FAQKListVC+ViewModel */,
 				12D3082A293883630073AB90 /* SupportPopupVC.swift */,
 				12D3082C2938837B0073AB90 /* LoginVC.swift */,
+				1267C77729598A64005DB36F /* SplashVC.swift */,
 				12D3082E293883990073AB90 /* DescriptionPopupVC.swift */,
 				12D30830293883B20073AB90 /* AlertPopUpVC.swift */,
 				12D30832293883CA0073AB90 /* ListItemVC.swift */,
@@ -1206,6 +1209,7 @@
 				12D308B32938889E0073AB90 /* APIManager.swift in Sources */,
 				12D308D22938895C0073AB90 /* ACFloatingTextfield+Extesion.swift in Sources */,
 				12D30908293889F40073AB90 /* UIViewExtension.swift in Sources */,
+				1267C77829598A64005DB36F /* SplashVC.swift in Sources */,
 				12D30903293889F40073AB90 /* TabBarController.swift in Sources */,
 				12D30820293881D10073AB90 /* SampleCollectedModel.swift in Sources */,
 				12D308CE2938895C0073AB90 /* UIButton+Extension.swift in Sources */,

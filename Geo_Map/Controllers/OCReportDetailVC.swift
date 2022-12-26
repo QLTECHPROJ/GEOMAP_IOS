@@ -370,14 +370,15 @@ extension OCReportDetailVC {
         
         if let imgGeologistSign = self.fetchImage(reportData["geologistSign"].stringValue.url()){
            
+            self.imgGeologistSign.contentMode = .scaleToFill
             self.imgGeologistSign.image = imgGeologistSign
         }
         if let imgClientsGeologistSign = self.fetchImage(reportData["clientsGeologistSign"].stringValue.url()){
-
+            self.imgClientGeologistSign.contentMode = .scaleToFill
             self.imgClientGeologistSign.image = imgClientsGeologistSign
         }
         if let imgDraw = self.fetchImage(reportData["image"].stringValue.url()){
-            self.imgDrawImage.contentMode = .scaleAspectFill
+            self.imgDrawImage.contentMode = .scaleToFill
             self.imgDrawImage.image = imgDraw
         }
     }

@@ -371,10 +371,10 @@ extension EditUploadUnderMappingImagesVC{
         
         
         if !self.isOfflineDataUpdate{
-            let faceImageObj = UploadDataModel(name: "image.jpeg", key: "faceImage", data: faceImage.jpegData(compressionQuality: 0.5), extention: "jpeg", mimeType: "image/jpeg")
-            let rightImageObj = UploadDataModel(name: "image.jpeg", key: "rightImage", data: rightImage.jpegData(compressionQuality: 0.5), extention: "jpeg", mimeType: "image/jpeg")
-            let leftImageObj = UploadDataModel(name: "image.jpeg", key: "leftImage", data: leftImage.jpegData(compressionQuality: 0.5), extention: "jpeg", mimeType: "image/jpeg")
-            let rootImageObj = UploadDataModel(name: "image.jpeg", key: "roofImage", data: rootImage.jpegData(compressionQuality: 0.5), extention: "jpeg", mimeType: "image/jpeg")
+            let faceImageObj = UploadDataModel(name: "image.jpeg", key: "faceImage", data: faceImage.jpegData(compressionQuality: 1), extention: "jpeg", mimeType: "image/jpeg")
+            let rightImageObj = UploadDataModel(name: "image.jpeg", key: "rightImage", data: rightImage.jpegData(compressionQuality: 1), extention: "jpeg", mimeType: "image/jpeg")
+            let leftImageObj = UploadDataModel(name: "image.jpeg", key: "leftImage", data: leftImage.jpegData(compressionQuality: 1), extention: "jpeg", mimeType: "image/jpeg")
+            let rootImageObj = UploadDataModel(name: "image.jpeg", key: "roofImage", data: rootImage.jpegData(compressionQuality: 1), extention: "jpeg", mimeType: "image/jpeg")
             
             let arrUploadDataModel : [UploadDataModel] = [faceImageObj,rightImageObj,leftImageObj,rootImageObj]
             

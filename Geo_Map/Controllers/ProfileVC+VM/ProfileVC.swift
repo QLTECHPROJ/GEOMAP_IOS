@@ -383,13 +383,13 @@ extension ProfileVC : UIImagePickerControllerDelegate, UINavigationControllerDel
         if let image = info[.editedImage] as? UIImage {
             imgUser.image = image
             self.imgUser.removeSubviews()
-            imageData = UploadDataModel(name: "image.jpeg", key: "profileimage", data: image.jpegData(compressionQuality: 0.5), extention: "jpeg", mimeType: "image/jpeg")
+            imageData = UploadDataModel(name: "image.jpeg", key: "profileimage", data: image.jpegData(compressionQuality: 1), extention: "jpeg", mimeType: "image/jpeg")
             self.strImage = imageData.name
             
         } else if let image = info[.originalImage] as? UIImage {
             imgUser.image = image
             self.imgUser.removeSubviews()
-            imageData = UploadDataModel(name: "image.jpeg", key: "profileimage", data: image.jpegData(compressionQuality: 0.5), extention: "jpeg", mimeType: "image/jpeg")
+            imageData = UploadDataModel(name: "image.jpeg", key: "profileimage", data: image.jpegData(compressionQuality: 1), extention: "jpeg", mimeType: "image/jpeg")
             self.strImage = imageData.name
         }
         

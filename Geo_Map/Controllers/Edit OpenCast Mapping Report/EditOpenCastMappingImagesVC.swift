@@ -242,9 +242,9 @@ extension EditOpenCastMappingImagesVC{
             parameters.dipDirectionAndAngle = self.openCastMappingDetails["dipDirectionAndAngle"].stringValue
             parameters.notes = self.openCastMappingDetails["notes"].stringValue
             
-            let drawImage = UploadDataModel(name: "image.jpeg", key: "image", data: drawImage.jpegData(compressionQuality: 0.5), extention: "jpeg", mimeType: "image/jpeg")
-            let clientGeologistSignImage = UploadDataModel(name: "image.jpeg", key: "clientsGeologistSign", data: clientGeologistSignature.jpegData(compressionQuality: 0.5), extention: "jpeg", mimeType: "image/jpeg")
-            let geologistSignImage = UploadDataModel(name: "image.jpeg", key: "geologistSign", data: geologistSign.jpegData(compressionQuality: 0.5), extention: "jpeg", mimeType: "image/jpeg")
+            let drawImage = UploadDataModel(name: "image.jpeg", key: "image", data: drawImage.jpegData(compressionQuality: 1), extention: "jpeg", mimeType: "image/jpeg")
+            let clientGeologistSignImage = UploadDataModel(name: "image.jpeg", key: "clientsGeologistSign", data: clientGeologistSignature.jpegData(compressionQuality: 1), extention: "jpeg", mimeType: "image/jpeg")
+            let geologistSignImage = UploadDataModel(name: "image.jpeg", key: "geologistSign", data: geologistSign.jpegData(compressionQuality: 1), extention: "jpeg", mimeType: "image/jpeg")
             
             parameters.imageDraaw = drawImage.name
             parameters.clientsGeologistSign = clientGeologistSignImage.name

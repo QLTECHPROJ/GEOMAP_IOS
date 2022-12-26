@@ -143,15 +143,15 @@ public protocol SignaturePadDelegate: class {
     
     func drawBitmap() -> Void {
         UIGraphicsBeginImageContextWithOptions(self.bounds.size, true, 0.0)
-        if incrementalImage == nil {
-            let rectPath = UIBezierPath(rect: self.bounds)
-            if isDisplay == true {
-                UIImage(named: "SplashBackground")?.draw(at: CGPoint.zero)
-            }
-            UIColor.white.setFill()
-            rectPath.fill()
+        //if incrementalImage == nil {
+        let rectPath = UIBezierPath(rect: self.bounds)
+        if isDisplay == true {
+            UIImage(named: "SplashBackground")?.draw(in: CGRect(x: 0, y: 0, width: self.bounds.size.width, height: self.bounds.size.height))
         }
-        incrementalImage?.draw(at: CGPoint.zero)
+        UIColor.white.setFill()
+        rectPath.fill()
+        //}
+        incrementalImage?.draw(in: CGRect(x: 0, y: 0, width: self.bounds.size.width, height: self.bounds.size.height))
         self.strokeColor.setStroke()
         self.strokeColor.setFill()
         path.stroke()

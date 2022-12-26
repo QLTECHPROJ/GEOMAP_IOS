@@ -314,26 +314,27 @@ extension UGReportDetailVC {
         
         self.underGroundDetail["ugDate"].stringValue = ugDate
         if let imgRoof = self.fetchImage(reportData["roofImage"].stringValue.url()){
-            self.imgRoof.contentMode = .scaleAspectFill
+            self.imgRoof.contentMode = .scaleToFill
             self.roofImage = self.fetchImage(reportData["roofImage"].stringValue.url())!
             self.imgRoof.image = imgRoof
         }
         if let imgRight = self.fetchImage(reportData["rightImage"].stringValue.url()){
-            self.imgRight.contentMode = .scaleAspectFill
+            self.imgRight.contentMode = .scaleToFill
             self.rightImage = self.fetchImage(reportData["rightImage"].stringValue.url())!
             self.imgRight.image = imgRight
         }
         if let imgFace = self.fetchImage(reportData["faceImage"].stringValue.url()){
-            self.imgFace.contentMode = .scaleAspectFill
+            self.imgFace.contentMode = .scaleToFill
             self.faceImage = self.fetchImage(reportData["faceImage"].stringValue.url())!
             self.imgFace.image = imgFace
         }
         if let imgLeft = self.fetchImage(reportData["leftImage"].stringValue.url()){
-            self.imgLeft.contentMode = .scaleAspectFill
+            self.imgLeft.contentMode = .scaleToFill
             self.leftImage = self.fetchImage(reportData["leftImage"].stringValue.url())!
             self.imgLeft.image = imgLeft
         }
     }
+    
     
     func fetchImage(_ imgUrl: URL) -> UIImage?{
         

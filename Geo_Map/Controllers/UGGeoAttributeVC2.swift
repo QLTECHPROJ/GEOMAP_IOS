@@ -96,14 +96,15 @@ class UGGeoAttributeVC2: ClearNaviagtionBarVC {
         self.btnNextStep.isSelect = isEnable
     }
 
-    func selectShift(_ selectiontag : Int = 1){
+    func selectShift(_ selectiontag : Int = 0){
         self.btnDayShift.isSelected = selectiontag == self.btnDayShift.tag
         self.btnNightShift.isSelected = selectiontag == self.btnNightShift.tag
     }
     
     func getShiftType()-> String{
         
-        return self.btnDayShift.isSelected ? kDayShift : kNightShift
+        let shift = self.btnDayShift.isSelected || self.btnNightShift.isSelected ? (self.btnDayShift.isSelected ? kDayShift : kNightShift) : ""
+        return shift
     }
     
     // MARK: - ACTION

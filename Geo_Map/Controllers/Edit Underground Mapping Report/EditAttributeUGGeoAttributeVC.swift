@@ -156,7 +156,7 @@ class EditAttributeUGGeoAttributeVC: ClearNaviagtionBarVC {
         else{
             isEnable = true
         }
-        self.btnNextStep.isSelect = true//!self.arrAddedAttributes.isEmpty || isEnable
+        self.btnNextStep.isSelect = !self.arrAddedAttributes.isEmpty || isEnable
     }
     
    

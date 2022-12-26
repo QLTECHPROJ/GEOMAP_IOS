@@ -407,13 +407,17 @@ extension OpenCastReportOfflineDetailVC {
         ]
         
         guard let geologistSignature = reportData.geologistSign , let clientGeologistSignature = reportData.clientsGeologistSign , let imageDrawn = reportData.imagedrawn else {return}
+        
+        
         self.geologistSignImage = UIImage(data: geologistSignature)
         self.clientGeologistSignImage = UIImage(data: clientGeologistSignature)
         self.drawImage = UIImage(data: imageDrawn)
         
+        self.imgGeologistSign.contentMode = .scaleToFill
         self.imgGeologistSign.image = UIImage(data: geologistSignature)
+        self.imgClientGeologistSign.contentMode = .scaleToFill
         self.imgClientGeologistSign.image = UIImage(data: clientGeologistSignature)
-        self.imgDrawImage.contentMode = .scaleAspectFill
+        self.imgDrawImage.contentMode = .scaleToFill
         self.imgDrawImage.image = UIImage(data: imageDrawn)
     }
 }

@@ -84,9 +84,9 @@ class OpenCastMappingReportDataModel : NSObject{
         tableViewAttributes.typeOfGeologicalStructures = typeOfGeologicalStructures
         tableViewAttributes.typeOfFaults = typeOfFaults
         tableViewAttributes.notes = notes
-        tableViewAttributes.geologistSign = geologistSign.jpegData(compressionQuality: 0.5)
-        tableViewAttributes.clientsGeologistSign = clientsGeologistSign.jpegData(compressionQuality: 0.5)
-        tableViewAttributes.imagedrawn = imageDraw.jpegData(compressionQuality: 0.5)
+        tableViewAttributes.geologistSign = geologistSign.jpegData(compressionQuality: 1)
+        tableViewAttributes.clientsGeologistSign = clientsGeologistSign.jpegData(compressionQuality: 1)
+        tableViewAttributes.imagedrawn = imageDraw.jpegData(compressionQuality: 1)
         CoreDataManager.shared.saveContext()
         completionBlock(true)
     }
@@ -214,9 +214,9 @@ class OpenCastMappingReportDataModel : NSObject{
             fetchOCReportData[0].typeOfGeologicalStructures = typeOfGeologicalStructures
             fetchOCReportData[0].typeOfFaults = typeOfFaults
             fetchOCReportData[0].notes = notes
-            fetchOCReportData[0].geologistSign = geologistSign.jpegData(compressionQuality: 0.5)
-            fetchOCReportData[0].clientsGeologistSign = clientsGeologistSign.jpegData(compressionQuality: 0.5)
-            fetchOCReportData[0].imagedrawn = imageDraw.jpegData(compressionQuality: 0.5)
+            fetchOCReportData[0].geologistSign = geologistSign.jpegData(compressionQuality: 1)
+            fetchOCReportData[0].clientsGeologistSign = clientsGeologistSign.jpegData(compressionQuality: 1)
+            fetchOCReportData[0].imagedrawn = imageDraw.jpegData(compressionQuality: 1)
             
             CoreDataManager.shared.saveContext()
         

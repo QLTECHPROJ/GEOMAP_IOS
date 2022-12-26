@@ -220,7 +220,9 @@ extension AppDelegate{
     }
     
     func basicSetUp() {
-        self.setRootController()        //Set Root View Cotroller
+       // self.setRootController()        //Set Root View Cotroller
+        
+//        self.setSplashPage()
         self.setUpIQKeyBoardManager()       //Keyboard Set-Up
         
         // Ask for Push Notification Permission
@@ -269,6 +271,15 @@ extension AppDelegate{
         else{
             self.setLoginPage()
         }
+    }
+    
+    
+    func setSplashPage(){
+     
+        let homeNavVC  = AUTHENTICATION.instantiateViewController(withIdentifier: "SplashNav") as! UINavigationController
+        UIApplication.shared.windows.first?.rootViewController = homeNavVC
+        UIApplication.shared.windows.first?.makeKeyAndVisible()
+        
     }
     
     //MARK: - SetHome page

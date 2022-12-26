@@ -361,10 +361,10 @@ extension UnderGroundReportOfflineDetailVC {
         self.leftImage = UIImage(data: leftimg)!
         self.rightImage = UIImage(data: rightimg)!
         
-        self.imgRoof.contentMode = .scaleAspectFill
-        self.imgRight.contentMode = .scaleAspectFill
-        self.imgFace.contentMode = .scaleAspectFill
-        self.imgLeft.contentMode = .scaleAspectFill
+        self.imgRoof.contentMode = .scaleToFill
+        self.imgRight.contentMode = .scaleToFill
+        self.imgFace.contentMode = .scaleToFill
+        self.imgLeft.contentMode = .scaleToFill
         
         self.imgRoof.image = UIImage(data: roofimg)!
         self.imgRight.image = UIImage(data: rightimg)!

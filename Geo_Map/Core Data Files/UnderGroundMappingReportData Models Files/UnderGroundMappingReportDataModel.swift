@@ -54,10 +54,10 @@ class UnderGroundMappingReportDataModel : NSObject{
         tableViewAttributes.xCoordinate = xCoordinate
         tableViewAttributes.yCoordinate = yCoordinate
         tableViewAttributes.zCoordinate = zCoordinate
-        tableViewAttributes.roofImage = rootImage.jpegData(compressionQuality: 0.5)
-        tableViewAttributes.leftImage = leftImage.jpegData(compressionQuality: 0.5)
-        tableViewAttributes.rightImage = rightImage.jpegData(compressionQuality: 0.5)
-        tableViewAttributes.faceImage = faceImage.jpegData(compressionQuality: 0.5)
+        tableViewAttributes.roofImage = rootImage.jpegData(compressionQuality: 1)
+        tableViewAttributes.leftImage = leftImage.jpegData(compressionQuality: 1)
+        tableViewAttributes.rightImage = rightImage.jpegData(compressionQuality: 1)
+        tableViewAttributes.faceImage = faceImage.jpegData(compressionQuality: 1)
         
         
         for attributesdata in attributes{
@@ -167,10 +167,10 @@ class UnderGroundMappingReportDataModel : NSObject{
             fetchUserData[0].xCoordinate = xCoordinate
             fetchUserData[0].yCoordinate = yCoordinate
             fetchUserData[0].zCoordinate = zCoordinate
-            fetchUserData[0].roofImage = rootImage.jpegData(compressionQuality: 0.5)
-            fetchUserData[0].leftImage = leftImage.jpegData(compressionQuality: 0.5)
-            fetchUserData[0].rightImage = rightImage.jpegData(compressionQuality: 0.5)
-            fetchUserData[0].faceImage = faceImage.jpegData(compressionQuality: 0.5)
+            fetchUserData[0].roofImage = rootImage.jpegData(compressionQuality: 1)
+            fetchUserData[0].leftImage = leftImage.jpegData(compressionQuality: 1)
+            fetchUserData[0].rightImage = rightImage.jpegData(compressionQuality: 1)
+            fetchUserData[0].faceImage = faceImage.jpegData(compressionQuality: 1)
 //            fetchUserData[0].removeFromAttributeUndergroundMapping(fetchUserData[0].attributeUndergroundMapping!)
             
             
