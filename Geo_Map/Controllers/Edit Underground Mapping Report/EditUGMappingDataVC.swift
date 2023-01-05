@@ -122,14 +122,16 @@ class EditUGMappingDataVC: ClearNaviagtionBarVC {
         self.btnNextStep.isSelect = true //isEnable
     }
 
-    func selectShift(_ selectiontag : Int = 0){
+    func selectShift(_ selectiontag : Int = 1){
         self.btnDayShift.isSelected = selectiontag == self.btnDayShift.tag
         self.btnNightShift.isSelected = selectiontag == self.btnNightShift.tag
     }
     
     func getShiftType()-> String{
         
-        return self.btnDayShift.isSelected ? kDayShift : kNightShift
+//        let shift = self.btnDayShift.isSelected || self.btnNightShift.isSelected ? (self.btnDayShift.isSelected ? kDayShift : kNightShift) : ""
+        let shift = self.btnDayShift.isSelected ? kDayShift : kNightShift
+        return shift
     }
     
     // MARK: - ACTION

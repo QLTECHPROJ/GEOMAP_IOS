@@ -394,3 +394,5 @@ var kEdit = "Edit"
 var kSave = "Save"
 
 var kImage = "Image"
+
+var kPleaseAddAttributeData = "Please add attribute data"

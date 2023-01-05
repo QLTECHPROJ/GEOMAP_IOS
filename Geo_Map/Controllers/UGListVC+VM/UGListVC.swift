@@ -137,6 +137,8 @@ extension UGListVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        guard checkInternet(true) else {return}
         if self.reportListType == .underGroundReport{
 
             let vc = AppStoryBoard.main.viewController(viewControllerClass: UGReportDetailVC.self)

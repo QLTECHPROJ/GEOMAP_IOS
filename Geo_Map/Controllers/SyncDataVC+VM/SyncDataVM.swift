@@ -47,7 +47,7 @@ class SyncDataVM {
     func callAPIUploadOpenCastMappingReport(isLoader : Bool = true,parameters : [String:Any], uploadParameters : [UploadDataModel], completion: @escaping (Bool,String?) -> Void) {
        
         debugPrint(parameters)
-        
+        guard checkInternet(true) else {return}
         APIManager.shared.callUploadWebService(apiUrl: APIRouter.open_cast_insert(parameters).urlRequest!.url!.absoluteString, includeHeader: true, parameters: parameters, uploadParameters: uploadParameters, httpMethod: .post,displayHud : isLoader)
         { [weak self] (response : LoginModel?) in
             

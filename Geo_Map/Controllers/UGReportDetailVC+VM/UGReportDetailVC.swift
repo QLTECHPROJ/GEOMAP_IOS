@@ -197,6 +197,7 @@ class UGReportDetailVC: ClearNaviagtionBarVC {
     
     @IBAction func btnEditDetailTapped(_ sender : UIButton){
         self.view.endEditing(true)
+        guard checkInternet(true) else {return}
         let vc = AppStoryBoard.main.viewController(viewControllerClass: EditAttributeUGGeoAttributeVC.self)
         vc.ugReportDetail = self.underGroundDetail
         vc.faceImage = self.faceImage
@@ -209,7 +210,7 @@ class UGReportDetailVC: ClearNaviagtionBarVC {
     @IBAction func btnViewPDF(_ sender : UIButton) {
     
         self.view.endEditing(true)
-
+        guard checkInternet(true) else {return}
         let vwUnderGroundReportDetail = UGReportDetailVM()
         let parameters = APIParametersModel()
         parameters.iD = self.reportId
@@ -222,8 +223,11 @@ class UGReportDetailVC: ClearNaviagtionBarVC {
                debugPrint(data)
 
                 if let url = URL(string: data["ResponseData"]["pdfLink"].stringValue) {
+                   
                     UIApplication.shared.open(url)
+                    
                 }
+                
             }
         }
     }

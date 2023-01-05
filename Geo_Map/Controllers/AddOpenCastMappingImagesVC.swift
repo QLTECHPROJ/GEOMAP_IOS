@@ -22,10 +22,10 @@ class AddOpenCastMappingImagesVC: ClearNaviagtionBarVC {
     //----------------------------------------------------------------------------
     
     var openCastMappingDetails : JSON = .null
-    var geologistSignImage : UIImage?
-    var clientGeologistSignImage : UIImage?
     
     var cancellable: AnyCancellable?
+    
+    var dictDrawSign : [String:Any] = [:]
     
     var viewModelSyncData : SyncDataVM = SyncDataVM()
     
@@ -92,9 +92,9 @@ class AddOpenCastMappingImagesVC: ClearNaviagtionBarVC {
     @IBAction func btnSubmitTapped(_ sender : UIButton){
         self.view.endEditing(true)
         
-        guard let drawImage = self.vwDrawPad.getSignature() , let geologistSign = self.geologistSignImage, let clientGeologistSignature = self.clientGeologistSignImage else { return }
+//        guard let drawImage = self.vwDrawPad.getSignature() , let geologistSign = self.geologistSignImage, let clientGeologistSignature = self.clientGeologistSignImage else { return }
         
-        self.callAPIOrSavedOffline(geologistSign, clientGeologistSignature, drawImage)
+        self.callAPIOrSavedOffline()
     }
     
     @IBAction func onTappedChangeColor(_ sender: UIButton) {
@@ -179,122 +179,157 @@ extension AddOpenCastMappingImagesVC : SignaturePadDelegate{
 //--------------------------------------------------------------------------------------
 extension AddOpenCastMappingImagesVC{
     
-    func callAPIOrSavedOffline(_ geologistSign : UIImage, _ clientGeologistSignature : UIImage, _ drawImage : UIImage){
+    func callAPIOrSavedOffline(){
         
-        
-        var arrImages : [UIImage] = [geologistSign,clientGeologistSignature,drawImage]
-        
-        MyAppPhotoAlbum.shared.checkAuthorizationWithHandler { success in
-            if success{
+        MyAppPhotoAlbum.shared.saveImagesInGallary { success in
+            
+            var geoSigned = UIImage()
+            var clientGeoSigned = UIImage()
+            var drawImage = UIImage()
+            
+            var geoSignIsSigned = Bool()
+            var clientGeoSignedIsSigned = Bool()
+            
+            if let _ = self.vwDrawPad.getSignature(){
+                drawImage = self.vwDrawPad.getSignature()!
+            }
+            
+            var arrImages : [[String:Any]] = [["draw" : drawImage, "isSigned" : self.vwDrawPad.isSigned]]
+            
+            if let geoSign = self.dictDrawSign["geologistSignImage"] as? UIImage{
                 
-                for imageData in arrImages{
+                geoSigned = geoSign
+                arrImages.append(["draw" : geoSign, "isSigned" : JSON(self.dictDrawSign["geologistSignImageIsSigned"] as Any).boolValue])
+                geoSignIsSigned = JSON(self.dictDrawSign["geologistSignImageIsSigned"] as Any).boolValue
+            }
+            if let clientGeoSign  = self.dictDrawSign["clientGeologistSignImage"] as? UIImage{
+                
+                clientGeoSigned = clientGeoSign
+                arrImages.append(["draw" : clientGeoSigned, "isSigned" : JSON(self.dictDrawSign["clientGeologistSignImageIsSigned"] as Any).boolValue])
+                clientGeoSignedIsSigned = JSON(self.dictDrawSign["clientGeologistSignImageIsSigned"] as Any).boolValue
+            }
+            
+            MyAppPhotoAlbum.shared.checkAuthorizationWithHandler { success in
+                if success{
                     
-                    MyAppPhotoAlbum.shared.save(image: imageData)
+                    for imageData in arrImages{
+                        
+                        debugPrint(imageData)
+                        if let drawSigned = imageData["draw"] as? UIImage, let isSigned = imageData["isSigned"] as? Bool,isSigned{
+                            MyAppPhotoAlbum.shared.save(image: drawSigned)
+                        }
+                    }
                 }
             }
-        }
-        
-        if checkInternet(true){
             
-            let parameters = APIParametersModel()
-            parameters.minesSiteName = self.openCastMappingDetails["minesSiteName"].stringValue
-            parameters.mappingSheetNo = self.openCastMappingDetails["mappingSheetNo"].stringValue
-            parameters.pitName = self.openCastMappingDetails["pitName"].stringValue
-            parameters.pitLoaction = self.openCastMappingDetails["pitLoaction"].stringValue
-            parameters.shiftInchargeName = self.openCastMappingDetails["shiftInchargeName"].stringValue
-            parameters.geologistName = self.openCastMappingDetails["geologistName"].stringValue
-            parameters.faceLocation = self.openCastMappingDetails["faceLocation"].stringValue
-            parameters.faceLength = self.openCastMappingDetails["faceLength"].stringValue
-            parameters.faceArea = self.openCastMappingDetails["faceArea"].stringValue
-            parameters.faceRockType = self.openCastMappingDetails["faceRockType"].stringValue
-            parameters.benchRl = self.openCastMappingDetails["benchRl"].stringValue
-            parameters.benchHeightWidth = self.openCastMappingDetails["benchHeightWidth"].stringValue
-            parameters.benchAngle = self.openCastMappingDetails["benchAngle"].stringValue
-            parameters.thicknessOfOre = self.openCastMappingDetails["thicknessOfOre"].stringValue
-            parameters.thicknessOfOverburdan = self.openCastMappingDetails["thicknessOfOverburdan"].stringValue
-            parameters.thicknessOfInterburden = self.openCastMappingDetails["thicknessOfInterburden"].stringValue
-            parameters.observedGradeOfOre = self.openCastMappingDetails["observedGradeOfOre"].stringValue
-            parameters.sampleColledted = self.openCastMappingDetails["sampleColledted"].stringValue
-            parameters.actualGradeOfOre = self.openCastMappingDetails["actualGradeOfOre"].stringValue
-            parameters.weathring = self.openCastMappingDetails["weathring"].stringValue
-            parameters.rockStregth = self.openCastMappingDetails["rockStregth"].stringValue
-            parameters.waterCondition = self.openCastMappingDetails["waterCondition"].stringValue
-            parameters.typeOfGeologist = self.openCastMappingDetails["typeOfGeologistStruture"].stringValue
-            parameters.typeOfFaults = self.openCastMappingDetails["typeOfFaults"].stringValue
-            parameters.shift = self.openCastMappingDetails["shift"].stringValue
-            parameters.ocDate = GFunctions.shared.convertDateFormat(dt: self.openCastMappingDetails["ocDate"].stringValue, inputFormat: DateTimeFormaterEnum.ddmm_yyyy.rawValue, outputFormat: DateTimeFormaterEnum.ddMMMyyyy.rawValue, status: .NOCONVERSION).str
-            
-            parameters.userId = JSON(UserModelClass.current.userId as Any).stringValue
-            parameters.dipDirectionAndAngle = self.openCastMappingDetails["dipDirectionAndAngle"].stringValue
-            parameters.notes = self.openCastMappingDetails["notes"].stringValue
-            
-            let drawImage = UploadDataModel(name: "image.jpeg", key: "image", data: drawImage.jpegData(compressionQuality: 1), extention: "jpeg", mimeType: "image/jpeg")
-            let clientGeologistSignImage = UploadDataModel(name: "image.jpeg", key: "clientsGeologistSign", data: clientGeologistSignature.jpegData(compressionQuality: 1), extention: "jpeg", mimeType: "image/jpeg")
-            let geologistSignImage = UploadDataModel(name: "image.jpeg", key: "geologistSign", data: geologistSign.jpegData(compressionQuality: 1), extention: "jpeg", mimeType: "image/jpeg")
-            
-            parameters.imageDraaw = drawImage.name
-            parameters.clientsGeologistSign = clientGeologistSignImage.name
-            parameters.geologistSign = geologistSignImage.name
-            
-            let arr : [UploadDataModel] = [drawImage,clientGeologistSignImage,geologistSignImage]
-            debugPrint(parameters.toDictionary())
-            
-            
-            self.viewModelSyncData.callAPIUploadOpenCastMappingReport(parameters: parameters.toDictionary(), uploadParameters: arr, completion: { completion,message  in
-                if completion{
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5){
-                        AppDelegate.shared.updateWindow(.home)
+            if checkInternet(true){
+                
+                let parameters = APIParametersModel()
+                parameters.minesSiteName = self.openCastMappingDetails["minesSiteName"].stringValue
+                parameters.mappingSheetNo = self.openCastMappingDetails["mappingSheetNo"].stringValue
+                parameters.pitName = self.openCastMappingDetails["pitName"].stringValue
+                parameters.pitLoaction = self.openCastMappingDetails["pitLoaction"].stringValue
+                parameters.shiftInchargeName = self.openCastMappingDetails["shiftInchargeName"].stringValue
+                parameters.geologistName = self.openCastMappingDetails["geologistName"].stringValue
+                parameters.faceLocation = self.openCastMappingDetails["faceLocation"].stringValue
+                parameters.faceLength = self.openCastMappingDetails["faceLength"].stringValue
+                parameters.faceArea = self.openCastMappingDetails["faceArea"].stringValue
+                parameters.faceRockType = self.openCastMappingDetails["faceRockType"].stringValue
+                parameters.benchRl = self.openCastMappingDetails["benchRl"].stringValue
+                parameters.benchHeightWidth = self.openCastMappingDetails["benchHeightWidth"].stringValue
+                parameters.benchAngle = self.openCastMappingDetails["benchAngle"].stringValue
+                parameters.thicknessOfOre = self.openCastMappingDetails["thicknessOfOre"].stringValue
+                parameters.thicknessOfOverburdan = self.openCastMappingDetails["thicknessOfOverburdan"].stringValue
+                parameters.thicknessOfInterburden = self.openCastMappingDetails["thicknessOfInterburden"].stringValue
+                parameters.observedGradeOfOre = self.openCastMappingDetails["observedGradeOfOre"].stringValue
+                parameters.sampleColledted = self.openCastMappingDetails["sampleColledted"].stringValue
+                parameters.actualGradeOfOre = self.openCastMappingDetails["actualGradeOfOre"].stringValue
+                parameters.weathring = self.openCastMappingDetails["weathring"].stringValue
+                parameters.rockStregth = self.openCastMappingDetails["rockStregth"].stringValue
+                parameters.waterCondition = self.openCastMappingDetails["waterCondition"].stringValue
+                parameters.typeOfGeologist = self.openCastMappingDetails["typeOfGeologistStruture"].stringValue
+                parameters.typeOfFaults = self.openCastMappingDetails["typeOfFaults"].stringValue
+                parameters.shift = self.openCastMappingDetails["shift"].stringValue
+                parameters.ocDate = GFunctions.shared.convertDateFormat(dt: self.openCastMappingDetails["ocDate"].stringValue, inputFormat: DateTimeFormaterEnum.ddmm_yyyy.rawValue, outputFormat: DateTimeFormaterEnum.ddMMMyyyy.rawValue, status: .NOCONVERSION).str
+                
+                parameters.userId = JSON(UserModelClass.current.userId as Any).stringValue
+                parameters.dipDirectionAndAngle = self.openCastMappingDetails["dipDirectionAndAngle"].stringValue
+                parameters.notes = self.openCastMappingDetails["notes"].stringValue
+                
+                let drawImage = UploadDataModel(name: "image.jpeg", key: "image", data: drawImage.jpegData(compressionQuality: 1), extention: "jpeg", mimeType: "image/jpeg")
+                
+                let clientGeologistSignImage = UploadDataModel(name: "image.jpeg", key: "clientsGeologistSign", data: clientGeoSignedIsSigned ? clientGeoSigned.jpegData(compressionQuality: 1) : Data(), extention: "jpeg", mimeType: "image/jpeg")
+                
+                let geologistSignImage = UploadDataModel(name: "image.jpeg", key: "geologistSign", data: geoSignIsSigned ? geoSigned.jpegData(compressionQuality: 1) : Data(), extention: "jpeg", mimeType: "image/jpeg")
+                
+                var arr : [UploadDataModel] = []
+                
+                arr.append(drawImage)
+                arr.append(clientGeologistSignImage)
+                arr.append(geologistSignImage)
+                
+                parameters.imageDraaw = drawImage.name
+                parameters.clientsGeologistSign = clientGeologistSignImage.name
+                parameters.geologistSign = geologistSignImage.name
+                
+                debugPrint(parameters.toDictionary())
+                
+                self.viewModelSyncData.callAPIUploadOpenCastMappingReport(parameters: parameters.toDictionary(), uploadParameters: arr, completion: { completion,message  in
+                    if completion{
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0){
+                            AppDelegate.shared.updateWindow(.home)
+                            GFunctions.shared.showSnackBar(message: message ?? "Error")
+                        }
+                    }
+                    else{
                         GFunctions.shared.showSnackBar(message: message ?? "Error")
                     }
-                }
-                else{
-                    GFunctions.shared.showSnackBar(message: message ?? "Error")
-                }
-            })
-        }
-        else{
-            
-            OpenCastMappingReportDataModel.shared.insertOpenCastMappingReportData(
-                JSON(UserModelClass.current.userId as Any).stringValue,
-                                                                                     self.openCastMappingDetails["iD"].stringValue,
-                                                                                     self.openCastMappingDetails["ocDate"].stringValue,
-                                                                                     self.openCastMappingDetails["mappingSheetNo"].stringValue,
-                                                                                     self.openCastMappingDetails["minesSiteName"].stringValue,
-                                                                                     self.openCastMappingDetails["pitName"].stringValue,
-                                                                                     self.openCastMappingDetails["pitLoaction"].stringValue,
-                                                                                     self.openCastMappingDetails["shiftInchargeName"].stringValue,
-                                                                                     self.openCastMappingDetails["geologistName"].stringValue,
-                                                                                     self.openCastMappingDetails["shift"].stringValue,
-                                                                                     self.openCastMappingDetails["faceLocation"].stringValue,
-                                                                                     self.openCastMappingDetails["faceLength"].stringValue,
-                                                                                     self.openCastMappingDetails["faceArea"].stringValue,
-                                                                                     self.openCastMappingDetails["faceRockType"].stringValue,
-                                                                                     self.openCastMappingDetails["benchRl"].stringValue,
-                                                                                     self.openCastMappingDetails["benchHeightWidth"].stringValue,
-                                                                                     self.openCastMappingDetails["benchAngle"].stringValue,
-                                                                                     self.openCastMappingDetails["dipDirectionAndAngle"].stringValue,
-                                                                                     self.openCastMappingDetails["thicknessOfOre"].stringValue,
-                                                                                     self.openCastMappingDetails["thicknessOfOverburdan"].stringValue,
-                                                                                     self.openCastMappingDetails["thicknessOfInterburden"].stringValue,
-                                                                                     self.openCastMappingDetails["observedGradeOfOre"].stringValue,
-                                                                                     self.openCastMappingDetails["sampleColledted"].stringValue,
-                                                                                     self.openCastMappingDetails["actualGradeOfOre"].stringValue,
-                                                                                     self.openCastMappingDetails["weathring"].stringValue,
-                                                                                     self.openCastMappingDetails["rockStregth"].stringValue,
-                                                                                     self.openCastMappingDetails["waterCondition"].stringValue,
-                                                                                     self.openCastMappingDetails["typeOfGeologistStruture"].stringValue,
-                                                                                     self.openCastMappingDetails["typeOfFaults"].stringValue,
-                                                                                     self.openCastMappingDetails["notes"].stringValue,
-                                                                                     geologistSign,
-                                                                                     clientGeologistSignature,
-                                                                                     drawImage) { completion in
+                })
+            }
+            else{
                 
-                if completion{
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5){
-                        AppDelegate.shared.updateWindow(.home)
-                        GFunctions.shared.showSnackBar(message: kOpenCastMappingReportSavedSuccessfully)
+                OpenCastMappingReportDataModel.shared.insertOpenCastMappingReportData(
+                    JSON(UserModelClass.current.userId as Any).stringValue,
+                    self.openCastMappingDetails["iD"].stringValue,
+                    self.openCastMappingDetails["ocDate"].stringValue,
+                    self.openCastMappingDetails["mappingSheetNo"].stringValue,
+                    self.openCastMappingDetails["minesSiteName"].stringValue,
+                    self.openCastMappingDetails["pitName"].stringValue,
+                    self.openCastMappingDetails["pitLoaction"].stringValue,
+                    self.openCastMappingDetails["shiftInchargeName"].stringValue,
+                    self.openCastMappingDetails["geologistName"].stringValue,
+                    self.openCastMappingDetails["shift"].stringValue,
+                    self.openCastMappingDetails["faceLocation"].stringValue,
+                    self.openCastMappingDetails["faceLength"].stringValue,
+                    self.openCastMappingDetails["faceArea"].stringValue,
+                    self.openCastMappingDetails["faceRockType"].stringValue,
+                    self.openCastMappingDetails["benchRl"].stringValue,
+                    self.openCastMappingDetails["benchHeightWidth"].stringValue,
+                    self.openCastMappingDetails["benchAngle"].stringValue,
+                    self.openCastMappingDetails["dipDirectionAndAngle"].stringValue,
+                    self.openCastMappingDetails["thicknessOfOre"].stringValue,
+                    self.openCastMappingDetails["thicknessOfOverburdan"].stringValue,
+                    self.openCastMappingDetails["thicknessOfInterburden"].stringValue,
+                    self.openCastMappingDetails["observedGradeOfOre"].stringValue,
+                    self.openCastMappingDetails["sampleColledted"].stringValue,
+                    self.openCastMappingDetails["actualGradeOfOre"].stringValue,
+                    self.openCastMappingDetails["weathring"].stringValue,
+                    self.openCastMappingDetails["rockStregth"].stringValue,
+                    self.openCastMappingDetails["waterCondition"].stringValue,
+                    self.openCastMappingDetails["typeOfGeologistStruture"].stringValue,
+                    self.openCastMappingDetails["typeOfFaults"].stringValue,
+                    self.openCastMappingDetails["notes"].stringValue,
+                    geoSignIsSigned ? geoSigned : nil ,
+                    clientGeoSignedIsSigned ? clientGeoSigned : nil,
+                    drawImage) { completion in
+                        
+                        if completion{
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0){
+                                AppDelegate.shared.updateWindow(.home)
+                                GFunctions.shared.showSnackBar(message: kOpenCastMappingReportSavedSuccessfully)
+                            }
+                        }
                     }
-                }
             }
         }
     }

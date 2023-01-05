@@ -1469,7 +1469,7 @@ Data File</string>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VJ9-Ph-bfA">
-                                    <rect key="frame" x="5" y="0.0" width="181.66666666666666" height="39"/>
+                                    <rect key="frame" x="5" y="0.0" width="181.66666666666666" height="0.0"/>
                                     <string key="text">Undergrounds
 Mapping Report Details</string>
                                     <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="16"/>
@@ -4001,7 +4001,7 @@ been missed!</string>
                                         </constraints>
                                     </scrollView>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="j1i-KR-V3S" firstAttribute="top" secondItem="hpQ-cl-XaL" secondAttribute="top" id="GBp-TH-yhX"/>
                                     <constraint firstAttribute="trailing" secondItem="j1i-KR-V3S" secondAttribute="trailing" id="dTP-hW-b9J"/>
@@ -7232,10 +7232,10 @@ QXJlIHlvdSBzdXJlIHlvdSB3YW50IHRvIGRlbGV0ZQtTZWxmLWRldmVsb3BtZW50IHBsYXlsaXN0Pw
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PUK-Wc-WBi">
-                                <rect key="frame" x="16" y="101" width="343" height="591"/>
+                                <rect key="frame" x="16" y="101" width="343" height="657"/>
                                 <subviews>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mhB-X1-pah">
-                                        <rect key="frame" x="0.0" y="5" width="343" height="581"/>
+                                        <rect key="frame" x="0.0" y="5" width="343" height="647"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="3Kv-oD-xvs">
                                                 <rect key="frame" x="0.0" y="0.0" width="343" height="1724.6666666666667"/>
@@ -7506,39 +7506,14 @@ QXJlIHlvdSBzdXJlIHlvdSB3YW50IHRvIGRlbGV0ZQtTZWxmLWRldmVsb3BtZW50IHBsYXlsaXN0Pw
                                     <constraint firstAttribute="trailing" secondItem="mhB-X1-pah" secondAttribute="trailing" id="zcy-yB-4Vs"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dsi-jT-dDK" customClass="AppThemeBlueButton" customModule="Geo_Map" customModuleProvider="target">
-                                <rect key="frame" x="16" y="708" width="343" height="60"/>
-                                <color key="backgroundColor" name="theme_dark"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="dsi-jT-dDK" secondAttribute="height" multiplier="343:60" id="r2Y-zO-bIj"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Inter-Bold" family="Inter" pointSize="16"/>
-                                <state key="normal" title="View PDF">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="10"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                        <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="btnEditTapped:" destination="Qv6-Se-Uyk" eventType="touchUpInside" id="KCS-4A-XCh"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="N7v-jZ-StP"/>
                         <color key="backgroundColor" name="theme_light"/>
                         <constraints>
                             <constraint firstItem="PUK-Wc-WBi" firstAttribute="top" secondItem="N7v-jZ-StP" secondAttribute="top" constant="10" id="4i5-IP-ZpS"/>
                             <constraint firstItem="PUK-Wc-WBi" firstAttribute="leading" secondItem="N7v-jZ-StP" secondAttribute="leading" constant="16" id="OuW-AQ-U5v"/>
-                            <constraint firstAttribute="bottom" secondItem="dsi-jT-dDK" secondAttribute="bottom" constant="44" id="Qa7-3R-WQ1"/>
-                            <constraint firstItem="dsi-jT-dDK" firstAttribute="leading" secondItem="N7v-jZ-StP" secondAttribute="leading" constant="16" id="Rbp-O3-mKx"/>
-                            <constraint firstItem="N7v-jZ-StP" firstAttribute="trailing" secondItem="dsi-jT-dDK" secondAttribute="trailing" constant="16" id="WiQ-cg-Rjf"/>
                             <constraint firstAttribute="trailing" secondItem="PUK-Wc-WBi" secondAttribute="trailing" constant="16" id="hDu-sa-qOm"/>
-                            <constraint firstItem="dsi-jT-dDK" firstAttribute="top" secondItem="PUK-Wc-WBi" secondAttribute="bottom" constant="16" id="uAB-s1-kIT"/>
+                            <constraint firstItem="N7v-jZ-StP" firstAttribute="bottom" secondItem="PUK-Wc-WBi" secondAttribute="bottom" constant="20" id="syZ-bL-AGB"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="o6p-yE-xNC">
@@ -7572,10 +7547,14 @@ Mapping Report Details</string>
                                 <constraint firstItem="bFe-Am-Ghr" firstAttribute="leading" secondItem="nUk-Im-yTe" secondAttribute="leading" constant="5" id="sHv-nk-iCX"/>
                             </constraints>
                         </view>
+                        <barButtonItem key="rightBarButtonItem" image="edit_blue_icon" id="eV3-CK-3uD">
+                            <connections>
+                                <action selector="btnEditTapped:" destination="Qv6-Se-Uyk" id="AiR-8T-fma"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
-                        <outlet property="btnEditReport" destination="dsi-jT-dDK" id="Cl1-Fo-903"/>
                         <outlet property="imgFace" destination="3ex-1W-aAR" id="oCt-Ot-hJd"/>
                         <outlet property="imgLeft" destination="kW6-BC-ONZ" id="nPD-Hh-Z5v"/>
                         <outlet property="imgRight" destination="rYA-Wq-MWf" id="GRj-Ke-nFc"/>
@@ -7605,10 +7584,10 @@ Mapping Report Details</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YSv-O7-7Vd">
-                                <rect key="frame" x="16" y="101" width="343" height="591"/>
+                                <rect key="frame" x="16" y="101" width="343" height="657"/>
                                 <subviews>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sTE-qH-tfg">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="591"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="657"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="S3L-0d-1bU">
                                                 <rect key="frame" x="0.0" y="5" width="343" height="1212"/>
@@ -7776,7 +7755,7 @@ Mapping Report Details</string>
                                         </constraints>
                                     </scrollView>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="sTE-qH-tfg" firstAttribute="top" secondItem="YSv-O7-7Vd" secondAttribute="top" id="Mr8-1h-Eve"/>
                                     <constraint firstItem="sTE-qH-tfg" firstAttribute="leading" secondItem="YSv-O7-7Vd" secondAttribute="leading" id="ZUV-Ka-NDC"/>
@@ -7784,40 +7763,15 @@ Mapping Report Details</string>
                                     <constraint firstAttribute="bottom" secondItem="sTE-qH-tfg" secondAttribute="bottom" id="xNS-OU-y8c"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8gE-Ib-w6v" customClass="AppThemeBlueButton" customModule="Geo_Map" customModuleProvider="target">
-                                <rect key="frame" x="16" y="708" width="343" height="60"/>
-                                <color key="backgroundColor" name="theme_dark"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="8gE-Ib-w6v" secondAttribute="height" multiplier="343:60" id="bX2-dc-FY1"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Inter-Bold" family="Inter" pointSize="16"/>
-                                <state key="normal" title="View PDF">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="10"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                        <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="btnEditDetailTapped:" destination="zSy-de-9oD" eventType="touchUpInside" id="jCi-LE-FdV"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="tsv-AL-zXq"/>
                         <color key="backgroundColor" name="theme_light"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="8gE-Ib-w6v" secondAttribute="bottom" constant="44" id="1Ys-2P-wmJ"/>
                             <constraint firstItem="YSv-O7-7Vd" firstAttribute="leading" secondItem="tsv-AL-zXq" secondAttribute="leading" constant="16" id="A3E-As-CKK"/>
                             <constraint firstAttribute="trailing" secondItem="YSv-O7-7Vd" secondAttribute="trailing" constant="16" id="AWr-vN-EtZ"/>
-                            <constraint firstItem="tsv-AL-zXq" firstAttribute="trailing" secondItem="8gE-Ib-w6v" secondAttribute="trailing" constant="16" id="FWx-bX-OQX"/>
                             <constraint firstItem="S3L-0d-1bU" firstAttribute="centerX" secondItem="tsv-AL-zXq" secondAttribute="centerX" id="I3U-we-Vgp"/>
-                            <constraint firstItem="8gE-Ib-w6v" firstAttribute="leading" secondItem="tsv-AL-zXq" secondAttribute="leading" constant="16" id="RsW-WA-pvI"/>
                             <constraint firstItem="YSv-O7-7Vd" firstAttribute="top" secondItem="tsv-AL-zXq" secondAttribute="top" constant="10" id="inI-y1-JfU"/>
-                            <constraint firstItem="8gE-Ib-w6v" firstAttribute="top" secondItem="YSv-O7-7Vd" secondAttribute="bottom" constant="16" id="uCk-PO-6Aa"/>
+                            <constraint firstItem="tsv-AL-zXq" firstAttribute="bottom" secondItem="YSv-O7-7Vd" secondAttribute="bottom" constant="20" id="pyk-hG-bxy"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="XIX-Pj-cAp">
@@ -7851,10 +7805,14 @@ Mapping Report Details</string>
                                 <constraint firstItem="5YY-Ct-Kkn" firstAttribute="top" secondItem="jGv-xS-rfe" secondAttribute="top" id="sYq-hC-N1l"/>
                             </constraints>
                         </view>
+                        <barButtonItem key="rightBarButtonItem" image="edit_blue_icon" id="76b-4h-vBi">
+                            <connections>
+                                <action selector="btnEditDetailTapped:" destination="zSy-de-9oD" id="jdw-ss-FRg"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
-                        <outlet property="btnEdit" destination="8gE-Ib-w6v" id="mMN-XB-2eV"/>
                         <outlet property="imgClientGeologistSign" destination="nwU-sh-bTy" id="NTi-tp-qXF"/>
                         <outlet property="imgDrawImage" destination="Klx-VF-iID" id="X11-6Y-LS7"/>
                         <outlet property="imgGeologistSign" destination="F5y-bk-Xdr" id="ZZQ-M8-RP5"/>

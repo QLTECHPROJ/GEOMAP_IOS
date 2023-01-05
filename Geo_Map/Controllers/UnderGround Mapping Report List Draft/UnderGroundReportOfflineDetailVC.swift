@@ -20,8 +20,6 @@ class UnderGroundReportOfflineDetailVC : ClearNaviagtionBarVC {
     @IBOutlet weak var tblAttribute : UITableView!
     @IBOutlet weak var tblAttributeHeight: NSLayoutConstraint!
     
-    @IBOutlet weak var btnEditReport : AppThemeBlueButton!
-    
     @IBOutlet weak var imgLeft : UIImageView!
     @IBOutlet weak var lblLeftImage : UILabel!
     
@@ -133,9 +131,6 @@ class UnderGroundReportOfflineDetailVC : ClearNaviagtionBarVC {
         
         self.view.backgroundColor = .colorBGSkyBlueLight
         
-        self.btnEditReport.isSelect = true
-        self.btnEditReport.setTitle(kEdit, for: .normal)
-        
         self.lblTitle.applyLabelStyle(isAdjustFontWidth : true,text: kUndergroundsMappingReportDetails,fontSize :  16,fontName : .InterBold)
         self.lblAttribute.applyLabelStyle(text: kAttributesColn,fontSize :  12,fontName : .InterMedium,textColor: .colorTextPlaceHolderGray)
         
@@ -149,19 +144,19 @@ class UnderGroundReportOfflineDetailVC : ClearNaviagtionBarVC {
         self.tblAttribute.addObserver(self, forKeyPath: "contentSize", options: [.new ], context: nil)
         
         self.lblFaceImage.applyLabelStyle(text: kFACE,fontSize :  14,fontName : .InterSemibol)
-        self.imgFace.contentMode = .scaleAspectFit
+//        self.imgFace.contentMode = .scaleAspectFit
         self.imgFace.layer.cornerRadius = 10
         
         self.lblLeftImage.applyLabelStyle(text: kLEFT,fontSize :  14,fontName : .InterSemibol)
-        self.imgLeft.contentMode = .scaleAspectFit
+//        self.imgLeft.contentMode = .scaleAspectFit
         self.imgLeft.layer.cornerRadius = 10
         
         self.lblRoofImage.applyLabelStyle(text: kROOF,fontSize :  14,fontName : .InterSemibol)
-        self.imgRoof.contentMode = .scaleAspectFit
+//        self.imgRoof.contentMode = .scaleAspectFit
         self.imgRoof.layer.cornerRadius = 10
         
         self.lblRightImage.applyLabelStyle(text: kRIGHT,fontSize :  14,fontName : .InterSemibol)
-        self.imgRight.contentMode = .scaleAspectFit
+//        self.imgRight.contentMode = .scaleAspectFit
         self.imgRight.layer.cornerRadius = 10
         
     }

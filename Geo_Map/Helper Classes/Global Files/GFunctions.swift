@@ -26,14 +26,15 @@ class GFunctions: NSObject {
         snackbar.contentInset = UIEdgeInsets.init(top: 0, left: 8, bottom: 0, right: 8)
         
         // Change margin
-        snackbar.leftMargin = 0
-        snackbar.rightMargin = 0
+        snackbar.leftMargin = animation == .slideFromBottomBackToBottom ? 20 : 0
+        snackbar.rightMargin = animation == .slideFromBottomBackToBottom ? 20 : 0
         snackbar.topMargin = 0
+        snackbar.bottomMargin = animation == .slideFromBottomBackToBottom ? 75 : 0
         
         // Change message text font and color
         snackbar.messageTextColor = textColor
         snackbar.messageTextAlign = textAlignment
-        snackbar.messageTextFont = UIFont.applyCustomFont(fontName: .InterMedium, fontSize: 12.0)
+        snackbar.messageTextFont = UIFont.applyCustomFont(fontName: .InterMedium, fontSize: 12.0 * kFontAspectRatio)
         
         // Change snackbar background color
         snackbar.backgroundColor = backGroundColor

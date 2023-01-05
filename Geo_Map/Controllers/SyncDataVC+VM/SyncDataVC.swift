@@ -203,8 +203,8 @@ extension SyncDataVC{
     func getOpenCastReportDetailsParameters(openCastReportDetail : OpenCastMappingReportDataTable)-> (openCastParam : [String:Any],arrOpenCastImages : [UploadDataModel]){
         
         let drawImage = UploadDataModel(name: "image.jpeg", key: "image", data: openCastReportDetail.imagedrawn, extention: "jpeg", mimeType: "image/jpeg")
-        let clientGeologistSignImage = UploadDataModel(name: "image.jpeg", key: "clientsGeologistSign", data: openCastReportDetail.clientsGeologistSign, extention: "jpeg", mimeType: "image/jpeg")
-        let geologistSignImage = UploadDataModel(name: "image.jpeg", key: "geologistSign", data: openCastReportDetail.geologistSign, extention: "jpeg", mimeType: "image/jpeg")
+        let clientGeologistSignImage = UploadDataModel(name: "image.jpeg", key: "clientsGeologistSign", data: openCastReportDetail.clientsGeologistSign == nil ? Data() : openCastReportDetail.clientsGeologistSign, extention: "jpeg", mimeType: "image/jpeg")
+        let geologistSignImage = UploadDataModel(name: "image.jpeg", key: "geologistSign", data: openCastReportDetail.geologistSign == nil ? Data() : openCastReportDetail.geologistSign, extention: "jpeg", mimeType: "image/jpeg")
         
         let arrUploadImagesForOCR : [UploadDataModel] = [drawImage,clientGeologistSignImage,geologistSignImage]
         

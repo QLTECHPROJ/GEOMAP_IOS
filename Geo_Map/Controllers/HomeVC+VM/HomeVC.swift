@@ -179,6 +179,7 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }
+
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let cell = tableView.dequeueReusableCell(withClass: TitleLabelCell.self)
@@ -204,6 +205,10 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
        let type = self.vwReportList.viewForHeaderInSectionData(indexPath.section)["type"].stringValue
+        
+        guard checkInternet(true) else {
+            return
+        }
         
         if type == ReportListType.underGroundReport.rawValue{
 

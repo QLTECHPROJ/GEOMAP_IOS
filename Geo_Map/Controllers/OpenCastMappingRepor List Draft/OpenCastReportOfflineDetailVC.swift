@@ -11,8 +11,6 @@ class OpenCastReportOfflineDetailVC: ClearNaviagtionBarVC {
     //----------------------------------------------------------------------------
     @IBOutlet weak var lblTitle : UILabel!
     
-    @IBOutlet weak var btnEdit : AppThemeBlueButton!
-    
     @IBOutlet weak var tblView : UITableView!
     
     @IBOutlet weak var tblViewHeight: NSLayoutConstraint!
@@ -181,9 +179,7 @@ class OpenCastReportOfflineDetailVC: ClearNaviagtionBarVC {
         self.lblGeologistSign.applyLabelStyle(text: kGeologistSign,fontSize :  15,fontName : .InterSemibol)
         self.lblClientGeologistSign.applyLabelStyle(text: kClientGeologistSign,fontSize :  15,fontName : .InterSemibol)
         self.lblDrawImage.applyLabelStyle(text: kImage,fontSize :  15,fontName : .InterSemibol)
-        
-        self.btnEdit.setTitle(kEdit, for: .normal)
-        self.btnEdit.isSelect = true
+    
         self.setDraftDetail(self.reportData)
         
     }
@@ -406,19 +402,25 @@ extension OpenCastReportOfflineDetailVC {
             "dipDirectionAndAngle" : JSON(reportData.dipdirectionandAngle as Any).stringValue,
         ]
         
-        guard let geologistSignature = reportData.geologistSign , let clientGeologistSignature = reportData.clientsGeologistSign , let imageDrawn = reportData.imagedrawn else {return}
+        if let geologistSignature = reportData.geologistSign{
+            self.geologistSignImage = UIImage(data: geologistSignature)
+            self.imgGeologistSign.contentMode = .scaleToFill
+            self.imgGeologistSign.image = UIImage(data: geologistSignature)
+        }
         
+        if let clientGeologistSignature = reportData.clientsGeologistSign{
+            self.clientGeologistSignImage = UIImage(data: clientGeologistSignature)
+            self.imgClientGeologistSign.contentMode = .scaleToFill
+            self.imgClientGeologistSign.image = UIImage(data: clientGeologistSignature)
+        }
         
-        self.geologistSignImage = UIImage(data: geologistSignature)
-        self.clientGeologistSignImage = UIImage(data: clientGeologistSignature)
-        self.drawImage = UIImage(data: imageDrawn)
-        
-        self.imgGeologistSign.contentMode = .scaleToFill
-        self.imgGeologistSign.image = UIImage(data: geologistSignature)
-        self.imgClientGeologistSign.contentMode = .scaleToFill
-        self.imgClientGeologistSign.image = UIImage(data: clientGeologistSignature)
-        self.imgDrawImage.contentMode = .scaleToFill
-        self.imgDrawImage.image = UIImage(data: imageDrawn)
+        if let imageDrawn = reportData.imagedrawn{
+            self.drawImage = UIImage(data: imageDrawn)
+            self.imgDrawImage.contentMode = .scaleToFill
+            DispatchQueue.main.async {
+                self.imgDrawImage.image = UIImage(data: imageDrawn)//!.resizeImage(targetSize: CGSize(width: self.imgDrawImage.frame.width - 10, height: self.imgDrawImage.frame.height-10)) //UIImage(data: imageDrawn)
+            }
+        }
     }
 }
 

@@ -189,9 +189,7 @@ class EditOCGeoAttributeVC: ClearNaviagtionBarVC {
         self.btnSubmit.setTitle(kSubmit, for: .normal)
         
         self.setOCReportDetail()
-        self.signatureButtonEnable()
         
-        self.buttonEnableDisable()
     }
     
     private func signatureButtonEnable(){
@@ -204,9 +202,7 @@ class EditOCGeoAttributeVC: ClearNaviagtionBarVC {
         
         var isEnable : Bool = false
         
-        self.btnClearGeologistSign.isSelect = self.vwGeologistSign.isSigned
-        
-        self.btnClearClientGeologistSign.isSelect = self.vwClientGeologistSign.isSigned
+        self.signatureButtonEnable()
        /*
         if self.txtMappingSheetNo.text!.trim.isEmpty
             || self.txtMineSiteName.text!.trim.isEmpty
@@ -415,8 +411,12 @@ class EditOCGeoAttributeVC: ClearNaviagtionBarVC {
         
         let vc = AppStoryBoard.main.viewController(viewControllerClass: EditOpenCastMappingImagesVC.self)
         vc.openCastMappingDetails = openCastMappingDetails
-        vc.geologistSignImage = geologistSignImage
-        vc.clientGeologistSignImage = clientGeologistSignImage
+        vc.dictDrawSign = [
+            "geologistSignImage" : geologistSignImage,
+            "geologistSignImageIsSigned" : self.vwGeologistSign.isSigned,
+            "clientGeologistSignImage" : clientGeologistSignImage,
+            "clientGeologistSignImageIsSigned" : self.vwClientGeologistSign.isSigned
+        ]
         vc.drawImage = self.drawImage
         vc.isOfflineDataUpdate = self.isOfflineDataUpdate
         self.navigationController?.pushViewController(vc, animated: true)
@@ -643,73 +643,114 @@ extension EditOCGeoAttributeVC {
         
         self.setTypeOfFault(self.ocReportDetail["typeOfFaults"].stringValue)
         
-        self.selectShift(self.ocReportDetail["shift"].stringValue == kDayShift ? 1 : 2)
+//        self.selectShift(self.ocReportDetail["shift"].stringValue == kDayShift ? 1 : 2)
         
+        self.selectShift(self.ocReportDetail["shift"].stringValue == kDayShift ? 2 : 1)
+
         if self.isOfflineDataUpdate{
-            guard let geologistSign = self.geologistSignImage , let clientGeologistSign = self.clientGeologistSignImage, let drwImage = self.drawImage  else {return}
-            
-            self.drawImage = drwImage
-            self.vwGeologistSign.setSignature(_image: geologistSign)
-            
-            self.vwClientGeologistSign.setSignature(_image: clientGeologistSign)
+
+            if let drwImage = self.drawImage{
+                self.drawImage = drwImage
+            }
+
+            if let geologistSign = self.geologistSignImage{
+                self.vwGeologistSign.setSignature(_image: geologistSign)
+            }
+
+            if let clientGeologistSign = self.clientGeologistSignImage{
+                self.vwClientGeologistSign.setSignature(_image: clientGeologistSign)
+            }
+            self.signatureButtonEnable()
         }
         else{
             debugPrint(self.ocReportDetail)
-        
+
             DispatchQueue.main.async {
-                
+
                 if let geoloUrl = URL(string: self.ocReportDetail["geologistSign"].stringValue) {
                     do {
-                        let geologistImage = try Data(contentsOf: geoloUrl)
-                        if let imageGeologist = UIImage(data: geologistImage){
-                            self.vwGeologistSign.setSignature(_image: imageGeologist)
-                            self.signatureButtonEnable()
+
+                        DispatchQueue.global().async {
+                            // Fetch Image Data
+                            if let data = try? Data(contentsOf: geoloUrl) {
+                                DispatchQueue.main.async {
+                                    // Create Image and Update Image View
+                                    
+                                    if let img = UIImage(data: data){
+                                        // Create Image and Update Image View
+                                        
+                                        self.vwGeologistSign.setSignature(_image: img)
+                                        self.signatureButtonEnable()
+                                    }
+                                }
+                            }
                         }
-                        
                     } catch {
                         print("Unable to load data: \(error)")
                     }
                 }
-                
+
                 if let clintGeolostSign = URL(string: self.ocReportDetail["clientsGeologistSign"].stringValue) {
                     do {
-                        
-                        let clientGeologistImage = try Data(contentsOf: clintGeolostSign)
-                        if let imageClientGeologist = UIImage(data: clientGeologistImage){
-                            self.vwClientGeologistSign.setSignature(_image: imageClientGeologist)
-                            self.signatureButtonEnable()
+                        DispatchQueue.global().async {
+                            // Fetch Image Data
+                            if let data = try? Data(contentsOf: clintGeolostSign) {
+                                DispatchQueue.main.async {
+                                    // Create Image and Update Image View
+                                    
+                                    if let img = UIImage(data: data){
+                                        // Create Image and Update Image View
+                                        
+                                        self.vwGeologistSign.setSignature(_image: img)
+                                        self.signatureButtonEnable()
+                                    }
+                                }
+                            }
                         }
-                        
                     } catch {
                         print("Unable to load data: \(error)")
                     }
                 }
-                
+
                 if let imgdrawUrl = URL(string: self.ocReportDetail["image"].stringValue) {
                     do {
-                        let imgDrawnData = try Data(contentsOf: imgdrawUrl)
-                        if let imgDrwan = UIImage(data: imgDrawnData){
-                            self.drawImage = imgDrwan
+                        DispatchQueue.global().async {
+                            // Fetch Image Data
+                            if let data = try? Data(contentsOf: imgdrawUrl) {
+                                DispatchQueue.main.async {
+                                    // Create Image and Update Image View
+                                    
+                                    if let img = UIImage(data: data){
+                                        // Create Image and Update Image View
+                                        
+                                        self.drawImage = img
+                                    }
+                                }
+                            }
                         }
-                        
+
                     } catch {
                         print("Unable to load data: \(error)")
                     }
                 }
             }
         }
+        self.signatureButtonEnable()
         
+        self.buttonEnableDisable()
         
     }
     
-    private func selectShift(_ selectiontag : Int = 1){
+    func selectShift(_ selectiontag : Int = 1){
         self.btnDayShift.isSelected = selectiontag == self.btnDayShift.tag
         self.btnNightShift.isSelected = selectiontag == self.btnNightShift.tag
     }
     
-    private func getShiftType()-> String{
+    func getShiftType()-> String{
         
-        return self.btnDayShift.isSelected ? kDayShift : kNightShift
+//        let shift = self.btnDayShift.isSelected || self.btnNightShift.isSelected ? (self.btnDayShift.isSelected ? kDayShift : kNightShift) : ""
+        let shift = self.btnDayShift.isSelected ? kDayShift : kNightShift
+        return shift
     }
     
     private func setWeathering(_ text : String){

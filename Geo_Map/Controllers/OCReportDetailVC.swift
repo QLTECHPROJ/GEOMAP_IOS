@@ -217,6 +217,7 @@ class OCReportDetailVC : ClearNaviagtionBarVC {
     @IBAction func btnEditDetailTapped(_ sender : UIButton){
         
         self.view.endEditing(true)
+        guard checkInternet(true) else {return}
         let vc = AppStoryBoard.main.viewController(viewControllerClass: EditOCGeoAttributeVC.self)
         vc.ocReportDetail = self.openCastDetail
         self.navigationController?.pushViewController(vc, animated: true)
@@ -225,7 +226,7 @@ class OCReportDetailVC : ClearNaviagtionBarVC {
     @IBAction func btnViewPDF(_ sender : UIButton) {
         
         self.view.endEditing(true)
-
+        guard checkInternet(true) else {return}
         let vwUnderGroundReportDetail = UGReportDetailVM()
         let parameters = APIParametersModel()
         parameters.iD = self.reportId
@@ -379,25 +380,25 @@ extension OCReportDetailVC {
         }
         if let imgDraw = self.fetchImage(reportData["image"].stringValue.url()){
             self.imgDrawImage.contentMode = .scaleToFill
-            self.imgDrawImage.image = imgDraw
+            self.imgDrawImage.image = imgDraw//.resizeImage(targetSize: CGSize(width: self.imgDrawImage.frame.width - 2000, height: self.imgDrawImage.frame.height-2000))
         }
     }
     
     func fetchImage(_ imgUrl: URL) -> UIImage?{
         
-        //        DispatchQueue.main.async {
+        
         do{
             let imageData: Data = try Data(contentsOf: imgUrl)
             
             
             let image = UIImage(data: imageData)
             return image
-            //                }
+            
         }catch{
             print("Unable to load data: \(error)")
             return nil
         }
-        //        }
+        
     }
 }
 
