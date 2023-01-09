@@ -180,7 +180,7 @@ extension AddOpenCastMappingImagesVC : SignaturePadDelegate{
 extension AddOpenCastMappingImagesVC{
     
     func callAPIOrSavedOffline(){
-        
+        showHud()
         MyAppPhotoAlbum.shared.saveImagesInGallary { success in
             
             var geoSigned = UIImage()
@@ -220,6 +220,7 @@ extension AddOpenCastMappingImagesVC{
                         }
                     }
                 }
+                
             }
             
             if checkInternet(true){
@@ -250,7 +251,7 @@ extension AddOpenCastMappingImagesVC{
                 parameters.typeOfGeologist = self.openCastMappingDetails["typeOfGeologistStruture"].stringValue
                 parameters.typeOfFaults = self.openCastMappingDetails["typeOfFaults"].stringValue
                 parameters.shift = self.openCastMappingDetails["shift"].stringValue
-                parameters.ocDate = GFunctions.shared.convertDateFormat(dt: self.openCastMappingDetails["ocDate"].stringValue, inputFormat: DateTimeFormaterEnum.ddmm_yyyy.rawValue, outputFormat: DateTimeFormaterEnum.ddMMMyyyy.rawValue, status: .NOCONVERSION).str
+                parameters.ocDate = GFunctions.shared.convertDateFormat(dt: self.openCastMappingDetails["ocDate"].stringValue, inputFormat: DateTimeFormaterEnum.UTCFormat.rawValue, outputFormat: DateTimeFormaterEnum.UTCFormat.rawValue, status: .NOCONVERSION).str
                 
                 parameters.userId = JSON(UserModelClass.current.userId as Any).stringValue
                 parameters.dipDirectionAndAngle = self.openCastMappingDetails["dipDirectionAndAngle"].stringValue
@@ -284,6 +285,7 @@ extension AddOpenCastMappingImagesVC{
                     else{
                         GFunctions.shared.showSnackBar(message: message ?? "Error")
                     }
+                    hideHud()
                 })
             }
             else{
@@ -329,6 +331,7 @@ extension AddOpenCastMappingImagesVC{
                                 GFunctions.shared.showSnackBar(message: kOpenCastMappingReportSavedSuccessfully)
                             }
                         }
+                        hideHud()
                     }
             }
         }

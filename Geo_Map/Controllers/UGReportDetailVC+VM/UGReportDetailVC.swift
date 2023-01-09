@@ -276,7 +276,8 @@ extension UGReportDetailVC {
     
         self.btnViewPDF.isSelect = true
         print(reportData)
-        let ugDate =  GFunctions.shared.convertDateFormat(dt: reportData["ugDate"].stringValue, inputFormat: DateTimeFormaterEnum.ddMMMyyyy.rawValue, outputFormat: DateTimeFormaterEnum.ddmm_yyyy.rawValue, status: .NOCONVERSION).str
+    
+        let ugDate =  GFunctions.shared.convertDateFormat(dt: reportData["ugDate"].stringValue, inputFormat: DateTimeFormaterEnum.UTCFormat.rawValue, outputFormat: DateTimeFormaterEnum.ddMMMYYYYhhmma.rawValue, status: .NOCONVERSION).str
         for (i, _) in self.arrReportDetails.enumerated(){
 //            if self.arrReportDetails[i]["key"].stringValue == kMapSerialNo{
 //                self.arrReportDetails[i]["value"].stringValue = reportData["mapSerialNo"].stringValue
@@ -316,7 +317,6 @@ extension UGReportDetailVC {
         self.tblView.reloadData()
         self.tblAttribute.reloadData()
         
-        self.underGroundDetail["ugDate"].stringValue = ugDate
         if let imgRoof = self.fetchImage(reportData["roofImage"].stringValue.url()){
             self.imgRoof.contentMode = .scaleToFill
             self.roofImage = self.fetchImage(reportData["roofImage"].stringValue.url())!

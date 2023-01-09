@@ -348,7 +348,7 @@ var kUnderGroundMappingReportSavedSuccessfully = "Underground Mapping Report sav
 
 var kOpenCastMappingReportSavedSuccessfully = "OpenCast Mapping Report saved successfully..!"
 
-var kNoOfflineReportFound = "No offline report found..!"
+var kNoOfflineReportFound = "No draft reports found..!"
 
 var kCancel = "Cancel"
 

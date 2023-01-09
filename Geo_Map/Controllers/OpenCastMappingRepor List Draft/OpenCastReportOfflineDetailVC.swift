@@ -294,7 +294,7 @@ extension OpenCastReportOfflineDetailVC {
                 self.arrReportDetails[i]["value"].stringValue = JSON(reportData.mappingSheetNo as Any).stringValue.deshOrText
             }
             if self.arrReportDetails[i]["key"].stringValue == kDateColn{
-                self.arrReportDetails[i]["value"].stringValue = JSON(reportData.ocDate as Any).stringValue.deshOrText
+                self.arrReportDetails[i]["value"].stringValue = GFunctions.shared.convertDateFormat(dt: JSON(reportData.ocDate as Any).stringValue, inputFormat: DateTimeFormaterEnum.UTCFormat.rawValue, outputFormat: DateTimeFormaterEnum.ddMMMYYYYhhmma.rawValue, status: .NOCONVERSION).str
             }
             if self.arrReportDetails[i]["key"].stringValue == kMineSitenameColn{
                 self.arrReportDetails[i]["value"].stringValue = JSON(reportData.minesSiteName as Any).stringValue.deshOrText

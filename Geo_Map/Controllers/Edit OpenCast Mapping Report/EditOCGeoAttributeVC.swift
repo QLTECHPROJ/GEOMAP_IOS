@@ -404,7 +404,7 @@ class EditOCGeoAttributeVC: ClearNaviagtionBarVC {
             "typeOfFaults" : JSON(self.lblTypeOfFault.text as Any).stringValue.trim != kTypeOfFaults ? JSON(self.lblTypeOfFault.text as Any).stringValue : "",
             "notes" : JSON(self.tvNote.text as Any).stringValue,
             "shift" : self.getShiftType(),
-            "ocDate" : JSON(self.lblDate.text as Any).stringValue,
+            "ocDate" : self.ocReportDetail["ocDate"].stringValue,
             "dipDirectionAndAngle" : JSON(self.txtDipDirectionAngle.text as Any).stringValue,
             
         ]
@@ -590,8 +590,7 @@ extension EditOCGeoAttributeVC {
     private func setOCReportDetail(){
         guard self.ocReportDetail != .null else { return }
     
-    
-        self.lblDate.text = GFunctions.shared.convertDateFormat(dt: self.ocReportDetail["ocDate"].stringValue, inputFormat: DateTimeFormaterEnum.ddMMMyyyy.rawValue, outputFormat: DateTimeFormaterEnum.ddmm_yyyy.rawValue, status: .NOCONVERSION).str
+        self.lblDate.text = GFunctions.shared.convertDateFormat(dt: self.ocReportDetail["ocDate"].stringValue, inputFormat: DateTimeFormaterEnum.UTCFormat.rawValue, outputFormat: DateTimeFormaterEnum.ddMMMYYYYhhmma.rawValue, status: .NOCONVERSION).str
         
         self.txtMineSiteName.text = self.ocReportDetail["minesSiteName"].stringValue
         

@@ -98,7 +98,7 @@ class EditUGMappingDataVC: ClearNaviagtionBarVC {
         
         self.txtName.text = self.ugReportDetail["name"].stringValue
         
-        self.lblDate.text = GFunctions.shared.convertDateFormat(dt: self.ugReportDetail["ugDate"].stringValue, inputFormat: DateTimeFormaterEnum.ddmm_yyyy.rawValue, outputFormat: DateTimeFormaterEnum.ddmm_yyyy.rawValue, status: .NOCONVERSION).str
+        self.lblDate.text = GFunctions.shared.convertDateFormat(dt: self.ugReportDetail["ugDate"].stringValue, inputFormat: DateTimeFormaterEnum.UTCFormat.rawValue, outputFormat: DateTimeFormaterEnum.ddMMMYYYYhhmma.rawValue, status: .NOCONVERSION).str
         self.txtMappedBy.text = self.ugReportDetail["mappedBy"].stringValue
         self.txtScale.text = self.ugReportDetail["scale"].stringValue
         self.txtLocation.text = self.ugReportDetail["location"].stringValue
@@ -151,7 +151,7 @@ class EditUGMappingDataVC: ClearNaviagtionBarVC {
             "attributes" : self.arrAddedAttributes,
             "mapSerialNo" : self.ugReportDetail["mapSerialNo"].stringValue,
             "name" : JSON(self.txtName.text as Any).stringValue,
-            "ugDate" : JSON(self.lblDate.text as Any).stringValue,
+            "ugDate" : self.ugReportDetail["ugDate"].stringValue,
             "shift" : self.getShiftType(),
             "mappedBy" : JSON(self.txtMappedBy.text as Any).stringValue,
             "scale" : JSON(self.txtScale.text as Any).stringValue,

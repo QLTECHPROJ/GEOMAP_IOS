@@ -30,42 +30,36 @@
                         <rect key="frame" x="16" y="8" width="343" height="134"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="gxO-wn-9ws">
-                                <rect key="frame" x="10" y="10" width="323" height="114"/>
+                                <rect key="frame" x="10" y="10" width="244.5" height="114"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="1gj-qs-8b3">
-                                        <rect key="frame" x="0.0" y="0.0" width="323" height="108"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="244.5" height="93.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="MY6-40-aFh">
-                                                <rect key="frame" x="0.0" y="0.0" width="323" height="18.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="244.5" height="18.5"/>
                                                 <subviews>
                                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Report Name 2" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ctc-3f-dwm">
-                                                        <rect key="frame" x="0.0" y="0.0" width="249.5" height="18.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="244.5" height="18.5"/>
                                                         <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="15"/>
-                                                        <color key="textColor" name="8D8B97"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="14 July 2022" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JWG-dH-IjR">
-                                                        <rect key="frame" x="249.5" y="0.0" width="73.5" height="15"/>
-                                                        <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="12"/>
                                                         <color key="textColor" name="8D8B97"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
                                             </stackView>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City Name, India" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="75c-Bb-8Av">
-                                                <rect key="frame" x="0.0" y="28.5" width="323" height="15"/>
+                                                <rect key="frame" x="0.0" y="28.5" width="244.5" height="15"/>
                                                 <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="12"/>
                                                 <color key="textColor" name="8D8B97"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City Name, India" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3k9-RM-MJf">
-                                                <rect key="frame" x="0.0" y="53.5" width="323" height="15"/>
+                                                <rect key="frame" x="0.0" y="53.5" width="244.5" height="15"/>
                                                 <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="12"/>
                                                 <color key="textColor" name="8D8B97"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem Ipsum is simply dummy text of the printing and typesetting " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sJX-35-8Fx">
-                                                <rect key="frame" x="0.0" y="78.5" width="323" height="29.5"/>
+                                                <rect key="frame" x="0.0" y="78.5" width="244.5" height="15"/>
                                                 <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="12"/>
                                                 <color key="textColor" name="8D8B97"/>
                                                 <nil key="highlightedColor"/>
@@ -74,13 +68,21 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="14 July 2022" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JWG-dH-IjR">
+                                <rect key="frame" x="259.5" y="10" width="73.5" height="15"/>
+                                <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="12"/>
+                                <color key="textColor" name="8D8B97"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="JWG-dH-IjR" firstAttribute="top" secondItem="gxO-wn-9ws" secondAttribute="top" id="CRq-d9-0h0"/>
                             <constraint firstAttribute="bottom" secondItem="gxO-wn-9ws" secondAttribute="bottom" constant="10" id="Uyt-wH-vUz"/>
+                            <constraint firstAttribute="trailing" secondItem="JWG-dH-IjR" secondAttribute="trailing" constant="10" id="YgN-SN-2zN"/>
                             <constraint firstItem="gxO-wn-9ws" firstAttribute="top" secondItem="TZv-7X-Gvg" secondAttribute="top" constant="10" id="aKG-0u-5jV"/>
+                            <constraint firstItem="JWG-dH-IjR" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="gxO-wn-9ws" secondAttribute="trailing" constant="5" id="n9P-Cr-0Li"/>
                             <constraint firstItem="gxO-wn-9ws" firstAttribute="leading" secondItem="TZv-7X-Gvg" secondAttribute="leading" constant="10" id="v9Y-3X-oox"/>
-                            <constraint firstAttribute="trailing" secondItem="gxO-wn-9ws" secondAttribute="trailing" constant="10" id="wBn-nH-LKt"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">

@@ -37,7 +37,12 @@ class NotificationListCell: UITableViewCell {
         debugPrint(reportData)
         if type == ReportListType.underGroundReport.rawValue{
             self.lblTitle.text = reportData["name"].stringValue.deshOrText
-            self.lblDate.text = reportData["ugDate"].stringValue.deshOrText
+             let date = GFunctions.shared.convertDateFormat(dt: reportData["ugDate"].stringValue, inputFormat: DateTimeFormaterEnum.UTCFormat.rawValue, outputFormat: DateTimeFormaterEnum.ddmm_yyyy.rawValue, status: .NOCONVERSION).str.deshOrText
+            
+            let time = GFunctions.shared.convertDateFormat(dt: reportData["ugDate"].stringValue, inputFormat: DateTimeFormaterEnum.UTCFormat.rawValue, outputFormat: DateTimeFormaterEnum.hhmmA.rawValue, status: .NOCONVERSION).str.deshOrText
+            
+            
+            self.lblDate.text = "\(date)\n\(time)"
             self.lblCity.text = reportData["location"].stringValue.deshOrText
             
             let attributedScale: NSMutableAttributedString = NSMutableAttributedString(string: "\(kMappedByColn) \(reportData["mappedBy"].stringValue.deshOrText)")
@@ -53,8 +58,15 @@ class NotificationListCell: UITableViewCell {
         }
         else{
             self.lblTitle.text = reportData["pitName"].stringValue.deshOrText
-            self.lblDate.text = reportData["ocDate"].stringValue.deshOrText
             self.lblCity.text = reportData["pitLoaction"].stringValue.deshOrText
+            
+            
+            let date = GFunctions.shared.convertDateFormat(dt: reportData["ocDate"].stringValue, inputFormat: DateTimeFormaterEnum.UTCFormat.rawValue, outputFormat: DateTimeFormaterEnum.ddmm_yyyy.rawValue, status: .NOCONVERSION).str.deshOrText
+           
+           let time = GFunctions.shared.convertDateFormat(dt: reportData["ocDate"].stringValue, inputFormat: DateTimeFormaterEnum.UTCFormat.rawValue, outputFormat: DateTimeFormaterEnum.hhmmA.rawValue, status: .NOCONVERSION).str.deshOrText
+           
+           
+           self.lblDate.text = "\(date)\n\(time)"
     
             let attributedMineSite: NSMutableAttributedString = NSMutableAttributedString(string: "\(kMinesSiteNameColmn) \(reportData["minesSiteName"].stringValue.deshOrText)")
             attributedMineSite.setAttributes(color: UIColor.colorTextPlaceHolderGray, forText: kMinesSiteNameColmn, font: 12, fontname: .InterMedium)

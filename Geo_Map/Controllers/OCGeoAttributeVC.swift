@@ -127,7 +127,8 @@ class OCGeoAttributeVC: ClearNaviagtionBarVC {
         
     
         let dateFormat = DateFormatter()
-        dateFormat.dateFormat = DateTimeFormaterEnum.ddmm_yyyy.rawValue
+        dateFormat.dateFormat = DateTimeFormaterEnum.ddMMMYYYYhhmma.rawValue
+        
         
         self.lblDate.applyLabelStyle(text : dateFormat.string(from: Date()),fontSize : 12,fontName : .InterSemibol)
         
@@ -165,7 +166,7 @@ class OCGeoAttributeVC: ClearNaviagtionBarVC {
         self.txtObservedGradeOfOre.applyStyleFlotingTextfield(placeholderTitle : kObservedGradeOfOre, fontsize : 14,fontname : .InterSemibol)
         
         self.txtActualGradeOfOreLabGrade.applyStyleFlotingTextfield(placeholderTitle : kActualGradeOfOreLabGrade, fontsize : 14,fontname : .InterSemibol)
-        self.lblGeologistName.applyLabelStyle(text : kGeologistName,fontSize : 14,fontName : .InterSemibol,textColor: .colorTextPlaceHolderGray)
+        self.lblGeologistName.applyLabelStyle(text : JSON(UserModelClass.current.name as Any).stringValue,fontSize : 14,fontName : .InterSemibol)
         
         self.lblSampleCollected.applyLabelStyle(text : kSampleCollected,fontSize : 14,fontName : .InterSemibol,textColor: .colorTextPlaceHolderGray)
         self.lblWeathering.applyLabelStyle(text : kWeathering,fontSize : 14,fontName : .InterSemibol,textColor: .colorTextPlaceHolderGray)
@@ -255,6 +256,7 @@ class OCGeoAttributeVC: ClearNaviagtionBarVC {
     
     func btnOtherActions(){
         
+        /*
         self.vwGeologistName.handleTapToAction {
             self.view.endEditing(true)
             let vc = AppStoryBoard.main.viewController(viewControllerClass: ListItemVC.self)
@@ -269,7 +271,7 @@ class OCGeoAttributeVC: ClearNaviagtionBarVC {
                 self.lblGeologistName.textColor = .colorTextBlack
             }
         }
-        
+        */
         self.vwSampleCollected.handleTapToAction {
             self.view.endEditing(true)
             let vc = AppStoryBoard.main.viewController(viewControllerClass: ListItemVC.self)
@@ -418,7 +420,7 @@ class OCGeoAttributeVC: ClearNaviagtionBarVC {
             "typeOfFaults" : JSON(self.lblTypeOfFault.text as Any).stringValue.trim != kTypeOfFaults ? JSON(self.lblTypeOfFault.text as Any).stringValue : "",
             "notes" : JSON(self.tvNote.text as Any).stringValue,
             "shift" : self.getShiftType(),
-            "ocDate" : JSON(self.lblDate.text as Any).stringValue,
+            "ocDate" :   GFunctions.shared.convertDateFormat(dt: JSON(self.lblDate.text as Any).stringValue, inputFormat: DateTimeFormaterEnum.ddMMMYYYYhhmma.rawValue, outputFormat: DateTimeFormaterEnum.UTCFormat.rawValue, status: .NOCONVERSION).str,
             "dipDirectionAndAngle" : JSON(self.txtDipDirectionAngle.text as Any).stringValue,
             
         ]

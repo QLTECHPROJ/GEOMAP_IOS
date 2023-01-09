@@ -203,7 +203,7 @@ extension EditOpenCastMappingImagesVC : SignaturePadDelegate{
 extension EditOpenCastMappingImagesVC{
     
     func callAPIOrSavedOffline(){
-        
+        hideHud()
         MyAppPhotoAlbum.shared.saveImagesInGallary { success in
             
             var geoSigned = UIImage()
@@ -280,7 +280,7 @@ extension EditOpenCastMappingImagesVC{
                 parameters.typeOfGeologist = self.openCastMappingDetails["typeOfGeologistStruture"].stringValue
                 parameters.typeOfFaults = self.openCastMappingDetails["typeOfFaults"].stringValue
                 parameters.shift = self.openCastMappingDetails["shift"].stringValue
-                parameters.ocDate = GFunctions.shared.convertDateFormat(dt: self.openCastMappingDetails["ocDate"].stringValue, inputFormat: DateTimeFormaterEnum.ddmm_yyyy.rawValue, outputFormat: DateTimeFormaterEnum.ddMMMyyyy.rawValue, status: .NOCONVERSION).str
+                parameters.ocDate = self.openCastMappingDetails["ocDate"].stringValue
                 
                 parameters.userId = JSON(UserModelClass.current.userId as Any).stringValue
                 parameters.dipDirectionAndAngle = self.openCastMappingDetails["dipDirectionAndAngle"].stringValue
@@ -315,6 +315,7 @@ extension EditOpenCastMappingImagesVC{
                     else{
                         GFunctions.shared.showSnackBar(message: message ?? "Error")
                     }
+                    hideHud()
                 })
             }
             else{
@@ -372,6 +373,7 @@ extension EditOpenCastMappingImagesVC{
                             }
                         }
                     }
+                    hideHud()
                 }
             }
         }

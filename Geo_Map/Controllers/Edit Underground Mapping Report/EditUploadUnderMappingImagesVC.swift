@@ -363,6 +363,7 @@ extension EditUploadUnderMappingImagesVC{
     
     func callAPIOrSavedOffline()
     {
+        showHud()
         MyAppPhotoAlbum.shared.saveImagesInGallary { success in
             
             var rootImage = UIImage()
@@ -433,7 +434,7 @@ extension EditUploadUnderMappingImagesVC{
                     "yCordinate" : self.underGroundMappingDetail["yCoordinate"].stringValue,
                     "zCordinate" : self.underGroundMappingDetail["zCoordinate"].stringValue,
                     "mapSerialNo" : self.underGroundMappingDetail["mapSerialNo"].stringValue,
-                    "ugDate" : GFunctions.shared.convertDateFormat(dt: self.underGroundMappingDetail["ugDate"].stringValue, inputFormat: DateTimeFormaterEnum.ddmm_yyyy.rawValue, outputFormat: DateTimeFormaterEnum.ddMMMyyyy.rawValue, status: .NOCONVERSION).str,
+                    "ugDate" : self.underGroundMappingDetail["ugDate"].stringValue,
                     "comment" : self.underGroundMappingDetail["comment"].stringValue,
                     "faceImage" : faceImageObj.name,
                     "rightImage" : rightImageObj.name,
@@ -455,6 +456,7 @@ extension EditUploadUnderMappingImagesVC{
                     else{
                         GFunctions.shared.showSnackBar(message: JSON(message as Any).stringValue)
                     }
+                    hideHud()
                 }
             }
             else{
@@ -500,6 +502,7 @@ extension EditUploadUnderMappingImagesVC{
                             }
                         }
                     }
+                    hideHud()
                 }
             }
         }

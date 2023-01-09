@@ -102,6 +102,7 @@ class MyAppPhotoAlbum: NSObject {
                     if let albumChangeRequest = PHAssetCollectionChangeRequest(for: self.assetCollection) {
                         let enumeration: NSArray = [assetPlaceHolder!]
                         albumChangeRequest.addAssets(enumeration)
+                        
                     }
                     
                 }, completionHandler: { (success, error) in

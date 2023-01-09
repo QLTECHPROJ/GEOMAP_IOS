@@ -35,7 +35,13 @@ class UnderGroundMappingReportDraftTableviewCell: UITableViewCell {
         debugPrint(reportData)
         
         self.lblTitle.text = JSON(reportData.name as Any).stringValue.deshOrText
-        self.lblDate.text = JSON(reportData.ugDate as Any).stringValue.deshOrText
+        
+        let date = GFunctions.shared.convertDateFormat(dt: JSON(reportData.ugDate as Any).stringValue, inputFormat: DateTimeFormaterEnum.UTCFormat.rawValue, outputFormat: DateTimeFormaterEnum.ddmm_yyyy.rawValue, status: .NOCONVERSION).str.deshOrText
+        
+        let time = GFunctions.shared.convertDateFormat(dt: JSON(reportData.ugDate as Any).stringValue, inputFormat: DateTimeFormaterEnum.UTCFormat.rawValue, outputFormat: DateTimeFormaterEnum.hhmmA.rawValue, status: .NOCONVERSION).str.deshOrText
+        
+        self.lblDate.text = "\(date)\n\(time)"
+    
         self.lblCity.text = JSON(reportData.location as Any).stringValue.deshOrText
         
         let attributedText1: NSMutableAttributedString = NSMutableAttributedString(string: "\(kMappedByColn) \(JSON(reportData.mappedBy as Any).stringValue.deshOrText)")
@@ -56,7 +62,13 @@ class UnderGroundMappingReportDraftTableviewCell: UITableViewCell {
         debugPrint(reportData)
         
         self.lblTitle.text = JSON(reportData.pitName as Any).stringValue.deshOrText
-        self.lblDate.text = JSON(reportData.ocDate as Any).stringValue.deshOrText
+        
+        let date = GFunctions.shared.convertDateFormat(dt: JSON(reportData.ocDate as Any).stringValue, inputFormat: DateTimeFormaterEnum.UTCFormat.rawValue, outputFormat: DateTimeFormaterEnum.ddmm_yyyy.rawValue, status: .NOCONVERSION).str.deshOrText
+        
+        let time = GFunctions.shared.convertDateFormat(dt: JSON(reportData.ocDate as Any).stringValue, inputFormat: DateTimeFormaterEnum.UTCFormat.rawValue, outputFormat: DateTimeFormaterEnum.hhmmA.rawValue, status: .NOCONVERSION).str.deshOrText
+        
+        self.lblDate.text = "\(date)\n\(time)"
+       
         self.lblCity.text = JSON(reportData.pitLocation as Any).stringValue.deshOrText
         
         let attributedText1: NSMutableAttributedString = NSMutableAttributedString(string: "\(kMinesSiteNameColmn) \(JSON(reportData.minesSiteName as Any).stringValue.deshOrText)")

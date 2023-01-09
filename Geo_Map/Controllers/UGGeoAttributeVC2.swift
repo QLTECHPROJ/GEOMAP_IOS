@@ -56,7 +56,7 @@ class UGGeoAttributeVC2: ClearNaviagtionBarVC {
         self.txtName.applyStyleFlotingTextfield(placeholderTitle : kName, fontsize : 14,fontname : .InterSemibol)
         
         let dateFormat = DateFormatter()
-        dateFormat.dateFormat = DateTimeFormaterEnum.ddmm_yyyy.rawValue
+        dateFormat.dateFormat = DateTimeFormaterEnum.ddMMMYYYYhhmma.rawValue
        
         self.lblDate.applyLabelStyle(text : dateFormat.string(from: Date()),fontSize : 12,fontName : .InterSemibol)
         
@@ -126,7 +126,7 @@ class UGGeoAttributeVC2: ClearNaviagtionBarVC {
             "attributes" : self.arrAddedAttributes,
 //            "mapSerialNo" : JSON(self.txtMapSerialNo.text as Any).stringValue,
             "name" : JSON(self.txtName.text as Any).stringValue,
-            "ugDate" : JSON(self.lblDate.text as Any).stringValue,
+            "ugDate" : GFunctions.shared.convertDateFormat(dt: JSON(self.lblDate.text as Any).stringValue, inputFormat: DateTimeFormaterEnum.ddMMMYYYYhhmma.rawValue, outputFormat: DateTimeFormaterEnum.UTCFormat.rawValue, status: .NOCONVERSION).str ,
             "shift" : self.getShiftType(),
             "mappedBy" : JSON(self.txtMappedBy.text as Any).stringValue,
             "scale" : JSON(self.txtScale.text as Any).stringValue,

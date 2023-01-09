@@ -117,7 +117,7 @@ enum DateTimeFormaterEnum : String
     
     case ddMMMyyyy          = "dd-MMM-yyyy"
     
-    case ddMMMYYYYhhmma                             = "dd MMM, yyyy hh:mm a"
+    case ddMMMYYYYhhmma     = "dd MMM, yyyy hh:mm a"
     
     case yyyyMMddTHHMMSSZ = "yyyy-MM-dd'T'HH:mm:ss.000'Z'"
     
