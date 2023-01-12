@@ -85,6 +85,7 @@ class OCGeoAttributeVC: ClearNaviagtionBarVC {
     
     var isGeologistSigned : Bool = false
     var isClientGeologistSigned : Bool = false
+    var paramTimeStamp : String = ""
     
     //----------------------------------------------------------------------------
     //MARK: - Memory management
@@ -124,13 +125,13 @@ class OCGeoAttributeVC: ClearNaviagtionBarVC {
         self.selectShift()
         self.btnOtherActions()
         self.signatureButtonEnable()
-        
     
         let dateFormat = DateFormatter()
         dateFormat.dateFormat = DateTimeFormaterEnum.ddMMMYYYYhhmma.rawValue
-        
-        
         self.lblDate.applyLabelStyle(text : dateFormat.string(from: Date()),fontSize : 12,fontName : .InterSemibol)
+        
+        dateFormat.dateFormat = DateTimeFormaterEnum.UTCFormat.rawValue
+        self.paramTimeStamp = dateFormat.string(from: Date())
         
 //        self.txtMappingSheetNo.applyStyleFlotingTextfield(placeholderTitle : kMappingSheetNo, fontsize : 14,fontname : .InterSemibol)
         self.txtMineSiteName.applyStyleFlotingTextfield(placeholderTitle : kMinesSiteName, fontsize : 14,fontname : .InterSemibol)
@@ -420,7 +421,7 @@ class OCGeoAttributeVC: ClearNaviagtionBarVC {
             "typeOfFaults" : JSON(self.lblTypeOfFault.text as Any).stringValue.trim != kTypeOfFaults ? JSON(self.lblTypeOfFault.text as Any).stringValue : "",
             "notes" : JSON(self.tvNote.text as Any).stringValue,
             "shift" : self.getShiftType(),
-            "ocDate" :   GFunctions.shared.convertDateFormat(dt: JSON(self.lblDate.text as Any).stringValue, inputFormat: DateTimeFormaterEnum.ddMMMYYYYhhmma.rawValue, outputFormat: DateTimeFormaterEnum.UTCFormat.rawValue, status: .NOCONVERSION).str,
+            "ocDate" :   self.paramTimeStamp,
             "dipDirectionAndAngle" : JSON(self.txtDipDirectionAngle.text as Any).stringValue,
             
         ]

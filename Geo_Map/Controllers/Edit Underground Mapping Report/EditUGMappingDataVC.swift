@@ -42,10 +42,10 @@ class EditUGMappingDataVC: ClearNaviagtionBarVC {
     var ugReportDetail : JSON = .null
     var isOfflineDataUpdate : Bool = false
     
-    var faceImage = UIImage()
-    var roofImage = UIImage()
-    var leftImage = UIImage()
-    var rightImage = UIImage()
+    var faceImage : UIImage?
+    var roofImage : UIImage?
+    var leftImage : UIImage?
+    var rightImage : UIImage?
     
     
     // MARK: - VIEW LIFE CYCLE

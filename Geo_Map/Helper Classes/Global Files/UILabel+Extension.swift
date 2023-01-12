@@ -33,7 +33,7 @@ extension UILabel{
         self.layer.shadowColor = shadowColor.cgColor
     }
     
-    func applyLabelStyle(isAdjustFontWidth : Bool = false,isApsectRadio : Bool = true, text : String = "",fontSize : CGFloat = kMediumFontSize,fontName : CustomFont,textColor : UIColor = .colorTextBlack){
+    func applyLabelStyle(isAdjustFontWidth : Bool = false,isApsectRadio : Bool = true, text : String = "",fontSize : CGFloat = kMediumFontSize,fontName : CustomFont,textColor : UIColor = .colorTextBlack, bgColor : UIColor = .clear){
         
         if text != ""{
             self.text = text
@@ -42,7 +42,7 @@ extension UILabel{
         self.textColor = textColor
         
         self.font = UIFont.applyCustomFont(fontName: fontName, fontSize: fontSize, isAspectRasio: isApsectRadio)
-
+        self.backgroundColor = bgColor
     }
     
     func lineSpacing(lineSpacing : CGFloat? = 5, alignment : NSTextAlignment? = nil) -> UILabel {

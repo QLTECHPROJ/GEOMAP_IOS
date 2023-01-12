@@ -27,6 +27,8 @@ class EditOpenCastMappingImagesVC: ClearNaviagtionBarVC {
     @IBOutlet weak var btnClearDraw : AppThemeBorderBlueButton!
     @IBOutlet weak var btnSubmit : AppThemeBlueButton!
     
+    @IBOutlet weak var lblImageTimeStamp : UILabel!
+    
     //----------------------------------------------------------------------------
     //MARK: - Class Variables
     //----------------------------------------------------------------------------
@@ -77,7 +79,7 @@ class EditOpenCastMappingImagesVC: ClearNaviagtionBarVC {
         self.vwDrawPad.delegate = self
         
         self.vwDrawPad.isDisplay = true
-        
+        self.lblImageTimeStamp.applyLabelStyle(fontSize :  13,fontName : .InterSemibol,textColor : .white,bgColor : .colorSkyBlue)
         
         self.setDataForReport()
         self.buttonEnableDisable()
@@ -90,6 +92,13 @@ class EditOpenCastMappingImagesVC: ClearNaviagtionBarVC {
         
         guard let drawImage = self.drawImage else {return}
         self.vwDrawPad.setSignature(_image: drawImage)
+        self.setBGGraph()
+    }
+    
+    func setBGGraph(){
+        self.vwDrawPad.isDisplay = !self.vwDrawPad.isSigned
+        self.lblImageTimeStamp.text = "\(self.openCastMappingDetails["ocDate"].stringValue)_OC_Image"
+        self.lblImageTimeStamp.isHidden = self.vwDrawPad.isSigned
     }
     
     func buttonEnableDisable(){
@@ -110,6 +119,7 @@ class EditOpenCastMappingImagesVC: ClearNaviagtionBarVC {
         self.view.endEditing(true)
         self.isEditedDrawing = false
         self.vwDrawPad.clear()
+        self.setBGGraph()
         self.buttonEnableDisable()
     }
     

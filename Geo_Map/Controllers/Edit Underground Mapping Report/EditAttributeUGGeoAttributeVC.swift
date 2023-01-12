@@ -50,10 +50,10 @@ class EditAttributeUGGeoAttributeVC: ClearNaviagtionBarVC {
     
     var isOfflineDataUpdate : Bool = false
     
-    var faceImage = UIImage()
-    var roofImage = UIImage()
-    var leftImage = UIImage()
-    var rightImage = UIImage()
+    var faceImage : UIImage?
+    var roofImage : UIImage?
+    var leftImage : UIImage?
+    var rightImage : UIImage?
     
     
     

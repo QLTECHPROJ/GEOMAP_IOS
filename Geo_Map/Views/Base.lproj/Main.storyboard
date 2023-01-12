@@ -1916,64 +1916,64 @@ been missed!</string>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="K92-yp-VUA">
-                            <rect key="frame" x="0.0" y="0.0" width="416.66666666666669" height="20"/>
+                            <rect key="frame" x="0.0" y="0.0" width="442.66666666666669" height="20.666666666666668"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="myb-f2-Y14">
-                                    <rect key="frame" x="0.0" y="0.0" width="41.666666666666664" height="20"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="46.333333333333336" height="20.666666666666668"/>
                                     <fontDescription key="fontDescription" name="Inter-Black" family="Inter" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kNj-Cy-hgj">
-                                    <rect key="frame" x="41.666666666666671" y="0.0" width="41.666666666666671" height="20"/>
+                                    <rect key="frame" x="46.333333333333329" y="0.0" width="45.333333333333329" height="20.666666666666668"/>
                                     <fontDescription key="fontDescription" name="Inter-Bold" family="Inter" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KEG-qm-LvR">
-                                    <rect key="frame" x="83.333333333333329" y="0.0" width="41.666666666666671" height="20"/>
+                                    <rect key="frame" x="91.666666666666671" y="0.0" width="45.666666666666671" height="20.666666666666668"/>
                                     <fontDescription key="fontDescription" name="Inter-ExtraBold" family="Inter" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3lM-2f-xSy">
-                                    <rect key="frame" x="125.00000000000001" y="0.0" width="41.666666666666671" height="20"/>
+                                    <rect key="frame" x="137.33333333333334" y="0.0" width="43" height="20.666666666666668"/>
                                     <fontDescription key="fontDescription" name="Inter-ExtraLight" family="Inter" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lWf-D9-9H3">
-                                    <rect key="frame" x="166.66666666666666" y="0.0" width="41.666666666666657" height="20"/>
+                                    <rect key="frame" x="180.33333333333334" y="0.0" width="43.333333333333343" height="20.666666666666668"/>
                                     <fontDescription key="fontDescription" name="Inter-Light" family="Inter" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8q8-Ig-xXW">
-                                    <rect key="frame" x="208.33333333333334" y="0.0" width="41.666666666666657" height="20"/>
+                                    <rect key="frame" x="223.66666666666666" y="0.0" width="44.333333333333343" height="20.666666666666668"/>
                                     <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FOS-eZ-SaI">
-                                    <rect key="frame" x="249.99999999999997" y="0.0" width="41.666666666666657" height="20"/>
+                                    <rect key="frame" x="268" y="0.0" width="43.666666666666686" height="20.666666666666668"/>
                                     <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Cw-Oo-ptX">
-                                    <rect key="frame" x="291.66666666666669" y="0.0" width="41.666666666666686" height="20"/>
+                                    <rect key="frame" x="311.66666666666669" y="0.0" width="44.666666666666686" height="20.666666666666668"/>
                                     <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VeZ-1w-geP">
-                                    <rect key="frame" x="333.33333333333331" y="0.0" width="41.666666666666686" height="20"/>
+                                    <rect key="frame" x="356.33333333333331" y="0.0" width="42.666666666666686" height="20.666666666666668"/>
                                     <fontDescription key="fontDescription" name="Inter-Thin" family="Inter" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FDN-al-eIp">
-                                    <rect key="frame" x="375" y="0.0" width="41.666666666666686" height="20"/>
+                                    <rect key="frame" x="399" y="0.0" width="43.666666666666686" height="20.666666666666668"/>
                                     <fontDescription key="fontDescription" name="Inter-Italic" family="Inter" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
@@ -4576,8 +4576,8 @@ Mapping Report Details</string>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tez-ls-qMR" customClass="SignatureView" customModule="Geo_Map" customModuleProvider="target">
                                 <rect key="frame" x="5" y="96" width="365" height="620.66666666666663"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MTR-hq-JSI">
-                                        <rect key="frame" x="15" y="9.9999999999999982" width="335" height="20.333333333333329"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MTR-hq-JSI">
+                                        <rect key="frame" x="5" y="0.0" width="355" height="20.333333333333332"/>
                                         <color key="backgroundColor" name="theme_dark"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -4586,9 +4586,9 @@ Mapping Report Details</string>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="MTR-hq-JSI" secondAttribute="trailing" constant="15" id="Dyz-Zy-sxM"/>
-                                    <constraint firstItem="MTR-hq-JSI" firstAttribute="top" secondItem="Tez-ls-qMR" secondAttribute="top" constant="10" id="Sl1-2v-FvU"/>
-                                    <constraint firstItem="MTR-hq-JSI" firstAttribute="leading" secondItem="Tez-ls-qMR" secondAttribute="leading" constant="15" id="bf6-R0-qdb"/>
+                                    <constraint firstAttribute="trailing" secondItem="MTR-hq-JSI" secondAttribute="trailing" constant="5" id="Dyz-Zy-sxM"/>
+                                    <constraint firstItem="MTR-hq-JSI" firstAttribute="top" secondItem="Tez-ls-qMR" secondAttribute="top" id="Sl1-2v-FvU"/>
+                                    <constraint firstItem="MTR-hq-JSI" firstAttribute="leading" secondItem="Tez-ls-qMR" secondAttribute="leading" constant="5" id="bf6-R0-qdb"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jCs-Gl-5yh">
@@ -4632,6 +4632,7 @@ Mapping Report Details</string>
                     <connections>
                         <outlet property="btnClearDraw" destination="IcL-Qj-C1e" id="lvn-hG-251"/>
                         <outlet property="btnSubmit" destination="Jqm-iG-099" id="HQy-f2-0jg"/>
+                        <outlet property="lblImageTimeStamp" destination="MTR-hq-JSI" id="SST-Nu-Xyu"/>
                         <outlet property="vwDrawPad" destination="Tez-ls-qMR" id="wae-lN-erM"/>
                     </connections>
                 </viewController>
@@ -5865,7 +5866,20 @@ QXJlIHlvdSBzdXJlIHlvdSB3YW50IHRvIGRlbGV0ZQtTZWxmLWRldmVsb3BtZW50IHBsYXlsaXN0Pw
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5bI-Lv-Ls5" customClass="SignatureView" customModule="Geo_Map" customModuleProvider="target">
                                 <rect key="frame" x="5" y="131.33333333333331" width="365" height="585.33333333333348"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tgv-SY-c0s">
+                                        <rect key="frame" x="5" y="0.0" width="355" height="20.333333333333332"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="Tgv-SY-c0s" firstAttribute="leading" secondItem="5bI-Lv-Ls5" secondAttribute="leading" constant="5" id="I8N-kt-o0e"/>
+                                    <constraint firstItem="Tgv-SY-c0s" firstAttribute="top" secondItem="5bI-Lv-Ls5" secondAttribute="top" id="OSB-MG-9sk"/>
+                                    <constraint firstAttribute="trailing" secondItem="Tgv-SY-c0s" secondAttribute="trailing" constant="5" id="w3O-uG-K87"/>
+                                </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z5c-c0-s2u">
                                 <rect key="frame" x="314" y="626.66666666666663" width="40" height="40"/>
@@ -5945,6 +5959,7 @@ QXJlIHlvdSBzdXJlIHlvdSB3YW50IHRvIGRlbGV0ZQtTZWxmLWRldmVsb3BtZW50IHBsYXlsaXN0Pw
                         <outlet property="btnAdd" destination="NtT-y0-rIZ" id="xGP-t7-tUI"/>
                         <outlet property="btnClearDraw" destination="t2g-0S-cGZ" id="sE5-g8-LYc"/>
                         <outlet property="lblContent" destination="bMj-oH-Av3" id="F8N-XL-Lv2"/>
+                        <outlet property="lblImageTimeStamp" destination="Tgv-SY-c0s" id="UZt-O5-WF0"/>
                         <outlet property="stackView" destination="Xnl-6B-VHK" id="pJn-Dg-73K"/>
                         <outlet property="vwDrawPad" destination="5bI-Lv-Ls5" id="bgZ-AC-aVx"/>
                     </connections>
@@ -7167,7 +7182,21 @@ QXJlIHlvdSBzdXJlIHlvdSB3YW50IHRvIGRlbGV0ZQtTZWxmLWRldmVsb3BtZW50IHBsYXlsaXN0Pw
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Njg-iZ-iKI" customClass="SignatureView" customModule="Geo_Map" customModuleProvider="target">
                                 <rect key="frame" x="5" y="96" width="365" height="620.66666666666663"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ncD-vG-z0b">
+                                        <rect key="frame" x="5" y="0.0" width="355" height="20.333333333333332"/>
+                                        <color key="backgroundColor" name="theme_dark"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="ncD-vG-z0b" firstAttribute="top" secondItem="Njg-iZ-iKI" secondAttribute="top" id="nhk-m7-AnE"/>
+                                    <constraint firstItem="ncD-vG-z0b" firstAttribute="leading" secondItem="Njg-iZ-iKI" secondAttribute="leading" constant="5" id="qzI-iM-3EH"/>
+                                    <constraint firstAttribute="trailing" secondItem="ncD-vG-z0b" secondAttribute="trailing" constant="5" id="z33-Ee-nV4"/>
+                                </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="toF-V5-dB5">
                                 <rect key="frame" x="314" y="626.66666666666663" width="40" height="40"/>
@@ -7210,6 +7239,7 @@ QXJlIHlvdSBzdXJlIHlvdSB3YW50IHRvIGRlbGV0ZQtTZWxmLWRldmVsb3BtZW50IHBsYXlsaXN0Pw
                     <connections>
                         <outlet property="btnClearDraw" destination="h2F-9f-hWY" id="j4z-YE-58g"/>
                         <outlet property="btnSubmit" destination="FEi-t6-jWx" id="8Wh-1M-ml2"/>
+                        <outlet property="lblImageTimeStamp" destination="ncD-vG-z0b" id="t0V-qJ-dkm"/>
                         <outlet property="vwDrawPad" destination="Njg-iZ-iKI" id="7MQ-Sf-L2e"/>
                     </connections>
                 </viewController>
@@ -7871,7 +7901,21 @@ Mapping Report Details</string>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yfi-zk-g7h" customClass="SignatureView" customModule="Geo_Map" customModuleProvider="target">
                                 <rect key="frame" x="5" y="131.33333333333331" width="365" height="585.33333333333348"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hed-gp-wVd">
+                                        <rect key="frame" x="5" y="0.0" width="355" height="20.333333333333332"/>
+                                        <color key="backgroundColor" name="theme_dark"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="hed-gp-wVd" secondAttribute="trailing" constant="5" id="E9w-SE-qph"/>
+                                    <constraint firstItem="hed-gp-wVd" firstAttribute="leading" secondItem="Yfi-zk-g7h" secondAttribute="leading" constant="5" id="Eml-zh-Mop"/>
+                                    <constraint firstItem="hed-gp-wVd" firstAttribute="top" secondItem="Yfi-zk-g7h" secondAttribute="top" id="bNS-lK-A4R"/>
+                                </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nX1-ZC-two">
                                 <rect key="frame" x="314" y="626.66666666666663" width="40" height="40"/>
@@ -7917,6 +7961,7 @@ Mapping Report Details</string>
                         <outlet property="btnAdd" destination="Gc2-7S-v4L" id="nHX-hw-Qbg"/>
                         <outlet property="btnClearDraw" destination="k5n-m8-4YS" id="KER-LD-z4J"/>
                         <outlet property="lblContent" destination="5ri-ya-vn2" id="tKw-cD-DxD"/>
+                        <outlet property="lblImageTimeStamp" destination="hed-gp-wVd" id="G3X-GC-AqN"/>
                         <outlet property="stackView" destination="RP3-8T-e34" id="gTg-n1-Vz1"/>
                         <outlet property="vwDrawPad" destination="Yfi-zk-g7h" id="gKb-GS-Rqp"/>
                     </connections>
@@ -8012,7 +8057,7 @@ Mapping Report Details</string>
             <size key="intrinsicContentSize" width="180.66666666666666" height="21.333333333333332"/>
         </designable>
         <designable name="OsK-VS-bCk">
-            <size key="intrinsicContentSize" width="437.66666666666669" height="19.666666666666668"/>
+            <size key="intrinsicContentSize" width="438" height="20"/>
         </designable>
         <designable name="RlZ-sl-Qio">
             <size key="intrinsicContentSize" width="108.33333333333333" height="21.333333333333332"/>

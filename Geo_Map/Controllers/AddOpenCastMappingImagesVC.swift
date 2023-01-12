@@ -17,6 +17,8 @@ class AddOpenCastMappingImagesVC: ClearNaviagtionBarVC {
     @IBOutlet weak var btnClearDraw : AppThemeBorderBlueButton!
     @IBOutlet weak var btnSubmit : AppThemeBlueButton!
     
+    @IBOutlet weak var lblImageTimeStamp : UILabel!
+    
     //----------------------------------------------------------------------------
     //MARK: - Class Variables
     //----------------------------------------------------------------------------
@@ -65,7 +67,10 @@ class AddOpenCastMappingImagesVC: ClearNaviagtionBarVC {
         self.buttonEnableDisable()
         self.btnSubmit.setTitle(kSubmit, for: .normal)
         self.btnClearDraw.setTitle(kClear, for: .normal)
+     
+        self.lblImageTimeStamp.applyLabelStyle(fontSize :  13,fontName : .InterSemibol,textColor : .white,bgColor : .colorSkyBlue)
         
+        self.lblImageTimeStamp.text = "\(self.openCastMappingDetails["ocDate"].stringValue)_OC_Image"
     }
     
     func buttonEnableDisable(){

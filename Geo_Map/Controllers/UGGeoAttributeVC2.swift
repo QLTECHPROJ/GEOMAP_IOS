@@ -37,6 +37,9 @@ class UGGeoAttributeVC2: ClearNaviagtionBarVC {
     var isFromEdit = false
     var arrayErrorLabels = [UILabel]()
     var arrAddedAttributes : [JSON] = []
+    
+    var paramTimeStamp : String = ""
+    
 //    let dateDatePicker = UIDatePicker()
     
     // MARK: - VIEW LIFE CYCLE
@@ -55,10 +58,13 @@ class UGGeoAttributeVC2: ClearNaviagtionBarVC {
 //        self.txtMapSerialNo.applyStyleFlotingTextfield(placeholderTitle : kMapSerialNo, fontsize : 14,fontname : .InterSemibol)
         self.txtName.applyStyleFlotingTextfield(placeholderTitle : kName, fontsize : 14,fontname : .InterSemibol)
         
-        let dateFormat = DateFormatter()
+        var dateFormat = DateFormatter()
         dateFormat.dateFormat = DateTimeFormaterEnum.ddMMMYYYYhhmma.rawValue
-       
+        
         self.lblDate.applyLabelStyle(text : dateFormat.string(from: Date()),fontSize : 12,fontName : .InterSemibol)
+        
+        dateFormat.dateFormat = DateTimeFormaterEnum.UTCFormat.rawValue
+        self.paramTimeStamp = dateFormat.string(from: Date())
         
         self.txtMappedBy.applyStyleFlotingTextfield(placeholderTitle : kMappedBy, fontsize : 14,fontname : .InterSemibol)
         self.txtScale.applyStyleFlotingTextfield(placeholderTitle : kScale, fontsize : 14,fontname : .InterSemibol)
@@ -126,7 +132,7 @@ class UGGeoAttributeVC2: ClearNaviagtionBarVC {
             "attributes" : self.arrAddedAttributes,
 //            "mapSerialNo" : JSON(self.txtMapSerialNo.text as Any).stringValue,
             "name" : JSON(self.txtName.text as Any).stringValue,
-            "ugDate" : GFunctions.shared.convertDateFormat(dt: JSON(self.lblDate.text as Any).stringValue, inputFormat: DateTimeFormaterEnum.ddMMMYYYYhhmma.rawValue, outputFormat: DateTimeFormaterEnum.UTCFormat.rawValue, status: .NOCONVERSION).str ,
+            "ugDate" : self.paramTimeStamp,
             "shift" : self.getShiftType(),
             "mappedBy" : JSON(self.txtMappedBy.text as Any).stringValue,
             "scale" : JSON(self.txtScale.text as Any).stringValue,

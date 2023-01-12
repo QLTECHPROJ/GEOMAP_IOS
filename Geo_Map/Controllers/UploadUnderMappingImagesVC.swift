@@ -28,6 +28,8 @@ class UploadUnderMappingImagesVC: ClearNaviagtionBarVC {
     
     @IBOutlet weak var stackView : UIStackView!
     
+    @IBOutlet weak var lblImageTimeStamp : UILabel!
+    
     //----------------------------------------------------------------------------
     //MARK: - Class Variables
     //----------------------------------------------------------------------------
@@ -75,13 +77,14 @@ class UploadUnderMappingImagesVC: ClearNaviagtionBarVC {
         self.title = kGeologicalMapping
         
         self.vwDrawPad.isDisplay = true
-        
+        self.lblImageTimeStamp.applyLabelStyle(fontSize :  13,fontName : .InterSemibol,textColor : .white,bgColor : .colorSkyBlue)
+    
         self.lblContent.applyLabelStyle(fontSize : 16,fontName : .InterBold)
         self.vwDrawPad.delegate = self
         
         self.btnAdd.setTitle(kNext, for: .normal)
         self.btnClearDraw.setTitle(kClear, for: .normal)
-        
+        self.setBGGraph()
         self.buttonEnableDisable()
     }
     
@@ -94,19 +97,22 @@ class UploadUnderMappingImagesVC: ClearNaviagtionBarVC {
         case DrawingType.roof.rawValue:
             
             self.lblContent.text = kROOF
+            
+            self.lblImageTimeStamp.text = "\(self.underGroundMappingDetail["ugDate"].stringValue)_UG_\(kROOF)_Image"
             self.btnAdd.setTitle(kNext, for: .normal)
             break
             
         case DrawingType.left.rawValue:
             
             self.lblContent.text = kLEFT
-            
+            self.lblImageTimeStamp.text = "\(self.underGroundMappingDetail["ugDate"].stringValue)_UG_\(kLEFT)_Image"
             self.btnAdd.setTitle(kNext, for: .normal)
             break
             
         case DrawingType.right.rawValue:
             
             self.lblContent.text = kRIGHT
+            self.lblImageTimeStamp.text = "\(self.underGroundMappingDetail["ugDate"].stringValue)_UG_\(kRIGHT)_Image"
             self.btnAdd.setTitle(kNext, for: .normal)
             
             break
@@ -114,12 +120,17 @@ class UploadUnderMappingImagesVC: ClearNaviagtionBarVC {
         default:
             self.btnAdd.setTitle(kSubmit, for: .normal)
             self.lblContent.text = kFACE
-            
+            self.lblImageTimeStamp.text = "\(self.underGroundMappingDetail["ugDate"].stringValue)_UG_\(kFACE)_Image"
             
             break
         }
         
     }
+    
+    private func setBGGraph(){
+        self.vwDrawPad.isDisplay = !self.vwDrawPad.isSigned
+    }
+   
     
     //----------------------------------------------------------------------------
     //MARK: - Action Methods
@@ -142,7 +153,7 @@ class UploadUnderMappingImagesVC: ClearNaviagtionBarVC {
             self.drawingType = DrawingType.right.rawValue
             self.vwDrawPad.setSignature(_image: (self.arrDrawing.filter{JSON($0["type"] as Any).stringValue == DrawingType.right.rawValue}.first!["draw_image"] as? UIImage)!)
         }
-        
+        self.setBGGraph()
         self.buttonEnableDisable(true)
     }
     
@@ -204,8 +215,10 @@ class UploadUnderMappingImagesVC: ClearNaviagtionBarVC {
                 break
             }
         }
+        
         self.vwDrawPad.clear()
         self.buttonEnableDisable()
+        self.setBGGraph()
     }
     
     @IBAction func btnClearDrawTapped(_ sender : UIButton){
@@ -220,6 +233,7 @@ class UploadUnderMappingImagesVC: ClearNaviagtionBarVC {
         
         self.vwDrawPad.clear()
         self.buttonEnableDisable()
+        self.setBGGraph()
     }
     
     @IBAction func onTappedChangeColor(_ sender: UIButton) {
@@ -312,13 +326,39 @@ extension UploadUnderMappingImagesVC{
     func callAPIOrSavedOffline()
     {
         showHud()
+        var rootImage = UIImage()
+        var leftImage = UIImage()
+        var rightImage = UIImage()
+        var faceImage = UIImage()
+        var faceImageObj = UploadDataModel()
+        var rightImageObj = UploadDataModel()
+        var leftImageObj = UploadDataModel()
+        var rootImageObj = UploadDataModel()
+        
+        for imageData2 in self.arrDrawing{
+    
+            if let img = imageData2["draw_image"] as? UIImage{
+                if JSON(imageData2["title"] as Any).stringValue == kROOF{
+                    rootImage = img
+                    rootImageObj = UploadDataModel(name: "image.jpeg", key: "roofImage", data: rootImage.jpegData(compressionQuality: 1), extention: "jpeg", mimeType: "image/jpeg")
+                }
+                else if JSON(imageData2["title"] as Any).stringValue == kRIGHT{
+                    rightImage = img
+                    rightImageObj = UploadDataModel(name: "image.jpeg", key: "rightImage", data: rightImage.jpegData(compressionQuality: 1), extention: "jpeg", mimeType: "image/jpeg")
+                }
+                else if JSON(imageData2["title"] as Any).stringValue == kLEFT{
+                    leftImage = img
+                    leftImageObj = UploadDataModel(name: "image.jpeg", key: "leftImage", data: leftImage.jpegData(compressionQuality: 1), extention: "jpeg", mimeType: "image/jpeg")
+                }
+                else if JSON(imageData2["title"] as Any).stringValue == kFACE{
+                    faceImage = img
+                    faceImageObj = UploadDataModel(name: "image.jpeg", key: "faceImage", data: faceImage.jpegData(compressionQuality: 1), extention: "jpeg", mimeType: "image/jpeg")
+                }
+            }
+        }
+       
+        
         MyAppPhotoAlbum.shared.saveImagesInGallary { success in
-            
-            var rootImage = UIImage()
-            var leftImage = UIImage()
-            var rightImage = UIImage()
-            var faceImage = UIImage()
-            
             MyAppPhotoAlbum.shared.checkAuthorizationWithHandler { success in
                 if success{
                     
@@ -329,32 +369,12 @@ extension UploadUnderMappingImagesVC{
                             debugPrint(imageData2)
                             MyAppPhotoAlbum.shared.save(image: img)
                         }
-                        if let img = imageData2["draw_image"] as? UIImage{
-                            if JSON(imageData2["title"] as Any).stringValue == kROOF{
-                                rootImage = img
-                            }
-                            else if JSON(imageData2["title"] as Any).stringValue == kRIGHT{
-                                rightImage = img
-                            }
-                            else if JSON(imageData2["title"] as Any).stringValue == kLEFT{
-                                leftImage = img
-                            }
-                            else if JSON(imageData2["title"] as Any).stringValue == kFACE{
-                                faceImage = img
-                            }
-                        }
-                        
                     }
                 }
             }
             
             
             if checkInternet(true){
-                
-                let faceImageObj = UploadDataModel(name: "image.jpeg", key: "faceImage", data: faceImage.jpegData(compressionQuality: 1), extention: "jpeg", mimeType: "image/jpeg")
-                let rightImageObj = UploadDataModel(name: "image.jpeg", key: "rightImage", data: rightImage.jpegData(compressionQuality: 1), extention: "jpeg", mimeType: "image/jpeg")
-                let leftImageObj = UploadDataModel(name: "image.jpeg", key: "leftImage", data: leftImage.jpegData(compressionQuality: 1), extention: "jpeg", mimeType: "image/jpeg")
-                let rootImageObj = UploadDataModel(name: "image.jpeg", key: "roofImage", data: rootImage.jpegData(compressionQuality: 1), extention: "jpeg", mimeType: "image/jpeg")
                 
                 let arrUploadDataModel : [UploadDataModel] = [faceImageObj,rightImageObj,leftImageObj,rootImageObj]
                 
