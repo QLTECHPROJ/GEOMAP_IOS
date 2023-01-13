@@ -590,7 +590,7 @@ extension EditOCGeoAttributeVC {
     private func setOCReportDetail(){
         guard self.ocReportDetail != .null else { return }
     
-        self.lblDate.text = GFunctions.shared.convertDateFormat(dt: self.ocReportDetail["ocDate"].stringValue, inputFormat: DateTimeFormaterEnum.UTCFormat.rawValue, outputFormat: DateTimeFormaterEnum.ddMMMYYYYhhmma.rawValue, status: .NOCONVERSION).str
+        self.lblDate.text = GFunctions.shared.convertDateFormat(dt: self.ocReportDetail["ocDate"].stringValue, inputFormat: DateTimeFormaterEnum.UTCFormat.rawValue, outputFormat: DateTimeFormaterEnum.yyyymmddhhmmssA.rawValue, status: .NOCONVERSION).str
         
         self.txtMineSiteName.text = self.ocReportDetail["minesSiteName"].stringValue
         

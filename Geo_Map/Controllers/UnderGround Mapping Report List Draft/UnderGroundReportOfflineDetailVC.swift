@@ -286,7 +286,7 @@ extension UnderGroundReportOfflineDetailVC {
                 self.arrReportDetails[i]["value"].stringValue = JSON(reportData.name as Any).stringValue.deshOrText
             }
             if self.arrReportDetails[i]["key"].stringValue == kDateColn{
-                self.arrReportDetails[i]["value"].stringValue = GFunctions.shared.convertDateFormat(dt: JSON(reportData.ugDate as Any).stringValue, inputFormat: DateTimeFormaterEnum.UTCFormat.rawValue, outputFormat: DateTimeFormaterEnum.ddMMMYYYYhhmma.rawValue, status: .NOCONVERSION).str
+                self.arrReportDetails[i]["value"].stringValue = GFunctions.shared.convertDateFormat(dt: JSON(reportData.ugDate as Any).stringValue, inputFormat: DateTimeFormaterEnum.UTCFormat.rawValue, outputFormat: DateTimeFormaterEnum.yyyymmddhhmmssA.rawValue, status: .NOCONVERSION).str
             }
             if self.arrReportDetails[i]["key"].stringValue == kShiftColn{
                 self.arrReportDetails[i]["value"].stringValue = JSON(reportData.shift as Any).stringValue.deshOrText

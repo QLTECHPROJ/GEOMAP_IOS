@@ -121,11 +121,13 @@ enum DateTimeFormaterEnum : String
     
     case yyyyMMddTHHMMSSZ = "yyyy-MM-dd'T'HH:mm:ss.000'Z'"
     
-    case yyyymmddhhmmA = "yyyy-MM-dd hh:mm a"
+    case yyyymmddhhmmssA = "yyyy-MM-dd hh:mm:ss a"
     
     case yyyymmddhhmmss = "yyyy-MM-dd hh:mm:ss"
     
     case ddMMMyyyy_hhmma = "dd MMM, yyyy - hh:mm a"
+    
+//    13 Jan, 2023 05:01:33 PM
     
     case postDisplayDateTimeFormat = "MM/dd/yy hh:mma" //10/20/20 2:48pm
     

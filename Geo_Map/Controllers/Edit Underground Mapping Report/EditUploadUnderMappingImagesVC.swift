@@ -133,26 +133,28 @@ class EditUploadUnderMappingImagesVC:ClearNaviagtionBarVC {
         self.isDrawStart = isDrawn
         self.btnAdd.isSelect = true//isDrawn
         
+        let dateTime = GFunctions.shared.convertDateFormat(dt: self.underGroundMappingDetail["ugDate"].stringValue, inputFormat: DateTimeFormaterEnum.UTCFormat.rawValue, outputFormat: DateTimeFormaterEnum.yyyymmddhhmmssA.rawValue, status: .NOCONVERSION).str
+        
         switch self.drawingType {
             
         case DrawingType.roof.rawValue:
             
             self.lblContent.text = kROOF
-            self.lblImageTimeStamp.text = "\(self.underGroundMappingDetail["ugDate"].stringValue)_UG_\(kROOF)_Image"
+            self.lblImageTimeStamp.text = "Roof Image \(dateTime)"
             self.btnAdd.setTitle(kNext, for: .normal)
             break
             
         case DrawingType.left.rawValue:
             
             self.lblContent.text = kLEFT
-            self.lblImageTimeStamp.text = "\(self.underGroundMappingDetail["ugDate"].stringValue)_UG_\(kLEFT)_Image"
+            self.lblImageTimeStamp.text = "Left Image \(dateTime)"
             self.btnAdd.setTitle(kNext, for: .normal)
             break
             
         case DrawingType.right.rawValue:
             
             self.lblContent.text = kRIGHT
-            self.lblImageTimeStamp.text = "\(self.underGroundMappingDetail["ugDate"].stringValue)_UG_\(kRIGHT)_Image"
+            self.lblImageTimeStamp.text = "Right Image \(dateTime)"
             self.btnAdd.setTitle(kNext, for: .normal)
             
             break
@@ -160,7 +162,7 @@ class EditUploadUnderMappingImagesVC:ClearNaviagtionBarVC {
         default:
             
             self.lblContent.text = kFACE
-            self.lblImageTimeStamp.text = "\(self.underGroundMappingDetail["ugDate"].stringValue)_UG_\(kFACE)_Image"
+            self.lblImageTimeStamp.text = "Face Image \(dateTime)"
             self.btnAdd.setTitle(kSave, for: .normal)
             
             break

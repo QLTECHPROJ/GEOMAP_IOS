@@ -290,7 +290,7 @@ extension OCReportDetailVC {
 //            }
             if self.arrReportDetails[i]["key"].stringValue == kDateColn{
         
-                self.arrReportDetails[i]["value"].stringValue = GFunctions.shared.convertDateFormat(dt: reportData["ocDate"].stringValue, inputFormat: DateTimeFormaterEnum.UTCFormat.rawValue, outputFormat: DateTimeFormaterEnum.ddMMMYYYYhhmma.rawValue, status: .NOCONVERSION).str
+                self.arrReportDetails[i]["value"].stringValue = GFunctions.shared.convertDateFormat(dt: reportData["ocDate"].stringValue, inputFormat: DateTimeFormaterEnum.UTCFormat.rawValue, outputFormat: DateTimeFormaterEnum.yyyymmddhhmmssA.rawValue, status: .NOCONVERSION).str
             }
             if self.arrReportDetails[i]["key"].stringValue == kMineSitenameColn{
                 self.arrReportDetails[i]["value"].stringValue = reportData["minesSiteName"].stringValue.deshOrText

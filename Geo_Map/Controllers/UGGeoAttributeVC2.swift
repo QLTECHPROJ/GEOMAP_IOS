@@ -59,8 +59,7 @@ class UGGeoAttributeVC2: ClearNaviagtionBarVC {
         self.txtName.applyStyleFlotingTextfield(placeholderTitle : kName, fontsize : 14,fontname : .InterSemibol)
         
         var dateFormat = DateFormatter()
-        dateFormat.dateFormat = DateTimeFormaterEnum.ddMMMYYYYhhmma.rawValue
-        
+        dateFormat.dateFormat = DateTimeFormaterEnum.yyyymmddhhmmssA.rawValue
         self.lblDate.applyLabelStyle(text : dateFormat.string(from: Date()),fontSize : 12,fontName : .InterSemibol)
         
         dateFormat.dateFormat = DateTimeFormaterEnum.UTCFormat.rawValue
