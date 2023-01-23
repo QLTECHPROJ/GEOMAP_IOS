@@ -13,6 +13,10 @@ class HomeVC: ClearNaviagtionBarVC {
     
     @IBOutlet weak var btnAddReport: UIButton!
     
+    @IBOutlet weak var vwEmpty: UIView!
+    
+    @IBOutlet weak var btnAddReportEmpty: AppThemeBlueButton!
+    
     
     
     // MARK: - VARIABLES
@@ -86,6 +90,11 @@ class HomeVC: ClearNaviagtionBarVC {
         self.tableView.emptyDataSetDelegate = self
         self.tableView.addSubview(self.refreshControl)
         self.apiCallReportList(true)
+        
+        self.btnAddReportEmpty.isSelect = true
+        
+//        self.btnAddReportEmpty.isHidden = !checkInternet()
+        self.vwEmpty.bounds = self.view.bounds
     }
     
     @objc func refreshData(){
@@ -107,16 +116,30 @@ class HomeVC: ClearNaviagtionBarVC {
                 self.tableView.reloadData()
             }
             else if let _ = message{
+                
                 self.emptyMessage = message!
                 self.tableView.reloadData()
             }
-            
+            if self.vwReportList.numberOfSectionsInTableview() < 1{
+                self.emptyMessage = kNoReportsFound
+            }
+            self.btnAddReportEmpty.isHidden = false // (checkInternet() && self.vwReportList.numberOfSectionsInTableview() < 1) ? false : true
         }
     }
 
     
     // MARK: - ACTION
+    
     @IBAction func addReportClicked(_ sender: UIButton) {
+        let aVC = AppStoryBoard.main.viewController(viewControllerClass: DescriptionPopupVC.self)
+        aVC.modalPresentationStyle = .overFullScreen
+        aVC.delegate = self
+        self.present(aVC, animated: false, completion :{
+            aVC.openPopUpVisiable()
+        })
+    }
+    
+    @IBAction func btnAddReportTapped(_ sender: UIButton) {
         let aVC = AppStoryBoard.main.viewController(viewControllerClass: DescriptionPopupVC.self)
         aVC.modalPresentationStyle = .overFullScreen
         aVC.delegate = self
@@ -141,16 +164,22 @@ extension HomeVC : DZNEmptyDataSetDelegate, DZNEmptyDataSetSource{
         return true
     }
     
+    
     func title(forEmptyDataSet scrollView: UIScrollView) -> NSAttributedString {
 
-        let text = checkInternet() ? self.emptyMessage : ""
+        let text = (checkInternet() && self.vwReportList.numberOfSectionsInTableview() < 1) ? self.emptyMessage : ""
         let attributes = [NSAttributedString.Key.font: UIFont.applyCustomFont(fontName: .InterMedium, fontSize: 13), NSAttributedString.Key.foregroundColor: UIColor.colorTextBlack]
         return NSAttributedString(string: text, attributes: attributes)
     }
     
     func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
         return !checkInternet() ? UIImage(named: "offline_page")! : UIImage()
+        //return UIImage(named: "offline_page")!
     }
+    
+//    func customView(forEmptyDataSet scrollView: UIScrollView!) -> UIView! {
+//        return self.vwEmpty
+//    }
 }
 
 //-------------------------------------------------------------------

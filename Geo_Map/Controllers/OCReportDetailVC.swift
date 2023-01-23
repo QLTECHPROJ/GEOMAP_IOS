@@ -36,10 +36,10 @@ class OCReportDetailVC : ClearNaviagtionBarVC {
     
     
     var arrReportDetails : [JSON] = [
-//        [
-//            "key" : kMapSerialNo,
-//            "value" : ""
-//        ],
+        [
+            "key" : kMappingSheetNoColn,
+            "value" : ""
+        ],
         [
             "key" : kDateColn,
             "value" : ""
@@ -64,10 +64,10 @@ class OCReportDetailVC : ClearNaviagtionBarVC {
             "key" : kGeologistNameColn,
             "value" : ""
         ],
-//        [
-//            "key" : kMappingParametersColn,
-//            "value" : ""
-//        ],
+        [
+            "key" : kShiftColn,
+            "value" : ""
+        ],
         [
             "key" : kFaceLocationColn,
             "value" : ""
@@ -142,6 +142,10 @@ class OCReportDetailVC : ClearNaviagtionBarVC {
         ],
         [
             "key" : kTypeOfFaultsColn,
+            "value" : ""
+        ],
+        [
+            "key" : kNoteColmn,
             "value" : ""
         ]
     ]
@@ -285,12 +289,12 @@ extension OCReportDetailVC {
         
         for (i, _) in self.arrReportDetails.enumerated(){
             
-//            if self.arrReportDetails[i]["key"].stringValue == kMapSerialNo{
-//                self.arrReportDetails[i]["value"].stringValue = reportData["mappingSheetNo"].stringValue
-//            }
+            if self.arrReportDetails[i]["key"].stringValue == kMappingSheetNoColn{
+                self.arrReportDetails[i]["value"].stringValue = reportData["mappingSheetNo"].stringValue
+            }
             if self.arrReportDetails[i]["key"].stringValue == kDateColn{
         
-                self.arrReportDetails[i]["value"].stringValue = GFunctions.shared.convertDateFormat(dt: reportData["ocDate"].stringValue, inputFormat: DateTimeFormaterEnum.UTCFormat.rawValue, outputFormat: DateTimeFormaterEnum.yyyymmddhhmmssA.rawValue, status: .NOCONVERSION).str
+                self.arrReportDetails[i]["value"].stringValue = GFunctions.shared.convertDateFormat(dt: reportData["ocDate"].stringValue, inputFormat: DateTimeFormaterEnum.UTCFormat.rawValue, outputFormat: DateTimeFormaterEnum.ddMMMYYYYhhmma.rawValue, status: .NOCONVERSION).str
             }
             if self.arrReportDetails[i]["key"].stringValue == kMineSitenameColn{
                 self.arrReportDetails[i]["value"].stringValue = reportData["minesSiteName"].stringValue.deshOrText
@@ -307,9 +311,9 @@ extension OCReportDetailVC {
             if self.arrReportDetails[i]["key"].stringValue == kGeologistNameColn{
                 self.arrReportDetails[i]["value"].stringValue = reportData["geologistName"].stringValue.deshOrText
             }
-//            if self.arrReportDetails[i]["key"].stringValue == kMappingParametersColn{
-//                self.arrReportDetails[i]["value"].stringValue = "-"
-//            }
+            if self.arrReportDetails[i]["key"].stringValue == kShiftColn{
+                self.arrReportDetails[i]["value"].stringValue = reportData["shift"].stringValue.deshOrText
+            }
             if self.arrReportDetails[i]["key"].stringValue == kFaceLocationColn{
                 self.arrReportDetails[i]["value"].stringValue = reportData["faceLocation"].stringValue.deshOrText
             }
@@ -366,6 +370,9 @@ extension OCReportDetailVC {
             }
             if self.arrReportDetails[i]["key"].stringValue == kTypeOfFaultsColn{
                 self.arrReportDetails[i]["value"].stringValue = reportData["typeOfFaults"].stringValue.deshOrText
+            }
+            if self.arrReportDetails[i]["key"].stringValue == kNoteColmn{
+                self.arrReportDetails[i]["value"].stringValue = reportData["note"].stringValue.deshOrText
             }
         }
         self.tableView.reloadData()

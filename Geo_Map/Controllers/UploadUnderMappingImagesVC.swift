@@ -29,6 +29,7 @@ class UploadUnderMappingImagesVC: ClearNaviagtionBarVC {
     @IBOutlet weak var stackView : UIStackView!
     
     @IBOutlet weak var lblImageTimeStamp : UILabel!
+    @IBOutlet weak var vwImageTimeStamp : UIView!
     
     //----------------------------------------------------------------------------
     //MARK: - Class Variables
@@ -77,7 +78,7 @@ class UploadUnderMappingImagesVC: ClearNaviagtionBarVC {
         self.title = kGeologicalMapping
         
         self.vwDrawPad.isDisplay = true
-        self.lblImageTimeStamp.applyLabelStyle(fontSize :  13,fontName : .InterSemibol,textColor : .white,bgColor : .colorSkyBlue)
+        self.lblImageTimeStamp.applyLabelStyle(fontSize :  13,fontName : .InterSemibol,textColor : .white)
     
         self.lblContent.applyLabelStyle(fontSize : 16,fontName : .InterBold)
         self.vwDrawPad.delegate = self
@@ -92,7 +93,7 @@ class UploadUnderMappingImagesVC: ClearNaviagtionBarVC {
         self.isDrawStart = isDrawn
         self.btnAdd.isSelect = true//isDrawn
         
-        let dateTime = GFunctions.shared.convertDateFormat(dt: self.underGroundMappingDetail["ugDate"].stringValue, inputFormat: DateTimeFormaterEnum.UTCFormat.rawValue, outputFormat: DateTimeFormaterEnum.yyyymmddhhmmssA.rawValue, status: .NOCONVERSION).str
+        let dateTime = GFunctions.shared.convertDateFormat(dt: self.underGroundMappingDetail["ugDate"].stringValue, inputFormat: DateTimeFormaterEnum.UTCFormat.rawValue, outputFormat: DateTimeFormaterEnum.ddMMMYYYYhhmma.rawValue, status: .NOCONVERSION).str
         
 //        Face Image 13 Jan, 2023 05:01:33 PM
         
@@ -272,7 +273,9 @@ class UploadUnderMappingImagesVC: ClearNaviagtionBarVC {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        MyAppPhotoAlbum.shared.saveImagesInGallary { success in
+            if success{}
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -362,7 +365,7 @@ extension UploadUnderMappingImagesVC{
         }
        
         
-        MyAppPhotoAlbum.shared.saveImagesInGallary { success in
+//        MyAppPhotoAlbum.shared.saveImagesInGallary { success in
             MyAppPhotoAlbum.shared.checkAuthorizationWithHandler { success in
                 if success{
                     
@@ -461,7 +464,7 @@ extension UploadUnderMappingImagesVC{
                     hideHud()
                 }
             }
-        }
+//        }
     }
 }
 

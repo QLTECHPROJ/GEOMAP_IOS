@@ -18,6 +18,7 @@ class AddOpenCastMappingImagesVC: ClearNaviagtionBarVC {
     @IBOutlet weak var btnSubmit : AppThemeBlueButton!
     
     @IBOutlet weak var lblImageTimeStamp : UILabel!
+    @IBOutlet weak var vwImageTimeStamp : UIView!
     
     //----------------------------------------------------------------------------
     //MARK: - Class Variables
@@ -70,7 +71,8 @@ class AddOpenCastMappingImagesVC: ClearNaviagtionBarVC {
      
         self.lblImageTimeStamp.applyLabelStyle(fontSize :  13,fontName : .InterSemibol,textColor : .white,bgColor : .colorSkyBlue)
         
-        self.lblImageTimeStamp.text = "\(self.openCastMappingDetails["ocDate"].stringValue)_OC_Image"
+        let dateTime = GFunctions.shared.convertDateFormat(dt: self.openCastMappingDetails["ocDate"].stringValue, inputFormat: DateTimeFormaterEnum.UTCFormat.rawValue, outputFormat: DateTimeFormaterEnum.ddMMMYYYYhhmma.rawValue, status: .NOCONVERSION).str
+        self.lblImageTimeStamp.text = "\(dateTime)_OC_Image"
     }
     
     func buttonEnableDisable(){
@@ -133,7 +135,9 @@ class AddOpenCastMappingImagesVC: ClearNaviagtionBarVC {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        MyAppPhotoAlbum.shared.saveImagesInGallary { success in
+            if success{}
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -186,7 +190,7 @@ extension AddOpenCastMappingImagesVC{
     
     func callAPIOrSavedOffline(){
         showHud()
-        MyAppPhotoAlbum.shared.saveImagesInGallary { success in
+//        MyAppPhotoAlbum.shared.saveImagesInGallary { success in
             
             var geoSigned = UIImage()
             var clientGeoSigned = UIImage()
@@ -339,7 +343,7 @@ extension AddOpenCastMappingImagesVC{
                         hideHud()
                     }
             }
-        }
+//        }
     }
 }
 

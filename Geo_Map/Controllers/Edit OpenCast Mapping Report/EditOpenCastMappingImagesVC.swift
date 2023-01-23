@@ -28,6 +28,7 @@ class EditOpenCastMappingImagesVC: ClearNaviagtionBarVC {
     @IBOutlet weak var btnSubmit : AppThemeBlueButton!
     
     @IBOutlet weak var lblImageTimeStamp : UILabel!
+    @IBOutlet weak var vwImageTimeStamp : UIView!
     
     //----------------------------------------------------------------------------
     //MARK: - Class Variables
@@ -77,11 +78,11 @@ class EditOpenCastMappingImagesVC: ClearNaviagtionBarVC {
         self.title = kGeologicalMapping
         
         self.vwDrawPad.delegate = self
-        
-        self.vwDrawPad.isDisplay = true
-        self.lblImageTimeStamp.applyLabelStyle(fontSize :  13,fontName : .InterSemibol,textColor : .white,bgColor : .colorSkyBlue)
+    
+        self.lblImageTimeStamp.applyLabelStyle(fontSize :  13,fontName : .InterSemibol,textColor : .white)
         
         self.setDataForReport()
+        self.setBGGraph()
         self.buttonEnableDisable()
         self.btnSubmit.setTitle(kSave, for: .normal)
         self.btnClearDraw.setTitle(kClear, for: .normal)
@@ -91,14 +92,17 @@ class EditOpenCastMappingImagesVC: ClearNaviagtionBarVC {
     private func setDataForReport(){
         
         guard let drawImage = self.drawImage else {return}
+        
         self.vwDrawPad.setSignature(_image: drawImage)
-        self.setBGGraph()
+        
     }
     
     func setBGGraph(){
         self.vwDrawPad.isDisplay = !self.vwDrawPad.isSigned
-        self.lblImageTimeStamp.text = "\(self.openCastMappingDetails["ocDate"].stringValue)_OC_Image"
-        self.lblImageTimeStamp.isHidden = self.vwDrawPad.isSigned
+        
+        let dateTime = GFunctions.shared.convertDateFormat(dt: self.openCastMappingDetails["ocDate"].stringValue, inputFormat: DateTimeFormaterEnum.UTCFormat.rawValue, outputFormat: DateTimeFormaterEnum.ddMMMYYYYhhmma.rawValue, status: .NOCONVERSION).str
+        self.lblImageTimeStamp.text = "\(dateTime)_OC_Image"
+        self.vwImageTimeStamp.isHidden = self.vwDrawPad.isSigned
     }
     
     func buttonEnableDisable(){
@@ -161,7 +165,9 @@ class EditOpenCastMappingImagesVC: ClearNaviagtionBarVC {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        MyAppPhotoAlbum.shared.saveImagesInGallary { success in
+            if success{}
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -214,7 +220,7 @@ extension EditOpenCastMappingImagesVC{
     
     func callAPIOrSavedOffline(){
         hideHud()
-        MyAppPhotoAlbum.shared.saveImagesInGallary { success in
+//        MyAppPhotoAlbum.shared.saveImagesInGallary { success in
             
             var geoSigned = UIImage()
             var clientGeoSigned = UIImage()
@@ -367,7 +373,7 @@ extension EditOpenCastMappingImagesVC{
                     if completion{
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0){
                             //                        AppDelegate.shared.updateWindow(.home)
-                            //                        GFunctions.shared.showSnackBar(message: kOpenCastMappingReportSavedSuccessfully)
+                                                    GFunctions.shared.showSnackBar(message: kOpenCastMappingReportUpdatedSuccessfully)
                             
                             self.vmOCMappingReportDraft.getOpenCastMappingReportData{ completion in
                                 if completion{
@@ -386,7 +392,7 @@ extension EditOpenCastMappingImagesVC{
                     hideHud()
                 }
             }
-        }
+//        }
     }
 }
 

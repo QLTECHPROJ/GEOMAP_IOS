@@ -174,9 +174,12 @@ public protocol SignaturePadDelegate: class {
             UIColor.white.setFill()
             rectPath.fill()
         }
-        
+        /*
         UIGraphicsBeginImageContext(self.bounds.size)
         _image.draw(in: CGRect(x: 0, y: 0, width: self.bounds.size.width, height: self.bounds.size.height))
+        */
+        UIGraphicsBeginImageContext(_image.size)
+        _image.draw(in: CGRect(x: 0, y: 0, width: _image.size.width, height: _image.size.height))
         incrementalImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         self.setNeedsDisplay()

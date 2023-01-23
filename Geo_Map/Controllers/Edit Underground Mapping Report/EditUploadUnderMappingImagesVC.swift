@@ -25,6 +25,7 @@ class EditUploadUnderMappingImagesVC:ClearNaviagtionBarVC {
     @IBOutlet weak var stackView : UIStackView!
     
     @IBOutlet weak var lblImageTimeStamp : UILabel!
+    @IBOutlet weak var vwImageTimeStamp : UIView!
     
     //----------------------------------------------------------------------------
     //MARK: - Class Variables
@@ -84,15 +85,15 @@ class EditUploadUnderMappingImagesVC:ClearNaviagtionBarVC {
             }
             else if JSON(self.arrDrawing[i]["type"] as Any).stringValue == DrawingType.face.rawValue, let _ = self.faceImage{
                 self.arrDrawing[i]["draw_image"] = self.faceImage!
-                
+                self.arrDrawing[i]["isDraw"] = true
             }
             else if JSON(self.arrDrawing[i]["type"] as Any).stringValue == DrawingType.left.rawValue, let _ = self.leftImage{
                 self.arrDrawing[i]["draw_image"] = self.leftImage!
-                
+                self.arrDrawing[i]["isDraw"] = true
             }
             else if JSON(self.arrDrawing[i]["type"] as Any).stringValue == DrawingType.right.rawValue, let _ = self.rightImage{
                 self.arrDrawing[i]["draw_image"] = self.rightImage!
-                
+                self.arrDrawing[i]["isDraw"] = true
             }
         }
         self.drawingType = DrawingType.roof.rawValue
@@ -110,7 +111,7 @@ class EditUploadUnderMappingImagesVC:ClearNaviagtionBarVC {
         self.lblImageTimeStamp.applyLabelStyle(fontSize :  13,fontName : .InterSemibol,textColor : .white,bgColor : .colorSkyBlue)
         self.vwDrawPad.delegate = self
         
-        self.vwDrawPad.isDisplay = true
+        self.vwDrawPad.isDisplay = false
         
         self.btnAdd.setTitle(kNext, for: .normal)
         self.btnClearDraw.setTitle(kClear, for: .normal)
@@ -125,6 +126,9 @@ class EditUploadUnderMappingImagesVC:ClearNaviagtionBarVC {
             if JSON(self.arrDrawing[i]["type"] as Any).stringValue == self.drawingType{
 
                 self.vwDrawPad.isDisplay = !JSON(self.arrDrawing[i]["isDraw"] as Any).boolValue
+                
+                self.vwImageTimeStamp.isHidden = JSON(self.arrDrawing[i]["isDraw"] as Any).boolValue
+                
             }
         }
     }
@@ -133,7 +137,7 @@ class EditUploadUnderMappingImagesVC:ClearNaviagtionBarVC {
         self.isDrawStart = isDrawn
         self.btnAdd.isSelect = true//isDrawn
         
-        let dateTime = GFunctions.shared.convertDateFormat(dt: self.underGroundMappingDetail["ugDate"].stringValue, inputFormat: DateTimeFormaterEnum.UTCFormat.rawValue, outputFormat: DateTimeFormaterEnum.yyyymmddhhmmssA.rawValue, status: .NOCONVERSION).str
+        let dateTime = GFunctions.shared.convertDateFormat(dt: self.underGroundMappingDetail["ugDate"].stringValue, inputFormat: DateTimeFormaterEnum.UTCFormat.rawValue, outputFormat: DateTimeFormaterEnum.ddMMMYYYYhhmma.rawValue, status: .NOCONVERSION).str
         
         switch self.drawingType {
             
@@ -167,6 +171,7 @@ class EditUploadUnderMappingImagesVC:ClearNaviagtionBarVC {
             
             break
         }
+        
         
         
     }
@@ -299,7 +304,7 @@ class EditUploadUnderMappingImagesVC:ClearNaviagtionBarVC {
     @IBAction func btnClearDrawTapped(_ sender : UIButton){
         self.view.endEditing(true)
         self.vwDrawPad.clear()
-        self.isEdited = false
+        self.isEdited = true
         for (i,_) in self.arrDrawing.enumerated(){
             if JSON(self.arrDrawing[i]["type"] as Any).stringValue == self.drawingType{
                 self.arrDrawing[i]["draw_image"] = self.vwDrawPad.getSignature()
@@ -328,7 +333,9 @@ class EditUploadUnderMappingImagesVC:ClearNaviagtionBarVC {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        MyAppPhotoAlbum.shared.saveImagesInGallary { success in
+            if success{}
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -418,7 +425,7 @@ extension EditUploadUnderMappingImagesVC{
             }
         }
        
-        MyAppPhotoAlbum.shared.saveImagesInGallary { success in
+//        MyAppPhotoAlbum.shared.saveImagesInGallary { success in
             
             MyAppPhotoAlbum.shared.checkAuthorizationWithHandler { success in
                 if success{
@@ -514,7 +521,7 @@ extension EditUploadUnderMappingImagesVC{
                         
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5){
                             //                        AppDelegate.shared.updateWindow(.home)
-                            //                        GFunctions.shared.showSnackBar(message: kUnderGroundMappingReportSavedSuccessfully)
+                            GFunctions.shared.showSnackBar(message: kUnderGroundMappingReportUpdatedSuccessfully)
                             
                             self.vmUGMappingReportDraft.getUnderGroundMappingReportList { completion in
                                 if completion{
@@ -535,7 +542,7 @@ extension EditUploadUnderMappingImagesVC{
                     hideHud()
                 }
             }
-        }
+//        }
     }
 }
 

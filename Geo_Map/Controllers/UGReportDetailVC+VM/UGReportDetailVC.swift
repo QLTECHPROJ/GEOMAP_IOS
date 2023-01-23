@@ -50,10 +50,10 @@ class UGReportDetailVC: ClearNaviagtionBarVC {
     var reportId : String = ""
     
     var arrReportDetails : [JSON] = [
-//        [
-        //            "key" : kMapSerialNo,
-        //            "value" : ""
-        //        ],
+        [
+            "key" : kMapSerialNo,
+            "value" : ""
+        ],
         [
             "key" : kNameColn,
             "value" : ""
@@ -92,6 +92,10 @@ class UGReportDetailVC: ClearNaviagtionBarVC {
         ],
         [
             "key" : kZCoordinateColn,
+            "value" : ""
+        ],
+        [
+            "key" : kCommentColn,
             "value" : ""
         ]
     ]
@@ -277,11 +281,11 @@ extension UGReportDetailVC {
         self.btnViewPDF.isSelect = true
         print(reportData)
     
-        let ugDate =  GFunctions.shared.convertDateFormat(dt: reportData["ugDate"].stringValue, inputFormat: DateTimeFormaterEnum.UTCFormat.rawValue, outputFormat: DateTimeFormaterEnum.yyyymmddhhmmssA.rawValue, status: .NOCONVERSION).str
+        let ugDate =  GFunctions.shared.convertDateFormat(dt: reportData["ugDate"].stringValue, inputFormat: DateTimeFormaterEnum.UTCFormat.rawValue, outputFormat: DateTimeFormaterEnum.ddMMMYYYYhhmma.rawValue, status: .NOCONVERSION).str
         for (i, _) in self.arrReportDetails.enumerated(){
-//            if self.arrReportDetails[i]["key"].stringValue == kMapSerialNo{
-//                self.arrReportDetails[i]["value"].stringValue = reportData["mapSerialNo"].stringValue
-//            }
+            if self.arrReportDetails[i]["key"].stringValue == kMapSerialNo{
+                self.arrReportDetails[i]["value"].stringValue = reportData["mapSerialNo"].stringValue
+            }
             if self.arrReportDetails[i]["key"].stringValue == kNameColn{
                 self.arrReportDetails[i]["value"].stringValue = reportData["name"].stringValue.deshOrText
             }
@@ -311,6 +315,9 @@ extension UGReportDetailVC {
             }
             if self.arrReportDetails[i]["key"].stringValue == kZCoordinateColn{
                 self.arrReportDetails[i]["value"].stringValue = reportData["zCordinate"].stringValue.deshOrText
+            }
+            if self.arrReportDetails[i]["key"].stringValue == kCommentColn{
+                self.arrReportDetails[i]["value"].stringValue = reportData["comment"].stringValue.deshOrText
             }
         }
         self.arrAttribute = reportData["attribute"].arrayValue

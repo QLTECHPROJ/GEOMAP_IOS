@@ -31,10 +31,10 @@ class OpenCastReportOfflineDetailVC: ClearNaviagtionBarVC {
     var reportData = OpenCastMappingReportDataTable()
     var ocOfflineReportDetail : JSON = .null
     private var arrReportDetails : [JSON] = [
-        [
-            "key" : kMapSerialNo,
-            "value" : ""
-        ],
+//        [
+//            "key" : kMapSerialNo,
+//            "value" : ""
+//        ],
         [
             "key" : kDateColn,
             "value" : ""
@@ -60,9 +60,14 @@ class OpenCastReportOfflineDetailVC: ClearNaviagtionBarVC {
             "value" : ""
         ],
         [
+            "key" : kShiftColn,
+            "value" : ""
+        ],
+        [
             "key" : kFaceLocationColn,
             "value" : ""
         ],
+        
         [
             "key" : kFaceLenghtMColn,
             "value" : ""
@@ -133,6 +138,10 @@ class OpenCastReportOfflineDetailVC: ClearNaviagtionBarVC {
         ],
         [
             "key" : kTypeOfFaultsColn,
+            "value" : ""
+        ],
+        [
+            "key" : kNoteColmn,
             "value" : ""
         ]
     ]
@@ -290,11 +299,11 @@ extension OpenCastReportOfflineDetailVC {
         
         for (i, _) in self.arrReportDetails.enumerated(){
             
-            if self.arrReportDetails[i]["key"].stringValue == kMapSerialNo{
-                self.arrReportDetails[i]["value"].stringValue = JSON(reportData.mappingSheetNo as Any).stringValue.deshOrText
-            }
+//            if self.arrReportDetails[i]["key"].stringValue == kMapSerialNo{
+//                self.arrReportDetails[i]["value"].stringValue = "-"//JSON(reportData.mappingSheetNo as Any).stringValue.deshOrText
+//            }
             if self.arrReportDetails[i]["key"].stringValue == kDateColn{
-                self.arrReportDetails[i]["value"].stringValue = GFunctions.shared.convertDateFormat(dt: JSON(reportData.ocDate as Any).stringValue, inputFormat: DateTimeFormaterEnum.UTCFormat.rawValue, outputFormat: DateTimeFormaterEnum.yyyymmddhhmmssA.rawValue, status: .NOCONVERSION).str
+                self.arrReportDetails[i]["value"].stringValue = GFunctions.shared.convertDateFormat(dt: JSON(reportData.ocDate as Any).stringValue, inputFormat: DateTimeFormaterEnum.UTCFormat.rawValue, outputFormat: DateTimeFormaterEnum.ddMMMYYYYhhmma.rawValue, status: .NOCONVERSION).str
             }
             if self.arrReportDetails[i]["key"].stringValue == kMineSitenameColn{
                 self.arrReportDetails[i]["value"].stringValue = JSON(reportData.minesSiteName as Any).stringValue.deshOrText
@@ -310,6 +319,9 @@ extension OpenCastReportOfflineDetailVC {
             }
             if self.arrReportDetails[i]["key"].stringValue == kGeologistNameColn{
                 self.arrReportDetails[i]["value"].stringValue = JSON(reportData.geologistName as Any).stringValue.deshOrText
+            }
+            if self.arrReportDetails[i]["key"].stringValue == kShiftColn{
+                self.arrReportDetails[i]["value"].stringValue = JSON(reportData.shift as Any).stringValue.deshOrText
             }
             if self.arrReportDetails[i]["key"].stringValue == kFaceLocationColn{
                 self.arrReportDetails[i]["value"].stringValue = JSON(reportData.faceLocation as Any).stringValue.deshOrText
@@ -367,6 +379,9 @@ extension OpenCastReportOfflineDetailVC {
             }
             if self.arrReportDetails[i]["key"].stringValue == kTypeOfFaultsColn{
                 self.arrReportDetails[i]["value"].stringValue = JSON(reportData.typeOfFaults as Any).stringValue.deshOrText
+            }
+            if self.arrReportDetails[i]["key"].stringValue == kNoteColmn{
+                self.arrReportDetails[i]["value"].stringValue = JSON(reportData.notes as Any).stringValue.deshOrText
             }
         }
         self.tblView.reloadData()

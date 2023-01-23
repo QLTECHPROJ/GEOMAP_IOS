@@ -45,13 +45,15 @@ class UnderGroundMappingReportDraftTableviewCell: UITableViewCell {
         self.lblCity.text = JSON(reportData.location as Any).stringValue.deshOrText
         
         let attributedText1: NSMutableAttributedString = NSMutableAttributedString(string: "\(kMappedByColn) \(JSON(reportData.mappedBy as Any).stringValue.deshOrText)")
+//        let attributedText1: NSMutableAttributedString = NSMutableAttributedString(string: "\(kMappedByColn) -")
         attributedText1.setAttributes(color: UIColor.colorTextPlaceHolderGray, forText: kMappedByColn, font: 12, fontname: .InterMedium)
+//        attributedText1.setAttributes(color: UIColor.colorTextBlack, forText: "-", font: 12, fontname: .InterMedium)
         attributedText1.setAttributes(color: UIColor.colorTextBlack, forText: JSON(reportData.mappedBy as Any).stringValue.deshOrText, font: 12, fontname: .InterMedium)
         self.lblSubtitle.attributedText = attributedText1
         
-        let attributedText2: NSMutableAttributedString = NSMutableAttributedString(string: "\(kMapSerialNoColmn) \(JSON(reportData.mapSerialNo as Any).stringValue.deshOrText)")
+        let attributedText2: NSMutableAttributedString = NSMutableAttributedString(string: "\(kMapSerialNoColmn) -")
         attributedText2.setAttributes(color: UIColor.colorTextPlaceHolderGray, forText: kMapSerialNoColmn, font: 12, fontname: .InterMedium)
-        attributedText2.setAttributes(color: UIColor.colorTextBlack, forText: JSON(reportData.mapSerialNo as Any).stringValue.deshOrText, font: 12, fontname: .InterMedium)
+        attributedText2.setAttributes(color: UIColor.colorTextBlack, forText: "-", font: 12, fontname: .InterMedium)
         self.lblDescription.attributedText = attributedText2
         
     }
@@ -76,9 +78,11 @@ class UnderGroundMappingReportDraftTableviewCell: UITableViewCell {
         attributedText1.setAttributes(color: UIColor.colorTextBlack, forText: JSON(reportData.minesSiteName as Any).stringValue.deshOrText, font: 12, fontname: .InterMedium)
         self.lblSubtitle.attributedText = attributedText1
         
-        let attributedText2: NSMutableAttributedString = NSMutableAttributedString(string: "\(kMappingSheetNoColn) \(JSON(reportData.mappingSheetNo as Any).stringValue.deshOrText)")
+        let attributedText2: NSMutableAttributedString = NSMutableAttributedString(string: "\(kMappingSheetNoColn) -")
+//        let attributedText2: NSMutableAttributedString = NSMutableAttributedString(string: "\(kMappingSheetNoColn) \(JSON(reportData.mappingSheetNo as Any).stringValue.deshOrText)")
         attributedText2.setAttributes(color: UIColor.colorTextPlaceHolderGray, forText: kMappingSheetNoColn, font: 12, fontname: .InterMedium)
-        attributedText2.setAttributes(color: UIColor.colorTextBlack, forText: JSON(reportData.mappingSheetNo as Any).stringValue.deshOrText, font: 12, fontname: .InterMedium)
+//        attributedText2.setAttributes(color: UIColor.colorTextBlack, forText: JSON(reportData.mappingSheetNo as Any).stringValue.deshOrText, font: 12, fontname: .InterMedium)
+        attributedText2.setAttributes(color: UIColor.colorTextBlack, forText: "-", font: 12, fontname: .InterMedium)
         self.lblDescription.attributedText = attributedText2
         
     }

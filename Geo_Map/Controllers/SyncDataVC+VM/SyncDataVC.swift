@@ -76,9 +76,10 @@ class SyncDataVC: ClearNaviagtionBarVC {
             self.navigationController?.popViewController(animated: true)
             return
         }
+        showHud()
         
         let dispatchGroup = DispatchGroup()
-        showHud()
+        
         for uGReportData in arrUnderGroundReportList{
             dispatchGroup.enter()
             
@@ -119,15 +120,19 @@ class SyncDataVC: ClearNaviagtionBarVC {
         }
         
         dispatchGroup.notify(queue: .main) {
-            hideHud()
-            
-            GFunctions.shared.showSnackBar(message: kAllDataHasBeenSynchronised)
-            
+           
             NotificationCenter.default.post(name: NSNotification.Name.reloadUGOCReportList, object: nil)
-            
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5){
-                self.navigationController?.popViewController(animated: true)
+                hideHud()
+                GFunctions.shared.showSnackBar(message: kAllDataHasBeenSynchronised)
             }
+//            DispatchQueue.main.asyncAfter(deadline: .now() + 0){
+                
+                self.navigationController?.popViewController(animated: true)
+                
+//            }
+           
+           
         }
     }
     

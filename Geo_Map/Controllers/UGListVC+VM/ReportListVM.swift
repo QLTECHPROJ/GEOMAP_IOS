@@ -49,6 +49,7 @@ class ReportListVM {
                         "type" : ReportListType.openCastReport.rawValue,
                         "data" : arrData
                     ])
+                    
                 }
                 
                 completionBlock(receivdeData,statusCode,message,true)

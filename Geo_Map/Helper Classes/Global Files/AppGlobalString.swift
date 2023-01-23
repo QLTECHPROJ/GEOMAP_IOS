@@ -344,9 +344,13 @@ var kOpenCastMappingReportDraft = "OpenCast Mapping Report Draft"
 
 var kMappingSheetNo = "Mapping Sheet No."
 
-var kUnderGroundMappingReportSavedSuccessfully = "Underground Mapping Report saved successfully..!"
+var kUnderGroundMappingReportSavedSuccessfully = "Your Underground report  has been saved"
 
-var kOpenCastMappingReportSavedSuccessfully = "OpenCast Mapping Report saved successfully..!"
+var kUnderGroundMappingReportUpdatedSuccessfully = "Your Underground report  has been updated"
+
+var kOpenCastMappingReportSavedSuccessfully = "Your OpenCast report has been saved"
+
+var kOpenCastMappingReportUpdatedSuccessfully = "Your OpenCast report  has been updated"
 
 var kNoOfflineReportFound = "No draft reports found..!"
 
@@ -396,3 +400,8 @@ var kSave = "Save"
 var kImage = "Image"
 
 var kPleaseAddAttributeData = "Please add attribute data"
+
+var kNoReportsFound = "There are no reports at the moment"
+
+var kCommentColn = "Comment :"
+

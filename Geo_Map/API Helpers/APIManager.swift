@@ -118,7 +118,9 @@ class APIManager {
             case .success(let upload, _, _):
                 upload.responseObject { (response : DataResponse<M>) in
                     
-                    hideHud()
+                    if displayHud {
+                        hideHud()
+                    }
                     
                     if let error = response.result.error {
                         if checkErrorTypeNetworkLost(error: error) {
