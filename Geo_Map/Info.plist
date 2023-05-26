@@ -2,14 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>UIUserInterfaceStyle</key>
-	<string>Light</string>
-	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>$(PRODUCT_NAME) app requires access to save photo in photo library.</string>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>$(PRODUCT_NAME) app requires access to the photo library for uploading profile picture.</string>
-	<key>NSCameraUsageDescription</key>
-	<string>$(PRODUCT_NAME) app requires access to the camera for capturing profile picture.</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>

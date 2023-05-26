@@ -700,7 +700,7 @@ extension EditOCGeoAttributeVC {
                                     if let img = UIImage(data: data){
                                         // Create Image and Update Image View
                                         
-                                        self.vwGeologistSign.setSignature(_image: img)
+                                        self.vwClientGeologistSign.setSignature(_image: img)
                                         self.signatureButtonEnable()
                                     }
                                 }

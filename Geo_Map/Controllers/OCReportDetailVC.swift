@@ -372,7 +372,7 @@ extension OCReportDetailVC {
                 self.arrReportDetails[i]["value"].stringValue = reportData["typeOfFaults"].stringValue.deshOrText
             }
             if self.arrReportDetails[i]["key"].stringValue == kNoteColmn{
-                self.arrReportDetails[i]["value"].stringValue = reportData["note"].stringValue.deshOrText
+                self.arrReportDetails[i]["value"].stringValue = reportData["notes"].stringValue.deshOrText
             }
         }
         self.tableView.reloadData()
@@ -388,13 +388,11 @@ extension OCReportDetailVC {
         }
         if let imgDraw = self.fetchImage(reportData["image"].stringValue.url()){
             self.imgDrawImage.contentMode = .scaleToFill
-            self.imgDrawImage.image = imgDraw//.resizeImage(targetSize: CGSize(width: self.imgDrawImage.frame.width - 2000, height: self.imgDrawImage.frame.height-2000))
+            self.imgDrawImage.image = imgDraw
         }
     }
     
     func fetchImage(_ imgUrl: URL) -> UIImage?{
-        
-        
         do{
             let imageData: Data = try Data(contentsOf: imgUrl)
             

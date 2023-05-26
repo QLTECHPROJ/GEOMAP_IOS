@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 
-let API_BASE_URL = "https://admin.qlresources.com.au/geomap/api/v1/"
+let API_BASE_URL =  "https://geomap.qlresources.com.au/api/v1/" //"https://admin.qlresources.com.au/geomap/api/v1/"
 
 //MARK: - Screen (Width - Height)
 let kScreenWidth                                =  UIScreen.main.bounds.size.width
