@@ -47,6 +47,8 @@ class WebViewVC: ClearNaviagtionBarVC {
             // Fix url
         }
         self.webKitView.load(URLRequest(url: self.loadUrl.url()))
+        
+        
     }
     
 

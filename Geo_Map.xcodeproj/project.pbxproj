@@ -23,6 +23,7 @@
 		123C64AC2938B66E00CB5734 /* Duration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123C64A62938B66E00CB5734 /* Duration.swift */; };
 		123C64AD2938B66E00CB5734 /* Int+Timepiece.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123C64A72938B66E00CB5734 /* Int+Timepiece.swift */; };
 		123C64AF2938B6C800CB5734 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 123C64AE2938B6C800CB5734 /* GoogleService-Info.plist */; };
+		1253696C2A29B89A00383C08 /* PDFViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1253696B2A29B89A00383C08 /* PDFViewVC.swift */; };
 		125E3480294853A800C76978 /* EditOCGeoAttributeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125E347F294853A800C76978 /* EditOCGeoAttributeVC.swift */; };
 		125E34822948A0FC00C76978 /* EditOpenCastMappingImagesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125E34812948A0FC00C76978 /* EditOpenCastMappingImagesVC.swift */; };
 		125E34892948ABF400C76978 /* GeologistDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125E34882948ABF400C76978 /* GeologistDataModel.swift */; };
@@ -229,6 +230,7 @@
 		123C64A62938B66E00CB5734 /* Duration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Duration.swift; sourceTree = "<group>"; };
 		123C64A72938B66E00CB5734 /* Int+Timepiece.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Int+Timepiece.swift"; sourceTree = "<group>"; };
 		123C64AE2938B6C800CB5734 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		1253696B2A29B89A00383C08 /* PDFViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFViewVC.swift; sourceTree = "<group>"; };
 		125E347F294853A800C76978 /* EditOCGeoAttributeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditOCGeoAttributeVC.swift; sourceTree = "<group>"; };
 		125E34812948A0FC00C76978 /* EditOpenCastMappingImagesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditOpenCastMappingImagesVC.swift; sourceTree = "<group>"; };
 		125E34882948ABF400C76978 /* GeologistDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeologistDataModel.swift; sourceTree = "<group>"; };
@@ -740,6 +742,7 @@
 			isa = PBXGroup;
 			children = (
 				12D3085C293885DF0073AB90 /* OpenCastMappingListDraftVC.swift */,
+				1253696B2A29B89A00383C08 /* PDFViewVC.swift */,
 				12D3085E293885F60073AB90 /* OpenCastReportOfflineDetailVC.swift */,
 				12D308602938860B0073AB90 /* OpenCastMappingReportListDraftVM.swift */,
 			);
@@ -1139,6 +1142,7 @@
 				12D308F5293889F40073AB90 /* MediaType.swift in Sources */,
 				12D30858293885AD0073AB90 /* UnderGroundMappingReportListDraftVM.swift in Sources */,
 				12D308222938821A0073AB90 /* AttributeDataModel.swift in Sources */,
+				1253696C2A29B89A00383C08 /* PDFViewVC.swift in Sources */,
 				12D30893293888040073AB90 /* ListItemCell.swift in Sources */,
 				12D307F929387F3B0073AB90 /* TypeOfGeologicalStructuresDataTable+CoreDataClass.swift in Sources */,
 				12D308DC2938895C0073AB90 /* AppShadowViewClass.swift in Sources */,
@@ -1458,9 +1462,9 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Geo_Map/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "GEO MAP";
-				INFOPLIST_KEY_NSCameraUsageDescription = "$(PRODUCT_NAME) app requires access to the camera for capturing profile picture.";
-				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "$(PRODUCT_NAME) app requires access to save photo in photo library.";
-				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Geo_Map app requires access to the photo library for uploading profile picture.";
+				INFOPLIST_KEY_NSCameraUsageDescription = "$(PRODUCT_NAME) app requires access to the camera for uploading profile picture.";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "$(PRODUCT_NAME) app requires access to the photo library for uploading profile picture.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "$(PRODUCT_NAME) Please allow access to save photo in your photo library";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -1501,9 +1505,9 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Geo_Map/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "GEO MAP";
-				INFOPLIST_KEY_NSCameraUsageDescription = "$(PRODUCT_NAME) app requires access to the camera for capturing profile picture.";
-				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "$(PRODUCT_NAME) app requires access to save photo in photo library.";
-				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Geo_Map app requires access to the photo library for uploading profile picture.";
+				INFOPLIST_KEY_NSCameraUsageDescription = "$(PRODUCT_NAME) app requires access to the camera for uploading profile picture.";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "$(PRODUCT_NAME) app requires access to the photo library for uploading profile picture.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "$(PRODUCT_NAME) Please allow access to save photo in your photo library";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

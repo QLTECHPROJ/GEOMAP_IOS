@@ -5,6 +5,8 @@ import Foundation
 import ContactsUI
 import MessageUI
 import EVReflection
+import AVFoundation
+import AVKit
 
 class OCReportDetailVC : ClearNaviagtionBarVC {
     
@@ -240,9 +242,14 @@ class OCReportDetailVC : ClearNaviagtionBarVC {
         
         vwUnderGroundReportDetail.callAPIGetReportDetailViewInPDF(parameters: parameters.toDictionary()) { responseJson, statusCode, message, completion in
             if completion , let data = responseJson{
-               debugPrint(data)
+                debugPrint(data)
                 if let url = URL(string: data["ResponseData"]["pdfLink"].stringValue) {
-                    UIApplication.shared.open(url)
+
+                    UIApplication.shared.openURL(url)
+        
+//                    let vc = AppStoryBoard.main.viewController(viewControllerClass: WebViewVC.self)
+//                    vc.loadUrl = data["ResponseData"]["pdfLink"].stringValue
+//                    self.navigationController?.pushViewController(vc, animated: true)
                 }
             }
         }

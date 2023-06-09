@@ -99,6 +99,7 @@ class UGReportDetailVC: ClearNaviagtionBarVC {
             "value" : ""
         ]
     ]
+                                     
     private var arrAttribute : [JSON] = []
     var underGroundDetail : JSON = .null
     
@@ -320,8 +321,10 @@ extension UGReportDetailVC {
                 self.arrReportDetails[i]["value"].stringValue = reportData["comment"].stringValue.deshOrText
             }
         }
-        self.arrAttribute = reportData["attribute"].arrayValue
         self.tblView.reloadData()
+        
+        self.arrAttribute = reportData["attribute"].arrayValue
+        
         self.tblAttribute.reloadData()
         
         if let imgRoof = self.fetchImage(reportData["roofImage"].stringValue.url()){

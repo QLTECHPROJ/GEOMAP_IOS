@@ -4078,7 +4078,7 @@ been missed!</string>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dSt-f6-fHF">
-                                    <rect key="frame" x="5" y="0.0" width="181.66666666666666" height="39"/>
+                                    <rect key="frame" x="5" y="0.0" width="181.66666666666666" height="0.0"/>
                                     <string key="text">Undergrounds
 Mapping Report Details</string>
                                     <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="16"/>
@@ -8049,6 +8049,30 @@ Mapping Report Details</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Apa-Nn-sA8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3094" y="907"/>
+        </scene>
+        <!--ViewVC-->
+        <scene sceneID="GO9-Kc-tyc">
+            <objects>
+                <viewController storyboardIdentifier="PDFViewVC" hidesBottomBarWhenPushed="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="lHo-hq-xLr" customClass="PDFViewVC" customModule="Geo_Map" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="n46-dP-qvB">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="a09-Uq-o3n"/>
+                        <color key="backgroundColor" name="theme_light"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="fp1-fb-oxI">
+                        <nil key="title"/>
+                        <barButtonItem key="leftBarButtonItem" image="BackButton" id="oqB-nh-e6Y">
+                            <connections>
+                                <action selector="btnBackTapped:" destination="lHo-hq-xLr" id="6vq-aG-qoA"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6gN-cl-CJp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3780" y="3284"/>
         </scene>
     </scenes>
     <designables>
