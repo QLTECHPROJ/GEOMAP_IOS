@@ -16,9 +16,13 @@ var kName = "Name"
 
 var kPassword = "Password"
 
+var kConfirmPassword = "Confirm Password"
+
 var kForgotPassword = "Forgot password?"
 
 var kSignIn = "Sign In"
+
+var kSignUp = "Sign Up"
 
 var kEmail = "Email"
 
@@ -41,6 +45,8 @@ var kSyncData = "Sync Data"
 var kEnterValidName = "Name content length must be in either minimum 3 characters or maximum 16 characters"
 
 var kPleaseProvideValidEmailAddress = "Please provide us with a valid email ID"
+
+var kPasswordMismacth = "Password mismatch"
 
 var kPleaseProvideValidMobileNumber = "Mobile Number content length must be in minimum 4 digits"
 

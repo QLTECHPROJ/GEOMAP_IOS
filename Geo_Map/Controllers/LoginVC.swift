@@ -23,6 +23,7 @@ class LoginVC: ClearNaviagtionBarVC {
     
     @IBOutlet weak var btnForgotPassword: UIButton!
     @IBOutlet weak var btnGetSMSCode: AppThemeBlueButton!
+    @IBOutlet weak var btnSignUp: AppThemeBorderBlueButton!
     
     //UITextfield
     @IBOutlet weak var txtUser: ACFloatingTextfield!
@@ -66,6 +67,7 @@ class LoginVC: ClearNaviagtionBarVC {
         self.btnForgotPassword.applystyle(fontname : .InterMedium,fontsize : 13,titleText : kForgotPassword,titleColor : .colorTextPlaceHolderGray)
         
         self.btnGetSMSCode.setTitle(kSignIn, for: .normal)
+        self.btnSignUp.setTitle(kSignUp, for: .normal)
         
         self.txtUser.applyStyleFlotingTextfield(placeholderTitle : kName, fontsize : 14,fontname : .InterSemibol)
         self.txtPassword.applyStyleFlotingTextfield(placeholderTitle : kPassword, fontsize : 14, fontname : .InterSemibol)
@@ -113,6 +115,10 @@ class LoginVC: ClearNaviagtionBarVC {
     
     
     // MARK: - ACTIONS
+    @IBAction func btnSignUpTapped(_ sender: UIButton) {
+        let vc = AppStoryBoard.main.viewController(viewControllerClass: SignUpVC.self)
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
     
     @IBAction func btnForgotPassowrdTapped(_ sender: UIButton) {
         self.view.endEditing(true)

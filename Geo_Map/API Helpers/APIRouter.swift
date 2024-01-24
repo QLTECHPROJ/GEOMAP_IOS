@@ -84,6 +84,9 @@ enum APIRouter : URLRequestConvertible {
     
     case geologist_data
     
+    
+    case register([String:Any])
+    
     var route: APIRoute {
         
         switch self {
@@ -228,6 +231,10 @@ enum APIRouter : URLRequestConvertible {
         case .geologist_data :
             
             return APIRoute(path: "geologist_data", method: .get)
+            
+        case .register(let data) :
+            
+            return APIRoute(path: "register", method: .post, data: data)
             
         }
         

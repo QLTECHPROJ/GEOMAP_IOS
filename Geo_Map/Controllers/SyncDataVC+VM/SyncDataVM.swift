@@ -25,8 +25,26 @@ class SyncDataVM {
             }
         }
     }
-    
-    
+    /*
+userId: 1
+name: test
+shift: test shift
+mappedBy: test map
+scale: 2*3
+location: test lo
+venieLoad: test load,
+xCordinate: 85
+yCordinate: 88
+zCordinate: 88
+comment: test conten
+mapSerialNo: 123
+ugDate: 1-Nov-2022
+leftImage
+roofImage
+rightImage
+faceImage
+attribute: [ {"name": "test","nose": "test nose",  "properties": "dssdv"},{"name": "test","nose": "test nose",  "properties": "dssdv"},{"name": "test","nose": "test nose",  "properties": "dssdv"}]
+    */
     func callAPIUploadUnderGroungMappingReport(isLoader : Bool = true,parameters : [String:Any], uploadParameters : [UploadDataModel], completion: @escaping (Bool,String?) -> Void) {
        
         debugPrint(parameters)

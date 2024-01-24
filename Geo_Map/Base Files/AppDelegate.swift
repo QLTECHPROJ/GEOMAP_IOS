@@ -222,7 +222,6 @@ extension AppDelegate{
     func basicSetUp() {
        // self.setRootController()        //Set Root View Cotroller
         
-//        self.setSplashPage()
         self.setUpIQKeyBoardManager()       //Keyboard Set-Up
         
         // Ask for Push Notification Permission

@@ -29,9 +29,10 @@ class FAQCell: UITableViewCell {
         viewAnswer.isHidden = false
 //        btnArrow.setImage(UIImage(named: "arrowRightFAQ"), for: .normal)
         
-        self.lblQuestion.applyLabelStyle(fontSize :  15,fontName : .InterMedium)
-        self.lblAnswer.applyLabelStyle(fontSize :  13,fontName : .InterMedium,textColor: .colorTextPlaceHolderGray)
+        self.lblQuestion.applyLabelStyle(fontSize :  14,fontName : .InterMedium)
+        self.lblAnswer.applyLabelStyle(fontSize :  14,fontName : .InterMedium,textColor: .colorTextPlaceHolderGray)
         self.vwClear.layer.cornerRadius = 10
+        self.btnArrow.isUserInteractionEnabled = false 
     }
     
     // Configure Cell

@@ -88,7 +88,7 @@ extension FAQListVC : UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withClass: FAQCell.self)
         cell.configureDataInCell(self.vmFAQList.cellForRowAtInTableviewList(indexPath))
         
-        cell.btnArrow.handleTapToAction {
+        cell.viewQuestion.handleTapToAction {
             self.vmFAQList.didExpandAnswer(indexPath) { completion in
                 self.tableView.reloadData()
             }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1200E8742A601EC500B12365 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1200E8732A601EC500B12365 /* SignUpVC.swift */; };
 		1216B8862939D29A008B2B52 /* AttributeNewListTblCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1216B8852939D29A008B2B52 /* AttributeNewListTblCell.swift */; };
 		1216B8882939D316008B2B52 /* AttributeNewListTblCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1216B8872939D316008B2B52 /* AttributeNewListTblCell.xib */; };
 		121A2707294C9D5800CCE01C /* CustomPhotoAlbum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 121A2706294C9D5800CCE01C /* CustomPhotoAlbum.swift */; };
@@ -37,6 +38,16 @@
 		128285D4293735B8005AF777 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 128285D3293735B8005AF777 /* Assets.xcassets */; };
 		128285D7293735B8005AF777 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 128285D5293735B8005AF777 /* LaunchScreen.storyboard */; };
 		12B855FB2947529B009490EC /* EditUploadUnderMappingImagesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B855FA2947529B009490EC /* EditUploadUnderMappingImagesVC.swift */; };
+		12B9C8812A3B35BA00EA144F /* OpenSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 12B9C8772A3B35B700EA144F /* OpenSans-BoldItalic.ttf */; };
+		12B9C8822A3B35BA00EA144F /* OpenSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 12B9C8782A3B35B700EA144F /* OpenSans-Italic.ttf */; };
+		12B9C8832A3B35BA00EA144F /* OpenSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 12B9C8792A3B35B700EA144F /* OpenSans-Light.ttf */; };
+		12B9C8842A3B35BA00EA144F /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 12B9C87A2A3B35B800EA144F /* OpenSans-Bold.ttf */; };
+		12B9C8852A3B35BA00EA144F /* OpenSans-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 12B9C87B2A3B35B800EA144F /* OpenSans-ExtraBoldItalic.ttf */; };
+		12B9C8862A3B35BA00EA144F /* OpenSans-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 12B9C87C2A3B35B800EA144F /* OpenSans-ExtraBold.ttf */; };
+		12B9C8872A3B35BA00EA144F /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 12B9C87D2A3B35B900EA144F /* OpenSans-Regular.ttf */; };
+		12B9C8882A3B35BA00EA144F /* OpenSans-SemiboldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 12B9C87E2A3B35B900EA144F /* OpenSans-SemiboldItalic.ttf */; };
+		12B9C8892A3B35BA00EA144F /* OpenSans-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 12B9C87F2A3B35B900EA144F /* OpenSans-LightItalic.ttf */; };
+		12B9C88A2A3B35BA00EA144F /* OpenSans-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 12B9C8802A3B35BA00EA144F /* OpenSans-Semibold.ttf */; };
 		12C21FB529473A980030A23D /* EditAttributeUGGeoAttributeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C21FB429473A980030A23D /* EditAttributeUGGeoAttributeVC.swift */; };
 		12C21FB72947486F0030A23D /* EditUGMappingDataVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C21FB62947486F0030A23D /* EditUGMappingDataVC.swift */; };
 		12D307DE293876230073AB90 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D307DD293876230073AB90 /* CoreDataManager.swift */; };
@@ -214,6 +225,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1200E8732A601EC500B12365 /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		1216B8852939D29A008B2B52 /* AttributeNewListTblCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributeNewListTblCell.swift; sourceTree = "<group>"; };
 		1216B8872939D316008B2B52 /* AttributeNewListTblCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AttributeNewListTblCell.xib; sourceTree = "<group>"; };
 		121A2706294C9D5800CCE01C /* CustomPhotoAlbum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPhotoAlbum.swift; sourceTree = "<group>"; };
@@ -246,6 +258,16 @@
 		128285D6293735B8005AF777 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		128285D8293735B8005AF777 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		12B855FA2947529B009490EC /* EditUploadUnderMappingImagesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUploadUnderMappingImagesVC.swift; sourceTree = "<group>"; };
+		12B9C8772A3B35B700EA144F /* OpenSans-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-BoldItalic.ttf"; sourceTree = "<group>"; };
+		12B9C8782A3B35B700EA144F /* OpenSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Italic.ttf"; sourceTree = "<group>"; };
+		12B9C8792A3B35B700EA144F /* OpenSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Light.ttf"; sourceTree = "<group>"; };
+		12B9C87A2A3B35B800EA144F /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Bold.ttf"; sourceTree = "<group>"; };
+		12B9C87B2A3B35B800EA144F /* OpenSans-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
+		12B9C87C2A3B35B800EA144F /* OpenSans-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-ExtraBold.ttf"; sourceTree = "<group>"; };
+		12B9C87D2A3B35B900EA144F /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
+		12B9C87E2A3B35B900EA144F /* OpenSans-SemiboldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-SemiboldItalic.ttf"; sourceTree = "<group>"; };
+		12B9C87F2A3B35B900EA144F /* OpenSans-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-LightItalic.ttf"; sourceTree = "<group>"; };
+		12B9C8802A3B35BA00EA144F /* OpenSans-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Semibold.ttf"; sourceTree = "<group>"; };
 		12C21FB429473A980030A23D /* EditAttributeUGGeoAttributeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAttributeUGGeoAttributeVC.swift; sourceTree = "<group>"; };
 		12C21FB62947486F0030A23D /* EditUGMappingDataVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUGMappingDataVC.swift; sourceTree = "<group>"; };
 		12D307DD293876230073AB90 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
@@ -526,6 +548,23 @@
 			path = "Edit Underground Mapping Report";
 			sourceTree = "<group>";
 		};
+		12B9C8762A3B35A200EA144F /* Open-sans */ = {
+			isa = PBXGroup;
+			children = (
+				12B9C87A2A3B35B800EA144F /* OpenSans-Bold.ttf */,
+				12B9C8772A3B35B700EA144F /* OpenSans-BoldItalic.ttf */,
+				12B9C87C2A3B35B800EA144F /* OpenSans-ExtraBold.ttf */,
+				12B9C87B2A3B35B800EA144F /* OpenSans-ExtraBoldItalic.ttf */,
+				12B9C8782A3B35B700EA144F /* OpenSans-Italic.ttf */,
+				12B9C8792A3B35B700EA144F /* OpenSans-Light.ttf */,
+				12B9C87F2A3B35B900EA144F /* OpenSans-LightItalic.ttf */,
+				12B9C87D2A3B35B900EA144F /* OpenSans-Regular.ttf */,
+				12B9C8802A3B35BA00EA144F /* OpenSans-Semibold.ttf */,
+				12B9C87E2A3B35B900EA144F /* OpenSans-SemiboldItalic.ttf */,
+			);
+			path = "Open-sans";
+			sourceTree = "<group>";
+		};
 		12D307DB293875E30073AB90 /* Core Data Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -657,6 +696,7 @@
 				12D30825293882FD0073AB90 /* FAQKListVC+ViewModel */,
 				12D3082A293883630073AB90 /* SupportPopupVC.swift */,
 				12D3082C2938837B0073AB90 /* LoginVC.swift */,
+				1200E8732A601EC500B12365 /* SignUpVC.swift */,
 				1267C77729598A64005DB36F /* SplashVC.swift */,
 				12D3082E293883990073AB90 /* DescriptionPopupVC.swift */,
 				12D30830293883B20073AB90 /* AlertPopUpVC.swift */,
@@ -924,6 +964,7 @@
 		12D3091429388AC90073AB90 /* Font */ = {
 			isa = PBXGroup;
 			children = (
+				12B9C8762A3B35A200EA144F /* Open-sans */,
 				12D3091529388AF70073AB90 /* Inter */,
 			);
 			path = Font;
@@ -1057,31 +1098,41 @@
 				12D3089C293888040073AB90 /* CampDayFeesCell.xib in Resources */,
 				128285D7293735B8005AF777 /* LaunchScreen.storyboard in Resources */,
 				12D30892293888040073AB90 /* AttributesDataTblCell.xib in Resources */,
+				12B9C88A2A3B35BA00EA144F /* OpenSans-Semibold.ttf in Resources */,
 				12D3088E293888040073AB90 /* ListItemCell.xib in Resources */,
 				12D3092729388B130073AB90 /* Inter-SemiBold.ttf in Resources */,
 				12D3092029388B130073AB90 /* Inter-Thin.ttf in Resources */,
 				12D30897293888040073AB90 /* ContactCell.xib in Resources */,
 				12D3089A293888040073AB90 /* DayListCell.xib in Resources */,
+				12B9C8832A3B35BA00EA144F /* OpenSans-Light.ttf in Resources */,
 				12D3092129388B130073AB90 /* Inter-Black.ttf in Resources */,
+				12B9C8892A3B35BA00EA144F /* OpenSans-LightItalic.ttf in Resources */,
+				12B9C8862A3B35BA00EA144F /* OpenSans-ExtraBold.ttf in Resources */,
 				12D3089D293888040073AB90 /* TransationsCell.xib in Resources */,
+				12B9C8812A3B35BA00EA144F /* OpenSans-BoldItalic.ttf in Resources */,
 				12D308A4293888040073AB90 /* FAQCell.xib in Resources */,
 				128285D4293735B8005AF777 /* Assets.xcassets in Resources */,
+				12B9C8872A3B35BA00EA144F /* OpenSans-Regular.ttf in Resources */,
 				12D308A3293888040073AB90 /* UserListCell.xib in Resources */,
 				123C64AF2938B6C800CB5734 /* GoogleService-Info.plist in Resources */,
 				12D3091F29388B130073AB90 /* Inter-Regular.ttf in Resources */,
 				12D3092229388B130073AB90 /* Inter-Light.ttf in Resources */,
 				12D30896293888040073AB90 /* NotificationListCell.xib in Resources */,
+				12B9C8842A3B35BA00EA144F /* OpenSans-Bold.ttf in Resources */,
 				123C64A02938B64C00CB5734 /* WWCalendarTimeSelector.storyboard in Resources */,
+				12B9C8852A3B35BA00EA144F /* OpenSans-ExtraBoldItalic.ttf in Resources */,
 				12D3092629388B130073AB90 /* Inter-ExtraBold.ttf in Resources */,
 				12D3089F293888040073AB90 /* TitleLabelCell.xib in Resources */,
 				12D30895293888040073AB90 /* KidsAttendenceCell.xib in Resources */,
 				12D308A6293888040073AB90 /* UnderGroundMappingReportDraftTableviewCell.xib in Resources */,
 				12D3092529388B130073AB90 /* Inter-Bold.ttf in Resources */,
+				12B9C8822A3B35BA00EA144F /* OpenSans-Italic.ttf in Resources */,
 				128285CF293735B6005AF777 /* Main.storyboard in Resources */,
 				12D308A5293888040073AB90 /* CampListCell.xib in Resources */,
 				12D3092329388B130073AB90 /* Inter-Medium.ttf in Resources */,
 				12D3092429388B130073AB90 /* Inter-ExtraLight.ttf in Resources */,
 				12D3088D293888040073AB90 /* ApplyForCampCell.xib in Resources */,
+				12B9C8882A3B35BA00EA144F /* OpenSans-SemiboldItalic.ttf in Resources */,
 				1216B8882939D316008B2B52 /* AttributeNewListTblCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1301,6 +1352,7 @@
 				12D307FD29387F3B0073AB90 /* AttributeDataTable+CoreDataClass.swift in Sources */,
 				12D309402938A3BD0073AB90 /* AppVersionModel.swift in Sources */,
 				12D3085F293885F60073AB90 /* OpenCastReportOfflineDetailVC.swift in Sources */,
+				1200E8742A601EC500B12365 /* SignUpVC.swift in Sources */,
 				123C64AD2938B66E00CB5734 /* Int+Timepiece.swift in Sources */,
 				123C64AA2938B66E00CB5734 /* String+Timepiece.swift in Sources */,
 				12D308A2293888040073AB90 /* NotificationListCell.swift in Sources */,
@@ -1457,7 +1509,7 @@
 				CODE_SIGN_ENTITLEMENTS = Geo_Map/Geo_Map.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 1.1;
 				DEVELOPMENT_TEAM = MT25J55822;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Geo_Map/Info.plist;
@@ -1500,7 +1552,7 @@
 				CODE_SIGN_ENTITLEMENTS = Geo_Map/Geo_Map.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 1.1;
 				DEVELOPMENT_TEAM = MT25J55822;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Geo_Map/Info.plist;
